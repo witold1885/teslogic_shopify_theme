@@ -14,6 +14,8 @@
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
+<link rel="stylesheet" type="text/css" href="{{ 'main.css' | asset_url }}">
+
 <style>
   header-drawer {
     justify-self: start;
@@ -75,6 +77,9 @@
     .section-header {
       margin-bottom: {{ section.settings.margin_bottom }}px;
     }
+  }
+  .banner {
+    background: url('{{ 'banner.png' | asset_url}}');
   }
 {%- endstyle -%}
 
