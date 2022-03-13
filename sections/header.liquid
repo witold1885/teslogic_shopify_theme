@@ -79,7 +79,7 @@
     }
   }
   .banner {
-    background: url("{{ 'banner.png' | asset_url}}");
+    background: url({{ 'banner.png' | asset_url}});
   }
 {%- endstyle -%}
 
@@ -115,7 +115,7 @@
         <div class="banner__title">
           Model 3 and Y portable dashboard on your phone
         </div>
-        <img class="current_speed_line" src="images/current_speed_line.png">
+        <img class="current_speed_line" src="{{ 'current_speed_line.png' | asset_url }}">
       </div>
     </div>
   </header>
