@@ -95,7 +95,7 @@
   <header id="header">
     <div class="top">
       <div class="logo">
-        <img src="images/logo.png">
+        <img src="{{ 'images/logo.png' | asset_url }}">
       </div>
       <div class="menu">
         <!-- <div class="menu__item">
@@ -114,7 +114,7 @@
       </div>
     </div>
   </header>
-  
+
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   <!-- <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     {%- if section.settings.menu != blank -%}
