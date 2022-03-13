@@ -91,8 +91,32 @@
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
 </svg>
+  
+  <header id="header">
+    <div class="top">
+      <div class="logo">
+        <img src="images/logo.png">
+      </div>
+      <div class="menu">
+        <!-- <div class="menu__item">
+          <a href="#">Store</a>
+        </div> -->
+        <div class="menu__item"><a href="#features">Features</a></div>
+        <div class="menu__item"><a id="go-contacts" href="#contacts">Contacts</a></div>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="banner__wrap">
+        <div class="banner__title">
+          Model 3 and Y portable dashboard on your phone
+        </div>
+        <img class="current_speed_line" src="images/current_speed_line.png">
+      </div>
+    </div>
+  </header>
+  
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
+  <!-- <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     {%- if section.settings.menu != blank -%}
       <header-drawer data-breakpoint="tablet">
         <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -520,7 +544,7 @@
         {%- endif -%}
       </a>
     </div>
-  </header>
+  </header> -->
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
 
 {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
