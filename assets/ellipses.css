@@ -50,7 +50,8 @@
 	top: 5555px;
 	width: 100%;
 	height: 1601px;
-	overflow: hidden;
+	overflow: hidden;	
+	z-index: -1;
 }
 .ellipse-bottom-wrap {
 	position: relative;
