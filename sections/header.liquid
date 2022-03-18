@@ -1,8 +1,11 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header.css' | asset_url }}">
 
 {%- style -%}
-  #header {
+  header#header {
     background: url({{ 'header_bg.png' | asset_url}});
+    background-size: 100%;
+    background-position-x: center;
+    background-repeat: no-repeat; 
   }
 {%- endstyle -%}
 

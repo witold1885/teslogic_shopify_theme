@@ -4,10 +4,6 @@ header {
 	width: 100%;
 	height: 768px;
 	/*margin: 0 79.12px;*/
-	background: url('../images/header_bg.png');
-	background-size: 100%;
-	background-position-x: center;
-	background-repeat: no-repeat;	
 	position: relative;
 	display: flex;
 	flex-direction: column;
