@@ -23,19 +23,6 @@
         },
         "footer": {
           "type": "footer",
-<<<<<<< HEAD
-          "settings": {
-          }
-        },
-        "main-password-header": {
-          "type": "main-password-header",
-          "settings": {
-          }
-        },
-        "main-password-footer": {
-          "type": "main-password-footer",
-=======
->>>>>>> e12d7bacc00d7b1f2598efa5c4929f8a8659eb9c
           "settings": {
           }
         }
