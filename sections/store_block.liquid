@@ -154,7 +154,7 @@
 					<div class="store_block-product-amount-button store_block-product-amount-button-minus">
 						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px;"></div>
 					</div>
-					<span class="store_block-product-amount-value">1</span>
+					<span class="store_block-product-amount-value" id="amount">1</span>
 					<div class="store_block-product-amount-button store_block-product-amount-button-plus">
 						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px;"></div>
 						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px; transform: rotate(-90deg); transform-origin: center;"></div>
@@ -169,5 +169,15 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		console.log('ready')
+		var amount = Number($('#amount').text())
+		$('.store_block-product-amount-button-minus').on('click', function() {
+			if (amount <= 1) return
+			amount -= 1
+			$('#amount').text(amount)
+		})
+		$('.store_block-product-amount-button-plus').on('click', function() {
+			amount += 1
+			$('#amount').text(amount)
+		})
 	})
 </script>
