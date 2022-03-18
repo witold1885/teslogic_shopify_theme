@@ -160,13 +160,17 @@
 						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px; transform: rotate(-90deg); transform-origin: center;"></div>
 					</div>
 				</div>
-				<button class="store_block-product-add">Add to cart</button>
+				<button class="store_block-product-add" id="add">Add to cart</button>
 			</div>
 		</div>
 	</div>				
 </div>
 
 <script type="text/javascript">
+	document.getElementById('add').addEventListener('click', addClick)
+	function addClick() {
+		console.log('add')
+	}
 	$(document).ready(function() {
 		console.log('ready')
 		var amount = Number($('#amount').text())
