@@ -1,0 +1,167 @@
+<style type="text/css">
+	.store_block {
+		width: 100%;
+		height: 677px;
+		margin: 0 auto;
+		padding-top: 70px;
+	}
+	.store_block-title {
+		font-family: 'SF Pro';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 52px;
+		line-height: 64px;
+		letter-spacing: 0.02em;
+		color: #000000;
+		margin-left: 128px;
+		margin-bottom: 65px;
+	}
+	.store_block-product {
+		display: flex;
+		margin-left: 128px;
+		margin-bottom: 170px;
+	}
+	.store_block-product-gallery {
+		width: 545px;
+		height: 378px;
+		position: relative;
+		margin-right: 114px;
+	}
+	.store_block-product-gallery-image {
+		width: 100%;
+		height: 100%;
+		background: rgba(69, 79, 99, 0.1);
+	}
+	.store_block-product-gallery-nav {
+		position: absolute;
+		top: 165px;
+		width: 60px;
+		height: 48px;
+		cursor: pointer;
+	}
+	.store_block-product-gallery-nav img {
+		width: 100%;
+		height: 100%;
+	}
+	.store_block-product-gallery-nav-prev {
+		left: 0;
+	}
+	.store_block-product-gallery-nav-next {
+		right: 0;
+	}
+	.store_block-product-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.store_block-product-title {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 44px;
+		line-height: 52px;
+		color: #000000;
+		margin-bottom: 24px;
+	}
+	.store_block-product-price {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 28px;
+		line-height: 36px;
+		color: #000000;
+		margin-bottom: 24px;
+	}
+	.store_block-product-subtitle {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #000000;
+		max-width: 450px;
+	}
+	.store_block-product-amount {
+		width: 183px;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 64px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.store_block-product-amount-button {
+		width: 56px;
+		height: 56px;
+		background: #FFFFFF;
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+		border: 1px solid #FFFFFF;
+		border-radius: 100px;
+		position: relative;
+		cursor: pointer;
+	}
+	.store_block-product-amount-value {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 30px;
+		text-align: center;
+		color: #0F0F0F;
+	}
+	.store_block-product-add {
+		margin-top: 44px;
+		width: 183px;
+		height: 56px;
+		background: #3374FB;
+		border: 1px solid #3374FB;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+</style>
+
+<div class="store_block">
+	<div class="store_block-title">Store</div>				
+	<div class="store_block-product">
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-image"></div>
+			<div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
+				<img src="{{ 'gallery_prev.png' | asset_url }}">
+			</div>
+			<div class="store_block-product-gallery-nav store_block-product-gallery-nav-next">
+				<img src="{{ 'gallery_next.png' | asset_url }}">
+			</div>
+		</div>
+		<div class="store_block-product-info">
+			<div>
+				<div class="store_block-product-title">Teslogic transmitter</div>
+				<div class="store_block-product-price">$99.99</div>
+				<div class="store_block-product-subtitle">
+					The pack contains Teslogic transmitter, phone holder and iOS / Android Teslogic app
+				</div>
+			</div>
+			<div>
+				<div class="store_block-product-amount">
+					<button class="store_block-product-amount-button store_block-product-amount-button-minus">
+						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px;"></div>
+					</button>
+					<span class="store_block-product-amount-value">1</span>
+					<button class="store_block-product-amount-button store_block-product-amount-button-plus">
+						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px;"></div>
+						<div style="width: 20px; height: 4px; background: #0F0F0F; position: absolute; left: 18px; top: 26px; transform: rotate(-90deg); transform-origin: center;"></div>
+					</button>
+				</div>
+				<button class="store_block-product-add">Add to cart</button>
+			</div>
+		</div>
+	</div>				
+</div>

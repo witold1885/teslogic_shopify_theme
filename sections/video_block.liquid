@@ -1,0 +1,55 @@
+{%- style -%}
+	.video_block {
+		width: 1110px;
+		height: 617px;
+		margin: 0 auto 120px;
+		background: url({{ 'video_background.png' | asset_url }});
+		border-radius: 11.0448px;
+		overflow: hidden;
+		padding-left: 60px;
+	}
+	.video_block-title {
+		margin-top: 176px;
+		width: 524px;
+		height: 192px;
+		font-family: 'SF Pro';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 52px;
+		line-height: 64px;
+		letter-spacing: 0.02em;
+		color: #FFFFFF;
+	}
+	.video_block-button {
+		margin-top: 32px;
+		width: 253px;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 3px 23px;
+		cursor: pointer;
+	}
+	.video_block-button img {
+		width: 26px;
+		height: 26px;
+	}
+	.video_block-button span {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #0F0F0F;
+	}
+{%- endstyle -%}
+
+<div class="video_block">
+	<div class="video_block-title">Convenient dashboard behind the steering wheel</div>
+	<button class="video_block-button">
+		<img src="{{ 'play.png' | asset_url }}">
+		<span>Watch review </span>
+	</button>
+</div>
