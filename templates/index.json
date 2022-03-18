@@ -3,7 +3,7 @@
     {
         "features":
         {
-            "type": "features",
+            "type": "features"
         },
         "image_banner":
         {
@@ -156,5 +156,5 @@
             }
         }
     },
-    "order": ["image_banner", "rich_text", "featured_collection", "collage", "video", "multicolumn"]
+    "order": ["features", "image_banner", "rich_text", "featured_collection", "collage", "video", "multicolumn"]
 }
