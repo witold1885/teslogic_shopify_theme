@@ -4,7 +4,8 @@
 	// $token = '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';
 	// $token = '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';
 	// $token = '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';
-	$token = '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';
+	// $token = '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';
+	$token = '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';
 	/*
 		git add . && git commit -m "Header" && git push
 	*/
