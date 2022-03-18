@@ -171,6 +171,8 @@
 		console.log('ready')
 		var amount = Number($('#amount').text())
 			console.log(amount)
+			console.log($('.store_block-product-amount-button-minus'))
+			console.log($('.store_block-product-amount-button-plus'))
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
 			amount -= 1
