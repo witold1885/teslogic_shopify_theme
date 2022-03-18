@@ -173,10 +173,12 @@
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
 			amount -= 1
+			console.log(amount)
 			$('#amount').text(amount)
 		})
 		$('.store_block-product-amount-button-plus').on('click', function() {
 			amount += 1
+			console.log(amount)
 			$('#amount').text(amount)
 		})
 	})
