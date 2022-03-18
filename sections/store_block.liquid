@@ -167,25 +167,15 @@
 </div>
 
 <script type="text/javascript">
-	document.getElementById('add').addEventListener('click', addClick)
-	function addClick() {
-		console.log('add')
-	}
 	$(document).ready(function() {
-		console.log('ready')
 		var amount = Number($('#amount').text())
-			console.log(amount)
-			console.log($('.store_block-product-amount-button-minus'))
-			console.log($('.store_block-product-amount-button-plus'))
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
 			amount -= 1
-			console.log(amount)
 			$('#amount').text(amount)
 		})
 		$('.store_block-product-amount-button-plus').on('click', function() {
 			amount += 1
-			console.log(amount)
 			$('#amount').text(amount)
 		})
 		$('.store_block-product-add').on('click', function() {
