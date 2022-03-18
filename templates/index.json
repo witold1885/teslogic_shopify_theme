@@ -24,7 +24,7 @@
         "see_all":
         {
             "type": "see_all"
-        },
+        }
     },
     "order": [
     	"features",
