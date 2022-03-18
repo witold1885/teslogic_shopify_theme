@@ -25,16 +25,6 @@
           "type": "footer",
           "settings": {
           }
-        },
-        "main-password-header": {
-          "type": "main-password-header",
-          "settings": {
-          }
-        },
-        "main-password-footer": {
-          "type": "main-password-footer",
-          "settings": {
-          }
         }
       }
     }
