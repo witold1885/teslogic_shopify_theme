@@ -1,9 +1,6 @@
-
 header {
-	/*max-width: 1208px;*/
 	width: 100%;
 	height: 768px;
-	/*margin: 0 79.12px;*/
 	position: relative;
 	display: flex;
 	flex-direction: column;

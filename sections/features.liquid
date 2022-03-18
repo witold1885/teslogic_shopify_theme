@@ -1,0 +1,218 @@
+<link rel="stylesheet" href="{{ 'features.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div class="features" id="features">
+  <div class="features__title">App features</div>
+  <div class="features__block features__block-odd features__block-dashboard">
+    <div class="features__block-legend">
+      <div class="features__block-legend-title">Dashboard</div>
+      <div class="features__block-legend-subtitle">Easily control the speed, power and battery of your Tesla</div>
+      <div class="features__block-switcher">
+        <div class="features__block-switcher-case features__block-switcher-case-light">Light</div>
+        <div class="features__block-switcher-case features__block-switcher-case-dark">Dark</div>          
+      </div>
+    </div>
+    <div class="features__block-screen">
+      <img src="{{ 'main_dashboard.png' | asset_url }}">
+      <div class="pointer pointer-top pointer-left pointer-dashboard-top-left" data-view="dashboard-top-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Recognizable autopilot, cruise and speed limit indicators
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-top pointer-right pointer-dashboard-top-right" data-view="dashboard-top-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Monitor your Tesla battery status
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-dashboard-bottom-left" data-view="dashboard-bottom-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Miles saved by regeneration and current energy consumption
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-dashboard-bottom-right" data-view="dashboard-bottom-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Easily monitor your current trip parameters such as distance and average speed
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features__block features__block-even features__block-notifications">
+    <div class="features__block-legend">
+      <div class="features__block-legend-title">Notifications</div>
+      <div class="features__block-legend-subtitle">All notifications are duplicated<br>on your phone</div>
+      <div class="features__block-switcher">
+        <div class="features__block-switcher-case features__block-switcher-case-light">Light</div>
+        <div class="features__block-switcher-case features__block-switcher-case-dark">Dark</div>          
+      </div>
+    </div>
+    <div class="features__block-screen">
+      <img src="{{ 'main_notifications.png' | asset_url }}">
+      <div class="pointer pointer-top pointer-left pointer-notifications-top-left" data-view="notifications-top-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Current and maximum horsepower
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-top pointer-right pointer-notifications-top-right" data-view="notifications-top-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            True range based on your driving style
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-notifications-bottom-left" data-view="notifications-bottom-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            All notifications displayed in front of you
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features__block features__block-odd features__block-performance">
+    <div class="features__block-legend">
+      <div class="features__block-legend-title">Perfomance</div>
+      <div class="features__block-legend-subtitle">Experience the performance mode data even if you are driving<br>a standard range</div>
+      <div class="features__block-switcher">
+        <div class="features__block-switcher-case features__block-switcher-case-light">Light</div>
+        <div class="features__block-switcher-case features__block-switcher-case-dark">Dark</div>          
+      </div>
+    </div>
+    <div class="features__block-screen">
+      <img src="{{ 'main_performance.png' | asset_url }}">
+      <div class="pointer pointer-top pointer-left pointer-performance-top-left" data-view="performance-top-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            G-sensor
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-top pointer-right pointer-performance-top-right" data-view="performance-top-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            The best performance during your current trip
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-performance-bottom-left" data-view="performance-bottom-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            To reach best results battery should be neither cold, nor overheated
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-performance-bottom-right" data-view="performance-bottom-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Current horsepower value
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features__block features__block-even features__block-energy_screen">
+    <div class="features__block-legend">
+      <div class="features__block-legend-title">Energy screen</div>
+      <div class="features__block-legend-subtitle">All notifications are duplicated<br>on your phone</div>
+      <div class="features__block-switcher">
+        <div class="features__block-switcher-case features__block-switcher-case-light">Light</div>
+        <div class="features__block-switcher-case features__block-switcher-case-dark">Dark</div>          
+      </div>
+    </div>
+    <div class="features__block-screen">
+      <img src="{{ 'main_energy_screen.png' | asset_url }}">
+      <div class="pointer pointer-top pointer-left pointer-energy_screen-top-left" data-view="energy_screen-top-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Current and maximum horsepower
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-top pointer-right pointer-energy_screen-top-right" data-view="energy_screen-top-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            True range based on your driving style
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-energy_screen-bottom-left" data-view="energy_screen-bottom-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            All notifications displayed in front of you
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features__block features__block-odd features__block-car_info">
+    <div class="features__block-legend">
+      <div class="features__block-legend-title">Car info</div>
+      <div class="features__block-legend-subtitle">Get and share all needed info about your Tesla</div>
+      <div class="features__block-switcher">
+        <div class="features__block-switcher-case features__block-switcher-case-light">Light</div>
+        <div class="features__block-switcher-case features__block-switcher-case-dark">Dark</div>          
+      </div>
+    </div>
+    <div class="features__block-screen">
+      <img src="{{ 'main_car_info.png' | asset_url }}">
+      <div class="pointer pointer-top pointer-left pointer-car_info-top-left" data-view="car_info-top-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Recognizable autopilot, cruise and speed limit indicators
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-top pointer-right pointer-car_info-top-right" data-view="car_info-top-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Monitor your Tesla battery status
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-car_info-bottom-left" data-view="car_info-bottom-left">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Miles saved by regeneration and current energy consumption
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+      <div class="pointer pointer-bottom pointer-left pointer-car_info-bottom-right" data-view="car_info-bottom-right">
+        <div class="pointer-wrap">
+          <div class="pointer-legend">
+            Monitor your current trip distance and average speed
+          </div>
+          <div class="pointer-point"><img src="{{ 'point.png' | asset_url }}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
