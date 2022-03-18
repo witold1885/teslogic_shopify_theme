@@ -170,6 +170,7 @@
 	$(document).ready(function() {
 		console.log('ready')
 		var amount = Number($('#amount').text())
+			console.log(amount)
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
 			amount -= 1
