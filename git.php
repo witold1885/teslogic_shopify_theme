@@ -8,4 +8,7 @@
 	/*
 		git add . && git commit -m "Header" && git push
 	*/
+	shell_exec('git add .');
+	shell_exec('git commit -m "Header"');
+	shell_exec('git push');
 ?>
