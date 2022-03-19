@@ -1,0 +1,79 @@
+.faq {
+	width: 100%;
+}
+.faq__title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 52px;
+	line-height: 64px;
+	color: #000000;
+	text-align: center;
+}
+.faq__chapters {
+	margin-top: 92px;
+	margin-bottom: 186px;
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 179px;
+	grid-row-gap: 84px;
+	margin-left: 128px;
+	margin-right: 137px;
+}
+.faq__chapter {
+	width: 461px;
+}
+.faq__chapter-title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	grid-column-gap: 22px;
+	margin-bottom: 36px;
+}
+.faq__chapter-title-sign {
+	width: 28px;
+	height: 28px;
+}
+.faq__chapter-title-sign img {
+	width: 100%;
+	height: 100%;
+}
+.faq__chapter-title-text {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 32px;
+	color: #000000;
+}
+.faq__chapter-question-text {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 32px;
+	color: #000000;
+	margin-bottom: 12px;
+}
+.faq__chapter-question-answer {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+}
+.faq__chapter-question-expand {
+	width: 9px;
+	height: 32px;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 32px;
+	color: #0F77F0;
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
