@@ -1,8 +1,13 @@
 {
   "current": {
     "sections": {
-      "header": {
-        "type": "header",
+      "header_main": {
+        "type": "header_main",
+        "settings": {
+        }
+      },
+      "header_custom": {
+        "type": "header_custom",
         "settings": {
         }
       },
@@ -16,11 +21,16 @@
   "presets": {
     "Default": {
       "sections": {
-        "header": {
-          "type": "header",
-          "settings": {
-          }
-        },
+	      "header_main": {
+	        "type": "header_main",
+	        "settings": {
+	        }
+	      },
+	      "header_custom": {
+	        "type": "header_custom",
+	        "settings": {
+	        }
+	      },
         "footer": {
           "type": "footer",
           "settings": {
