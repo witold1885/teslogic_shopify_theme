@@ -53,10 +53,10 @@
 	font-size: 22px;
 	line-height: 32px;
 	color: #000000;
-	margin-bottom: 12px;
 }
 .faq__chapter-question-answer {
 	display: none;
+	margin-top: 12px;
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;

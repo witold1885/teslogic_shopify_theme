@@ -116,3 +116,18 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.faq__chapter-question-expand').on('click', function() {
+			if ($(this).text() == '+') {
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
+				$(this).text('-')
+			}
+			if ($(this).text() == '-') {
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
+				$(this).text('+')
+			}
+		})
+	})
+</script>
