@@ -6,7 +6,13 @@
             "type": "faq_chapters",
             "settings":
             {}
+        },
+        "back_products":
+        {
+            "type": "back_products",
+            "settings":
+            {}
         }
     },
-    "order": ["faq_chapters"]
+    "order": ["faq_chapters", "back_products"]
 }
