@@ -78,8 +78,10 @@
       main {
         width: 100%;
         padding-top: 120px;
+      }      
+      main.main_faq {
+        padding-top: 55px;
       }
-
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
@@ -109,7 +111,7 @@
         {% section 'header_custom' %}
       {% endif %}
 
-      <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <main id="MainContent" class="content-for-layout focus-none {% if page.handle == 'faq' %}main_faq{% endif %}" role="main" tabindex="-1">
         {{ content_for_layout }}
       </main>
 
