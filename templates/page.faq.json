@@ -1,12 +1,12 @@
 {
-    "sections":
-    {
-        "faq_chapters":
-        {
-            "type": "faq_chapters",
-            "settings":
-            {}
-        }
-    },
-    "order": ["faq_chapters", "form"]
+  "sections": {
+    "faq_chapters": {
+      "type": "faq_chapters",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "faq_chapters"
+  ]
 }
