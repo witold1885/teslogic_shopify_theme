@@ -103,7 +103,11 @@
   <body class="gradient">
     <div class="container">
 
-      {% section 'header' %}
+      {% if template == 'index' %}
+        {% section 'header_main' %}
+      {% else %}
+        {% section 'header_custom' %}
+      {% endif %}
 
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
         {{ content_for_layout }}
@@ -150,7 +154,6 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
-      console.log(window.routes)
     </script>
   </body>
 </html>

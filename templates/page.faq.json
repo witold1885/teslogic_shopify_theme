@@ -8,5 +8,5 @@
             {}
         }
     },
-    "order": ["faq_chapters", "form"]
+    "order": ["faq_chapters"]
 }
