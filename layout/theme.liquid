@@ -116,17 +116,24 @@
       {% section 'footer' %}
 
     </div>
-    <div class="ellipse ellipse__main-1"></div>
-    <div class="ellipse ellipse__main-2"></div>
-    <div class="ellipse ellipse__main-3"></div>
-    <div class="ellipse ellipse__main-4"></div>
-    <div class="ellipse ellipse__main-5"></div>
-    <div class="ellipse ellipse__main-6"></div>
-    <div class="ellipse-bottom-container">
-      <div class="ellipse-bottom-wrap">
-        <div class="ellipse-bottom"></div>
+    {% if template == 'index' %}
+      <div class="ellipse ellipse__main-1"></div>
+      <div class="ellipse ellipse__main-2"></div>
+      <div class="ellipse ellipse__main-3"></div>
+      <div class="ellipse ellipse__main-4"></div>
+      <div class="ellipse ellipse__main-5"></div>
+      <div class="ellipse ellipse__main-6"></div>
+      <div class="ellipse-bottom-container">
+        <div class="ellipse-bottom-wrap">
+          <div class="ellipse-bottom"></div>
+        </div>
       </div>
-    </div>
+    {% else if page.handle == 'faq' %}
+      <div class="ellipse ellipse__faq-1"></div>
+      <div class="ellipse ellipse__faq-2"></div>
+      <div class="ellipse ellipse__faq-3"></div>
+      <div class="ellipse ellipse__faq-4"></div>
+    {% endif %}
 
     <script>
       window.shopUrl = '{{ shop.url }}';

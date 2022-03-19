@@ -68,3 +68,37 @@
 	background: #F4F6FA;	
 	z-index: -1;
 }
+.ellipse__faq-1 {
+	width: 637px;
+	height: 637px;
+	left: calc(1164px + ((100vw - 1366px) / 2));
+	top: 96px;
+	background: #F4F6FA;	
+	z-index: -1;
+}
+.ellipse__faq-2 {
+	width: 532px;
+	height: 531px;
+	left: calc(1217px + ((100vw - 1366px) / 2));
+	top: 149px;
+	background: #FEFEFE;	
+	z-index: -1;
+}
+.ellipse__faq-3 
+{
+	width: 650px;
+	height: 650px;
+	right: calc(1009px + ((100vw - 1366px) / 2));
+	top: 1329px;
+	background: #F4F6FA;
+	z-index: -1;
+}
+.ellipse__faq-4 
+{
+	width: 542px;
+	height: 542px;
+	right: calc(1063px + ((100vw - 1366px) / 2));
+	top: 1383px;
+	background: #FEFEFE;
+	z-index: -1;
+}
