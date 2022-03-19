@@ -102,3 +102,26 @@
 	background: #FEFEFE;
 	z-index: -1;
 }
+
+.ellipse-all_products-container {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 858px;
+	overflow: hidden;
+}
+.ellipse-all_products-wrap {
+	position: relative;
+	width: 100%;
+	height: 858px;
+}
+.ellipse-all_products {
+	position: absolute;
+	border-radius: 100%;
+	width: 2602px;
+	height: 2602px;
+	left: calc(-1 * ((2602px - 100vw) / 2));
+	top: 0;
+	background: #F4F6FA;	
+	z-index: -1;
+}

@@ -1,0 +1,197 @@
+.all-products {
+	width: 100%;
+}
+.all-products__title {
+	font-family: 'SF Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 52px;
+	line-height: 64px;
+	color: #000000;
+	margin-left: 129px;
+	margin-bottom: 64px;
+}
+.all-products__list {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 154px;
+	margin-bottom: 96px;
+}
+.all-products__list-product {
+	display: flex;
+	margin-left: 128px;
+	margin-bottom: 94px;
+}
+.all-products__list-product-gallery {
+	width: 545px;
+	height: 392px;
+	margin-right: 114px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.all-products__list-product-gallery-thumbs {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 16px;
+	max-height: 344px;
+	position: relative;
+}
+.all-products__list-product-gallery-thumb {
+	width: 74px;
+	height: 74px;
+	background: rgba(69, 79, 99, 0.1);
+}
+.all-products__list-product-gallery-more {
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	bottom: -65px;
+	left: 13px;
+	cursor: pointer;
+}
+.all-products__list-product-gallery-more img {
+	width: 100%;
+	height: 100%;
+}
+.all-products__list-product-gallery-current {
+	position: relative;
+	width: 448px;
+	height: 392px;
+}
+.all-products__list-product-gallery-image {
+	width: 100%;
+	height: 100%;
+	background: rgba(69, 79, 99, 0.1);
+}
+.all-products__list-product-gallery-play {
+	position: absolute;
+	top: 167px;
+	left: 197px;
+	width: 58px;
+	height: 58px;
+	cursor: pointer;
+}
+.all-products__list-product-gallery-play img {
+	width: 100%;
+	height: 100%;
+}
+.all-products__list-product-gallery-nav {
+	position: absolute;
+	top: 165px;
+	width: 60px;
+	height: 48px;
+	cursor: pointer;
+}
+.all-products__list-product-gallery-nav img {
+	width: 100%;
+	height: 100%;
+}
+.all-products__list-product-gallery-nav-prev {
+	left: 0;
+}
+.all-products__list-product-gallery-nav-next {
+	right: 0;
+}
+.all-products__list-product-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.all-products__list-product-title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 44px;
+	line-height: 52px;
+	color: #000000;
+	margin-bottom: 24px;
+}
+.all-products__list-product-price {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 36px;
+	color: #000000;
+	margin-bottom: 24px;
+}
+.all-products__list-product-subtitle {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+	max-width: 450px;
+}
+.all-products__list-product-amount {
+	width: 183px;
+	height: 56px;
+	background: #FFFFFF;
+	border-radius: 64px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.all-products__list-product-amount-button {
+	width: 56px;
+	height: 56px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	border: 1px solid #FFFFFF;
+	border-radius: 100px;
+	position: relative;
+	cursor: pointer;
+}
+.all-products__list-product-amount-value {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 30px;
+	text-align: center;
+	color: #0F0F0F;
+}
+.all-products__list-product-add {
+	margin-top: 32px;
+	width: 183px;
+	height: 56px;
+	background: #3374FB;
+	border: 1px solid #3374FB;
+	border-radius: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.all-products__list-product-more_info {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+.all-products__list-product-more_info-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 329px;
+	height: 88px;
+	background: #BAE4B2;
+	border: 1px solid #BAE4B2;
+	border-radius: 100px;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 52px;
+	color: #FFFFFF;
+}
