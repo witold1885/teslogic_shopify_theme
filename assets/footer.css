@@ -12,6 +12,15 @@ footer {
 	align-items: flex-start;
 	margin-bottom: 80.5px;
 }
+.footer-top .logo {	
+	width: 188px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+}
+.footer-top .logo img {
+	width: 100%;
+}
 .footer-menu {
 	display: flex;
 	justify-content: space-between;

@@ -29,9 +29,14 @@
 .top .logo {	
 	z-index: 2;
 	margin-left: 128px;
+	width: 188px;
+	height: 32px;
+	display: flex;
+	align-items: center;
 }
 .top .logo img {
-	mix-blend-mode: darken;
+	width: 100%;
+	/*mix-blend-mode: darken;*/
 }
 .menu {
 	margin-right: 114px;

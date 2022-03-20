@@ -11,9 +11,8 @@
 	}
 	.top .logo {	
 		margin-left: calc(128 * 100vw / 1366);
-	}
-	.top .logo img {
-		mix-blend-mode: darken;
+		width: calc(188 * 100vw / 1366);
+		height: calc(32 * 100vw / 1366);
 	}
 	.menu {
 		margin-right: calc(114 * 100vw / 1366);
@@ -32,7 +31,7 @@
 		left: calc(128 * 100vw / 1366);
 	}
 	.expand {
-		margin-bottom: 2calc(6 * 100vw / 1366);
+		margin-bottom: calc(6 * 100vw / 1366);
 		width: calc(64 * 100vw / 1366);
 		height: calc(64 * 100vw / 1366);
 	}

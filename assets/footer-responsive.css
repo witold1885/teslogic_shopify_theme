@@ -8,6 +8,10 @@
 	.footer-top {
 		margin-bottom: calc(80.5 * 100vw / 1366);
 	}
+	.footer-top .logo {	
+		width: calc(188 * 100vw / 1366);
+		height: calc(32 * 100vw / 1366);
+	}
 	.footer-menu {
 		grid-column-gap: calc(68 * 100vw / 1366);
 	}
