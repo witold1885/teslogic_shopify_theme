@@ -11,6 +11,7 @@
 	.ellipse {
 		position: absolute;
 		border-radius: 100%;
+		width: 100%;
 		height: 100%;
 	}
 .ellipse__main-1 {
@@ -18,6 +19,8 @@
 	height: 959px;
 	left: calc(996px + ((100vw - 1366px) / 2));
 	top: 817px;
+}
+.ellipse__main-1 .ellipse {
 	background: #F4F6FA;
 }
 .ellipse__main-2 {
