@@ -3,6 +3,7 @@
 	height: 96px;
 	position: fixed;
 	background: #FEFEFE;
+	z-index: 10;
 }
 .header-fix {
 	height: 96px;
