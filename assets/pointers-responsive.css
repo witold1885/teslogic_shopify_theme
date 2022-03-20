@@ -1,0 +1,249 @@
+@media screen and (min-width: 1000px) and (max-width: 1366px) {  
+	.pointer-top {
+		border-top: 1px solid #0F77F0;;
+	}
+	.pointer-bottom {
+		border-bottom: 1px solid #0F77F0;;
+	}
+	.pointer-left {
+		border-right: 1px solid #0F77F0;
+	}
+	.pointer-top.pointer-left {	
+		border-top-right-radius: calc(10 * 100vw / 1366);
+	}
+	.pointer-top.pointer-right {	
+		border-top-left-radius: calc(10 * 100vw / 1366);
+	}
+	.pointer-bottom.pointer-left {	
+		border-bottom-right-radius: calc(10 * 100vw / 1366);
+	}
+	.pointer-bottom.pointer-right {	
+		border-bottom-left-radius: calc(10 * 100vw / 1366);
+	}
+	.pointer-right {
+		border-left: 1px solid #0F77F0;
+	}
+	.pointer-point {
+		width: calc(7 * 100vw / 1366);
+		height: calc(7 * 100vw / 1366);
+	}
+	.pointer-legend {
+		font-size: calc(14 * 100vw / 1366);
+		line-height: calc(17 * 100vw / 1366);
+	}
+	.pointer-top .pointer-point {
+		bottom: 0px;
+	}
+	.pointer-bottom .pointer-point {
+		top: calc(-14 * 100vw / 1366);
+	}
+	.pointer-left .pointer-point {
+		right: calc(-4 * 100vw / 1366);
+	}
+	.pointer-right .pointer-point {
+		left: calc(-4 * 100vw / 1366);
+	}
+
+	.pointer-dashboard-top-left {
+		width: calc(224.5 * 100vw / 1366);
+		height: calc(80 * 100vw / 1366);
+		left: calc(68 * 100vw / 1366);
+		bottom: calc(271 * 100vw / 1366);
+	}
+	.pointer-dashboard-top-left .pointer-legend {	
+		width: calc(233 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-dashboard-top-right {
+		width: calc(146 * 100vw / 1366);
+		height: calc(72 * 100vw / 1366);
+		right: calc(13.28 * 100vw / 1366);
+		bottom: calc(279 * 100vw / 1366);
+	}
+	.pointer-dashboard-top-right .pointer-legend {	
+		width: calc(159 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-dashboard-bottom-left {
+		width: calc(229 * 100vw / 1366);
+		height: calc(132.5 * 100vw / 1366);
+		left: calc(-78 * 100vw / 1366);
+		top: calc(239.5 * 100vw / 1366);
+	}
+	.pointer-dashboard-bottom-left .pointer-legend {	
+		width: calc(246 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+	.pointer-dashboard-bottom-right {
+		width: calc(204.56 * 100vw / 1366);
+		height: calc(136 * 100vw / 1366);
+		right: calc(135.22 * 100vw / 1366);
+		top: calc(239 * 100vw / 1366);
+	}
+	.pointer-dashboard-bottom-right .pointer-legend {
+		width: calc(208 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+
+	.pointer-notifications-top-left {
+		width: calc(194 * 100vw / 1366);
+		height: calc(176 * 100vw / 1366);
+		left: calc(0;
+		bottom: calc(179 * 100vw / 1366);
+	}
+	.pointer-notifications-top-left .pointer-legend {	
+		width: calc(233 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-notifications-top-right {
+		width: calc(146 * 100vw / 1366);
+		height: calc(161.5 * 100vw / 1366);
+		right: calc(-4.22 * 100vw / 1366);
+		bottom: calc(193.5 * 100vw / 1366);
+	}
+	.pointer-notifications-top-right .pointer-legend {	
+		width: calc(159 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-notifications-bottom-left {
+		width: calc(232 * 100vw / 1366);
+		height: calc(92 * 100vw / 1366);
+		left: calc(0 * 100vw / 1366);
+		top: calc(268 * 100vw / 1366);
+	}
+	.pointer-notifications-bottom-left .pointer-legend {	
+		width: calc(246 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+
+	.pointer-performance-top-left {
+		width: calc(78.5 * 100vw / 1366);
+		height: calc(151 * 100vw / 1366);
+		left: calc(52 * 100vw / 1366);
+		bottom: calc(212 * 100vw / 1366);
+	}
+	.pointer-performance-top-left .pointer-legend {	
+		width: calc(63 * 100vw / 1366);
+		height: calc(17 * 100vw / 1366);
+		top: calc(-1 * (17 * 100vw / 1366 + 12px));
+	}
+	.pointer-performance-top-right {
+		width: calc(174.5 * 100vw / 1366);
+		height: calc(113 * 100vw / 1366);
+		right: calc(96.5 * 100vw / 1366);
+		bottom: calc(250 * 100vw / 1366);
+	}
+	.pointer-performance-top-right .pointer-legend {	
+		width: calc(210 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-performance-bottom-left {
+		width: calc(204.49 * 100vw / 1366);
+		height: calc(71.5 * 100vw / 1366);
+		left: calc(0 * 100vw / 1366);
+		top: calc(288.5 * 100vw / 1366);
+	}
+	.pointer-performance-bottom-left .pointer-legend {	
+		width: calc(247 * 100vw / 1366);
+		height: calc(51 * 100vw / 1366);
+		bottom: calc(-1 * (51 * 100vw / 1366 + 12px));
+	}
+	.pointer-performance-bottom-right {
+		width: calc(182.5 * 100vw / 1366);
+		height: calc(183.5 * 100vw / 1366);
+		right: calc(131 * 100vw / 1366);
+		top: calc(176.5 * 100vw / 1366);
+	}
+	.pointer-performance-bottom-right .pointer-legend {
+		width: calc(208 * 100vw / 1366);
+		height: calc(17 * 100vw / 1366);
+		bottom: calc(-1 * (17 * 100vw / 1366 + 12px));
+	}
+
+	.pointer-energy_screen-top-left {
+		width: calc(191.02 * 100vw / 1366);
+		height: calc(172.5 * 100vw / 1366);
+		left: 0;
+		bottom: calc(182.5 * 100vw / 1366);
+	}
+	.pointer-energy_screen-top-left .pointer-legend {	
+		width: calc(233 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-energy_screen-top-right {
+		width: calc(146 * 100vw / 1366);
+		height: calc(161.5 * 100vw / 1366);
+		right: calc(-4.22 * 100vw / 1366);
+		bottom: calc(193.5 * 100vw / 1366);
+	}
+	.pointer-energy_screen-top-right .pointer-legend {	
+		width: calc(159 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-energy_screen-bottom-left {
+		width: calc(232 * 100vw / 1366);
+		height: calc(92 * 100vw / 1366);
+		left: calc(0 * 100vw / 1366);
+		top: calc(268 * 100vw / 1366);
+	}
+	.pointer-energy_screen-bottom-left .pointer-legend {	
+		width: calc(246 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+
+	.pointer-car_info-top-left {
+		width: calc(224.5 * 100vw / 1366);
+		height: calc(80 * 100vw / 1366);
+		left: calc(68 * 100vw / 1366);
+		bottom: calc(271 * 100vw / 1366);
+	}
+	.pointer-car_info-top-left .pointer-legend {	
+		width: calc(233 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-car_info-top-right {
+		width: calc(146 * 100vw / 1366);
+		height: calc(72 * 100vw / 1366);
+		right: calc(13.28 * 100vw / 1366);
+		bottom: calc(279 * 100vw / 1366);
+	}
+	.pointer-car_info-top-right .pointer-legend {	
+		width: calc(159 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		top: calc(-1 * (34 * 100vw / 1366 + 14px));
+	}
+	.pointer-car_info-bottom-left {
+		width: calc(229 * 100vw / 1366);
+		height: calc(132.5 * 100vw / 1366);
+		left: calc(-78 * 100vw / 1366);
+		top: calc(239.5 * 100vw / 1366);
+	}
+	.pointer-car_info-bottom-left .pointer-legend {	
+		width: calc(246 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+	.pointer-car_info-bottom-right {
+		width: calc(204.56 * 100vw / 1366);
+		height: calc(136 * 100vw / 1366);
+		right: calc(135.22 * 100vw / 1366);
+		top: calc(239 * 100vw / 1366);
+	}
+	.pointer-car_info-bottom-right .pointer-legend {
+		width: calc(208 * 100vw / 1366);
+		height: calc(34 * 100vw / 1366);
+		bottom: calc(-1 * (34 * 100vw / 1366 + 12px));
+	}
+}
