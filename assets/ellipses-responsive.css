@@ -22,6 +22,7 @@
 	}
 	.ellipse__main-1 .ellipse {
 		width: calc(959 * 100vw / 1366);
+		background: #F4F6FA;
 	}
 	.ellipse__main-2 {
 		width: calc(1085 * 100vw / 1366);
