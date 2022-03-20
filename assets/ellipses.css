@@ -1,3 +1,10 @@
+.ellipse-container {
+	position: absolute;
+	overflow: hidden;
+}
+.ellipse-wrap {
+	position: relative;
+}
 .ellipse {
 	position: absolute;
 	border-radius: 100%;
