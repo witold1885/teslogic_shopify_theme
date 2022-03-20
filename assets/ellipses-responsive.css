@@ -1,6 +1,7 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.ellipse__main-1 {
-		width: calc(959 * 100vw / 1366);
+		/*width: calc(959 * 100vw / 1366);*/
+		width: calc(100vw - 996 * 100vw / 1366);
 		height: calc(959 * 100vw / 1366);
 		left: calc(996 * 100vw / 1366);
 		top: calc(817 * 100vw / 1366);

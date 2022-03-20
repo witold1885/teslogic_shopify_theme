@@ -1,18 +1,6 @@
-.ellipse-container {
-	position: absolute;
-	width: 370;
-}
-.ellipse-wrap {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
 .ellipse {
 	position: absolute;
 	border-radius: 100%;
-	width: 100%;
-	height: 100%;
 }
 .ellipse__main-1 {
 	width: 959px;
