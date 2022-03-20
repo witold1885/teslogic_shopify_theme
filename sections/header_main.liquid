@@ -43,11 +43,13 @@
 <script type="text/javascript">
   $(document).ready(function() {
     window.addEventListener('scroll', setStyckyHeader)
-    if (window.pageYOffset >= 96) {
-      $('#header_sticky').css({display: 'flex'})
-    }
-    else {      
-      $('#header_sticky').css({display: 'none'})
+    function setStyckyHeader() {
+      if (window.pageYOffset >= 96) {
+        $('#header_sticky').css({display: 'flex'})
+      }
+      else {      
+        $('#header_sticky').css({display: 'none'})
+      }
     }
   })  
 </script>
