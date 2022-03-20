@@ -64,7 +64,6 @@
         padding: 0;
       }
       body {
-        /*background: #F7F9FF;*/
         background: #FEFEFE;
         position: relative;
         overflow-x: hidden;
@@ -73,6 +72,11 @@
       .container {
         width: 1366px;
         margin: 0 auto;
+      }
+      @media (min-width: 1366px and max-width: 1000px) {        
+        .container {
+          width: calc(1366px * 100vw / 1366px);
+        }
       }
 
       main {
