@@ -8,13 +8,15 @@
 	align-items: center;
 }
 #header_sticky {
-	width: 100%;
+	width: 1366px;
 	height: 96px;
 	position: fixed;
+	top: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	background: #0F0F0F;
 }
 .top {
 	width: 100%;
