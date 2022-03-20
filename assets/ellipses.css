@@ -1,5 +1,6 @@
 .ellipse-container {
 	position: absolute;
+	width: 370;
 }
 .ellipse-wrap {
 	position: relative;
