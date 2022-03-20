@@ -157,7 +157,7 @@
           var height = Math.max( body.scrollHeight, body.offsetHeight, 
                              html.clientHeight, html.scrollHeight, html.offsetHeight )
           console.log(height)
-          $('.ellipse-all_products-container').css({top: height - 858})
+          $('.ellipse-all_products-container').css({top: `calc(${height} - 858 * 100vw / 1366`})
         })
       </script>
     {% endif %}
