@@ -92,7 +92,7 @@
 	.pointer-notifications-top-left {
 		width: calc(194 * 100vw / 1366);
 		height: calc(176 * 100vw / 1366);
-		left: calc(0;
+		left: 0;
 		bottom: calc(179 * 100vw / 1366);
 	}
 	.pointer-notifications-top-left .pointer-legend {	
@@ -114,7 +114,7 @@
 	.pointer-notifications-bottom-left {
 		width: calc(232 * 100vw / 1366);
 		height: calc(92 * 100vw / 1366);
-		left: calc(0 * 100vw / 1366);
+		left: 0;
 		top: calc(268 * 100vw / 1366);
 	}
 	.pointer-notifications-bottom-left .pointer-legend {	
@@ -148,7 +148,7 @@
 	.pointer-performance-bottom-left {
 		width: calc(204.49 * 100vw / 1366);
 		height: calc(71.5 * 100vw / 1366);
-		left: calc(0 * 100vw / 1366);
+		left: 0;
 		top: calc(288.5 * 100vw / 1366);
 	}
 	.pointer-performance-bottom-left .pointer-legend {	
@@ -193,7 +193,7 @@
 	.pointer-energy_screen-bottom-left {
 		width: calc(232 * 100vw / 1366);
 		height: calc(92 * 100vw / 1366);
-		left: calc(0 * 100vw / 1366);
+		left: 0;
 		top: calc(268 * 100vw / 1366);
 	}
 	.pointer-energy_screen-bottom-left .pointer-legend {	
