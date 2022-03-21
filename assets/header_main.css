@@ -16,7 +16,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background: #0F0F0F;
+	/*background: #0F0F0F;*/
 	z-index: 10;
 }
 .top {
