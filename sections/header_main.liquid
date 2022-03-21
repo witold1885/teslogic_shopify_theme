@@ -41,12 +41,26 @@
   </div>
 </header>
 
+{% javascript %}
+  var logo_white_url = {{ 'logo.png' | asset_url }}
+  var logo_black_url = {{ 'logo_black.png' | asset_url }}
+{% endjavascript %}
 <script type="text/javascript">
+  console.log(logo_white_url)
+  console.log(logo_black_url)
   $(document).ready(function() {
     window.addEventListener('scroll', setStyckyHeader)
     function setStyckyHeader() {
-      if (window.pageYOffset >= 96) {
+      var header_main_height = $('#header_main').height()
+      var header_top_height = $('#header_main').find('.top').height()
+      if (window.pageYOffset >= header_top_height) {
         $('#header_sticky').css({display: 'flex'})
+        if (window.pageYOffset >= header_main_height) {
+          // $('#header_sticky').find('.logo img')
+        }
+        else {
+
+        }
       }
       else {      
         $('#header_sticky').css({display: 'none'})
