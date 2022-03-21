@@ -1,0 +1,23 @@
+@media screen and (min-width: 1000px) and (max-width: 1366px) {  
+	#header_custom {
+		height: calc(96 * 100vw / 1366);
+	}
+	.header-fix {
+		height: calc(96 * 100vw / 1366);
+	}
+	.top {
+		height: calc(96 * 100vw / 1366);
+	}
+	.top .logo {	
+		margin-left: calc(128 * 100vw / 1366);
+	}
+	.menu {
+		margin-right: calc(114 * 100vw / 1366);
+		grid-column-gap: calc(10 * 100vw / 1366);
+	}
+	.menu__item {
+		font-size: calc(18 * 100vw / 1366);
+		line-height: calc(32 * 100vw / 1366);
+		padding: calc(4 * 100vw / 1366) calc(15 * 100vw / 1366);
+	}
+}

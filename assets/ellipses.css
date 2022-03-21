@@ -89,8 +89,7 @@
 	width: 637px;
 	height: 637px;
 	left: calc(1164px + ((100vw - 1366px) / 2));
-	top: 96px;
-	background: #F4F6FA;	
+	top: 96px;	
 	z-index: -1;
 }
 .ellipse__faq-2 {
@@ -98,7 +97,6 @@
 	height: 531px;
 	left: calc(1217px + ((100vw - 1366px) / 2));
 	top: 149px;
-	background: #FEFEFE;	
 	z-index: -1;
 }
 .ellipse__faq-3 
@@ -107,7 +105,6 @@
 	height: 650px;
 	right: calc(1009px + ((100vw - 1366px) / 2));
 	top: 1329px;
-	background: #F4F6FA;
 	z-index: -1;
 }
 .ellipse__faq-4 
@@ -116,8 +113,15 @@
 	height: 542px;
 	right: calc(1063px + ((100vw - 1366px) / 2));
 	top: 1383px;
-	background: #FEFEFE;
 	z-index: -1;
+}
+.ellipse__main-1 .ellipse,
+.ellipse__main-3 .ellipse {
+	background: #F4F6FA;
+}
+.ellipse__main-2 .ellipse,
+.ellipse__main-4 .ellipse {
+	background: #FEFEFE;
 }
 
 .ellipse-all_products-container {
