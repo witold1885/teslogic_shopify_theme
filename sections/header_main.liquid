@@ -54,10 +54,14 @@
       if (window.pageYOffset >= header_top_height) {
         $('#header_sticky').css({display: 'flex'})
         if (window.pageYOffset >= header_main_height) {
+          $('#header_sticky').css({background: '#FEFEFE'})
           $('#header_sticky').find('.logo img').attr('src', logo_black_url)
+          $('#header_sticky').find('.menu__item').css({color: '#000000'})
         }
         else {
+          $('#header_sticky').css({background: 'transparent'})
           $('#header_sticky').find('.logo img').attr('src', logo_white_url)
+          $('#header_sticky').find('.menu__item').css({color: '#FFFFFF'})
         }
       }
       else {      
