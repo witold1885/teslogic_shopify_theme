@@ -41,11 +41,9 @@
   </div>
 </header>
 
-{% javascript %}
+<script type="text/javascript">
   var logo_white_url = "{{ 'logo.png' | asset_url }}"
   var logo_black_url = "{{ 'logo_black.png' | asset_url }}"
-{% endjavascript %}
-<script type="text/javascript">
   console.log(logo_white_url)
   console.log(logo_black_url)
   $(document).ready(function() {
