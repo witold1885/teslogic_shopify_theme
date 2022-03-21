@@ -4,10 +4,13 @@
 	}
 	#header_sticky {
 		width: calc(1366 * 100vw / 1366);
-		height: calc(96 * 100vw / 1366);
+		height: calc(64 * 100vw / 1366);
 	}
 	.top {
 		height: calc(96 * 100vw / 1366);
+	}
+	#header_sticky .top {
+		height: calc(64 * 100vw / 1366);
 	}
 	.top .logo {	
 		margin-left: calc(128 * 100vw / 1366);

@@ -9,7 +9,7 @@
 }
 #header_sticky {
 	width: 1366px;
-	height: 96px;
+	height: 64px;
 	position: fixed;
 	top: 0;
 	display: none;
@@ -25,6 +25,9 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+#header_sticky .top {
+	height: 64px;
 }
 .top .logo {	
 	z-index: 2;
