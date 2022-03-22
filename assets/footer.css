@@ -1,6 +1,7 @@
 footer {
 	background: #010306;
 	padding: 100px 128px;
+	position: relative;
 }
 .footer__wrap {
 	max-width: 1110px;
