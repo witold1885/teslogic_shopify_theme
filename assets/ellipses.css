@@ -115,12 +115,12 @@
 	top: 1383px;
 	z-index: -1;
 }
-.ellipse__main-1 .ellipse,
-.ellipse__main-3 .ellipse {
+.ellipse__faq-1 .ellipse,
+.ellipse__faq-3 .ellipse {
 	background: #F4F6FA;
 }
-.ellipse__main-2 .ellipse,
-.ellipse__main-4 .ellipse {
+.ellipse__faq-2 .ellipse,
+.ellipse__faq-4 .ellipse {
 	background: #FEFEFE;
 }
 

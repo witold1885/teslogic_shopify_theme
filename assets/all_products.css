@@ -146,6 +146,19 @@
 	position: relative;
 	cursor: pointer;
 }
+.all-products-product-amount-button-minus > div,
+.all-products-product-amount-button-plus > div {
+	width: 20px; 
+	height: 4px; 
+	background: #0F0F0F; 
+	position: absolute; 
+	left: 18px; 
+	top: 26px;
+}
+.all-products-product-amount-button-plus > div:last-child {
+	transform: rotate(-90deg); 
+	transform-origin: center;
+}
 .all-products__list-product-amount-value {
 	font-family: 'Gotham';
 	font-style: normal;
