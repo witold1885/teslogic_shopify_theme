@@ -79,18 +79,18 @@
 	font-size: 14px;
 	line-height: 17px;
 }
-.features__block-switcher-case-light {
-	left: 0;
-	background: #FFFFFF;
-	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
-	color: #0F0F0F;
-}
 .features__block-switcher-case-dark {
-	display: none;
 	right: 0;
 	background: #000000;
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
 	color: #FFFFFF;
+}
+.features__block-switcher-case-light {
+	display: none;
+	left: 0;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
+	color: #0F0F0F;
 }
 .features__block-screen {
 	z-index: 3;
@@ -111,4 +111,10 @@
 }
 .features__block-screen img {
 	width: 100%;
+}
+.features__block-screen-dark {
+
+}
+.features__block-screen-light {
+	display: none;
 }
