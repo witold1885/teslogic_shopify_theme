@@ -169,7 +169,8 @@
                              html.clientHeight, html.scrollHeight, html.offsetHeight )
           console.log(height)
           console.log(html.clientWidth)
-          $('.ellipse-all_products-container').css({top: `calc(${height} - 858 * 100vw / 1366)`})
+          var top = height - 858 * html.clientWidth / 1366
+          $('.ellipse-all_products-container').css({top: top})
         })
       </script>
     {% endif %}
