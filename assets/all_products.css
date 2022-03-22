@@ -155,7 +155,7 @@
 	left: 18px; 
 	top: 26px;
 }
-.all-products-product-amount-button-plus > div:last-child {
+.all-products__list-product-amount-button-plus > div:last-child {
 	transform: rotate(-90deg); 
 	transform-origin: center;
 }
