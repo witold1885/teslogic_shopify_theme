@@ -62,13 +62,13 @@
 	bottom: -7px;
 }
 .pointer-bottom .pointer-point {
-	top: -14px;
+	top: -7px;
 }
 .pointer-left .pointer-point {
-	right: -4px;
+	right: -3.5px;
 }
 .pointer-right .pointer-point {
-	left: -4px;
+	left: -3.5px;
 }
 
 .pointer-dashboard-top-left {

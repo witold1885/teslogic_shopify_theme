@@ -35,13 +35,13 @@
 		bottom: calc(-7 * 100vw / 1366);
 	}
 	.pointer-bottom .pointer-point {
-		top: calc(-14 * 100vw / 1366);
+		top: calc(-7 * 100vw / 1366);
 	}
 	.pointer-left .pointer-point {
-		right: calc(-4 * 100vw / 1366);
+		right: calc(-3.5 * 100vw / 1366);
 	}
 	.pointer-right .pointer-point {
-		left: calc(-4 * 100vw / 1366);
+		left: calc(-3.5 * 100vw / 1366);
 	}
 
 	.pointer-dashboard-top-left {
