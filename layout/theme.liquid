@@ -165,8 +165,11 @@
           var body = document.body,
               html = document.documentElement
 
-          var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                             html.clientHeight, html.scrollHeight, html.offsetHeight )
+          var height = Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+          )
           console.log($(document).width())
           console.log($(document).height())
           console.log(height)
