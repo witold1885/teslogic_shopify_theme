@@ -32,7 +32,7 @@
 		line-height: calc(17 * 100vw / 1366);
 	}
 	.pointer-top .pointer-point {
-		bottom: 0px;
+		bottom: calc(-7 * 100vw / 1366);
 	}
 	.pointer-bottom .pointer-point {
 		top: calc(-14 * 100vw / 1366);

@@ -43,6 +43,7 @@
 	position: absolute;
 	width: 7px;
 	height: 7px;
+	display: flex;
 }
 .pointer-point img {
 	width: 100%;
@@ -58,7 +59,7 @@
 	position: absolute;
 }
 .pointer-top .pointer-point {
-	bottom: 0px;
+	bottom: -7px;
 }
 .pointer-bottom .pointer-point {
 	top: -14px;
