@@ -123,7 +123,6 @@
 	}
 
 	.ellipse-all_products-container {
-		bottom: 0px;
 		height: calc(858 * 100vw / 1366);
 	}
 	.ellipse-all_products-wrap {
@@ -133,6 +132,5 @@
 		width: calc(2602 * 100vw / 1366);
 		height: calc(2602 * 100vw / 1366);
 		left: calc(-1 * ((2602 * 100vw / 1366 - 100vw) / 2));
-		top: 0;
 	}
 }
