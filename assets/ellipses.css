@@ -1,5 +1,6 @@
 .ellipse-container {
 	position: absolute;
+	z-index: -1;
 }
 .ellipse-wrap {
 	position: relative;
@@ -15,40 +16,40 @@
 }
 
 .ellipse__main-1 {
-	width: 959px;
-	height: 959px;
-	left: calc(996px + ((100vw - 1366px) / 2));
-	top: 817px;
+	width: 803px;
+	height: 803px;
+	left: calc(1001px + ((100vw - 1366px) / 2));
+	top: 1432px;
 }
 .ellipse__main-2 {
-	width: 1085px;
-	height: 1085px;
-	right: calc(885px + ((100vw - 1366px) / 2));
-	top: 1750px;	
+	width: 901px;
+	height: 901px;
+	right: calc(881px + ((100vw - 1366px) / 2));
+	top: 2145px;	
 }
 .ellipse__main-3 {
-	width: 903px;
-	height: 903px;
-	right: calc(976px + ((100vw - 1366px) / 2));
-	top: 1841px;
+	width: 749px;
+	height: 749px;
+	right: calc(957px + ((100vw - 1366px) / 2));
+	top: 2221px;
 }
 .ellipse__main-4 {
-	width: 1085px;
-	height: 1085px;
+	width: 958px;
+	height: 958px;
 	left: calc(896px + ((100vw - 1366px) / 2));
-	top: 2783px;
+	top: 3483px;
 }
 .ellipse__main-5 {
-	width: 1085px;
-	height: 1085px;
-	right: calc(885px + ((100vw - 1366px) / 2));
-	top: 3528px;
+	width: 863px;
+	height: 863px;
+	right: calc(962px + ((100vw - 1366px) / 2));
+	top: 4250px;
 }
 .ellipse__main-6 {
-	width: 903px;
-	height: 903px;
-	right: calc(976px + ((100vw - 1366px) / 2));
-	top: 3619px;
+	width: 719px;
+	height: 719px;
+	right: calc(1034px + ((100vw - 1366px) / 2));
+	top: 4322px;
 }
 .ellipse__main-1 .ellipse,
 .ellipse__main-2 .ellipse,
