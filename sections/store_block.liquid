@@ -123,6 +123,32 @@
 		text-align: center;
 		color: #0F0F0F;
 	}
+	.store_block-product-select {
+		width: 197px;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		grid-column-gap: 10px;
+	}
+	.store_block-product-select-value {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 140%;
+		color: #9FA1A8;
+	}
+	.store_block-product-select-arrow {
+		width: 24px;
+		height: 24px;
+	}
+	.store_block-product-select-arrow img {
+		width: 100%;
+		height: 100%;
+	}
 	.store_block-product-add {
 		margin-top: 44px;
 		width: 183px;
@@ -214,6 +240,92 @@
 			line-height: calc(32 * 100vw / 1366);
 		} 
 	} 
+	@media screen and (max-width: 999px) {  
+		.store_block {
+			height: 625px;
+			padding-top: 120px;
+			margin-bottom: 80px;
+		}
+		.store_block-product {
+			display: none;
+		}
+		.store_block-product-mobile {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.store_block-title {
+			height: 28px;
+			font-size: 36px;
+			line-height: 43px;
+			/*margin-left: 0;*/
+			margin-bottom: 51px;
+		}
+		.store_block-product-title {
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 31px;
+			margin-bottom: 10px;
+		}
+		.store_block-product-price {
+			font-weight: 700;
+			font-size: 22px;
+			line-height: 140%;
+			margin-bottom: 22.88px;
+		}
+		.store_block-product-gallery {
+			width: 342px;
+			height: 210.65px;
+			margin-right: 0;
+			margin-bottom: 23.85px;
+		}
+		.store_block-product-info {
+			width: 342px;
+			height: 216.61px;
+		}
+		.store_block-product-info-bottom {
+			width: 100%;
+			height: 146.61px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.store_block-product-select {
+			width: 197px;
+			height: 56px;
+			background: #FFFFFF;
+			border-radius: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			grid-column-gap: 10px;
+		}
+		.store_block-product-select-value {
+			font-family: 'Gotham';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+			color: #9FA1A8;
+		}
+		.store_block-product-select-arrow {
+			width: 24px;
+			height: 24px;
+		}
+		.store_block-product-select-arrow img {
+			width: 100%;
+			height: 100%;
+		}
+		.store_block-product-add {
+			margin-top: 0;
+			width: 149px;
+			height: 56px;
+			font-size: 18px;
+			line-height: 140%;
+		}
+	}
 </style>
 
 <div class="store_block">
@@ -221,12 +333,12 @@
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image"></div>
-			<div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
+			<!-- <div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
 				<img src="{{ 'gallery_prev.png' | asset_url }}">
 			</div>
 			<div class="store_block-product-gallery-nav store_block-product-gallery-nav-next">
 				<img src="{{ 'gallery_next.png' | asset_url }}">
-			</div>
+			</div> -->
 		</div>
 		<div class="store_block-product-info">
 			<div>
@@ -237,7 +349,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="store_block-product-amount">
+				<!-- <div class="store_block-product-amount">
 					<div class="store_block-product-amount-button store_block-product-amount-button-minus">
 						<div></div>
 					</div>
@@ -246,8 +358,35 @@
 						<div></div>
 						<div></div>
 					</div>
+				</div> -->
+				<div class="store_block-product-select">
+					<span class="store_block-product-select-value">Select model</span>
+					<div class="store_block-product-select-arrow">
+						<img src="images/select_arrow.png">
+					</div>
 				</div>
 				<button class="store_block-product-add" id="add">Add to cart</button>
+			</div>
+		</div>
+	</div>								
+	<div class="store_block-product-mobile">
+		<div class="store_block-product-title">Teslogic transmitter</div>
+		<div class="store_block-product-price">$99.99</div>
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-image"></div>
+		</div>
+		<div class="store_block-product-info">
+			<div class="store_block-product-subtitle">
+				The pack contains Teslogic transmitter,<br>phone holder and iOS / Android Teslogic app
+			</div>
+			<div class="store_block-product-info-bottom">
+				<div class="store_block-product-select">
+					<span class="store_block-product-select-value">Select model</span>
+					<div class="store_block-product-select-arrow">
+						<img src="images/select_arrow.png">
+					</div>
+				</div>
+				<button class="store_block-product-add">Add to cart</button>
 			</div>
 		</div>
 	</div>				
