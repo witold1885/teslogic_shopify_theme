@@ -59,3 +59,86 @@
 		margin-left: calc(133 * 100vw / 1366);
 	}
 }
+
+@media screen and (max-width: 999px) { 
+	.features__title {
+		font-size: 36px;
+		line-height: 43px;
+	}
+	.features__block {
+		height: auto;
+		/*display: flex;*/
+		justify-content: flex-start;
+		/*align-items: flex-start;*/
+		flex-direction: column;
+	}
+	.features__block-odd {
+		align-items: flex-start;
+	}
+	.features__block-even {
+		align-items: flex-end;
+	}
+	.features__block:not(:last-child) {
+		margin-bottom: 64px;
+	}
+	.features__block-legend {
+		margin-top: 39px;
+		width: 300px;
+		display: flex;
+		flex-direction: column;
+	}
+	.features__block-odd .features__block-legend {
+		margin-left: 24px;
+		align-items: flex-start;
+	}
+	.features__block-even .features__block-legend {
+		margin-right: 23px;
+		align-items: flex-end;
+	}
+	.features__block-legend-title {
+		font-weight: 700;
+		font-size: 26px;
+		line-height: 31px;
+		margin-bottom: 4px;
+	}
+	.features__block-legend-subtitle {
+		font-size: 18px;
+		line-height: 140%;
+		margin-bottom: 40px;
+	}
+	.features__block-odd .features__block-legend-title,
+	.features__block-odd .features__block-legend-subtitle {
+		text-align: left;
+	}
+	.features__block-even .features__block-legend-title,
+	.features__block-even .features__block-legend-subtitle {
+		text-align: right;
+	}
+	.features__block-screen {
+		z-index: 3;
+		margin-top: 140px ;
+		margin-left: 35px!important;
+		margin-right: 35px!important;
+		width: 320px;
+		height: 158px;
+		/*display: flex;
+		justify-content: center;
+		align-items: center;*/
+		/*position: relative;*/
+	}
+	.features__block-dashboard {
+		height: 650px;
+	}
+	.features__block-notifications {
+		height: 588px;
+	}
+	.features__block-performance {
+		height: 653px;
+	}
+	.features__block-energy_screen {
+		height: 532px;
+	}
+	.features__block-car_info {
+		height: 608px;
+	}
+}
