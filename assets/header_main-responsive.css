@@ -51,11 +51,11 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		position: fixed;
 	}
 	.top {
 		height: 104px;
 		background: #0F0F0F;
+		position: fixed;
 	}
 	.top .logo {
 		width: 153px;
