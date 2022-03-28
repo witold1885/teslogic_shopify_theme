@@ -10,6 +10,6 @@
 		git add . && git commit -m "Header" && git push
 	*/
 	shell_exec('git add .');
-	shell_exec('git commit -m "Responsive 1366-1000"');
+	shell_exec('git commit -m "Responsive 999-0"');
 	shell_exec('git push');
 ?>
