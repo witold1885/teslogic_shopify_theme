@@ -1,12 +1,17 @@
 {
   "sections": {
-    "features": {
-      "type": "features",
+    "using": {
+      "type": "using",
       "settings": {
       }
     },
     "shop_now": {
       "type": "shop_now",
+      "settings": {
+      }
+    },
+    "features": {
+      "type": "features",
       "settings": {
       }
     },
@@ -32,8 +37,9 @@
     }
   },
   "order": [
-    "features",
+    "using",
     "shop_now",
+    "features",
     "safety_first",
     "video_block",
     "store_block",
