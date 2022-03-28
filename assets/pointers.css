@@ -202,80 +202,36 @@
 }
 
 .pointer-energy_screen-top-left {
-	width: 191.02px;
-	height: 172.5px;
-	left: 0;
-	bottom: 182.5px;
+	width: 271px;
+	height: 80px;
+	left: 55px;
+	bottom: 272px;
 }
 .pointer-energy_screen-top-left .pointer-legend {	
-	width: 233px;
+	width: 270px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
-}
-.pointer-energy_screen-top-right {
-	width: 146px;
-	height: 161.5px;
-	right: -4.22px;
-	bottom: 193.5px;
-}
-.pointer-energy_screen-top-right .pointer-legend {	
-	width: 159px;
-	height: 34px;
-	top: calc(-1 * (34px + 14px));
-}
-.pointer-energy_screen-bottom-left {
-	width: 232px;
-	height: 92px;
-	left: 0px;
-	top: 268px;
-}
-.pointer-energy_screen-bottom-left .pointer-legend {	
-	width: 246px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
+	top: calc(-1 * (34px + 12px));
 }
 
 .pointer-car_info-top-left {
-	width: 224.5px;
-	height: 80px;
-	left: 68px;
-	bottom: 271px;
+	width: 199px;
+	height: 70px;
+	left: -18px;
+	bottom: 282px;
 }
 .pointer-car_info-top-left .pointer-legend {	
-	width: 233px;
+	width: 204px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
+	top: calc(-1 * (34px + 12px));
 }
 .pointer-car_info-top-right {
-	width: 146px;
+	width: 185px;
 	height: 72px;
-	right: 13.28px;
+	right: 63.78px;
 	bottom: 279px;
 }
 .pointer-car_info-top-right .pointer-legend {	
-	width: 159px;
+	width: 185px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
-}
-.pointer-car_info-bottom-left {
-	width: 229px;
-	height: 132.5px;
-	left: -78px;
-	top: 239.5px;
-}
-.pointer-car_info-bottom-left .pointer-legend {	
-	width: 246px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
-}
-.pointer-car_info-bottom-right {
-	width: 204.56px;
-	height: 136px;
-	right: 135.22px;
-	top: 239px;
-}
-.pointer-car_info-bottom-right .pointer-legend {
-	width: 208px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
+	top: calc(-1 * (34px + 12px));
 }
