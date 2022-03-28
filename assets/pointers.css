@@ -80,30 +80,30 @@
 .pointer-dashboard-top-left {
 	width: 224.5px;
 	height: 80px;
-	left: 68px;
-	bottom: 271px;
+	left: 65px;
+	bottom: 272px;
 }
 .pointer-dashboard-top-left .pointer-legend {	
 	width: 233px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
+	top: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-top-right {
 	width: 146px;
 	height: 72px;
-	right: 13.28px;
-	bottom: 279px;
+	right: 16.28px;
+	bottom: 280px;
 }
 .pointer-dashboard-top-right .pointer-legend {	
 	width: 159px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
+	top: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-bottom-left {
 	width: 229px;
-	height: 132.5px;
+	height: 195px;
 	left: -78px;
-	top: 239.5px;
+	top: 257px;
 }
 .pointer-dashboard-bottom-left .pointer-legend {	
 	width: 246px;
@@ -111,10 +111,10 @@
 	bottom: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-bottom-right {
-	width: 204.56px;
-	height: 136px;
-	right: 135.22px;
-	top: 239px;
+	width: 205px;
+	height: 95px;
+	right: 134.78px;
+	top: 257px;
 }
 .pointer-dashboard-bottom-right .pointer-legend {
 	width: 208px;
@@ -123,32 +123,32 @@
 }
 
 .pointer-notifications-top-left {
-	width: 194px;
-	height: 176px;
+	width: 191px;
+	height: 162px;
 	left: 0;
-	bottom: 179px;
+	bottom: 190px;
 }
 .pointer-notifications-top-left .pointer-legend {	
 	width: 233px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
+	top: calc(-1 * (34px + 12px));
 }
 .pointer-notifications-top-right {
 	width: 146px;
-	height: 161.5px;
+	height: 153px;
 	right: -4.22px;
-	bottom: 193.5px;
+	bottom: 199px;
 }
 .pointer-notifications-top-right .pointer-legend {	
 	width: 159px;
 	height: 34px;
-	top: calc(-1 * (34px + 14px));
+	top: calc(-1 * (34px + 12px));
 }
 .pointer-notifications-bottom-left {
-	width: 232px;
-	height: 92px;
+	width: 229px;
+	height: 80px;
 	left: 0px;
-	top: 268px;
+	top: 272px;
 }
 .pointer-notifications-bottom-left .pointer-legend {	
 	width: 246px;
