@@ -2,6 +2,12 @@
 	position: absolute;
 	z-index: 4;
 }
+.pointer-desktop {
+	display: block;
+}
+.pointer-mobile {
+	display: none;
+}
 .pointer-wrap {
 	position: relative;
 	width: 100%;
