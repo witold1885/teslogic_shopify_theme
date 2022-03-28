@@ -71,6 +71,7 @@
 		position: relative;
 	}
 	.using__title {
+		margin-top: 0;
 		width: 207px;
 		height: 83px;
 		font-size: 36px;
