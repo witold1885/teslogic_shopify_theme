@@ -41,7 +41,7 @@
 }
 
 @media screen and (max-width: 999px) { 
-	#header_main {
+	#header_main, #header_sticky {
 		display: none;
 	}
 	#header_mobile {
@@ -51,6 +51,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+		position: fixed;
 	}
 	.top {
 		height: 104px;
@@ -77,6 +78,9 @@
 	}
 	.top .button img {
 		width: 100%;
+	}
+	.header_mobile-fix {
+		height: 104px;
 	}
 	.banner {
 		width: 100%;
