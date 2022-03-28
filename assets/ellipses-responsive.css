@@ -65,11 +65,11 @@
 	}
 
 	.ellipse-bottom-container {
-		top: calc(5555 * 100vw / 1366);
-		height: calc(1601 * 100vw / 1366);
+		top: calc(5153 * 100vw / 1366);
+		height: calc(1403 * 100vw / 1366);
 	}
 	.ellipse-bottom-wrap {
-		height: calc(1601 * 100vw / 1366);
+		height: calc(1403 * 100vw / 1366);
 	}
 	.ellipse-bottom {
 		width: calc(2602 * 100vw / 1366);
