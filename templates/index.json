@@ -19,7 +19,7 @@
       "type": "store_block",
       "settings": {
       }
-    },
+    }
   },
   "order": [
     "using",
