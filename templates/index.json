@@ -15,26 +15,11 @@
       "settings": {
       }
     },
-    "safety_first": {
-      "type": "safety_first",
-      "settings": {
-      }
-    },
-    "video_block": {
-      "type": "video_block",
-      "settings": {
-      }
-    },
     "store_block": {
       "type": "store_block",
       "settings": {
       }
     },
-    "see_all": {
-      "type": "see_all",
-      "settings": {
-      }
-    }
   },
   "order": [
     "using",
