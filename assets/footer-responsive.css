@@ -43,6 +43,7 @@
 		line-height: calc(24 * 100vw / 1366);
 	}
 }
+
 @media screen and (max-width: 999px) {
 	footer {
 		padding: 34px 27px 42px 24px;

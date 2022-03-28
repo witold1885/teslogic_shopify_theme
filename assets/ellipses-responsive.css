@@ -134,3 +134,18 @@
 		left: calc(-1 * ((2602 * 100vw / 1366 - 100vw) / 2));
 	}
 }
+
+@media screen and (max-width: 999px) {
+	.ellipse-bottom-container {
+		top: 5177px;
+		height: 1474px;
+	}
+	.ellipse-bottom-wrap {
+		height: 1474px;
+	}
+	.ellipse-bottom {
+		width: 1187px;
+		height: 1187px;
+		left: calc(-1 * ((1187px - 100vw) / 2));
+	}
+}
