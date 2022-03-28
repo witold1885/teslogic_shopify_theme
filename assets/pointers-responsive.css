@@ -374,14 +374,14 @@
 		height: 48px;
 		top: calc(-1 * (48px + 12px));
 	}
-	.pointer-car_info-bottom-left {
-		width: 119px;
+	.pointer-car_info-bottom-right {
+		width: 198px;
 		height: 51px;
-		left: -8.77px;
+		right: 43.45px;
 		top: 139px;
 	}
-	.pointer-car_info-bottom-left .pointer-legend {	
-		width: 143px;
+	.pointer-car_info-bottom-right .pointer-legend {	
+		width: 210px;
 		height: 48px;
 		bottom: calc(-1 * (48px + 8px));
 	}
