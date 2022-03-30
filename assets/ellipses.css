@@ -64,16 +64,16 @@
 
 .ellipse-bottom-container {
 	position: absolute;
-	top: 5153px;
+	top: 4913px;
 	width: 100%;
-	height: 1403px;
+	height: 1460px;
 	overflow: hidden;	
 	z-index: -1;
 }
 .ellipse-bottom-wrap {
 	position: relative;
 	width: 100%;
-	height: 1403px;
+	height: 1460px;
 }
 .ellipse-bottom {
 	position: absolute;
