@@ -191,6 +191,24 @@
 		left: calc(319px + ((100vw - 390px) / 2));
 		top: 3295px;	
 	}
+	.ellipse__main-mobile-9 {
+		width: 234px;
+		height: 234px;
+		right: calc(302px + ((100vw - 390px) / 2));
+		top: 3975px;
+	}
+	.ellipse__main-mobile-10 {
+		width: 234px;
+		height: 234px;
+		left: calc(313px + ((100vw - 390px) / 2));
+		top: 4576px;
+	}
+	.ellipse__main-mobile-11 {
+		width: 206px;
+		height: 206px;
+		left: calc(327px + ((100vw - 390px) / 2));
+		top: 4590px;	
+	}
 	.ellipse__main-mobile-1 .ellipse,
 	.ellipse__main-mobile-3 .ellipse,
 	.ellipse__main-mobile-4 .ellipse,
