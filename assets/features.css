@@ -103,6 +103,12 @@
 	align-items: center;*/
 	position: relative;
 }
+.features__block-screen-dark {
+	display: block;
+}
+.features__block-screen-light {
+	display: none;
+}
 .features__block-screen-desktop {
 	display: block;
 }
@@ -117,10 +123,4 @@
 }
 .features__block-screen img {
 	width: 100%;
-}
-.features__block-screen-dark {
-
-}
-.features__block-screen-light {
-	display: none;
 }
