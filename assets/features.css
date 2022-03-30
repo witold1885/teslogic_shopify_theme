@@ -103,16 +103,13 @@
 	align-items: center;*/
 	position: relative;
 }
-.features__block-screen img {
-	display: none;
+.features__block-screen-wrap {
+	width: 100%;
 }
-.features__block-screen-dark.features__block-screen-mobile {
-	display: none;
+.features__block-screen-wrap img {
+	width: 100%;
 }
-.features__block-screen-dark.features__block-screen-desktop {
-	display: block;
-}
-/*.features__block-screen-desktop {
+.features__block-screen-desktop {
 	display: block;
 }
 .features__block-screen-mobile {
@@ -123,13 +120,10 @@
 }
 .features__block-screen-light {
 	display: none;
-}*/
+}
 .features__block-odd .features__block-screen {
 	margin-right: 129px;
 }
 .features__block-even .features__block-screen {
 	margin-left: 133px;
-}
-.features__block-screen img {
-	width: 100%;
 }
