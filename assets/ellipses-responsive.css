@@ -155,34 +155,38 @@
 		left: calc(308px + ((100vw - 390px) / 2));
 		top: 796px;	
 	}
-	.ellipse__main-3 {
-		width: 749px;
-		height: 749px;
-		right: calc(957px + ((100vw - 1366px) / 2));
-		top: 2221px;
+	.ellipse__main-mobile-3 {
+		width: 279px;
+		height: 279px;
+		right: calc(273px + ((100vw - 390px) / 2));
+		top: 1494px;
 	}
-	.ellipse__main-4 {
-		width: 958px;
-		height: 958px;
-		left: calc(855px + ((100vw - 1366px) / 2));
-		top: 3483px;
+	.ellipse__main-mobile-4 {
+		width: 234px;
+		height: 234px;
+		left: calc(305px + ((100vw - 390px) / 2));
+		top: 2123px;
 	}
-	.ellipse__main-5 {
-		width: 815px;
-		height: 815px;
-		right: calc(967px + ((100vw - 1366px) / 2));
-		top: 4154px;
+	.ellipse__main-mobile-5 {
+		width: 206px;
+		height: 206px;
+		left: calc(319px + ((100vw - 390px) / 2));
+		top: 2137px;
 	}
-	.ellipse__main-6 {
-		width: 679px;
-		height: 679px;
-		right: calc(1035px + ((100vw - 1366px) / 2));
-		top: 4222px;
+	.ellipse__main-mobile-6 {
+		width: 279px;
+		height: 279px;
+		right: calc(271px + ((100vw - 390px) / 2));
+		top: 2612px;
 	}
-	.ellipse__main-mobile-1 .ellipse {
+	.ellipse__main-mobile-1 .ellipse,
+	.ellipse__main-mobile-3 .ellipse,
+	.ellipse__main-mobile-4 .ellipse,
+	.ellipse__main-mobile-6 .ellipse {
 		background: #F4F6FA;
 	}
-	.ellipse__main-mobile-2 .ellipse {
+	.ellipse__main-mobile-2 .ellipse,
+	.ellipse__main-mobile-5 .ellipse {
 		background: #FEFEFE;
 	}
 
