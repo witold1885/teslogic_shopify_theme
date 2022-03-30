@@ -103,7 +103,13 @@
 	align-items: center;*/
 	position: relative;
 }
-.features__block-screen-desktop {
+.features__block-screen img {
+	display: none;
+}
+.features__block-screen-dark.features__block-screen-desktop {
+	display: block;
+}
+/*.features__block-screen-desktop {
 	display: block;
 }
 .features__block-screen-mobile {
@@ -114,7 +120,7 @@
 }
 .features__block-screen-light {
 	display: none;
-}
+}*/
 .features__block-odd .features__block-screen {
 	margin-right: 129px;
 }
