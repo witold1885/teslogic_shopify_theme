@@ -71,7 +71,13 @@
       </div>
     </div>
   </div>
-    {% if page.handle == 'all-products' %}
+    {% if template == 'index' %}
+      <div class="ellipse-bottom-container">
+        <div class="ellipse-bottom-wrap">
+          <div class="ellipse-bottom"></div>
+        </div>
+      </div>
+    {% elsif page.handle == 'all-products' %}
       <div class="ellipse-all_products-container">
         <div class="ellipse-all_products-wrap">
           <div class="ellipse-all_products"></div>
