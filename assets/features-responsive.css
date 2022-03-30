@@ -126,6 +126,12 @@
 		align-items: center;*/
 		/*position: relative;*/
 	}
+	.features__block-screen-desktop {
+		display: none;
+	}
+	.features__block-screen-mobile {
+		display: block;
+	}
 	.features__block-dashboard {
 		height: 650px;
 	}

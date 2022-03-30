@@ -103,6 +103,12 @@
 	align-items: center;*/
 	position: relative;
 }
+.features__block-screen-desktop {
+	display: block;
+}
+.features__block-screen-mobile {
+	display: none;
+}
 .features__block-odd .features__block-screen {
 	margin-right: 129px;
 }
