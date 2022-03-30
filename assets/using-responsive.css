@@ -41,19 +41,19 @@
 		width: calc(150 * 100vw / 1366);
 		height: calc(158 * 100vw / 1366);
 		top: calc(374 * 100vw / 1366);
-		right: calc(926 * 100vw / 1366);
+		right: calc(971 * 100vw / 1366);
 	}
 	.using__row-image-2 {
 		width: calc(267 * 100vw / 1366);
 		height: calc(249 * 100vw / 1366);
 		top: calc(343 * 100vw / 1366);
-		right: calc(522 * 100vw / 1366);
+		right: calc(567 * 100vw / 1366);
 	}
 	.using__row-image-3 {
 		width: calc(273 * 100vw / 1366);
 		height: calc(173 * 100vw / 1366);
 		top: calc(359 * 100vw / 1366);
-		right: calc(184 * 100vw / 1366);
+		right: calc(229 * 100vw / 1366);
 	}
 	.using__arrow_right {
 		margin-top: calc(63 * 100vw / 1366);
