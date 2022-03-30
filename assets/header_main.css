@@ -61,6 +61,10 @@
 	cursor: pointer;
 	padding: 4px 15px;
 }
+.menu__item-button {
+	background: #3374FB;
+	border-radius: 100px;
+}
 .menu__item:hover {
 	color: #3374FB;
 }

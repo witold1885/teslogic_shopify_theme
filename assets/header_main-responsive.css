@@ -26,6 +26,9 @@
 		line-height: calc(32 * 100vw / 1366);
 		padding: calc(4 * 100vw / 1366) calc(15 * 100vw / 1366);
 	}
+	.menu__item-button {
+		border-radius: calc(100 * 100vw / 1366);
+	}
 	.title {
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
