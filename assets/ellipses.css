@@ -1,6 +1,12 @@
-.ellipse-container {
+.ellipse-container, .ellipse-container-mobile {
 	position: absolute;
 	z-index: -1;
+}
+.ellipse-container {
+	display: block;
+}
+.ellipse-container-mobile {
+	display: none;
 }
 .ellipse-wrap {
 	position: relative;
