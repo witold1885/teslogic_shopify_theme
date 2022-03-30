@@ -42,25 +42,25 @@
 		width: calc(958 * 100vw / 1366);
 	}
 	.ellipse__main-5 {
-		/*width: calc(863 * 100vw / 1366);*/
-		width: calc(100vw - 962 * 100vw / 1366);
-		height: calc(863 * 100vw / 1366);
-		right: calc(962 * 100vw / 1366);
-		top: calc(4250 * 100vw / 1366);	
+		/*width: calc(815 * 100vw / 1366);*/
+		width: calc(100vw - 967 * 100vw / 1366);
+		height: calc(815 * 100vw / 1366);
+		right: calc(967 * 100vw / 1366);
+		top: calc(4154 * 100vw / 1366);	
 	}
 	.ellipse__main-5 .ellipse {
-		width: calc(863 * 100vw / 1366);
+		width: calc(815 * 100vw / 1366);
 		right: 0;
 	}
 	.ellipse__main-6 {
-		/*width: calc(719 * 100vw / 1366);*/
-		width: calc(100vw - 1034 * 100vw / 1366);
-		height: calc(719 * 100vw / 1366);
-		right: calc(1034 * 100vw / 1366);
-		top: calc(4322 * 100vw / 1366);
+		/*width: calc(679 * 100vw / 1366);*/
+		width: calc(100vw - 1035 * 100vw / 1366);
+		height: calc(679 * 100vw / 1366);
+		right: calc(1035 * 100vw / 1366);
+		top: calc(4222 * 100vw / 1366);
 	}
 	.ellipse__main-6 .ellipse {
-		width: calc(719 * 100vw / 1366);
+		width: calc(679 * 100vw / 1366);
 		right: 0;
 	}
 
