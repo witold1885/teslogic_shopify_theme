@@ -15,7 +15,6 @@
 	.using__row-1 {
 		width: calc(183 * 100vw / 1366);
 		height: calc(95 * 100vw / 1366);
-		margin-left: calc(274 * 100vw / 1366);
 	}
 	.using__row-2 {
 		width: calc(124 * 100vw / 1366);
