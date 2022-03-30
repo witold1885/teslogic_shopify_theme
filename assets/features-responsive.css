@@ -132,6 +132,12 @@
 	.features__block-screen-mobile {
 		display: block;
 	}
+	.features__block-screen-dark {
+		display: block;
+	}
+	.features__block-screen-light {
+		display: none;
+	}
 	.features__block-dashboard {
 		height: 650px;
 	}
