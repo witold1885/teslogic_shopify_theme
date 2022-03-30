@@ -129,6 +129,9 @@
 	.features__block-screen img {
 		display: none;
 	}
+	.features__block-screen-dark.features__block-screen-desktop {
+		display: none;
+	}
 	.features__block-screen-dark.features__block-screen-mobile {
 		display: block;
 	}
