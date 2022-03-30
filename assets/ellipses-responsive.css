@@ -179,6 +179,18 @@
 		right: calc(271px + ((100vw - 390px) / 2));
 		top: 2612px;
 	}
+	.ellipse__main-mobile-7 {
+		width: 234px;
+		height: 234px;
+		left: calc(305px + ((100vw - 390px) / 2));
+		top: 3281px;
+	}
+	.ellipse__main-mobile-8 {
+		width: 206px;
+		height: 206px;
+		left: calc(319px + ((100vw - 390px) / 2));
+		top: 3295px;	
+	}
 	.ellipse__main-mobile-1 .ellipse,
 	.ellipse__main-mobile-3 .ellipse,
 	.ellipse__main-mobile-4 .ellipse,
