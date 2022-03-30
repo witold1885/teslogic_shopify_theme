@@ -179,6 +179,12 @@
 		right: calc(1035px + ((100vw - 1366px) / 2));
 		top: 4222px;
 	}
+	.ellipse__main-mobile-1 .ellipse {
+		background: #F4F6FA;
+	}
+	.ellipse__main-mobile-2 .ellipse {
+		background: #FEFEFE;
+	}
 
 	.ellipse-bottom-container {
 		top: 5177px;
