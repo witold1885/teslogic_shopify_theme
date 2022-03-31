@@ -55,6 +55,9 @@ footer {
 .footer-menu__list-items li:hover {
 	color: #3374FB;
 }
+.footer-menu__list-items li a {
+	text-decoration: none;
+}
 .footer-links {
 	display: flex;
 	grid-column-gap: 24px;
