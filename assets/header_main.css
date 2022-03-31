@@ -18,9 +18,13 @@
 	/*background: #0F0F0F;*/
 	z-index: 10;
 }
+.top-wrap {
+	width: 100%;
+}
 .top {
 	width: 1366px;
 	height: 96px;
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
