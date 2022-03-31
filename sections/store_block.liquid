@@ -481,6 +481,13 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(selected)
 			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		})
+		$(document).click(function(event) { 
+			var $target = $(event.target);
+			if(!$target.closest('.store_block-product-select-dropdown').length && 
+				$('.store_block-product-select-dropdown').is(":visible")) {
+				$('.store_block-product-select-dropdown').hide();
+			}        
+		});
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
 		})
