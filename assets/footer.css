@@ -57,6 +57,10 @@ footer {
 }
 .footer-menu__list-items li a {
 	text-decoration: none;
+	color: #FFFFFF;
+}
+.footer-menu__list-items li a:hover {
+	color: #3374FB;
 }
 .footer-links {
 	display: flex;
