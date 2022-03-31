@@ -131,14 +131,22 @@
 		height: 56px;
 		background: #FFFFFF;
 		border-radius: 100px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		grid-column-gap: 10px;
 		position: relative;
 	}
 	.store_block-product-select:hover {
 		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	}
+	.store_block-product-select-dropdown-select {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		grid-column-gap: 10px;
+	}
+	.store_block-product-select-dropdown {
+		padding: 12px 23px 18px;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 16px;
 	}
 	.store_block-product-select-value {
 		font-family: 'Gotham';
@@ -388,9 +396,11 @@
 					</div>
 				</div> -->
 				<div class="store_block-product-select">
-					<span class="store_block-product-select-value">Select model</span>
-					<div class="store_block-product-select-arrow">
-						<img src="{{ 'select_arrow.png' | asset_url }}">
+					<div class="store_block-product-select-dropdown-select">
+						<span class="store_block-product-select-value">Select model</span>
+						<div class="store_block-product-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
 					</div>
 					<div class="store_block-product-select-dropdown">
 						<div class="store_block-product-select-dropdown-select">
