@@ -3,10 +3,11 @@
 		height: calc(768 * 100vw / 1366);
 	}
 	#header_sticky {
-		width: calc(1366 * 100vw / 1366);
+		/*width: calc(1366 * 100vw / 1366);*/
 		height: calc(64 * 100vw / 1366);
 	}
 	.top {
+		width: calc(1366 * 100vw / 1366);
 		height: calc(96 * 100vw / 1366);
 	}
 	#header_sticky .top {
@@ -28,6 +29,13 @@
 	}
 	.menu__item-button {
 		border-radius: calc(100 * 100vw / 1366);
+	}
+	.banner-desktop-wrap {
+		top: calc(-96 * 100vw / 1366);
+	}
+	.banner-desktop {
+		width: calc(1366 * 100vw / 1366);
+		height: calc(768 * 100vw / 1366);
 	}
 	.title {
 		font-size: calc(52 * 100vw / 1366);
