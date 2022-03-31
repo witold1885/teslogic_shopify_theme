@@ -144,6 +144,7 @@
 		/*justify-content: center;*/
 		align-items: center;
 		grid-column-gap: 10px;
+		cursor: pointer;
 	}
 	.store_block-product-select-dropdown {
 		position: absolute;
@@ -168,6 +169,7 @@
 		font-size: 24px;
 		line-height: 32px;
 		color: #0F0F0F;
+		cursor: pointer;
 	}
 	.store_block-product-select-value {
 		font-family: 'Gotham';
@@ -410,7 +412,7 @@
 					</div>
 				</div> -->
 				<div class="store_block-product-select">
-					<div class="store_block-product-select-dropdown-select">
+					<div class="store_block-product-select-dropdown-select store_block-product-selected">
 						<span class="store_block-product-select-value">Select model</span>
 						<div class="store_block-product-select-arrow">
 							<img src="{{ 'select_arrow.png' | asset_url }}">
@@ -469,6 +471,12 @@
 		})*/
 		$('.store_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
+		})
+		$('.store_block-product-select-dropdown-item').on('click', function() {
+			let selected = $(this).text()
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(selected)
+			$('.store_block-product-selected').find('.store_block-product-select-arrow').hide()
+			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		})
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
