@@ -65,6 +65,10 @@
 	background: #3374FB;
 	border-radius: 100px;
 }
+.menu__item-button:hover {
+	background: #FFFFFF;
+	color: #000000;
+}
 .menu__item:not(.menu__item-button):hover {
 	color: #3374FB;
 }
