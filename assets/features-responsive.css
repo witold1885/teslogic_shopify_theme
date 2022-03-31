@@ -5,6 +5,7 @@
 	}
 	.features__block {
 		height: calc(640 * 100vw / 1366);
+		justify-content: center;
 	}
 	.features__block:not(:last-child) {
 		margin-bottom: calc(40 * 100vw / 1366);
