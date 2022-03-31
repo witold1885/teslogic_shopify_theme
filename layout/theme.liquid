@@ -131,13 +131,13 @@
   </head>
 
   <body class="gradient">
-    <div class="container">
-
       {% if template == 'index' %}
         {% section 'header_main' %}
       {% else %}
         {% section 'header_custom' %}
       {% endif %}
+
+    <div class="container">
 
       <main id="MainContent" class="content-for-layout focus-none {{ 'main_' + page.handle }}" role="main" tabindex="-1">
         {{ content_for_layout }}
