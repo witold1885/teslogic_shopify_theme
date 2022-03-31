@@ -42,6 +42,10 @@
 .menu__item:hover {
 	color: #3374FB;
 }
+.menu__item-button:hover {
+	background: #FFFFFF;
+	color: #000000;
+}
 .menu__item a {
 	color: inherit;
 	text-decoration: none;
