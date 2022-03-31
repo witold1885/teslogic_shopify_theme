@@ -14,10 +14,12 @@
 		width: calc(408 * 100vw / 1366);
 	}
 	.features__block-odd .features__block-legend {
-		margin-left: calc(129 * 100vw / 1366);
+		/*margin-left: calc(129 * 100vw / 1366);*/
+		margin-left: 0;
 	}
 	.features__block-even .features__block-legend {
-		margin-right: calc(78 * 100vw / 1366);
+		/*margin-right: calc(78 * 100vw / 1366);*/
+		margin-right: 0;
 	}
 	.features__block-legend-title {
 		font-size: calc(44 * 100vw / 1366);
@@ -53,10 +55,12 @@
 		height: calc(320 * 100vw / 1366);
 	}*/
 	.features__block-odd .features__block-screen {
-		margin-right: calc(129 * 100vw / 1366);
+		/*margin-right: calc(129 * 100vw / 1366);*/
+		margin-right: 0;
 	}
 	.features__block-even .features__block-screen {
-		margin-left: calc(133 * 100vw / 1366);
+		/*margin-left: calc(133 * 100vw / 1366);*/
+		margin-left: 0;
 	}
 }
 
