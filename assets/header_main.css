@@ -79,10 +79,13 @@
 .banner-desktop-wrap {
 	position: absolute;
 	top: -96px;
+	width: 100%;
+	z-index: -1;
 }
 .banner-desktop {
 	width: 1366px;
 	height: 768px;
+	margin: 0 auto;
 	position: relative;
 	display: flex;
 	flex-direction: column;
