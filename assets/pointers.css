@@ -50,6 +50,8 @@
 	width: 7px;
 	height: 7px;
 	display: flex;
+	background: #FFFFFF;
+	border: 1px solid #0F77F0;
 }
 .pointer-point img {
 	width: 100%;
