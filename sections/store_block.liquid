@@ -151,8 +151,8 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		padding: 12px 23px 18px;
-		display: flex;
+		padding: 12px 21px 18px;
+		display: none;
 		flex-direction: column;
 		grid-row-gap: 16px;
 		background: #FFFFFF;
@@ -457,7 +457,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var amount = Number($('#amount').text())
+		/*var amount = Number($('#amount').text())
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
 			amount -= 1
@@ -466,6 +466,9 @@
 		$('.store_block-product-amount-button-plus').on('click', function() {
 			amount += 1
 			$('#amount').text(amount)
+		})*/
+		$('.store_block-product-select-dropdown-select').on('click', function() {
+			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
