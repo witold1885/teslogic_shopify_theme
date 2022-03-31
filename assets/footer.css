@@ -2,14 +2,10 @@ footer {
 	background: #010306;
 	padding: 100px 128px;
 	position: relative;
-	height: 600px;
 }
 .footer__wrap {
 	max-width: 1110px;
 	margin: 0 auto;
-	/*display: flex;
-	flex-direction: column;
-	justify-content: space-between;*/
 }
 .footer-top {
 	display: flex;

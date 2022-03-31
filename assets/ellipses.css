@@ -72,14 +72,14 @@
 	position: absolute;
 	top: 4913px;
 	width: 100%;
-	height: 1460px;
+	height: 1388px;
 	overflow: hidden;	
 	z-index: -1;
 }
 .ellipse-bottom-wrap {
 	position: relative;
 	width: 100%;
-	height: 1460px;
+	height: 1388px;
 }
 .ellipse-bottom {
 	position: absolute;
