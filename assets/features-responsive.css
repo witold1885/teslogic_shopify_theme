@@ -46,12 +46,12 @@
 	.features__block-switcher-case-dark {
 		box-shadow: 0px 0px calc(12 * 100vw / 1366) rgba(0, 0, 0, 0.16);
 	}
-	.features__block-screen {
+	/*.features__block-screen {
 		margin-top: calc(148 * 100vw / 1366);
 		margin-right: calc(129 * 100vw / 1366);
 		width: calc(647 * 100vw / 1366);
 		height: calc(320 * 100vw / 1366);
-	}
+	}*/
 	.features__block-odd .features__block-screen {
 		margin-right: calc(129 * 100vw / 1366);
 	}
