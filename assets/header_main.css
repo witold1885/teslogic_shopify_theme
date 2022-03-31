@@ -1,11 +1,6 @@
 #header_main {
 	width: 100%;
 	height: 768px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
 }
 #header_mobile {
 	display: none;
@@ -78,6 +73,11 @@
 }
 .banner-desktop {
 	width: 1366px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 }
 .title {
 	font-family: 'Gotham';
