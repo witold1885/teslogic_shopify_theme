@@ -3,6 +3,8 @@
 
 {%- style -%}
   header#header_main {
+  }
+  .banner-desktop {
     background: url({{ 'header_bg.png' | asset_url}});
     background-size: 100%;
     background-position-x: center;
@@ -28,9 +30,11 @@
       <div class="menu__item"><a href="/cart">Cart</a></div>
     </div>
   </div>
-  <div class="title">Model 3 and Y portable dashboard on your phone</div>
-  <div class="expand">
-    <img src="{{ 'expand.png' | asset_url }}">
+  <div class="banner-desktop">
+    <div class="title">Model 3 and Y portable dashboard on your phone</div>
+    <div class="expand">
+      <img src="{{ 'expand.png' | asset_url }}">
+    </div>
   </div>
 </header>
 <header id="header_sticky">

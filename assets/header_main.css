@@ -23,7 +23,7 @@
 	z-index: 10;
 }
 .top {
-	width: 100%;
+	width: 1366px;
 	height: 96px;
 	display: flex;
 	justify-content: space-between;
@@ -75,6 +75,9 @@
 .menu__item a {
 	color: inherit;
 	text-decoration: none;
+}
+.banner-desktop {
+	width: 1366px;
 }
 .title {
 	font-family: 'Gotham';
