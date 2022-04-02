@@ -29,6 +29,9 @@
 	justify-content: space-between;
 	align-items: center;
 }
+.header_main-fix {
+	height: 96px;
+}
 #header_sticky .top {
 	height: 64px;
 }
