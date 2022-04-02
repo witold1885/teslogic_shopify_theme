@@ -4,15 +4,14 @@
 {%- style -%}
   header#header_main {
   }
-  .banner-desktop {
+  .banner-desktop-wrap {
     background: url({{ 'header_bg.png' | asset_url}});
     background-size: 100%;
     background-position-x: center;
     background-repeat: no-repeat; 
   }
   @media screen and (min-width: 1367px) { 
-    .banner-desktop {
-      width: 100%;
+    .banner-desktop-wrap {
       background: url({{ 'header_bg_full.png' | asset_url}});
       background-position-x: center;
       background-repeat: no-repeat; 
