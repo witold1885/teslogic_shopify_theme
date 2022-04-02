@@ -130,7 +130,7 @@
 		/*display: flex;
 		justify-content: center;
 		align-items: center;*/
-		/*position: relative;*/
+		position: relative;
 	}
 	.features__block-screen-desktop {
 		display: none;
