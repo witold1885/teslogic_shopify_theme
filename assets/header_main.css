@@ -29,9 +29,6 @@
 	justify-content: space-between;
 	align-items: center;
 }
-.header_main-fix {
-	height: 96px;
-}
 #header_sticky .top {
 	height: 64px;
 }
@@ -81,7 +78,7 @@
 }
 .banner-desktop-wrap {
 	position: absolute;
-	top: -96px;
+	top: 0;
 	width: 100%;
 	z-index: -1;
 }
@@ -92,7 +89,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 }
 .title {

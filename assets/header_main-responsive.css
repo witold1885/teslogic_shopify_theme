@@ -10,9 +10,6 @@
 		width: calc(1366 * 100vw / 1366);
 		height: calc(96 * 100vw / 1366);
 	}
-	.header_main-fix {
-		height: calc(96 * 100vw / 1366);
-	}
 	#header_sticky .top {
 		height: calc(64 * 100vw / 1366);
 	}
