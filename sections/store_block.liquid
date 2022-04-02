@@ -34,7 +34,10 @@
 	.store_block-product-gallery-image {
 		width: 100%;
 		height: 100%;
-		background: rgba(69, 79, 99, 0.1);
+		/*background: rgba(69, 79, 99, 0.1);*/
+	}
+	.store_block-product-gallery-image img {
+		width: 100%;
 	}
 	.store_block-product-gallery-nav {
 		position: absolute;
@@ -388,7 +391,9 @@
 	<div class="store_block-title">Store</div>				
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
-			<div class="store_block-product-gallery-image"></div>
+			<div class="store_block-product-gallery-image">
+				<img src="{{ 'product_image.png' | asset_url }}">
+			</div>
 			<!-- <div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
 				<img src="{{ 'gallery_prev.png' | asset_url }}">
 			</div>
@@ -442,7 +447,9 @@
 		<div class="store_block-product-title">Teslogic transmitter</div>
 		<div class="store_block-product-price">$195</div>
 		<div class="store_block-product-gallery">
-			<div class="store_block-product-gallery-image"></div>
+			<div class="store_block-product-gallery-image">
+				<img src="{{ 'product_image.png' | asset_url }}">
+			</div>
 		</div>
 		<div class="store_block-product-info">
 			<div class="store_block-product-subtitle">
