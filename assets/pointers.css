@@ -53,6 +53,7 @@
 	background: #FFFFFF;
 	border: 1px solid #0F77F0;
 	border-radius: 100%;
+	box-sizing: border-box;
 }
 .pointer-point img {
 	width: 100%;
