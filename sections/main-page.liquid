@@ -31,6 +31,13 @@
     font-size: 14px;
     line-height: 17px;
   }
+  .static-content li::marker {
+    font-weight: bold;
+  }
+  @media screen and (max-width: 1100px) {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 {%- endstyle -%}
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
