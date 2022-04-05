@@ -5,7 +5,7 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
+  <!-- .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
@@ -15,6 +15,13 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+  } -->
+
+  .static-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Gotham';
+    font-style: normal;
   }
 {%- endstyle -%}
 
@@ -22,7 +29,7 @@
   <!-- <h1 class="main-page-title page-title h0">
     {{ page.title | escape }}
   </h1> -->
-  <div class="rte">
+  <div class="rte static-content">
     {{ page.content }}
   </div>
 </div>
