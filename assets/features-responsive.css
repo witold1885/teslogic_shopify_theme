@@ -11,7 +11,7 @@
 	}
 	.features__block-legend {
 		margin-top: calc(173 * 100vw / 1366);
-		width: calc(350 * 100vw / 1366);
+		width: calc(408 * 100vw / 1366);
 	}
 	.features__block-odd .features__block-legend {
 		margin-left: calc(129 * 100vw / 1366);
