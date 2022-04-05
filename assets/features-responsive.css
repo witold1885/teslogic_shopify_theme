@@ -65,6 +65,16 @@
 	}
 }
 
+@media screen and (min-width: 1000px) and (max-width: 1250px) {
+	.features__block-even .features__block-legend {
+		margin-left: 70px;
+		width: auto;
+	}
+	.features__block-even {
+		justify-content: flex-end;
+	}
+}
+
 @media screen and (max-width: 999px) { 
 	.features__title {
 		font-size: 36px;
