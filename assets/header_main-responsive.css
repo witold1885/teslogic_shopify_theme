@@ -31,7 +31,7 @@
 		border-radius: calc(100 * 100vw / 1366);
 	}
 	.banner-desktop-wrap {
-		top: calc(-96 * 100vw / 1366);
+		/*top: calc(-96 * 100vw / 1366);*/
 	}
 	.banner-desktop {
 		width: calc(1366 * 100vw / 1366);
