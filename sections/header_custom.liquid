@@ -17,10 +17,15 @@
       <div class="menu__item"><a href="#">FAQ</a></div>
       <div class="menu__item"><a href="/cart">Cart</a></div>
     </div>
+    <div class="buttons">
+      <div class="button"><img src="{{ 'cart.png' | asset_url }}"></div>
+      <div class="button"><img src="{{ 'burger.png' | asset_url }}"></div>
+    </div>
   </div>
 </header>
-<div class="header-fix"></div>
 
+<div class="header-fix"></div>
+  
 <script type="text/javascript">
   $(document).ready(function() {
     $('.menu__item-button').on('mouseover', function() {

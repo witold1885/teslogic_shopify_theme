@@ -24,3 +24,16 @@
 		border-radius: calc(100 * 100vw / 1366);
 	}
 }
+
+@media screen and (max-width: 999px) {
+	.menu {
+		display: none;
+	}
+	.buttons {
+		margin-right: 25px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		grid-column-gap: 40px;
+	}
+}
