@@ -20,3 +20,16 @@
   </div>
 </header>
 <div class="header-fix"></div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.menu__item-button').on('mouseover', function() {
+      $(this).css({color: '#000000'})
+      $(this).find('a').css({color: '#000000'})
+    })
+    $('.menu__item-button').on('mouseleave', function() {
+      $(this).css({color: '#FFFFFF'})
+      $(this).find('a').css({color: '#FFFFFF'})
+    })
+  })  
+</script>
