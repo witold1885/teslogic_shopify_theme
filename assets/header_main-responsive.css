@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1366px) {        
+@media screen and (min-width: 1000px) and (max-width: 1250px) {        
 	#header_main {
 		height: calc(768 * 100vw / 1366);
 	}
