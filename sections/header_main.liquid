@@ -6,7 +6,7 @@
   }
   .banner-desktop-wrap {
     background: url({{ 'header_bg.png' | asset_url}});
-    background-size: 100% 100%;
+    background-size: 100%;
     background-position-x: center;
     background-repeat: no-repeat; 
   }
@@ -16,6 +16,11 @@
       background-position-x: center;
       background-repeat: no-repeat; 
     }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1250px) {  
+    .banner-desktop-wrap {
+      background-size: cover;
+    }      
   }
   .banner {
     background: url({{ 'banner_mobile_full.png' | asset_url}});
