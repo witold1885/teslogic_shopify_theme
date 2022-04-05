@@ -7,6 +7,7 @@
 }
 .header-fix {
 	height: 96px;
+	display: block!important;
 }
 .top {
 	width: 100%;
