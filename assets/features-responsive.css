@@ -57,12 +57,12 @@
 		margin-right: 0;
 	}
 	.features__block-odd .features__block-screen {
-		/*margin-right: calc(129 * 100vw / 1366);*/
-		margin-right: 0;
+		margin-right: calc(129 * 100vw / 1366);
+		/*margin-right: 0;*/
 	}
 	.features__block-even .features__block-screen {
-		/*margin-left: calc(133 * 100vw / 1366);*/
-		margin-left: 0;
+		margin-left: calc(133 * 100vw / 1366);
+		/*margin-left: 0;*/
 	}
 }
 
