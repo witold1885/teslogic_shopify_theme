@@ -72,6 +72,12 @@
 		width: 18px;
 		height: 18px;
 	}
+	.faq__chapter-title-sign-opened {
+		display: none;
+	}
+	.faq__chapter-title-sign-closed {
+		display: block;
+	}
 	.faq__chapter-title-text {
 		font-weight: 500;
 		font-size: 26px;
