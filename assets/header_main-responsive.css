@@ -92,6 +92,26 @@
 	.top .button img {
 		width: 100%;
 	}
+	.button-close {
+		display: none;
+		z-index: 2;
+	}
+	.burger-menu-wrap {
+		display: none;
+		width: 390px;
+		height: 460px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.burger-menu {
+		width: 100%;
+		padding-top: 97.57px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		grid-row-gap: 24px;
+	}
 	.header_mobile-fix {
 		height: 104px;
 	}

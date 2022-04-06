@@ -78,7 +78,17 @@
     </div>
     <div class="buttons">
       <div class="button"><img src="{{ 'cart.png' | asset_url }}"></div>
-      <div class="button"><img src="{{ 'burger.png' | asset_url }}"></div>
+      <div class="button button-burger"><img src="{{ 'burger.png' | asset_url }}"></div>
+      <div class="button button-close"><img src="{{ 'close.png' | asset_url }}"></div>
+    </div>
+    <div class="burger-menu-wrap">
+      <div class="burger-menu">
+        <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
+        <div class="menu__item"><a href="/#features">Features</a></div>
+        <div class="menu__item"><a href="#">Manuals</a></div>
+        <div class="menu__item"><a href="/faq">FAQ</a></div>
+        <div class="menu__item"><a href="/cart">Cart</a></div>      
+      </div>
     </div>
   </div>
   <div class="header_mobile-fix"></div>
@@ -126,5 +136,13 @@
         $('#header_sticky').css({display: 'none'})
       }
     }
+    $('.button-burger').on('click', function() {
+      $('.burger-menu-wrap').show()
+      $('.button-close').show()
+    })
+    $('.button-close').on('click', function() {
+      $('.burger-menu-wrap').hide()
+      $('.button-close').hide()
+    })
   })  
 </script>
