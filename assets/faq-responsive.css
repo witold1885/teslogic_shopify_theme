@@ -86,7 +86,7 @@
     .faq__chapter-question {
       display: none;
     }
-    .faq__chapter-question:first-child {
+    .faq__chapter > .faq__chapter-question:first-child {
       margin-top: 24px;
     }
 	.faq__chapter-question-text {
