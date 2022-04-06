@@ -64,7 +64,12 @@
 	.top .button img {
 		width: 100%;
 	}
+	.button-close {
+		display: none;
+		z-index: 2;
+	}
 	.burger-menu-wrap {
+		display: none;
 		width: 390px;
 		height: 460px;
 		position: absolute;

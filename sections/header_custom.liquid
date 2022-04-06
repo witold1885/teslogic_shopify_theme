@@ -24,7 +24,8 @@
     </div>
     <div class="buttons">
       <div class="button"><img src="{{ 'cart.png' | asset_url }}"></div>
-      <div class="button"><img src="{{ 'burger.png' | asset_url }}"></div>
+      <div class="button button-burger"><img src="{{ 'burger.png' | asset_url }}"></div>
+      <div class="button button-close"><img src="{{ 'close.png' | asset_url }}"></div>
     </div>
     <div class="burger-menu-wrap">
       <div class="burger-menu">
@@ -50,5 +51,13 @@
       $(this).css({color: '#FFFFFF'})
       $(this).find('a').css({color: '#FFFFFF'})
     })
+    $('.button-burger').on('click', function() {
+      $('.burger-menu-wrap').show()
+      $('.button-close').show()
+    }
+    $('.button-close').on('click', function() {
+      $('.burger-menu-wrap').hide()
+      $('.button-close').hide()
+    }
   })  
 </script>
