@@ -37,11 +37,16 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var is_mobile = false
-		checkMobile()
+		var is_mobile = window.innerWidth < 1000
 		$(window).on('resize', checkMobile)
 		function checkMobile() {
 			is_mobile = window.innerWidth < 1000
+			if (!is_mobile) {
+				$('.faq__chapter-title-sign-closed').hide()
+				$('.faq__chapter-title-sign-opened').show()
+				$('.faq__chapter-question').show()
+			}
+
 		}
 		$('.faq__chapter-question-expand').on('click', function() {
 			if ($(this).text() == '+') {
