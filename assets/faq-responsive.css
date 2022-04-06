@@ -68,6 +68,7 @@
 	.faq__chapter-title {
 		grid-column-gap: 19px;
 		margin-bottom: 0;
+		cursor: pointer;
 	}
 	.faq__chapter-title-sign {
 		width: 18px;
