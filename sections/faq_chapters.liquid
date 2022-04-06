@@ -41,7 +41,7 @@
 		$(window).on('resize', checkMobile)
 		function checkMobile() {
 			window.is_mobile = window.innerWidth < 1000
-			console.log(window.is_mobile)
+			// console.log(window.is_mobile)
 			if (!window.is_mobile) {
 				$('.faq__chapter-title-sign-closed').hide()
 				$('.faq__chapter-title-sign-opened').show()
@@ -74,7 +74,7 @@
 			}
 		})
 		$('.faq__chapter-title').on('click', function() {
-			console.log('is_mobile: ' + window.is_mobile)
+			// console.log('is_mobile: ' + window.is_mobile)
 			if (window.is_mobile) {
 				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
