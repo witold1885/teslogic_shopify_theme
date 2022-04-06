@@ -143,43 +143,34 @@
 	],
 	"blocks": [
 		{
-			"type": "slide",
-			"name": "Question",
-			"settings": [
-				{
-					"type": "header",
-					"content": "Question Item"
-				},
-				{
-					"type": "number",
-					"id": "id",
-					"label": "id - integer"
-				},
-				{
-					"type": "text",
-					"id": "question",
-					"label": "Question - text"
-				},
-				{
-					"type": "html",
-					"id": "answer",
-					"label": "Answer - html"
-				}
-			]
-		},
-		{
-			"type": "header",
-			"name": "Header",
-			"settings": [
-				{
-					"type": "header",
-					"content": "Header"
-				},
-				{
-					"type": "text",
-					"id": "header",
-					"label": "Header"
-				}
+		  "name": "FAQ Section ",
+		  "type": "faqSection",
+		  "settings" : [
+			    {
+			    	"type": "text",
+			  		"id": "faqSection",
+			    	"label": "FAQ Product Type"
+					"blocks": [
+					    {
+							"type": "text",
+							"name": "Question"
+							"settings": [
+								{
+									"type": "text",
+									"label": "Enter Question",
+									"id": "faqQuestion",
+									"default": "FAQ question content goes here"
+								},
+								{
+									"type": "textarea",
+									"label": "Enter Answer",
+									"id": "faqAnswer",
+									"default": "Lorem ipsum dolor amit icit"
+								}
+							]
+					    } 
+				    ]
+			    }
 			]
 		}
 	]
