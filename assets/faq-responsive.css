@@ -85,6 +85,8 @@
 	}
     .faq__chapter-question {
       display: none;
+    }
+    .faq__chapter-question:first-child {
       margin-top: 24px;
     }
 	.faq__chapter-question-text {
@@ -103,6 +105,6 @@
 		font-size: 22px;
 		line-height: 32px;
 		color: #0F77F0;
-		margin-bottom: 0;
+		margin-bottom: 4px;
 	}
 }
