@@ -83,9 +83,9 @@
 		font-size: 26px;
 		line-height: 31px;
 	}
-	.faq__chapter-question {
-		display: none;
-	}
+    .faq__chapter-question {
+      display: none;
+    }
 	.faq__chapter-question-text {
 		font-size: 18px;
 		line-height: 140%;
