@@ -16,7 +16,7 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	grid-column-gap: 179px;
+	grid-column-gap: 156px;
 	grid-row-gap: 84px;
 	margin-left: 128px;
 	margin-right: 137px;
@@ -46,6 +46,7 @@
 	display: none;
 }
 .faq__chapter-title-text {
+	width: calc(100% - 28px - 22px);
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;
