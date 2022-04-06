@@ -1,8 +1,12 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_custom.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'header_custom-responsive.css' | asset_url }}">
 
-{%- style -%}
-
+{%- style -%}  
+  .banner {
+    background: url({{ 'burger_menu_light.png' | asset_url}});
+    background-position-x: center;
+    background-repeat: no-repeat; 
+  }
 {%- endstyle -%}
 
 <header id="header_custom">
@@ -21,6 +25,7 @@
       <div class="button"><img src="{{ 'cart.png' | asset_url }}"></div>
       <div class="button"><img src="{{ 'burger.png' | asset_url }}"></div>
     </div>
+    <div class="burger-menu"></div>
   </div>
 </header>
 
