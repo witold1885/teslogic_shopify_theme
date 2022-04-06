@@ -1,6 +1,6 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) { 
 	.faq__title {
-		font-size: calc(52 * 100vw / 1366);
+		/*font-size: calc(52 * 100vw / 1366);*/
 		line-height: calc(64 * 100vw / 1366);
 	}
 	.faq__chapters {
@@ -24,22 +24,22 @@
 	}
 	.faq__chapter-title-text {
 		width: calc(100% - 28 * 100vw / 1366 - 22 * 100vw / 1366);
-		font-size: calc(36 * 100vw / 1366);
+		/*font-size: calc(36 * 100vw / 1366);*/
 		line-height: calc(32 * 100vw / 1366);
 	}
 	.faq__chapter-question-text {
-		font-size: calc(22 * 100vw / 1366);
+		/*font-size: calc(22 * 100vw / 1366);*/
 		line-height: calc(32 * 100vw / 1366);
 	}
 	.faq__chapter-question-answer {
 		margin-top: calc(12 * 100vw / 1366);
-		font-size: calc(14 * 100vw / 1366);
+		/*font-size: calc(14 * 100vw / 1366);*/
 		line-height: calc(17 * 100vw / 1366);
 	}
 	.faq__chapter-question-expand {
 		width: calc(9 * 100vw / 1366);
 		height: calc(32 * 100vw / 1366);
-		font-size: calc(22 * 100vw / 1366);
+		/*font-size: calc(22 * 100vw / 1366);*/
 		line-height: calc(32 * 100vw / 1366);
 		margin-bottom: calc(12 * 100vw / 1366);
 	}
