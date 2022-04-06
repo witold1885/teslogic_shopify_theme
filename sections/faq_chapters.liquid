@@ -49,7 +49,11 @@
 				return
 			}
 		})
-		console.log(window.innerWidth)
+		if (window.innerWidth < 1000) {
+			$('.faq__chapter-title').on('click', function() {
+				$(this).parent('.faq__chapter').find('.faq__chapter-question').toggle()
+			})
+		}
 	})
 </script>
 
