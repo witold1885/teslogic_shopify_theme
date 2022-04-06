@@ -22,8 +22,32 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Вопрос вопросович вопросов вопросик длинный вопрос",
-            "answer": "Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме."
+            "question": "Does connecting teslogic affect the car warranty?",
+            "answer": "No, it doesn't. Installing the transmitter doesn't make any changes to the car equipment"
+          }
+        },
+        "a6cb0067-9e41-4711-8b74-bb9e00b37203": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "I have installed the transmitter. How to connect it to the app?",
+            "answer": "Just run the application, the connection is automatic. In case of problems, try restarting your phone. The transmitter is active when the car is not in sleep mode"
+          }
+        },
+        "50e32532-ad70-4e2d-afc5-440d1c15d993": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "What type of connection does Teslogic use?",
+            "answer": "Teslogic is connected via Bluetooth Low Energy protocol"
+          }
+        },
+        "4f5e5708-4bec-429c-a0cf-0801c20a7e16": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "Does Teslogic App transmit any user data to remote server?",
+            "answer": "The App transmits only depersonalized data for the purpose of statistics, the privacy of your data is s of the highest priority for us"
           }
         },
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6": {
@@ -46,6 +70,9 @@
         "c17a1a0b-edf0-4b51-a238-64c2f62af8b7",
         "ed64ad88-6dc4-4875-ad76-61abd5464169",
         "7398a68d-5d4b-444f-b6ec-24a83207f7e8",
+        "a6cb0067-9e41-4711-8b74-bb9e00b37203",
+        "50e32532-ad70-4e2d-afc5-440d1c15d993",
+        "4f5e5708-4bec-429c-a0cf-0801c20a7e16",
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
         "607d0c5c-e1a8-4873-be59-e4c596186b15"
       ],
