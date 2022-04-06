@@ -54,15 +54,31 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "2",
-            "chapter": "Test test chapter for testing"
+            "chapter": "Compatibility"
           }
         },
         "607d0c5c-e1a8-4873-be59-e4c596186b15": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Test question 1",
-            "answer": "Answer for this test question"
+            "question": "Does Teslogic fit all Model 3\/Y or are there any exceptions?",
+            "answer": "Teslogic is compatible with all Model 3\/Y except early 17-18' Model 3. Please specify your model correctly in the order form, wiring differs depending on the model and year of the car."
+          }
+        },
+        "366cec18-ea9e-4fa6-bcd5-229bd8236ffc": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "Is there a version of Teslogic for Model S or X?",
+            "answer": "At the moment there are no such versions. If you are interested in Teslogic for model S\/X, please contact us, and we will think how we can help you"
+          }
+        },
+        "a0405dcf-1763-44c2-aee2-79e8c182d253": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "What versions of iOS\/Android is the transmitter compatible with?",
+            "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher . Using older devices, may cause a noticeable decrease in the data exchange rate"
           }
         }
       },
@@ -74,7 +90,9 @@
         "50e32532-ad70-4e2d-afc5-440d1c15d993",
         "4f5e5708-4bec-429c-a0cf-0801c20a7e16",
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
-        "607d0c5c-e1a8-4873-be59-e4c596186b15"
+        "607d0c5c-e1a8-4873-be59-e4c596186b15",
+        "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
+        "a0405dcf-1763-44c2-aee2-79e8c182d253"
       ],
       "settings": {
       }
