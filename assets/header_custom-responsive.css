@@ -76,6 +76,7 @@
 		padding-top: 97.57px;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		grid-row-gap: 24px;
 	}
 }
