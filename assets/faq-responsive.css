@@ -23,6 +23,7 @@
 		height: calc(28 * 100vw / 1366);
 	}
 	.faq__chapter-title-text {
+		width: calc(100% - 28 * 100vw / 1366 - 22 * 100vw / 1366);
 		font-size: calc(36 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
 	}
