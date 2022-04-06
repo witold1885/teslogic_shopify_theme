@@ -71,8 +71,9 @@
 				return
 			}
 		})
-		if (window.is_mobile) {
-			$('.faq__chapter-title').on('click', function() {
+		$('.faq__chapter-title').on('click', function() {
+			console.log('is_mobile: ' + window.is_mobile)
+			if (window.is_mobile) {
 				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
 					$(this).find('.faq__chapter-title-sign-opened').hide()
@@ -87,8 +88,8 @@
 					$(this).css('margin-bottom', '24px')
 					return
 				}
-			})
-		}
+			}
+		})
 	})
 </script>
 
