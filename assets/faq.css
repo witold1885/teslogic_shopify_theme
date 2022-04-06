@@ -14,6 +14,7 @@
 	margin-top: 92px;
 	margin-bottom: 186px;
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	grid-column-gap: 179px;
 	grid-row-gap: 84px;
