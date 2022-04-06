@@ -34,8 +34,38 @@
 			line-height: calc(32 * 100vw / 1366);
 		}
 	}
+	@media screen and (max-width: 999px) {
+		.back_products {
+			margin-bottom: 80px;
+		}
+		.back_products-button {
+			width: 262px;
+			height: 64px;
+			background: #BAE4B2;
+			border: 1px solid #BAE4B2;
+			border-radius: 100px;
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 31px;
+		}
+	}
 </style>
 
 <div class="back_products">
-	<button class="back_products-button">Back to product page</button>				
+	<a href="/" class="back_products-button">Back to product page</a>				
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		setButtonText()
+		$(window).on('resize', setButtonText)
+		function setButtonText() {
+			if (window.innerWidth < 1000) {
+				$('.back_products-button').text('Back to product')
+			}
+			else {
+				$('.back_products-button').text('Back to product page')
+			}
+		}
+	})
+</script>
