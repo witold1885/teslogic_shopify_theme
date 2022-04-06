@@ -138,12 +138,11 @@
         {% section 'header_main' %}
       {% else %}
         {% section 'header_custom' %}
-        {{ page.handle }}
       {% endif %}
 
     <div class="container">
 
-      <main id="MainContent" class="content-for-layout focus-none {{ 'main_' + page.handle }}" role="main" tabindex="-1">
+      <main id="MainContent" class="content-for-layout focus-none main_{{ page.handle }}" role="main" tabindex="-1">
         {{ content_for_layout }}
       </main>
 
