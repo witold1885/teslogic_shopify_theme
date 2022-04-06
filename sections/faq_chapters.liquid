@@ -37,12 +37,12 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var is_mobile = window.innerWidth < 1000
+		window.is_mobile = window.innerWidth < 1000
 		$(window).on('resize', checkMobile)
 		function checkMobile() {
-			is_mobile = window.innerWidth < 1000
-			console.log(is_mobile)
-			if (!is_mobile) {
+			window.is_mobile = window.innerWidth < 1000
+			console.log(window.is_mobile)
+			if (!window.is_mobile) {
 				$('.faq__chapter-title-sign-closed').hide()
 				$('.faq__chapter-title-sign-opened').show()
 				$('.faq__chapter-question').show()
@@ -57,7 +57,7 @@
 			if ($(this).text() == '+') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
 				$(this).text('-')
-				if (is_mobile) {
+				if (window.is_mobile) {
 					$(this).css('margin-bottom', '28px')
 				}
 				return
@@ -65,13 +65,13 @@
 			if ($(this).text() == '-') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
 				$(this).text('+')
-				if (is_mobile) {
+				if (window.is_mobile) {
 					$(this).css('margin-bottom', '4px')
 				}
 				return
 			}
 		})
-		if (is_mobile) {
+		if (window.is_mobile) {
 			$('.faq__chapter-title').on('click', function() {
 				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
