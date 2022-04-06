@@ -46,7 +46,11 @@
 				$('.faq__chapter-title-sign-opened').show()
 				$('.faq__chapter-question').show()
 			}
-
+			else {
+				$('.faq__chapter-title-sign-closed').show()
+				$('.faq__chapter-title-sign-opened').hide()
+				$('.faq__chapter-question').hide()
+			}
 		}
 		$('.faq__chapter-question-expand').on('click', function() {
 			if ($(this).text() == '+') {
