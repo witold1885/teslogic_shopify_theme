@@ -55,12 +55,14 @@
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
 					$(this).find('.faq__chapter-title-sign-opened').hide()
 					$(this).find('.faq__chapter-title-sign-closed').show()
+					$(this).css('margin-bottom', '0')
 					return
 				}
 				if ($(this).find('.faq__chapter-title-sign-closed').is(':visible')) {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').show()
 					$(this).find('.faq__chapter-title-sign-closed').hide()
 					$(this).find('.faq__chapter-title-sign-opened').show()
+					$(this).css('margin-bottom', '24px')
 					return
 				}
 			})

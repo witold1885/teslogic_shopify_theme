@@ -86,9 +86,6 @@
     .faq__chapter-question {
       display: none;
     }
-    .faq__chapter > .faq__chapter-question:first-child {
-      margin-top: 24px;
-    }
 	.faq__chapter-question-text {
 		font-size: 18px;
 		line-height: 140%;
