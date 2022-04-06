@@ -134,3 +134,54 @@
 		})
 	})
 </script>
+
+{% schema %}
+{
+	"name": "FAQ",
+	"class": "index-section index-section — featured-sider",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "slide",
+			"name": "Question",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Question Item"
+				},
+				{
+					"type": "number",
+					"id": "id",
+					"label": "id - integer"
+				},
+				{
+					"type": "text",
+					"id": "question",
+					"label": "Question - text"
+				},
+				{
+					"type": "html",
+					"id": "answer",
+					"label": "Answer - html"
+				}
+			]
+		},
+		{
+			"type": "header",
+			"name": "Header",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Header"
+				},
+				{
+					"type": "text",
+					"id": "header",
+					"label": "Header"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
