@@ -6,13 +6,13 @@
 	.faq__chapters {
 		margin-top: calc(92 * 100vw / 1366);
 		margin-bottom: calc(186 * 100vw / 1366);
-		grid-column-gap: calc(140 * 100vw / 1366);
+		grid-column-gap: calc(139 * 100vw / 1366);
 		grid-row-gap: calc(84 * 100vw / 1366);
 		margin-left: calc(128 * 100vw / 1366);
 		margin-right: calc(137 * 100vw / 1366);
 	}
 	.faq__chapter {
-		width: calc(461 * 100vw / 1366);
+		width: calc(481 * 100vw / 1366);
 	}
 	.faq__chapter-title {
 		grid-column-gap: calc(22 * 100vw / 1366);
