@@ -43,6 +43,12 @@
       margin-right: 128px;
     }
   }
+  @media screen and (max-width: 999px) {
+    .static-content {
+      margin-left: calc(24 * 100vw / 390);
+      margin-right: calc(24 * 100vw / 390);
+    }
+  }
 {%- endstyle -%}
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
