@@ -51,7 +51,18 @@
 		})
 		if (window.innerWidth < 1000) {
 			$('.faq__chapter-title').on('click', function() {
-				$(this).parent('.faq__chapter').find('.faq__chapter-question').toggle()
+				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
+					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
+					$(this).find('.faq__chapter-title-sign-opened').hide()
+					$(this).find('.faq__chapter-title-sign-closed').show()
+					return
+				}
+				if ($(this).find('.faq__chapter-title-sign-closed').is(':visible')) {
+					$(this).parent('.faq__chapter').find('.faq__chapter-question').show()
+					$(this).find('.faq__chapter-title-sign-closed').hide()
+					$(this).find('.faq__chapter-title-sign-opened').show()
+					return
+				}
 			})
 		}
 	})
