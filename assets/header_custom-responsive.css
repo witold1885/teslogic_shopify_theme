@@ -65,9 +65,10 @@
 		width: 100%;
 	}
 	.burger-menu {
-		width: 100%;
+		width: 390px;
 		height: 460px;
 		position: absolute;
 		top: 0;
+		right: 0;
 	}
 }
