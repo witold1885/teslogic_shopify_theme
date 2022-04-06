@@ -77,4 +77,22 @@
 		font-size: 26px;
 		line-height: 31px;
 	}
+	.faq__chapter-question-text {
+		font-size: 18px;
+		line-height: 140%;
+	}
+	.faq__chapter-question-answer {
+		display: none;
+		margin-top: 16px;
+		font-size: 14px;
+		line-height: 17px;
+	}
+	.faq__chapter-question-expand {
+		width: 9px;
+		height: 32px;
+		font-size: 22px;
+		line-height: 32px;
+		color: #0F77F0;
+		margin-bottom: 24px;
+	}
 }
