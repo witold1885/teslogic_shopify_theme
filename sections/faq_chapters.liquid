@@ -17,21 +17,27 @@
 						</div>
 						<div class="faq__chapter-title-text">{{ block.settings.chapter }}</div>
 					</div>
-					<div class="faq__chapter-question">
-						<div class="faq__chapter-question-text">Вопрос вопросович вопросов вопросик длинный вопрос</div>
-						<div class="faq__chapter-question-answer">Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме.</div>
-						<div class="faq__chapter-question-expand">+</div>
-					</div>
-					<div class="faq__chapter-question">
-						<div class="faq__chapter-question-text">Вопрос вопросович вопросов вопросик</div>
-						<div class="faq__chapter-question-answer">Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме.</div>
-						<div class="faq__chapter-question-expand">+</div>
-					</div>
-					<div class="faq__chapter-question">
-						<div class="faq__chapter-question-text">Вопрос вопросович вопросов вопросик</div>
-						<div class="faq__chapter-question-answer">Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме.</div>
-						<div class="faq__chapter-question-expand">+</div>
-					</div>
+					{% for subblock in section.blocks %}
+						{% if subblock.type == "question" %}
+							{% if subblock.settings.chapter_id == block.settings.chapter_id %}
+								<div class="faq__chapter-question">
+									<div class="faq__chapter-question-text">{{ subblock.settings.question }}</div>
+									<div class="faq__chapter-question-answer">{{ subblock.settings.answer }}</div>
+									<div class="faq__chapter-question-expand">+</div>
+								</div>
+								<!-- <div class="faq__chapter-question">
+									<div class="faq__chapter-question-text">Вопрос вопросович вопросов вопросик</div>
+									<div class="faq__chapter-question-answer">Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме.</div>
+									<div class="faq__chapter-question-expand">+</div>
+								</div>
+								<div class="faq__chapter-question">
+									<div class="faq__chapter-question-text">Вопрос вопросович вопросов вопросик</div>
+									<div class="faq__chapter-question-answer">Непосредственные участники технического прогресса в равной степени предоставлены сами себе. Являясь всего лишь частью общей картины, предприниматели в сети интернет, инициированные исключительно синтетически, преданы социально-демократической анафеме.</div>
+									<div class="faq__chapter-question-expand">+</div>
+								</div> -->
+							{% endif %}
+						{% endif %}
+					{% endfor %}
 				</div>
 			{% endif %}
 		{% endfor %}
