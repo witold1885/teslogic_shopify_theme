@@ -41,6 +41,7 @@
 		$(window).on('resize', checkMobile)
 		function checkMobile() {
 			is_mobile = window.innerWidth < 1000
+			console.log(is_mobile)
 			if (!is_mobile) {
 				$('.faq__chapter-title-sign-closed').hide()
 				$('.faq__chapter-title-sign-opened').show()
