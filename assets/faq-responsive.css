@@ -66,7 +66,7 @@
 	}
 	.faq__chapter-title {
 		grid-column-gap: 19px;
-		margin-bottom: 24px;
+		margin-bottom: 0;
 	}
 	.faq__chapter-title-sign {
 		width: 18px;
@@ -85,6 +85,7 @@
 	}
     .faq__chapter-question {
       display: none;
+      margin-top: 24px;
     }
 	.faq__chapter-question-text {
 		font-size: 18px;
@@ -102,6 +103,6 @@
 		font-size: 22px;
 		line-height: 32px;
 		color: #0F77F0;
-		margin-bottom: 4px;
+		margin-bottom: 0;
 	}
 }
