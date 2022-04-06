@@ -1,18 +1,30 @@
 {
-    "sections":
-    {
-        "faq_chapters":
-        {
-            "type": "faq_chapters",
-            "settings":
-            {}
-        },
-        "back_products":
-        {
-            "type": "back_products",
-            "settings":
-            {}
+  "sections": {
+    "faq_chapters": {
+      "type": "faq_chapters",
+      "blocks": {
+        "c17a1a0b-edf0-4b51-a238-64c2f62af8b7": {
+          "type": "chapter",
+          "settings": {
+            "chapter_id": "1",
+            "chapter": "Раздел"
+          }
         }
+      },
+      "block_order": [
+        "c17a1a0b-edf0-4b51-a238-64c2f62af8b7"
+      ],
+      "settings": {
+      }
     },
-    "order": ["faq_chapters", "back_products"]
+    "back_products": {
+      "type": "back_products",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "faq_chapters",
+    "back_products"
+  ]
 }

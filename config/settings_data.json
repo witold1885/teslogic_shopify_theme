@@ -21,16 +21,16 @@
   "presets": {
     "Default": {
       "sections": {
-	      "header_main": {
-	        "type": "header_main",
-	        "settings": {
-	        }
-	      },
-	      "header_custom": {
-	        "type": "header_custom",
-	        "settings": {
-	        }
-	      },
+        "header_main": {
+          "type": "header_main",
+          "settings": {
+          }
+        },
+        "header_custom": {
+          "type": "header_custom",
+          "settings": {
+          }
+        },
         "footer": {
           "type": "footer",
           "settings": {
