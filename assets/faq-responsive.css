@@ -64,4 +64,17 @@
 	.faq__chapter {
 		width: 342px;
 	}
+	.faq__chapter-title {
+		grid-column-gap: 19px;
+		margin-bottom: 24px;
+	}
+	.faq__chapter-title-sign {
+		width: 18px;
+		height: 18px;
+	}
+	.faq__chapter-title-text {
+		font-weight: 500;
+		font-size: 26px;
+		line-height: 31px;
+	}
 }
