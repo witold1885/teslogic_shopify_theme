@@ -37,11 +37,17 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		var is_mobile = false
+		checkMobile()
+		$(window).on('resize', checkMobile)
+		function checkMobile() {
+			is_mobile = window.innerWidth < 1000
+		}
 		$('.faq__chapter-question-expand').on('click', function() {
 			if ($(this).text() == '+') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
 				$(this).text('-')
-				if (window.innerWidth < 1000) {
+				if (is_mobile) {
 					$(this).css('margin-bottom', '28px')
 				}
 				return
@@ -49,13 +55,13 @@
 			if ($(this).text() == '-') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
 				$(this).text('+')
-				if (window.innerWidth < 1000) {
+				if (is_mobile) {
 					$(this).css('margin-bottom', '4px')
 				}
 				return
 			}
 		})
-		if (window.innerWidth < 1000) {
+		if (is_mobile) {
 			$('.faq__chapter-title').on('click', function() {
 				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
