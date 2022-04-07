@@ -20,7 +20,7 @@
   }
 }*/
 
-.contact__button {
+/*.contact__button {
   margin-top: 3rem;
 }
 
@@ -28,7 +28,7 @@
   .contact__button {
     margin-top: 4rem;
   }
-}
+}*/
 
 /*@media screen and (min-width: 750px) {
   .contact__fields {
@@ -110,7 +110,7 @@
   font-size: 32px;
   line-height: 52px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
   color: #FFFFFF;
 }
