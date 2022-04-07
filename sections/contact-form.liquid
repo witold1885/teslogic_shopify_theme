@@ -36,6 +36,7 @@
       {%- endif -%}
       <div class="contact__wrap">
         <div class="contact__form">
+          <div class="contact__form-ellipse"></div>
           <div class="contact__fields">
             <div class="field">
               <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
@@ -88,7 +89,6 @@
               {{ 'templates.contact.form.send' | t }}
             </button>
           </div>
-          <div class="contact__form-ellipse"></div>
         </div>
         <div class="contact__info"></div>
       </div>
