@@ -8,6 +8,12 @@
 	color: #000000;
 	margin-bottom: 71px;
 }
+.manuals__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-row-gap: 120px;
+}
 .manuals__video {
 	width: 1110px;
 	height: 617px;
