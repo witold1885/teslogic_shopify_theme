@@ -159,7 +159,7 @@
   }
   .contact__wrap {
     grid-column-gap: calc(94 * 100vw / 1366);
-    margin-left: calc(90 * 100vw / 1366);
+    /*margin-left: calc(90 * 100vw / 1366);*/
   }
   .contact__form {
     width: calc(771 * 100vw / 1366);
