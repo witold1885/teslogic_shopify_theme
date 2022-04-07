@@ -13,10 +13,11 @@
 	flex-direction: column;
 	align-items: center;
 	grid-row-gap: 120px;
+	margin-bottom: 120px;
 }
 .manuals__video {
 	width: 1110px;
-	height: 617px;
+	height: 624.375px;
 	border-radius: 11.0448px;
 	overflow: hidden;
 }
