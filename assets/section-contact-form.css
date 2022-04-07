@@ -83,4 +83,13 @@
   height: 56px;
   background: #FFFFFF;
   border-radius: 15px;
+  padding: 0px 23px;
+  border: none;
+  outline: none;
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #9FA1A8;
 }
