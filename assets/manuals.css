@@ -45,8 +45,6 @@
 
 @media screen and (max-width: 999px) {
 	.manuals__title {
-		font-family: 'SF Pro';
-		font-style: normal;
 		font-weight: 700;
 		font-size: 36px;
 		line-height: 43px;
