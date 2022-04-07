@@ -236,6 +236,54 @@
     left: 0;
     right: 0;
   }
+  .contact__fields {
+    grid-row-gap: 24px;
+    margin-top: 88px;
+  }
+  .contact__field-input {
+    width: 280px;
+    height: 40px;
+    padding: 8px 16px;
+    font-size: 18px;
+    line-height: 140%;
+  }
+  .contact__field-textarea {
+    height: 145px;
+  }
+  .contact__button {
+    width: 140px;
+    height: 64px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
+  }
+  .contact__info {
+    margin-top: 127px;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 94px;
+  }
+  .contact__info-item {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 18px;
+  }
+  .contact__info-item-title {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 32px;
+    color: #000000;
+  }
+  .contact__info-item-text {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #000000;
+  }
 }
 
 @media screen and (max-width: 591px) {
