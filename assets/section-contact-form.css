@@ -93,6 +93,7 @@
   font-size: 24px;
   line-height: 32px;
   color: #9FA1A8;
+  box-sizing: border-box;
 }
 .contact__field-textarea {
   height: 194px;
