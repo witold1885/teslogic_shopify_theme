@@ -77,6 +77,7 @@
   display: flex;
   flex-direction: column;
   grid-row-gap: 32px;
+  margin-top: 127px;
 }
 .contact__field-input {
   width: 424px;
@@ -92,4 +93,8 @@
   font-size: 24px;
   line-height: 32px;
   color: #9FA1A8;
+}
+.contact__field-textarea {
+  height: 194px;
+  resize: none;
 }
