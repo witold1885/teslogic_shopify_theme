@@ -9,7 +9,7 @@
 	<div class="manuals__title">Manuals</div>
 	<div class="manuals__list">
 		{% for block in section.blocks %}
-
+			{{ block.settings.code }}
 		{% endfor %}
 	</div>
 </div>
