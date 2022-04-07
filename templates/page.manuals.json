@@ -1,12 +1,24 @@
 {
-    "sections":
-    {
-        "manuals":
-        {
-            "type": "manuals",
-            "settings": {
-            }
+  "sections": {
+    "manuals": {
+      "type": "manuals",
+      "blocks": {
+        "5af7a634-396f-494e-9d28-e8e42e7a1272": {
+          "type": "manual",
+          "settings": {
+            "manual": "Model 3 '21+",
+            "code": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/www.youtube.com\/embed\/K2OD5hA0rrs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>"
+          }
         }
-    },
-    "order": ["manuals"]
+      },
+      "block_order": [
+        "5af7a634-396f-494e-9d28-e8e42e7a1272"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "manuals"
+  ]
 }
