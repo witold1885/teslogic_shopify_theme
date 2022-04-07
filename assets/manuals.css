@@ -45,6 +45,11 @@
 
 @media screen and (max-width: 999px) {
 	.manuals__title {
+<<<<<<< HEAD
+=======
+		font-family: 'SF Pro';
+		font-style: normal;
+>>>>>>> 25b92d279c6980a5ab94b3886c5aa75b35e6144a
 		font-weight: 700;
 		font-size: 36px;
 		line-height: 43px;
@@ -60,8 +65,11 @@
 		height: calc(194 * 100vw / 390);
 		border-radius: 11.0448px;
 	}
+<<<<<<< HEAD
 	.manuals__video iframe {
 		width: 100%;
 		height: 100%;
 	}
+=======
+>>>>>>> 25b92d279c6980a5ab94b3886c5aa75b35e6144a
 }
