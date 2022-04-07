@@ -58,7 +58,7 @@
 .contact__wrap {
   display: flex;
   grid-column-gap: 94px;
-  margin-left: 90px;
+  /*margin-left: 90px;*/
 }
 .contact__form {
   width: 771px;
