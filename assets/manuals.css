@@ -4,3 +4,7 @@
 	border-radius: 11.0448px;
 	overflow: hidden;
 }
+.manuals__video iframe {
+	width: 100%;
+	height: 100%;
+}
