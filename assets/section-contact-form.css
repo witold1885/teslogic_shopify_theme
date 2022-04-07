@@ -51,6 +51,10 @@
   text-align: center;
   margin: 0 auto 72px;
 }
+.contact__wrap {
+  display: flex;
+  grid-column-gap: 94px;
+}
 .contact__form {
   width: 771px;
   height: 771px;
@@ -113,4 +117,30 @@
   justify-content: center;
   align-items: center;
   color: #FFFFFF;
+}
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 94px;
+}
+.contact__info-item {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 18px;
+}
+.contact__info-item-title {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 32px;
+  color: #000000;
+}
+.contact__info-item-text {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: #000000;
 }
