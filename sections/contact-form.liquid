@@ -39,7 +39,7 @@
           <div class="contact__form-ellipse"></div>
           <div class="contact__fields">
             <div class="field">
-              <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
+              <input class="contact__field-input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
               <!-- <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label> -->
             </div>
             <div class="field field--with-error">
@@ -47,7 +47,7 @@
                 autocomplete="email"
                 type="email"
                 id="ContactForm-email"
-                class="field__input"
+                class="contact__field-input"
                 name="contact[email]"
                 spellcheck="false"
                 autocapitalize="off"
@@ -68,14 +68,14 @@
               {%- endif -%}
             </div>
             <div class="field">
-              <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
+              <input type="tel" id="ContactForm-phone" class="contact__field-input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
               <!-- <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label> -->
             </div>
             <div class="field">
               <textarea
                 rows="10"
                 id="ContactForm-body"
-                class="text-area field__input"
+                class="text-area contact__field-input"
                 name="contact[{{ 'templates.contact.form.comment' | t }}]"
                 placeholder="{{ 'templates.contact.form.comment' | t }}"
               >

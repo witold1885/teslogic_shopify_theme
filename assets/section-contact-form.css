@@ -78,7 +78,7 @@
   flex-direction: column;
   grid-row-gap: 32px;
 }
-.field__input {
+.contact__field-input {
   width: 424px;
   height: 56px;
   background: #FFFFFF;
