@@ -204,3 +204,41 @@
     line-height: calc(32 * 100vw / 1366);
   }
 }
+
+@media screen and (max-width: 999px) {
+  .contact {
+    padding-top: 16px;
+    padding-bottom: 80px;
+  }
+  .contact__title {
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin: 0 auto 23px;
+  }
+  .contact__wrap {
+    flex-direction: column;
+    grid-row-gap: 40px;
+    margin-left: 0;
+  }
+  .contact__form {
+    width: 100%;
+    max-width: 591px;
+    height: 591px;
+    grid-row-gap: 40px;
+  }
+  .contact__form-ellipse {
+    display: block!important;
+    background: #F4F6FA;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    z-index: -1;
+  }
+}
