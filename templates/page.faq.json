@@ -80,6 +80,92 @@
             "question": "What versions of iOS\/Android is the transmitter compatible with?",
             "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher . Using older devices, may cause a noticeable decrease in the data exchange rate"
           }
+        },
+        "d4ebb7fb-5941-40e3-9573-318a4b7df89a": {
+          "type": "chapter",
+          "settings": {
+            "chapter_id": "3",
+            "chapter": "Indicators, Data"
+          }
+        },
+        "faf361c7-ec88-4ccd-86fb-a43079c4295c": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "The results of acceleration measurements differ from those of other special meters. What data should I trust?",
+            "answer": "Teslogic estimates, based on the statistics of your particular car, how much you can roughly drive in the city and on the highway. Highway speed should not exceed 70mph. Weather and terrain can greatly affect this estimate."
+          }
+        },
+        "f313dd55-ff03-400a-b2d2-c63ffeb48d93": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What do Range indicators \"City\", \"Highway\" mean?",
+            "answer": "Based on the statistics of your driving, Teslogic estimates driving range without charging in the city and on the highway. Highway speed should not exceed 70mph. Weather and terrain can affect this estimate."
+          }
+        },
+        "88cd5123-305a-4e1d-b213-f49c7071940d": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What is \"Saved Miles\"?",
+            "answer": "Teslogic calculates how much energy you have saved by regenerative engine braking and how long this energy will last. The less you use the brake pedal, the more energy you can save. On the highway this figure is usually much lower than in the city."
+          }
+        },
+        "f29bcefa-fb81-4859-8a88-5b71ce3a6c84": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What is \"Max Power\"?",
+            "answer": "The maximum power that was transferred to the engines during the current trip."
+          }
+        },
+        "96c8cee5-457a-478d-b17a-cb1e2d49eae3": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "How to reset trip meter?",
+            "answer": "Just tap on average speed or mileage"
+          }
+        },
+        "e4de832a-9838-4a87-98b6-a687fde24ff3": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "How to start 0-60 measurement?",
+            "answer": "Stop the car and then fully press the accelerator pedal to start the measurement."
+          }
+        },
+        "44b237bd-1e37-4cc5-977e-3feddcad435c": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "How to create a route for the navigator?",
+            "answer": "Share your destination point with Teslogic App via Google Maps App"
+          }
+        },
+        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c": {
+          "type": "chapter",
+          "settings": {
+            "chapter_id": "4",
+            "chapter": "Warranty, Safety"
+          }
+        },
+        "c3401778-1354-4503-b197-f8b5d9a622a9": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "Is there a manufacturer's warranty for the Teslogic transmitter?",
+            "answer": "The Teslogic transmitter comes with a full 3-year warranty. If you have any problems, or the transmitter is out of order, please contact us and we will help"
+          }
+        },
+        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "Can using a transmitter harm my car?",
+            "answer": "No, it can't"
+          }
         }
       },
       "block_order": [
@@ -92,7 +178,18 @@
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
         "607d0c5c-e1a8-4873-be59-e4c596186b15",
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
-        "a0405dcf-1763-44c2-aee2-79e8c182d253"
+        "a0405dcf-1763-44c2-aee2-79e8c182d253",
+        "d4ebb7fb-5941-40e3-9573-318a4b7df89a",
+        "faf361c7-ec88-4ccd-86fb-a43079c4295c",
+        "f313dd55-ff03-400a-b2d2-c63ffeb48d93",
+        "88cd5123-305a-4e1d-b213-f49c7071940d",
+        "f29bcefa-fb81-4859-8a88-5b71ce3a6c84",
+        "96c8cee5-457a-478d-b17a-cb1e2d49eae3",
+        "e4de832a-9838-4a87-98b6-a687fde24ff3",
+        "44b237bd-1e37-4cc5-977e-3feddcad435c",
+        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c",
+        "c3401778-1354-4503-b197-f8b5d9a622a9",
+        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884"
       ],
       "settings": {
       }
