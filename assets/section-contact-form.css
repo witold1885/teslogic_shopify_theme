@@ -258,31 +258,20 @@
     line-height: 31px;
   }
   .contact__info {
-    margin-top: 127px;
-    display: flex;
-    flex-direction: column;
-    grid-row-gap: 94px;
+    margin-top: 0;
+    grid-row-gap: 24px;
   }
   .contact__info-item {
-    display: flex;
-    flex-direction: column;
     grid-row-gap: 18px;
   }
   .contact__info-item-title {
-    font-family: 'Gotham';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 32px;
-    color: #000000;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
   }
   .contact__info-item-text {
-    font-family: 'Gotham';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
-    color: #000000;
+    font-size: 18px;
+    line-height: 140%;
   }
 }
 
