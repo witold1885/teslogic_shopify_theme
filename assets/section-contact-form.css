@@ -231,16 +231,16 @@
     grid-row-gap: 40px;
   }
   .contact__form-ellipse {
-    display: block!important;
-    background: #F4F6FA;
     width: 591px;
     height: 591px;
-    position: absolute;
-    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 591px) {
+  .contact__form-ellipse {
     left: calc((100vw - 591px) / 2);
     right: calc((100vw - 591px) / 2);
-    bottom: 0;
-    border-radius: 100%;
-    z-index: -1;
   }
 }
