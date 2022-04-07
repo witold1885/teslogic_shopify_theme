@@ -15,9 +15,8 @@
   }
 {%- endstyle -%}
 
-<!-- <div class="color-{{ section.settings.color_scheme }} gradient"> -->
-  <!-- <div class="contact page-width page-width--narrow section-{{ section.id }}-padding"> -->
-  <div class="contact">
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
     <!-- <h2 class="title title-wrapper--no-top-margin">{{ section.settings.heading | escape }}</h2> -->
     <h2 class="contact__title">Contact us</h2>
     {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
@@ -104,7 +103,7 @@
       </div>
     {%- endform -%}
   </div>
-<!-- </div> -->
+</div>
 
 {% schema %}
 {
