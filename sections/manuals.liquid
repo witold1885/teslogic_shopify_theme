@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'"> -->
+<link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'">
 <!-- <link rel="stylesheet" href="{{ 'manuals-responsive.css' | asset_url }}" media="print" onload="this.media='all'"> -->
 
 {%- style -%}
@@ -9,14 +9,16 @@
 	<div class="manuals__title">Manuals</div>
 	<div class="manuals__list">
 		{% for block in section.blocks %}
-			{{ block.settings.code }}
+			<div class="manuals__video">
+				{{ block.settings.code }}
+			</div>
 		{% endfor %}
 	</div>
 </div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-      
+
 	})
 </script>
 
