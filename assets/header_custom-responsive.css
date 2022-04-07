@@ -64,12 +64,20 @@
 	.top .button {
 		cursor: pointer;
 	}
-	.top .button img {
-		width: 100%;
+	.button-cart {
+		width: 24px;
+		height: 24px;
+	}
+	.button-burger {
+		width: 28px;
+		height: 22px;
 	}
 	.button-close {
 		display: none;
 		z-index: 2;
+	}
+	.top .button img {
+		width: 100%;
 	}
 	.burger-menu-wrap {
 		display: none;
