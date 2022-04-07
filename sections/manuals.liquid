@@ -1,0 +1,52 @@
+<!-- <link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'"> -->
+<!-- <link rel="stylesheet" href="{{ 'manuals-responsive.css' | asset_url }}" media="print" onload="this.media='all'"> -->
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div class="manuals" id="manuals">
+	<div class="manuals__title">FAQ</div>
+	<div class="manuals__list">
+		{% for block in section.blocks %}
+			
+		{% endfor %}
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+	})
+</script>
+
+{% schema %}
+{
+	"name": "Manuals",
+	"class": "index-section index-section-featured-sider",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "manual",
+			"name": "Manual",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Edit Manual"
+				},
+				{
+					"type": "text",
+					"id": "manual",
+					"label": "Manual Name"
+				},
+				{
+					"type": "textarea",
+					"id": "code",
+					"label": "Video Code"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
