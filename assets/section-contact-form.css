@@ -41,3 +41,12 @@
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+.contact__title {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 64px;
+  text-align: center;
+}
