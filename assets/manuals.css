@@ -1,3 +1,13 @@
+.manuals__title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 52px;
+	line-height: 64px;
+	text-align: center;
+	color: #000000;
+	margin-bottom: 71px;
+}
 .manuals__video {
 	width: 1110px;
 	height: 617px;
