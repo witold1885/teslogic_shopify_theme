@@ -42,6 +42,10 @@
   visibility: hidden;
 }
 
+.contact {
+  padding-top: 56px;
+  padding-bottom: 120px;
+}
 .contact__title {
   font-family: 'Gotham';
   font-style: normal;
