@@ -58,7 +58,7 @@
 .contact__wrap {
   display: flex;
   grid-column-gap: 94px;
-  /*margin-left: 90px;*/
+  margin-left: 50px;
 }
 .contact__form {
   width: 771px;
@@ -99,7 +99,7 @@
   font-family: 'Gotham';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 32px;
   color: #9FA1A8;
   box-sizing: border-box;
@@ -109,15 +109,16 @@
   resize: none;
 }
 .contact__button {
-  width: 223px;
-  height: 78px;
+  width: 183px;
+  height: 56px;
   background: #3374FB;
+  border: 1px solid #3374FB;
   border-radius: 100px;
   font-family: 'Gotham';
   font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 52px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,7 +139,7 @@
   font-family: 'Gotham';
   font-style: normal;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 34px;
   line-height: 32px;
   color: #000000;
 }
@@ -146,7 +147,7 @@
   font-family: 'Gotham';
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 32px;
   color: #000000;
 }
@@ -159,7 +160,7 @@
   }
   .contact__wrap {
     grid-column-gap: calc(94 * 100vw / 1366);
-    /*margin-left: calc(90 * 100vw / 1366);*/
+    margin-left: calc(50 * 100vw / 1366);
   }
   .contact__form {
     width: calc(771 * 100vw / 1366);
@@ -175,7 +176,7 @@
     height: calc(56 * 100vw / 1366);
     border-radius: calc(15 * 100vw / 1366);
     padding: calc(16 * 100vw / 1366) calc(32 * 100vw / 1366);
-    font-size: calc(24 * 100vw / 1366);
+    font-size: calc(22 * 100vw / 1366);
     line-height: calc(32 * 100vw / 1366);
   }
   .contact__field-textarea {
@@ -185,8 +186,8 @@
     width: calc(223 * 100vw / 1366);
     height: calc(78 * 100vw / 1366);
     border-radius: calc(100 * 100vw / 1366);
-    font-size: calc(32 * 100vw / 1366);
-    line-height: calc(52 * 100vw / 1366);
+    font-size: calc(24 * 100vw / 1366);
+    line-height: calc(32 * 100vw / 1366);
   }
   .contact__info {
     margin-top: calc(127 * 100vw / 1366);
@@ -196,11 +197,11 @@
     grid-row-gap: calc(18 * 100vw / 1366);
   }
   .contact__info-item-title {
-    font-size: calc(36 * 100vw / 1366);
+    font-size: calc(34 * 100vw / 1366);
     line-height: calc(32 * 100vw / 1366);
   }
   .contact__info-item-text {
-    font-size: calc(22 * 100vw / 1366);
+    font-size: calc(20 * 100vw / 1366);
     line-height: calc(32 * 100vw / 1366);
   }
 }
