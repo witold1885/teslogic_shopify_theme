@@ -10,7 +10,7 @@
   margin-top: 0.2rem;
 }
 
-.contact .field {
+/*.contact .field {
   margin-bottom: 1.5rem;
 }
 
@@ -18,7 +18,7 @@
   .contact .field {
     margin-bottom: 2rem;
   }
-}
+}*/
 
 .contact__button {
   margin-top: 3rem;
@@ -30,13 +30,13 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+/*@media screen and (min-width: 750px) {
   .contact__fields {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
   }
-}
+}*/
 
 .grecaptcha-badge {
   visibility: hidden;
@@ -77,4 +77,10 @@
   display: flex;
   flex-direction: column;
   grid-row-gap: 32px;
+}
+.field__input {
+  width: 424px;
+  height: 56px;
+  background: #FFFFFF;
+  border-radius: 15px;
 }
