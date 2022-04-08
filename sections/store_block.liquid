@@ -453,12 +453,12 @@
 						</div>
 					</div>
 					<div class="store_block-product-select-dropdown">
-						<div class="store_block-product-select-dropdown-select">
+						<!-- <div class="store_block-product-select-dropdown-select">
 							<span class="store_block-product-select-value">Select model</span>
 							<div class="store_block-product-select-arrow">
 								<img src="{{ 'select_arrow.png' | asset_url }}">
 							</div>
-						</div>
+						</div> -->
 						<div class="store_block-product-select-dropdown-item">Model 3 '21+</div>
 						<div class="store_block-product-select-dropdown-item">Model 3 '17-20</div>
 						<div class="store_block-product-select-dropdown-item">Model Y</div>
@@ -518,22 +518,26 @@
 			amount += 1
 			$('#amount').text(amount)
 		})*/
+		selectModel("Model 3 '21+")
 		$('.store_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
 		$('.store_block-product-select-dropdown-item').on('click', function() {
-			let selected = $(this).text()
-			$('.store_block-product-selected').find('.store_block-product-select-value').text(selected)
-			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
+			let model = $(this).text()
+			selectModel(model)
 		})
 		$(document).click(function(event) { 
-			var $target = $(event.target);
-			if(!$target.closest('.store_block-product-select').length && 
+			var $target = $(event.target)
+			if (!$target.closest('.store_block-product-select').length && 
 				!$target.closest('.store_block-product-select-dropdown').length && 
 				$('.store_block-product-select-dropdown').is(":visible")) {
-				$('.store_block-product-select-dropdown').hide();
+				$('.store_block-product-select-dropdown').hide()
 			}        
-		});
+		})
+		function selectModel(model) {
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model)
+			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
+		}
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
 		})
