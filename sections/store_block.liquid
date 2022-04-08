@@ -411,13 +411,13 @@
 </style>
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-{{ product.featured_media | image_url }}
+
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
-				<img src="{{ 'product_image.png' | asset_url }}">
+				<img src="{{ product.featured_media | image_url }}">
 			</div>
 			<!-- <div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
 				<img src="{{ 'gallery_prev.png' | asset_url }}">
@@ -482,7 +482,7 @@
 		<div class="store_block-product-price">$195</div>
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
-				<img src="{{ 'product_image.png' | asset_url }}">
+				<img src="{{ product.featured_media | image_url }}">
 			</div>
 		</div>
 		<div class="store_block-product-info">
