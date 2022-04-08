@@ -412,6 +412,7 @@
 
 {%- for collection in collections -%}
 	{{ collection.title | escape }}
+	{{ collection.all_products_count }}
 	{%- for collection_product in collection.products -%}
 		{{ collection_product.title | escape }}
 		{% assign product = collection_product %}
