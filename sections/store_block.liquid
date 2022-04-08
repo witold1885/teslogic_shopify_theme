@@ -410,14 +410,7 @@
 	}
 </style>
 
-{%- for collection in collections -%}
-	{{ collection.title | escape }}
-	{{ collection.all_products_count }}
-	{%- for collection_product in collection.products -%}
-		{{ collection_product.title | escape }}
-		{% assign product = collection_product %}
-	{%- endfor -%}
-{%- endfor -%}
+{% assign product = all_products['teslogic-transmitter-kit'] %}
 
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
