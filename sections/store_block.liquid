@@ -554,7 +554,7 @@
 		})
 		function selectModel(sku) {
 			console.log(sku)
-			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`)
+			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			console.log(model)
 			console.log(model.text())
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
