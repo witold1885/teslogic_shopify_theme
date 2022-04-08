@@ -4,6 +4,20 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
+<style type="text/css">
+  .cart__footer * {    
+    font-family: 'Gotham'!important;
+  }
+  .additional-checkout-buttons ul {
+    flex-direction: row!important;
+  }
+  .additional-checkout-buttons li {
+    border-radius: 100px;
+    overflow: hidden;
+    width: 100px!important;
+  }
+</style>
+
 <div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
     <div class="cart__footer">
@@ -113,7 +127,7 @@
       document.querySelector('#cart').submit();
     });
   });
-  /*$(document).ready(function() {
+  $(document).ready(function() {
     // $('.additional-checkout-buttons').find('ul').ready(function() {
     setTimeout(function() {
       console.log('ready')
@@ -122,7 +136,7 @@
       // $('.additional-checkout-buttons').find('ul').css('flex-direction', 'row!important')
       // $('.additional-checkout-buttons').find('ul').css('grid-column-gap', '25px!important')
     }, 20000)
-  })*/
+  })
 </script>
 
 {% schema %}
@@ -154,17 +168,3 @@
   ]
 }
 {% endschema %}
-
-<style type="text/css">
-  .cart__footer * {    
-    font-family: 'Gotham'!important;
-  }
-  .additional-checkout-buttons ul {
-    flex-direction: row!important;
-  }
-  .additional-checkout-buttons li {
-    border-radius: 100px;
-    overflow: hidden;
-    width: 100px!important;
-  }
-</style>
