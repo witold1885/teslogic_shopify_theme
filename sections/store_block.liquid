@@ -411,7 +411,7 @@
 </style>
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-{{ product.featured_media }}
+{{ product.featured_media | image_url }}
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
 	<div class="store_block-product">
@@ -478,7 +478,7 @@
 		</div>
 	</div>								
 	<div class="store_block-product-mobile">
-		<div class="store_block-product-title">Teslogic transmitter</div>
+		<div class="store_block-product-title">{{ product.title }}</div>
 		<div class="store_block-product-price">$195</div>
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
@@ -487,7 +487,7 @@
 		</div>
 		<div class="store_block-product-info">
 			<div class="store_block-product-subtitle">
-				The pack contains Teslogic transmitter,<br>phone holder and iOS / Android Teslogic app
+				{{ product.description }}
 			</div>
 			<div class="store_block-product-info-bottom">
 				<div class="store_block-product-select">
@@ -504,9 +504,18 @@
 								<img src="{{ 'select_arrow.png' | asset_url }}">
 							</div>
 						</div>
-						<div class="store_block-product-select-dropdown-item">Model 3 '21+</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+						<!-- <div class="store_block-product-select-dropdown-item">Model 3 '21+</div>
 						<div class="store_block-product-select-dropdown-item">Model 3 '17-20</div>
-						<div class="store_block-product-select-dropdown-item">Model Y</div>
+						<div class="store_block-product-select-dropdown-item">Model Y</div> -->
 					</div>
 				</div>
 				<button class="store_block-product-add">Add to cart</button>
@@ -546,7 +555,7 @@
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`)
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price').text(model.data('price') / 100)
+			$('.store_block-product-price').text('$' + (model.data('price') / 100))
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('.store_block-product-add').on('click', function() {
