@@ -527,13 +527,13 @@
 			amount += 1
 			$('#amount').text(amount)
 		})*/
-		selectModel("Model 3 '21+")
+		selectModel('TT10')
 		$('.store_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
 		$('.store_block-product-select-dropdown-item').on('click', function() {
-			let model = $(this).text()
-			selectModel(model)
+			let sku = $(this).data('sku')
+			selectModel(sku)
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
@@ -543,8 +543,10 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		function selectModel(model) {
-			$('.store_block-product-selected').find('.store_block-product-select-value').text(model)
+		function selectModel(sku) {
+			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`)
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
+			$('.store_block-product-price').text(model.data('price'))
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('.store_block-product-add').on('click', function() {
