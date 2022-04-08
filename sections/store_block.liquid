@@ -410,6 +410,8 @@
 	}
 </style>
 
+{% assign product = all_products['teslogic-transmitter-kit'] %}
+
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
 	<div class="store_block-product">
@@ -426,7 +428,7 @@
 		</div>
 		<div class="store_block-product-info">
 			<div>
-				<div class="store_block-product-title">Teslogic transmitter</div>
+				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">$195</div>
 				<div class="store_block-product-subtitle">
 					The pack contains Teslogic transmitter, phone holder and iOS / Android Teslogic app
