@@ -411,7 +411,9 @@
 </style>
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-{{ product | json }}
+{%- for collection in collections -%}
+	{{ collection.title | escape }}
+{%- endfor -%}
 
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
