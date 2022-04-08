@@ -583,25 +583,29 @@
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
 			console.log(model_id)
-			/*let formData = {
-			 	'items': [{
-					'id': 36110175633573,
-					'quantity': 2
-				}]
+			if (model_id) {
+				let formData = {
+				 	'items': [{
+						'id': model_id,
+						'quantity': 1
+					}]
+				}
+				console.log(window.Shopify.routes.root + 'cart/add.js')
+				fetch(window.Shopify.routes.root + 'cart/add.js', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				})
+				.then(response => {
+					console.log(response)
+				  	return response.json();
+				})
+				.catch((error) => {
+				  	console.error('Error:', error);
+				});
 			}
-			fetch(window.Shopify.routes.root + 'cart/add.js', {
-			  method: 'POST',
-			  headers: {
-			    'Content-Type': 'application/json'
-			  },
-			  body: JSON.stringify(formData)
-			})
-			.then(response => {
-			  return response.json();
-			})
-			.catch((error) => {
-			  console.error('Error:', error);
-			});*/
 		})
 	})
 </script>
