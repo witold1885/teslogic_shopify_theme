@@ -55,7 +55,25 @@
 				$('.faq__chapter-title').css('margin-bottom', '0')
 			}
 		}
-		$('.faq__chapter-question-text, .faq__chapter-question-expand').on('click', function() {
+		$('.faq__chapter-question-text').on('click', function() {
+			if ($(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text() == '+') {
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text('-')
+				if (window.is_mobile) {
+					$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').css('margin-bottom', '28px')
+				}
+				return
+			}
+			if ($(this).text() == '-') {
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
+				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text('+')
+				if (window.is_mobile) {
+					$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').css('margin-bottom', '4px')
+				}
+				return
+			}
+		})
+		$('.faq__chapter-question-expand').on('click', function() {
 			if ($(this).text() == '+') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
 				$(this).text('-')
