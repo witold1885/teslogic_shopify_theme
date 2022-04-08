@@ -140,7 +140,7 @@
 		line-height: 43px;
 		letter-spacing: 0.02em;
 		color: #FFFFFF;
-		width: 380px;
+		width: calc(380 * 100vw / 390);
 		margin-top: 43px;
 		text-align: center;
 	}
