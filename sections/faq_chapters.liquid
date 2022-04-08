@@ -64,7 +64,7 @@
 				}
 				return
 			}
-			if ($(this).text() == '-') {
+			if ($(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text() == '-') {
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
 				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text('+')
 				if (window.is_mobile) {
