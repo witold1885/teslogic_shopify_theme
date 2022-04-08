@@ -546,7 +546,7 @@
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`)
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price').text(model.data('price'))
+			$('.store_block-product-price').text(model.data('price') / 100)
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('.store_block-product-add').on('click', function() {
