@@ -485,6 +485,7 @@
 						{%- for model in product.variants -%}
 							<div 
 								class="store_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
 							>
@@ -527,7 +528,8 @@
 						</div>
 						{%- for model in product.variants -%}
 							<div 
-								class="store_block-product-select-dropdown-item" 
+								class="store_block-product-select-dropdown-item"  
+								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
 							>
@@ -555,6 +557,7 @@
 			$('#amount').text(amount)
 		})*/
 		selectModel('TT10')
+		var model_id = null
 		$('.store_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
@@ -572,12 +575,33 @@
 		})
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
+			model_id = model.data('model_id')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price').text('$' + (model.data('price') / 100))
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('.store_block-product-add').on('click', function() {
 			console.log('add')
+			console.log(model_id)
+			/*let formData = {
+			 	'items': [{
+					'id': 36110175633573,
+					'quantity': 2
+				}]
+			}
+			fetch(window.Shopify.routes.root + 'cart/add.js', {
+			  method: 'POST',
+			  headers: {
+			    'Content-Type': 'application/json'
+			  },
+			  body: JSON.stringify(formData)
+			})
+			.then(response => {
+			  return response.json();
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});*/
 		})
 	})
 </script>
