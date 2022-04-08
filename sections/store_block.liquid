@@ -410,9 +410,12 @@
 	}
 </style>
 
-{% assign product = all_products['teslogic-transmitter-kit'] %}
 {%- for collection in collections -%}
 	{{ collection.title | escape }}
+	{%- for collection_product in collection.products -%}
+		{{ collection_product.title | escape }}
+		{% assign product = collection_product %}
+	{%- endfor -%}
 {%- endfor -%}
 
 <div class="store_block" id="shop-now">
@@ -431,7 +434,7 @@
 		</div>
 		<div class="store_block-product-info">
 			<div>
-				<div class="store_block-product-title">{{ all_products['teslogic-transmitter-kit'].title }}</div>
+				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">$195</div>
 				<div class="store_block-product-subtitle">
 					The pack contains Teslogic transmitter, phone holder and iOS / Android Teslogic app
