@@ -1,5 +1,6 @@
 {
   "current": {
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_black.webp",
     "sections": {
       "header_main": {
         "type": "header_main",
@@ -16,7 +17,10 @@
         "settings": {
         }
       }
-    }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
