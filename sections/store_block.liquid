@@ -170,7 +170,7 @@
 		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 		border-radius: 35px;
 	}
-	.store_block-product-select-dropdown-item {
+	.store_block-product-select-dropdown-item, .store_block-product-select-text {
 		font-family: 'Gotham';
 		font-style: normal;
 		font-weight: 400;
@@ -291,7 +291,7 @@
 			box-shadow: 0px calc(4 * 100vw / 1366) calc(16 * 100vw / 1366) rgba(0, 0, 0, 0.1);
 			border-radius: calc(35 * 100vw / 1366);
 		}
-		.store_block-product-select-dropdown-item {
+		.store_block-product-select-dropdown-item, .store_block-product-select-text {
 			font-size: calc(24 * 100vw / 1366);
 			line-height: calc(32 * 100vw / 1366);
 		}
@@ -375,7 +375,7 @@
 			align-items: center;
 			grid-column-gap: 10px;
 		}
-		.store_block-product-select-dropdown-item {
+		.store_block-product-select-dropdown-item, .store_block-product-select-text {
 			font-family: 'Gotham';
 			font-style: normal;
 			font-weight: 400;
@@ -445,6 +445,7 @@
 						<div></div>
 					</div>
 				</div> -->
+				<div class="store_block-product-select-text">Select your Tesla model:</div>
 				<div class="store_block-product-select">
 					<div class="store_block-product-select-dropdown-select store_block-product-selected">
 						<span class="store_block-product-select-value">Select model</span>
@@ -490,6 +491,7 @@
 				{{ product.description }}
 			</div>
 			<div class="store_block-product-info-bottom">
+				<div class="store_block-product-select-text">Select your Tesla model:</div>
 				<div class="store_block-product-select">
 					<div class="store_block-product-select-dropdown-select store_block-product-selected">
 						<span class="store_block-product-select-value">Select model</span>
