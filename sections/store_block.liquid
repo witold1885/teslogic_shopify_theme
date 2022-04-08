@@ -411,7 +411,7 @@
 </style>
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-
+{{ product.featured_media }}
 <div class="store_block" id="shop-now">
 	<div class="store_block-title">Store</div>				
 	<div class="store_block-product">
@@ -459,9 +459,18 @@
 								<img src="{{ 'select_arrow.png' | asset_url }}">
 							</div>
 						</div>
-						<div class="store_block-product-select-dropdown-item">Model 3 '21+</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+						<!-- <div class="store_block-product-select-dropdown-item">Model 3 '21+</div>
 						<div class="store_block-product-select-dropdown-item">Model 3 '17-20</div>
-						<div class="store_block-product-select-dropdown-item">Model Y</div>
+						<div class="store_block-product-select-dropdown-item">Model Y</div> -->
 					</div>
 				</div>
 				<button class="store_block-product-add" id="add">Add to cart</button>
