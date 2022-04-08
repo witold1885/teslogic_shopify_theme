@@ -553,6 +553,7 @@
 			}        
 		})
 		function selectModel(sku) {
+			console.log(sku)
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`)
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price').text('$' + (model.data('price') / 100))
