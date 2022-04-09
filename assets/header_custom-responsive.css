@@ -61,7 +61,7 @@
 		align-items: center;
 		grid-column-gap: 40px;
 	}
-	.top .button {
+	.top .mob-button {
 		cursor: pointer;
 	}
 	.button-cart {
@@ -76,7 +76,7 @@
 		display: none;
 		z-index: 2;
 	}
-	.top .button img {
+	.top .mob-button img {
 		width: 100%;
 	}
 	.burger-menu-wrap {
