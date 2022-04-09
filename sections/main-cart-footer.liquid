@@ -134,7 +134,8 @@
     // $('.additional-checkout-buttons').find('ul').ready(function() {
     setTimeout(function() {
       console.log('ready')
-      console.log($('.additional-checkout-buttons').find('ul'))
+      var list = $('.additional-checkout-buttons').find('ul')
+      console.log(list)
       $('.additional-checkout-buttons').find('ul').css({'flex-direction': 'row!important'})
       // $('.additional-checkout-buttons').find('ul').css('flex-direction', 'row!important')
       // $('.additional-checkout-buttons').find('ul').css('grid-column-gap', '25px!important')
