@@ -14,10 +14,14 @@
   .shopify-cleanslate .iZJMuEDN4NxKS3mrxcBP9 {
     flex-direction: row!important;
   }*/
+  .cart__checkout-button {
+    border-radius: 100px;
+    overflow: hidden;
+  }
   .additional-checkout-buttons li {
     border-radius: 100px;
     overflow: hidden;
-    width: 100px!important;
+    /*width: 100px!important;*/
   }
 </style>
 
@@ -130,7 +134,7 @@
       document.querySelector('#cart').submit();
     });
   });
-  $(document).ready(function() {
+  /*$(document).ready(function() {
     // $('.additional-checkout-buttons').find('ul').ready(function() {
     setTimeout(function() {
       console.log('ready')
@@ -141,7 +145,7 @@
       // $('.additional-checkout-buttons').find('ul').css('flex-direction', 'row!important')
       // $('.additional-checkout-buttons').find('ul').css('grid-column-gap', '25px!important')
     }, 20000)
-  })
+  })*/
 </script>
 
 {% schema %}
