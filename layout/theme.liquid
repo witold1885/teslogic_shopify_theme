@@ -152,7 +152,8 @@
 
     <div class="container">
       {% assign handle = page.handle || template %}
-      {{ handle }}
+      <div>page_handle: {{ page.handle }}
+      template: {{ template }}</div>
       <main id="MainContent" class="content-for-layout focus-none main_{{ handle }}" role="main" tabindex="-1">
         {{ content_for_layout }}
       </main>
