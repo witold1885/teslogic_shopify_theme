@@ -151,7 +151,11 @@
       {% endif %}
 
     <div class="container">
-      {% assign handle = page.handle ? page.handle : template %}
+      {% if page.handle != '' %}
+        {% assign handle = page.handle %}
+      {% else %}
+        {% assign handle = template %}
+      {% endif %}
       <div>page_handle: {{ page.handle }}<br>
       template: {{ template }}<br>
       handle: {{ handle }}</div>
