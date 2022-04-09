@@ -151,7 +151,7 @@
       {% endif %}
 
     <div class="container">
-      {% if page.handle != '' %}
+      {% if page.handle != blank %}
         <span>page handle exists</span>
         {% assign handle = page.handle %}
       {% else %}
