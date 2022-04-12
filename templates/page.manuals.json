@@ -21,7 +21,7 @@
           "type": "manual",
           "settings": {
             "manual": "Model Y",
-            "code": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/www.youtube.com\/embed\/3BdwDriPF7w\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>"
+            "code": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/www.youtube.com\/embed\/3BdwDriPF7w?rel=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>"
           }
         }
       },
