@@ -605,12 +605,10 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					console.log(cart_qty)
 					cart_qty = cart_qty + 1
-					console.log(cart_qty)
 					$('.cart-qty').text(cart_qty)
-					$('.cart-link').show()
-					console.log(response)
+					$('.cart-link').fadeIn()
+					// console.log(response)
 				  	return response.json()
 				})
 				.catch((error) => {
