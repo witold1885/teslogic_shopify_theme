@@ -607,7 +607,7 @@
 				.then(response => {
 					cart_qty = cart_qty + 1
 					var f = $('.store_block-product-gallery-image')
-					var cart_total = $(".cart-icon-wrap");
+					var cart_total = $(".cart-link");
 					var clone = $('<div class="cart"></div>').append(f.clone());
 					clone.appendTo('body');
 					clone.css({
