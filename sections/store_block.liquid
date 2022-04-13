@@ -596,7 +596,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					console.log(cart.item_count)
+					console.log({{ cart.item_count }})
 					console.log(response)
 				  	return response.json();
 				})
