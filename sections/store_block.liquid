@@ -619,17 +619,17 @@
 						height: f.height() + 'px',
 						position: 'absolute',
 						overflow: 'hidden'
-					})/*.animate({
+					}).animate({
 						top: cart_total.offset().top,
 						left: cart_total.offset().left,
-						width: '10px',
-						height: '10px',
-						opacity: 0.7
-					}, 600, function () {
+						width: cart_total.width() + 'px',
+						height: cart_total.height() + 'px',
+						// opacity: 0.7
+					}, 6000, function () {
 						$(this).remove();
 						$('.cart-qty').text(cart_qty)
 						$('.cart-link').fadeIn()
-					});*/
+					});
 					// console.log(response)
 				  	// return response.json()
 				})
