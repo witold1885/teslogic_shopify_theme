@@ -606,8 +606,10 @@
 				})
 				.then(response => {
 					cart_qty = cart_qty + 1
+					$('.cart-qty').text(cart_qty)
+					$('.cart-link').fadeIn()
 					var f = $('.store_block-product-gallery-image')
-					var cart_total = $(".cart-link");
+					var cart_total = $("#cart-animate");
 					var clone = $('<div class="cart"></div>').append(f.clone());
 					clone.appendTo('body');
 					clone.css({
@@ -625,10 +627,8 @@
 						width: cart_total.width() + 'px',
 						height: cart_total.height() + 'px',
 						// opacity: 0.7
-					}, 6000, function () {
+					}, 2000, function () {
 						$(this).remove();
-						$('.cart-qty').text(cart_qty)
-						$('.cart-link').fadeIn()
 					});
 					// console.log(response)
 				  	// return response.json()
