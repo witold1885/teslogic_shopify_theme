@@ -596,8 +596,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					console.log({{ cart.item_count }})
-					var cart_qty = Number($('.cart-qty').text())
+					var cart_qty = Number({{ cart.item_count }})
 					console.log(cart_qty)
 					var new_cart_qty = cart_qty + 1
 					console.log(new_cart_qty)
