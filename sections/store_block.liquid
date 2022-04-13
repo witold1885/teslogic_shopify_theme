@@ -581,8 +581,6 @@
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('.store_block-product-add').on('click', function() {
-			console.log('add')
-			console.log(model_id)
 			if (model_id) {
 				let formData = {
 				 	'items': [{
@@ -590,7 +588,6 @@
 						'quantity': 1
 					}]
 				}
-				console.log(window.Shopify.routes.root + 'cart/add.js')
 				fetch(window.Shopify.routes.root + 'cart/add.js', {
 					method: 'POST',
 					headers: {
@@ -599,6 +596,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
+					console.log(cart.item_count)
 					console.log(response)
 				  	return response.json();
 				})

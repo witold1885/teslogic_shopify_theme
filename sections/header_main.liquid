@@ -48,17 +48,17 @@
         <div class="menu__item"><a href="/manuals">Manuals</a></div>
         <div class="menu__item"><a href="/faq">FAQ</a></div>
         <div class="menu__item"><a href="/contacts">Contacts</a></div>
-        <div class="menu__item cart-link">
-          <a href="/cart">
-            <div class="cart-icon-wrap">
-              <img src="{{ 'shopping_cart.png' | asset_url }}">
-              {% if cart.item_count > 0 %}
-                <div class="cart-qty">{{ cart.item_count }}</div>
-              {% endif %}
-            </div>
-            <span>Cart</span>
-          </a>
-        </div>
+        {% if cart.item_count > 0 %}
+          <div class="menu__item cart-link">
+            <a href="/cart">
+              <div class="cart-icon-wrap">
+                <img src="{{ 'shopping_cart.png' | asset_url }}">
+                  <div class="cart-qty">{{ cart.item_count }}</div>
+              </div>
+              <span>Cart</span>
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -84,15 +84,17 @@
         <div class="menu__item"><a href="/manuals">Manuals</a></div>
         <div class="menu__item"><a href="/faq">FAQ</a></div>
         <div class="menu__item"><a href="/contacts">Contacts</a></div>
-        <div class="menu__item cart-link">
-          <a href="/cart">
-            <div class="cart-icon-wrap">
-              <img src="{{ 'shopping_cart.png' | asset_url }}">
-              <div class="cart-qty">1</div>
-            </div>
-            <span>Cart</span>
-          </a>
-        </div>
+        {% if cart.item_count > 0 %}
+          <div class="menu__item cart-link">
+            <a href="/cart">
+              <div class="cart-icon-wrap">
+                <img src="{{ 'shopping_cart.png' | asset_url }}">
+                  <div class="cart-qty">{{ cart.item_count }}</div>
+              </div>
+              <span>Cart</span>
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -115,15 +117,17 @@
         <div class="menu__item"><a href="/manuals">Manuals</a></div>
         <div class="menu__item"><a href="/faq">FAQ</a></div>
         <div class="menu__item"><a href="/contacts">Contacts</a></div>
-        <div class="menu__item cart-link">
-          <a href="/cart">
-            <div class="cart-icon-wrap">
-              <img src="{{ 'shopping_cart.png' | asset_url }}">
-              <div class="cart-qty">1</div>
-            </div>
-            <span>Cart</span>
-          </a>
-        </div>      
+        {% if cart.item_count > 0 %}
+          <div class="menu__item cart-link">
+            <a href="/cart">
+              <div class="cart-icon-wrap">
+                <img src="{{ 'shopping_cart.png' | asset_url }}">
+                  <div class="cart-qty">{{ cart.item_count }}</div>
+              </div>
+              <span>Cart</span>
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
