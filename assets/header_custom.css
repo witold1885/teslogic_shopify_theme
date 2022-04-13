@@ -59,6 +59,43 @@
 	color: inherit;
 	text-decoration: none;
 }
+.cart-link {
+	background: #BAE4B2;
+	border-radius: 100px;
+}
+.cart-link a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column-gap: 10px;
+}
+.cart-icon-wrap {
+	width: 24px;
+	height: 24px;
+	position: relative;
+}
+.cart-icon-wrap img {
+	width: 100%;
+	height: 100%;
+}
+.cart-qty {
+	position: absolute;
+	top: 0;
+	left: 14px;
+	width: 13.27px;
+	height: 13.27px;
+	background: #3374FB;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 32px;
+	color: #FFFFFF;
+	border-radius: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .buttons, .burger-menu-wrap {
 	display: none;
 }
