@@ -597,11 +597,14 @@
 				})
 				.then(response => {
 					console.log({{ cart.item_count }})
+					var cart_qty = Number($('.cart-qty').text())
+					$('.cart-qty').text(++cart_qty)
+					$('.cart-link').show()
 					console.log(response)
-				  	return response.json();
+				  	return response.json()
 				})
 				.catch((error) => {
-				  	console.error('Error:', error);
+				  	console.error('Error:', error)
 				});
 			}
 		})
