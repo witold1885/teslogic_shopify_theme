@@ -52,7 +52,9 @@
           <a href="/cart">
             <div class="cart-icon-wrap">
               <img src="{{ 'shopping_cart.png' | asset_url }}">
-              <div class="cart-qty">{{ cart.item_count }}</div>
+              {% if cart.item_count > 0 %}
+                <div class="cart-qty">{{ cart.item_count }}</div>
+              {% endif %}
             </div>
             <span>Cart</span>
           </a>
