@@ -81,6 +81,26 @@
 	background: #BAE4B2;
 	border-radius: 100px;
 }
+.cart-link a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column-gap: 10px;
+}
+.cart-icon-wrap {
+	width: 24px;
+	height: 24px;
+	position: relative;
+}
+.cart-icon-wrap img {
+	width: 100%;
+	height: 100%;
+}
+.cart-qty {
+	position: absolute;
+	top: 0;
+	right: -3.27px;
+}
 .banner-desktop-wrap {
 	position: absolute;
 	top: 0;
