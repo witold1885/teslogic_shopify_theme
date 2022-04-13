@@ -67,6 +67,7 @@ footer {
 	grid-column-gap: 24px;
 }
 .footer-divider {
+	display: block!important;
 	width: 100%;
 	margin: 32px 0;
 	border: 1px solid rgba(255, 255, 255, 0.52);
