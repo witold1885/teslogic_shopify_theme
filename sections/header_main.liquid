@@ -108,7 +108,18 @@
       <img src="{{ 'logo.png' | asset_url }}">
     </a>
     <div class="buttons">
-      <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div>
+      <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
+      <div 
+        class="menu__item cart-link mob-button button-cart"
+        {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+      >
+        <a href="/cart">
+          <div class="cart-icon-wrap">
+            <img src="{{ 'cart.png' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+          </div>
+        </a>
+      </div>      
       <div class="mob-button button-burger"><img src="{{ 'burger.png' | asset_url }}"></div>
       <div class="mob-button button-close"><img src="{{ 'close.png' | asset_url }}"></div>
     </div>
