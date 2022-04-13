@@ -99,7 +99,16 @@
 .cart-qty {
 	position: absolute;
 	top: 0;
-	right: -3.27px;
+	left: 14px;
+	width: 13.27px;
+	height: 13.27px;
+	background: #3374FB;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 32px;
+	color: #FFFFFF;
 }
 .banner-desktop-wrap {
 	position: absolute;
