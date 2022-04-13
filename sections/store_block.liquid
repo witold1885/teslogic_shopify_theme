@@ -596,10 +596,14 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
+<<<<<<< HEAD
 					console.log({{ cart.item_count }})
 					var cart_qty = Number($('.cart-qty').text())
 					$('.cart-qty').text(++cart_qty)
 					$('.cart-link').show()
+=======
+                  console.log({{ cart.item_count }})
+>>>>>>> b81bfec88765f8946529473a3aa563b71ec05ed6
 					console.log(response)
 				  	return response.json()
 				})
