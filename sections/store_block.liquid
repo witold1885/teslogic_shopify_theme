@@ -598,7 +598,9 @@
 				.then(response => {
 					console.log({{ cart.item_count }})
 					var cart_qty = Number($('.cart-qty').text())
-					$('.cart-qty').text(cart_qty + 1)
+					console.log(cart_qty)
+					var new_cart_qty = cart_qty + 1
+					$('.cart-qty').text(new_cart_qty)
 					$('.cart-link').show()
 					console.log(response)
 				  	return response.json()
