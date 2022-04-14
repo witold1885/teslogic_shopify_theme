@@ -5,7 +5,7 @@
 
 {%- endstyle -%}
 
-<footer id="contacts">
+<footer id="contacts" {% if template == 'cart' %} style="position: fixed; bottom: 0; left: 0; right: 0;" {% endif %}>
   <div class="footer__wrap">
     <div class="footer-top">
       <div class="logo">
