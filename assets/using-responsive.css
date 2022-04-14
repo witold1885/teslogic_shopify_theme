@@ -4,7 +4,7 @@
 		grid-row-gap: calc(80 * 100vw / 1366);
 	}
 	.using__title {
-		width: calc(550 * 100vw / 1366);
+		/*width: calc(550 * 100vw / 1366);*/
 		height: calc(64 * 100vw / 1366);
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
