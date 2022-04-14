@@ -489,6 +489,14 @@
   </form>
 </cart-items>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('cart-remove-button').on('click', function() {
+      console.log('remove!')
+    })
+  })
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
