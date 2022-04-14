@@ -93,7 +93,7 @@
           "settings": {
             "chapter_id": "3",
             "question": "The results of acceleration measurements differ from those of other special meters. What data should I trust?",
-            "answer": "In the current app version, measurements are taken according to the technique that Tesla uses - \"one foot rollout\". Measurements using this method always show slightly better results."
+            "answer": "In the current app version, measurements are taken using the Tesla's \"one foot rollout\" technique. Measurements using this method always show slightly better results."
           }
         },
         "f313dd55-ff03-400a-b2d2-c63ffeb48d93": {
