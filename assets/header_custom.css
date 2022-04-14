@@ -73,7 +73,7 @@
 	width: 24px;
 	height: 24px;
 	position: relative;
-	box-sizing: border-box;
+	box-sizing: unset!important;
 }
 .cart-icon-wrap img {
 	width: 100%;
