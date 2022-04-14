@@ -62,12 +62,14 @@
 .cart-link {
 	background: #BAE4B2;
 	border-radius: 100px;
+	box-sizing: unset!important;
 }
 .cart-link a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 10px;
+	box-sizing: unset!important;
 }
 .cart-icon-wrap {
 	width: 24px;
