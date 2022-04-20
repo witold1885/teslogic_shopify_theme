@@ -13,10 +13,10 @@
 	}
 	@media screen and (min-width: 1000px) and (max-width: 1366px) {  
 		.main_video {
-			width: 100%;
+			width: calc(100% - 128 * 100vw / 1366 - 128 * 100vw / 1366);
 			margin-bottom: calc(96 * 100vw / 1366);
-			margin-left: 0;
-			margin-right: 0;
+			margin-left: calc(128 * 100vw / 1366);
+			margin-right: calc(128 * 100vw / 1366);
 			border-radius: calc(20 * 100vw / 1366);
 		}
 	}
