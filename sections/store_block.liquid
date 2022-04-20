@@ -87,8 +87,17 @@
 	}
 	.store_block-product-price-old {
 		color: #9FA1A8;
-		text-decoration: line-through;
 		font-weight: 700;
+		position: relative;
+	}
+	.store_block-product-price-old-cross {
+		position: absolute;
+		width: 100%;
+		height: 0;
+		top: 22px;
+		left: 0;
+		right: 0;
+		border: 3px solid #9FA1A8;
 	}
 	.store_block-product-price-new {
 		color: #0F77F0;
@@ -274,6 +283,10 @@
 			line-height: calc(36 * 100vw / 1366);
 			margin-bottom: calc(24 * 100vw / 1366);
 			grid-column-gap: calc(16 * 100vw / 1366);
+		}
+		.store_block-product-price-old-cross {
+			top: calc(22 * 100vw / 1366);
+			border: calc(3 * 100vw / 1366) solid #9FA1A8;
 		}
 		.store_block-product-subtitle {
 			/*font-size: calc(14 * 100vw / 1366);*/
@@ -474,9 +487,12 @@
 			<div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">
-					<span class="store_block-product-price-current">$195</span>
-					<span class="store_block-product-price-old">$195</span>
-					<span class="store_block-product-price-new">$165</span>
+					<div class="store_block-product-price-current">$195</div>
+					<div class="store_block-product-price-old">
+						<span>$195</span>
+						<div class="store_block-product-price-old-cross"></div>
+					</div>
+					<div class="store_block-product-price-new">$165</div>
 				</div>
 				<div class="store_block-product-subtitle">
 					{{ product.description }}
@@ -528,9 +544,12 @@
 	<div class="store_block-product-mobile">
 		<div class="store_block-product-title">{{ product.title }}</div>
 		<div class="store_block-product-price">
-			<span class="store_block-product-price-current">$195</span>
-			<span class="store_block-product-price-old">$195</span>
-			<span class="store_block-product-price-new">$165</span>
+			<div class="store_block-product-price-current">$195</div>
+			<div class="store_block-product-price-old">
+				<span>$195</span>
+				<div class="store_block-product-price-old-cross"></div>
+			</div>
+			<div class="store_block-product-price-new">$165</div>
 		</div>
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
@@ -610,7 +629,7 @@
 			model_id = model.data('model_id')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
 			if (model.data('compare_at_price')) {
-				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
 				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
 				$('.store_block-product-price-current').hide()
 				$('.store_block-product-price-old').show()
