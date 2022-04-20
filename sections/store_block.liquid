@@ -79,12 +79,15 @@
 		font-size: 28px;
 		line-height: 36px;
 		margin-bottom: 24px;
+		display: flex;
+		grid-column-gap: 16px;
 	}
 	.store_block-product-price-current {
 		color: #000000;
 	}
 	.store_block-product-price-old {
 		color: #9FA1A8;
+		text-decoration: line-through;
 	}
 	.store_block-product-price-new {
 		color: #0F77F0;
@@ -268,6 +271,7 @@
 			font-size: calc(28 * 100vw / 1366);
 			line-height: calc(36 * 100vw / 1366);
 			margin-bottom: calc(24 * 100vw / 1366);
+			grid-column-gap: calc(16 * 100vw / 1366);
 		}
 		.store_block-product-subtitle {
 			/*font-size: calc(14 * 100vw / 1366);*/
