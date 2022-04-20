@@ -459,7 +459,13 @@
 		<div class="store_block-product-info">
 			<div>
 				<div class="store_block-product-title">{{ product.title }}</div>
-				<div class="store_block-product-price">$195</div>
+				<div class="store_block-product-price">
+					<span class="store_block-product-price-current">$195</span>
+				</div>
+				<div class="store_block-product-price-discount">
+					<span class="store_block-product-price-old">$195</span>
+					<span class="store_block-product-price-new">$165</span>
+				</div>
 				<div class="store_block-product-subtitle">
 					{{ product.description }}
 				</div>
@@ -496,6 +502,7 @@
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
 							>
 								{{ model.title }}
 							</div>
@@ -508,7 +515,13 @@
 	</div>								
 	<div class="store_block-product-mobile">
 		<div class="store_block-product-title">{{ product.title }}</div>
-		<div class="store_block-product-price">$195</div>
+		<div class="store_block-product-price">
+			<span class="store_block-product-price-current">$195</span>
+		</div>
+		<div class="store_block-product-price-discount">
+			<span class="store_block-product-price-old">$195</span>
+			<span class="store_block-product-price-new">$165</span>
+		</div>
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
 				<img src="{{ product.featured_media | image_url }}">
@@ -540,6 +553,7 @@
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
 							>
 								{{ model.title }}
 							</div>
@@ -585,7 +599,9 @@
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price').text('$' + (model.data('price') / 100))
+			$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
+			$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
