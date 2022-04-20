@@ -5,7 +5,7 @@
 		margin-bottom: 96px;
 		margin-left: 128px;
 		margin-right: 128px;
-		border-radius: 100px;
+		border-radius: 20px;
 		overflow: hidden;
 	}
 	.main_video iframe {
@@ -13,11 +13,11 @@
 	}
 	@media screen and (min-width: 1000px) and (max-width: 1366px) {  
 		.main_video {
-			width: calc(100% - 128 * 100vw / 1366 - 128 * 100vw / 1366);
+			width: 100%;
 			margin-bottom: calc(96 * 100vw / 1366);
-			margin-left: calc(128 * 100vw / 1366);
-			margin-right: calc(128 * 100vw / 1366);
-			border-radius: calc(100 * 100vw / 1366);
+			margin-left: 0;
+			margin-right: 0;
+			border-radius: calc(20 * 100vw / 1366);
 		}
 	}
 	@media screen and (max-width: 999px) {  
