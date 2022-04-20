@@ -2,9 +2,20 @@
 	.main_video {
 		/*position: absolute;*/
 		width: 100%;
+		margin-bottom: 96px;
 	}
 	.main_video iframe {
 		width: 100%;
+	}
+	@media screen and (min-width: 1000px) and (max-width: 1366px) {  
+		.main_video {
+			margin-bottom: calc(96 * 100vw / 1366);
+		}
+	}
+	@media screen and (max-width: 999px) {  
+		.main_video {
+			margin-bottom: 80px;
+		}
 	}
 </style>
 <div class="main_video">
