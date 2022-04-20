@@ -10,6 +10,11 @@
       "settings": {
       }
     },
+    "main_video": {
+      "type": "main_video",
+      "settings": {
+      }
+    },
     "features": {
       "type": "features",
       "settings": {
@@ -24,6 +29,7 @@
   "order": [
     "using",
     "shop_now",
+    "main_video",
     "features",
     "store_block"
   ]
