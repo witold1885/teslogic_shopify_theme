@@ -65,7 +65,7 @@
 	}
 
 	.ellipse-bottom-container {
-		top: calc(4913 * 100vw / 1366);
+		/*top: calc(4913 * 100vw / 1366);*/
 		height: calc(1388 * 100vw / 1366);
 	}
 	.ellipse-bottom-wrap {
@@ -226,7 +226,7 @@
 	}
 
 	.ellipse-bottom-container {
-		top: 5177px;
+		/*top: 5177px;*/
 		height: 1474px;
 	}
 	.ellipse-bottom-wrap {
