@@ -5,8 +5,9 @@
 	// $token = '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';
 	// $token = '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';
 	// $token = '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';
-	$token = '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';
-	// $token = ' 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';
+	// $token = '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';
+	// $token = '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';
+	$token = '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';
 	/*
 		git add . && git commit -m "Header" && git push
 	*/
