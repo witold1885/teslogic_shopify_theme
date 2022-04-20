@@ -78,8 +78,16 @@
 		font-weight: 500;
 		font-size: 28px;
 		line-height: 36px;
-		color: #000000;
 		margin-bottom: 24px;
+	}
+	.store_block-product-price-current {
+		color: #000000;
+	}
+	.store_block-product-price-old {
+		color: #9FA1A8;
+	}
+	.store_block-product-price-new {
+		color: #0F77F0;
 	}
 	.store_block-product-subtitle {
 		font-family: 'Gotham';
@@ -461,8 +469,6 @@
 				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">
 					<span class="store_block-product-price-current">$195</span>
-				</div>
-				<div class="store_block-product-price-discount">
 					<span class="store_block-product-price-old">$195</span>
 					<span class="store_block-product-price-new">$165</span>
 				</div>
@@ -517,8 +523,6 @@
 		<div class="store_block-product-title">{{ product.title }}</div>
 		<div class="store_block-product-price">
 			<span class="store_block-product-price-current">$195</span>
-		</div>
-		<div class="store_block-product-price-discount">
 			<span class="store_block-product-price-old">$195</span>
 			<span class="store_block-product-price-new">$165</span>
 		</div>
@@ -598,10 +602,20 @@
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
-			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
-			$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
-			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
+			if (model.data('compare_at_price')) {
+				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-current').hide()
+				$('.store_block-product-price-old').show()
+				$('.store_block-product-price-new').show()
+			}
+			else {
+				$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-old').hide()
+				$('.store_block-product-price-new').hide()
+				$('.store_block-product-price-current').show()
+			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
