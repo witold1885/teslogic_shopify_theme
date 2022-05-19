@@ -11,7 +11,7 @@
 		{% for block in section.blocks %}
 			{% if block.type == "chapter" %}
 				<div class="faq__chapter">
-					<div class="faq__chapter-title">
+					<div class="faq__chapter-title" mobile_hidden="true">
 						<!-- <div class="faq__chapter-title-sign">
 							<img class="faq__chapter-title-sign-opened" src="{{ 'chapter_sign.png' | asset_url }}">
 							<img class="faq__chapter-title-sign-closed" src="{{ 'chapter_sign_blue.png' | asset_url }}">
@@ -43,14 +43,14 @@
 			window.is_mobile = window.innerWidth < 1000
 			// console.log(window.is_mobile)
 			if (!window.is_mobile) {
-				$('.faq__chapter-title-sign-closed').hide()
-				$('.faq__chapter-title-sign-opened').show()
+				// $('.faq__chapter-title-sign-closed').hide()
+				// $('.faq__chapter-title-sign-opened').show()
 				$('.faq__chapter-question').show()
 				$('.faq__chapter-title').css('margin-bottom', '36px')
 			}
 			else {
-				$('.faq__chapter-title-sign-closed').show()
-				$('.faq__chapter-title-sign-opened').hide()
+				// $('.faq__chapter-title-sign-closed').show()
+				// $('.faq__chapter-title-sign-opened').hide()
 				$('.faq__chapter-question').hide()
 				$('.faq__chapter-title').css('margin-bottom', '0')
 			}
@@ -94,17 +94,21 @@
 		$('.faq__chapter-title').on('click', function() {
 			// console.log('is_mobile: ' + window.is_mobile)
 			if (window.is_mobile) {
-				if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
+				// if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
+				if ($(this).attr('mobile_hidden') == 'true') {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
-					$(this).find('.faq__chapter-title-sign-opened').hide()
-					$(this).find('.faq__chapter-title-sign-closed').show()
+					// $(this).find('.faq__chapter-title-sign-opened').hide()
+					// $(this).find('.faq__chapter-title-sign-closed').show()
+					$(this).attr('mobile_hidden', 'false')
 					$(this).css('margin-bottom', '0')
 					return
 				}
-				if ($(this).find('.faq__chapter-title-sign-closed').is(':visible')) {
+				// if ($(this).find('.faq__chapter-title-sign-closed').is(':visible')) {
+				if ($(this).attr('mobile_hidden') == 'false') {
 					$(this).parent('.faq__chapter').find('.faq__chapter-question').show()
-					$(this).find('.faq__chapter-title-sign-closed').hide()
-					$(this).find('.faq__chapter-title-sign-opened').show()
+					// $(this).find('.faq__chapter-title-sign-closed').hide()
+					// $(this).find('.faq__chapter-title-sign-opened').show()
+					$(this).attr('mobile_hidden', 'true')
 					$(this).css('margin-bottom', '24px')
 					return
 				}
