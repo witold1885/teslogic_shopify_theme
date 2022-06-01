@@ -155,10 +155,10 @@
   <body class="gradient">
       {% if template == 'index' %}
         {% section 'header_main' %}
+      {% elsif page.handle == 'redirect' %}
+        <div></div>
       {% else %}
-        {% if page.handle != 'redirect' %}
-          {% section 'header_custom' %}
-        {% endif %}
+        {% section 'header_custom' %}
       {% endif %}
 
     <div class="container">
