@@ -1,3 +1,19 @@
 <script>
 	console.log(window.navigator.userAgent)
+	const agents = {
+		apple: ['iphone', 'ipad', 'weatherreport'],
+		android: ['android']
+	}
+	let user_agent = checkUserAgent()
+	console.log(user_agent)
+	function checkUserAgent() {
+		for (let agent_type in agents) {
+			for (let agent of (agents[agent_type])) {
+				if (window.navigator.userAgent.toLowerCase().indexOf(agent) !== -1) {
+					return agent_type
+				}
+			}
+		}
+		return 'other'
+	}
 </script>
