@@ -156,7 +156,9 @@
       {% if template == 'index' %}
         {% section 'header_main' %}
       {% else %}
-        {% section 'header_custom' %}
+        {% if page.handle != 'redirect' %}
+          {% section 'header_custom' %}
+        {% endif %}
       {% endif %}
 
     <div class="container">
