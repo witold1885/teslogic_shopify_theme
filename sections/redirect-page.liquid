@@ -1,11 +1,20 @@
 <script>
-	console.log(window.navigator.userAgent)
+	// console.log(window.navigator.userAgent)
 	const agents = {
 		apple: ['iphone', 'ipad', 'weatherreport'],
 		android: ['android']
 	}
 	let user_agent = checkUserAgent()
-	console.log(user_agent)
+	// console.log(user_agent)
+	if (user_agent == 'apple') {
+		window.location.href = 'https://apps.apple.com/am/app/teslogic-dash/id1623563438'
+	}
+	if (user_agent == 'android') {
+		window.location.href = 'https://google.com'
+	}
+	if (user_agent == 'other') {
+		window.location.href = 'https://teslogic.co'
+	}
 	function checkUserAgent() {
 		for (let agent_type in agents) {
 			for (let agent of (agents[agent_type])) {
