@@ -175,7 +175,9 @@
       </main>
 
     </div>
+    {% if template == 'index' || page.handle != 'redirect' %}
       {% section 'footer' %}
+    {% endif %}
 
     {% if template == 'index' %}
       <div class="ellipse-container ellipse__main-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
