@@ -1,6 +1,6 @@
 <?php
 	$username = 'witold1885';
-	$token = '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';
+	$token = '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';
 	/*
 		git add . && git commit -m "Header" && git push
 	*/
