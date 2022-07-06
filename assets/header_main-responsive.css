@@ -12,7 +12,7 @@
 		line-height: calc(64 * 100vw / 1920);
 		width: calc(541 * 100vw / 1920);
 		top: calc(288 * 100vw / 1920);
-		left: calc(128 * 100vw / 1920);
+		/*left: calc(128 * 100vw / 1920);*/
 	}
 }
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
