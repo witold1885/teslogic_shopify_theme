@@ -3,6 +3,10 @@
 	#header_main {
 		height: calc(768 * 100vw / 1920);
 	}
+	.banner-desktop {
+		/*width: calc(1366 * 100vw / 1366);*/
+		height: calc(768 * 100vw / 1920);
+	}
 }
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.top {
