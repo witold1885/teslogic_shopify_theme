@@ -7,6 +7,13 @@
 		/*width: calc(1366 * 100vw / 1366);*/
 		height: calc(768 * 100vw / 1920);
 	}
+	.title {
+		font-size: calc(52 * 100vw / 1920);
+		line-height: calc(64 * 100vw / 1920);
+		width: calc(541 * 100vw / 1920);
+		top: calc(288 * 100vw / 1920);
+		left: calc(128 * 100vw / 1920);
+	}
 }
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.top {
