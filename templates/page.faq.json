@@ -198,6 +198,14 @@
             "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
             "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
           }
+        },
+        "f2084917-d299-4cda-9192-dfd8a74f10a2": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "Is Teslogic app compatible with an Android tablet\/iPad",
+            "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
+          }
         }
       },
       "block_order": [
@@ -225,7 +233,8 @@
         "413e2f73-82cb-485e-889e-39e78aa8f6e7",
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "51f2a674-dfc5-431d-913e-d745a79dd5cd",
-        "b249d263-3513-4e3c-aa7e-4e30758993df"
+        "b249d263-3513-4e3c-aa7e-4e30758993df",
+        "f2084917-d299-4cda-9192-dfd8a74f10a2"
       ],
       "settings": {
       }
