@@ -182,6 +182,14 @@
             "question": "How can Teslogic transmitter be updated?",
             "answer": "The transmitter updates automatically over the air."
           }
+        },
+        "51f2a674-dfc5-431d-913e-d745a79dd5cd": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "Do I need to remove Teslogic before visiting service center?",
+            "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
+          }
         }
       },
       "block_order": [
@@ -207,7 +215,8 @@
         "c3401778-1354-4503-b197-f8b5d9a622a9",
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
         "413e2f73-82cb-485e-889e-39e78aa8f6e7",
-        "d8d58d03-cb3c-44b5-901d-50472753a6d9"
+        "d8d58d03-cb3c-44b5-901d-50472753a6d9",
+        "51f2a674-dfc5-431d-913e-d745a79dd5cd"
       ],
       "settings": {
       }
