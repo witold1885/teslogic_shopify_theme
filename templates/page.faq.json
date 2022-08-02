@@ -206,6 +206,14 @@
             "question": "Is Teslogic app compatible with an Android tablet\/iPad",
             "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
           }
+        },
+        "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "Does Teslogic impact any car's functionality?",
+            "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
+          }
         }
       },
       "block_order": [
@@ -234,7 +242,8 @@
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "51f2a674-dfc5-431d-913e-d745a79dd5cd",
         "b249d263-3513-4e3c-aa7e-4e30758993df",
-        "f2084917-d299-4cda-9192-dfd8a74f10a2"
+        "f2084917-d299-4cda-9192-dfd8a74f10a2",
+        "c27292bd-8f0d-48d4-9ba2-4253ef77422b"
       ],
       "settings": {
       }
