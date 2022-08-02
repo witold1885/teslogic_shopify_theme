@@ -166,6 +166,14 @@
             "question": "Can using a transmitter harm my car?",
             "answer": "No, it can't"
           }
+        },
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "What system of measurement is used in Teslogic?",
+            "answer": "Teslogic works in two systems – imperial and SI. The application switches to the system used in Tesla's main interface."
+          }
         }
       },
       "block_order": [
@@ -189,7 +197,8 @@
         "44b237bd-1e37-4cc5-977e-3feddcad435c",
         "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c",
         "c3401778-1354-4503-b197-f8b5d9a622a9",
-        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884"
+        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7"
       ],
       "settings": {
       }
