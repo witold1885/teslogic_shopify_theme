@@ -190,6 +190,14 @@
             "question": "Do I need to remove Teslogic before visiting service center?",
             "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
           }
+        },
+        "b249d263-3513-4e3c-aa7e-4e30758993df": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
+            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
+          }
         }
       },
       "block_order": [
@@ -216,7 +224,8 @@
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
         "413e2f73-82cb-485e-889e-39e78aa8f6e7",
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
-        "51f2a674-dfc5-431d-913e-d745a79dd5cd"
+        "51f2a674-dfc5-431d-913e-d745a79dd5cd",
+        "b249d263-3513-4e3c-aa7e-4e30758993df"
       ],
       "settings": {
       }
