@@ -229,6 +229,14 @@
             "question": "How does Teslogic impact my Tesla’s battery?",
             "answer": "When not connected to a phone, Teslogic is in a low power mode. And it doesn't consume battery power if the car is sleeping."
           }
+        },
+        "4dec977d-3de4-4711-b9d5-b70310232b6c": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "How can I switch the app screens?",
+            "answer": "If the autopilot mode is off, the application screen can be changed by simply toggling the right selector on the steering left or right.\nWhen the autopilot is on, the Teslogic screen switching mode changes: you need to toggle the selector in the direction you need and return it back. It won't change the follow distance and the app screen will be switched."
+          }
         }
       },
       "block_order": [
@@ -260,7 +268,8 @@
         "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
         "82239037-f960-4f2c-aa70-d59ba5d85350",
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
-        "6cb7fde7-205a-45c7-8d11-49516438ecee"
+        "6cb7fde7-205a-45c7-8d11-49516438ecee",
+        "4dec977d-3de4-4711-b9d5-b70310232b6c"
       ],
       "settings": {
       }
