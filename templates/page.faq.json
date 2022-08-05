@@ -50,6 +50,14 @@
             "answer": "The App transmits only depersonalized data for the purpose of statistics, the privacy of your data is of the highest priority for us"
           }
         },
+        "b249d263-3513-4e3c-aa7e-4e30758993df": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
+            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
+          }
+        },
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6": {
           "type": "chapter",
           "settings": {
@@ -79,6 +87,14 @@
             "chapter_id": "2",
             "question": "What versions of iOS\/Android is the transmitter compatible with?",
             "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher . Using older devices, may cause a noticeable decrease in the data exchange rate"
+          }
+        },
+        "f2084917-d299-4cda-9192-dfd8a74f10a2": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "Is Teslogic app compatible with an Android tablet\/iPad",
+            "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
           }
         },
         "d4ebb7fb-5941-40e3-9573-318a4b7df89a": {
@@ -144,6 +160,14 @@
             "answer": "Share your destination point with Teslogic App via Google Maps App"
           }
         },
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What system of measurement is used in Teslogic?",
+            "answer": "Teslogic works in two systems – imperial and SI. The application switches to the system used in Tesla's main interface."
+          }
+        },
         "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c": {
           "type": "chapter",
           "settings": {
@@ -167,44 +191,12 @@
             "answer": "No, it can't"
           }
         },
-        "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "1",
-            "question": "What system of measurement is used in Teslogic?",
-            "answer": "Teslogic works in two systems – imperial and SI. The application switches to the system used in Tesla's main interface."
-          }
-        },
-        "d8d58d03-cb3c-44b5-901d-50472753a6d9": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "1",
-            "question": "How can Teslogic transmitter be updated?",
-            "answer": "The transmitter updates automatically over the air."
-          }
-        },
         "51f2a674-dfc5-431d-913e-d745a79dd5cd": {
           "type": "question",
           "settings": {
-            "chapter_id": "1",
+            "chapter_id": "4",
             "question": "Do I need to remove Teslogic before visiting service center?",
             "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
-          }
-        },
-        "b249d263-3513-4e3c-aa7e-4e30758993df": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "1",
-            "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
-            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
-          }
-        },
-        "f2084917-d299-4cda-9192-dfd8a74f10a2": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "2",
-            "question": "Is Teslogic app compatible with an Android tablet\/iPad",
-            "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
           }
         },
         "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
@@ -213,6 +205,29 @@
             "chapter_id": "4",
             "question": "Does Teslogic impact any car's functionality?",
             "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
+          }
+        },
+        "82239037-f960-4f2c-aa70-d59ba5d85350": {
+          "type": "chapter",
+          "settings": {
+            "chapter_id": "5",
+            "chapter": "Usage"
+          }
+        },
+        "d8d58d03-cb3c-44b5-901d-50472753a6d9": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "How can Teslogic transmitter be updated?",
+            "answer": "The transmitter updates automatically over the air."
+          }
+        },
+        "6cb7fde7-205a-45c7-8d11-49516438ecee": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "How does Teslogic impact my Tesla’s battery?",
+            "answer": "When not connected to a phone, Teslogic is in a low power mode. And it doesn't consume battery power if the car is sleeping."
           }
         }
       },
@@ -223,10 +238,12 @@
         "a6cb0067-9e41-4711-8b74-bb9e00b37203",
         "50e32532-ad70-4e2d-afc5-440d1c15d993",
         "4f5e5708-4bec-429c-a0cf-0801c20a7e16",
+        "b249d263-3513-4e3c-aa7e-4e30758993df",
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
         "607d0c5c-e1a8-4873-be59-e4c596186b15",
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
         "a0405dcf-1763-44c2-aee2-79e8c182d253",
+        "f2084917-d299-4cda-9192-dfd8a74f10a2",
         "d4ebb7fb-5941-40e3-9573-318a4b7df89a",
         "faf361c7-ec88-4ccd-86fb-a43079c4295c",
         "f313dd55-ff03-400a-b2d2-c63ffeb48d93",
@@ -235,15 +252,15 @@
         "96c8cee5-457a-478d-b17a-cb1e2d49eae3",
         "e4de832a-9838-4a87-98b6-a687fde24ff3",
         "44b237bd-1e37-4cc5-977e-3feddcad435c",
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7",
         "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c",
         "c3401778-1354-4503-b197-f8b5d9a622a9",
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
-        "413e2f73-82cb-485e-889e-39e78aa8f6e7",
-        "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "51f2a674-dfc5-431d-913e-d745a79dd5cd",
-        "b249d263-3513-4e3c-aa7e-4e30758993df",
-        "f2084917-d299-4cda-9192-dfd8a74f10a2",
-        "c27292bd-8f0d-48d4-9ba2-4253ef77422b"
+        "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
+        "82239037-f960-4f2c-aa70-d59ba5d85350",
+        "d8d58d03-cb3c-44b5-901d-50472753a6d9",
+        "6cb7fde7-205a-45c7-8d11-49516438ecee"
       ],
       "settings": {
       }
