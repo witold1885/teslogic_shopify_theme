@@ -105,7 +105,7 @@
 	position: relative;
 }
 .features__block-low_vision_mode .features__block-screen {
-	margin-right: 109px;
+	margin-right: 109px!important;
 }
 .features__block-screen-wrap {
 	width: 100%;
