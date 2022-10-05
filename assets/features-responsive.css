@@ -141,6 +141,9 @@
 		align-items: center;*/
 		position: relative;
 	}
+	.features__block-low_vision_mode .features__block-screen {
+		margin-top: 60px;
+	}
 	.features__block-screen-desktop {
 		display: none;
 	}
