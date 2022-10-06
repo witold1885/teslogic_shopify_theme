@@ -18,6 +18,9 @@
 	justify-content: space-between;
 	align-items: flex-start;
 }
+.features__block-low_vision_mode .features__block {
+	height: 600px;
+}
 .features__block:not(:last-child) {
 	margin-bottom: 40px;
 }
