@@ -110,6 +110,9 @@
 		margin-right: 23px;
 		align-items: flex-end;
 	}
+	.features__block-low_vision_mode .features__block-legend {
+		margin-top: 40px!important;
+	}
 	.features__block-legend-title {
 		font-weight: 700;
 		font-size: 26px;
@@ -142,7 +145,7 @@
 		position: relative;
 	}
 	.features__block-low_vision_mode .features__block-screen {
-		margin-top: 60px;
+		margin-top: 60px!important;
 		margin-left: 35px!important;
 		margin-right: 35px!important;
 	}
@@ -172,5 +175,8 @@
 	}
 	.features__block-car_info {
 		height: 608px;
+	}
+	.features__block-low_vision_mode {
+		height: 532px;
 	}
 }
