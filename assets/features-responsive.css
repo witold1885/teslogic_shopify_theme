@@ -143,6 +143,8 @@
 	}
 	.features__block-low_vision_mode .features__block-screen {
 		margin-top: 60px;
+		margin-left: 35px!important;
+		margin-right: 35px!important;
 	}
 	.features__block-screen-desktop {
 		display: none;
