@@ -113,9 +113,12 @@
 	.features__block-performance .features__block-legend {
 		width: 320px;
 	}
+	.features__block-energy_screen .features__block-legend {
+		width: 320px;
+	}
 	.features__block-low_vision_mode .features__block-legend {
 		margin-top: 40px!important;
-		width: 340px;
+		width: 345px;
 	}
 	.features__block-legend-title {
 		font-weight: 700;
