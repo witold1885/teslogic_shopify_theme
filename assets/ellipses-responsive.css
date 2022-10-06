@@ -4,7 +4,7 @@
 		width: calc(100vw - 1001 * 100vw / 1366);
 		height: calc(803 * 100vw / 1366);
 		left: calc(1001 * 100vw / 1366);
-		top: calc(1432 * 100vw / 1366);
+		top: calc(2283 * 100vw / 1366);
 	}
 	.ellipse__main-1 .ellipse {
 		width: calc(803 * 100vw / 1366);
@@ -14,7 +14,7 @@
 		width: calc(100vw - 881 * 100vw / 1366);
 		height: calc(901 * 100vw / 1366);
 		right: calc(881 * 100vw / 1366);
-		top: calc(2145 * 100vw / 1366);
+		top: calc(2901 * 100vw / 1366);
 	}
 	.ellipse__main-2 .ellipse {
 		width: calc(901 * 100vw / 1366);
@@ -25,7 +25,7 @@
 		width: calc(100vw - 957 * 100vw / 1366);
 		height: calc(749 * 100vw / 1366);
 		right: calc(957 * 100vw / 1366);
-		top: calc(2221 * 100vw / 1366);
+		top: calc(2977 * 100vw / 1366);
 	}
 	.ellipse__main-3 .ellipse {
 		width: calc(749 * 100vw / 1366);
@@ -36,7 +36,7 @@
 		width: calc(100vw - 855 * 100vw / 1366);
 		height: calc(958 * 100vw / 1366);
 		left: calc(855 * 100vw / 1366);
-		top: calc(3483 * 100vw / 1366);
+		top: calc(4293 * 100vw / 1366);
 	}
 	.ellipse__main-4 .ellipse {
 		width: calc(958 * 100vw / 1366);
@@ -46,7 +46,7 @@
 		width: calc(100vw - 967 * 100vw / 1366);
 		height: calc(815 * 100vw / 1366);
 		right: calc(967 * 100vw / 1366);
-		top: calc(4154 * 100vw / 1366);	
+		top: calc(4966 * 100vw / 1366);	
 	}
 	.ellipse__main-5 .ellipse {
 		width: calc(815 * 100vw / 1366);
@@ -57,7 +57,7 @@
 		width: calc(100vw - 1035 * 100vw / 1366);
 		height: calc(679 * 100vw / 1366);
 		right: calc(1035 * 100vw / 1366);
-		top: calc(4222 * 100vw / 1366);
+		top: calc(5034 * 100vw / 1366);
 	}
 	.ellipse__main-6 .ellipse {
 		width: calc(679 * 100vw / 1366);
