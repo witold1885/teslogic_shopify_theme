@@ -245,6 +245,22 @@
             "question": "Which side is the connector on right-hand drive cars?",
             "answer": "On RHD vehicles, the connector is located on the driver's side."
           }
+        },
+        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6": {
+          "type": "chapter",
+          "disabled": true,
+          "settings": {
+            "chapter_id": "",
+            "chapter": ""
+          }
+        },
+        "b2b23f7a-ed0d-4344-9c99-b6702744992b": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "1",
+            "question": "Does Teslogic require an internet connection to work?",
+            "answer": "No, it doesn't. An internet connection is only required to use the Navigation Map screen."
+          }
         }
       },
       "block_order": [
@@ -278,7 +294,9 @@
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "6cb7fde7-205a-45c7-8d11-49516438ecee",
         "4dec977d-3de4-4711-b9d5-b70310232b6c",
-        "b1f6dba7-e5b0-4f39-98a2-7356001a8553"
+        "b1f6dba7-e5b0-4f39-98a2-7356001a8553",
+        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6",
+        "b2b23f7a-ed0d-4344-9c99-b6702744992b"
       ],
       "settings": {
       }
