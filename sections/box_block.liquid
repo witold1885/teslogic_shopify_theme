@@ -1,5 +1,4 @@
-<style type="text/css">
-	
+<style type="text/css">	
 	.box_block-title {
 		font-family: 'SF Pro';
 		font-style: normal;
@@ -9,11 +8,41 @@
 		letter-spacing: 0.02em;
 		color: #000000;
 		/*margin-left: 128px;*/
-		margin-bottom: 65px;
+		margin-bottom: 45px;
 		text-align: center;
+	}
+	.box_block-top {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		grid-row-gap: 70px;
+	}
+	.box_block-transmitter {
+		width: 340px;
+		height: 382px;
+	}
+	.box_block-transmitter img {
+		width: 100%;
+	}
+	.box_block-description {
+		width: 653px;
+		height: 128px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 32px;
+		color: #000000;
 	}
 </style>
 <div id="box_block">
 	<div class="box_block-title">What’s in the box</div>				
-	
+	<div class="box_block-top">
+		<div class="box_block-transmitter">
+			<img src="{{ 'transmitter.png' | asset_url }}" srcset="{{ 'transmitter-retina.png' | asset_url }} 2x" loading="lazy">
+		</div>
+		<div class="box_block-description">
+			In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
+		</div>
+	</div>
 </div>
