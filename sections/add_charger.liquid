@@ -59,6 +59,26 @@
 		color: #000000;
 		margin-top: 6px;
 	}
+	.add_charger-info-images {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-end;
+		grid-column-gap: 100px;
+	}
+	.add_charger-info-image {
+		position: relative;
+	}
+	.add_charger-info-image img {
+		width: 100%;
+	}
+	.add_charger-info-image-1 {
+		width: 152px;
+		height: 149px;
+	}
+	.add_charger-info-image-2 {
+		width: 126px;
+		height: 110px;
+	}
 </style>
 <div id="add_charger">
 	<div class="add_charger-img">
@@ -77,6 +97,13 @@
 		<div class="add_charger-info-description">
 			This magnetic charger installs on a phone holder instead of a magnet. It is compatible with the iPhone 12 and above, as well as any phone that supports wireless charging (when using the included magnetic ring).
 		</div>
-		
+		<div class="add_charger-info-images">
+			<div class="add_charger-info-image add_charger-info-image-1">				
+				<img src="{{ 'add_charger-item-1.png' | asset_url }}" srcset="{{ 'add_charger-item-1-retina.png' | asset_url }} 2x" loading="lazy">
+			</div>
+			<div class="add_charger-info-image add_charger-info-image-2">				
+				<img src="{{ 'add_charger-item-2.png' | asset_url }}" srcset="{{ 'add_charger-item-2-retina.png' | asset_url }} 2x" loading="lazy">
+			</div>
+		</div>
 	</div>
 </div>
