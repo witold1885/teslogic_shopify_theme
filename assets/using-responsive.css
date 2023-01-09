@@ -99,6 +99,22 @@
 	.using__row {
 		margin-left: 26px;
 	}
+	.using__row-1 {
+		width: 145px;
+		height: 112px;
+	}
+	.using__row-2 {
+		width: 135px;
+		height: 112px;
+	}
+	.using__row-3 {
+		width: 175px;
+		height: 78px;
+	}
+	.using__row-4 {
+		width: 175px;
+		height: 146px;
+	}
 	.using__row-legend {
 		max-width: 165px;
 	}
