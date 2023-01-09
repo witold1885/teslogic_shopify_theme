@@ -42,10 +42,14 @@
 	height: 95px;
 }
 .using__row-2 {
+	width: 243px;
+	height: 95px;
+}
+.using__row-3 {
 	width: 124px;
 	height: 78px;
 }
-.using__row-3 {
+.using__row-4 {
 	width: 270px;
 	height: 112px;
 }
@@ -87,8 +91,8 @@
 .using__row-image-1 {
 	width: 150px;
 	height: 158px;
-	top: 374px;
-	right: 971px;
+	left: 142.5px;
+	top: 400px;
 }
 .using__row-image-2 {
 	width: 267px;
