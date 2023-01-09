@@ -20,6 +20,11 @@
       "settings": {
       }
     },
+    "box_block": {
+      "type": "box_block",
+      "settings": {
+      }
+    },
     "store_block": {
       "type": "store_block",
       "settings": {
@@ -31,6 +36,7 @@
     "shop_now",
     "main_video",
     "features",
+    "box_block",
     "store_block"
   ]
 }
