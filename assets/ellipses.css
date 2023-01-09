@@ -60,13 +60,13 @@
 .ellipse__main-7 {
 	width: 1454px;
 	height: 1454px;
-	right: calc(76px + ((100vw - 1366px) / 2));
+	right: calc(-76px + ((100vw - 1366px) / 2));
 	top: 6396px;
 }
 .ellipse__main-8 {
 	width: 1606px;
 	height: 1606px;
-	right: calc(119px + ((100vw - 1366px) / 2));
+	right: calc(-119px + ((100vw - 1366px) / 2));
 	top: 6320px;
 }
 .ellipse__main-1 .ellipse,
