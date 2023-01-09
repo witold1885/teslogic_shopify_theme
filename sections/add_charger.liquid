@@ -64,6 +64,7 @@
 		justify-content: flex-start;
 		align-items: flex-end;
 		grid-column-gap: 100px;
+		margin-left: -15px;
 	}
 	.add_charger-info-image {
 		position: relative;
@@ -78,6 +79,38 @@
 	.add_charger-info-image-2 {
 		width: 126px;
 		height: 110px;
+	}
+	.pointer-charger-item-1 {
+		width: 218px;
+		height: 77px;
+		top: 111px;
+		left: 28px;
+	}
+	.pointer-charger-item-2 {
+		width: 218px;
+		height: 77px;
+		top: 70px;
+		left: 36px;
+	}
+	.pointer-charger-item-1 .pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		bottom: calc(-1 * (51px + 12px));
+	}
+	.pointer-charger-item-2 .pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		bottom: calc(-1 * (34px + 12px));
 	}
 </style>
 <div id="add_charger">
@@ -100,9 +133,25 @@
 		<div class="add_charger-info-images">
 			<div class="add_charger-info-image add_charger-info-image-1">				
 				<img src="{{ 'add_charger-item-1.png' | asset_url }}" srcset="{{ 'add_charger-item-1-retina.png' | asset_url }} 2x" loading="lazy">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-1">
+		      <div class="pointer-wrap">
+		        <div class="pointer-legend">
+		          90 Degree USB Type C to USB Type C Adapter for Convenient Charging Connection
+		        </div>
+		        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		      </div>
+		    </div>			
 			</div>
 			<div class="add_charger-info-image add_charger-info-image-2">				
 				<img src="{{ 'add_charger-item-2.png' | asset_url }}" srcset="{{ 'add_charger-item-2-retina.png' | asset_url }} 2x" loading="lazy">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-2">
+		      <div class="pointer-wrap">
+		        <div class="pointer-legend">
+		          USB Type C to USB Type A Adapter for Tesla Model 3 Cars
+		        </div>
+		        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		      </div>
+		    </div>			
 			</div>
 		</div>
 	</div>
