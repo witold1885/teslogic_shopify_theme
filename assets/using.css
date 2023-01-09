@@ -95,16 +95,22 @@
 	top: 400px;
 }
 .using__row-image-2 {
-	width: 267px;
-	height: 249px;
-	top: 343px;
-	right: 567px;
+	width: 269px;
+	height: 159px;
+	left: 390.5px;
+	top: 366px;
 }
 .using__row-image-3 {
+	width: 267px;
+	height: 249px;
+	top: 387px;
+	right: 410px;
+}
+.using__row-image-4 {
 	width: 273px;
 	height: 173px;
-	top: 359px;
-	right: 229px;
+	top: 377px;
+	right: 118.5px;
 }
 .using__arrow_down {
 	display: none;
