@@ -75,7 +75,7 @@
 			In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
 		</div>
 	</div>	
-	{% assign indices = [1,2,3,4] %}		
+	{% assign indices = "1,2,3,4" | split: ',' %}		
 	<div class="box_block-middle">
 		{% for index in indices %}
 		<div class="box_block-item">
