@@ -25,6 +25,11 @@
       "settings": {
       }
     },
+    "add_charger": {
+      "type": "add_charger",
+      "settings": {
+      }
+    },
     "store_block": {
       "type": "store_block",
       "settings": {
@@ -37,6 +42,7 @@
     "main_video",
     "features",
     "box_block",
+    "add_charger",
     "store_block"
   ]
 }
