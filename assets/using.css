@@ -32,7 +32,7 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: center;
-	grid-column-gap: 50px;
+	grid-column-gap: 32px;
 }
 .using__row {
 	margin: 0;
@@ -112,4 +112,5 @@
 .using__arrow_right {
 	display: block;
 	margin-top: 63px;
+	width: 40px;
 }
