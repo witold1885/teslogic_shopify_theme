@@ -57,14 +57,28 @@
 	right: calc(1035px + ((100vw - 1366px) / 2));
 	top: 5034px;
 }
+.ellipse__main-7 {
+	width: 1454px;
+	height: 1454px;
+	right: calc(76px + ((100vw - 1366px) / 2));
+	top: 6396px;
+}
+.ellipse__main-8 {
+	width: 1606px;
+	height: 1606px;
+	right: calc(119px + ((100vw - 1366px) / 2));
+	top: 6320px;
+}
 .ellipse__main-1 .ellipse,
 .ellipse__main-2 .ellipse,
 .ellipse__main-4 .ellipse,
-.ellipse__main-5 .ellipse {
+.ellipse__main-5 .ellipse,
+.ellipse__main-7 .ellipse {
 	background: #F4F6FA;
 }
 .ellipse__main-3 .ellipse,
-.ellipse__main-6 .ellipse {
+.ellipse__main-6 .ellipse,
+.ellipse__main-8 .ellipse {
 	background: #FEFEFE;
 }
 
