@@ -3,11 +3,24 @@
 		width: 1366px;
 		height: 770px;
 		margin-top: 41px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		grid-column-gap: 34px;
+	}
+	.add_charger-img {
+		width: 617px;
+		height: 507px;
+		margin-top: 93px;
+		margin-left: 92px;
+	}
+	.add_charger-img img {
+		width: 100%;
 	}
 </style>
 <div id="add_charger">
 	<div class="add_charger-img">
-		
+		<img src="{{ 'add_charger.png' | asset_url }}" srcset="{{ 'add_charger-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
 	<div class="add_charger-info">
 		
