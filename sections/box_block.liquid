@@ -11,6 +11,10 @@
 		margin-bottom: 45px;
 		text-align: center;
 	}
+	.box_block-content {
+		width: 1366px;
+		height: 2373px;
+	}
 	.box_block-top {
 		display: flex;
 		justify-content: flex-start;
@@ -55,38 +59,83 @@
 		position: absolute;
 		bottom: calc(-1 * (17px + 12px));
 	}
+	.box_block-middle {
+		display: flex;
+		justify-content: flex-start;
+		width: 1142.04px;
+		margin-left: 144px;
+	}
+	.box_block-item {
+		position: relative;
+	}
+	.box_block-item img {
+		width: 100%;
+	}
+	.box_block-item-1 {
+		width: 254.92px;
+		height: 215.31px;
+	}
+	.box_block-item-2 {
+		width: 196px;
+		height: 197px;
+		margin-left: 102.96px;
+	}
+	.box_block-item-3 {
+		width: 251px;
+		height: 245px;
+		margin-left: 80.04px;
+	}
+	.box_block-item-4 {
+		width: 228px;
+		height: 319.54px;
+		margin-left: 10.96px;
+	}
 </style>
 <div id="box_block">
 	<div class="box_block-title">What’s in the box</div>				
-	<div class="box_block-top">
-		<div class="box_block-transmitter">
-			<img src="{{ 'transmitter.png' | asset_url }}" srcset="{{ 'transmitter-retina.png' | asset_url }} 2x" loading="lazy">
-			<!-- <div class="box_block-transmitter-pointer"></div> -->
-      <div class="pointer pointer-bottom pointer-left pointer-transmitter">
-        <div class="pointer-wrap">
-          <div class="pointer-legend">
-            Teslogic transmitter
-          </div>
-          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
-        </div>
-      </div>
-		</div>
-		<div class="box_block-description">
-			In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
-		</div>
-	</div>	
-	<div class="box_block-middle">
-		<div class="box_block-item">
-			<img src="{{ 'box-item-1.png' | asset_url }}" srcset="{{ 'box-item-1-retina.png' | asset_url }} 2x" loading="lazy">
-			<!-- <div class="box_block-transmitter-pointer"></div> -->
-      <div class="pointer pointer-bottom pointer-left pointer-item-1">
-        <div class="pointer-wrap">
-          <div class="pointer-legend">
-            Teslogic transmitter
-          </div>
-          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
-        </div>
-      </div>			
+	<div class="box_block-content">
+		<div class="box_block-top">
+			<div class="box_block-transmitter">
+				<img src="{{ 'transmitter.png' | asset_url }}" srcset="{{ 'transmitter-retina.png' | asset_url }} 2x" loading="lazy">
+				<!-- <div class="box_block-transmitter-pointer"></div> -->
+	      <div class="pointer pointer-bottom pointer-left pointer-transmitter">
+	        <div class="pointer-wrap">
+	          <div class="pointer-legend">
+	            Teslogic transmitter
+	          </div>
+	          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+	        </div>
+	      </div>
+			</div>
+			<div class="box_block-description">
+				In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
+			</div>
+		</div>	
+		<div class="box_block-middle">
+			<div class="box_block-item">
+				<img src="{{ 'box-item-1.png' | asset_url }}" srcset="{{ 'box-item-1-retina.png' | asset_url }} 2x" loading="lazy">
+				<!-- <div class="box_block-transmitter-pointer"></div> -->
+	      <div class="pointer pointer-bottom pointer-left pointer-item-1">
+	        <div class="pointer-wrap">
+	          <div class="pointer-legend">
+	            Teslogic transmitter
+	          </div>
+	          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+	        </div>
+	      </div>			
+			</div>
+			<div class="box_block-item">
+				<img src="{{ 'box-item-2.png' | asset_url }}" srcset="{{ 'box-item-2-retina.png' | asset_url }} 2x" loading="lazy">
+				<!-- <div class="box_block-transmitter-pointer"></div> -->
+	      <div class="pointer pointer-bottom pointer-left pointer-item-2">
+	        <div class="pointer-wrap">
+	          <div class="pointer-legend">
+	            Teslogic transmitter
+	          </div>
+	          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+	        </div>
+	      </div>			
+			</div>
 		</div>
 	</div>
 </div>
