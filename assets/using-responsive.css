@@ -10,7 +10,7 @@
 		line-height: calc(64 * 100vw / 1366);
 	}
 	.using__content {
-		grid-column-gap: calc(50 * 100vw / 1366);
+		grid-column-gap: calc(32 * 100vw / 1366);
 	}
 	.using__row-1 {
 		width: calc(183 * 100vw / 1366);
