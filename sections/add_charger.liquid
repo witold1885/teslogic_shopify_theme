@@ -13,14 +13,39 @@
 		height: 507px;
 		margin-top: 93px;
 		margin-left: 92px;
+		position: relative;
 	}
 	.add_charger-img img {
 		width: 100%;
+	}
+	.pointer-charger {
+		width: 178px;
+		height: 83.5px;
+		top: 0;
+		left: 130px;
+	}
+	.pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		top: calc(-1 * (17px + 12px));
 	}
 </style>
 <div id="add_charger">
 	<div class="add_charger-img">
 		<img src="{{ 'add_charger.png' | asset_url }}" srcset="{{ 'add_charger-retina.png' | asset_url }} 2x" loading="lazy">
+    <div class="pointer pointer-top pointer-left pointer-charger">
+      <div class="pointer-wrap">
+        <div class="pointer-legend">
+          Magsafe Magnet Charger
+        </div>
+        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+      </div>
+    </div>			
 	</div>
 	<div class="add_charger-info">
 		
