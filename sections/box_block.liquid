@@ -75,11 +75,9 @@
 			In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
 		</div>
 	</div>	
-	{% assign indices = "1,2,3,4" | split: ',' %}		
 	<div class="box_block-middle">
-		{% for index in indices %}
 		<div class="box_block-item">
-			<img src="{{ 'box-item-' + index + '.png' | asset_url }}" srcset="{{ 'box-item-' + index + '-retina.png' | asset_url }} 2x" loading="lazy">
+			<img src="{{ 'box-item-1.png' | asset_url }}" srcset="{{ 'box-item-1-retina.png' | asset_url }} 2x" loading="lazy">
 			<!-- <div class="box_block-transmitter-pointer"></div> -->
       <div class="pointer pointer-bottom pointer-left pointer-item-1">
         <div class="pointer-wrap">
@@ -90,6 +88,5 @@
         </div>
       </div>			
 		</div>
-		{% endfor %}
 	</div>
 </div>
