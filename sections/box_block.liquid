@@ -248,6 +248,17 @@
 			line-height: 140%;
 			color: #000000;
 		}
+		.box_block-items-mobile {
+			position: relative;
+			margin-top: 20.29px;
+			width: 100%;
+		}
+		.box_block-item-mobile {
+			position: absolute;
+		}
+		.box_block-item-mobile-wrap {
+			position: relative;
+		}
 	}
 </style>
 <div id="box_block">
@@ -317,30 +328,36 @@
 		</div>
 	</div>
 	<div class="box_block-content-mobile">		
-			<div class="box_block-description">
-				In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
-			</div>
+		<div class="box_block-description">
+			In the box, you will find a Teslogic transmitter and everything you need to install it, as well as a holder for placing the phone where you are used to seeing the car dashboard.
+		</div>
+		<div class="box_block-items-mobile">
 			<div class="box_block-item-mobile box_block-item-mobile-transmitter">
-				<img src="{{ 'transmitter-mobile.png' | asset_url }}" srcset="{{ 'transmitter.png' | asset_url }} 2x" loading="lazy">
-	      <div class="pointer left-right pointer-mobile-transmitter">
-	        <div class="pointer-wrap">
-	          <div class="pointer-legend">
-	            Teslogic transmitter
-	          </div>
-	          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
-	        </div>
+				<div class="box_block-item-mobile-wrap">
+					<img src="{{ 'transmitter-mobile.png' | asset_url }}" srcset="{{ 'transmitter.png' | asset_url }} 2x" loading="lazy">
+		      <div class="pointer left-right pointer-mobile-transmitter">
+		        <div class="pointer-wrap">
+		          <div class="pointer-legend">
+		            Teslogic transmitter
+		          </div>
+		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		        </div>
+		      </div>			
 	      </div>			
 			</div>
 			<div class="box_block-item-mobile box_block-item-mobile-1">
-				<img src="{{ 'box-item-1-mobile.png' | asset_url }}" srcset="{{ 'box-item-1.png' | asset_url }} 2x" loading="lazy">
-	      <div class="pointer pointer-right pointer-item-mobile-1">
-	        <div class="pointer-wrap">
-	          <div class="pointer-legend">
-	            Transmitter Wiring
-	          </div>
-	          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
-	        </div>
+				<div class="box_block-item-mobile-wrap">
+					<img src="{{ 'box-item-1-mobile.png' | asset_url }}" srcset="{{ 'box-item-1.png' | asset_url }} 2x" loading="lazy">
+		      <div class="pointer pointer-right pointer-item-mobile-1">
+		        <div class="pointer-wrap">
+		          <div class="pointer-legend">
+		            Transmitter Wiring
+		          </div>
+		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		        </div>
+		      </div>			
 	      </div>			
 			</div>
+		</div>
 	</div>
 </div>
