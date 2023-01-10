@@ -169,81 +169,95 @@
 		width: 234px;
 		height: 234px;
 		left: calc(294px + ((100vw - 390px) / 2));
-		top: 1951px;
+		top: 2102.71px;
 	}
 	.ellipse__main-mobile-2 {
 		width: 206px;
 		height: 206px;
 		left: calc(308px + ((100vw - 390px) / 2));
-		top: 1965px;	
+		top: 2116.71px;	
 	}
 	.ellipse__main-mobile-3 {
 		width: 279px;
 		height: 279px;
 		right: calc(273px + ((100vw - 390px) / 2));
-		top: 2727px;
+		top: 2878.71px;
 	}
 	.ellipse__main-mobile-4 {
 		width: 234px;
 		height: 234px;
 		left: calc(305px + ((100vw - 390px) / 2));
-		top: 3583px;
+		top: 3734.71px;
 	}
 	.ellipse__main-mobile-5 {
 		width: 206px;
 		height: 206px;
 		left: calc(319px + ((100vw - 390px) / 2));
-		top: 3597px;
+		top: 3748.71px;
 	}
 	.ellipse__main-mobile-6 {
 		width: 279px;
 		height: 279px;
 		right: calc(271px + ((100vw - 390px) / 2));
-		top: 4273px;
+		top: 4424.71px;
 	}
 	.ellipse__main-mobile-7 {
 		width: 234px;
 		height: 234px;
 		left: calc(305px + ((100vw - 390px) / 2));
-		top: 4832px;
+		top: 4983.71px;
 	}
 	.ellipse__main-mobile-8 {
 		width: 206px;
 		height: 206px;
 		left: calc(319px + ((100vw - 390px) / 2));
-		top: 4846px;	
+		top: 4997.71px;	
 	}
 	.ellipse__main-mobile-9 {
 		width: 234px;
 		height: 234px;
 		right: calc(302px + ((100vw - 390px) / 2));
-		top: 5745px;
+		top: 55896.71px;
 	}
-	/*.ellipse__main-mobile-10 {
-		width: 234px;
-		height: 234px;
-		left: calc(313px + ((100vw - 390px) / 2));
-		top: 4576px;
+	.ellipse__main-mobile-10 {
+		width: 749px;
+		height: 749px;
+		left: calc(-1* 180.5px + ((100vw - 390px) / 2));
+		top: 6137px;
 	}
 	.ellipse__main-mobile-11 {
+		width: 677px;
+		height: 687px;
+		left: calc(-1* 144.5px + ((100vw - 390px) / 2));
+		top: 6168px;	
+	}
+	.ellipse__main-mobile-12 {
 		width: 206px;
 		height: 206px;
 		left: calc(327px + ((100vw - 390px) / 2));
 		top: 4590px;	
-	}*/
+	}
+	.ellipse__main-mobile-13 {
+		width: 206px;
+		height: 206px;
+		left: calc(327px + ((100vw - 390px) / 2));
+		top: 4590px;	
+	}
 	.ellipse__main-mobile-1 .ellipse,
 	.ellipse__main-mobile-3 .ellipse,
 	.ellipse__main-mobile-4 .ellipse,
 	.ellipse__main-mobile-6 .ellipse,
 	.ellipse__main-mobile-7 .ellipse,
 	.ellipse__main-mobile-9 .ellipse,
-	.ellipse__main-mobile-10 .ellipse {
+	.ellipse__main-mobile-10 .ellipse,
+	.ellipse__main-mobile-12 .ellipse {
 		background: #F4F6FA;
 	}
 	.ellipse__main-mobile-2 .ellipse,
 	.ellipse__main-mobile-5 .ellipse,
 	.ellipse__main-mobile-8 .ellipse,
-	.ellipse__main-mobile-11 .ellipse {
+	.ellipse__main-mobile-11 .ellipse,
+	.ellipse__main-mobile-13 .ellipse {
 		background: #FEFEFE;
 	}
 
