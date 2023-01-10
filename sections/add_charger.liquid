@@ -136,6 +136,11 @@
 			top: 0;
 			left: calc(130 * 100vw / 1366);
 		}
+		.pointer-charger .pointer-legend {
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+			top: calc(-1 * (calc(17 * 100vw / 1366) + 12px));
+		}
 		.add_charger-info {
 			margin-top: 0;
 		}
@@ -176,6 +181,11 @@
 			height: calc(77 * 100vw / 1366);
 			top: calc(70 * 100vw / 1366);
 			left: calc(36 * 100vw / 1366);
+		}
+		.pointer-charger-item-1 .pointer-legend, .pointer-charger-item-2 .pointer-legend {
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+			bottom: calc(-1 * (calc(51 * 100vw / 1366) + 12px));
 		}
 	}
 	@media screen and (max-width: 999px) {
@@ -294,7 +304,7 @@
 		<div class="add_charger-info-images">
 			<div class="add_charger-info-image add_charger-info-image-1">				
 				<img src="{{ 'add_charger-item-1.png' | asset_url }}" srcset="{{ 'add_charger-item-1-retina.png' | asset_url }} 2x" loading="lazy">
-		    <div class="pointer pointer-top pointer-right pointer-charger-item-1">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-1">
 		      <div class="pointer-wrap">
 		        <div class="pointer-legend">
 		          90 Degree USB Type C to USB Type C Adapter for Convenient Charging Connection
@@ -305,7 +315,7 @@
 			</div>
 			<div class="add_charger-info-image add_charger-info-image-2">				
 				<img src="{{ 'add_charger-item-2.png' | asset_url }}" srcset="{{ 'add_charger-item-2-retina.png' | asset_url }} 2x" loading="lazy">
-		    <div class="pointer pointer-bottom pointer-left pointer-charger-item-2">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-2">
 		      <div class="pointer-wrap">
 		        <div class="pointer-legend">
 		          USB Type C to USB Type A Adapter for '17-'19 Model 3 Cars
