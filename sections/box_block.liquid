@@ -267,6 +267,16 @@
 			top: 135.29px;
 			left: 32.5px;
 		}
+		.box_block-item-mobile-2 {
+			top: 284.29px;
+			right: 21.5px;
+		}
+		.box_block-item-mobile .pointer-left {
+			left: 43.5px;
+		}
+		.box_block-item-mobile .pointer-right {
+			right: 33.5px;
+		}
 	}
 </style>
 <div id="box_block">
@@ -343,7 +353,7 @@
 			<div class="box_block-item-mobile box_block-item-mobile-transmitter">
 				<div class="box_block-item-mobile-wrap">
 					<img src="{{ 'transmitter-mobile.png' | asset_url }}" srcset="{{ 'transmitter.png' | asset_url }} 2x" loading="lazy">
-		      <div class="pointer left-right pointer-mobile-transmitter">
+		      <div class="pointer pointer-left pointer-mobile-transmitter">
 		        <div class="pointer-wrap">
 		          <div class="pointer-legend">
 		            Teslogic transmitter
@@ -360,6 +370,19 @@
 		        <div class="pointer-wrap">
 		          <div class="pointer-legend">
 		            Transmitter Wiring
+		          </div>
+		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		        </div>
+		      </div>			
+	      </div>			
+			</div>
+			<div class="box_block-item-mobile box_block-item-mobile-2">
+				<div class="box_block-item-mobile-wrap">
+					<img src="{{ 'box-item-2-mobile.png' | asset_url }}" srcset="{{ 'box-item-2.png' | asset_url }} 2x" loading="lazy">
+		      <div class="pointer pointer-left pointer-item-mobile-2">
+		        <div class="pointer-wrap">
+		          <div class="pointer-legend">
+		            Magsafe Magnet
 		          </div>
 		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
 		        </div>
