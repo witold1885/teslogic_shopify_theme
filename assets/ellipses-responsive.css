@@ -217,7 +217,7 @@
 		width: 234px;
 		height: 234px;
 		right: calc(302px + ((100vw - 390px) / 2));
-		top: 55896.71px;
+		top: 5896.71px;
 	}
 	.ellipse__main-mobile-10 {
 		width: 749px;
@@ -232,16 +232,16 @@
 		top: 6168px;	
 	}
 	.ellipse__main-mobile-12 {
-		width: 206px;
-		height: 206px;
-		left: calc(327px + ((100vw - 390px) / 2));
-		top: 4590px;	
+		width: 749px;
+		height: 749px;
+		left: calc(-1* 180.5px + ((100vw - 390px) / 2));
+		top: 7145px;	
 	}
 	.ellipse__main-mobile-13 {
-		width: 206px;
-		height: 206px;
-		left: calc(327px + ((100vw - 390px) / 2));
-		top: 4590px;	
+		width: 677px;
+		height: 687px;
+		left: calc(-1* 144.5px + ((100vw - 390px) / 2));
+		top: 7176px;	
 	}
 	.ellipse__main-mobile-1 .ellipse,
 	.ellipse__main-mobile-3 .ellipse,
