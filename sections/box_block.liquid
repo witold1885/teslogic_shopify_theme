@@ -248,6 +248,7 @@
 			font-size: 18px;
 			line-height: 140%;
 			color: #000000;
+			margin: 0 auto;
 		}
 		.box_block-items-mobile {
 			position: relative;
@@ -280,11 +281,20 @@
 			top: 541.29px;
 			right: 16.5px;
 		}
+		.box_block-item-mobile .pointer {
+			height: 0;
+			border: 1px solid #3374FB;
+		}
 		.box_block-item-mobile .pointer-left {
 			left: 43.5px;
 		}
 		.box_block-item-mobile .pointer-right {
 			right: 33.5px;
+		}
+		.pointer-mobile-transmitter {
+			width: 168px;
+			right: 134.98px;
+			top: 79px;
 		}
 	}
 </style>
@@ -404,7 +414,20 @@
 		      <div class="pointer pointer-right pointer-item-mobile-3">
 		        <div class="pointer-wrap">
 		          <div class="pointer-legend">
-		            Magsafe Magnet
+		            Phone Holder
+		          </div>
+		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		        </div>
+		      </div>			
+	      </div>			
+			</div>
+			<div class="box_block-item-mobile box_block-item-mobile-4">
+				<div class="box_block-item-mobile-wrap">
+					<img src="{{ 'box-item-4-mobile.png' | asset_url }}" srcset="{{ 'box-item-4.png' | asset_url }} 2x" loading="lazy">
+		      <div class="pointer pointer-right pointer-item-mobile-4">
+		        <div class="pointer-wrap">
+		          <div class="pointer-legend">
+		            Plastic Tool
 		          </div>
 		          <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
 		        </div>
