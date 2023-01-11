@@ -678,6 +678,7 @@
 		</div>
 	</div>
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
+	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
 </div>
 
 <script type="text/javascript">
@@ -739,7 +740,7 @@
 					let charger_id = $('#charger-id').val()
 					console.log(Number(charger_id))
 					items.push({
-						'product_id': Number(charger_id),
+						'id': Number(charger_id),
 						'quantity': 1
 					})
 				}
