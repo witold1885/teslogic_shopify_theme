@@ -666,8 +666,8 @@
 					</div>
 				</div>
 				<div class="store_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
+					<input type="checkbox" id="select-charger-mobile" class="store_block-add-wireless-charger-checkbox" checked>
+					<label for="select-charger-mobile" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
 					<span class="store_block-add-wireless-charger-price">+ $40</span>
 				</div>
 				<button class="store_block-product-add">Order now</button>
@@ -730,11 +730,18 @@
 		var cart_qty = Number({{ cart.item_count }})
 		$('.store_block-product-add').on('click', function() {
 			if (model_id) {
-				let formData = {
-				 	'items': [{
-						'id': model_id,
+				let items = [{
+					'id': model_id,
+					'quantity': 1
+				}]
+				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+					items.push({
+						'id': charger.id,
 						'quantity': 1
-					}]
+					})
+				}
+				let formData = {
+				 	'items': items
 				}
 				fetch(window.Shopify.routes.root + 'cart/add.js', {
 					method: 'POST',
