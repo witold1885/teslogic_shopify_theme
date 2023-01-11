@@ -736,6 +736,7 @@
 					'id': model_id,
 					'quantity': 1
 				}]
+				let add_items_count = 1
 				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
 					let charger_variant_id = $('#charger-variant-id').val()
 					console.log(Number(charger_variant_id))
@@ -743,6 +744,7 @@
 						'id': Number(charger_variant_id),
 						'quantity': 1
 					})
+					add_items_count++
 				}
 				console.log(items)
 				let formData = {
@@ -756,7 +758,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					cart_qty = cart_qty + 1
+					cart_qty = cart_qty + add_items_count
 					$('.cart-qty').text(cart_qty)
 					$('.cart-link').fadeIn()
 					var f = $('.store_block-product-gallery-image')
