@@ -682,8 +682,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		console.log('all_products:')
-		console.log({{ all_products }})
 		/*var amount = Number($('#amount').text())
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
@@ -738,8 +736,9 @@
 					'quantity': 1
 				}]
 				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+					let charger_id = $('#charger-id').val()
 					items.push({
-						'id': charger.id,
+						'id': charger_id,
 						'quantity': 1
 					})
 				}
