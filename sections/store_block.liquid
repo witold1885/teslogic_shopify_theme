@@ -736,9 +736,9 @@
 					'quantity': 1
 				}]
 				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
-					let charger_id = Number($('#charger-id').val())
+					let charger_id = $('#charger-id').val()
 					items.push({
-						'id': charger_id,
+						'id': Number(charger_id),
 						'quantity': 1
 					})
 				}
