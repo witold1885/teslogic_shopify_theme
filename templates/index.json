@@ -20,6 +20,16 @@
       "settings": {
       }
     },
+    "box_block": {
+      "type": "box_block",
+      "settings": {
+      }
+    },
+    "add_charger": {
+      "type": "add_charger",
+      "settings": {
+      }
+    },
     "store_block": {
       "type": "store_block",
       "settings": {
@@ -31,6 +41,8 @@
     "shop_now",
     "main_video",
     "features",
+    "box_block",
+    "add_charger",
     "store_block"
   ]
 }

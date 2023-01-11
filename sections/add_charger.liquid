@@ -1,0 +1,383 @@
+<style type="text/css">
+	#add_charger {		
+		width: 1366px;
+		height: 770px;
+		margin-top: 41px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		grid-column-gap: 34px;
+	}
+	#add_charger-mobile {
+		display: none;
+	}
+	.add_charger-img {
+		width: 617px;
+		height: 507px;
+		margin-top: 93px;
+		margin-left: 92px;
+		position: relative;
+	}
+	.add_charger-img img {
+		width: 100%;
+	}
+	.pointer-charger {
+		width: 178px;
+		height: 83.5px;
+		top: 0;
+		left: 130px;
+	}
+	.pointer-charger .pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		top: calc(-1 * (17px + 12px));
+	}
+	.add_charger-info {
+		margin-top: 0;
+	}
+	.add_charger-info-title {
+		width: 427px;
+		height: 104px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 44px;
+		line-height: 52px;
+		color: #000000;
+		margin-top: 52px;
+	}
+	.add_charger-info-description {
+		width: 490px;
+		height: 160px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 32px;
+		color: #000000;
+		margin-top: 6px;
+	}
+	.add_charger-info-images {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-end;
+		grid-column-gap: 100px;
+		margin-left: -15px;
+	}
+	.add_charger-info-image {
+		position: relative;
+	}
+	.add_charger-info-image img {
+		width: 100%;
+	}
+	.add_charger-info-image-1 {
+		width: 152px;
+		height: 149px;
+	}
+	.add_charger-info-image-2 {
+		width: 126px;
+		height: 110px;
+	}
+	.pointer-charger-item-1 {
+		width: 218px;
+		height: 77px;
+		top: 111px;
+		left: 28px;
+	}
+	.pointer-charger-item-2 {
+		width: 218px;
+		height: 77px;
+		top: 70px;
+		left: 36px;
+	}
+	.pointer-charger-item-1 .pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		bottom: calc(-1 * (51px + 12px));
+		top: unset;
+	}
+	.pointer-charger-item-2 .pointer-legend {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(0, 0, 0, 0.64);
+		position: absolute;
+		bottom: calc(-1 * (51px + 12px));
+		top: unset;
+	}
+	@media screen and (min-width: 1000px) and (max-width: 1366px) {
+		#add_charger {		
+			width: calc(1366 * 100vw / 1366);
+			height: calc(770 * 100vw / 1366);
+			margin-top: calc(41 * 100vw / 1366);
+			grid-column-gap: calc(34 * 100vw / 1366);
+		}
+		.add_charger-img {
+			width: calc(617 * 100vw / 1366);
+			height: calc(507 * 100vw / 1366);
+			margin-top: calc(93 * 100vw / 1366);
+			margin-left: calc(92 * 100vw / 1366);
+		}
+		.pointer-charger {
+			width: calc(178 * 100vw / 1366);
+			height: calc(83.5 * 100vw / 1366);
+			top: 0;
+			left: calc(130 * 100vw / 1366);
+		}
+		.pointer-charger .pointer-legend {
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+			top: calc(-1 * (calc(17 * 100vw / 1366) + 12px));
+		}
+		.add_charger-info {
+			margin-top: 0;
+		}
+		.add_charger-info-title {
+			width: calc(427 * 100vw / 1366);
+			height: calc(104 * 100vw / 1366);
+			font-size: calc(44 * 100vw / 1366);
+			line-height: calc(52 * 100vw / 1366);
+			margin-top: calc(52 * 100vw / 1366);
+		}
+		.add_charger-info-description {
+			width: calc(490 * 100vw / 1366);
+			height: calc(160 * 100vw / 1366);
+			font-size: calc(22 * 100vw / 1366);
+			line-height: calc(32 * 100vw / 1366);
+			margin-top: calc(6 * 100vw / 1366);
+		}
+		.add_charger-info-images {
+			grid-column-gap: calc(100 * 100vw / 1366);
+			margin-left: calc(-1 * 15 * 100vw / 1366);
+		}
+		.add_charger-info-image-1 {
+			width: calc(152 * 100vw / 1366);
+			height: calc(149 * 100vw / 1366);
+		}
+		.add_charger-info-image-2 {
+			width: calc(126 * 100vw / 1366);
+			height: calc(110 * 100vw / 1366);
+		}
+		.pointer-charger-item-1 {
+			width: calc(218 * 100vw / 1366);
+			height: calc(77 * 100vw / 1366);
+			top: calc(111 * 100vw / 1366);
+			left: calc(28 * 100vw / 1366);
+		}
+		.pointer-charger-item-2 {
+			width: calc(218 * 100vw / 1366);
+			height: calc(77 * 100vw / 1366);
+			top: calc(70 * 100vw / 1366);
+			left: calc(36 * 100vw / 1366);
+		}
+		.pointer-charger-item-1 .pointer-legend, .pointer-charger-item-2 .pointer-legend {
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+			bottom: calc(-1 * (calc(51 * 100vw / 1366) + 12px));
+		}
+	}
+	@media screen and (max-width: 999px) {
+		#add_charger {
+			display: none;
+		}
+		#add_charger-mobile {
+			height: 953px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			margin-top: 40px;
+		}
+		.add_charger-mobile-title {
+			width: 100%;
+			height: 86px;
+			font-family: 'SF Pro';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 36px;
+			line-height: 43px;
+			text-align: center;
+			letter-spacing: 0.02em;
+			color: #000000;
+			margin-bottom: 24.29px;
+		}
+		.add_charger-mobile-info {
+			width: 331px;
+			height: 149px;
+			font-family: 'Gotham';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+			color: #000000;
+			margin: 0 auto;
+		}
+		.add_charger-mobile-main-image {
+			margin-top: 17px;
+			position: relative;
+		}
+		.pointer-charger-mobile {
+			width: 172px;
+			height: 0;
+			top: 75px;
+			left: 183px;
+			border: 1px solid #3374FB;
+		}
+		.pointer-charger-mobile .pointer-point {
+			top: -4px;
+			left: -4px;
+			width: 7px;
+			height: 7px;
+		}
+		.pointer-charger-mobile .pointer-legend {
+			right: 0;
+			top: calc(-1 * (34px + 12px));
+			text-align: right;
+		}
+		.add_charger-mobile-images {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			grid-column-gap: 79px;
+			margin-left: 41.5px;
+			margin-top: 139px;
+		}
+		.add_charger-mobile-image {
+			position: relative;
+		}
+		.add_charger-mobile-image-1 {
+			width: 111px;
+			height: 109px;
+		}
+		.add_charger-mobile-image-2 {
+			width: 92px;
+			height: 81px;
+		}
+		.add_charger-mobile-image img {
+			width: 100%;
+		}
+		.pointer-charger-mobile-item-1 {
+			width: 218px;
+			height: 77px;
+			left: 44px;
+			top: -28px;
+		}
+		.pointer-charger-mobile-item-2 {
+			width: 218px;
+			height: 77px;
+			right: 42.5px;
+			bottom: -45px;
+		}
+		.pointer-charger-mobile-item .pointer-point {
+			/*top: -4px;
+			left: -4px;*/
+			width: 7px;
+			height: 7px;
+		}
+		.pointer-charger-mobile-item-1 .pointer-legend {			
+			top: calc(-1 * (51px + 12px));
+			bottom: unset;
+		}
+		.pointer-charger-mobile-item-2 .pointer-legend {			
+			bottom: calc(-1 * (51px + 12px));
+			top: unset;
+		}
+	}
+</style>
+<div id="add_charger">
+	<div class="add_charger-img">
+		<img src="{{ 'add_charger.png' | asset_url }}" srcset="{{ 'add_charger-retina.png' | asset_url }} 2x" loading="lazy">
+    <div class="pointer pointer-top pointer-left pointer-charger">
+      <div class="pointer-wrap">
+        <div class="pointer-legend">
+          Magsafe Magnet Charger
+        </div>
+        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+      </div>
+    </div>			
+	</div>
+	<div class="add_charger-info">
+		<div class="add_charger-info-title">Additional wireless charger</div>
+		<div class="add_charger-info-description">
+			This magnetic charger installs on a phone holder instead of a magnet. It is compatible with the iPhone 12 and above, as well as any phone that supports wireless charging (when using the included magnetic ring).
+		</div>
+		<div class="add_charger-info-images">
+			<div class="add_charger-info-image add_charger-info-image-1">				
+				<img src="{{ 'add_charger-item-1.png' | asset_url }}" srcset="{{ 'add_charger-item-1-retina.png' | asset_url }} 2x" loading="lazy">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-1">
+		      <div class="pointer-wrap">
+		        <div class="pointer-legend">
+		          90 Degree USB Type C to USB Type C Adapter for Convenient Charging Connection
+		        </div>
+		        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		      </div>
+		    </div>			
+			</div>
+			<div class="add_charger-info-image add_charger-info-image-2">				
+				<img src="{{ 'add_charger-item-2.png' | asset_url }}" srcset="{{ 'add_charger-item-2-retina.png' | asset_url }} 2x" loading="lazy">
+		    <div class="pointer pointer-bottom pointer-right pointer-charger-item-2">
+		      <div class="pointer-wrap">
+		        <div class="pointer-legend">
+		          USB Type C to USB Type A Adapter for '17-'19 Model 3 Cars
+		        </div>
+		        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+		      </div>
+		    </div>			
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_charger-mobile">
+	<div class="add_charger-mobile-title">
+		Additional<br>wireless charger
+	</div>
+	<div class="add_charger-mobile-info">
+		This magnetic charger installs on a phone holder instead of a magnet. It is compatible with the iPhone 12 and above, as well as any phone that supports wireless charging (when using the included magnetic ring).
+	</div>
+	<div class="add_charger-mobile-main-image">
+		<img src="{{ 'add_charger-mobile.png' | asset_url }}" srcset="{{ 'add_charger.png' | asset_url }} 2x" loading="lazy">
+    <div class="pointer pointer-right pointer-charger-mobile">
+      <div class="pointer-wrap">
+        <div class="pointer-legend">
+          Magsafe Magnet Charger
+        </div>
+        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+      </div>
+    </div>			
+	</div>
+	<div class="add_charger-mobile-images">
+		<div class="add_charger-mobile-image add_charger-mobile-image-1">
+			<img src="{{ 'add_charger-item-1-mobile.png' | asset_url }}" srcset="{{ 'add_charger-item-1.png' | asset_url }} 2x" loading="lazy">
+	    <div class="pointer pointer-top pointer-right pointer-charger-mobile-item pointer-charger-mobile-item-1">
+	      <div class="pointer-wrap">
+	        <div class="pointer-legend">
+	          90 Degree USB Type C to USB Type C Adapter for Convenient Charging Connection
+	        </div>
+	        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+	      </div>
+	    </div>			
+		</div>
+		<div class="add_charger-mobile-image add_charger-mobile-image-2">
+			<img src="{{ 'add_charger-item-2-mobile.png' | asset_url }}" srcset="{{ 'add_charger-item-2.png' | asset_url }} 2x" loading="lazy">
+	    <div class="pointer pointer-bottom pointer-left pointer-charger-mobile-item pointer-charger-mobile-item-2">
+	      <div class="pointer-wrap">
+	        <div class="pointer-legend">
+	          USB Type C to USB Type A Adapter for '17-'19 Model 3 Cars
+	        </div>
+	        <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+	      </div>
+	    </div>			
+		</div>		
+	</div>
+</div>
