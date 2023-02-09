@@ -23,12 +23,20 @@
             "manual": "Model Y",
             "code": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/www.youtube.com\/embed\/C5dARhY-NnM?rel=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>"
           }
+        },
+        "2733e478-35ac-40f8-8f6c-32f6818744c8": {
+          "type": "manual",
+          "settings": {
+            "manual": "Wireless Charger Installation manual",
+            "code": "<iframe width=\"1280\" height=\"720\" src=\"https:\/\/youtu.be\/I3RlExqAi5w?rel=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>"
+          }
         }
       },
       "block_order": [
         "5af7a634-396f-494e-9d28-e8e42e7a1272",
         "2bd72b42-a726-4a9b-97d0-b4ea4b172dac",
-        "dd744d84-9609-4805-9aac-fb06c7d4ab55"
+        "dd744d84-9609-4805-9aac-fb06c7d4ab55",
+        "2733e478-35ac-40f8-8f6c-32f6818744c8"
       ],
       "settings": {
       }
