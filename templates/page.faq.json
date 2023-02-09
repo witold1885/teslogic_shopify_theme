@@ -81,6 +81,14 @@
             "answer": "Teslogic is compatible with all Model 3\/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
           }
         },
+        "df090883-f0b7-447e-9ae4-f993a2b25557": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "What does US Spec and non-US Spec mean?",
+            "answer": "When choosing Model 3 2019-2020, please note that the kits are different for US Spec and non-US Spec. US Spec includes the USA and Canada. Non-US Spec identifies all other countries."
+          }
+        },
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc": {
           "type": "question",
           "settings": {
@@ -274,6 +282,7 @@
         "b249d263-3513-4e3c-aa7e-4e30758993df",
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
         "607d0c5c-e1a8-4873-be59-e4c596186b15",
+        "df090883-f0b7-447e-9ae4-f993a2b25557",
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
         "a0405dcf-1763-44c2-aee2-79e8c182d253",
         "f2084917-d299-4cda-9192-dfd8a74f10a2",
