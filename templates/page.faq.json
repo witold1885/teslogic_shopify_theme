@@ -223,6 +223,14 @@
             "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
           }
         },
+        "97e4f599-0a93-4af5-a281-4a14ec235abc": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "What is your return policy?",
+            "answer": "We offer returns for items within 30 days of receipt of shipment."
+          }
+        },
         "82239037-f960-4f2c-aa70-d59ba5d85350": {
           "type": "chapter",
           "settings": {
@@ -269,14 +277,6 @@
             "chapter_id": "",
             "chapter": ""
           }
-        },
-        "97e4f599-0a93-4af5-a281-4a14ec235abc": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "What is your return policy?",
-            "answer": "We offer returns for items within 30 days of receipt of shipment."
-          }
         }
       },
       "block_order": [
@@ -308,13 +308,13 @@
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
         "51f2a674-dfc5-431d-913e-d745a79dd5cd",
         "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
+        "97e4f599-0a93-4af5-a281-4a14ec235abc",
         "82239037-f960-4f2c-aa70-d59ba5d85350",
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "6cb7fde7-205a-45c7-8d11-49516438ecee",
         "4dec977d-3de4-4711-b9d5-b70310232b6c",
         "b1f6dba7-e5b0-4f39-98a2-7356001a8553",
-        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6",
-        "97e4f599-0a93-4af5-a281-4a14ec235abc"
+        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6"
       ],
       "settings": {
       }
