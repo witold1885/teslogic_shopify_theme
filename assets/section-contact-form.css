@@ -216,6 +216,10 @@
     font-size: calc(20 * 100vw / 1366);
     line-height: calc(32 * 100vw / 1366);
   }
+  .contact__success {
+    font-size: calc(20 * 100vw / 1366);
+    line-height: calc(32 * 100vw / 1366);
+  }
 }
 
 @media screen and (max-width: 999px) {
@@ -282,6 +286,10 @@
     line-height: 31px;
   }
   .contact__info-item-text {
+    font-size: 18px;
+    line-height: 140%;
+  }
+  .contact__success {
     font-size: 18px;
     line-height: 140%;
   }
