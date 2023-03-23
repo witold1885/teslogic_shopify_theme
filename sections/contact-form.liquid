@@ -35,7 +35,7 @@
       <div class="contact__wrap">
         {% assign form_classes = 'contact__form' %}
         {%- if form.posted_successfully? -%}
-          {% assign form_classes = form_classes | append: ' custom__form-success' %}
+          {% assign form_classes = form_classes | append: ' contact__form-success' %}
         {% endif %}
         <div class="{{ form_classes }}">
           <div class="contact__form-ellipse"></div>
