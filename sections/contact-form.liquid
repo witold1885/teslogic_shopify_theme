@@ -33,7 +33,11 @@
         </ul>
       {%- endif -%}
       <div class="contact__wrap">
-        <div class="contact__form">
+        {% assign form_classes = 'contact__form' %}
+        {%- if form.posted_successfully? -%}
+          {% assign form_classes = form_classes | append: 'custom__form-success ' %}
+        {% endif %}
+        <div class="{{ form_classes }}">
           <div class="contact__form-ellipse"></div>
           {%- if form.posted_successfully? -%}
             <div class="contact__success">

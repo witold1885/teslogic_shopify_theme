@@ -69,6 +69,9 @@
   align-items: center;
   grid-row-gap: 40px;
 }
+.contact__form-success {
+  justify-content: center;
+}
 .contact__form-ellipse {
   display: block!important;
   background: #F4F6FA;
@@ -81,6 +84,15 @@
   bottom: 0;
   border-radius: 100%;
   z-index: -1;
+}
+.contact__success {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: #000000;
+  text-align: center;
 }
 .contact__fields {
   display: flex;
