@@ -1,7 +1,38 @@
 <link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {%- style -%}
-
+  .static-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .static-content h1, .static-content h2, .static-content h3, .static-content h4, .static-content h5, .static-content h6, .static-content p, .static-content span, .static-content li {
+    font-family: 'Gotham'!important;
+    font-style: normal;
+  }
+  .static-content p, .static-content span, .static-content li {    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .static-content li::marker {
+    font-weight: bold;
+  }
+  .static-content ul, .static-content ol {
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 1456px) {
+    .static-content {
+      margin-left: 128px;
+      margin-right: 128px;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    .static-content {
+      margin-left: calc(24 * 100vw / 390);
+      margin-right: calc(24 * 100vw / 390);
+    }
+  }
 {%- endstyle -%}
 
 <div class="manuals" id="manuals">
