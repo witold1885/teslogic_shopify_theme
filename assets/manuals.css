@@ -60,4 +60,8 @@
 		height: calc(194 * 100vw / 390);
 		border-radius: 11.0448px;
 	}
+	.manuals__text {
+		margin-left: 23px;
+		margin-right: 25px;
+	}
 }
