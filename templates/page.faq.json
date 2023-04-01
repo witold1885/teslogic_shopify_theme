@@ -277,6 +277,14 @@
             "chapter_id": "",
             "chapter": ""
           }
+        },
+        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "Does the blind spot warning feature alert about all objects in the blind spot?",
+            "answer": "No, the sensors of the vehicle may not detect all objects situated within the blind spot and there may be no alerts displayed via Teslogic app. It is the driver's responsibility to maintain alertness while changing lanes, by conducting mandatory shoulder checks."
+          }
         }
       },
       "block_order": [
@@ -314,7 +322,8 @@
         "6cb7fde7-205a-45c7-8d11-49516438ecee",
         "4dec977d-3de4-4711-b9d5-b70310232b6c",
         "b1f6dba7-e5b0-4f39-98a2-7356001a8553",
-        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6"
+        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6",
+        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5"
       ],
       "settings": {
       }
