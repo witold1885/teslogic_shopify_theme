@@ -70,7 +70,7 @@
 	color: #000000;
 }
 .menu__item:not(.menu__item-button):hover {
-	/*color: #3374FB;*/
+	color: #3374FB;
 }
 .menu__item a {
 	color: inherit;
