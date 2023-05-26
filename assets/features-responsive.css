@@ -11,11 +11,11 @@
 		margin-bottom: calc(40 * 100vw / 1366);
 	}
 	.features__block-legend {
-		margin-top: calc(173 * 100vw / 1366);
-		width: calc(408 * 100vw / 1366);
+		margin-top: calc(160.5 * 100vw / 1366);
+		width: calc(271 * 100vw / 1366);
 	}
 	.features__block-odd .features__block-legend {
-		margin-left: calc(129 * 100vw / 1366);
+		margin-left: calc(48 * 100vw / 1366);
 		/*margin-left: 0;*/
 	}
 	.features__block-even .features__block-legend {
@@ -23,14 +23,14 @@
 		/*margin-right: 0;*/
 	}
 	.features__block-legend-title {
-		font-size: calc(44 * 100vw / 1366);
-		line-height: calc(52 * 100vw / 1366);
-		margin-bottom: calc(6 * 100vw / 1366);
+		font-size: calc(36 * 100vw / 1366);
+		line-height: calc(43 * 100vw / 1366);
+		margin-bottom: calc(20 * 100vw / 1366);
 	}
 	.features__block-legend-subtitle {
 		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
-		margin-bottom: calc(40 * 100vw / 1366);
+		margin-bottom: calc(20 * 100vw / 1366);
 	}
 	.features__block-switcher {
 		width: calc(116 * 100vw / 1366);

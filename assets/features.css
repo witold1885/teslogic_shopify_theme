@@ -37,11 +37,11 @@
 }
 .features__block-legend {
 	z-index: 3;
-	margin-top: 173px;
-	width: 408px;
+	margin-top: 160.5px;
+	width: 271px;
 }
 .features__block-odd .features__block-legend {
-	margin-left: 129px;
+	margin-left: 48px;
 }
 .features__block-even .features__block-legend {
 	margin-right: 78px;
@@ -54,11 +54,11 @@
 .features__block-legend-title {
 	font-family: 'Gotham';
 	font-style: normal;
-	font-weight: 700;
-	font-size: 44px;
-	line-height: 52px;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 43px;
 	color: #000000;
-	margin-bottom: 6px;
+	margin-bottom: 20px;
 }
 .features__block-legend-subtitle {
 	font-family: 'Gotham';
@@ -67,7 +67,7 @@
 	font-size: 22px;
 	line-height: 32px;
 	color: #000000;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 .features__block-switcher {
 	width: 116px;
