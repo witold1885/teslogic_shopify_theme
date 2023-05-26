@@ -258,10 +258,12 @@
       if (clicked) {
         if (e.clientX < clickPosition) {
           // move left
+          console.log('moving left')
           $(this).css('margin-left', '-=5px')
         }
         else {
           // move right
+          console.log('moving right')
           $(this).css('margin-left', '+=5px')
         }
       }
