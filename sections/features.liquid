@@ -250,9 +250,10 @@
       // scroll: true
     })*/
     var clicked = false
-    $('.features__blocks-scroller').on('mousemove', function() {
+    $('.features__blocks-scroller').on('mousemove', function(e) {
       console.log('mousemoved')
       console.log(clicked)
+      console.log(e.clientX)
     })
     $('.features__blocks-scroller').on('mousedown', function() {
       console.log('mousedown')
