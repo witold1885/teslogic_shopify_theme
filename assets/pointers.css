@@ -120,6 +120,7 @@
 	height: 99px;
 	left: 869px;
 	top: 363px;
+	transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 .pointer-dashboard-bottom-right .pointer-legend {
 	width: 208px;
