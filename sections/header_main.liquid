@@ -242,10 +242,12 @@
       if ($(dropdown).is(':visible')) {
         $(dropdown).css('display', 'none')
         $(chevron).removeClass('menu__item-chevron-reverted')
+        $(this).removeClass('menu__item-opened')
       }
       else {
         $(dropdown).css('display', 'flex')
         $(chevron).addClass('menu__item-chevron-reverted')
+        $(this).addClass('menu__item-opened')
       }      
     })
   })  

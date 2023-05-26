@@ -42,7 +42,7 @@
 		height: calc(64 * 100vw / 1366);
 	}
 	.menu__item {
-		font-size: calc(18 * 100vw / 1366);
+		font-size: calc(16 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
 		padding: calc(4 * 100vw / 1366) calc(12 * 100vw / 1366);
 	}
