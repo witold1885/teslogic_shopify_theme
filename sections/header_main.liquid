@@ -46,7 +46,9 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
-          <div class="menu__item"><a href="{{ link.url }}">{{ link.title }}</a>
+          <div class="menu__item">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            <img src="{{ 'chevron-down.png' | asset_url }}">
           {% if link.links.size > 0 %}
             <ul class="menu__item-dropdown">
               {% for child_link in link.links %}
@@ -96,7 +98,9 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
-          <div class="menu__item"><a href="{{ link.url }}">{{ link.title }}</a>
+          <div class="menu__item">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            <img src="{{ 'chevron-down.png' | asset_url }}">
           {% if link.links.size > 0 %}
             <ul class="menu__item-dropdown">
               {% for child_link in link.links %}
