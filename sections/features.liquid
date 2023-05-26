@@ -250,18 +250,18 @@
       // scroll: true
     })*/
     var clicked = false, clickPosition = 0
-    $('.features__blocks-scroller').on('mousedown touchstart', function(e) {
+    $('.features__blocks-scroller').on('mousedown', function(e) {
       e.preventDefault()
       console.log('touchstart')
       clicked = true
       clickPosition = e.clientX
     })
-    $('.features__blocks-scroller').on('mouseup touchend', function() {
+    $('.features__blocks-scroller').on('mouseup', function() {
       console.log('touchend')
       clicked = false
       clickPosition = 0
     })
-    $('.features__blocks-scroller').on('mousemove touchmove', function(e) {
+    $('.features__blocks-scroller').on('mousemove', function(e) {
       console.log('mousemoved')
       // console.log(clicked)
       // console.log(e.clientX)
