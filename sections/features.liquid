@@ -268,12 +268,13 @@
         }
       }
     })
-    $('.features__blocks-scroller').on('touchstart', function(e) {
+    $('.features__blocks-scroller').on('mousedown touchstart', function(e) {
+      e.preventDefault()
       console.log('touchstart')
       clicked = true
       clickPosition = e.clientX
     })
-    $('.features__blocks-scroller').on('touchend', function() {
+    $('.features__blocks-scroller').on('mouseup touchend', function() {
       console.log('touchend')
       clicked = false
       clickPosition = 0
