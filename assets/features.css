@@ -18,6 +18,8 @@
 	overflow-x: scroll;
 /*	flex-direction: column;*/
 	margin-left: 80px;
+	scrollbar-color: #39BC64 #FFFFFF;
+	scrollbar-width: 3.28px;
 }
 .features__block {
 /*	width: 100%;*/
