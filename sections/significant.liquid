@@ -11,7 +11,7 @@
     	{{ article | json }}
     	{{ article.image.src }}
   		<div class="significant__features-item">
-  			<img class="significant__features-item-image" src="{{ article.image }}">
+  			<img class="significant__features-item-image" src="{{ article.image | img_url: '400x400' }}">
   			<div class="significant__features-item-title">{{ article.title }}</div>
   			<div class="significant__features-item-content">{{ article.content }}</div>
   		</div>
