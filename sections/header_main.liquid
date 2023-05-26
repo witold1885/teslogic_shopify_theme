@@ -97,7 +97,7 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
