@@ -46,7 +46,7 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
-          <div class="menu__item">
+          <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
               <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
@@ -98,7 +98,7 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
-          <div class="menu__item">
+          <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
               <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
