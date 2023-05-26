@@ -12,6 +12,7 @@
   <div class="features__blocks">
   <div class="features__blocks-scroller">
     <div class="features__block features__block-odd features__block-dashboard">
+      <div class="features__block-glass"></div>
       <div class="features__block-legend">
         <div class="features__block-legend-title">Dashboard</div>
         <div class="features__block-legend-subtitle">Easily control the speed, power and battery of your Tesla</div>
@@ -72,6 +73,7 @@
       </figure>
     </div>    
     <div class="features__block features__block-odd features__block-performance">
+      <div class="features__block-glass"></div>
       <div class="features__block-legend">
         <div class="features__block-legend-title">Perfomance</div>
         <div class="features__block-legend-subtitle">Experience the performance mode data even if you are driving<br>a standard range</div>
@@ -124,6 +126,7 @@
       </figure>
     </div>
     <div class="features__block features__block-odd features__block-energy_screen">
+      <div class="features__block-glass"></div>
       <div class="features__block-legend">
         <div class="features__block-legend-title">Energy screen</div>
         <div class="features__block-legend-subtitle">Detailed pictures of how different<br>vehicle systems consume power</div>
@@ -160,6 +163,7 @@
       </figure>
     </div>
     <div class="features__block features__block-odd features__block-car_info">
+      <div class="features__block-glass"></div>
       <div class="features__block-legend">
         <div class="features__block-legend-title">Car data</div>
         <div class="features__block-legend-subtitle">Get and share all needed info about your Tesla</div>
@@ -204,6 +208,7 @@
       </figure>
     </div>
     <div class="features__block features__block-odd features__block-map">
+      <div class="features__block-glass"></div>
       <div class="features__block-legend">
         <div class="features__block-legend-title">Map and Navigation</div>
         <div class="features__block-switcher" current_side="dark">
@@ -306,7 +311,7 @@ slider.addEventListener('mousemove', (e) => {
   const x = e.pageX - slider.offsetLeft;
   const walk = (x - startX) * 1; //scroll-fast
   slider.scrollLeft = scrollLeft - walk;
-  console.log(walk);
+  // console.log(walk);
 });
 
     $('.features__block-switcher').on('click', function() {

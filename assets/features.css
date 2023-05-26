@@ -42,6 +42,15 @@
 	background: #F4F6FA;
 	border-radius: 12px;
 }
+.features__block-glass {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: transparent;
+}
 .features__block.features__block-low_vision_mode {
 	height: 600px;
 }
