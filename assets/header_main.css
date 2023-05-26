@@ -78,14 +78,25 @@
 	text-decoration: none;
 }
 .menu__item-dropdown {
+	list-style: none;
 	position: absolute;
 	top: 10px;
-	left: 32px;
+	left: -32px;
 	padding: 32px;
 	background: #F4F6FA;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 20px;
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+.menu__item-dropdown-link {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
 }
 .cart-link {
 	background: #BAE4B2;
