@@ -127,40 +127,6 @@
 	bottom: calc(-1 * (34px + 12px));
 }
 
-.pointer-notifications-top-left {
-	width: 191px;
-	height: 162px;
-	left: 0;
-	bottom: 190px;
-}
-.pointer-notifications-top-left .pointer-legend {	
-	width: 233px;
-	height: 34px;
-	top: calc(-1 * (34px + 12px));
-}
-.pointer-notifications-top-right {
-	width: 146px;
-	height: 153px;
-	right: -4.22px;
-	bottom: 199px;
-}
-.pointer-notifications-top-right .pointer-legend {	
-	width: 159px;
-	height: 34px;
-	top: calc(-1 * (34px + 12px));
-}
-.pointer-notifications-bottom-left {
-	width: 229px;
-	height: 80px;
-	left: 0px;
-	top: 272px;
-}
-.pointer-notifications-bottom-left .pointer-legend {	
-	width: 246px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
-}
-
 .pointer-performance-top-left {
 	width: 68.05px;
 	height: 136px;
@@ -197,8 +163,8 @@
 .pointer-performance-bottom-right {
 	width: 198.13px;
 	height: 179px;
-	left: 854.33px;
-	top: 283px;
+	left: 656.2px;
+	bottom: 78px;
 }
 .pointer-performance-bottom-right .pointer-legend {
 	width: 208px;
