@@ -47,6 +47,15 @@
       <div class="menu">
         {% for link in linklists.main-menu.links %}
           <div class="menu__item"><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {% if link.links.size > 0 %}
+            <ul class="menu dropdown-child">
+              {% for child_link in link.links %}
+                <li class="menu-link">
+                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         {% endfor %}
         <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
         <div class="menu__item"><a href="#features">Features</a></div>
@@ -87,6 +96,15 @@
       <div class="menu">
         {% for link in linklists.main-menu.links %}
           <div class="menu__item"><a href="{{ link.url }}">{{ link.title }}</a></div>
+          {% if link.links.size > 0 %}
+            <ul class="menu dropdown-child">
+              {% for child_link in link.links %}
+                <li class="menu-link">
+                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         {% endfor %}
         <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
         <div class="menu__item"><a href="#features">Features</a></div>
