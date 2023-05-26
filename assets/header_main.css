@@ -79,7 +79,9 @@
 	background: #FFFFFF;
 	color: #000000;
 }
-.menu__item:not(.menu__item-button):hover,
+.menu__item:not(.menu__item-button):hover {
+	color: #9FA1A8;
+}
 .menu__item-dropdown-link:hover {
 	color: #3374FB;
 }
@@ -94,12 +96,13 @@
 .menu__item-chevron-reverted {
 	transform: rotate(180deg);
 	transform-origin: center;
+	color: #9FA1A8;
 }
 .menu__item-dropdown {
 	list-style: none;
 	margin: 0;
 	position: absolute;
-	top: 50px;
+	top: 40px;
 	left: -20px;
 	padding: 32px;
 	background: #F4F6FA;
