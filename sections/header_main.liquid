@@ -49,7 +49,7 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
+              <img class="menu__item-chevron" src="{{ 'chevron-down.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
                   <li class="menu__item-dropdown-link">
@@ -101,7 +101,7 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
+              <img class="menu__item-chevron" src="{{ 'chevron-down.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
                   <li class="menu__item-dropdown-link">
