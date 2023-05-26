@@ -20,6 +20,11 @@
       "settings": {
       }
     },
+    "significant": {
+      "type": "significant",
+      "settings": {
+      }
+    },
     "box_block": {
       "type": "box_block",
       "settings": {
@@ -41,6 +46,7 @@
     "shop_now",
     "main_video",
     "features",
+    "significant",
     "box_block",
     "add_charger",
     "store_block"
