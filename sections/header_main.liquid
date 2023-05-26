@@ -97,7 +97,7 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
@@ -181,6 +181,8 @@
   console.log(window.navigator.userAgent)
   var logo_white_url = "{{ 'logo.png' | asset_url }}"
   var logo_black_url = "{{ 'logo_black.png' | asset_url }}"
+  var chevron_white = "{{ 'chevron-down.png' | asset_url }}"
+  var chevron_black = "{{ 'chevron-down-black.png' | asset_url }}"
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
@@ -194,6 +196,7 @@
           $('#header_sticky').css({background: '#FEFEFE'})
           $('#header_sticky').find('.logo img').attr('src', logo_black_url)
           $('#header_sticky').find('.menu__item').addClass('menu__item-sticky')
+          $('.menu__item-chevron-down').attr('src', chevron_black)
           // $('#header_sticky').find('.menu__item').css({color: '#000000'})
           // $('#header_sticky').find('.menu__item a').css({color: '#000000'})
           $('#header_sticky').find('.menu__item-button').css({color: '#FFFFFF'})
@@ -211,6 +214,7 @@
           $('#header_sticky').css({background: 'transparent'})
           $('#header_sticky').find('.logo img').attr('src', logo_white_url)
           $('#header_sticky').find('.menu__item').removeClass('menu__item-sticky')
+          $('.menu__item-chevron-down').attr('src', chevron_white)
           // $('#header_sticky').find('.menu__item').css({color: '#FFFFFF'})
           // $('#header_sticky').find('.menu__item a').css({color: '#FFFFFF'})
         }
