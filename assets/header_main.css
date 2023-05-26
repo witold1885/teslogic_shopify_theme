@@ -82,6 +82,14 @@
 	color: inherit;
 	text-decoration: none;
 }
+.menu__item-chevron {
+	width: 16px;
+	height: 16px;
+}
+.menu__item-chevron-reverted {
+	transform: rotate(180deg);
+	transform-origin: center;
+}
 .menu__item-dropdown {
 	list-style: none;
 	margin: 0;

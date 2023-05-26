@@ -48,7 +48,7 @@
         {% for link in linklists.main-menu.links %}
           <div class="menu__item">
             <a href="{{ link.url }}">{{ link.title }}</a>
-            <img src="{{ 'chevron-down.png' | asset_url }}">
+            <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
             {% if link.links.size > 0 %}
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
@@ -100,7 +100,7 @@
         {% for link in linklists.main-menu.links %}
           <div class="menu__item">
             <a href="{{ link.url }}">{{ link.title }}</a>
-            <img src="{{ 'chevron-down.png' | asset_url }}">
+            <img class="menu__item-chevron" src="{{ 'chevron-down.png' | asset_url }}">
             {% if link.links.size > 0 %}
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
@@ -235,13 +235,15 @@
     })
     $('.menu__item').on('click', function() {
       let dropdown = $(this).find('.menu__item-dropdown')
+      let chevron = $(this).find('.menu__item-chevron')
       if ($(dropdown).is(':visible')) {
         $(dropdown).css('display', 'none')
+        $(chevron).removeClass('menu__item-chevron-reverted')
       }
       else {
         $(dropdown).css('display', 'flex')
-      }
-      
+        $(chevron).addClass('menu__item-chevron-reverted')
+      }      
     })
   })  
 </script>
