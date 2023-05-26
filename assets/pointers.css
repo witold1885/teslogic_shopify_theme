@@ -82,10 +82,10 @@
 }
 
 .pointer-dashboard-top-left {
-	width: 224.5px;
-	height: 80px;
-	left: 57px;
-	bottom: 273px;
+	width: 227px;
+	height: 83.16px;
+	left: 385px;
+	top: 78.16px;
 }
 .pointer-dashboard-top-left .pointer-legend {	
 	width: 233px;
@@ -93,10 +93,10 @@
 	top: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-top-right {
-	width: 146px;
-	height: 72px;
-	right: 16.28px;
-	bottom: 280px;
+	width: 137px;
+	height: 75px;
+	left: 817px;
+	top: 78px;
 }
 .pointer-dashboard-top-right .pointer-legend {	
 	width: 159px;

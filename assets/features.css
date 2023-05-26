@@ -23,6 +23,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	position: relative;
 }
 .features__block.features__block-low_vision_mode {
 	height: 600px;
@@ -117,7 +118,7 @@
 	/*display: flex;
 	justify-content: center;
 	align-items: center;*/
-	position: relative;
+/*	position: relative;*/
 }
 .features__block-low_vision_mode .features__block-screen {
 	margin-top: 112.33px!important;
