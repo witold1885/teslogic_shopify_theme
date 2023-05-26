@@ -252,6 +252,12 @@
     $('.features__blocks-scroller').on('mousemove', function() {
       console.log('mousemoved')
     })
+    $('.features__blocks-scroller').on('mousedown', function() {
+      console.log('mousedown')
+    })
+    $('.features__blocks-scroller').on('mouseup', function() {
+      console.log('mouseup')
+    })
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
       if (current_side == 'dark') {
