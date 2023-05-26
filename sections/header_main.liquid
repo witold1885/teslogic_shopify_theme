@@ -234,7 +234,14 @@
       $('.button-close').hide()
     })
     $('.menu__item').on('click', function() {
-      $(this).find('.menu__item-dropdown').css('display', 'flex')
+      let dropdown = $(this).find('.menu__item-dropdown')
+      if ($(dropdown).is(':visible')) {
+        $(dropdown).css('display', 'none')
+      }
+      else {
+        $(dropdown).css('display', 'flex')
+      }
+      
     })
   })  
 </script>
