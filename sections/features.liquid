@@ -250,6 +250,17 @@
       // scroll: true
     })*/
     var clicked = false, clickPosition = 0
+    $('.features__blocks-scroller').on('mousedown touchstart', function(e) {
+      e.preventDefault()
+      console.log('touchstart')
+      clicked = true
+      clickPosition = e.clientX
+    })
+    $('.features__blocks-scroller').on('mouseup touchend', function() {
+      console.log('touchend')
+      clicked = false
+      clickPosition = 0
+    })
     $('.features__blocks-scroller').on('mousemove touchmove', function(e) {
       console.log('mousemoved')
       // console.log(clicked)
@@ -267,17 +278,6 @@
           $(this).css('margin-left', '+=50px')
         }
       }
-    })
-    $('.features__blocks-scroller').on('mousedown touchstart', function(e) {
-      e.preventDefault()
-      console.log('touchstart')
-      clicked = true
-      clickPosition = e.clientX
-    })
-    $('.features__blocks-scroller').on('mouseup touchend', function() {
-      console.log('touchend')
-      clicked = false
-      clickPosition = 0
     })
 
     $('.features__block-switcher').on('click', function() {
