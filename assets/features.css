@@ -110,6 +110,7 @@
 .features__block-screen {
 	z-index: 3;
 	margin-top: 129.03px;
+	margin-left: 66.4px;
 	margin-right: 48px;
 	width: 571.2px;
 	height: 282.3px;
@@ -142,7 +143,4 @@
 }
 .features__block-odd .features__block-screen {
 	margin-right: 48px;
-}
-.features__block-even .features__block-screen {
-	margin-left: 133px;
 }
