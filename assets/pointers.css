@@ -185,10 +185,10 @@
 }
 
 .pointer-car_info-top-left {
-	width: 199px;
-	height: 70px;
-	left: -18px;
-	bottom: 282px;
+	width: 200.42px;
+	height: 74px;
+	left: 578.42px;
+	top: 95px;
 }
 .pointer-car_info-top-left .pointer-legend {	
 	width: 204px;
@@ -196,10 +196,10 @@
 	top: calc(-1 * (34px + 12px));
 }
 .pointer-car_info-top-right {
-	width: 185px;
-	height: 72px;
-	right: 63.78px;
-	bottom: 279px;
+	width: 189px;
+	height: 68.93px;
+	left: 908.42px;
+	top: 95px;
 }
 .pointer-car_info-top-right .pointer-legend {	
 	width: 185px;
