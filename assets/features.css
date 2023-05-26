@@ -14,6 +14,7 @@
 .features__blocks {
 	overflow-x: scroll;
 /*	flex-direction: column;*/
+	margin-top: 41.67px;
 	margin-left: 80px;
 	margin-right: 80px;
 	padding-bottom: 28px;

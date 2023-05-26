@@ -6,7 +6,9 @@
 	}
 	.features__blocks {
 /*		grid-column-gap: calc(40px * 100vw / 1366);*/
+		margin-top: calc(41.67 * 100vw / 1366);
 		margin-left: calc(80 * 100vw / 1366);
+		margin-right: calc(80 * 100vw / 1366);
 	}
 	/*.features__block {
 		width: calc(1000 * 100vw / 1366);
