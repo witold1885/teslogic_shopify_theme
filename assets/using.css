@@ -9,9 +9,8 @@
 	position: relative;
 }
 .using__title {
-	margin: 80px auto 0;
+	margin-top: 80px;
 	/*width: 550px;*/
-	width: 1206px;
 	height: 64px;
 	font-family: 'SF Pro';
 	font-style: normal;
