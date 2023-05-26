@@ -57,7 +57,7 @@
 		margin-right: 0;
 	}
 	.features__block-odd .features__block-screen {
-		margin-right: calc(129 * 100vw / 1366);
+		margin-right: calc(48 * 100vw / 1366);
 		/*margin-right: 0;*/
 	}
 	.features__block-even .features__block-screen {
