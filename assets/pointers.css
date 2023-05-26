@@ -70,10 +70,10 @@
 	position: absolute;
 }
 .pointer-top .pointer-point {
-/*	bottom: -7px;*/
+	bottom: 0px;
 }
 .pointer-bottom .pointer-point {
-/*	top: -7px;*/
+	top: 0px;
 }
 .pointer-left .pointer-point {
 	right: -4px;
