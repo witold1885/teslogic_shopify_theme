@@ -10,8 +10,10 @@
     {% for article in blogs['significant-features'].articles %}
   		<div class="significant__features-item">
   			<img class="significant__features-item-image" src="{{ article.image | img_url: '400x400' }}">
-  			<div class="significant__features-item-title">{{ article.title }}</div>
-  			<div class="significant__features-item-content">{{ article.content }}</div>
+  			<div class="significant__features-item-info">
+	  			<div class="significant__features-item-title">{{ article.title }}</div>
+	  			<div class="significant__features-item-content">{{ article.content }}</div>
+	  		</div>
   		</div>
   	{% endfor %}
   </div>

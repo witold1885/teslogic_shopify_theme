@@ -18,7 +18,7 @@
 	display: flex;
 	grid-column-gap: 100px;
 	overflow-x: scroll;
-	flex-direction: column;
+/*	flex-direction: column;*/
 	margin-left: 80px;
 }
 .significant__features-item {
@@ -32,6 +32,11 @@
 	width: 400px;
 	height: 400px;
 }
+.significant__features-item-info {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 8px;
+}
 .significant__features-item-title {
 	font-family: 'Gotham';
 	font-style: normal;
@@ -39,7 +44,6 @@
 	font-size: 36px;
 	line-height: 43px;
 	color: #000000;
-	margin-bottom: 8px;
 }
 .significant__features-item-content {
 	font-family: 'Gotham';
