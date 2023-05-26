@@ -10,6 +10,7 @@
 <div class="features" id="features">
   <div class="block_title features__title">App Screens</div>
   <div class="features__blocks">
+  <div class="features__blocks-scroller">
     <div class="features__block features__block-odd features__block-dashboard">
       <div class="features__block-legend">
         <div class="features__block-legend-title">Dashboard</div>
@@ -238,12 +239,16 @@
       </figure>
     </div>
   </div>
+  </div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function() {
-    console.log($('.features__blocks').scrollWidth)
-    $('.features__blocks').draggable({ axis: "x", containment: '.features', scroll: true })
+    $('.features__blocks-scroller').draggable({
+      axis: "x",
+      containment: '.features__blocks',
+      scroll: true
+    })
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
       if (current_side == 'dark') {
