@@ -2,6 +2,7 @@
 	.features__title {
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
+		margin-left: calc(80px * 100vw / 1366);
 	}
 	.features__blocks {
 /*		grid-column-gap: calc(40px * 100vw / 1366);*/

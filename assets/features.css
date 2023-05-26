@@ -2,13 +2,14 @@
 	width: 100%;
 }
 .features__title {
+	margin-left: 80px;
 	font-family: 'SF Pro';
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 52px;
 	line-height: 64px;
 	color: #000000;
-	text-align: center;
+	text-align: left;
 	/*margin-top: 120px;*/
 }
 .features__blocks {

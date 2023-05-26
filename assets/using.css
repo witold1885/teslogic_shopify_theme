@@ -19,9 +19,6 @@
 	font-size: 52px;
 	line-height: 64px;
 	text-align: left;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
 	letter-spacing: 0.02em;
 	color: #000000;
 }
