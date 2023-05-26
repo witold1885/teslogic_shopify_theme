@@ -243,7 +243,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     console.log($('.features__blocks').scrollWidth)
-    $('.features__blocks').draggable({ axis: "x", containment: '.overflow', scroll: true })
+    $('.features__blocks').draggable({ axis: "x", containment: '.features', scroll: true })
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
       if (current_side == 'dark') {
