@@ -13,6 +13,7 @@
 }
 .features__blocks {
 	display: flex;
+	grid-column-gap: 40px;
 	overflow-x: scroll;
 }
 .features__block {
