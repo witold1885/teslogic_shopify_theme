@@ -44,10 +44,25 @@
 	.menu__item {
 		font-size: calc(18 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
-		padding: calc(4 * 100vw / 1366) calc(15 * 100vw / 1366);
+		padding: calc(4 * 100vw / 1366) calc(12 * 100vw / 1366);
 	}
 	.menu__item-button {
 		border-radius: calc(100 * 100vw / 1366);
+	}
+	.menu__item-chevron {
+		width: calc(16 * 100vw / 1366);
+		height: calc(16 * 100vw / 1366);
+	}
+	.menu__item-dropdown {
+		top: calc(50 * 100vw / 1366);
+		left: calc(-1 * 20 * 100vw / 1366);
+		padding: calc(32 * 100vw / 1366);
+		grid-row-gap: calc(20 * 100vw / 1366);
+		border-radius: calc(8 * 100vw / 1366);
+	}
+	.menu__item-dropdown-link {
+		font-size: calc(14 * 100vw / 1366);
+		line-height: calc(17 * 100vw / 1366);
 	}
 	.banner-desktop-wrap {
 		/*top: calc(-96 * 100vw / 1366);*/
