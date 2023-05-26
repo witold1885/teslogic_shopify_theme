@@ -7,8 +7,8 @@
 <div class="significant" id="significant">
   <div class="significant__title">Significant Features</div>
   <div class="significant__features">
-    {% for article in blog.articles %}
-  		<div class="significant__features-item">{{ article.title }}</div>
+    {% for post in blog.posts %}
+  		<div class="significant__features-item">{{ post.title }}</div>
   	{% endfor %}
   </div>
 </div>
