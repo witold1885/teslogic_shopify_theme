@@ -234,9 +234,6 @@
       $('.button-close').hide()
     })
     $('.menu__item').on('click', function() {
-      $('.menu__item-dropdown').each(function() {
-        $(this).css('display', 'none')
-      })
       let dropdown = $(this).find('.menu__item-dropdown')
       let chevron = $(this).find('.menu__item-chevron')
       if ($(dropdown).is(':visible')) {
@@ -245,6 +242,9 @@
         $(this).removeClass('menu__item-opened')
       }
       else {
+        $('.menu__item-dropdown').each(function() {
+          $(this).css('display', 'none')
+        })
         $(dropdown).css('display', 'flex')
         $(chevron).addClass('menu__item-chevron-reverted')
         $(this).addClass('menu__item-opened')
