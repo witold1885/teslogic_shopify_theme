@@ -31,6 +31,7 @@
 	align-items: flex-start;
 	position: relative;
 	background: #F4F6FA;
+	border-radius: 12px;
 }
 .features__block.features__block-low_vision_mode {
 	height: 600px;
