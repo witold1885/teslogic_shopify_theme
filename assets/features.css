@@ -15,6 +15,7 @@
 	display: flex;
 	grid-column-gap: 40px;
 	overflow-x: scroll;
+	flex-direction: column;
 }
 .features__block {
 /*	width: 100%;*/
