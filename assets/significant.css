@@ -1,0 +1,15 @@
+.significant {
+	margin-top: 116.57px;
+	margin-bottom: 118.81px;
+}
+.significant__title {
+	margin-left: 80px;
+	font-family: 'SF Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 52px;
+	line-height: 64px;
+	color: #000000;
+	text-align: left;
+	/*margin-top: 120px;*/
+}
