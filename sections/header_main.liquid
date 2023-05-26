@@ -49,15 +49,15 @@
           <div class="menu__item">
             <a href="{{ link.url }}">{{ link.title }}</a>
             <img src="{{ 'chevron-down.png' | asset_url }}">
-          {% if link.links.size > 0 %}
-            <ul class="menu__item-dropdown">
-              {% for child_link in link.links %}
-                <li class="menu__item-dropdown-link">
-                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            {% if link.links.size > 0 %}
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
           </div>
         {% endfor %}
         <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
@@ -101,15 +101,15 @@
           <div class="menu__item">
             <a href="{{ link.url }}">{{ link.title }}</a>
             <img src="{{ 'chevron-down.png' | asset_url }}">
-          {% if link.links.size > 0 %}
-            <ul class="menu__item-dropdown">
-              {% for child_link in link.links %}
-                <li class="menu__item-dropdown-link">
-                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            {% if link.links.size > 0 %}
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
           </div>
         {% endfor %}
         <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
@@ -232,6 +232,9 @@
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
       $('.button-close').hide()
+    })
+    $('.menu__item').on('click', function() {
+      $(this).find('.menu__item-dropdown').css('display', 'flex')
     })
   })  
 </script>
