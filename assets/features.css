@@ -20,6 +20,7 @@
 	padding-bottom: 28px;
 	scrollbar-color: #9FA1A8 #E3E3E3;
 	cursor: grab;
+	user-select: none;
 }
 .features__blocks-scroller {
 	overflow-x: scroll;
