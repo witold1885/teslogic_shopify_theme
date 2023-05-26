@@ -172,13 +172,13 @@
 	bottom: calc(-1 * (17px + 12px));
 }
 
-.pointer-energy_screen-top-left {
-	width: 271px;
-	height: 80px;
-	left: 55px;
-	bottom: 272px;
+.pointer-energy_screen-top-right {
+	width: 270px;
+	height: 87.9px;
+	left: 620px;
+	top: 95px;
 }
-.pointer-energy_screen-top-left .pointer-legend {	
+.pointer-energy_screen-top-right .pointer-legend {	
 	width: 270px;
 	height: 34px;
 	top: calc(-1 * (34px + 12px));
