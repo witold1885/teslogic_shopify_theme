@@ -13,16 +13,15 @@
 	/*width: 550px;*/
 	width: 100%;
 	height: 64px;
-	font-family: 'SF Pro Display';
+	font-family: 'SF Pro';
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 52px;
 	line-height: 64px;
 	text-align: left;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	text-align: center;
 	letter-spacing: 0.02em;
 	color: #000000;
 }
