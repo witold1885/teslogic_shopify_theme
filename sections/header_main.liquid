@@ -244,6 +244,7 @@
       else {
         $('.menu__item-dropdown').each(function() {
           $(this).css('display', 'none')
+          $(this).parent('.menu__item').removeClass('menu__item-opened')
         })
         $(dropdown).css('display', 'flex')
         $(chevron).addClass('menu__item-chevron-reverted')
