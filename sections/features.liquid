@@ -255,6 +255,14 @@
       console.log(clicked)
       console.log(e.clientX)
       console.log(clickPosition)
+      if (e.clientX < clickPosition) {
+        // move left
+        $(this).css('margin-left', '-=1px')
+      }
+      else {
+        // move right
+        $(this).css('margin-left', '+=1px')
+      }
     })
     $('.features__blocks-scroller').on('mousedown', function(e) {
       console.log('mousedown')
@@ -264,7 +272,9 @@
     $('.features__blocks-scroller').on('mouseup', function() {
       console.log('mouseup')
       clicked = false
+      clickPosition = 0
     })
+    
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
       if (current_side == 'dark') {
