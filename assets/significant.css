@@ -21,6 +21,7 @@
 	overflow-x: scroll;
 /*	flex-direction: column;*/
 	margin-left: 80px;
+	margin-right: 80px;
 	scrollbar-color: transparent transparent;
 }
 .significant__features-item {

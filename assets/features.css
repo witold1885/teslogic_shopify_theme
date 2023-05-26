@@ -18,6 +18,7 @@
 	overflow-x: scroll;
 /*	flex-direction: column;*/
 	margin-left: 80px;
+	margin-right: 80px;
 	padding-bottom: 28px;
 	scrollbar-color: #9FA1A8 #E3E3E3;
 }
