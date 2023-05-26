@@ -75,7 +75,8 @@
 	background: #FFFFFF;
 	color: #000000;
 }
-.menu__item:not(.menu__item-button):hover {
+.menu__item:not(.menu__item-button):hover,
+.menu__item-dropdown-link:hover {
 	color: #3374FB;
 }
 .menu__item a {

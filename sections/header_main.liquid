@@ -234,6 +234,9 @@
       $('.button-close').hide()
     })
     $('.menu__item').on('click', function() {
+      $('.menu__item-dropdown').each(function() {
+        $(this).css('display', 'none')
+      })
       let dropdown = $(this).find('.menu__item-dropdown')
       let chevron = $(this).find('.menu__item-chevron')
       if ($(dropdown).is(':visible')) {
