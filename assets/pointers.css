@@ -107,8 +107,8 @@
 .pointer-dashboard-bottom-left {
 	width: 229px;
 	height: 95px;
-	left: 588px;
-	top: 462px;
+	left: 359px;
+	bottom: 78px;
 }
 .pointer-dashboard-bottom-left .pointer-legend {	
 	width: 246px;
@@ -118,9 +118,8 @@
 .pointer-dashboard-bottom-right {
 	width: 198px;
 	height: 99px;
-	left: 869px;
-	top: 363px;
-	transform: matrix(-1, 0, 0, 1, 0, 0);
+	left: 671px;
+	bottom: 78px;
 }
 .pointer-dashboard-bottom-right .pointer-legend {
 	width: 208px;
