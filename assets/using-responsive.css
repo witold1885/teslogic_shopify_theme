@@ -8,7 +8,6 @@
 		height: calc(64 * 100vw / 1366);
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
-		margin-left: calc(80 * 100vw / 1366);
 	}
 	.using__content {
 		grid-column-gap: calc(32 * 100vw / 1366);
