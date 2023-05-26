@@ -249,14 +249,18 @@
       containment: '.features__blocks',
       // scroll: true
     })*/
+    var clicked = false
     $('.features__blocks-scroller').on('mousemove', function() {
       console.log('mousemoved')
+      console.log(clicked)
     })
     $('.features__blocks-scroller').on('mousedown', function() {
       console.log('mousedown')
+      clicked = true
     })
     $('.features__blocks-scroller').on('mouseup', function() {
       console.log('mouseup')
+      clicked = false
     })
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
