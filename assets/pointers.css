@@ -227,5 +227,5 @@
 .pointer-map-bottom-left .pointer-legend {	
 	width: 184px;
 	height: 34px;
-	top: calc(-1 * (34px + 12px));
+	bottom: calc(-1 * (34px + 12px));
 }
