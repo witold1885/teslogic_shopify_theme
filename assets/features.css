@@ -30,6 +30,7 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	position: relative;
+	background: #F4F6FA;
 }
 .features__block.features__block-low_vision_mode {
 	height: 600px;
