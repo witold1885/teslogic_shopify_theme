@@ -22,6 +22,7 @@
 	cursor: grab;
 }
 .features__blocks-scroller {
+	overflow-x: scroll;
 	display: flex;
 	grid-column-gap: 40px;
 }
