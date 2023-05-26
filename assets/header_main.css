@@ -67,6 +67,9 @@
 	align-items: center;
 	grid-column-gap: 4px;
 }
+.menu__item-sticky {
+	color: #000000;
+}
 .menu__item-opened {
 	color: #9FA1A8;
 }
