@@ -162,10 +162,10 @@
 }
 
 .pointer-performance-top-left {
-	width: 79px;
-	height: 134px;
-	left: 52px;
-	bottom: 218px;
+	width: 68.05px;
+	height: 136px;
+	left: 470.07px;
+	top: 104.33px;
 }
 .pointer-performance-top-left .pointer-legend {	
 	width: 63px;
@@ -173,10 +173,10 @@
 	top: calc(-1 * (17px + 12px));
 }
 .pointer-performance-top-right {
-	width: 174px;
-	height: 96px;
-	right: 98.78px;
-	bottom: 256px;
+	width: 170.11px;
+	height: 115.66px;
+	left: 724.24px;
+	top: 77.33px;
 }
 .pointer-performance-top-right .pointer-legend {	
 	width: 210px;
@@ -184,10 +184,10 @@
 	top: calc(-1 * (34px + 12px));
 }
 .pointer-performance-bottom-left {
-	width: 204.49px;
-	height: 71.5px;
-	left: 0px;
-	top: 280.5px;
+	width: 217.14px;
+	height: 71px;
+	left: 359px;
+	top: 375px;
 }
 .pointer-performance-bottom-left .pointer-legend {	
 	width: 247px;
@@ -195,10 +195,10 @@
 	bottom: calc(-1 * (51px + 12px));
 }
 .pointer-performance-bottom-right {
-	width: 182px;
-	height: 182px;
-	right: 130.78px;
-	top: 170px;
+	width: 198.13px;
+	height: 179px;
+	left: 854.33px;
+	top: 283px;
 }
 .pointer-performance-bottom-right .pointer-legend {
 	width: 208px;
