@@ -21,3 +21,10 @@
 	flex-direction: column;
 	margin-left: 80px;
 }
+.significant__features-item {
+	width: 400px;
+	height: 522px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
