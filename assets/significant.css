@@ -28,3 +28,24 @@
 	flex-direction: column;
 	grid-row-gap: 20px;
 }
+.significant__features-item-image {
+	width: 400px;
+	height: 400px;
+}
+.significant__features-item-title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 43px;
+	color: #000000;
+	margin-bottom: 8px;
+}
+.significant__features-item-content {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+}
