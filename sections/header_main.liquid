@@ -233,7 +233,7 @@
       $('.burger-menu-wrap').hide()
       $('.button-close').hide()
     })
-    $('.menu__item').on('click', function() {
+    /*$('.menu__item').on('click', function() {
       let dropdown = $(this).find('.menu__item-dropdown')
       let chevron = $(this).find('.menu__item-chevron')
       if ($(dropdown).is(':visible')) {
@@ -250,6 +250,24 @@
         $(chevron).addClass('menu__item-chevron-reverted')
         $(this).addClass('menu__item-opened')
       }      
+    })*/
+    $('.menu__item').on('mouseover', function() {
+      let dropdown = $(this).find('.menu__item-dropdown')
+      let chevron = $(this).find('.menu__item-chevron')
+        $('.menu__item-dropdown').each(function() {
+          $(this).css('display', 'none')
+          $(this).parent('.menu__item').removeClass('menu__item-opened')
+        })
+        $(dropdown).css('display', 'flex')
+        $(chevron).addClass('menu__item-chevron-reverted')
+        $(this).addClass('menu__item-opened')
+    })
+    $('.menu__item').on('mouseleave', function() {
+      let dropdown = $(this).find('.menu__item-dropdown')
+      let chevron = $(this).find('.menu__item-chevron')
+        $(dropdown).css('display', 'none')
+        $(chevron).removeClass('menu__item-chevron-reverted')
+        $(this).removeClass('menu__item-opened')
     })
   })  
 </script>
