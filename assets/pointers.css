@@ -1,6 +1,7 @@
 .pointer {
 	position: absolute;
 	z-index: 4;
+	box-sizing: border-box;
 }
 .pointer-desktop {
 	display: block;
@@ -69,10 +70,10 @@
 	position: absolute;
 }
 .pointer-top .pointer-point {
-	bottom: -7px;
+/*	bottom: -7px;*/
 }
 .pointer-bottom .pointer-point {
-	top: -7px;
+/*	top: -7px;*/
 }
 .pointer-left .pointer-point {
 	right: -4px;
@@ -106,8 +107,8 @@
 .pointer-dashboard-bottom-left {
 	width: 229px;
 	height: 95px;
-	left: -78px;
-	top: 257px;
+	left: 588px;
+	top: 462px;
 }
 .pointer-dashboard-bottom-left .pointer-legend {	
 	width: 246px;
@@ -115,10 +116,10 @@
 	bottom: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-bottom-right {
-	width: 205px;
-	height: 95px;
-	right: 134.78px;
-	top: 257px;
+	width: 198px;
+	height: 99px;
+	left: 869px;
+	top: 363px;
 }
 .pointer-dashboard-bottom-right .pointer-legend {
 	width: 208px;
