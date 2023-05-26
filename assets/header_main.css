@@ -61,6 +61,7 @@
 	color: #FFFFFF;
 	cursor: pointer;
 	padding: 4px 15px;
+	box-sizing: border-box;
 }
 .menu__item-button {
 	background: #3374FB;
@@ -80,7 +81,7 @@
 .menu__item-dropdown {
 	list-style: none;
 	position: absolute;
-	top: 10px;
+	top: 42px;
 	left: -32px;
 	padding: 32px;
 	background: #F4F6FA;
@@ -97,6 +98,7 @@
 	font-size: 14px;
 	line-height: 17px;
 	color: #000000;
+	white-space: nowrap;
 }
 .cart-link {
 	background: #BAE4B2;
