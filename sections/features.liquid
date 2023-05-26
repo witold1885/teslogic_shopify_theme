@@ -244,11 +244,11 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    /*$('.features__blocks-scroller').draggable({
+    $('.features__blocks-scroller').draggable(/*{
       axis: "x",
       containment: '.features__blocks',
       scroll: true
-    })*/
+    }*/)
     $('.features__block-switcher').on('click', function() {
       var current_side = $(this).attr('current_side')
       if (current_side == 'dark') {
