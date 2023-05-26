@@ -3,16 +3,14 @@
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
 	}
-	/*.features__blocks {
-		grid-column-gap: calc(40px * 100vw / 1366);
+	.features__blocks {
+/*		grid-column-gap: calc(40px * 100vw / 1366);*/
+		margin-left: calc(80px * 100vw / 1366);
 	}
-	.features__block {
+	/*.features__block {
 		width: calc(1000 * 100vw / 1366);
 		height: calc(540 * 100vw / 1366);
 	}*/
-	.features__block:not(:last-child) {
-		margin-bottom: calc(40 * 100vw / 1366);
-	}
 	/*.features__block-legend {
 		margin-top: calc(160.5 * 100vw / 1366);
 		width: calc(271 * 100vw / 1366);

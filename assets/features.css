@@ -16,6 +16,7 @@
 	grid-column-gap: 40px;
 	overflow-x: scroll;
 /*	flex-direction: column;*/
+	margin-left: 80px;
 }
 .features__block {
 /*	width: 100%;*/
@@ -28,9 +29,6 @@
 }
 .features__block.features__block-low_vision_mode {
 	height: 600px;
-}
-.features__block:not(:last-child) {
-	margin-bottom: 40px;
 }
 .features__block-odd {
 	flex-direction: row;
