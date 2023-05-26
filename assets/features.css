@@ -18,7 +18,7 @@
 	margin-left: 80px;
 	margin-right: 80px;
 	padding-bottom: 28px;
-	scrollbar-color: #9FA1A8 #E3E3E3;
+	scrollbar-color: transparent transparent;
 	cursor: grab;
 	user-select: none;
 	width: 100vw;
@@ -30,6 +30,7 @@
 	display: flex;
 	grid-column-gap: 40px;
 	padding-left: calc((100vw - 1366px + 160px) / 2);
+	scrollbar-color: transparent transparent;
 }
 .features__block {
 /*	width: 100%;*/
