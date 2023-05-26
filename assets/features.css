@@ -12,7 +12,7 @@
 	/*margin-top: 120px;*/
 }
 .features__blocks {
-	overflow-x: scroll;
+/*	overflow-x: scroll;*/
 /*	flex-direction: column;*/
 	margin-top: 41.67px;
 	margin-left: 80px;
@@ -21,11 +21,15 @@
 	scrollbar-color: #9FA1A8 #E3E3E3;
 	cursor: grab;
 	user-select: none;
+	width: 100vw;
+	margin-left: calc(-1 * (100vw - 1366px) / 2);
+	overflow-x: visible;
 }
 .features__blocks-scroller {
 	overflow-x: scroll;
 	display: flex;
 	grid-column-gap: 40px;
+	padding-left: calc((100vw - 1366px) / 2);
 }
 .features__block {
 /*	width: 100%;*/
