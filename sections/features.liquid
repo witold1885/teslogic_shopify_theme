@@ -249,15 +249,17 @@
       containment: '.features__blocks',
       // scroll: true
     })*/
-    var clicked = false
+    var clicked = false, clickPosition = 0
     $('.features__blocks-scroller').on('mousemove', function(e) {
       console.log('mousemoved')
       console.log(clicked)
       console.log(e.clientX)
+      console.log(clickPosition)
     })
-    $('.features__blocks-scroller').on('mousedown', function() {
+    $('.features__blocks-scroller').on('mousedown', function(e) {
       console.log('mousedown')
       clicked = true
+      clickPosition = e.clientX
     })
     $('.features__blocks-scroller').on('mouseup', function() {
       console.log('mouseup')
