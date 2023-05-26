@@ -219,10 +219,10 @@
 	top: calc(-1 * (51px + 12px));
 }
 .pointer-map-bottom-left {
-	width: 189px;
-	height: 68.93px;
-	right: 96.58px;
-	top: 95px;
+	width: 176px;
+	height: 68.02px;
+	left: 375px;
+	top: 369.98px;
 }
 .pointer-map-bottom-left .pointer-legend {	
 	width: 184px;
