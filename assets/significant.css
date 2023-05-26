@@ -15,6 +15,7 @@
 	margin-bottom: 40.43px;
 }
 .significant__features {
+	height: 565px;
 	display: flex;
 	grid-column-gap: 100px;
 	overflow-x: scroll;
@@ -23,7 +24,6 @@
 }
 .significant__features-item {
 	width: 400px;
-	height: 522px;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 20px;
