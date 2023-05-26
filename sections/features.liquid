@@ -250,7 +250,7 @@
       // scroll: true
     })*/
     var clicked = false, clickPosition = 0
-    $('.features__blocks-scroller').on('mousemove', function(e) {
+    $('.features__blocks-scroller').on('touchmove', function(e) {
       // console.log('mousemoved')
       // console.log(clicked)
       // console.log(e.clientX)
@@ -268,13 +268,13 @@
         }
       }
     })
-    $('.features__blocks-scroller').on('mousedown', function(e) {
-      console.log('mousedown')
+    $('.features__blocks-scroller').on('touchstart', function(e) {
+      console.log('touchstart')
       clicked = true
       clickPosition = e.clientX
     })
-    $('.features__blocks-scroller').on('mouseup', function() {
-      console.log('mouseup')
+    $('.features__blocks-scroller').on('touchend', function() {
+      console.log('touchend')
       clicked = false
       clickPosition = 0
     })
