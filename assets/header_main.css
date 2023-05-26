@@ -93,10 +93,11 @@
 	width: 16px;
 	height: 16px;
 }
-.menu__item-chevron-reverted {
-	transform: rotate(180deg);
-	transform-origin: center;
-	color: #9FA1A8;
+.menu__item-chevron-down {
+	display: block;
+}
+.menu__item-chevron-up {
+	display: none;
 }
 .menu__item-dropdown {
 	list-style: none;

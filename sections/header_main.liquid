@@ -49,7 +49,8 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
                   <li class="menu__item-dropdown-link">
@@ -60,11 +61,6 @@
             {% endif %}
           </div>
         {% endfor %}
-        <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
-        <div class="menu__item"><a href="#features">Features</a></div>
-        <div class="menu__item"><a href="/manuals">Manuals</a></div>
-        <div class="menu__item"><a href="/faq">FAQ</a></div>
-        <div class="menu__item"><a href="/contacts">Contacts</a></div> -->
         <div 
           class="menu__item cart-link"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -101,7 +97,8 @@
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 %}
-              <img class="menu__item-chevron" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
                   <li class="menu__item-dropdown-link">
@@ -112,11 +109,6 @@
             {% endif %}
           </div>
         {% endfor %}
-        <!-- <div class="menu__item menu__item-button"><a href="#shop-now">Shop Now</a></div>
-        <div class="menu__item"><a href="#features">Features</a></div>
-        <div class="menu__item"><a href="/manuals">Manuals</a></div>
-        <div class="menu__item"><a href="/faq">FAQ</a></div>
-        <div class="menu__item"><a href="/contacts">Contacts</a></div> -->
         <div 
           id="cart-animate"
           class="menu__item cart-link"
@@ -253,20 +245,24 @@
     })*/
     $('.menu__item').on('mouseover', function() {
       let dropdown = $(this).find('.menu__item-dropdown')
-      let chevron = $(this).find('.menu__item-chevron')
+      let chevron_down = $(this).find('.menu__item-chevron-down')
+      let chevron_up = $(this).find('.menu__item-chevron-up')
         $('.menu__item-dropdown').each(function() {
           $(this).css('display', 'none')
           $(this).parent('.menu__item').removeClass('menu__item-opened')
         })
         $(dropdown).css('display', 'flex')
-        $(chevron).addClass('menu__item-chevron-reverted')
+        $(chevron_down).hide()
+        $(chevron_up).show()
         $(this).addClass('menu__item-opened')
     })
     $('.menu__item').on('mouseleave', function() {
       let dropdown = $(this).find('.menu__item-dropdown')
-      let chevron = $(this).find('.menu__item-chevron')
+      let chevron_down = $(this).find('.menu__item-chevron-down')
+      let chevron_up = $(this).find('.menu__item-chevron-up')
         $(dropdown).css('display', 'none')
-        $(chevron).removeClass('menu__item-chevron-reverted')
+        $(chevron_down).show()
+        $(chevron_up).hide()
         $(this).removeClass('menu__item-opened')
     })
   })  
