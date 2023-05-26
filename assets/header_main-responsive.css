@@ -27,7 +27,7 @@
 	}
 	.menu {
 		margin-right: calc(114 * 100vw / 1366);
-		grid-column-gap: calc(10 * 100vw / 1366);
+/*		grid-column-gap: calc(10 * 100vw / 1366);*/
 	}
 /*}      */
 /*@media screen and (min-width: 1000px) and (max-width: 1250px) {        */
