@@ -22,6 +22,9 @@
 	.menu {
 		margin-right: calc(80 * 100vw / 1366);
 	}
+	.title {
+		left: calc(80 * 100vw / 1366);
+	}
 }
 @media screen and (min-width: 1000px) and (max-width: 1700px) {
 	.top {
@@ -80,7 +83,6 @@
 		line-height: calc(64 * 100vw / 1366);
 		width: calc(541 * 100vw / 1366);
 		top: calc(288 * 100vw / 1366);
-		left: calc(128 * 100vw / 1366);
 	}
 	.expand {
 		margin-bottom: calc(6 * 100vw / 1366);
