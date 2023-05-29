@@ -141,6 +141,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 1206px;
         margin: 0 auto;
       }
+      @media screen and (min-width: 1000px) and (max-width: 1366px) {
+        .block_title {
+          width: calc(1206 * 100vw / 1366);
+        }
+      }
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
