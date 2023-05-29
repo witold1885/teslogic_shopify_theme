@@ -34,7 +34,8 @@
 }
 .top .logo {	
 	z-index: 2;
-	margin-left: 128px;
+/*	margin-left: 128px;*/
+	margin-left: 80px;
 	width: 188px;
 	height: 32px;
 	display: flex;
@@ -45,7 +46,8 @@
 	/*mix-blend-mode: darken;*/
 }
 .menu {
-	margin-right: 114px;
+/*	margin-right: 114px;*/
+	margin-right: 80px;
 	display: flex;
 /*	grid-column-gap: 10px;*/
 	justify-content: flex-end;
@@ -188,7 +190,8 @@
 	width: 541px;
 	position: absolute;
 	top: 288px;
-	left: 128px;
+/*	left: 128px;*/
+	left: 80px;
 }
 .expand {
 	margin-bottom: 26px;
