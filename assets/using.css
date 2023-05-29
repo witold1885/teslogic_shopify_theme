@@ -87,26 +87,30 @@
 .using__row-image-1 {
 	width: 150px;
 	height: 158px;
-	left: 142.5px;
+/*	left: 142.5px;*/
+	left: 106px;
 	top: 400px;
 }
 .using__row-image-2 {
 	width: 269px;
 	height: 159px;
-	left: 390.5px;
+/*	left: 390.5px;*/
+	left: 378px;
 	top: 366px;
 }
 .using__row-image-3 {
 	width: 267px;
 	height: 249px;
 	top: 387px;
-	right: 410px;
+/*	right: 410px;*/
+	right: 402px;
 }
 .using__row-image-4 {
 	width: 273px;
 	height: 173px;
 	top: 377px;
-	right: 118.5px;
+/*	right: 118.5px;*/
+	right: 83px;
 }
 .using__arrow_down {
 	display: none;
