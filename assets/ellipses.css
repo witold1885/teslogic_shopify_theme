@@ -102,7 +102,7 @@
 	border-radius: 100%;
 	width: 2498px;
 	height: 2498px;
-	left: calc(-1 * ((2498px - 100vw) / 2));
+	left: calc(-1 * ((2498px - 100vw) / 2 - 283px));
 	top: 0;
 	background: #F4F6FA;	
 	z-index: -1;
