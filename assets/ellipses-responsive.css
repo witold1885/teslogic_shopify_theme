@@ -80,15 +80,15 @@
 
 	.ellipse-bottom-container {
 		/*top: calc(4913 * 100vw / 1366);*/
-		height: calc(1388 * 100vw / 1366);
+		height: calc(1340.43 * 100vw / 1366);
 	}
 	.ellipse-bottom-wrap {
-		height: calc(1388 * 100vw / 1366);
+		height: calc(1340.43 * 100vw / 1366);
 	}
 	.ellipse-bottom {
-		width: calc(2602 * 100vw / 1366);
-		height: calc(2602 * 100vw / 1366);
-		left: calc(-1 * ((2602 * 100vw / 1366 - 100vw) / 2));
+		width: calc(2498 * 100vw / 1366);
+		height: calc(2498 * 100vw / 1366);
+		left: calc(-1 * ((2498 * 100vw / 1366 - 100vw) / 2));
 	}
 
 	.ellipse__faq-1 {
