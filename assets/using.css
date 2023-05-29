@@ -27,7 +27,8 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: center;
-	grid-column-gap: 32px;
+/*	grid-column-gap: 32px;*/
+	grid-column-gap: 44px;
 }
 .using__row {
 	margin: 0;
