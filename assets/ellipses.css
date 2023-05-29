@@ -22,24 +22,24 @@
 }
 
 .ellipse__main-1 {
-	width: 803px;
-	height: 803px;
-	left: calc(1001px + ((100vw - 1366px) / 2));
-	top: 2283px;
+	width: 790px;
+	height: 790px;
+	left: calc(923px + ((100vw - 1366px) / 2));
+	top: 3965px;
 }
 .ellipse__main-2 {
-	width: 901px;
-	height: 901px;
-	right: calc(881px + ((100vw - 1366px) / 2));
-	top: 2901px;	
+	width: 815px;
+	height: 815px;
+	right: calc(983px + ((100vw - 1366px) / 2));
+	top: 4607.57px;	
 }
 .ellipse__main-3 {
-	width: 749px;
-	height: 749px;
-	right: calc(957px + ((100vw - 1366px) / 2));
-	top: 2977px;
+	width: 679px;
+	height: 679px;
+	right: calc(1051px + ((100vw - 1366px) / 2));
+	top: 4675.57px;
 }
-.ellipse__main-4 {
+/*.ellipse__main-4 {
 	width: 958px;
 	height: 958px;
 	left: calc(855px + ((100vw - 1366px) / 2));
@@ -68,7 +68,7 @@
 	height: 1454px;
 	right: calc(-1 * 76px + ((100vw - 1366px) / 2));
 	top: 6396px;
-}
+}*/
 .ellipse__main-1 .ellipse,
 .ellipse__main-2 .ellipse,
 .ellipse__main-4 .ellipse,
