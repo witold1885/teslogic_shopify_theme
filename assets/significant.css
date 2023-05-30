@@ -33,6 +33,9 @@
 	width: 400px;
 	height: 400px;
 }
+.significant__features-item-image img {
+	width: 100%;
+}
 .significant__features-item-info {
 	display: flex;
 	flex-direction: column;
