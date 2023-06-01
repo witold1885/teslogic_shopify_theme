@@ -9,8 +9,7 @@ footer {
 }
 .footer-top {
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
+	flex-direction: column;
 	margin-bottom: 80.5px;
 }
 .footer-top .logo {	
