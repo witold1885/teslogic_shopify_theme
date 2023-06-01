@@ -36,6 +36,7 @@ footer {
 	line-height: 24px;
 	color: #FFFFFF;
 	margin-bottom: 16px;
+	white-space: nowrap;
 }
 .footer-menu__list-items {
 	margin: 0;
