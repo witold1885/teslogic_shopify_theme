@@ -3,7 +3,7 @@
 		padding: calc(100 * 100vw / 1366) calc(128 * 100vw / 1366);
 	}
 	.footer__wrap {
-		max-width: calc(1110 * 100vw / 1366);
+		max-width: calc(1200 * 100vw / 1366);
 	}
 	.footer-top {
 		grid-row-gap: calc(33 * 100vw / 1366);
