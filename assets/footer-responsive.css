@@ -6,14 +6,15 @@
 		max-width: calc(1110 * 100vw / 1366);
 	}
 	.footer-top {
-		margin-bottom: calc(80.5 * 100vw / 1366);
+		grid-row-gap: calc(33 * 100vw / 1366);
+		margin-bottom: calc(64.5 * 100vw / 1366);
 	}
 	.footer-top .logo {	
 		width: calc(188 * 100vw / 1366);
 		height: calc(32 * 100vw / 1366);
 	}
 	.footer-menu {
-		grid-column-gap: calc(68 * 100vw / 1366);
+		grid-column-gap: calc(71 * 100vw / 1366);
 	}
 	.footer-menu__list-title {
 		font-size: calc(20 * 100vw / 1366);

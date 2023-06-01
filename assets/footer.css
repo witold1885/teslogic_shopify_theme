@@ -10,7 +10,8 @@ footer {
 .footer-top {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 80.5px;
+	grid-row-gap: 33px;
+	margin-bottom: 64.5px;
 }
 .footer-top .logo {	
 	width: 188px;
@@ -25,7 +26,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	grid-column-gap: 68px;
+	grid-column-gap: 71px;
 }
 .footer-menu__list-title {
 	font-family: Gotham-Medium;
