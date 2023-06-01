@@ -24,18 +24,36 @@
           </ul>
         </div>
         {% for link in linklists.main-menu.links %}
-        <div class="footer-menu__list">
-          <div class="footer-menu__list-title">
-            {{ link.title }}
-          </div>
-          {% if link.links.size > 0 %}
-          <ul class="footer-menu__list-items">
-            {% for child_link in link.links %}
-              <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
-            {% endfor %}
-          </ul>
+          {% if link.title == 'Dashboard kit' %}
+            <div class="footer-menu__list">
+              <div class="footer-menu__list-title">
+                {{ link.title }}
+              </div>
+              {% if link.links.size > 0 %}
+                <ul class="footer-menu__list-items">
+                  {% for child_link in link.links %}
+                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
           {% endif %}
-        </div>
+        {% endfor %}
+        {% for link in linklists.main-menu.links %}
+          {% if link.title == 'Other products' %}
+            <div class="footer-menu__list">
+              <div class="footer-menu__list-title">
+                {{ link.title }}
+              </div>
+              {% if link.links.size > 0 %}
+                <ul class="footer-menu__list-items">
+                  {% for child_link in link.links %}
+                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endif %}
         {% endfor %}
         <div class="footer-menu__list">
           <div class="footer-menu__list-title">
@@ -48,6 +66,22 @@
             <!-- <li>Return Policy</li> -->
           </ul>
         </div>
+        {% for link in linklists.main-menu.links %}
+          {% if link.title == 'Community' %}
+            <div class="footer-menu__list">
+              <div class="footer-menu__list-title">
+                {{ link.title }}
+              </div>
+              {% if link.links.size > 0 %}
+                <ul class="footer-menu__list-items">
+                  {% for child_link in link.links %}
+                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
         <div class="footer-menu__list">
           <div class="footer-menu__list-title">
             Social
