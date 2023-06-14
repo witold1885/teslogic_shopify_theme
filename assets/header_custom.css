@@ -60,15 +60,26 @@
 	color: #9FA1A8;
 }
 .menu__item-button {
-	background: #3374FB;
-	border-radius: 100px;
-	margin-left: 8px;
+	display: none;
 }
 .menu__item-button:hover {
 	background: #FFFFFF;
 	color: #000000;
 }
-.menu__item:not(.menu__item-button):hover {
+.menu__item-cart {
+	background: #3374FB;
+	border-radius: 100px;
+	margin-left: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column-gap: 10px;
+}
+.menu__item-cart:hover {
+	background: #FFFFFF;
+	color: #000000;
+}
+.menu__item:not(.menu__item-button):not(.menu__item-cart):hover {
 	color: #9FA1A8;
 }
 .menu__item-dropdown-link:hover {

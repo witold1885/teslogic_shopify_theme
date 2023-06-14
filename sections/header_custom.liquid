@@ -34,7 +34,7 @@
             {% endif %}
           </div>
         {% endfor %}
-        <div 
+        <!-- <div 
           id="cart-animate"
           class="menu__item cart-link"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -46,7 +46,11 @@
             </div>
             <span>Cart</span>
           </a>
-        </div>      
+        </div> -->
+        <a class="menu__item menu__item-cart">
+          <img src="{{ 'cart-white.png' | asset_url }}">
+          <span href="#">Cart</span>            
+        </a>
       </div>
     </div>
   </div>
