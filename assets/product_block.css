@@ -1,0 +1,301 @@
+.product_block {
+	width: 100%;
+	height: 677px;
+	margin: 0 auto;
+	margin-top: 93px;
+}
+.product_block-title {
+	font-family: 'SF Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 52px;
+	line-height: 64px;
+	letter-spacing: 0.02em;
+	color: #000000;
+	/*margin-left: 128px;*/
+	margin-bottom: 76.72px;
+	text-align: left;
+}
+.product_block-product {
+	display: flex;
+	margin-left: 128px;
+	margin-bottom: 170px;
+	grid-column-gap: 25px;
+}
+.product_block-product-mobile {
+	display: none;
+}
+.product_block-product-gallery {
+	width: 545px;
+	height: 378px;
+	position: relative;
+	/*margin-right: 114px;*/
+}
+.product_block-product-gallery-image {
+	width: 100%;
+	height: 100%;
+	/*background: rgba(69, 79, 99, 0.1);*/
+}
+.product_block-product-gallery-image img {
+	width: 100%;
+	height: 100%;
+}
+.product_block-product-gallery-nav {
+	position: absolute;
+	top: 165px;
+	width: 60px;
+	height: 48px;
+	cursor: pointer;
+}
+.product_block-product-gallery-nav img {
+	width: 100%;
+	height: 100%;
+}
+.product_block-product-gallery-nav-prev {
+	left: 0;
+}
+.product_block-product-gallery-nav-next {
+	right: 0;
+}
+.product_block-product-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.product_block-product-title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 44px;
+	line-height: 52px;
+	color: #000000;
+	margin-bottom: 24px;
+}
+.product_block-product-price {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-size: 28px;
+	line-height: 36px;
+	margin-bottom: 24px;
+	display: flex;
+	grid-column-gap: 16px;
+	font-weight: 700;
+}
+.product_block-product-price-current {
+	color: #000000;
+}
+.product_block-product-price-old {
+	color: #9FA1A8;
+	position: relative;
+}
+.product_block-product-price-old-cross {
+	position: absolute;
+	width: 100%;
+	height: 0;
+	top: 18px;
+	left: 0;
+	right: 0;
+	border: 1px solid #9FA1A8;
+}
+.product_block-product-price-new {
+	color: #0F77F0;
+}
+.product_block-product-subtitle {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+	max-width: 450px;
+}
+.product_block-product-amount {
+	width: 183px;
+	height: 56px;
+	background: #FFFFFF;
+	border-radius: 64px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.product_block-product-amount-button {
+	width: 56px;
+	height: 56px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	border: 1px solid #FFFFFF;
+	border-radius: 100px;
+	position: relative;
+	cursor: pointer;
+}
+.product_block-product-amount-button-minus > div,
+.product_block-product-amount-button-plus > div {
+	width: 20px; 
+	height: 4px; 
+	background: #0F0F0F; 
+	position: absolute; 
+	left: 18px; 
+	top: 26px;
+}
+.product_block-product-amount-button-plus > div:last-child {
+	transform: rotate(-90deg); 
+	transform-origin: center;
+}
+.product_block-product-amount-value {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 30px;
+	text-align: center;
+	color: #0F0F0F;
+}
+.product_block-product-select {
+	/*width: 340px;*/
+	width: 100%;
+	height: 56px;
+	background: #FFFFFF;
+	border-radius: 100px;
+	position: relative;
+	/*display: flex;*/
+	display: inline-flex;
+	/*justify-content: center;*/
+	align-items: center;
+	padding-left: 21px;
+	padding-right: 14px;
+	box-sizing: border-box;
+	margin-top: 10px;
+}
+.product_block-product-select:hover {
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+.product_block-product-select-dropdown-select {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/*grid-column-gap: 10px;*/
+	cursor: pointer;
+}
+.product_block-product-select-dropdown {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	padding: 12px 21px 18px;
+	display: none;
+	flex-direction: column;
+	grid-row-gap: 16px;
+	background: #FFFFFF;
+	border: 1px solid #3374FB;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	border-radius: 35px;
+	z-index: 2;
+}
+.product_block-product-select-dropdown-item {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+	color: #0F0F0F;
+	cursor: pointer;
+}
+.product_block-product-select-text {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+}
+.product_block-product-select-value {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+	color: #85878d;
+	margin-right: 20px;
+}
+.product_block-product-select-arrow {
+	width: 24px;
+	height: 24px;
+}
+.product_block-product-select-arrow img {
+	width: 100%;
+	height: 100%;
+}
+.product_block-product-add {
+	margin-top: 32px;
+	/*width: 183px;*/
+	padding-left: 23px;
+	padding-right: 23px;
+	height: 56px;
+	background: #3374FB;
+	border: 1px solid #3374FB;
+	border-radius: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.product_block-add-wireless-charger {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 12px;
+}
+.product_block-add-wireless-charger-checkbox {
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: #FEFEFE;
+	border: 1px solid #3374FB;
+	border-radius: 8px;
+	display: inline-block;
+	position: relative;
+	padding: 16px;
+	margin: 0;
+	cursor: pointer;
+}
+.product_block-add-wireless-charger-checkbox:checked {
+	background-color: #3374FB;
+	border: 1px solid #3374FB;
+	color: #FEFEFE;
+}
+.product_block-add-wireless-charger-checkbox:checked:after {
+	content: url({{ 'union.png' | asset_url }});
+	position: absolute;
+	width: 17.14px;
+	height: 11.43px;
+	top: 9.71px;
+	left: 7.43px;
+	color: #FEFEFE;
+}
+.product_block-add-wireless-charger-title {
+	margin-left: 12px;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #0F0F0F;
+	cursor: pointer;
+}
+.product_block-add-wireless-charger-price {
+	margin-left: 4px;
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	color: #3374FB;
+}
