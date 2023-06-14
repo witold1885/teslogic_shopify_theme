@@ -60,7 +60,16 @@
 .product_block-product-info {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	grid-row-gap: 20px;
+}
+.product_block-product-price {
+	font-family: 'SF Pro Display';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 52px;
+	line-height: 64px;
+	letter-spacing: 0.02em;
+	color: #3374FB;
 }
 .product_block-product-title {
 	font-family: 'Gotham';
@@ -70,16 +79,6 @@
 	line-height: 52px;
 	color: #000000;
 	margin-bottom: 24px;
-}
-.product_block-product-price {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-size: 28px;
-	line-height: 36px;
-	margin-bottom: 24px;
-	display: flex;
-	grid-column-gap: 16px;
-	font-weight: 700;
 }
 .product_block-product-price-current {
 	color: #000000;

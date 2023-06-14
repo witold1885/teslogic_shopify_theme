@@ -33,16 +33,19 @@
 	.product_block-product-gallery-nav-next {
 		right: calc(-1 * 36 * 100vw / 1366);
 	}
+	.product_block-product-info {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: calc(20 * 100vw / 1366);
+	}
+	.product_block-product-price {
+		font-size: calc(52 * 100vw / 1366);
+		line-height: calc(64 * 100vw / 1366);
+	}
 	.product_block-product-title {
 		font-size: calc(44 * 100vw / 1366);
 		line-height: calc(52 * 100vw / 1366);
 		margin-bottom: calc(24 * 100vw / 1366);
-	}
-	.product_block-product-price {
-		font-size: calc(28 * 100vw / 1366);
-		line-height: calc(36 * 100vw / 1366);
-		margin-bottom: calc(24 * 100vw / 1366);
-		grid-column-gap: calc(16 * 100vw / 1366);
 	}
 	.product_block-product-price-old-cross {
 		top: calc(18 * 100vw / 1366);
