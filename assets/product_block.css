@@ -1,8 +1,6 @@
 .product_block {
 	width: 100%;
-	height: 677px;
-	margin: 0 auto;
-	margin-top: 93px;
+	margin: 93px auto 108px;
 }
 .product_block-title {
 	font-family: 'SF Pro';
@@ -19,7 +17,6 @@
 .product_block-product {
 	display: flex;
 	margin-left: 121px;
-	margin-bottom: 170px;
 	grid-column-gap: 148px;
 }
 .product_block-product-mobile {
@@ -45,9 +42,9 @@
 }
 .product_block-product-gallery-nav {
 	position: absolute;
-	top: 165px;
-	width: 60px;
-	height: 48px;
+	top: 173px;
+	width: 32px;
+	height: 32px;
 	cursor: pointer;
 }
 .product_block-product-gallery-nav img {
@@ -55,10 +52,10 @@
 	height: 100%;
 }
 .product_block-product-gallery-nav-prev {
-	left: 0;
+	left: -36px
 }
 .product_block-product-gallery-nav-next {
-	right: 0;
+	right: -36px;
 }
 .product_block-product-info {
 	display: flex;
