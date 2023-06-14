@@ -19,7 +19,7 @@
 		</div>
 		<div class="product_block-product-info">
 			<div>
-				<div class="product_block-product-price">{{ product.price }}</div>
+				<div class="product_block-product-price">${{ product.price | ceil }}</div>
 				<div class="product_block-product-title">{{ product.title }}</div>
 				<div class="product_block-product-subtitle">
 					{{ product.description }}
