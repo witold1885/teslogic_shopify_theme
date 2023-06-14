@@ -1,0 +1,798 @@
+<style type="text/css">
+	.store_block {
+		width: 100%;
+		height: 677px;
+		margin: 0 auto;
+		margin-top: 93px;
+	}
+	.store_block-title {
+		font-family: 'SF Pro';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 52px;
+		line-height: 64px;
+		letter-spacing: 0.02em;
+		color: #000000;
+		/*margin-left: 128px;*/
+		margin-bottom: 65px;
+		text-align: left;
+	}
+	.store_block-product {
+		display: flex;
+		margin-left: 128px;
+		margin-bottom: 170px;
+		grid-column-gap: 25px;
+	}
+	.store_block-product-mobile {
+		display: none;
+	}
+	.store_block-product-gallery {
+		width: 545px;
+		height: 378px;
+		position: relative;
+		/*margin-right: 114px;*/
+	}
+	.store_block-product-gallery-image {
+		width: 100%;
+		height: 100%;
+		/*background: rgba(69, 79, 99, 0.1);*/
+	}
+	.store_block-product-gallery-image img {
+		width: 100%;
+		height: 100%;
+	}
+	.store_block-product-gallery-nav {
+		position: absolute;
+		top: 165px;
+		width: 60px;
+		height: 48px;
+		cursor: pointer;
+	}
+	.store_block-product-gallery-nav img {
+		width: 100%;
+		height: 100%;
+	}
+	.store_block-product-gallery-nav-prev {
+		left: 0;
+	}
+	.store_block-product-gallery-nav-next {
+		right: 0;
+	}
+	.store_block-product-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.store_block-product-title {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 44px;
+		line-height: 52px;
+		color: #000000;
+		margin-bottom: 24px;
+	}
+	.store_block-product-price {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-size: 28px;
+		line-height: 36px;
+		margin-bottom: 24px;
+		display: flex;
+		grid-column-gap: 16px;
+		font-weight: 700;
+	}
+	.store_block-product-price-current {
+		color: #000000;
+	}
+	.store_block-product-price-old {
+		color: #9FA1A8;
+		position: relative;
+	}
+	.store_block-product-price-old-cross {
+		position: absolute;
+		width: 100%;
+		height: 0;
+		top: 18px;
+		left: 0;
+		right: 0;
+		border: 1px solid #9FA1A8;
+	}
+	.store_block-product-price-new {
+		color: #0F77F0;
+	}
+	.store_block-product-subtitle {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #000000;
+		max-width: 450px;
+	}
+	.store_block-product-amount {
+		width: 183px;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 64px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.store_block-product-amount-button {
+		width: 56px;
+		height: 56px;
+		background: #FFFFFF;
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+		border: 1px solid #FFFFFF;
+		border-radius: 100px;
+		position: relative;
+		cursor: pointer;
+	}
+	.store_block-product-amount-button-minus > div,
+	.store_block-product-amount-button-plus > div {
+		width: 20px; 
+		height: 4px; 
+		background: #0F0F0F; 
+		position: absolute; 
+		left: 18px; 
+		top: 26px;
+	}
+	.store_block-product-amount-button-plus > div:last-child {
+		transform: rotate(-90deg); 
+		transform-origin: center;
+	}
+	.store_block-product-amount-value {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 30px;
+		text-align: center;
+		color: #0F0F0F;
+	}
+	.store_block-product-select {
+		/*width: 340px;*/
+		width: 100%;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 100px;
+		position: relative;
+		/*display: flex;*/
+		display: inline-flex;
+		/*justify-content: center;*/
+		align-items: center;
+		padding-left: 21px;
+		padding-right: 14px;
+		box-sizing: border-box;
+		margin-top: 10px;
+	}
+	.store_block-product-select:hover {
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	}
+	.store_block-product-select-dropdown-select {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		/*grid-column-gap: 10px;*/
+		cursor: pointer;
+	}
+	.store_block-product-select-dropdown {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		padding: 12px 21px 18px;
+		display: none;
+		flex-direction: column;
+		grid-row-gap: 16px;
+		background: #FFFFFF;
+		border: 1px solid #3374FB;
+		box-sizing: border-box;
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+		border-radius: 35px;
+		z-index: 2;
+	}
+	.store_block-product-select-dropdown-item {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #0F0F0F;
+		cursor: pointer;
+	}
+	.store_block-product-select-text {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #000000;
+	}
+	.store_block-product-select-value {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #85878d;
+		margin-right: 20px;
+	}
+	.store_block-product-select-arrow {
+		width: 24px;
+		height: 24px;
+	}
+	.store_block-product-select-arrow img {
+		width: 100%;
+		height: 100%;
+	}
+	.store_block-product-add {
+		margin-top: 32px;
+		/*width: 183px;*/
+		padding-left: 23px;
+		padding-right: 23px;
+		height: 56px;
+		background: #3374FB;
+		border: 1px solid #3374FB;
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+	.store_block-add-wireless-charger {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-top: 12px;
+	}
+	.store_block-add-wireless-charger-checkbox {
+		appearance: none;
+		-webkit-appearance: none;
+		background-color: #FEFEFE;
+		border: 1px solid #3374FB;
+		border-radius: 8px;
+		display: inline-block;
+		position: relative;
+		padding: 16px;
+		margin: 0;
+		cursor: pointer;
+	}
+	.store_block-add-wireless-charger-checkbox:checked {
+		background-color: #3374FB;
+		border: 1px solid #3374FB;
+		color: #FEFEFE;
+	}
+	.store_block-add-wireless-charger-checkbox:checked:after {
+		content: url({{ 'union.png' | asset_url }});
+		position: absolute;
+		width: 17.14px;
+		height: 11.43px;
+		top: 9.71px;
+		left: 7.43px;
+		color: #FEFEFE;
+	}
+	.store_block-add-wireless-charger-title {
+		margin-left: 12px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #0F0F0F;
+		cursor: pointer;
+	}
+	.store_block-add-wireless-charger-price {
+		margin-left: 4px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 17px;
+		color: #3374FB;
+	}
+	@media screen and (min-width: 1000px) and (max-width: 1366px) { 
+		.store_block {
+			height: calc(677 * 100vw / 1366);
+			margin-top: calc(93 * 100vw / 1366);
+		}
+		.store_block-title {
+			font-size: calc(52 * 100vw / 1366);
+			line-height: calc(64 * 100vw / 1366);
+			/*margin-left: calc(128 * 100vw / 1366);*/
+			margin-bottom: calc(65 * 100vw / 1366);
+		}
+		.store_block-product {
+			margin-left: calc(128 * 100vw / 1366);
+			margin-bottom: calc(170 * 100vw / 1366);
+			grid-column-gap: calc(25 * 100vw / 1366);
+		}
+		.store_block-product-gallery {
+			width: calc(545 * 100vw / 1366);
+			height: calc(378 * 100vw / 1366);
+			/*margin-right: calc(114 * 100vw / 1366);*/
+		}
+		.store_block-product-gallery-nav {
+			top: calc(165 * 100vw / 1366);
+			width: calc(60 * 100vw / 1366);
+			height: calc(48 * 100vw / 1366);
+		}
+		.store_block-product-title {
+			font-size: calc(44 * 100vw / 1366);
+			line-height: calc(52 * 100vw / 1366);
+			margin-bottom: calc(24 * 100vw / 1366);
+		}
+		.store_block-product-price {
+			font-size: calc(28 * 100vw / 1366);
+			line-height: calc(36 * 100vw / 1366);
+			margin-bottom: calc(24 * 100vw / 1366);
+			grid-column-gap: calc(16 * 100vw / 1366);
+		}
+		.store_block-product-price-old-cross {
+			top: calc(18 * 100vw / 1366);
+			/*border: calc(3 * 100vw / 1366) solid #9FA1A8;*/
+		}
+		.store_block-product-subtitle {
+			/*font-size: calc(14 * 100vw / 1366);*/
+			/*line-height: calc(17 * 100vw / 1366);*/
+			max-width: calc(450 * 100vw / 1366);
+		}
+		.store_block-product-amount {
+			width: calc(183 * 100vw / 1366);
+			height: calc(56 * 100vw / 1366);
+			border-radius: calc(64 * 100vw / 1366);
+		}
+		.store_block-product-amount-button {
+			width: calc(56 * 100vw / 1366);
+			height: calc(56 * 100vw / 1366);
+			box-shadow: 0px calc(4 * 100vw / 1366) calc(16 * 100vw / 1366) rgba(0, 0, 0, 0.1);
+			border: 1px solid #FFFFFF;
+			border-radius: calc(100 * 100vw / 1366);
+		}
+		.store_block-product-amount-button-minus > div,
+		.store_block-product-amount-button-plus > div {
+			width: calc(20 * 100vw / 1366); 
+			height: calc(4 * 100vw / 1366); 
+			left: calc(18 * 100vw / 1366); 
+			top: calc(26 * 100vw / 1366);
+		}
+		.store_block-product-amount-value {
+			font-size: calc(22 * 100vw / 1366);
+			line-height: calc(30 * 100vw / 1366);
+		}
+		.store_block-product-select {
+			/*width: calc(340 * 100vw / 1366);*/
+			height: calc(56 * 100vw / 1366);
+			border-radius: calc(100 * 100vw / 1366);
+			grid-column-gap: calc(10 * 100vw / 1366);
+			padding-left: calc(21 * 100vw / 1366);
+			padding-right: calc(14 * 100vw / 1366);
+			margin-top: calc(10 * 100vw / 1366);
+		}
+		.store_block-product-select-dropdown {
+			padding: calc(12 * 100vw / 1366) calc(21 * 100vw / 1366) calc(18 * 100vw / 1366);
+			grid-row-gap: calc(16 * 100vw / 1366);
+			border: 1px solid #3374FB;
+			box-shadow: 0px calc(4 * 100vw / 1366) calc(16 * 100vw / 1366) rgba(0, 0, 0, 0.1);
+			border-radius: calc(35 * 100vw / 1366);
+		}
+		.store_block-product-select-dropdown-item {
+			font-size: calc(24 * 100vw / 1366);
+			line-height: calc(32 * 100vw / 1366);
+		}
+		.store_block-product-select-value {
+			font-size: calc(24 * 100vw / 1366);
+			line-height: calc(32 * 100vw / 1366);
+			margin-right: calc(20 * 100vw / 1366);
+		}
+		.store_block-product-select-arrow {
+			width: calc(24 * 100vw / 1366);
+			height: calc(24 * 100vw / 1366);
+		}
+		.store_block-product-add {
+			margin-top: calc(32 * 100vw / 1366);
+			/*width: calc(183 * 100vw / 1366);*/
+			padding-left: calc(23 * 100vw / 1366);
+			padding-right: calc(23 * 100vw / 1366);
+			height: calc(56 * 100vw / 1366);
+			border: 1px solid #3374FB;
+			border-radius: calc(100 * 100vw / 1366);
+			font-size: calc(24 * 100vw / 1366);
+			line-height: calc(32 * 100vw / 1366);
+		} 
+		.store_block-add-wireless-charger {
+			margin-top: calc(12 * 100vw / 1366);
+		}
+		.store_block-add-wireless-charger-checkbox {
+			border-radius: calc(8 * 100vw / 1366);
+			padding: calc(16 * 100vw / 1366);
+		}
+		.store_block-add-wireless-charger-checkbox:checked:after {
+			width: calc(17.14 * 100vw / 1366);
+			height: calc(11.43 * 100vw / 1366);
+			top: calc(9.71 * 100vw / 1366);
+			left: calc(7.43 * 100vw / 1366);
+		}
+		.store_block-add-wireless-charger-title {
+			margin-left: calc(12 * 100vw / 1366);
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+		}
+		.store_block-add-wireless-charger-price {
+			margin-left: calc(4 * 100vw / 1366);
+			font-size: calc(14 * 100vw / 1366);
+			line-height: calc(17 * 100vw / 1366);
+		}
+	} 
+	@media screen and (max-width: 999px) {  
+		.store_block {
+			/*height: 625px;*/
+			height: auto;
+			margin-top: 37px;
+			margin-bottom: 80px;
+		}
+		.store_block-product {
+			display: none;
+		}
+		.store_block-product-mobile {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.store_block-title {
+			height: 28px;
+			font-size: 36px;
+			line-height: 43px;
+			/*margin-left: 0;*/
+			margin-bottom: 51px;
+		}
+		.store_block-product-title {
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 31px;
+			margin-bottom: 10px;
+		}
+		.store_block-product-price {
+			font-weight: 700;
+			font-size: 22px;
+			line-height: 140%;
+			margin-bottom: 22.88px;
+		}
+		.store_block-product-gallery {
+			width: 342px;
+			/*height: 210.65px;*/
+			height: auto;
+			margin-right: 0;
+			margin-bottom: 23.85px;
+		}
+		.store_block-product-info {
+			width: 342px;
+			/*height: 216.61px;*/
+		}
+		.store_block-product-info-bottom {
+			width: 100%;
+			/*height: 146.61px;*/
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.store_block-product-select {
+			/*width: 270px;*/
+			width: 100%;
+			height: 56px;
+			background: #FFFFFF;
+			border-radius: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			grid-column-gap: 10px;
+			margin-top: 12px;
+		}
+		.store_block-product-select-text {
+			margin-top: 12px;
+			font-family: 'Gotham';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+			color: #000000;
+		}
+		.store_block-product-select-dropdown-item {
+			font-family: 'Gotham';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+			color: #0F0F0F;
+			cursor: pointer;
+		}
+		.store_block-product-select-value {
+			font-family: 'Gotham';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+			color: #85878d;
+		}
+		.store_block-product-select-arrow {
+			width: 24px;
+			height: 24px;
+		}
+		.store_block-product-select-arrow img {
+			width: 100%;
+			height: 100%;
+		}
+		.store_block-product-add {
+			margin-top: 12px;
+			/*width: 149px;*/
+			padding-left: 23px;
+			padding-right: 23px;
+			height: 56px;
+			font-size: 18px;
+			line-height: 140%;
+		}
+	}
+</style>
+
+{% assign product = all_products['teslogic-transmitter-kit'] %}
+{% assign charger = all_products['teslogic-wireless-charger'] %}
+
+<div class="store_block" id="shop-now">
+	<div class="block_title store_block-title">Store</div>				
+	<div class="store_block-product">
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-image">
+				<img src="{{ product.featured_media | image_url }}">
+			</div>
+			<!-- <div class="store_block-product-gallery-nav store_block-product-gallery-nav-prev">
+				<img src="{{ 'gallery_prev.png' | asset_url }}">
+			</div>
+			<div class="store_block-product-gallery-nav store_block-product-gallery-nav-next">
+				<img src="{{ 'gallery_next.png' | asset_url }}">
+			</div> -->
+		</div>
+		<div class="store_block-product-info">
+			<div>
+				<div class="store_block-product-title">{{ product.title }}</div>
+				<div class="store_block-product-price">
+  
+					<div class="store_block-product-price-new">$165</div>
+				</div>
+				<div class="store_block-product-subtitle">
+					{{ product.description }}
+				</div>
+			</div>
+			<div>
+				<!-- <div class="store_block-product-amount">
+					<div class="store_block-product-amount-button store_block-product-amount-button-minus">
+						<div></div>
+					</div>
+					<span class="store_block-product-amount-value" id="amount">1</span>
+					<div class="store_block-product-amount-button store_block-product-amount-button-plus">
+						<div></div>
+						<div></div>
+					</div>
+				</div> -->
+				<div class="store_block-product-select-text">Select your Tesla model and year:</div>
+				<div class="store_block-product-select">
+					<div class="store_block-product-select-dropdown-select store_block-product-selected">
+						<span class="store_block-product-select-value">Select model</span>
+						<div class="store_block-product-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
+					</div>
+					<div class="store_block-product-select-dropdown">
+						<div class="store_block-product-select-dropdown-select">
+							<span class="store_block-product-select-value">Select model</span>
+							<div class="store_block-product-select-arrow">
+								<img src="{{ 'select_arrow.png' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				<div class="store_block-add-wireless-charger">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
+					<label for="select-charger" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
+					<span class="store_block-add-wireless-charger-price">+ $40</span>
+				</div>
+				<button class="store_block-product-add" id="add">Order now</button>
+				<div class="store_block-product-subtitle" style="margin-top: calc(20 * 100vw / 1366);">
+					No import tax for international orders
+				</div>
+			</div>
+		</div>
+	</div>								
+	<div class="store_block-product-mobile">
+		<div class="store_block-product-title">{{ product.title }}</div>
+		<div class="store_block-product-price">
+
+			<div class="store_block-product-price-new">$165</div>
+		</div>
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-image">
+				<img src="{{ product.featured_media | image_url }}">
+			</div>
+		</div>
+		<div class="store_block-product-info">
+			<div class="store_block-product-subtitle">
+				{{ product.description }}
+			</div>
+			<div class="store_block-product-info-bottom">
+				<div class="store_block-product-select-text">Select your Tesla model and year:</div>
+				<div class="store_block-product-select">
+					<div class="store_block-product-select-dropdown-select store_block-product-selected">
+						<span class="store_block-product-select-value">Select model</span>
+						<div class="store_block-product-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
+					</div>
+					<div class="store_block-product-select-dropdown">
+						<div class="store_block-product-select-dropdown-select">
+							<span class="store_block-product-select-value">Select model</span>
+							<div class="store_block-product-select-arrow">
+								<img src="{{ 'select_arrow.png' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item"  
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				<div class="store_block-add-wireless-charger">
+					<input type="checkbox" id="select-charger-mobile" class="store_block-add-wireless-charger-checkbox" checked>
+					<label for="select-charger-mobile" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
+					<span class="store_block-add-wireless-charger-price">+ $40</span>
+				</div>
+				<button class="store_block-product-add">Order now</button>
+				<div class="store_block-product-subtitle" style="margin-top: calc(40 * 100vw / 1366);">
+					No import tax for international orders
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
+	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*var amount = Number($('#amount').text())
+		$('.store_block-product-amount-button-minus').on('click', function() {
+			if (amount <= 1) return
+			amount -= 1
+			$('#amount').text(amount)
+		})
+		$('.store_block-product-amount-button-plus').on('click', function() {
+			amount += 1
+			$('#amount').text(amount)
+		})*/
+		var model_id = null
+		selectModel('TT12')
+		$('.store_block-product-select-dropdown-select').on('click', function() {
+			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
+		})
+		$('.store_block-product-select-dropdown-item').on('click', function() {
+			let sku = $(this).data('sku')
+			selectModel(sku)
+		})
+		$(document).click(function(event) { 
+			var $target = $(event.target)
+			if (!$target.closest('.store_block-product-select').length && 
+				!$target.closest('.store_block-product-select-dropdown').length && 
+				$('.store_block-product-select-dropdown').is(":visible")) {
+				$('.store_block-product-select-dropdown').hide()
+			}        
+		})
+		function selectModel(sku) {
+			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
+			model_id = model.data('model_id')
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
+			if (model.data('compare_at_price')) {
+				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
+				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-current').hide()
+				$('.store_block-product-price-old').show()
+				$('.store_block-product-price-new').show()
+			}
+			else {
+				$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-old').hide()
+				$('.store_block-product-price-new').hide()
+				$('.store_block-product-price-current').show()
+			}
+			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
+		}
+		var cart_qty = Number({{ cart.item_count }})
+		$('.store_block-product-add').on('click', function() {
+			if (model_id) {
+				let items = [{
+					'id': model_id,
+					'quantity': 1
+				}]
+				let add_items_count = 1
+				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+					let charger_variant_id = $('#charger-variant-id').val()
+					console.log(Number(charger_variant_id))
+					items.push({
+						'id': Number(charger_variant_id),
+						'quantity': 1
+					})
+					add_items_count++
+				}
+				console.log(items)
+				let formData = {
+				 	'items': items
+				}
+				fetch(window.Shopify.routes.root + 'cart/add.js', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				})
+				.then(response => {
+					cart_qty = cart_qty + add_items_count
+					$('.cart-qty').text(cart_qty)
+					$('.cart-link').fadeIn()
+					var f = $('.store_block-product-gallery-image')
+					var cart_total = $("#cart-animate");
+					var clone = $('<div class="cart"></div>').append(f.clone());
+					clone.appendTo('body');
+					clone.css({
+						'z-index': 100500,
+						background: '#fff',
+						top: f.offset().top,
+						left: f.offset().left,
+						width: f.width() + 'px',
+						height: f.height() + 'px',
+						position: 'absolute',
+						overflow: 'hidden'
+					}).animate({
+						top: cart_total.offset().top,
+						left: cart_total.offset().left,
+						width: cart_total.width() + 'px',
+						height: cart_total.height() + 'px',
+						// opacity: 0.7
+					}, 2000, function () {
+						$(this).remove();
+					});
+					// console.log(response)
+				  	// return response.json()
+				})
+				.catch((error) => {
+				  	console.error('Error:', error)
+				});
+			}
+		})
+	})
+</script>
