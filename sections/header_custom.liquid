@@ -55,6 +55,8 @@
 <div class="header-fix"></div>
   
 <script type="text/javascript">
+  var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
+  var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   $(document).ready(function() {
     $('.menu__item-button').on('mouseover', function() {
       $(this).css({color: '#000000'})
@@ -71,6 +73,28 @@
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
       $('.button-close').hide()
+    })
+    $('.menu__item').on('mouseover', function() {
+      let dropdown = $(this).find('.menu__item-dropdown')
+      let chevron_down = $(this).find('.menu__item-chevron-down')
+      let chevron_up = $(this).find('.menu__item-chevron-up')
+        $('.menu__item-dropdown').each(function() {
+          $(this).css('display', 'none')
+          $(this).parent('.menu__item').removeClass('menu__item-opened')
+        })
+        $(dropdown).css('display', 'flex')
+        $(chevron_down).hide()
+        $(chevron_up).show()
+        $(this).addClass('menu__item-opened')
+    })
+    $('.menu__item').on('mouseleave', function() {
+      let dropdown = $(this).find('.menu__item-dropdown')
+      let chevron_down = $(this).find('.menu__item-chevron-down')
+      let chevron_up = $(this).find('.menu__item-chevron-up')
+        $(dropdown).css('display', 'none')
+        $(chevron_down).show()
+        $(chevron_up).hide()
+        $(this).removeClass('menu__item-opened')
     })
   })  
 </script>
