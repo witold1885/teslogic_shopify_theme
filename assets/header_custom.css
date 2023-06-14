@@ -77,10 +77,10 @@
 	grid-column-gap: 10px;
 	color: #FFFFFF;
 }
-.menu__item-cart:hover {
+/*.menu__item-cart:hover {
 	background: #FFFFFF;
 	color: #000000;
-}
+}*/
 .menu__item:not(.menu__item-button):not(.menu__item-cart):hover {
 	color: #9FA1A8;
 }
