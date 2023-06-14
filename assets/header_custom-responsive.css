@@ -9,11 +9,12 @@
 		height: calc(96 * 100vw / 1366);
 	}
 	.top .logo {	
-		margin-left: calc(128 * 100vw / 1366);
+/*		margin-left: calc(128 * 100vw / 1366);*/
+		margin-left: calc(80 * 100vw / 1366);
 	}
 	.menu {
-		margin-right: calc(114 * 100vw / 1366);
-		grid-column-gap: calc(10 * 100vw / 1366);
+/*		margin-right: calc(114 * 100vw / 1366);*/
+		grid-column-gap: calc(80 * 100vw / 1366);
 	}
 	.menu__item {
 		font-size: calc(18 * 100vw / 1366);
