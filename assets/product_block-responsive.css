@@ -45,10 +45,7 @@
 	.product_block-product-title {
 		font-size: calc(28 * 100vw / 1366);
 		line-height: calc(36 * 100vw / 1366);
-	}
-	.product_block-product-price-old-cross {
-		top: calc(18 * 100vw / 1366);
-		/*border: calc(3 * 100vw / 1366) solid #9FA1A8;*/
+		max-width: calc(235 * 100vw / 1366);
 	}
 	.product_block-product-subtitle {
 		/*font-size: calc(14 * 100vw / 1366);*/

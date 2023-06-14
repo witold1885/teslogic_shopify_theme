@@ -78,25 +78,7 @@
 	font-size: 28px;
 	line-height: 36px;
 	color: #000000;
-}
-.product_block-product-price-current {
-	color: #000000;
-}
-.product_block-product-price-old {
-	color: #9FA1A8;
-	position: relative;
-}
-.product_block-product-price-old-cross {
-	position: absolute;
-	width: 100%;
-	height: 0;
-	top: 18px;
-	left: 0;
-	right: 0;
-	border: 1px solid #9FA1A8;
-}
-.product_block-product-price-new {
-	color: #0F77F0;
+	max-width: 235px;
 }
 .product_block-product-subtitle {
 	font-family: 'Gotham';
