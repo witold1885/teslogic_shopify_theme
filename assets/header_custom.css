@@ -67,6 +67,7 @@
 	color: #000000;
 }
 .menu__item-cart {
+	width: 122.27px;
 	background: #3374FB;
 	border-radius: 100px;
 	margin-left: 8px;
@@ -74,6 +75,7 @@
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 10px;
+	color: #FFFFFF;
 }
 .menu__item-cart:hover {
 	background: #FFFFFF;
