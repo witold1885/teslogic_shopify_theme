@@ -43,9 +43,8 @@
 		line-height: calc(64 * 100vw / 1366);
 	}
 	.product_block-product-title {
-		font-size: calc(44 * 100vw / 1366);
-		line-height: calc(52 * 100vw / 1366);
-		margin-bottom: calc(24 * 100vw / 1366);
+		font-size: calc(28 * 100vw / 1366);
+		line-height: calc(36 * 100vw / 1366);
 	}
 	.product_block-product-price-old-cross {
 		top: calc(18 * 100vw / 1366);
