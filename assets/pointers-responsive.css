@@ -301,7 +301,7 @@
 		top: 448.29px;
 	}
 	.pointer-performance-bottom-left .pointer-legend {	
-		width: 198px;
+		width: 190px;
 		height: 51px;
 		bottom: calc(-1 * (51px + 8px));
 	}
@@ -320,8 +320,8 @@
 	.pointer-energy_screen-top-right {
 		width: 182px;
 		height: 54px;
-		right: -21.88px;
-		bottom: 136px;
+		left: 169px;
+		top: 232.71px;
 	}
 	.pointer-energy_screen-top-right .pointer-legend {	
 		width: 186px;
