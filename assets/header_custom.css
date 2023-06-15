@@ -15,6 +15,7 @@
 .top {
 	width: 1366px;
 	height: 96px;
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
