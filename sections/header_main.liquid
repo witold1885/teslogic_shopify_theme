@@ -150,7 +150,23 @@
     </div>
     <div class="burger-menu-wrap">
       <div class="burger-menu">
-        <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
+        {% for link in linklists.main-menu.links %}
+          <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links.size > 0 %}
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <!-- <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
         <div class="menu__item"><a href="/#features">Features</a></div>
         <div class="menu__item"><a href="/manuals">Manuals</a></div>
         <div class="menu__item"><a href="/faq">FAQ</a></div>
@@ -166,7 +182,7 @@
             </div>
             <span>Cart</span>
           </a>
-        </div>        
+        </div>  -->       
       </div>
     </div>
   </div>
