@@ -200,7 +200,7 @@
 	.features__block-screen-light {
 		display: none;
 	}
-	.features__block-dashboard {
+	/*.features__block-dashboard {
 		height: 650px;
 	}
 	.features__block-notifications {
@@ -217,5 +217,5 @@
 	}
 	.features__block-low_vision_mode {
 		height: 532px;
-	}
+	}*/
 }
