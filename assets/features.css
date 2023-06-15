@@ -104,6 +104,9 @@
 	position: relative;
 	cursor: pointer;
 }
+.features__block-switcher-mobile {
+	display: none;
+}
 .features__block-switcher-case {
 	display: flex;
 	flex-direction: row;

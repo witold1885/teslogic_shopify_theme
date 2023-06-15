@@ -115,7 +115,7 @@
 		flex-direction: column;
 		align-items: flex-start;
 	}
-	.features__block-performance .features__block-legend {
+	/*.features__block-performance .features__block-legend {
 		width: 320px;
 	}
 	.features__block-energy_screen .features__block-legend {
@@ -124,7 +124,7 @@
 	.features__block-low_vision_mode .features__block-legend {
 		margin-top: 40px!important;
 		width: 345px;
-	}
+	}*/
 	.features__block-legend-title {
 		font-weight: 700;
 		font-size: 26px;
@@ -136,13 +136,19 @@
 		line-height: 140%;
 		margin-bottom: 40px;
 	}
-	.features__block-odd .features__block-legend-title,
+	/*.features__block-odd .features__block-legend-title,
 	.features__block-odd .features__block-legend-subtitle {
 		text-align: left;
 	}
 	.features__block-even .features__block-legend-title,
 	.features__block-even .features__block-legend-subtitle {
 		text-align: right;
+	}*/
+	.features__block-switcher {
+		display: none;
+	}
+	.features__block-switcher-mobile {
+		display: block;
 	}
 	.features__block-screen {
 		z-index: 3;
