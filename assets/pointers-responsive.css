@@ -241,7 +241,7 @@
 	.pointer-dashboard-top-right {
 		width: 86px;
 		height: 52px;
-		right: 34px;
+		left: 270px;
 		top: 227px;
 	}
 	.pointer-dashboard-top-right .pointer-legend {	
@@ -263,7 +263,7 @@
 	.pointer-dashboard-bottom-right {
 		width: 111px;
 		height: 65px;
-		right: 24px;
+		left: 255px;
 		top: 384px;
 	}
 	.pointer-dashboard-bottom-right .pointer-legend {
