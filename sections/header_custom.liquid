@@ -47,7 +47,11 @@
             <span>Cart</span>
           </a>
         </div> -->
-        <a class="menu__item menu__item-cart">
+        <a
+          href="/cart"
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
           <img src="{{ 'cart-white.png' | asset_url }}">
           <span href="#">Cart</span>            
         </a>
