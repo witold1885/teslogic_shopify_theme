@@ -361,18 +361,18 @@
 	.pointer-map-top-left .pointer-legend {	
 		width: 178px;
 		height: 48px;
+		top: calc(-1 * (48px + 12px));
+	}
+	.pointer-map-bottom-right {
+		width: 173px;
+		height: 51px;
+		left: 73px;
+		top: 346.71px;
+	}
+	.pointer-map-bottom-right .pointer-legend {	
+		width: 175px;
+		height: 48px;
 		bottom: calc(-1 * (48px + 8px));
 	}
-	/*.pointer-map-bottom-left {
-		width: 176px;
-		height: 68.02px;
-		left: 375px;
-		top: 369.98px;
-	}
-	.pointer-map-bottom-left .pointer-legend {	
-		width: 184px;
-		height: 34px;
-		bottom: calc(-1 * (34px + 12px));
-	}*/
 
 }
