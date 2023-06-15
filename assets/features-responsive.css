@@ -80,6 +80,23 @@
 		font-size: 36px;
 		line-height: 43px;
 	}
+	.features__blocks {
+	/*	overflow-x: scroll;*/
+	/*	flex-direction: column;*/
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+		padding-bottom: 28px;
+		cursor: default;
+		width: 100%;
+	}
+	.features__blocks-scroller {
+		overflow-x: auto;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 64px;
+		padding-left: 0;
+	}
 	.features__block {
 		height: auto;
 		/*display: flex;*/
