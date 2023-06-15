@@ -146,6 +146,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           width: calc(1206 * 100vw / 1366);
         }
       }
+      @media screen and (max-width: 999px) {
+        .block_title {
+          width: 340px;
+        }
+      }
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
