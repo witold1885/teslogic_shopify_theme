@@ -241,33 +241,33 @@
 	.pointer-dashboard-top-right {
 		width: 86px;
 		height: 52px;
-		right: -1.88px;
-		bottom: 138px;
+		right: 34px;
+		top: 227px;
 	}
 	.pointer-dashboard-top-right .pointer-legend {	
-		width: 114px;
+		width: 93px;
 		height: 48px;
 		top: calc(-1 * (48px + 12px));
 	}
 	.pointer-dashboard-bottom-left {
 		width: 82px;
 		height: 65px;
-		left: -8.77px;
-		top: 125px;
+		left: 26px;
+		top: 384px;
 	}
 	.pointer-dashboard-bottom-left .pointer-legend {	
 		width: 198px;
 		height: 48px;
-		bottom: calc(-1 * (48px + 9px));
+		bottom: calc(-1 * (48px + 8px));
 	}
 	.pointer-dashboard-bottom-right {
 		width: 111px;
 		height: 65px;
-		right: -11.88px;
-		top: 125px;
+		right: 24px;
+		top: 384px;
 	}
 	.pointer-dashboard-bottom-right .pointer-legend {
-		width: 120px;
+		width: 104px;
 		height: 68px;
 		bottom: calc(-1 * (68px + 9px));
 	}
