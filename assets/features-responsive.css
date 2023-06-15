@@ -149,14 +149,15 @@
 	}
 	.features__block-switcher-mobile-wrap {
 		width: 100%;
-		text-align: right;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 20px;
 	}
 	.features__block-switcher-mobile {
 		display: block;
 	}
 	.features__block-screen {
 		z-index: 3;
-		margin-top: 134px ;
 		margin-left: 35px!important;
 		margin-right: 35px!important;
 		width: 320px;
@@ -166,11 +167,27 @@
 		align-items: center;
 		position: relative;*/
 	}
-	.features__block-low_vision_mode .features__block-screen {
-		margin-top: 60px!important;
-		margin-left: 35px!important;
-		margin-right: 35px!important;
+	.features__block-dashboard .features__block-screen {
+		margin-top: 134px;
+		margin-bottom: 156.85px;
 	}
+	.features__block-performance .features__block-screen {
+		margin-top: 134px;
+		margin-bottom: 156.85px;
+	}
+	.features__block-energy_screen .features__block-screen {
+		margin-top: 134px;
+		margin-bottom: 156.85px;
+	}
+	.features__block-car_info .features__block-screen {
+		margin-top: 134px;
+		margin-bottom: 156.85px;
+	}
+	.features__block-map .features__block-screen {
+		margin-top: 134px;
+		margin-bottom: 156.85px;
+	}
+
 	.features__block-screen-desktop {
 		display: none;
 	}
