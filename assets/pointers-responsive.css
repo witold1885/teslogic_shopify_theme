@@ -331,9 +331,9 @@
 
 	.pointer-car_info-top-right {
 		width: 150px;
-		height: 52px;
-		right: 32.35px;
-		bottom: 138px;
+		height: 47px;
+		left: 173px;
+		top: 227px;
 	}
 	.pointer-car_info-top-right .pointer-legend {	
 		width: 150px;
@@ -343,8 +343,8 @@
 	.pointer-car_info-bottom-right {
 		width: 198px;
 		height: 51px;
-		right: 43.45px;
-		top: 139px;
+		left: 114px;
+		top: 398px;
 	}
 	.pointer-car_info-bottom-right .pointer-legend {	
 		width: 210px;
