@@ -65,13 +65,14 @@
 	z-index: 3;
 	margin-top: 160.5px;
 	width: 271px;
+	margin-left: 48px;
 }
-.features__block-odd .features__block-legend {
+/*.features__block-odd .features__block-legend {
 	margin-left: 48px;
 }
 .features__block-even .features__block-legend {
 	margin-right: 78px;
-}
+}*/
 .features__block-low_vision_mode .features__block-legend {
 	margin-top: 131px;
 	margin-right: 60px;
