@@ -272,45 +272,11 @@
 		bottom: calc(-1 * (68px + 9px));
 	}
 
-	.pointer-notifications-top-left {
-		width: 98px;
-		height: 96px;
-		left: -2.77;
-		bottom: 94px;
-	}
-	.pointer-notifications-top-left .pointer-legend {	
-		width: 100px;
-		height: 48px;
-		top: calc(-1 * (48px + 12px));
-	}
-	.pointer-notifications-top-right {
-		width: 101px;
-		height: 80px;
-		right: -5.88px;
-		bottom: 110px;
-	}
-	.pointer-notifications-top-right .pointer-legend {	
-		width: 114px;
-		height: 48px;
-		top: calc(-1 * (48px + 12px));
-	}
-	.pointer-notifications-bottom-right {
-		width: 178px;
-		height: 54px;
-		right: 28.11px;
-		top: 136px;
-	}
-	.pointer-notifications-bottom-right .pointer-legend {	
-		width: 198px;
-		height: 34px;
-		bottom: calc(-1 * (34px + 8px));
-	}
-
 	.pointer-performance-top-left {
 		width: 63px;
 		height: 85px;
-		left: 3.23px;
-		bottom: 105px;
+		left: 47px;
+		top: 274.29px;
 	}
 	.pointer-performance-top-left .pointer-legend {	
 		width: 74px;
@@ -320,8 +286,8 @@
 	.pointer-performance-top-right {
 		width: 86px;
 		height: 69px;
-		right: 45.35px;
-		bottom: 121px;
+		left: 214px;
+		top: 274.29px;
 	}
 	.pointer-performance-top-right .pointer-legend {	
 		width: 114px;
@@ -329,24 +295,24 @@
 		top: calc(-1 * (65px + 12px));
 	}
 	.pointer-performance-bottom-left {
-		width: 119px;
-		height: 51px;
-		left: -8.77px;
-		top: 139px;
+		width: 106px;
+		height: 48px;
+		left: 27px;
+		top: 448.29px;
 	}
 	.pointer-performance-bottom-left .pointer-legend {	
-		width: 180px;
+		width: 198px;
 		height: 51px;
 		bottom: calc(-1 * (51px + 8px));
 	}
 	.pointer-performance-bottom-right {
 		width: 88px;
 		height: 91px;
-		right: 36.35px;
-		top: 99px;
+		left: 231px;
+		top: 405.29px;
 	}
 	.pointer-performance-bottom-right .pointer-legend {
-		width: 130px;
+		width: 149px;
 		height: 65px;
 		bottom: calc(-1 * (65px + 8px));
 	}
