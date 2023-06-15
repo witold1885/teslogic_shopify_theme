@@ -24,8 +24,11 @@
 		line-height: calc(32 * 100vw / 1366);
 		padding: calc(4 * 100vw / 1366) calc(12 * 100vw / 1366);
 	}
-	.menu__item-button {
+	.menu__item-cart {
+		width: calc(122.27 * 100vw / 1366);
 		border-radius: calc(100 * 100vw / 1366);
+		margin-left: calc(8 * 100vw / 1366);
+		grid-column-gap: calc(10 * 100vw / 1366);
 	}
 }
 
