@@ -4,9 +4,25 @@
       "type": "product_block",
       "settings": {
       }
+    },
+    "16868394313756278c": {
+      "type": "apps",
+      "blocks": {
+        "3d0c2965-c6bc-43d8-9697-a54d948aa432": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "3d0c2965-c6bc-43d8-9697-a54d948aa432"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
-    "product_block"
+    "product_block",
+    "16868394313756278c"
   ]
 }
