@@ -351,4 +351,28 @@
 		height: 48px;
 		bottom: calc(-1 * (48px + 8px));
 	}
+
+	.pointer-map-top-left {
+		width: 177px;
+		height: 47px;
+		left: 146px;
+		top: 187.71px;
+	}
+	.pointer-map-top-left .pointer-legend {	
+		width: 178px;
+		height: 48px;
+		bottom: calc(-1 * (48px + 8px));
+	}
+	/*.pointer-map-bottom-left {
+		width: 176px;
+		height: 68.02px;
+		left: 375px;
+		top: 369.98px;
+	}
+	.pointer-map-bottom-left .pointer-legend {	
+		width: 184px;
+		height: 34px;
+		bottom: calc(-1 * (34px + 12px));
+	}*/
+
 }
