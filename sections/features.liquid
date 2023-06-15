@@ -249,7 +249,7 @@
           <img draggable="false" class="features__block-screen-dark" src="{{ 'map-mobile.png' | asset_url }}" srcset="{{ 'map-desktop.png' | asset_url }} 2x" loading="lazy">
           <img draggable="false" class="features__block-screen-light" src="{{ 'mapL-mobile.png' | asset_url }}" srcset="{{ 'mapL-desktop.png' | asset_url }} 2x" loading="lazy">
         </div>
-        <div class="pointer pointer-desktop pointer-top pointer-left pointer-map-top-left" data-view="car_info-top-left">
+        <div class="pointer pointer-top pointer-left pointer-map-top-left" data-view="map-top-left">
           <div class="pointer-wrap">
             <div class="pointer-legend">
               All important indicators, such as autopilot mode and others, remain visible
@@ -257,7 +257,15 @@
             <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
           </div>
         </div>
-        <div class="pointer pointer-desktop pointer-bottom pointer-left pointer-map-bottom-left" data-view="car_info-bottom-left">
+        <div class="pointer pointer-desktop pointer-bottom pointer-left pointer-map-bottom-left" data-view="map-bottom-left">
+          <div class="pointer-wrap">
+            <div class="pointer-legend">
+              Teslogic utilizes Google's map and navigation
+            </div>
+            <div class="pointer-point"><!-- <img src="{{ 'point.png' | asset_url }}"> --></div>
+          </div>
+        </div>
+        <div class="pointer pointer-mobile pointer-bottom pointer-right pointer-map-bottom-right" data-view="map-bottom-left">
           <div class="pointer-wrap">
             <div class="pointer-legend">
               Teslogic utilizes Google's map and navigation
