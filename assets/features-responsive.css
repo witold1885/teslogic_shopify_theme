@@ -147,6 +147,10 @@
 	.features__block-switcher {
 		display: none;
 	}
+	.features__block-switcher-mobile-wrap {
+		width: 100%;
+		text-align: right;
+	}
 	.features__block-switcher-mobile {
 		display: block;
 	}
