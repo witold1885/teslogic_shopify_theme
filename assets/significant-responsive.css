@@ -1,18 +1,15 @@
 @media screen and (max-width: 999px) {
-	/*.significant {
-		margin-top: 116.57px;
-		margin-bottom: 118.81px;
+	.significant {
+		margin-top: 100px;
+		margin-bottom: 171.71px;
 	}
 	.significant__title {
-		font-family: 'SF Pro';
-		font-style: normal;
-		font-weight: 700;
-		font-size: 52px;
-		line-height: 64px;
-		color: #000000;
-		text-align: left;
-		margin-bottom: 40.43px;
-	}*/
+		font-size: 36px;
+		line-height: 43px;
+		margin-bottom: 51px;
+		letter-spacing: 0.02em;
+		content: 'App features';
+	}
 	.significant__features {
 		/*height: 565px;
 		display: flex;
