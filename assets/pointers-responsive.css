@@ -230,8 +230,8 @@
 	.pointer-dashboard-top-left {
 		width: 144px;
 		height: 46px;
-		left: -0.23px;
-		bottom: 144px;
+		left: 35px;
+		top: 227px;
 	}
 	.pointer-dashboard-top-left .pointer-legend {	
 		width: 167px;
