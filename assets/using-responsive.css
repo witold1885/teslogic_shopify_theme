@@ -76,7 +76,7 @@
 		height: 852px;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		grid-row-gap: 63px;
 		position: relative;
 	}
