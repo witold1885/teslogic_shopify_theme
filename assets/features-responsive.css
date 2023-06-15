@@ -113,21 +113,25 @@
 	.features__block-legend {
 		margin-top: 39px;
 		margin-left: 20px;
-		width: 300px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 	}
-	/*.features__block-performance .features__block-legend {
-		width: 320px;
+	.features__block-dashboard .features__block-legend {
+		width: 292px;
+	}
+	.features__block-performance .features__block-legend {
+		width: 316px;
 	}
 	.features__block-energy_screen .features__block-legend {
-		width: 320px;
+		width: 292px;
 	}
-	.features__block-low_vision_mode .features__block-legend {
-		margin-top: 40px!important;
-		width: 345px;
-	}*/
+	.features__block-car_info .features__block-legend {
+		width: 289px;
+	}
+	.features__block-map .features__block-legend {
+		width: 300px;
+	}
 	.features__block-legend-title {
 		font-weight: 700;
 		font-size: 26px;
