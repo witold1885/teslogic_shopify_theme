@@ -98,34 +98,22 @@
 		padding-left: 0;
 	}
 	.features__block {
+		width: 100%;
 		height: auto;
 		/*display: flex;*/
 		justify-content: flex-start;
-		/*align-items: flex-start;*/
-		flex-direction: column;
-	}
-	.features__block-odd {
 		align-items: flex-start;
-	}
-	.features__block-even {
-		align-items: flex-end;
-	}
-	.features__block:not(:last-child) {
-		margin-bottom: 64px;
+		flex-direction: column;
+		background: transparent;
+		border-radius: unset;
 	}
 	.features__block-legend {
 		margin-top: 39px;
+		margin-left: 20px;
 		width: 300px;
 		display: flex;
 		flex-direction: column;
-	}
-	.features__block-odd .features__block-legend {
-		margin-left: 24px;
 		align-items: flex-start;
-	}
-	.features__block-even .features__block-legend {
-		margin-right: 23px;
-		align-items: flex-end;
 	}
 	.features__block-performance .features__block-legend {
 		width: 320px;
