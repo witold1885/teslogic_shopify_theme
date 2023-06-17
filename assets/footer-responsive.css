@@ -47,11 +47,13 @@
 
 @media screen and (max-width: 999px) {
 	footer {
+		padding: 0;
 	}
 	.footer__wrap {
 		max-width: 390px;
 		padding: 34px 27px 42px 24px;
 		margin: 0 auto;
+		box-sizing: border-box;
 	}
 	.footer-top {
 		flex-direction: column;
