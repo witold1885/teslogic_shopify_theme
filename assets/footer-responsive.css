@@ -76,6 +76,24 @@
 		grid-column-gap: 25px;
 		grid-row-gap: 40px;
 	}
+	.footer-menu__list-contacts {
+
+	}
+	.footer-menu__list-dashboard-kit {
+		display: none;
+	}
+	.footer-menu__list-other-products {
+		display: none;
+	}
+	.footer-menu__list-legal {
+
+	}
+	.footer-menu__list-community {
+		display: none;
+	}
+	.footer-menu__list-social {
+
+	}
 	.footer-menu__list:not(:nth-child(2n)) {
 		width: 180px;
 	}
