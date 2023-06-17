@@ -79,6 +79,9 @@
 	.footer-menu__list-contacts {
 
 	}
+	.footer-menu__list-resources {
+		display: block;
+	}
 	.footer-menu__list-dashboard-kit {
 		display: none;
 	}
