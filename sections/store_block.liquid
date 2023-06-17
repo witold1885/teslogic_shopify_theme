@@ -495,6 +495,11 @@
 			justify-content: space-between;
 			align-items: center;
 		}
+		.store_block-product-select-wrap {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
 		.store_block-product-select {
 			/*width: 270px;*/
 			width: 100%;
@@ -647,43 +652,45 @@
 				{{ product.description }}
 			</div> -->
 			<div class="store_block-product-info-bottom">
-				<div class="store_block-product-select-text">Select your Tesla model and year:</div>
-				<div class="store_block-product-select">
-					<div class="store_block-product-select-dropdown-select store_block-product-selected">
-						<span class="store_block-product-select-value">Select model</span>
-						<div class="store_block-product-select-arrow">
-							<img src="{{ 'select_arrow.png' | asset_url }}">
-						</div>
-					</div>
-					<div class="store_block-product-select-dropdown">
-						<div class="store_block-product-select-dropdown-select">
+				<div class="store_block-product-select-wrap">
+					<div class="store_block-product-select-text">Select your Tesla model and year:</div>
+					<div class="store_block-product-select">
+						<div class="store_block-product-select-dropdown-select store_block-product-selected">
 							<span class="store_block-product-select-value">Select model</span>
 							<div class="store_block-product-select-arrow">
 								<img src="{{ 'select_arrow.png' | asset_url }}">
 							</div>
 						</div>
-						{%- for model in product.variants -%}
-							<div 
-								class="store_block-product-select-dropdown-item"  
-								data-model_id="{{ model.id }}"
-								data-sku="{{ model.sku }}" 
-								data-price="{{ model.price }}"
-								data-compare_at_price="{{ model.compare_at_price }}"
-							>
-								{{ model.title }}
+						<div class="store_block-product-select-dropdown">
+							<div class="store_block-product-select-dropdown-select">
+								<span class="store_block-product-select-value">Select model</span>
+								<div class="store_block-product-select-arrow">
+									<img src="{{ 'select_arrow.png' | asset_url }}">
+								</div>
 							</div>
-						{%- endfor -%}
+							{%- for model in product.variants -%}
+								<div 
+									class="store_block-product-select-dropdown-item"  
+									data-model_id="{{ model.id }}"
+									data-sku="{{ model.sku }}" 
+									data-price="{{ model.price }}"
+									data-compare_at_price="{{ model.compare_at_price }}"
+								>
+									{{ model.title }}
+								</div>
+							{%- endfor -%}
+						</div>
+					</div>
+					<div class="store_block-add-wireless-charger">
+						<input type="checkbox" id="select-charger-mobile" class="store_block-add-wireless-charger-checkbox" checked>
+						<label for="select-charger-mobile" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
+						<span class="store_block-add-wireless-charger-price">+ $40</span>
 					</div>
 				</div>
-				<div class="store_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger-mobile" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger-mobile" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
-					<span class="store_block-add-wireless-charger-price">+ $40</span>
-				</div>
 				<button class="store_block-product-add">Order now</button>
-				<div class="store_block-product-subtitle" style="margin-top: calc(40 * 100vw / 1366);">
+				<!-- <div class="store_block-product-subtitle" style="margin-top: calc(40 * 100vw / 1366);">
 					No import tax for international orders
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
