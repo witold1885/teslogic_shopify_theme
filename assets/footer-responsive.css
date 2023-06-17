@@ -47,10 +47,10 @@
 
 @media screen and (max-width: 999px) {
 	footer {
-		padding: 34px 27px 42px 24px;
 	}
 	.footer__wrap {
 		max-width: 390px;
+		padding: 34px 27px 42px 24px;
 		margin: 0 auto;
 	}
 	.footer-top {
