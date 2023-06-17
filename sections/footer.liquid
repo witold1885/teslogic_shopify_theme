@@ -12,7 +12,7 @@
         <img src="{{ 'logo.png' | asset_url }}">
       </div>
       <div class="footer-menu">
-        <div class="footer-menu__list">
+        <div class="footer-menu__list footer-menu__list-contacts">
           <div class="footer-menu__list-title">
             Contacts
           </div>
@@ -25,7 +25,7 @@
         </div>
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'Dashboard kit' %}
-            <div class="footer-menu__list">
+            <div class="footer-menu__list footer-menu__list-dashboard-kit">
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
@@ -41,7 +41,7 @@
         {% endfor %}
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'Other Products' %}
-            <div class="footer-menu__list">
+            <div class="footer-menu__list footer-menu__list-other-products">
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
@@ -55,7 +55,7 @@
             </div>
           {% endif %}
         {% endfor %}
-        <div class="footer-menu__list">
+        <div class="footer-menu__list footer-menu__list-legal">
           <div class="footer-menu__list-title">
             Legal
           </div>
@@ -68,7 +68,7 @@
         </div>
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'Community' %}
-            <div class="footer-menu__list">
+            <div class="footer-menu__list footer-menu__list-community">
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
@@ -82,7 +82,7 @@
             </div>
           {% endif %}
         {% endfor %}
-        <div class="footer-menu__list">
+        <div class="footer-menu__list footer-menu__list-social">
           <div class="footer-menu__list-title">
             Social
           </div>
