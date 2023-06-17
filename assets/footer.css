@@ -28,6 +28,9 @@ footer {
 	align-items: flex-start;
 	grid-column-gap: 71px;
 }
+.footer-menu__list-resources {
+	display: none;
+}
 .footer-menu__list-title {
 	font-family: Gotham-Medium;
 	font-style: normal;
