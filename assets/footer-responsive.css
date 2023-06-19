@@ -21,10 +21,12 @@
 		line-height: calc(24 * 100vw / 1366);
 		margin-bottom: calc(16 * 100vw / 1366);
 	}
+	.footer-menu__list-items {
+		grid-row-gap: calc(12 * 100vw / 1366);
+	}
 	.footer-menu__list-items li {
 		font-size: calc(16 * 100vw / 1366);
 		line-height: calc(20 * 100vw / 1366);
-		margin-bottom: calc(12 * 100vw / 1366);
 	}
 	.footer-links {
 		grid-column-gap: calc(24 * 100vw / 1366);
@@ -105,12 +107,19 @@
 		line-height: 24px;
 		margin-bottom: 16px;
 	}
+	.footer-menu__list-items {
+		grid-row-gap: 15px;
+	}
+	.footer-menu__list-items-desktop {
+		display: none;
+	}
+	.footer-menu__list-items-mobile {
+		display: flex;
+	}
 	.footer-menu__list-items li {
 		font-size: 14px;
 		line-height: 17px;
-		margin-bottom: 15px;
 	}
-
 	.footer-bottom {
 		flex-direction: column;
 		grid-row-gap: 40px;
