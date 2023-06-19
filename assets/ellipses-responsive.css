@@ -257,6 +257,7 @@
 	.ellipse-bottom-container {
 		/*top: 5177px;*/
 		height: 1187px;
+		bottom: 288px;
 	}
 	.ellipse-bottom-wrap {
 		height: 1187px;
