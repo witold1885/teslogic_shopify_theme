@@ -79,6 +79,7 @@
 	.features__title {
 		font-size: 36px;
 		line-height: 43px;
+		margin-bottom: 40px;
 	}
 	.features__blocks {
 	/*	overflow-x: scroll;*/
@@ -94,7 +95,7 @@
 		overflow-x: auto;
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: 64px;
+		grid-row-gap: 80px;
 		padding-left: 0;
 	}
 	.features__block {
@@ -111,7 +112,7 @@
 		display: none;
 	}
 	.features__block-legend {
-		margin-top: 39px;
+		margin-top: 0;
 		margin-left: 20px;
 		display: flex;
 		flex-direction: column;
