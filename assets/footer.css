@@ -45,6 +45,14 @@ footer {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	flex-direction: column;
+	grid-row-gap: 12px;
+}
+.footer-menu__list-items-desktop {
+	display: flex;
+}
+.footer-menu__list-items-mobile {
+	display: none;
 }
 .footer-menu__list-items li {
 	font-family: Gotham;
@@ -53,7 +61,6 @@ footer {
 	font-size: 16px;
 	line-height: 20px;
 	color: #FFFFFF;
-	margin-bottom: 12px;
 	cursor: pointer;
 }
 .footer-menu__list-items li:hover {
