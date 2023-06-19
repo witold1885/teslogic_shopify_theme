@@ -73,11 +73,11 @@
 @media screen and (max-width: 999px) {
 	.using {
 		width: 100%;
-		height: 852px;
+		height: 823px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		grid-row-gap: 63px;
+		grid-row-gap: 40px;
 		position: relative;
 	}
 	.using__title {
