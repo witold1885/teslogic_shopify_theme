@@ -256,14 +256,15 @@
 
 	.ellipse-bottom-container {
 		/*top: 5177px;*/
-		height: 1474px;
+		height: 1187px;
 	}
 	.ellipse-bottom-wrap {
-		height: 1474px;
+		height: 1187px;
 	}
 	.ellipse-bottom {
 		width: 1187px;
 		height: 1187px;
-		left: calc(-1 * ((1187px - 100vw) / 2));
+/*		left: calc(-1 * ((1187px - 100vw) / 2));*/
+		left: calc(-1 * 575px + ((100vw - 390px) / 2));
 	}
 }
