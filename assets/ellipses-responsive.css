@@ -213,22 +213,16 @@
 		display: none;
 	}
 	.ellipse__main-mobile-10 {
-/*width: 838px;
-height: 838px;
-left: -399px;
-top: 5905px;*/
-
-
 		width: 838px;
 		height: 838px;
 		left: calc(-1 * 399px + ((100vw - 390px) / 2));
 		top: 5905px;
 	}
 	.ellipse__main-mobile-11 {
-		width: 677px;
-		height: 687px;
-		left: calc(-1* 144.5px + ((100vw - 390px) / 2));
-		top: 6168px;	
+		width: 766px;
+		height: 766px;
+		left: calc(-1 * 363px + ((100vw - 390px) / 2));
+		top: 5869px;
 	}
 	.ellipse__main-mobile-12 {
 		width: 749px;
