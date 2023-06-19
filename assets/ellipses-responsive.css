@@ -221,7 +221,7 @@ top: 5905px;*/
 
 		width: 838px;
 		height: 838px;
-		left: calc(-1* -399px + ((100vw - 390px) / 2));
+		left: calc(-1 * 399px + ((100vw - 390px) / 2));
 		top: 5905px;
 	}
 	.ellipse__main-mobile-11 {
