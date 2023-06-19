@@ -64,6 +64,9 @@ footer {
 	color: #FFFFFF;
 	cursor: pointer;
 }
+.footer-menu__list-legal .footer-menu__list-items li {
+	white-space: nowrap;
+}
 .footer-menu__list-items li:hover {
 	color: #3374FB;
 }
