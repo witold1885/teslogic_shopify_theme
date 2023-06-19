@@ -225,16 +225,16 @@
 		top: 5941px;
 	}
 	.ellipse__main-mobile-12 {
-		width: 749px;
-		height: 749px;
-		left: calc(-1* 180.5px + ((100vw - 390px) / 2));
-		top: 7145px;	
+		width: 838px;
+		height: 838px;
+		left: calc(-1 * 62px + ((100vw - 390px) / 2));
+		top: 7057px;
 	}
 	.ellipse__main-mobile-13 {
-		width: 677px;
-		height: 687px;
-		left: calc(-1* 144.5px + ((100vw - 390px) / 2));
-		top: 7176px;	
+		width: 766px;
+		height: 766px;
+		left: calc(-1 * 26px + ((100vw - 390px) / 2));
+		top: 7093px;
 	}
 	.ellipse__main-mobile-1 .ellipse,
 	.ellipse__main-mobile-3 .ellipse,
