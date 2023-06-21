@@ -56,6 +56,20 @@
 	line-height: 43px;
 	color: #0F0F0F;
 }
+.reviews-rating-overall-data-stars {
+	display: flex;
+	grid-column-gap: 8px;
+}
+.reviews-rating-overall-data-stars .spr-icon-star {
+	width: 30px;
+	height: 30px;
+}
+.reviews-rating-overall-data-stars .spr-icon-star::before {
+	width: 100%;
+	height: 100%;
+	font-size: 100%;
+	color: #3374FB;
+}
 .reviews-rating-stats {
 	width: 100%;
 	display: flex;
@@ -171,6 +185,9 @@
 	height: 20px;
 }
 .reviews-list-item-stars .spr-icon-star::before {
+	width: 100%;
+	height: 100%;
 	font-size: 100%;
 	color: #3374FB;
 }
+
