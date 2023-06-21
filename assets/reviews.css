@@ -72,8 +72,8 @@
 .reviews-rating-stats-mark {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	grid-column-gap: 20px;
 }
 .reviews-rating-stats-mark-star {
 	display: flex;
@@ -91,6 +91,29 @@
 .reviews-rating-stats-mark-star-icon {
 	width: 20px;
 	height: 20px;
+}
+.reviews-rating-stats-mark-star-line {
+	width: 178px;
+	height: 10px;
+	background: #E3E3E3;
+	border-radius: 100px;
+	position: relative;
+}
+.reviews-rating-stats-mark-star-line-fill {
+	height: 10px;
+	background: #3374FB;
+	border-radius: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.reviews-rating-stats-mark-count {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 32px;
+	color: #0F0F0F;
 }
 .reviews-data-right {
 	display: flex;
