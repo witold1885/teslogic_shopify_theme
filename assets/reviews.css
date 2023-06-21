@@ -162,3 +162,15 @@
 	line-height: 17px;
 	color: #8F9197;
 }
+.reviews-list-item-stars {
+	display: flex;
+	grid-column-gap: 8px;
+}
+.reviews-list-item-stars .spr-icon-star {
+	width: 20px;
+	height: 20px;
+}
+.reviews-list-item-stars .spr-icon-star::before {
+	font-size: 100%;
+	color: #3374FB;
+}
