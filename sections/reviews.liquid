@@ -94,7 +94,10 @@
 	            for (let m = 5; m >= 1; m--) {
 	            	marksHtml += `
 	            		<div class="reviews-rating-stats-mark">
-	            			<div class="reviews-rating-stats-mark-value">${m}</div>
+	            			<div class="reviews-rating-stats-mark-star">
+	            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+	            				<img src="{{ 'star-fill.svg' | asset_url }}">
+	            			</div>
 	            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
 	            		</div>
 	            	`;
