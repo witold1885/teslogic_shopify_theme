@@ -13,8 +13,11 @@
 					<div class="reviews-rating-overall-data">
 						<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
 						<div id="totalRatingStars" class="reviews-rating-overall-data-stars"></div>						
-					</div>
-					
+					</div>					
+				</div>
+				<div class="reviews-rating-stats">
+					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
+					<div class="reviews-rating-stats-marks"></div>
 				</div>
 			</div>
 		</div>
@@ -47,20 +50,15 @@
 	            return;
 	        };
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
-	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--)
-	        {
+	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
 	        	let sumDiv = document.createElement('div');
 	            sumDiv.innerHTML = window.reviewApp.reviews[i].product;
 	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
-	            console.log('summaryRating')
-	            console.log(summaryRating)
 	            let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
-	            console.log('averageMark')
-	            console.log(averageMark)
-	            console.log('summaryRating.innerHTML')
-	            console.log(summaryRating.innerHTML)
 	            document.getElementById('totalRatingValue').innerText = averageMark;
 	            document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
+	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
+
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
 	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
@@ -76,6 +74,7 @@
 	            console.log('rating')
 	            console.log(rating)
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewText.length} reviews`);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
