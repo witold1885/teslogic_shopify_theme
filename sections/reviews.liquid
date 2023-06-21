@@ -41,6 +41,7 @@
 	            reviewApp.getReviews(window.reviewApp.productIdList);
 	            return;
 	        };
+	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--)
 	        {
 	            var tmpDiv = document.createElement('div');
@@ -49,6 +50,9 @@
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            let ratingMark = rating.getAttribute('aria-label')
+	            console.log('ratingMark')
+	            console.log(ratingMark)
 	            console.log('reviewText')
 	            console.log(reviewText)
 	            console.log('reviewer')
