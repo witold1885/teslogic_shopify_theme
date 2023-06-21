@@ -33,7 +33,7 @@
 	        {{ shop.permanent_domain | json }},
 	        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
 	    };
-    	window.reviewApp.productIdList = [product.id]
+    	window.reviewApp.productIdList = [{{ product.id }}]
 	    console.log(window.reviewApp)
 	    window.reviewApp.getReviews = function(a)
 	    {
