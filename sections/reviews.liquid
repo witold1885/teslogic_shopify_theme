@@ -53,8 +53,16 @@
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
-	                var divHtml = '';
-	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');
+	                let divHtml = `
+	                	<div class="product-review">
+	                		<span class="product-review-title">${title[_i].innerText}</span>
+	                		<span class="product-review-text">${reviewText[_i].innerText}</span>
+	                		<span class="product-review-stars">${rating[_i].innerHTML}</span>
+	                		<span class="product-review-reviewer">${reviewer[_i].innerText}</span>
+	                	</div>
+	                `;
+	                /*var divHtml = '';
+	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
 	        };
