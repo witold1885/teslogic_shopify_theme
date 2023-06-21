@@ -15,9 +15,8 @@
 				
 			</div>
 		</div>
-		<div class="reviews-list"></div>
+		<div id="multipleReviews" class="reviews-list"></div>
 	</div>
-	<div id="multipleReviews"></div>
 </div>
 
 <script type="text/javascript">
@@ -50,6 +49,14 @@
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            console.log('reviewText')
+	            console.log(reviewText)
+	            console.log('reviewer')
+	            console.log(reviewer)
+	            console.log('title')
+	            console.log(title)
+	            console.log('rating')
+	            console.log(rating)
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
