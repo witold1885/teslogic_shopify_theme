@@ -130,10 +130,21 @@
 	flex-direction: column;
 	align-items: flex-start;
 	width: 716px;
+	grid-row-gap: 40px;
 }
 .reviews-list {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	grid-row-gap: 20px;
+}
+.reviews-list-item {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-row-gap: 32px;
+	padding: 32px;
+	background: #FFFFFF;
 }
