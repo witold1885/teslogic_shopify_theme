@@ -101,7 +101,7 @@
 
 	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
 	            if (totalReviews > 3) {
-	            	
+
 	            }
 
 	            console.log('ratingMarks')
@@ -142,7 +142,7 @@
 	        }
 	        script.id = 'singleReviewData';
 	        script.async = true;
-	        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
+	        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&page=2&product_id=', productId].join('');
 	        document.body.appendChild(script);
 	    };
 	    reviewApp.getReviews(window.reviewApp.productIdList);
