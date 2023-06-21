@@ -58,12 +58,12 @@
 	            console.log(title)
 	            console.log('rating')
 	            console.log(rating)
-	            let ratingMark = rating.getAttribute('aria-label')
-	            console.log('ratingMark')
-	            console.log(ratingMark)
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
+		            let ratingMark = rating[_i].getAttribute('aria-label')
+		            console.log('ratingMark')
+		            console.log(ratingMark)
 	                let divHtml = `
 	                	<div class="product-review">
 	                		<div class="product-review-title">${title[_i].innerText}</div>
