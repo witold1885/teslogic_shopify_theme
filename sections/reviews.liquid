@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
-{% assign product = all_products['amber-tails-light-adapter'] %}
+{% assign product = all_products['teslogic-transmitter-kit'] %}
 
 <div class="reviews">
 	<div class="block_title reviews-title">Reviews</div>
@@ -100,6 +100,9 @@
 	            };
 
 	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
+	            if (totalReviews > 3) {
+	            	
+	            }
 
 	            console.log('ratingMarks')
 	            console.log(ratingMarks)
