@@ -201,3 +201,11 @@
 	line-height: 32px;
 	color: #000000;
 }
+.reviews-list-item-bottom {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+}
