@@ -225,12 +225,13 @@
 	grid-column-gap: 12px;
 }
 .reviews-expand a {
-	font-family: 'Gotham';
+	font-family: 'Gotham-Medium';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 32px;
 	line-height: 32px;
 	color: #3374FB;
+	cursor: pointer;
 }
 .reviews-expand img {
 	width: 32px;
