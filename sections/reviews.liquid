@@ -51,13 +51,13 @@
 	        };
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
+	        	
 	        	let sumDiv = document.createElement('div');
 	            sumDiv.innerHTML = window.reviewApp.reviews[i].product;
 	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
 	            let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
 	            document.getElementById('totalRatingValue').innerText = averageMark;
 	            document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
-	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
 
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
@@ -65,16 +65,10 @@
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
-	            console.log('reviewText')
-	            console.log(reviewText)
-	            console.log('reviewer')
-	            console.log(reviewer)
-	            console.log('title')
-	            console.log(title)
-	            console.log('rating')
-	            console.log(rating)
+
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewText.length} reviews`);
+
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
