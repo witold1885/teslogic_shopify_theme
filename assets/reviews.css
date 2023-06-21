@@ -81,6 +81,7 @@
 	grid-column-gap: 16px;
 }
 .reviews-rating-stats-mark-star-value {
+	width: 25px;
 	font-family: 'Gotham-Medium';
 	font-style: normal;
 	font-weight: 500;
