@@ -224,7 +224,7 @@
 	align-items: center;
 	grid-column-gap: 12px;
 }
-.reviews-expand a {
+.reviews-expand-text {
 	font-family: 'Gotham-Medium';
 	font-style: normal;
 	font-weight: 500;
@@ -233,7 +233,11 @@
 	color: #3374FB;
 	cursor: pointer;
 }
-.reviews-expand img {
+.reviews-expand-icon {
 	width: 32px;
 	height: 32px;
+}
+.reviews-expand-icon-reverted {
+	transform: rotate(180deg);
+	transform-origin: center;
 }
