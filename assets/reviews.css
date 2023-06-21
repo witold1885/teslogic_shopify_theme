@@ -149,7 +149,16 @@
 	background: #FFFFFF;
 }
 .reviews-list-item-top {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+}
+.reviews-list-item-date {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #8F9197;
 }
