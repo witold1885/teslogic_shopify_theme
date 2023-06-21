@@ -205,6 +205,13 @@
 	color: #000000;
 }
 .reviews-list-item-bottom {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-row-gap: 8px;
+}
+.reviews-list-item-author, .reviews-list-item-spent {
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;
