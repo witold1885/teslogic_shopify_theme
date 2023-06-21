@@ -700,36 +700,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		console.log({{ product | json }})
-	    window.reviewApp = window.reviewApp ||
-	    {
-	        debug: false,
-	        reviews: [],
-	        reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
-	        reviewStore:
-	        {{ shop.permanent_domain | json }},
-	        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
-	    };
-	    console.log(window.reviewApp)
-	    window.reviewApp.getReviews = function(a)
-	    {
-	        if (typeof a === 'undefined')
-	        {
-	            errLog('missing_id');
-	            return
-	        }
-	        var productId = a.shift();
-	        var script = document.createElement("script");
-	        if (document.getElementById('singleReviewData'))
-	        {
-	            document.getElementById('singleReviewData').remove(); /* cleanup (optional) */
-	        }
-	        script.id = 'singleReviewData';
-	        script.async = true;
-	        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
-	        document.body.appendChild(script);
-	    };
-	    // reviewApp.getReviews(window.reviewApp.productIdList);
 		/*var amount = Number($('#amount').text())
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return

@@ -39,6 +39,11 @@
       "type": "store_block",
       "settings": {
       }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -49,6 +54,7 @@
     "significant",
     "box_block",
     "add_charger",
-    "store_block"
+    "store_block",
+    "reviews"
   ]
 }

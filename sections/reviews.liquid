@@ -1,0 +1,57 @@
+
+{% assign product = all_products['teslogic-transmitter-kit'] %}
+
+<div class="reviews">
+	<div class="block_title reviews-title">Reviews</div>
+	<div class="reviews-data">
+		<div class="reviews-rating">
+			<div class="reviews-rating-overall">
+				<div class="reviews-rating-overall-title">Overall rating</div>
+				<div class="reviews-rating-overall-data">
+					<div class="reviews-rating-overall-data-value"></div>
+					<div class="reviews-rating-overall-data-stars"></div>
+					
+				</div>
+				
+			</div>
+		</div>
+		<div class="reviews-list"></div>
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		console.log({{ product | json }})
+	    window.reviewApp = window.reviewApp ||
+	    {
+	        debug: false,
+	        reviews: [],
+	        reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
+	        reviewStore:
+	        {{ shop.permanent_domain | json }},
+	        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
+	    };
+    	window.reviewApp.productIdList = [product.id]
+	    console.log(window.reviewApp)
+	    window.reviewApp.getReviews = function(a)
+	    {
+	        if (typeof a === 'undefined')
+	        {
+	            errLog('missing_id');
+	            return
+	        }
+	        var productId = a.shift();
+	        var script = document.createElement("script");
+	        if (document.getElementById('singleReviewData'))
+	        {
+	            document.getElementById('singleReviewData').remove(); /* cleanup (optional) */
+	        }
+	        script.id = 'singleReviewData';
+	        script.async = true;
+	        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
+	        document.body.appendChild(script);
+	    };
+	    // reviewApp.getReviews(window.reviewApp.productIdList);
+	})
+</script>
