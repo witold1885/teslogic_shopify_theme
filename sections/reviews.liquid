@@ -74,7 +74,7 @@
 	            {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		            ratingMarks[`mark${ratingMark}`]++;
-		            let reviewerData = reviewer.querySelectorAll('strong');
+		            let reviewerData = reviewer[_i].querySelectorAll('strong');
 		            console.log('reviewerData')
 		            console.log(reviewerData)
 	                let divHtml = `
