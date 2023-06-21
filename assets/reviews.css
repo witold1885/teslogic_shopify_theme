@@ -219,3 +219,20 @@
 	line-height: 17px;
 	color: #000000;
 }
+.reviews-expand {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 12px;
+}
+.reviews-expand a {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 32px;
+	color: #3374FB;
+}
+.reviews-expand img {
+	width: 32px;
+	height: 32px;
+}
