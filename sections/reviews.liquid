@@ -49,6 +49,9 @@
 	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
 	            console.log('summaryRating')
 	            console.log(summaryRating)
+	            let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
+	            console.log('averageMark')
+	            console.log(averageMark)
 	            console.log('summaryRating.innerHTML')
 	            console.log(summaryRating.innerHTML)
 	            document.getElementById('totalRating').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
