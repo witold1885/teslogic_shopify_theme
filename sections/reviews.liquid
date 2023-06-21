@@ -7,7 +7,7 @@
 		<div class="reviews-rating">
 			<div class="reviews-rating-overall">
 				<div class="reviews-rating-overall-title">Overall rating</div>
-				<div class="reviews-rating-overall-data">
+				<div id="totalRating" class="reviews-rating-overall-data">
 					<div class="reviews-rating-overall-data-value"></div>
 					<div class="reviews-rating-overall-data-stars"></div>
 					
@@ -49,6 +49,7 @@
 	        	let summaryRating = sumDiv.querySelectorAll('span.spr-summary-starrating');
 	            console.log('summaryRating')
 	            console.log(summaryRating)
+	            document.getElementById('totalRating').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
 	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
