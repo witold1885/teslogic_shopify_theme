@@ -50,6 +50,7 @@
 	            return;
 	        };
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+	        let totalReviews = 0;
 	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
 
 	        	let sumDiv = document.createElement('div');
@@ -67,7 +68,7 @@
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
 
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
-	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewText.length} reviews`);
+	            totalReviews += reviewText.length;
 
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
@@ -87,18 +88,22 @@
 	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
+
+	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
+
 	            console.log('ratingMarks')
 	            console.log(ratingMarks)
 	            let marksDiv = document.createElement('div');
 	            let marksHtml = '';
 	            for (let m = 5; m >= 1; m--) {
+	            	let fillPercent = ratingMarks[`mark${m}`] / totalReviews * 100;
 	            	marksHtml += `
 	            		<div class="reviews-rating-stats-mark">
 	            			<div class="reviews-rating-stats-mark-star">
 	            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
 	            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
 	            				<div class="reviews-rating-stats-mark-star-line">
-	            					<div class="reviews-rating-stats-mark-star-line-fill">
+	            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
 	            					</div>
 	            				</div>
 	            			</div>
