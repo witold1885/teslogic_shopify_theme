@@ -6,15 +6,48 @@
 	justify-content: space-between;
 	align-items: flex-start;
 }
-.reviews-rating {
+.reviews-data-left {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 312px;
+	grid-row-gap: 32px;
 }
-.reviews-list {
+.reviews-rating {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-row-gap: 20px;
+}
+.reviews-rating-overall {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-row-gap: 8px;
+}
+.reviews-rating-overall-data {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 16px;
+}
+.reviews-rating-overall-data-value {
+	font-family: 'Gotham-Medium';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 43px;
+	color: #0F0F0F;
+}
+.reviews-data-right {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 716px;
+}
+.reviews-list {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
