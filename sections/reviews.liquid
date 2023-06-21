@@ -17,7 +17,7 @@
 				</div>
 				<div class="reviews-rating-stats">
 					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
-					<div class="reviews-rating-stats-marks"></div>
+					<div id="reviewsMarks" class="reviews-rating-stats-marks"></div>
 				</div>
 			</div>
 		</div>
@@ -99,6 +99,7 @@
 	            		</div>
 	            	`;
 	            }
+	            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
 	        };
 	    };
 	    window.reviewApp.getReviews = function(a)
