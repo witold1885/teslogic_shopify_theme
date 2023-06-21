@@ -50,9 +50,6 @@
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
-	            let ratingMark = rating.getAttribute('aria-label')
-	            console.log('ratingMark')
-	            console.log(ratingMark)
 	            console.log('reviewText')
 	            console.log(reviewText)
 	            console.log('reviewer')
@@ -61,6 +58,9 @@
 	            console.log(title)
 	            console.log('rating')
 	            console.log(rating)
+	            let ratingMark = rating.getAttribute('aria-label')
+	            console.log('ratingMark')
+	            console.log(ratingMark)
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
