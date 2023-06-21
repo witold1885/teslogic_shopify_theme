@@ -1,0 +1,20 @@
+.reviews-title {
+	margin-bottom: 40px;
+}
+.reviews-data {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.reviews-rating {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 312px;
+}
+.reviews-list {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 716px;
+}
