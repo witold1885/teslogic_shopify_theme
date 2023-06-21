@@ -191,9 +191,9 @@
 	color: #3374FB;
 }
 .reviews-list-item-text {
-	max-height: 94px;
-	overflow: hidden;
-	text-overflow: ellipsis;
+/*	max-height: 94px;*/
+/*	overflow: hidden;*/
+/*	text-overflow: ellipsis;*/
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;
