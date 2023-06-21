@@ -2,52 +2,6 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-<style scoped>.spr-container {
-    padding: 24px;
-    border-color: #ECECEC;}
-  .spr-review, .spr-form {
-    border-color: #ECECEC;
-  }
-</style>
-
-<div class="spr-container">
-  <div class="spr-header">
-    <h2 class="spr-header-title">Customer Reviews</h2><div class="spr-summary rte">
-
-        <span class="spr-starrating spr-summary-starrating" aria-label="3.0 of 5 stars" role="img">
-          <i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
-        </span>
-        <span class="spr-summary-caption"><span class='spr-summary-actions-togglereviews'>Based on 100 reviews</span>
-        </span><span class="spr-summary-actions">
-        <a href='#' class='spr-summary-actions-newreview' onclick='SPR.toggleForm(8374796878136);return false'>Write a review</a>
-      </span>
-    </div>
-  </div>
-
-  <div class="spr-content">
-    <div class='spr-form' id='form_8374796878136' style='display: none'></div>
-    <div class='spr-reviews' id='reviews_8374796878136' ></div>
-  </div>
-
-</div>
-<script type="application/ld+json">
-      {
-        "@context": "http://schema.org/",
-        "@type": "AggregateRating",
-        "reviewCount": "100",
-        "ratingValue": "2.95",
-        "itemReviewed": {
-          "@type" : "Product",
-          "name" : "Teslogic transmitter Kit",
-          "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "195.0",
-            "highPrice": "195.0",
-            "priceCurrency": "UAH"
-          }
-        }
-      }
-</script>
 
 <div class="reviews">
 	<div class="block_title reviews-title">Reviews</div>
