@@ -700,6 +700,16 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+	    window.reviewApp = window.reviewApp ||
+	    {
+	        debug: false,
+	        reviews: [],
+	        reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
+	        reviewStore:
+	        {{ shop.permanent_domain | json }},
+	        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
+	    };
+	    console.log(window.reviewApp)
 		/*var amount = Number($('#amount').text())
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
