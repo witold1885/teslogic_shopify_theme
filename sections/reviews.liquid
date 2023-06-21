@@ -1,5 +1,5 @@
 
-{% assign product = all_products['teslogic-transmitter-kit'] %}
+{% assign product = all_products['amber-tails-light-adapter'] %}
 
 <div class="reviews">
 	<div class="block_title reviews-title">Reviews</div>
@@ -34,7 +34,31 @@
 	        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
 	    };
     	window.reviewApp.productIdList = [{{ product.id }}]
-	    console.log(window.reviewApp)
+	    window.reviewLoaded = function(a)
+	    {
+	        window.reviewApp.reviews.push(a);
+	        if (window.reviewApp.productIdList.length)
+	        {
+	            reviewApp.getReviews(window.reviewApp.productIdList);
+	            return;
+	        };
+	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--)
+	        {
+	            var tmpDiv = document.createElement('div');
+	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
+	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
+	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
+	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
+	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
+	            {
+	                var divHtml = '';
+	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');
+	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
+	            };
+	        };
+	    };
 	    window.reviewApp.getReviews = function(a)
 	    {
 	        if (typeof a === 'undefined')
@@ -53,6 +77,7 @@
 	        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
 	        document.body.appendChild(script);
 	    };
-	    // reviewApp.getReviews(window.reviewApp.productIdList);
+	    reviewApp.getReviews(window.reviewApp.productIdList);
+	    console.log(window.reviewApp)
 	})
 </script>
