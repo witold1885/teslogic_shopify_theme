@@ -47,6 +47,21 @@
 	line-height: 43px;
 	color: #0F0F0F;
 }
+.reviews-rating-stats {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	grid-row-gap: 8px;	
+}
+.reviews-rating-stats-total {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 32px;
+	color: #8F9197;
+}
 .reviews-data-right {
 	display: flex;
 	flex-direction: column;
