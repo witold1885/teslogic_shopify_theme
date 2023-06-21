@@ -148,3 +148,8 @@
 	padding: 32px;
 	background: #FFFFFF;
 }
+.reviews-list-item-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
