@@ -49,6 +49,8 @@
 	        	let summaryRating = sumDiv.querySelectorAll('span.spr-summary-starrating');
 	            console.log('summaryRating')
 	            console.log(summaryRating)
+	            console.log('summaryRating.innerHTML')
+	            console.log(summaryRating.innerHTML)
 	            document.getElementById('totalRating').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
