@@ -1,10 +1,19 @@
 .reviews-title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 52px;
+	line-height: 64px;
+	color: #000000;
+	text-align: left;
 	margin-bottom: 40px;
 }
 .reviews-data {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	width: 1206px;
+	margin: 0 auto;
 }
 .reviews-data-left {
 	display: flex;
