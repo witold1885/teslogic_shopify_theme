@@ -61,9 +61,10 @@
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
-		            let ratingMark = rating[_i].getAttribute('aria-label')
+		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		            console.log('ratingMark')
 		            console.log(ratingMark)
+		            ratingMarks[`mark${ratingMark}`]++;
 	                let divHtml = `
 	                	<div class="product-review">
 	                		<div class="product-review-title">${title[_i].innerText}</div>
@@ -76,6 +77,8 @@
 	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
+		            console.log('ratingMarks')
+		            console.log(ratingMarks)
 	        };
 	    };
 	    window.reviewApp.getReviews = function(a)
