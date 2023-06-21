@@ -51,7 +51,7 @@
 	        };
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
-	        	
+
 	        	let sumDiv = document.createElement('div');
 	            sumDiv.innerHTML = window.reviewApp.reviews[i].product;
 	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
@@ -87,8 +87,18 @@
 	                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
-		            console.log('ratingMarks')
-		            console.log(ratingMarks)
+	            console.log('ratingMarks')
+	            console.log(ratingMarks)
+	            let marksDiv = document.createElement('div');
+	            let marksHtml = '';
+	            for (let m = 5; m >= 1; m--) {
+	            	marksHtml += `
+	            		<div class="reviews-rating-stats-mark">
+	            			<div class="reviews-rating-stats-mark-value">${m}</div>
+	            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+	            		</div>
+	            	`;
+	            }
 	        };
 	    };
 	    window.reviewApp.getReviews = function(a)
