@@ -85,7 +85,7 @@
 	                	<div class="reviews-list-item product-review">
 	                		<div class="reviews-list-item-top">
 	                			<div class="reviews-list-item-top-stars product-review-stars">${rating[_i].innerHTML}</div>
-	                			<div class="reviews-list-item-top-date product-review-stars">${reviewerDate}</div>
+	                			<div class="reviews-list-item-top-date product-review-stars">${setFullMonth(reviewerDate)}</div>
 	                		</div>
 	                		<div class="product-review-stars">${rating[_i].innerHTML}</div>
 	                		<div class="product-review-title">${title[_i].innerText}</div>
@@ -141,5 +141,27 @@
 	    };
 	    reviewApp.getReviews(window.reviewApp.productIdList);
 	    console.log(window.reviewApp)
+	    let months = {
+	    	'Jan': 'January',
+	    	'Feb': 'February',
+	    	'Mar': 'March',
+	    	'Apr': 'April',
+	    	'May': 'May',
+	    	'Jun': 'June',
+	    	'Jul': 'July',
+	    	'Aug': 'August',
+	    	'Sep': 'September',
+	    	'Oct': 'October',
+	    	'Nov': 'November',
+	    	'Dec': 'December',
+	    }
+	    function setFullMonth(date) {
+	    	for (let code in months) {
+	    		if (date.indexOf(code) !== -1) {
+	    			return date.replace(code, months[code])
+	    		}
+	    	}
+	    	return date
+	    }
 	})
 </script>
