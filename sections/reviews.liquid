@@ -44,6 +44,10 @@
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--)
 	        {
+	        	let sumDiv = document.createElement('div');
+	        	let summaryRating = sumDiv.querySelectorAll('span.spr-summary-starrating');
+	            console.log('summaryRating')
+	            console.log(summaryRating)
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
 	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
