@@ -26,6 +26,14 @@
 	align-items: flex-start;
 	grid-row-gap: 8px;
 }
+.reviews-rating-overall-title {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 32px;
+	color: #0F0F0F;
+}
 .reviews-rating-overall-data {
 	display: flex;
 	align-items: center;
