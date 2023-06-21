@@ -73,11 +73,16 @@
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
-		            console.log('ratingMark')
-		            console.log(ratingMark)
 		            ratingMarks[`mark${ratingMark}`]++;
+		            let reviewerData = reviewer.querySelectorAll('strong');
+		            console.log('reviewerData')
+		            console.log(reviewerData)
 	                let divHtml = `
-	                	<div class="product-review">
+	                	<div class="reviews-list-item product-review">
+	                		<div class="reviews-list-item-top">
+	                			<div class="reviews-list-item-top-stars product-review-stars">${rating[_i].innerHTML}</div>
+	                			<div class="reviews-list-item-top-date product-review-stars">${rating[_i].innerHTML}</div>
+	                		</div>
 	                		<div class="product-review-stars">${rating[_i].innerHTML}</div>
 	                		<div class="product-review-title">${title[_i].innerText}</div>
 	                		<div class="product-review-text">${reviewText[_i].innerText}</div>
