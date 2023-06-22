@@ -38,11 +38,15 @@
 	</div>
 </div>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function() {
 		/*$('.spr-container').on('load', function() {
 			console.log('reviews loaded')
 		})*/
+		$.get('https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136', function(response) {
+			console.log('get response:')
+			console.log(response)
+		})
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
 			$('#multipleReviews').empty();
@@ -82,8 +86,8 @@
 			}
 		})
 	})
-</script> -->
-<script type="text/javascript">
+</script>
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 		console.log({{ product | json }})
 		console.log({{ product.id }})
@@ -224,4 +228,4 @@
 	    	return date
 	    }
 	})
-</script>
+</script> -->
