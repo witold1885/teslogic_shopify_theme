@@ -93,7 +93,25 @@
 			        	  	console.log(sumMarks)
 			        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
 			        	  	console.log('marks collected')
-			        	  	console.log(ratingMarks)
+			        	  	console.log(ratingMarks)			        	  	
+				            let marksHtml = '';
+				            for (let m = 5; m >= 1; m--) {
+				            	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
+				            	marksHtml += `
+				            		<div class="reviews-rating-stats-mark">
+				            			<div class="reviews-rating-stats-mark-star">
+				            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+				            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
+				            				<div class="reviews-rating-stats-mark-star-line">
+				            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
+				            					</div>
+				            				</div>
+				            			</div>
+				            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+				            		</div>
+				            	`;
+				            }
+				            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
 			        	  }
 				    };
 				  }
