@@ -98,12 +98,10 @@
 	        	  }
 				    };
 				  }
+				  let summaryRating = $(this).find('span.spr-summary-starrating');
+	        document.getElementById('totalRatingValue').innerText = reviewsData.ratingValue;
+	        document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
 				}
-    
-              	let summaryRating = $(this).find('span.spr-summary-starrating');
-                let averageMark = summaryRating.attr('aria-label').split(' ')[0];
-                document.getElementById('totalRatingValue').innerText = averageMark;
-                document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.html());
 			}
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
