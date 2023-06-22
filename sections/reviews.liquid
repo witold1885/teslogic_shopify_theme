@@ -64,44 +64,49 @@
 
 				    window.paginateCallback8374796878136 = function(a)
 				    {
-	            var tmpDiv = document.createElement('div');
+	            let tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = a.reviews;
-	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            let rating = tmpDiv.querySelectorAll('.spr-starratings');
 
-	            for (var _i = rating.length - 1; _i >= 0; _i--) {
+	            for (let _i = rating.length - 1; _i >= 0; _i--) {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		            ratingMarks[`mark${ratingMark}`]++;
-	            };
+	            }
 		          let sumMarks = 0
 		          for (const mark in ratingMarks) {
 		          	sumMarks += ratingMarks[mark]
 		          }
 	        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
-				            let marksHtml = '';
-				            for (let m = 5; m >= 1; m--) {
-				            	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
-				            	marksHtml += `
-				            		<div class="reviews-rating-stats-mark">
-				            			<div class="reviews-rating-stats-mark-star">
-				            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
-				            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
-				            				<div class="reviews-rating-stats-mark-star-line">
-				            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
-				            					</div>
-				            				</div>
-				            			</div>
-				            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
-				            		</div>
-				            	`;
-				            }
-				            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
-			        	  }
+		            let marksHtml = '';
+		            for (let m = 5; m >= 1; m--) {
+		            	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
+		            	marksHtml += `
+		            		<div class="reviews-rating-stats-mark">
+		            			<div class="reviews-rating-stats-mark-star">
+		            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+		            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
+		            				<div class="reviews-rating-stats-mark-star-line">
+		            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
+		            					</div>
+		            				</div>
+		            			</div>
+		            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+		            		</div>
+		            	`;
+		            }
+		            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
+	        	  }
 				    };
 				  }
 				}
 			}
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
+
+      	let summaryRating = $(this).find('span.spr-summary-starrating');
+        let averageMark = summaryRating.attr('aria-label').split(' ')[0];
+        document.getElementById('totalRatingValue').innerText = averageMark;
+        document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.html());
 
 				$(this).find('.spr-review').each(function() {
 					let reviewStars = $(this).find('.spr-starratings').html()
