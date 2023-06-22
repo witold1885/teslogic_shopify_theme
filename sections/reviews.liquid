@@ -41,6 +41,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var loading = false
+		var expanded = false
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			if (!loading) {
 				let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
@@ -106,7 +107,7 @@
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
 
-				$(this).find('.spr-review').each(function() {
+				$(this).find('.spr-review').each(function(index) {
 					let reviewStars = $(this).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
 					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
@@ -115,7 +116,7 @@
 					})
 					let reviewContent = $(this).find('.spr-review-content-body').text()
 	        let reviewHtml = `
-	        	<div class="reviews-list-item product-review">
+	        	<div class="reviews-list-item product-review ${!expanded ? 'product-review-hidden' : ''}">
 	        		<div class="reviews-list-item-top">
 	        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
 	        			<div class="reviews-list-item-date">${reviewDate}</div>
