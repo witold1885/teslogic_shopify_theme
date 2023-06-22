@@ -241,3 +241,6 @@
 	transform: rotate(180deg);
 	transform-origin: center;
 }
+.reviews-pagination {
+	width: 100%;
+}
