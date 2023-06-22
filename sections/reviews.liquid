@@ -43,12 +43,7 @@
 		var loading = false
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			if (!loading) {
-				console.log('reviews loaded')
-				$('#multipleReviews').empty();
-				$('#pagination').empty();
 				let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
-				console.log('reviewsJson')
-				console.log(reviewsJson)
 				let reviewsData = null
 				if (reviewsJson != '') {
 					loading = true
@@ -69,31 +64,19 @@
 
 				    window.paginateCallback8374796878136 = function(a)
 				    {
-				    	console.log(i)
-							console.log('window.reviewLoaded')
+	            var tmpDiv = document.createElement('div');
+	            tmpDiv.innerHTML = a.reviews;
+	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
 
-				            var tmpDiv = document.createElement('div');
-				            tmpDiv.innerHTML = a.reviews;
-				            var rating = tmpDiv.querySelectorAll('.spr-starratings');
-
-				            for (var _i = rating.length - 1; _i >= 0; _i--)
-				            {
-				            	// console.log(rating[_i])
-				            	console.log(rating[_i].getAttribute('aria-label'))
-					            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
-					            ratingMarks[`mark${ratingMark}`]++;
-				            };
-
-				        // };
-				          let sumMarks = 0
-				          for (const mark in ratingMarks) {
-				          	sumMarks += ratingMarks[mark]
-				          }
-			        	  	console.log('sumMarks')
-			        	  	console.log(sumMarks)
-			        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
-			        	  	console.log('marks collected')
-			        	  	console.log(ratingMarks)			        	  	
+	            for (var _i = rating.length - 1; _i >= 0; _i--) {
+		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+		            ratingMarks[`mark${ratingMark}`]++;
+	            };
+		          let sumMarks = 0
+		          for (const mark in ratingMarks) {
+		          	sumMarks += ratingMarks[mark]
+		          }
+	        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
 				            let marksHtml = '';
 				            for (let m = 5; m >= 1; m--) {
 				            	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
@@ -115,9 +98,10 @@
 			        	  }
 				    };
 				  }
-				  // console.log(ratingMarks)
 				}
 			}
+				$('#multipleReviews').empty();
+				$('#pagination').empty();
 
 				$(this).find('.spr-review').each(function() {
 					let reviewStars = $(this).find('.spr-starratings').html()
