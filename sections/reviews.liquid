@@ -4,7 +4,6 @@
 {% assign product = all_products['teslogic-transmitter-kit'] %}
 
 <div class="reviews">
-	<div id="testReviews"></div>
 	<div class="block_title reviews-title">Reviews</div>
 	<div class="reviews-data">
 		<div class="reviews-data-left">
@@ -68,7 +67,6 @@
 
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
-	            document.getElementById('testReviews').insertAdjacentHTML('beforeend', window.reviewApp.reviews[i].reviews);
 	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
