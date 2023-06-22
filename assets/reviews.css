@@ -267,7 +267,9 @@
 	background: #3374FB;
 	border-radius: 100px;
 }
-.spr-pagination-page a {
+.spr-pagination-page a,
+.spr-pagination-prev a,
+.spr-pagination-next a {
 	color: inherit;
 	text-decoration: none;
 }
