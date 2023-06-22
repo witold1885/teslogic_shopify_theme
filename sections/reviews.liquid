@@ -33,7 +33,7 @@
 				<a class="reviews-expand-text">View all reviews</a>
 				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.png' | asset_url }}">
 			</div>
-			<div id="pagination"></div>
+			<div id="pagination" class="spr-pagination"></div>
 		</div>
 	</div>
 </div>
@@ -49,8 +49,6 @@
 				let reviewStars = $(this).find('.spr-starratings').html()
 				let reviewAuthor = '', reviewDate = ''
 				$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
-					console.log(index)
-					console.log($(this).text())
 					if (index == 0) reviewAuthor = $(this).text()
 					else if (index == 1) reviewDate = $(this).text()
 				})
@@ -64,12 +62,16 @@
         		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
         		<div class="reviews-list-item-bottom">
         			<div class="reviews-list-item-author">${reviewAuthor}</div>
-        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>	                		
+        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>
         		</div>
         	</div>
         `;
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 			})
+			let pagination = $(this).find('.spr-pagination')
+			if (pagination) {
+				document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html());
+			}
 		})
 	})
 </script>
