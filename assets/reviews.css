@@ -244,6 +244,11 @@
 .reviews-pagination {
 	width: 100%;
 }
+.reviews-pagination > div {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 4px;
+}
 .spr-pagination-page {
 	width: 32px;
 	height: 32px;
