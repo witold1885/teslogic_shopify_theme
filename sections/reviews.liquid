@@ -57,6 +57,94 @@
     script.src = 'https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136';
     document.body.appendChild(script);
 
+	    window.reviewLoaded = function(a)
+	    {
+				console.log('window.reviewLoaded')
+	    	console.log(a)
+	        /*window.reviewApp.reviews.push(a);
+	        if (window.reviewApp.productIdList.length)
+	        {
+	            reviewApp.getReviews(window.reviewApp.productIdList);
+	            return;
+	        };
+	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+	        let totalReviews = 0;
+	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
+
+	        	let sumDiv = document.createElement('div');
+	            sumDiv.innerHTML = window.reviewApp.reviews[i].product;
+	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
+	            let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
+	            document.getElementById('totalRatingValue').innerText = averageMark;
+	            document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
+
+	            var tmpDiv = document.createElement('div');
+	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
+	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
+	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
+	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
+	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            var pagination = tmpDiv.querySelector('.spr-pagination');
+
+	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+	            totalReviews += reviewText.length;
+
+	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
+	            {
+		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+		            ratingMarks[`mark${ratingMark}`]++;
+		            let reviewerData = reviewer[_i].querySelectorAll('strong');
+		            const reviewerName = reviewerData[0].innerText;
+		            const reviewerDate = reviewerData[1].innerText;
+		            console.log('reviewerName')
+		            console.log(reviewerName)
+	                let divHtml = `
+	                	<div class="reviews-list-item product-review">
+	                		<div class="reviews-list-item-top">
+	                			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+	                			<div class="reviews-list-item-date product-review-stars">${setFullMonth(reviewerDate)}</div>
+	                		</div>
+	                		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
+	                		<div class="reviews-list-item-bottom">
+	                			<div class="reviews-list-item-author">${reviewerName}</div>
+	                			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>	                		
+	                		</div>
+	                	</div>
+	                `;
+	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
+	            };
+
+	            document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.innerHTML);
+
+	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
+	            if (totalReviews > 3) {
+
+	            }
+
+	            console.log('ratingMarks')
+	            console.log(ratingMarks)
+	            let marksDiv = document.createElement('div');
+	            let marksHtml = '';
+	            for (let m = 5; m >= 1; m--) {
+	            	let fillPercent = ratingMarks[`mark${m}`] / totalReviews * 100;
+	            	marksHtml += `
+	            		<div class="reviews-rating-stats-mark">
+	            			<div class="reviews-rating-stats-mark-star">
+	            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+	            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
+	            				<div class="reviews-rating-stats-mark-star-line">
+	            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
+	            					</div>
+	            				</div>
+	            			</div>
+	            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+	            		</div>
+	            	`;
+	            }
+	            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
+	        };
+*/	    };
+
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
 			$('#multipleReviews').empty();
