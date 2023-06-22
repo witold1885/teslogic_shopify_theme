@@ -116,7 +116,7 @@
 					})
 					let reviewContent = $(this).find('.spr-review-content-body').text()
 	        let reviewHtml = `
-	        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'product-review-hidden' : ''}">
+	        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
 	        		<div class="reviews-list-item-top">
 	        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
 	        			<div class="reviews-list-item-date">${reviewDate}</div>
