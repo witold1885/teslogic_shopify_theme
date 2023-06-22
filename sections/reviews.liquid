@@ -156,9 +156,8 @@
 			$('#pagination').removeClass('reviews-pagination-hidden')
 			$('#showLess').css('display', 'flex')
 			expanded = true
-			console.log($('.reviews-list-item'))
 			$('.reviews-list-item').each(function() {
-				$(this).removeClass('.reviews-list-item-hidden')
+				$(this).removeClass('reviews-list-item-hidden')
 			})
 		})
 		$('#showLess').on('click', function() {
@@ -166,9 +165,8 @@
 			$('#pagination').addClass('reviews-pagination-hidden')
 			$('#viewAll').css('display', 'flex')
 			expanded = false
-			console.log($('.reviews-list-item'))
 			$('.reviews-list-item').each(function(index) {
-				if (index >= 3) $(this).addClass('.reviews-list-item-hidden')
+				if (index >= 3) $(this).addClass('reviews-list-item-hidden')
 			})
 		})
 	})
