@@ -248,7 +248,7 @@
 	display: flex;
 	align-items: center;
 	grid-column-gap: 4px;
-}}
+}
 .reviews-pagination > div > span {
 	font-size: 22px;
 	font-family: Gotham;
@@ -282,5 +282,6 @@
 	color: #0F0F0F;
 }
 .spr-pagination-prev, .spr-pagination-next {
+	position: unset;
 	color: #3374FB;
 }
