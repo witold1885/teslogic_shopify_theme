@@ -85,7 +85,13 @@
 				            };
 
 				        // };
-			        	  if (i >= Math.ceil(reviewCount / 5)) {
+				          let sumMarks = 0
+				          for (const mark in ratingMarks) {
+				          	sumMarks += ratingMarks[mark]
+				          }
+			        	  	console.log('sumMarks')
+			        	  	console.log(sumMarks)
+			        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
 			        	  	console.log('marks collected')
 			        	  	console.log(ratingMarks)
 			        	  }
