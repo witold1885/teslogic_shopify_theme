@@ -285,6 +285,12 @@
 	position: unset;
 	color: #3374FB;
 }
+.spr-pagination-prev {
+	padding-right: 12px;
+}
+.spr-pagination-next {
+	padding-left: 12px;
+}
 .spr-pagination-prev a, .spr-pagination-next a {
 	display: flex;
 	align-items: center;
