@@ -47,6 +47,8 @@
 			console.log('reviews loaded')
 			$('#multipleReviews').empty();
 			$('#pagination').empty();
+			let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
+			console.log(reviewsJson)
 			$(this).find('.spr-review').each(function() {
 				let reviewStars = $(this).find('.spr-starratings').html()
 				let reviewAuthor = '', reviewDate = ''
