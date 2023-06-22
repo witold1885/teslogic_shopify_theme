@@ -155,11 +155,19 @@
 			$(this).css('display', 'none')
 			$('#pagination').removeClass('reviews-pagination-hidden')
 			$('#showLess').css('display', 'flex')
+			expanded = true
+			$('.reviews-list-item').each(function() {
+				$(this).removeClass('.reviews-list-item-hidden')
+			})
 		})
 		$('#showLess').on('click', function() {
 			$(this).css('display', 'none')
 			$('#pagination').addClass('reviews-pagination-hidden')
 			$('#viewAll').css('display', 'flex')
+			expanded = false
+			$('.reviews-list-item').each(function(index) {
+				if (index >= 3) $(this).addClass('.reviews-list-item-hidden')
+			})
 		})
 	})
 </script>
