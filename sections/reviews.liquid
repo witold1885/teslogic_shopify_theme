@@ -274,7 +274,7 @@
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
 
-	            document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.outerHTML);
+	            document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.innerHTML);
 
 	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
 	            if (totalReviews > 3) {
