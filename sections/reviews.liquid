@@ -40,22 +40,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*$('.spr-container').on('load', function() {
-			console.log('reviews loaded')
-		})*/
-		/*$.get('https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136', function(response) {
-			console.log('get response:')
-			console.log(response)
-		})*/
-	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+	        /*let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        let totalReviews = 0;
 		for (i = 1; i <= 20; i++) {
 			console.log(i)
 			let script = document.createElement("script");
-	    /*if (document.getElementById('singleReviewData'))
-	    {
-	        document.getElementById('singleReviewData').remove(); 
-	    }*/
 	    script.id = 'singleReviewData-' + i;
 	    script.async = true;
 	    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
@@ -64,21 +53,6 @@
 	    window.reviewLoaded = function(a)
 	    {
 				console.log('window.reviewLoaded')
-	    	// console.log(a)
-	        /*window.reviewApp.reviews.push(a);
-	        if (window.reviewApp.productIdList.length)
-	        {
-	            reviewApp.getReviews(window.reviewApp.productIdList);
-	            return;
-	        };*/
-	        // for (var i = a.reviews.length - 1; i >= 0; i--) {
-
-	        	// let sumDiv = document.createElement('div');
-	            // sumDiv.innerHTML = a.reviews[i].product;
-	        	// let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
-	            // let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
-	            // document.getElementById('totalRatingValue').innerText = averageMark;
-	            // document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
 
 	            var tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = a.reviews;
@@ -97,39 +71,11 @@
 		            ratingMarks[`mark${ratingMark}`]++;
 	            };
 
-	            /*document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.innerHTML);
-
-	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
-	            if (totalReviews > 3) {
-
-	            }
-
-	            console.log('ratingMarks')
-	            console.log(ratingMarks)
-	            let marksDiv = document.createElement('div');
-	            let marksHtml = '';
-	            for (let m = 5; m >= 1; m--) {
-	            	let fillPercent = ratingMarks[`mark${m}`] / totalReviews * 100;
-	            	marksHtml += `
-	            		<div class="reviews-rating-stats-mark">
-	            			<div class="reviews-rating-stats-mark-star">
-	            				<div class="reviews-rating-stats-mark-star-value">${m}</div>
-	            				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
-	            				<div class="reviews-rating-stats-mark-star-line">
-	            					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
-	            					</div>
-	            				</div>
-	            			</div>
-	            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
-	            		</div>
-	            	`;
-	            }
-	            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);*/
 	        // };
         	  console.log(ratingMarks)
 	    };
 	  }
-	  console.log(ratingMarks)
+	  console.log(ratingMarks)*/
 
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
