@@ -285,3 +285,7 @@
 	position: unset;
 	color: #3374FB;
 }
+.spr-pagination-prev a, .spr-pagination-next a {
+	display: flex;
+	align-items: center;
+}
