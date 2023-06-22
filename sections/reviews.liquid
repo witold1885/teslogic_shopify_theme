@@ -43,10 +43,20 @@
 		/*$('.spr-container').on('load', function() {
 			console.log('reviews loaded')
 		})*/
-		$.get('https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136', function(response) {
+		/*$.get('https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136', function(response) {
 			console.log('get response:')
 			console.log(response)
-		})
+		})*/
+		var script = document.createElement("script");
+    /*if (document.getElementById('singleReviewData'))
+    {
+        document.getElementById('singleReviewData').remove(); 
+    }*/
+    script.id = 'singleReviewData';
+    script.async = true;
+    script.src = 'https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=2&product_id=8374796878136';
+    document.body.appendChild(script);
+
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
 			$('#multipleReviews').empty();
