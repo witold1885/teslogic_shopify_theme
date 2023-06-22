@@ -249,6 +249,9 @@
 	padding: 0;
 	border: none;
 }
+.reviews-pagination-hidden {
+	display: none;
+}
 .reviews-pagination > div {
 	display: flex;
 	align-items: center;
