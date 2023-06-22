@@ -244,3 +244,19 @@
 .reviews-pagination {
 	width: 100%;
 }
+.spr-pagination-page {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 22px;
+	font-family: Gotham;
+	line-height: 32px;
+	color: #3374FB;
+}
+.spr-pagination-page.is-active {
+	color: #FFFFFF;
+	background: #3374FB;
+	border-radius: 100px;
+}
