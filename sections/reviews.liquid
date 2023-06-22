@@ -27,6 +27,7 @@
 				<a class="reviews-expand-text">View all reviews</a>
 				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.png' | asset_url }}">
 			</div>
+			<div id="pagination"></div>
 		</div>
 	</div>
 </div>
@@ -70,6 +71,7 @@
 	            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
 	            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
 	            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+	            var pagination = tmpDiv.querySelectorAll('.spr-pagination');
 
 	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
 	            totalReviews += reviewText.length;
@@ -98,6 +100,8 @@
 	                `;
 	                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', divHtml);
 	            };
+
+	            document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.innerHTML);
 
 	            document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${totalReviews} reviews`);
 	            if (totalReviews > 3) {
