@@ -130,13 +130,13 @@
 				if (pagination) {
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html());
 					const prevPageHtml = `
-						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
 						<span>Previous</span>
 					`
 					$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
 					const nextPageHtml = `
 						<span>Next</span>
-						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 				}
