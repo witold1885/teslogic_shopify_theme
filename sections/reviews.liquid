@@ -40,14 +40,15 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-	        /*let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        let totalReviews = 0;
 		for (i = 1; i <= 20; i++) {
 			console.log(i)
 			let script = document.createElement("script");
 	    script.id = 'singleReviewData-' + i;
 	    script.async = true;
-	    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
+	    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&page=2&product_id=8374796878136&shop=8cc6c3.myshopify.com
+	    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
 	    document.body.appendChild(script);
 
 	    window.reviewLoaded = function(a)
@@ -75,7 +76,7 @@
         	  console.log(ratingMarks)
 	    };
 	  }
-	  console.log(ratingMarks)*/
+	  console.log(ratingMarks)
 
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
