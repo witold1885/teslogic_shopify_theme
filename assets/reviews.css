@@ -248,6 +248,11 @@
 	display: flex;
 	align-items: center;
 	grid-column-gap: 4px;
+}}
+.reviews-pagination > div > span {
+	font-size: 22px;
+	font-family: Gotham;
+	line-height: 32px;
 }
 .spr-pagination-page {
 	width: 32px;
@@ -255,9 +260,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 22px;
-	font-family: Gotham;
-	line-height: 32px;
 	color: #3374FB;
 }
 .spr-pagination-page.is-active {
@@ -268,4 +270,15 @@
 .spr-pagination-page a {
 	color: inherit;
 	text-decoration: none;
+}
+.spr-pagination-deco {
+	width: 41px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #0F0F0F;
+}
+.spr-pagination-prev, .spr-pagination-next {
+	color: #3374FB;
 }
