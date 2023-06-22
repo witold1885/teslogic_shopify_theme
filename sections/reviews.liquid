@@ -163,7 +163,7 @@
 		$('#showLess').on('click', function() {
 			$(this).css('display', 'none')
 			$('#pagination').addClass('reviews-pagination-hidden')
-			console.log($('#pagination spr-pagination-page:first-child a'))
+			console.log($('#pagination > div > spr-pagination-page:first-child > a'))
 			$('#pagination spr-pagination-page:first-child a').click()
 			$('#viewAll').css('display', 'flex')
 			expanded = false
