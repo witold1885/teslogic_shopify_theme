@@ -48,6 +48,7 @@
 			$(this).find('.spr-review').each(function() {
 				let reviewStars = $(this).find('.spr-starratings').html()
 				let reviewData = $(this).find('.spr-review-header-byline').find('strong')
+				console.log(reviewData)
 				let reviewAuthor = reviewData[0].text()
 				let reviewDate = reviewData[1].text()
 				let reviewContent = $(this).find('.spr-review-content-body').text()
