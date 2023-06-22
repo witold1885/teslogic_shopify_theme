@@ -47,7 +47,8 @@
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
 				let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
-				// console.log(reviewsJson)
+				console.log('reviewsJson')
+				console.log(reviewsJson)
 				let reviewsData = null
 				if (reviewsJson != '') {
 					loading = true
