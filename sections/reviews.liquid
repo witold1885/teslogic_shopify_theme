@@ -49,22 +49,21 @@
 		})*/
 	        let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 	        let totalReviews = 0;
-	  let i = 1;
-		for (p = 1; p <= 20; i++) {
-			// console.log(p)
+		for (i = 1; i <= 100; i++) {
+			console.log(i)
 			let script = document.createElement("script");
 	    /*if (document.getElementById('singleReviewData'))
 	    {
 	        document.getElementById('singleReviewData').remove(); 
 	    }*/
-	    script.id = 'singleReviewData-' + p;
+	    script.id = 'singleReviewData-' + i;
 	    script.async = true;
-	    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=${p}&product_id=8374796878136`;
+	    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews/product?callback=reviewLoaded&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
 	    document.body.appendChild(script);
 
 	    window.reviewLoaded = function(a)
 	    {
-				console.log('window.reviewLoaded' + i)
+				console.log('window.reviewLoaded')
 	    	// console.log(a)
 	        /*window.reviewApp.reviews.push(a);
 	        if (window.reviewApp.productIdList.length)
@@ -127,7 +126,6 @@
 	            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);*/
 	        // };
         	  console.log(ratingMarks)
-       	i++
 	    };
 	  }
 	  console.log(ratingMarks)
