@@ -143,6 +143,7 @@
 						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
+					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
 		})
 	})
