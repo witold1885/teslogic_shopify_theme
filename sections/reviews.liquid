@@ -46,8 +46,23 @@
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			console.log('reviews loaded')
 			$(this).find('.spr-review').each(function() {
-				let content = $(this).find('.spr-review-content-body').text()
+				let reviewerName = 'test'
+				let reviewContent = $(this).find('.spr-review-content-body').text()
 				console.log(content)
+        let reviewHtml = `
+        	<div class="reviews-list-item product-review">
+        		<div class="reviews-list-item-top">
+        			<div class="reviews-list-item-stars product-review-stars">${/*rating[_i].innerHTML*/}</div>
+        			<div class="reviews-list-item-date product-review-stars">${/* setFullMonth(reviewerDate)*/}</div>
+        		</div>
+        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
+        		<div class="reviews-list-item-bottom">
+        			<div class="reviews-list-item-author">${reviewerName}</div>
+        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>	                		
+        		</div>
+        	</div>
+        `;
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 			})
 		})
 	})
