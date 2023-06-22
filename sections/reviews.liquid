@@ -2,20 +2,18 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
-<!-- <div id="shopify-section-template--19543708926264__16868394313756278c" class="shopify-section"> -->
-  <!-- <div id="shopify-block-3d0c2965-c6bc-43d8-9697-a54d948aa432" class="shopify-block shopify-app-block"> -->
-  	<!-- <div id="shopify-product-reviews" data-id="8374796878136"> -->
-  		<style scoped="">.spr-container {
-			    padding: 24px;
-			    border-color: #ECECEC;}
-			  .spr-review, .spr-form {
-			    border-color: #ECECEC;
-			  }
-			</style>
+<div id="shopify-section-template--19543708926264__16868394313756278c" class="shopify-section">
+  <div id="shopify-block-3d0c2965-c6bc-43d8-9697-a54d948aa432" class="shopify-block shopify-app-block"><div id="shopify-product-reviews" data-id="8374796878136"><style scoped="">.spr-container {
+    padding: 24px;
+    border-color: #ECECEC;}
+  .spr-review, .spr-form {
+    border-color: #ECECEC;
+  }
+</style>
 
 <div class="spr-container reviews">
 	<div class="block_title reviews-title">Reviews</div>
-  <!-- <div class="spr-header">
+  <div class="spr-header">
     <h2 class="spr-header-title">Customer Reviews</h2><div class="spr-summary rte">
 
         <span class="spr-starrating spr-summary-starrating" aria-label="3.0 of 5 stars" role="img">
@@ -26,15 +24,10 @@
         <a href="#" class="spr-summary-actions-newreview" onclick="SPR.toggleForm(8374796878136);return false">Write a review</a>
       </span>
     </div>
-  </div> -->
+  </div>
 
   <div class="spr-content">
-    <div class="spr-form" id="form_8374796878136" style="display: none">
-    	<form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;">
-    		<input type="hidden" name="review[rating]">
-    		<input type="hidden" name="product_id" value="8374796878136">
-    		<h3 class="spr-form-title">Write a review</h3>
-    		<fieldset class="spr-form-contact"><div class="spr-form-contact-name">
+    <div class="spr-form" id="form_8374796878136" style="display: none"><form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;"><input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="8374796878136"><h3 class="spr-form-title">Write a review</h3><fieldset class="spr-form-contact"><div class="spr-form-contact-name">
           <label class="spr-form-label" for="review_author_8374796878136">Name</label>
           <input class="spr-form-input spr-form-input-text " id="review_author_8374796878136" type="text" name="review[author]" value="" placeholder="Enter your name">
         </div><div class="spr-form-contact-email">
@@ -43,59 +36,120 @@
         </div></fieldset>
 
 
-		    <fieldset class="spr-form-review">
+    <fieldset class="spr-form-review">
 
-		      <div class="spr-form-review-rating">
-		        <label class="spr-form-label" for="review[rating]">Rating</label>
-		        <div class="spr-form-input spr-starrating ">
-		          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
-		          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
-		          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
-		          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
-		          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
-		        </div>
-		      </div>
+      <div class="spr-form-review-rating">
+        <label class="spr-form-label" for="review[rating]">Rating</label>
+        <div class="spr-form-input spr-starrating ">
+          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
+          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
+          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
+          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
+          <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
+        </div>
+      </div>
 
-		      <div class="spr-form-review-title">
-		        <label class="spr-form-label" for="review_title_8374796878136">Review Title</label>
-		        <input class="spr-form-input spr-form-input-text " id="review_title_8374796878136" type="text" name="review[title]" value="" placeholder="Give your review a title">
-		      </div>
+      <div class="spr-form-review-title">
+        <label class="spr-form-label" for="review_title_8374796878136">Review Title</label>
+        <input class="spr-form-input spr-form-input-text " id="review_title_8374796878136" type="text" name="review[title]" value="" placeholder="Give your review a title">
+      </div>
 
-		      <div class="spr-form-review-body">
-		        <label class="spr-form-label" for="review_body_8374796878136">
-		          Body of Review
-		          <span role="status" aria-live="polite" aria-atomic="true">
-		            <span class="spr-form-review-body-charactersremaining">(1500)</span>
-		            <span class="visuallyhidden">characters remaining</span>
-		          </span>
-		        </label>
-		        <div class="spr-form-input">
-		          <textarea class="spr-form-input spr-form-input-textarea " id="review_body_8374796878136" data-product-id="8374796878136" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
-		          <script>
-		            function sprUpdateCount(e){
-		              var $el = SPR.$(e.currentTarget);
-		              SPR.$(".spr-form-review-body-charactersremaining").html('(' + (1500 - $el.val().length) + ')');
-		            }
-		            SPR.$("textarea[data-product-id=8374796878136]").keyup(sprUpdateCount).trigger("keyup");
-		          </script>
-		        </div>
-		      </div>
-		    </fieldset>
+      <div class="spr-form-review-body">
+        <label class="spr-form-label" for="review_body_8374796878136">
+          Body of Review
+          <span role="status" aria-live="polite" aria-atomic="true">
+            <span class="spr-form-review-body-charactersremaining">(1500)</span>
+            <span class="visuallyhidden">characters remaining</span>
+          </span>
+        </label>
+        <div class="spr-form-input">
+          <textarea class="spr-form-input spr-form-input-textarea " id="review_body_8374796878136" data-product-id="8374796878136" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
+          <script>
+            function sprUpdateCount(e){
+              var $el = SPR.$(e.currentTarget);
+              SPR.$(".spr-form-review-body-charactersremaining").html('(' + (1500 - $el.val().length) + ')');
+            }
+            SPR.$("textarea[data-product-id=8374796878136]").keyup(sprUpdateCount).trigger("keyup");
+          </script>
+        </div>
+      </div>
+    </fieldset>
 
-		    <fieldset class="spr-form-actions">
-		      <input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
-		    </fieldset>
-		  </form>
-	  </div>
+    <fieldset class="spr-form-actions">
+      <input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
+    </fieldset></form></div>
     <div class="spr-reviews" id="reviews_8374796878136">
-	    <div class="spr-pagination">
-	      <div><span class="spr-pagination-prev"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="2">« Previous</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="1">1</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="2">2</a></span> <span class="spr-pagination-page is-active">3</span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="4">4</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="5">5</a></span> <span class="spr-pagination-deco">…</span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="20">20</a></span> <span class="spr-pagination-next"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="4">Next »</a></span></div>
-	    </div>
-	  </div>
+    <!-- <div class="spr-review" id="spr-review-189933296">
+      <div class="spr-review-header">
+        <span class="spr-starratings spr-review-header-starratings" aria-label="4 of 5 stars" role="img"><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i></span>
+        <h3 class="spr-review-header-title">Ad voluptas corporis ab.</h3>
+        <span class="spr-review-header-byline"><strong>Erwin Ortiz</strong> on <strong>May 28, 2023</strong></span>
+      </div>
+
+      <div class="spr-review-content">
+        <p class="spr-review-content-body">In inventore magnam ut. Vero earum totam rerum pariatur facere debitis qui.</p>
+      </div><div class="spr-review-footer rte">
+        <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(189933296);return false" id="report_189933296" data-msg="This review has been reported">Report as Inappropriate</a>
+      </div>
+    </div> -->
+    <!-- <div class="spr-review" id="spr-review-189933295">
+      <div class="spr-review-header">
+        <span class="spr-starratings spr-review-header-starratings" aria-label="4 of 5 stars" role="img"><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i></span>
+        <h3 class="spr-review-header-title">Cum et eum eius earum saepe harum.</h3>
+        <span class="spr-review-header-byline"><strong>Luciano Dooley</strong> on <strong>May 27, 2023</strong></span>
+      </div>
+
+      <div class="spr-review-content">
+        <p class="spr-review-content-body">Assumenda aliquid voluptatem sunt rem excepturi ut unde. Sunt quia sunt qui alias. Vitae aut laboriosam vitae voluptatem ut est sit.</p>
+      </div><div class="spr-review-footer rte">
+        <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(189933295);return false" id="report_189933295" data-msg="This review has been reported">Report as Inappropriate</a>
+      </div>
+    </div> -->
+    <!-- <div class="spr-review" id="spr-review-189933294">
+      <div class="spr-review-header">
+        <span class="spr-starratings spr-review-header-starratings" aria-label="1 of 5 stars" role="img"><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i></span>
+        <h3 class="spr-review-header-title">Enim error enim voluptatem aspernatur et.</h3>
+        <span class="spr-review-header-byline"><strong>Idella Leffler</strong> on <strong>May 26, 2023</strong></span>
+      </div>
+
+      <div class="spr-review-content">
+        <p class="spr-review-content-body">Aut assumenda qui rem expedita ut molestiae quis. Explicabo ut eaque voluptatibus dolore magni saepe deleniti. Aliquam ut accusantium ea possimus atque facere reiciendis distinctio. Et quas aliquid reiciendis odio impedit repellat. Excepturi autem facilis non voluptas porro velit.</p>
+      </div><div class="spr-review-footer rte">
+        <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(189933294);return false" id="report_189933294" data-msg="This review has been reported">Report as Inappropriate</a>
+      </div>
+    </div> -->
+    <!-- <div class="spr-review" id="spr-review-189933293">
+      <div class="spr-review-header">
+        <span class="spr-starratings spr-review-header-starratings" aria-label="3 of 5 stars" role="img"><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i><i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i></span>
+        <h3 class="spr-review-header-title">Ipsa ea praesentium fugiat provident numquam optio.</h3>
+        <span class="spr-review-header-byline"><strong>Prof. Palma Murazik MD</strong> on <strong>May 25, 2023</strong></span>
+      </div>
+
+      <div class="spr-review-content">
+        <p class="spr-review-content-body">Dolorem aliquam aut impedit. Nam quo ducimus cum ut. Ipsam eum consequatur deserunt deleniti ipsa excepturi sed.</p>
+      </div><div class="spr-review-footer rte">
+        <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(189933293);return false" id="report_189933293" data-msg="This review has been reported">Report as Inappropriate</a>
+      </div>
+    </div> -->
+    <!-- <div class="spr-review" id="spr-review-189933292">
+      <div class="spr-review-header">
+        <span class="spr-starratings spr-review-header-starratings" aria-label="5 of 5 stars" role="img"><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i></span>
+        <h3 class="spr-review-header-title">Vero quia est libero ea explicabo rem et.</h3>
+        <span class="spr-review-header-byline"><strong>Soledad Witting</strong> on <strong>May 23, 2023</strong></span>
+      </div>
+
+      <div class="spr-review-content">
+        <p class="spr-review-content-body">Voluptatem quod maxime error illum ut cupiditate deleniti ipsa.</p>
+      </div><div class="spr-review-footer rte">
+        <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(189933292);return false" id="report_189933292" data-msg="This review has been reported">Report as Inappropriate</a>
+      </div>
+    </div> -->
+    <div class="spr-pagination">
+      <div><span class="spr-pagination-prev"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="2">« Previous</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="1">1</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="2">2</a></span> <span class="spr-pagination-page is-active">3</span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="4">4</a></span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="5">5</a></span> <span class="spr-pagination-deco">…</span> <span class="spr-pagination-page"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="20">20</a></span> <span class="spr-pagination-next"><a href="#shopify-product-reviews" onclick="SPR.pageReviews(this)" data-product-id="8374796878136" data-page="4">Next »</a></span></div>
+    </div></div>
   </div>
 
-</div>
-<!-- <script type="application/ld+json">
+</div><!-- <script type="application/ld+json">
       {
         "@context": "http://schema.org/",
         "@type": "AggregateRating",
@@ -112,9 +166,7 @@
           }
         }
       }
-</script> -->
-<!-- </div> -->
-<!-- </div> -->
+</script> --></div>
 
 <style>
   .spr-form-review-body .spr-form-input {
@@ -126,11 +178,11 @@
   }
 </style>
 
-<!-- </div> -->
+</div>
 
 
 
-<!-- </div> -->
+</div>
 <div class="reviews">
 	<div class="block_title reviews-title">Reviews</div>
 	<div class="reviews-data">
