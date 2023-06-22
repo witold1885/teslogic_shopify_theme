@@ -43,7 +43,6 @@
 		var loading = false
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			if (!loading) {
-				loading = true
 				console.log('reviews loaded')
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
@@ -51,6 +50,7 @@
 				// console.log(reviewsJson)
 				let reviewsData = null
 				if (reviewsJson != '') {
+					loading = true
 					reviewsData = JSON.parse(reviewsJson)
 					console.log(reviewsData)
 				}
