@@ -48,7 +48,11 @@
 			$('#multipleReviews').empty();
 			$('#pagination').empty();
 			let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
-			console.log(reviewsJson)
+			// console.log(reviewsJson)
+			if (reviewsJson != '') {
+				let reviewsData = JSON.parse(reviewsJson)
+				console.log(reviewsData)
+			}
 			$(this).find('.spr-review').each(function() {
 				let reviewStars = $(this).find('.spr-starratings').html()
 				let reviewAuthor = '', reviewDate = ''
