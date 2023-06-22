@@ -165,6 +165,9 @@
 	padding: 32px;
 	background: #FFFFFF;
 }
+.reviews-list-item-hidden {
+	display: none;
+}
 .reviews-list-item-top {
 	width: 100%;
 	display: flex;
