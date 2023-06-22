@@ -40,84 +40,87 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		var loading = false
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
-			console.log('reviews loaded')
-			$('#multipleReviews').empty();
-			$('#pagination').empty();
-			let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
-			// console.log(reviewsJson)
-			let reviewsData = null
-			if (reviewsJson != '') {
-				reviewsData = JSON.parse(reviewsJson)
-				console.log(reviewsData)
-			}
-			if (reviewsData) {
-				const reviewCount = reviewsData.reviewCount
-		    let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
-				for (i = 1; i <= reviewCount; i++) {
-					console.log(i)
-					let script = document.createElement("script");
-			    script.id = 'singleReviewData-' + i;
-			    script.async = true;
-			    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&page=2&product_id=8374796878136&shop=8cc6c3.myshopify.com
-			    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
-			    document.body.appendChild(script);
+			if (!loading) {
+				loading = true
+				console.log('reviews loaded')
+				$('#multipleReviews').empty();
+				$('#pagination').empty();
+				let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
+				// console.log(reviewsJson)
+				let reviewsData = null
+				if (reviewsJson != '') {
+					reviewsData = JSON.parse(reviewsJson)
+					console.log(reviewsData)
+				}
+				if (reviewsData) {
+					const reviewCount = reviewsData.reviewCount
+			    let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+					for (i = 1; i <= reviewCount; i++) {
+						console.log(i)
+						let script = document.createElement("script");
+				    script.id = 'singleReviewData-' + i;
+				    script.async = true;
+				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&page=2&product_id=8374796878136&shop=8cc6c3.myshopify.com
+				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
+				    document.body.appendChild(script);
 
-			    window.paginateCallback8374796878136 = function(a)
-			    {
-						console.log('window.reviewLoaded')
+				    window.paginateCallback8374796878136 = function(a)
+				    {
+							console.log('window.reviewLoaded')
 
-			            var tmpDiv = document.createElement('div');
-			            tmpDiv.innerHTML = a.reviews;
-			            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
-			            var rating = tmpDiv.querySelectorAll('.spr-starratings');
+				            var tmpDiv = document.createElement('div');
+				            tmpDiv.innerHTML = a.reviews;
+				            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
+				            var rating = tmpDiv.querySelectorAll('.spr-starratings');
 
-			            	// console.log(reviewText)
-			            // console.log(a.reviews[i].reviews, reviewText.length);
-			            // totalReviews += reviewText.length;
+				            	// console.log(reviewText)
+				            // console.log(a.reviews[i].reviews, reviewText.length);
+				            // totalReviews += reviewText.length;
 
-			            for (var _i = reviewText.length - 1; _i >= 0; _i--)
-			            {
-			            	// console.log(rating[_i])
-			            	console.log(rating[_i].getAttribute('aria-label'))
-				            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
-				            ratingMarks[`mark${ratingMark}`]++;
-			            };
+				            for (var _i = reviewText.length - 1; _i >= 0; _i--)
+				            {
+				            	// console.log(rating[_i])
+				            	console.log(rating[_i].getAttribute('aria-label'))
+					            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+					            ratingMarks[`mark${ratingMark}`]++;
+				            };
 
-			        // };
-		        	  console.log(ratingMarks)
-			    };
-			  }
-			  // console.log(ratingMarks)
-			}
+				        // };
+			        	  console.log(ratingMarks)
+				    };
+				  }
+				  // console.log(ratingMarks)
+				}
 
-			$(this).find('.spr-review').each(function() {
-				let reviewStars = $(this).find('.spr-starratings').html()
-				let reviewAuthor = '', reviewDate = ''
-				$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
-					if (index == 0) reviewAuthor = $(this).text()
-					else if (index == 1) reviewDate = $(this).text()
+				$(this).find('.spr-review').each(function() {
+					let reviewStars = $(this).find('.spr-starratings').html()
+					let reviewAuthor = '', reviewDate = ''
+					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
+						if (index == 0) reviewAuthor = $(this).text()
+						else if (index == 1) reviewDate = $(this).text()
+					})
+					let reviewContent = $(this).find('.spr-review-content-body').text()
+	        let reviewHtml = `
+	        	<div class="reviews-list-item product-review">
+	        		<div class="reviews-list-item-top">
+	        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
+	        			<div class="reviews-list-item-date">${reviewDate}</div>
+	        		</div>
+	        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
+	        		<div class="reviews-list-item-bottom">
+	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+	        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>
+	        		</div>
+	        	</div>
+	        `;
+	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 				})
-				let reviewContent = $(this).find('.spr-review-content-body').text()
-        let reviewHtml = `
-        	<div class="reviews-list-item product-review">
-        		<div class="reviews-list-item-top">
-        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
-        			<div class="reviews-list-item-date">${reviewDate}</div>
-        		</div>
-        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
-        		<div class="reviews-list-item-bottom">
-        			<div class="reviews-list-item-author">${reviewAuthor}</div>
-        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>
-        		</div>
-        	</div>
-        `;
-        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
-			})
-			let pagination = $(this).find('.spr-pagination')
-			if (pagination) {
-				document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html());
+				let pagination = $(this).find('.spr-pagination')
+				if (pagination) {
+					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html());
+				}
 			}
 		})
 	})
