@@ -260,3 +260,7 @@
 	background: #3374FB;
 	border-radius: 100px;
 }
+.spr-pagination-page a {
+	color: inherit;
+	text-decoration: none;
+}
