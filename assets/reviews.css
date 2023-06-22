@@ -243,6 +243,8 @@
 }
 .reviews-pagination {
 	width: 100%;
+	padding: 0;
+	border: none;
 }
 .reviews-pagination > div {
 	display: flex;
