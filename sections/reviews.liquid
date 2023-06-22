@@ -70,20 +70,20 @@
 	            reviewApp.getReviews(window.reviewApp.productIdList);
 	            return;
 	        };*/
-	        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
+	        for (var i = a.reviews.length - 1; i >= 0; i--) {
 
 	        	let sumDiv = document.createElement('div');
-	            sumDiv.innerHTML = window.reviewApp.reviews[i].product;
+	            sumDiv.innerHTML = a.reviews[i].product;
 	        	let summaryRating = sumDiv.querySelector('span.spr-summary-starrating');
 	            let averageMark = summaryRating.getAttribute('aria-label').split(' ')[0];
 	            document.getElementById('totalRatingValue').innerText = averageMark;
 	            document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.innerHTML);
 
 	            var tmpDiv = document.createElement('div');
-	            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
+	            tmpDiv.innerHTML = a.reviews[i].reviews;
 	            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
 
-	            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+	            console.log(a.reviews[i].reviews, reviewText.length);
 	            totalReviews += reviewText.length;
 
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
