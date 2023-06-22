@@ -88,6 +88,7 @@
 
 	            for (var _i = reviewText.length - 1; _i >= 0; _i--)
 	            {
+	            	console.log(rating[_i])
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		            ratingMarks[`mark${ratingMark}`]++;
 	            };
