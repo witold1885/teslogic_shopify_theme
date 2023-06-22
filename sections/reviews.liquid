@@ -99,14 +99,15 @@
 				    };
 				  }
 				}
-			}
-				$('#multipleReviews').empty();
-				$('#pagination').empty();
 
       	let summaryRating = $(this).find('span.spr-summary-starrating');
         let averageMark = summaryRating.attr('aria-label').split(' ')[0];
         document.getElementById('totalRatingValue').innerText = averageMark;
         document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRating.html());
+			}
+			
+				$('#multipleReviews').empty();
+				$('#pagination').empty();
 
 				$(this).find('.spr-review').each(function() {
 					let reviewStars = $(this).find('.spr-starratings').html()
