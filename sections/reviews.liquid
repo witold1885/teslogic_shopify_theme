@@ -150,6 +150,17 @@
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
 		})
+
+		$('#viewAll').on('click', function() {
+			$(this).css('display', 'none')
+			$('#pagination').removeClass('reviews-pagination-hidden')
+			$('#showLess').css('display', 'flex')
+		})
+		$('#showLess').on('click', function() {
+			$(this).css('display', 'none')
+			$('#pagination').addClass('reviews-pagination-hidden')
+			$('#viewAll').css('display', 'flex')
+		})
 	})
 </script>
 <!-- <script type="text/javascript">
