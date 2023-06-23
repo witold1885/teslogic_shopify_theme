@@ -400,3 +400,15 @@
 .spr-form-review-body {
 	height: 100%;
 }
+.reviews-form-actions {
+	margin-top: 40px;
+}
+.reviews-form-actions .spr-button {
+	display: flex;
+	width: 223px;
+	height: 78px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
+	background: #3374FB; 
+}
