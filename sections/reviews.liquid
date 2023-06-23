@@ -8,6 +8,9 @@
 .spr-starrating .spr-icon-star-empty::before {
 	content: url({{ 'star-big-outlined.svg' | asset_url }});
 }
+.spr-starrating .spr-icon-star-hover::before {
+	content: url({{ 'star-big-filled.svg' | asset_url }});
+}
 {% endstyle %}
 
 {% assign product = all_products['teslogic-transmitter-kit'] %}
