@@ -195,7 +195,7 @@
 		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
 	}
-	.spr-starrating {
+	/*.spr-starrating {
 		grid-column-gap: calc(8 * 100vw / 1366);
 	}
 	.spr-starrating .spr-icon {
@@ -204,7 +204,7 @@
 	}
 	.spr-starrating .spr-icon::before {
 		font-size: calc(30 * 100vw / 1366);
-	}
+	}*/
 	.spr-form-input-textarea {
 		width: calc(424px * 100vw / 1366);
 		height: calc(254 * 100vw / 1366);
