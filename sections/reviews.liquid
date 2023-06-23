@@ -25,7 +25,8 @@
 					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
 					<div id="reviewsMarks" class="reviews-rating-stats-marks"></div>
 				</div>
-				<a href="#" class="spr-summary-actions-newreview" onclick="SPR.toggleForm(8374796878136);return false">Write a review</a>
+				<!-- <a href="#" class="spr-summary-actions-newreview" onclick="SPR.toggleForm(8374796878136);return false">Write a review</a> -->
+				<button id="showForm">Write a review</button>
 			</div>
 		</div>
 		<div class="reviews-data-right">
@@ -222,6 +223,10 @@
 			$('.reviews-list-item').each(function(index) {
 				if (index >= 3) $(this).addClass('reviews-list-item-hidden')
 			})
+		})
+		
+		$('#showForm').on('click', function() {
+			$('#form_8374796878136').show()
 		})
 	})
 </script>
