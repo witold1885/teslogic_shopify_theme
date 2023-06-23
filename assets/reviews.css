@@ -375,7 +375,11 @@
 	font-size: 22px;
 	font-family: Gotham;
 	line-height: 32px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 }
 .spr-form-input-textarea {
+	height: 100%;
 	padding: 16px;
 }
