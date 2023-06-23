@@ -1,6 +1,15 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
+{% style %}	
+.spr-starrating .spr-icon-star::before {
+	content: url({{ 'star-big-filled.svg' | asset_url }});
+}
+.spr-starrating .spr-icon-star-empty::before {
+	content: url({{ 'star-big-outlined.svg' | asset_url }});
+}
+{% endstyle %}
+
 {% assign product = all_products['teslogic-transmitter-kit'] %}
 <!-- <div id="shopify-section-template--19543708926264__16868394313756278c" class="shopify-section"> -->
   <!-- <div id="shopify-block-3d0c2965-c6bc-43d8-9697-a54d948aa432" class="shopify-block shopify-app-block"> -->
