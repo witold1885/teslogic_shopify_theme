@@ -205,6 +205,7 @@
 				}
 				let form = $(this).find('.spr-form')
 				console.log('form', form)
+				console.log('form.html()', form.html())
 				if (form.html() && !formLoaded) {
 					document.getElementById('reviewsWrap').insertAdjacentHTML('beforeend', form.html());
 					formLoaded = true
