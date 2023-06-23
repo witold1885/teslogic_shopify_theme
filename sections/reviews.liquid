@@ -127,9 +127,10 @@
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
 						.find('form')
+						.addClass('new-review-form')
+						.attr('id', 'new-review-form_8374796878136')
 						.attr('method', 'post')
 						.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
-						.attr('id', 'new-review-form_8374796878136')
 						.attr('onsubmit', 'SPR.submitForm(this);return false;')
 					formLoaded = true
 				}
