@@ -367,7 +367,7 @@
 	font-family: Gotham;
 	line-height: 24px;
 }
-.spr-form-input {
+.spr-form-input:not(.spr-starrating) {
 	width: 100%;
 	height: 56px;
 	padding: 0px 16px;
@@ -379,6 +379,20 @@
 	border: none;
 	outline: none;
 	box-shadow: none;
+}
+.spr-starrating {
+	display: flex;
+	grid-column-gap: 8px;
+}
+.spr-starrating .spr-icon {
+	width: 30px;
+	height: 30px;
+}
+.spr-starrating .spr-icon::before {
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	color: #3374FB;
 }
 .spr-form-input-textarea {
 	height: 254px;
