@@ -348,3 +348,7 @@
 	display: flex;
 	grid-row-gap: 40px;
 }
+
+.reviews-form-column {
+	width: 424px;
+}
