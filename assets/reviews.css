@@ -142,6 +142,17 @@
 	line-height: 32px;
 	color: #0F0F0F;
 }
+#showForm {
+	display: flex;
+	height: 56px;
+	align-items: center;
+	border-radius: 100px;
+	background: #3374FB;
+	color: #FFF;
+	font-size: 24px;
+	font-family: Gotham;
+	line-height: 32px;
+}
 .reviews-data-right {
 	display: flex;
 	flex-direction: column;
@@ -410,5 +421,11 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 100px;
-	background: #3374FB; 
+	background: #3374FB;
+	color: #FFF;
+	text-align: center;
+	font-size: 32px;
+	font-family: Gotham-Medium;
+	font-weight: 500;
+	line-height: 52px;
 }
