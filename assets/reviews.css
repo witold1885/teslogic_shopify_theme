@@ -360,9 +360,22 @@
 	flex-direction: column;
 	grid-row-gap: 8px;
 }
-.reviews-form-field label {
+.spr-form-label {
 	color: #0F0F0F;
 	font-size: 14px;
 	font-family: Gotham;
 	line-height: 24px;
+}
+.spr-form-input {
+	width: 100%;
+	height: 56px;
+	padding: 0px 16px;
+	border-radius: 15px;
+	background: #F4F6FA;
+	font-size: 22px;
+	font-family: Gotham;
+	line-height: 32px;
+}
+.spr-form-input-textarea {
+	padding: 16px;
 }
