@@ -394,8 +394,8 @@
 	opacity: unset;
 }
 .spr-form-input-textarea {
-	height: 254px;
-	padding: 16px;
+	height: 254px!important;
+	padding: 16px!important;
 }
 .spr-form-review-body {
 	height: 100%;
