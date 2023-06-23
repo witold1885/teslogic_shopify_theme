@@ -159,6 +159,8 @@
 				  let summaryRating = $(this).find('span.spr-summary-starrating');
 	        document.getElementById('totalRatingValue').innerText = reviewsData.ratingValue;
 	        document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
+					let form = $(this).find('.spr-form')
+					document.getElementById('reviewsWrap').insertAdjacentHTML('beforeend', form.html());
 				}
 			}
 				$('#multipleReviews').empty();
@@ -202,8 +204,6 @@
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
-				let form = $(this).find('.spr-form')
-				document.getElementById('reviewsWrap').insertAdjacentHTML('beforeend', form.html());
 		})
 
 		$('#viewAll').on('click', function() {
