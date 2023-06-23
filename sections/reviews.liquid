@@ -246,7 +246,6 @@
 
 		$(document).on('click', '.reviews-form-actions .spr-button', function(e) {
 			e.preventDefault()
-			console.log('form submit')
 			let form = $(this).parents('.new-review-form')
 			let author = $(form).find('.spr-form-contact-name').find('.spr-form-input').val()
 			if (author == '') {
@@ -272,7 +271,6 @@
 	    for (let item of formArray) {
 	    	formData[item.name] = item.value
 	    }
-	    console.log(formData)
 
 	    $.ajax({
 	      type: "POST",
@@ -282,6 +280,10 @@
 	      encode: true,
 	    }).done(function (data) {
 	      console.log(data);
+	      if (data.status == 'success') {
+	      	$('.reviews-form-shadow').css('display', 'none')
+	      	window.location.reload(true)
+	      }
 	    });
 		})
 	})
