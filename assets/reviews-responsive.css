@@ -216,7 +216,8 @@
 @media screen and (max-width: 999px) {
 	.reviews-data {
 		width: 350px;
-		flex-direction: row;
+		flex-direction: column;
+		grid-row-gap: 40px;
 	}
 	.reviews-data-left {
 		width: 100%;
