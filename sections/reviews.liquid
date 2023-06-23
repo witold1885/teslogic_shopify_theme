@@ -46,7 +46,9 @@
 
 <div class="reviews-form-shadow">
 	<div id="reviewsFormWrap" class="reviews-form-wrap">
-		
+		<form class="reviews-form">
+			
+		</form>
 	</div>
 </div>
 
@@ -120,6 +122,25 @@
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
 
+				let form = $(this).find('.spr-form')
+				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
+					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
+					$('#reviewsFormWrap')
+						.find('form')
+						.attr('method', 'post')
+						.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
+						.attr('id', 'new-review-form_8374796878136')
+						.attr('onsubmit', 'SPR.submitForm(this);return false;')
+					formLoaded = true
+				}
+/*<form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;" style="display: flex;"><input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="8374796878136"><h3 class="spr-form-title">Write a review</h3><fieldset class="spr-form-contact"><div class="spr-form-contact-name">
+          <label class="spr-form-label" for="review_author_8374796878136">Name</label>
+          <input class="spr-form-input spr-form-input-text " id="review_author_8374796878136" type="text" name="review[author]" value="" placeholder="Enter your name">
+        </div><div class="spr-form-contact-email">
+          <label class="spr-form-label" for="review_email_8374796878136">Email</label>
+          <input class="spr-form-input spr-form-input-email " id="review_email_8374796878136" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
+        </div></fieldset>*/
+
 				$(this).find('.spr-review').each(function(index) {
 					let reviewStars = $(this).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
@@ -157,14 +178,6 @@
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
-				}
-				let form = $(this).find('.spr-form')
-				// console.log('form', form)
-				// console.log('form.html()', form.html())
-				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
-					document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
-					formLoaded = true
-					// $('#new-review-form_8374796878136').hide()
 				}
 		})
 
