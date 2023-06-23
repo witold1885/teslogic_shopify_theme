@@ -146,6 +146,7 @@
 	display: flex;
 	width: 218px;
 	height: 56px;
+	justify-content: center;
 	align-items: center;
 	border-radius: 100px;
 	background: #3374FB;
