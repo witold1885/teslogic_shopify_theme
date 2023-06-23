@@ -329,9 +329,9 @@
 
 }
 .new-review-form {
-	display: none;
+	/*display: none;
 	flex-direction: column;
-	flex-wrap: wrap;
+	flex-wrap: wrap;*/
 	box-sizing: border-box;
 	height: 349px;
 }
@@ -343,4 +343,8 @@
 	line-height: 43px;
 	font-family: Gotham-Medium;
 	font-weight: 500; 
+}
+.reviews-form-body {
+	display: flex;
+	grid-row-gap: 40px;
 }
