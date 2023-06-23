@@ -142,6 +142,9 @@
 	line-height: 32px;
 	color: #0F0F0F;
 }
+.reviews-write {
+	display: flex;
+}
 #showForm {
 	display: flex;
 	width: 218px;
