@@ -241,6 +241,7 @@
 
 		$(document).on('click', '.reviews-form-actions .spr-button', function() {
 			console.log('form submit')
+			$(this).parents('.new-review-form').submit()
 		})
 	})
 </script>
