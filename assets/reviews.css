@@ -308,3 +308,6 @@
 	display: flex;
 	align-items: center;
 }
+.new-review-form {
+	display: none;
+}
