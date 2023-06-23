@@ -393,7 +393,7 @@
 	font-family: Gotham;
 	line-height: 24px;
 }
-.spr-form-input:not(.spr-starrating) {
+.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 	width: 100%;
 	height: 56px;
 	padding: 0px 16px;
