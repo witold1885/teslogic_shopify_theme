@@ -1,4 +1,12 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
+	.reviews {
+		margin-bottom: calc(140 * 100vw / 1366);
+	}
+	.reviews-title {
+		font-size: calc(52 * 100vw / 1366);
+		line-height: calc(64 * 100vw / 1366);
+		margin-bottom: calc(40 * 100vw / 1366);
+	}
 	.reviews-data {
 		width: calc(1206 * 100vw / 1366);
 	}
