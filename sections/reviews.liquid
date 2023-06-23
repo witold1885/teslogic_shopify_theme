@@ -204,12 +204,15 @@
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
 				})
 				let pagination = $(this).find('.spr-pagination')
-				console.log('pagination')
-				console.log(pagination)
-				console.log($(pagination))
-				console.log(typeof pagination)
+				// console.log('pagination')
+				// console.log(pagination)
+				// console.log($(pagination))
+				// console.log(typeof pagination)
 
 				if (pagination) {
+					console.log('pagination')
+					console.log(pagination.html())
+					console.log($(pagination).html())
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
 					const prevPageHtml = `
 						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
@@ -223,6 +226,9 @@
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
+			else {
+				console.log('no pagination')
+			}
 		})
 
 		$('#viewAll').on('click', function() {
