@@ -333,7 +333,14 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	box-sizing: border-box;
+	height: 349px;
 }
 .new-review-form fieldset {
 	width: 424px;
+}
+.spr-form-title {
+	font-size: 36px;
+	line-height: 43px;
+	font-family: Gotham-Medium;
+	font-weight: 500; 
 }
