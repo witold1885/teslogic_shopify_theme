@@ -431,7 +431,10 @@ input.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 	background: #F4F6FA; 
 	font-size: 22px;
 	font-family: Gotham;
-	line-height: 32px; 
+	line-height: 32px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 }
 .spr-form-review-body {
 	height: 100%;
