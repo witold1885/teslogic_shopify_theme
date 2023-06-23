@@ -204,6 +204,7 @@
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
 				let form = $(this).find('.spr-form')
+				console.log('form', form)
 				if (form && !formLoaded) {
 					document.getElementById('reviewsWrap').insertAdjacentHTML('beforeend', form.html());
 					formLoaded = true
