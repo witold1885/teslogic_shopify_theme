@@ -390,6 +390,9 @@
 	font-size: 30px;
 	color: #3374FB;
 }
+.spr-starrating .spr-icon-star-empty {
+	opacity: unset;
+}
 .spr-form-input-textarea {
 	height: 254px;
 	padding: 16px;
