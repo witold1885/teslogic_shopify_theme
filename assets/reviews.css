@@ -351,4 +351,18 @@
 }
 .reviews-form-column {
 	width: 424px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
+.reviews-form-field {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 8px;
+}
+.reviews-form-field label {
+	color: #0F0F0F;
+	font-size: 14px;
+	font-family: Gotham;
+	line-height: 24px;
 }
