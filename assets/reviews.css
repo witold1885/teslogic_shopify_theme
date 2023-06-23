@@ -318,4 +318,12 @@
 	top: 0;
 	left: 0;
 	background: rgba(0, 0, 0, 0.10);
+	z-index: 15;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.reviews-form-wrap {
+	width: 922px;
+	padding: 32px;
 }
