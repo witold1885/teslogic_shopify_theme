@@ -250,11 +250,10 @@
 			let author = $(form).find('.spr-form-contact-name').find('.spr-form-input').val()
 			console.log(author)
 			if (author == '') {
-				console.log('no author')
 				$(form)
 					.find('.spr-form-contact-name')
 					.find('.spr-form-input')
-					.css('border', 'red')
+					.css('border', '1px solid red')
 				return
 			}
 			let email = $(form).find('.spr-form-contact-email').find('.spr-form-input').val()
@@ -263,7 +262,7 @@
 				$(form)
 					.find('.spr-form-contact-email')
 					.find('.spr-form-input')
-					.css('border', 'red')
+					.css('border', '1px solid red')
 				return
 			}
 			let reviewTitle = 'Review of ' + author
