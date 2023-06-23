@@ -405,7 +405,7 @@
 		margin-bottom: 20px;
 	}
 	.reviews-form-body {
-		flex-direction: row;
+		flex-direction: column;
 		grid-row-gap: 40px;
 	}
 	.reviews-form-column {
