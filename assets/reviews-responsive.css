@@ -187,7 +187,7 @@
 		font-size: calc(14 * 100vw / 1366);
 		line-height: calc(24 * 100vw / 1366);
 	}
-	.spr-form-input:not(.spr-starrating) {
+	.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 		width: 100%;
 		height: calc(56 * 100vw / 1366);
 		padding: calc(0 * 100vw / 1366) calc(16 * 100vw / 1366);
@@ -419,7 +419,7 @@
 		font-size: 14px;
 		line-height: 24px;
 	}
-	.spr-form-input:not(.spr-starrating) {
+	.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 		width: 100%;
 		height: 56px;
 		padding: 0px 16px;
