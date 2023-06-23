@@ -306,6 +306,10 @@
 		font-weight: 500;
 		line-height: 32px; 
 	}
+	.reviews-write {
+		display: flex;
+		justify-content: center;
+	}
 	#showForm {
 		width: 218px;
 		height: 56px;
