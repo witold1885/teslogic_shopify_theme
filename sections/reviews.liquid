@@ -78,6 +78,7 @@
 				}
 				if (reviewsData) {
 					const reviewCount = reviewsData.reviewCount
+					document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 			    let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 					for (i = 1; i <= Math.ceil(reviewCount / 5); i++) {
 						// console.log(i)
