@@ -351,6 +351,7 @@
 	height: 24px;
 	top: 32px;
 	right: 32px;
+	cursor: pointer;
 }
 .new-review-form {
 	/*display: none;
