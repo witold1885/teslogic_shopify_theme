@@ -168,6 +168,8 @@
 		        </div>
 					`
 					$('#reviewsFormWrap').find('form').html(formHtml)
+					$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
+					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
 					formLoaded = true
 				}
 /*<form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;" style="display: flex;"><input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="8374796878136"><h3 class="spr-form-title">Write a review</h3><fieldset class="spr-form-contact"><div class="spr-form-contact-name">
