@@ -267,28 +267,22 @@
 			let reviewTitle = 'Review of ' + author
 			$(form).find('.review-form-title').val(reviewTitle)
 			// $(form).submit()
-			/*var formData = {
-	      name: $("#name").val(),
-	      email: $("#email").val(),
-	      superheroAlias: $("#superheroAlias").val(),
-	    };*/
 	    let formArray = $(form).serializeArray()
-	    console.log(formArray)
 	    let formData = { shop: '8cc6c3.myshopify.com' }
 	    for (let item of formArray) {
 	    	formData[item.name] = item.value
 	    }
 	    console.log(formData)
 
-	    /*$.ajax({
+	    $.ajax({
 	      type: "POST",
-	      url: "process.php",
+	      url: $(form).attr('action'),
 	      data: formData,
 	      dataType: "json",
 	      encode: true,
 	    }).done(function (data) {
 	      console.log(data);
-	    });*/
+	    });
 		})
 	})
 </script>
