@@ -387,6 +387,9 @@
 	grid-row-gap: 8px;
 	margin: 0;
 }
+.reviews-form-field::before, .reviews-form-field::after {
+	display: none;
+}
 .spr-form-label {
 	color: #0F0F0F;
 	font-size: 14px;
