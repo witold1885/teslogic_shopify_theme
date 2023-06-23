@@ -266,7 +266,24 @@
 			}
 			let reviewTitle = 'Review of ' + author
 			$(form).find('.review-form-title').val(reviewTitle)
-			$(form).submit()
+			// $(form).submit()
+			/*var formData = {
+	      name: $("#name").val(),
+	      email: $("#email").val(),
+	      superheroAlias: $("#superheroAlias").val(),
+	    };*/
+	    let formData = $(form).serialize()
+	    console.log(formData)
+
+	    /*$.ajax({
+	      type: "POST",
+	      url: "process.php",
+	      data: formData,
+	      dataType: "json",
+	      encode: true,
+	    }).done(function (data) {
+	      console.log(data);
+	    });*/
 		})
 	})
 </script>
