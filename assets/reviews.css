@@ -181,6 +181,7 @@
 	grid-row-gap: 32px;
 	padding: 32px;
 	background: #FFFFFF;
+	box-sizing: border-box;
 }
 .reviews-list-item-hidden {
 	display: none;
