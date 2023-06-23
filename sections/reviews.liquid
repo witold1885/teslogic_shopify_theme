@@ -126,7 +126,7 @@
 				    };
 				  }
 				  let summaryRating = $(this).find('span.spr-summary-starrating');
-	        document.getElementById('totalRatingValue').innerText = reviewsData.ratingValue;
+	        document.getElementById('totalRatingValue').innerText = reviewsData.ratingValue.toFixed(1);
 	        document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
 				}
 			}
