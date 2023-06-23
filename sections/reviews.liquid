@@ -283,7 +283,10 @@
 	      console.log(data);
 	      if (data.status == 'success') {
 	      	$('.reviews-form-shadow').css('display', 'none')
-	      	window.location.reload(true)
+	      	alert('Your review was added successfully')
+	      }
+	      else {
+	      	alert('Error adding review')
 	      }
 	    });
 		})
