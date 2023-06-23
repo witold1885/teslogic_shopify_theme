@@ -359,6 +359,7 @@
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 8px;
+	margin: 0;
 }
 .spr-form-label {
 	color: #0F0F0F;
@@ -380,6 +381,9 @@
 	box-shadow: none;
 }
 .spr-form-input-textarea {
-	height: 100%;
 	padding: 16px;
+}
+.spr-form-review-body {
+	height: 100%;
+	
 }
