@@ -424,8 +424,14 @@ input.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 	opacity: unset;
 }
 .spr-form-input-textarea {
-	height: 254px!important;
-	padding: 16px!important;
+	width: 424px;
+	height: 254px;
+	padding: 16px;
+	border-radius: 20px;
+	background: #F4F6FA; 
+	font-size: 22px;
+	font-family: Gotham;
+	line-height: 32px; 
 }
 .spr-form-review-body {
 	height: 100%;
