@@ -145,6 +145,7 @@
 					let formHtml = `						
 		        <input type="hidden" name="review[rating]">
 		        <input type="hidden" name="product_id" value="8374796878136">
+		        <input id="review_title_8374796878136" class="review-form-title" type="hidden" name="review[title]" value="">
 		        <h3 class="spr-form-title">Write a review</h3>
 		        <div class="reviews-form-body">
 		        	<div class="reviews-form-column">
@@ -245,7 +246,11 @@
 
 		$(document).on('click', '.reviews-form-actions .spr-button', function() {
 			console.log('form submit')
-			$(this).parents('.new-review-form').submit()
+			let form = $(this).parents('.new-review-form')
+			let author = $(form).find('.spr-form-contact-name').find('.spr-form-input-text').val()
+			let reviewTitle = 'Review of ' + author
+			$(form).find('.review-form-title').val(reviewTitle)
+			$(form).submit()
 		})
 	})
 </script>
