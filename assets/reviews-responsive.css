@@ -180,7 +180,7 @@
 		line-height: calc(24 * 100vw / 1366);
 	}
 	.spr-form-input:not(.spr-starrating) {
-		width: calc(100%;
+		width: 100%;
 		height: calc(56 * 100vw / 1366);
 		padding: calc(0 * 100vw / 1366) calc(16 * 100vw / 1366);
 		border-radius: calc(15 * 100vw / 1366);
