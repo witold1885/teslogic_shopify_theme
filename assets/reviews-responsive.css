@@ -214,6 +214,16 @@
 }
 
 @media screen and (max-width: 999px) {
+	.reviews {
+		margin-bottom: 80px;
+	}
+	.reviews-title {
+		font-size: 36px;
+		line-height: 43px;
+		letter-spacing: 0.72px; 
+		text-align: left;
+		margin-bottom: 40px;
+	}
 	.reviews-data {
 		width: 350px;
 		flex-direction: column;
