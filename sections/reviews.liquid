@@ -248,6 +248,7 @@
 			console.log('form submit')
 			let form = $(this).parents('.new-review-form')
 			let author = $(form).find('.spr-form-contact-name').find('.spr-form-input').val()
+			console.log(author)
 			if (!author) {
 				$(form)
 					.find('.spr-form-contact-name')
@@ -256,6 +257,7 @@
 				return
 			}
 			let email = $(form).find('.spr-form-contact-email').find('.spr-form-input').val()
+			console.log(email)
 			if (!email) {
 				$(form)
 					.find('.spr-form-contact-email')
