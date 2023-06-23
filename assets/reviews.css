@@ -346,7 +346,7 @@
 }
 .reviews-form-body {
 	display: flex;
-	grid-row-gap: 40px;
+	grid-column-gap: 40px;
 }
 
 .reviews-form-column {
