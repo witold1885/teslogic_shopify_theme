@@ -9,7 +9,7 @@
 	<!-- </div> -->
 <!-- </div> -->
 
-<div class="reviews">
+<div id="reviewsWrap" class="reviews">
 	<div class="block_title reviews-title">Reviews</div>
 	<div class="reviews-data">
 		<div class="reviews-data-left">
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="spr-form" id="form_8374796878136" style="display: none"><form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;"><input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="8374796878136"><h3 class="spr-form-title">Write a review</h3><fieldset class="spr-form-contact"><div class="spr-form-contact-name">
+	<!-- <div class="spr-form" id="form_8374796878136" style="display: none"><form method="post" action="//productreviews.shopifycdn.com/api/reviews/create" id="new-review-form_8374796878136" class="new-review-form" onsubmit="SPR.submitForm(this);return false;"><input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="8374796878136"><h3 class="spr-form-title">Write a review</h3><fieldset class="spr-form-contact"><div class="spr-form-contact-name">
           <label class="spr-form-label" for="review_author_8374796878136">Name</label>
           <input class="spr-form-input spr-form-input-text " id="review_author_8374796878136" type="text" name="review[author]" value="" placeholder="Enter your name">
         </div><div class="spr-form-contact-email">
@@ -92,7 +92,7 @@
 
     <fieldset class="spr-form-actions">
       <input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
-    </fieldset></form></div>
+    </fieldset></form></div> -->
 </div>
 
 <script type="text/javascript">
@@ -202,6 +202,8 @@
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
 				}
+				let form = $(this).find('.spr-form')
+				document.getElementById('reviewsWrap').insertAdjacentHTML('beforeend', form.html());
 		})
 
 		$('#viewAll').on('click', function() {
