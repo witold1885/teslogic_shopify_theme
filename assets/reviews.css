@@ -381,9 +381,9 @@
 	box-shadow: none;
 }
 .spr-form-input-textarea {
+	height: 254px;
 	padding: 16px;
 }
 .spr-form-review-body {
 	height: 100%;
-	
 }
