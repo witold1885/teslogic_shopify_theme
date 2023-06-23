@@ -143,6 +143,7 @@
 	color: #0F0F0F;
 }
 .reviews-write {
+	width: 100%;
 	display: flex;
 }
 #showForm {
