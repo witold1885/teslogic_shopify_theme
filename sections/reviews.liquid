@@ -138,8 +138,6 @@
 				$('#pagination').empty();
 
 				let form = $(this).find('.spr-form')
-				console.log('$(form).html()')
-				console.log(form.html())
 
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
@@ -182,6 +180,9 @@
 					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
 					formLoaded = true
 				}
+
+				console.log("$(this).find('.spr-review')")
+				console.log($(this).find('.spr-review'))
 
 				$(this).find('.spr-review').each(function(index) {
 					let reviewStars = $(this).find('.spr-starratings').html()
