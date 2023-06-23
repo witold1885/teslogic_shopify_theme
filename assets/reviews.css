@@ -326,4 +326,8 @@
 .reviews-form-wrap {
 	width: 922px;
 	padding: 32px;
+	border-radius: 14px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+
 }
