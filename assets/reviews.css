@@ -144,6 +144,7 @@
 }
 #showForm {
 	display: flex;
+	width: 218px;
 	height: 56px;
 	align-items: center;
 	border-radius: 100px;
@@ -152,6 +153,9 @@
 	font-size: 24px;
 	font-family: Gotham;
 	line-height: 32px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 }
 .reviews-data-right {
 	display: flex;
@@ -428,4 +432,7 @@
 	font-family: Gotham-Medium;
 	font-weight: 500;
 	line-height: 52px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 }
