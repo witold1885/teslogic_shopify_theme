@@ -137,9 +137,6 @@
 				$('#multipleReviews').empty();
 				$('#pagination').empty();
 
-				console.log('$(this).html()')
-				console.log($(this).html())
-
 				let form = $(this).find('.spr-form')
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
@@ -207,6 +204,10 @@
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
 				})
 				let pagination = $(this).find('.spr-pagination')
+				console.log('pagination')
+				console.log(pagination)
+				console.log(typeof pagination)
+
 				if (pagination) {
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
 					const prevPageHtml = `
