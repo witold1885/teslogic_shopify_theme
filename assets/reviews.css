@@ -157,6 +157,7 @@
 	border: none;
 	outline: none;
 	box-shadow: none;
+	cursor: pointer;
 }
 .reviews-data-right {
 	display: flex;
@@ -436,4 +437,5 @@
 	border: none;
 	outline: none;
 	box-shadow: none;
+	cursor: pointer;
 }
