@@ -262,6 +262,7 @@
 					$('#pagination').find('.spr-pagination-page:not(.is-active)').each(function() {
 						console.log($(this))
 						$(this).find('a').prop('onclick', null).off('click')
+						console.log($(this).find('a'))
 					})
 					const prevPageHtml = `
 						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
