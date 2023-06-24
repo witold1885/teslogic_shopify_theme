@@ -131,7 +131,7 @@
 		            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
 	            	console.log('totalData')
 	            	console.log(totalData.length)
-	            	showForm()
+	            	// showForm()
 	            	showPage(1)
 	        	  }
 				    };
@@ -144,7 +144,7 @@
 				/*$('#multipleReviews').empty();
 				$('#pagination').empty();*/
 
-				/*let form = $(this).find('.spr-form')
+				let form = $(this).find('.spr-form')
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
@@ -186,7 +186,7 @@
 					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
 					formLoaded = true
 				}
-*/
+
 				/*$(this).find('.spr-review').each(function(index) {
 					let reviewStars = $(this).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
