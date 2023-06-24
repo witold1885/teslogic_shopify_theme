@@ -261,7 +261,7 @@
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
 					$('#pagination').find('.spr-pagination-page:not(.is-active)').each(function() {
 						console.log($(this))
-						$(this).find('a').prop('onclick', null).off('click')
+						$(this).find('a').prop('onclick', null).off('click').removeAttr('onclick')
 						console.log($(this).find('a'))
 					})
 					const prevPageHtml = `
