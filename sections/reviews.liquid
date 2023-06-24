@@ -230,16 +230,16 @@
 			let rws = $($.parseHTML(totalData[page - 1].reviews));
 			console.log('rws')
 			console.log(rws)
-			return
+			// return
       let tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = totalData[page - 1].reviews;
-					let reviewStars = $(this).find('.spr-starratings').html()
+					let reviewStars = $(rws).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
-					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
-						if (index == 0) reviewAuthor = $(this).text()
-						else if (index == 1) reviewDate = $(this).text()
+					$(rws).find('.spr-review-header-byline').find('strong').each(function(index) {
+						if (index == 0) reviewAuthor = $(rws).text()
+						else if (index == 1) reviewDate = $(rws).text()
 					})
-					let reviewContent = $(this).find('.spr-review-content-body').text()
+					let reviewContent = $(rws).find('.spr-review-content-body').text()
 	        let reviewHtml = `
 	        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
 	        		<div class="reviews-list-item-top">
