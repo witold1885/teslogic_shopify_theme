@@ -301,6 +301,10 @@
 			})
 		})
 
+		$(document).on('click', '.spr-pagination-page a', function(e) {
+			showPage($(this).data('page'))
+		});
+
 		$('#showForm').on('click', function() {
 			$('.new-review-form').css('display', 'block')
 			$('.reviews-form-shadow').css('display', 'flex')
