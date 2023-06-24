@@ -231,15 +231,16 @@
 			console.log('rws')
 			console.log(rws)
 			// return
-      let tmpDiv = document.createElement('div');
-      tmpDiv.innerHTML = totalData[page - 1].reviews;
-					let reviewStars = $(rws).find('.spr-starratings').html()
+      // let tmpDiv = document.createElement('div');
+      // tmpDiv.innerHTML = totalData[page - 1].reviews;
+      $(rws).find('.spr-review').each(function(index) {
+					let reviewStars = $(this).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
-					$(rws).find('.spr-review-header-byline').find('strong').each(function(index) {
-						if (index == 0) reviewAuthor = $(rws).text()
-						else if (index == 1) reviewDate = $(rws).text()
+					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
+						if (index == 0) reviewAuthor = $(this).text()
+						else if (index == 1) reviewDate = $(this).text()
 					})
-					let reviewContent = $(rws).find('.spr-review-content-body').text()
+					let reviewContent = $(this).find('.spr-review-content-body').text()
 	        let reviewHtml = `
 	        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
 	        		<div class="reviews-list-item-top">
@@ -254,6 +255,7 @@
 	        	</div>
 	        `
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+	    });
 		}
 
 		$('#viewAll').on('click', function() {
