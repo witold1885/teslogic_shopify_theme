@@ -127,10 +127,11 @@
 		            			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
 		            		</div>
 		            	`;
-		            	console.log('totalData')
-		            	console.log(totalData.length)
 		            }
 		            document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
+	            	console.log('totalData')
+	            	console.log(totalData.length)
+	            	showPage(1)
 	        	  }
 				    };
 				  }
@@ -139,10 +140,10 @@
 	        document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
 				}
 			}
-				$('#multipleReviews').empty();
-				$('#pagination').empty();
+				/*$('#multipleReviews').empty();
+				$('#pagination').empty();*/
 
-				let form = $(this).find('.spr-form')
+				/*let form = $(this).find('.spr-form')
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
@@ -184,8 +185,8 @@
 					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
 					formLoaded = true
 				}
-
-				$(this).find('.spr-review').each(function(index) {
+*/
+				/*$(this).find('.spr-review').each(function(index) {
 					let reviewStars = $(this).find('.spr-starratings').html()
 					let reviewAuthor = '', reviewDate = ''
 					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
@@ -207,8 +208,8 @@
 	        	</div>
 	        `
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
-				})
-				let pagination = $(this).find('.spr-pagination')
+				})*/
+				/*let pagination = $(this).find('.spr-pagination')
 				if (pagination) {
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
 					const prevPageHtml = `
@@ -222,8 +223,38 @@
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
-				}
+				}*/
 		})
+
+		function showPage(page) {
+			let rws = $($.parseHTML(totalData[page - 1].reviews));
+			console.log('rws')
+			console.log(rws)
+			return
+      let tmpDiv = document.createElement('div');
+      tmpDiv.innerHTML = totalData[page - 1].reviews;
+					let reviewStars = $(this).find('.spr-starratings').html()
+					let reviewAuthor = '', reviewDate = ''
+					$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
+						if (index == 0) reviewAuthor = $(this).text()
+						else if (index == 1) reviewDate = $(this).text()
+					})
+					let reviewContent = $(this).find('.spr-review-content-body').text()
+	        let reviewHtml = `
+	        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
+	        		<div class="reviews-list-item-top">
+	        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
+	        			<div class="reviews-list-item-date">${reviewDate}</div>
+	        		</div>
+	        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
+	        		<div class="reviews-list-item-bottom">
+	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+	        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>
+	        		</div>
+	        	</div>
+	        `
+	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+		}
 
 		$('#viewAll').on('click', function() {
 			$(this).css('display', 'none')
