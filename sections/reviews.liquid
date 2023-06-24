@@ -256,7 +256,21 @@
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
 	      }
       	else if ($(this).hasClass('spr-pagination')) {
-
+      		let pagination = $(this)
+				// if (pagination) {
+					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
+					const prevPageHtml = `
+						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<div>Previous</div>
+					`
+					$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
+					const nextPageHtml = `
+						<div>Next</div>
+						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+					`
+					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
+					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
+				// }
       	}
 	    });
 		}
