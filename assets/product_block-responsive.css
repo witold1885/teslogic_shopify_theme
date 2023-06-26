@@ -175,6 +175,14 @@
 		margin-right: 0;
 		margin-bottom: 23.85px;
 	}
+	.product_block-product-gallery-image {
+		width: 100%;
+		height: auto;
+	}
+	.product_block-product-gallery-image img {
+		width: 100%;
+		height: auto;
+	}
 	.product_block-product-info {
 		width: 350px;
 		/*height: 216.61px;*/
