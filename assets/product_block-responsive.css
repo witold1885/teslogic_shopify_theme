@@ -1,17 +1,16 @@
-
 @media screen and (min-width: 1000px) and (max-width: 1366px) { 
 	.product_block {
-		margin: calc(93 * 100vw / 1366) auto calc(108 * 100vw / 1366);
+		margin: calc(80 * 100vw / 1366) auto calc(140 * 100vw / 1366);
 	}
 	.product_block-title {
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
 		/*margin-left: calc(128 * 100vw / 1366);*/
-		margin-bottom: calc(76.72 * 100vw / 1366);
+		margin-bottom: calc(39.71 * 100vw / 1366);
 	}
 	.product_block-product {
-		margin-left: calc(121 * 100vw / 1366);
-		grid-column-gap: calc(148 * 100vw / 1366);
+		margin-left: calc(110 * 100vw / 1366);
+		grid-column-gap: calc(158 * 100vw / 1366);
 	}
 	.product_block-product-gallery {
 		width: calc(545 * 100vw / 1366);
@@ -28,10 +27,10 @@
 		height: calc(32 * 100vw / 1366);
 	}
 	.product_block-product-gallery-nav-prev {
-		left: calc(-1 * 36 * 100vw / 1366)
+		left: calc(-1 * 47 * 100vw / 1366)
 	}
 	.product_block-product-gallery-nav-next {
-		right: calc(-1 * 36 * 100vw / 1366);
+		right: calc(-1 * 47 * 100vw / 1366);
 	}
 	.product_block-product-info {
 		display: flex;
@@ -110,6 +109,7 @@
 		border-radius: calc(100 * 100vw / 1366);
 		font-size: calc(24 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
+		margin-top: calc(8 * 100vw / 1366);
 	} 
 	.product_block-add-wireless-charger {
 		margin-top: calc(12 * 100vw / 1366);

@@ -1,6 +1,6 @@
 .product_block {
 	width: 100%;
-	margin: 93px auto 108px;
+	margin: 80px auto 140px;
 }
 .product_block-title {
 	font-family: 'SF Pro';
@@ -11,13 +11,13 @@
 	letter-spacing: 0.02em;
 	color: #000000;
 	/*margin-left: 128px;*/
-	margin-bottom: 76.72px;
+	margin-bottom: 39.71px;
 	text-align: left;
 }
 .product_block-product {
 	display: flex;
-	margin-left: 121px;
-	grid-column-gap: 148px;
+	margin-left: 110px;
+	grid-column-gap: 158px;
 }
 .product_block-product-mobile {
 	display: none;
@@ -52,10 +52,10 @@
 	height: 100%;
 }
 .product_block-product-gallery-nav-prev {
-	left: -36px
+	left: -47px
 }
 .product_block-product-gallery-nav-next {
-	right: -36px;
+	right: -47px;
 }
 .product_block-product-info {
 	display: flex;
@@ -223,6 +223,7 @@
 	line-height: 32px;
 	color: #FFFFFF;
 	cursor: pointer;
+	margin-top: 8px;
 }
 .product_block-add-wireless-charger {
 	display: flex;
