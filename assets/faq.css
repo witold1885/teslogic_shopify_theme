@@ -12,14 +12,13 @@
 }
 .faq__chapters {
 	margin-top: 92px;
-	margin-bottom: 186px;
+	margin-bottom: 80px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	grid-column-gap: 139px;
-	grid-row-gap: 84px;
-	margin-left: 128px;
-	margin-right: 137px;
+	grid-column-gap: 120px;
+	grid-row-gap: 40px;
+	margin-left: 80px;
 }
 .faq__chapter {
 	width: 481px;
