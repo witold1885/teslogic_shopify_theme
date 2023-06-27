@@ -253,7 +253,8 @@
   .contact__form-ellipse {
     width: 745.613px;;
     height: 745.613px;;
-    right: calc(-1 * 94px + ((100vw - 390px) / 2));
+    right: -94px;
+    top: -101px;
   }
   .contact__fields {
     grid-row-gap: 24px;
