@@ -238,7 +238,7 @@
   .contact__wrap {
     flex-direction: column;
     align-items: center;
-    grid-row-gap: 40px;
+    grid-row-gap: 80px;
     margin-left: 0;
   }
   .contact__form {
