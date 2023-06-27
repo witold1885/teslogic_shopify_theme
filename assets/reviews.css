@@ -162,6 +162,7 @@
 	outline: none;
 	box-shadow: none;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .reviews-data-right {
 	display: flex;
