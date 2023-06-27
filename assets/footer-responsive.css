@@ -53,7 +53,7 @@
 	}
 	.footer__wrap {
 		max-width: 390px;
-		padding: 34px 27px 42px 24px;
+		padding: 34px 20px 42px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
@@ -75,7 +75,7 @@
 		flex-wrap: wrap;
 		justify-content: flex-start;
 		align-items: flex-start;
-		grid-column-gap: 25px;
+		grid-column-gap: 40px;
 		grid-row-gap: 40px;
 	}
 	.footer-menu__list-contacts {
