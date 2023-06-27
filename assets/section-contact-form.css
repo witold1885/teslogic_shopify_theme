@@ -52,7 +52,7 @@
   font-weight: 700;
   font-size: 52px;
   line-height: 64px;
-  text-align: center;
+  text-align: left;
   margin: 0 auto 72px;
 }
 .contact__wrap {
@@ -62,7 +62,6 @@
 }
 .contact__form {
   width: 771px;
-  height: 771px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -180,7 +179,6 @@
   }
   .contact__form {
     width: calc(771 * 100vw / 1366);
-    height: calc(771 * 100vw / 1366);
     grid-row-gap: calc(40 * 100vw / 1366);
   }
   .contact__fields {
