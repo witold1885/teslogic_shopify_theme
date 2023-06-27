@@ -10,7 +10,6 @@
   <div class="significant__features">
   <div class="significant__features-scroller">
     {% assign articles = blogs['significant-features'].articles | sort: "id" %}
-    	{{  articles | json }}
     {% for article in articles %}
   		<div class="significant__features-item">
   			<div class="significant__features-item-image">
