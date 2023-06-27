@@ -66,7 +66,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   grid-row-gap: 40px;
 }
 .contact__form-success {
@@ -243,11 +243,11 @@
     flex-direction: column;
     align-items: center;
     grid-row-gap: 80px;
-    margin-left: 0;
+    width: 350px;
+    margin: 0 auto;
   }
   .contact__form {
     width: 100%;
-    max-width: 591px;
     height: 591px;
     grid-row-gap: 40px;
   }
@@ -303,9 +303,9 @@
   }
 }
 
-@media screen and (max-width: 591px) {
+/*@media screen and (max-width: 591px) {
   .contact__form-ellipse {
     left: calc((100vw - 591px) / 2);
     right: calc((100vw - 591px) / 2);
   }
-}
+}*/
