@@ -16,7 +16,10 @@
   				<img draggable="false" src="{{ article.image | img_url: '848x848' }}">
   			</div>
   			<div class="significant__features-item-info">
-	  			<div class="significant__features-item-title">{{ article.title }}</div>
+  				{% assign title_array = article.title | split: " " %}
+  				{% assign number = title_array.first %}
+  				{% assign title = article.title | replace: number, "" %}
+	  			<div class="significant__features-item-title">{{ title }}</div>
 	  			<div class="significant__features-item-content">{{ article.content }}</div>
 	  		</div>
   		</div>
