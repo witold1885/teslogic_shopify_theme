@@ -271,11 +271,12 @@
     line-height: 24px;
   }
   .contact__field-input {
-    width: 280px;
-    height: 40px;
-    padding: 8px 16px;
+    width: 100%;
+    height: 56px;
+    padding: 0px 16px;
     font-size: 18px;
     line-height: 140%;
+    border-radius: 15px; 
   }
   .contact__field-textarea {
     height: 145px;
