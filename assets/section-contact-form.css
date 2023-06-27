@@ -103,6 +103,12 @@
   flex-direction: column;
   grid-row-gap: 8px;
 }
+.contact__field-label {
+  color: #0F0F0F;
+  font-size: 14px;
+  font-family: Gotham;
+  line-height: 24px; 
+}
 .contact__field-input {
   width: 100%;
   height: 56px;
