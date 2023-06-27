@@ -9,7 +9,7 @@
   <div class="block_title significant__title">Significant Features</div>
   <div class="significant__features">
   <div class="significant__features-scroller">
-    {% assign articles = blogs['significant-features'].articles | sort: "title" %}
+    {% assign articles = blogs['significant-features'].articles | sort: "id" %}
     {% for article in articles %}
   		<div class="significant__features-item">
   			<div class="significant__features-item-image">
