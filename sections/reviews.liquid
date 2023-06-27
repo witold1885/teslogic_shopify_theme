@@ -47,11 +47,11 @@
 			<div id="pagination" class="spr-pagination reviews-pagination"></div>
 			<div id="viewAll" class="reviews-expand">
 				<a class="reviews-expand-text">View all reviews</a>
-				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.png' | asset_url }}">
+				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 			</div>
 			<div id="showLess" class="reviews-expand">
 				<a class="reviews-expand-text">Less reviews</a>
-				<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.png' | asset_url }}">
+				<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 			</div>
 		</div>
 	</div>
@@ -213,13 +213,13 @@
 				if (pagination) {
 					document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
 					const prevPageHtml = `
-						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 						<div>Previous</div>
 					`
 					$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
 					const nextPageHtml = `
 						<div>Next</div>
-						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
@@ -261,13 +261,13 @@
 						$(this).find('a').prop('onclick', null).off('click').removeAttr('onclick')
 					})
 					const prevPageHtml = `
-						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 						<div class="reviews-page-prev-text">Previous</div>
 					`
 					$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
 					const nextPageHtml = `
 						<div class="reviews-page-next-text">Next</div>
-						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
+						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
 					if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
