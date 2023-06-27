@@ -281,6 +281,7 @@
   }
   .contact__field-textarea {
     height: 145px;
+    padding: 10px 51px;
   }
   .contact__button {
     width: 140px;
