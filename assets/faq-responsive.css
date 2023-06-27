@@ -83,10 +83,11 @@
 		font-weight: 500;
 		font-size: 26px;
 		line-height: 31px;
+		font-family: 'Gotham-Medium';
 	}
-    .faq__chapter-question {
-      display: none;
-    }
+  .faq__chapter-question {
+    display: none;
+  }
 	.faq__chapter-question-text {
 		font-size: 18px;
 		line-height: 140%;
