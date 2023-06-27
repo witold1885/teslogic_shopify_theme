@@ -43,8 +43,8 @@
 }
 
 .contact {
-  padding-top: 56px;
-  padding-bottom: 120px;
+  padding-top: 80px;
+  padding-bottom: 140px;
 }
 .contact__title {
   font-family: 'Gotham';
@@ -224,8 +224,8 @@
 
 @media screen and (max-width: 999px) {
   .contact {
-    margin-top: 32px;
-    margin-bottom: 80px;
+    padding-top: 32px;
+    padding-bottom: 80px;
   }
   .contact__title {
     font-size: 36px;
