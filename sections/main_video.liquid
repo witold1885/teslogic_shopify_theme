@@ -66,9 +66,9 @@
 		}
 		$('.main_video-cover').on('click', function(e) {
 			console.log('click on cover')
-			$(this).hide();
 			$("#video")[0].src += "&autoplay=1";
     		e.preventDefault();
+    		$(this).hide();
 		})
 	})
 </script>
