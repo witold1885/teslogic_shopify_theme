@@ -94,11 +94,13 @@
   text-align: center;
 }
 .contact__fields {
+  width: 100%;
   display: flex;
   flex-direction: column;
   grid-row-gap: 32px;
 }
 .contact__field {
+  width: 100%;
   display: flex;
   flex-direction: column;
   grid-row-gap: 8px;
