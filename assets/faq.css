@@ -2,13 +2,13 @@
 	width: 100%;
 }
 .faq__title {
-	font-family: 'Gotham';
+	font-family: 'Gotham-Medium';
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 52px;
 	line-height: 64px;
 	color: #000000;
-	text-align: center;
+	text-align: left;
 }
 .faq__chapters {
 	margin-top: 92px;
