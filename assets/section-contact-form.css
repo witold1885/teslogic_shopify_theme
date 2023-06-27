@@ -53,20 +53,20 @@
   font-size: 52px;
   line-height: 64px;
   text-align: left;
-  margin: 0 auto 72px;
+  margin: 0 auto 40px;
 }
 .contact__wrap {
   display: flex;
-  grid-column-gap: 94px;
-  margin-left: 50px;
+  grid-column-gap: 307px;
+  margin: 0 80px;
 }
 .contact__form {
-  width: 771px;
+  width: 424px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-row-gap: 40px;
+  grid-row-gap: 32px;
 }
 .contact__form-success {
   justify-content: center;
@@ -97,14 +97,13 @@
   display: flex;
   flex-direction: column;
   grid-row-gap: 32px;
-  margin-top: 127px;
 }
 .contact__field {
   display: flex;
   flex-direction: column;
 }
 .contact__field-input {
-  width: 424px;
+  width: 100%;
   height: 56px;
   background: #FFFFFF;
   border-radius: 15px;
