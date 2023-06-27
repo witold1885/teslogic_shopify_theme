@@ -66,7 +66,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   grid-row-gap: 40px;
 }
 .contact__form-success {
