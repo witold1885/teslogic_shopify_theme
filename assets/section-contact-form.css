@@ -224,8 +224,8 @@
 
 @media screen and (max-width: 999px) {
   .contact {
-    padding-top: 16px;
-    padding-bottom: 80px;
+    margin-top: 32px;
+    margin-bottom: 80px;
   }
   .contact__title {
     font-size: 36px;
