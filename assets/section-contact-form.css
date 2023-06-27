@@ -65,7 +65,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   grid-row-gap: 32px;
 }
 .contact__form-success {
@@ -251,6 +251,7 @@
   .contact__form {
     width: 100%;
     grid-row-gap: 40px;
+    align-items: center;
   }
   .contact__form-ellipse {
     width: 745.613px;;
