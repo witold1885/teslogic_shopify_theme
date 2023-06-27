@@ -17,6 +17,7 @@
 		left: 0;
 	}
 	.main_video-cover img {
+		width: 100%;
 		max-width: 100%;
 		max-height: 100%;
 		object-fit: cover;
@@ -51,7 +52,7 @@
 		<img src="{{ 'spacee.jpg' | asset_url }}" />
 	</div>
 	<!-- <iframe width="1848" height="1040" src="https://www.youtube.com/embed/sKRoj-O902M?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-	<iframe width="1848" height="1040" src="https://www.youtube.com/embed/CJOw5Xst_ns?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<iframe id="video" width="1848" height="1040" src="https://www.youtube.com/embed/CJOw5Xst_ns?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <script type="text/javascript">
@@ -63,8 +64,11 @@
 			let h = w * 1040 / 1848
 			$('.main_video').height(h)
 		}
-		$('.main_video-cover').on('click', function() {
+		$('.main_video-cover').on('click', function(e) {
 			console.log('click on cover')
+			$(this).hide();
+			$("#video")[0].src += "&autoplay=1";
+    		e.preventDefault();
 		})
 	})
 </script>
