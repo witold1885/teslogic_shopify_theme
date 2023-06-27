@@ -78,9 +78,9 @@
 		grid-column-gap: 25px;
 		grid-row-gap: 40px;
 	}
-	.footer-menu__list-contacts {
+	/*.footer-menu__list-contacts {
 		width: 180px;
-	}
+	}*/
 	/*.footer-menu__list-resources {
 		display: block;
 	}
@@ -90,12 +90,12 @@
 	.footer-menu__list-other-products {
 		display: none;
 	}*/
-	.footer-menu__list-legal {
+	/*.footer-menu__list-legal {
 		width: 180px;
 	}
 	.footer-menu__list-community {
 		display: none;
-	}
+	}*/
 	.footer-menu__list-social {
 
 	}
