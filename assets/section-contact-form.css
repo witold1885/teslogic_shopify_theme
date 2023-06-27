@@ -100,6 +100,10 @@
   grid-row-gap: 32px;
   margin-top: 127px;
 }
+.contact__field {
+  display: flex;
+  flex-direction: column;
+}
 .contact__field-input {
   width: 424px;
   height: 56px;
@@ -255,7 +259,10 @@
   }
   .contact__fields {
     grid-row-gap: 24px;
-    margin-top: 88px;
+    margin-top: 0;
+  }
+  .contact__field {
+    grid-row-gap: 8px;
   }
   .contact__field-input {
     width: 280px;
