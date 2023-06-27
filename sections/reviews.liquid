@@ -262,11 +262,11 @@
 					})
 					const prevPageHtml = `
 						<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
-						<div>Previous</div>
+						<div class="reviews-page-prev-text">Previous</div>
 					`
 					$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
 					const nextPageHtml = `
-						<div>Next</div>
+						<div class="reviews-page-next-text">Next</div>
 						<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.png' | asset_url }}">
 					`
 					$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
