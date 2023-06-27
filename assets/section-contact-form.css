@@ -248,14 +248,12 @@
   }
   .contact__form {
     width: 100%;
-    height: 591px;
     grid-row-gap: 40px;
   }
   .contact__form-ellipse {
-    width: 591px;
-    height: 591px;
-    left: 0;
-    right: 0;
+    width: 745.613px;;
+    height: 745.613px;;
+    right: calc(-1 * 94px + ((100vw - 390px) / 2));
   }
   .contact__fields {
     grid-row-gap: 24px;
@@ -295,7 +293,7 @@
     grid-row-gap: 24px;
   }
   .contact__info-item {
-    grid-row-gap: 18px;
+    grid-row-gap: 8px;
   }
   .contact__info-item-title {
     font-weight: 700;
