@@ -256,16 +256,16 @@
 
 	.ellipse-bottom-container {
 		/*top: 5177px;*/
-		height: 1187px;
-		bottom: 288px;
+		height: 1109px;
+		bottom: 1876px;
 	}
 	.ellipse-bottom-wrap {
-		height: 1187px;
+		height: 1109px;
 	}
 	.ellipse-bottom {
-		width: 1187px;
-		height: 1187px;
-/*		left: calc(-1 * ((1187px - 100vw) / 2));*/
-		left: calc(-1 * 575px + ((100vw - 390px) / 2));
+		width: 1109px;
+		height: 1109px;
+/*		left: calc(-1 * ((1109px - 100vw) / 2));*/
+		left: calc(-1 * 557px + ((100vw - 390px) / 2));
 	}
 }
