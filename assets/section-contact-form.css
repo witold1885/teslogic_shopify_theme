@@ -47,7 +47,7 @@
   padding-bottom: 140px;
 }
 .contact__title {
-  font-family: 'Gotham';
+  font-family: 'Gotham-Medium';
   font-style: normal;
   font-weight: 700;
   font-size: 52px;
@@ -232,7 +232,7 @@
     line-height: 43px;
     letter-spacing: 0.02em;
     text-align: center;
-    margin: 0 auto 23px;
+    margin: 0 auto 16px;
   }
   .contact__wrap {
     flex-direction: column;
