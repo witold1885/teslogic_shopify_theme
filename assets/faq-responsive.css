@@ -1,18 +1,17 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) { 
 	.faq__title {
-		/*font-size: calc(52 * 100vw / 1366);*/
+		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
 	}
 	.faq__chapters {
 		margin-top: calc(92 * 100vw / 1366);
-		margin-bottom: calc(186 * 100vw / 1366);
-		grid-column-gap: calc(139 * 100vw / 1366);
-		grid-row-gap: calc(84 * 100vw / 1366);
-		margin-left: calc(128 * 100vw / 1366);
-		margin-right: calc(137 * 100vw / 1366);
+		margin-bottom: calc(80 * 100vw / 1366);
+		grid-column-gap: calc(120 * 100vw / 1366);
+		grid-row-gap: calc(40 * 100vw / 1366);
+		margin-left: calc(80 * 100vw / 1366);
 	}
 	.faq__chapter {
-		width: calc(481 * 100vw / 1366);
+		width: calc(461 * 100vw / 1366);
 	}
 	.faq__chapter-title {
 		grid-column-gap: calc(22 * 100vw / 1366);
