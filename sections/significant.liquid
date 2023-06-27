@@ -11,6 +11,7 @@
   <div class="significant__features-scroller">
     {% assign articles = blogs['significant-features'].articles | sort: "id" %}
     {% for article in articles %}
+    	{% article | json %}
   		<div class="significant__features-item">
   			<div class="significant__features-item-image">
   				<img draggable="false" src="{{ article.image | img_url: '848x848' }}">
