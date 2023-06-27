@@ -369,7 +369,8 @@
 		height: 32px;
 	}
 	.reviews-pagination > div {
-		grid-column-gap: 12px;
+		grid-column-gap: unset;
+		justify-content: space-between;
 	}
 	.reviews-pagination > div > span {
 		font-size: 22px;
