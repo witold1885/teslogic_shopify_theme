@@ -233,6 +233,7 @@
     letter-spacing: 0.02em;
     text-align: center;
     margin: 0 auto 16px;
+    text-align: left;
   }
   .contact__wrap {
     flex-direction: column;
