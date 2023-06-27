@@ -331,6 +331,8 @@
 	.reviews-list-item {
 		grid-row-gap: 32px;
 		padding: 20px;
+		border-radius: 12px;
+		background: #F4F6FA;
 	}
 	.reviews-list-item-date {
 		font-size: 14px;
