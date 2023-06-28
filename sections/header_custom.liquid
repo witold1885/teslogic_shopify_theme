@@ -74,12 +74,12 @@
       <div class="buttons">
         <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
-          class="menu__item mob-button button-cart"
+          class="menu__item menu__item-cart mob-button button-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
         >
           <a href="/cart">
             <div class="cart-icon-wrap">
-              <img src="{{ 'shopping_cart.png' | asset_url }}">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
               <div class="cart-qty">{{ cart.item_count }}</div>
             </div>
           </a>
