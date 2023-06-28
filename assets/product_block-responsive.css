@@ -187,6 +187,7 @@
 		width: 350px;
 		/*height: 216.61px;*/
 		grid-row-gap: 24px;
+		margin: 0 auto;
 	}
 	.product_block-product-info-bottom {
 		width: 100%;
@@ -215,6 +216,8 @@
 		font-size: 18px;
 		line-height: 140%;
 		color: #000000;
+		width: 100%;
+		text-align: left;
 	}
 	.product_block-product-select-dropdown-item {
 		font-family: 'Gotham';
