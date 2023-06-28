@@ -155,6 +155,7 @@
 		var model_id = null
 		var product_id = {{ product.id }}
 		console.log('product_id', product_id)
+		console.log('product.variants', {{ product.variants }})
 		selectModel('TT12')
 		$('.product_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
