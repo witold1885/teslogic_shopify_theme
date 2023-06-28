@@ -76,6 +76,7 @@
 	background: #3374FB;
 	border-radius: 100px;
 	margin-left: 8px;
+	color: #FFFFFF;
 }
 .menu__item-cart a {
 	width: 100%;
@@ -83,7 +84,10 @@
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 10px;
-	color: #FFFFFF;
+	font-size: 18px;
+	font-family: Gotham;
+	font-weight: 500;
+	line-height: 32px; 
 }
 /*.menu__item-cart:hover {
 	background: #FFFFFF;
