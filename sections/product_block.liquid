@@ -155,7 +155,7 @@
 		var model_id = null
 		var models_ids = [];
 		{%- for model in product.variants -%}
-			models_ids.push({{ model.id }})
+			models_ids.push({{ model.id }});
 		{%- endfor -%}
 		console.log('models_ids', models_ids)
 		selectModel('TT12')
