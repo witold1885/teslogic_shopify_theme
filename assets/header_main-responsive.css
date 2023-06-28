@@ -167,12 +167,14 @@
 		height: 104px;
 	}
 	.menu__item-dropdown {
+		display: flex;
 		width: 100%;
 		padding-right: 0;
 		z-index: 3;
 	}
 	.menu__item-dropdown-link {
 		white-space: normal;
+		margin-right: 32px;
 	}
 	.banner {
 		width: 100%;
