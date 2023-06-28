@@ -21,16 +21,28 @@
         {% for link in linklists.main-menu.links %}
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
-            {% if link.links.size > 0 %}
+            {% if link.links.size > 0 or link.title == 'Other Products' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
-              <ul class="menu__item-dropdown">
-                {% for child_link in link.links %}
-                  <li class="menu__item-dropdown-link">
-                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
+              {% if link.title == 'Other Products' %}
+                <ul class="menu__item-dropdown">
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <ul class="menu__item-dropdown">
+                  {% for child_link in link.links %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             {% endif %}
           </div>
         {% endfor %}
@@ -77,16 +89,28 @@
           {% for link in linklists.main-menu.links %}
             <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
               <a href="{{ link.url }}">{{ link.title }}</a>
-              {% if link.links.size > 0 %}
+              {% if link.links.size > 0 or link.title == 'Other Products' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
                 <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
-                <ul class="menu__item-dropdown">
-                  {% for child_link in link.links %}
-                    <li class="menu__item-dropdown-link">
-                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
+                {% if link.title == 'Other Products' %}
+                  <ul class="menu__item-dropdown">
+                    {% for product in collections['all'].products %}
+                      {% if product.handle != 'teslogic-transmitter-kit' %}
+                        <li class="menu__item-dropdown-link">
+                          <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                  <ul class="menu__item-dropdown">
+                    {% for child_link in link.links %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
               {% endif %}
             </div>
           {% endfor %}
