@@ -290,9 +290,8 @@
       $('.button-close').hide()
     })
     $(document).on('click', 'a[href^="#"]', function (e) {
-      console.log($(this).attr('href'))
+      e.preventDefault()
       if ($(this).attr('href') != '#') {
-        e.preventDefault()
         $('.burger-menu-wrap').hide()
         $('.button-close').hide()
         $('html, body').animate({
