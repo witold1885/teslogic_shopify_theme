@@ -69,6 +69,25 @@
 	align-items: center;
 	grid-column-gap: 4px;
 }
+.menu__item-cart {
+	width: 122.27px;
+	box-sizing: border-box;
+	background: #3374FB;
+	border-radius: 100px;
+	margin-left: 8px;
+	color: #FFFFFF;
+}
+.menu__item-cart a {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column-gap: 10px;
+	font-size: 18px;
+	font-family: Gotham;
+	font-weight: 500;
+	line-height: 32px; 
+}
 .menu__item-sticky {
 	color: #000000;
 }
