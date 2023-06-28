@@ -153,7 +153,7 @@
 			$('#amount').text(amount)
 		})*/
 		var model_id = null
-		var models_ids = []
+		var models_ids = [];
 		{%- for model in product.variants -%}
 			models_ids.push({{ model.id }})
 		{%- endfor -%}
