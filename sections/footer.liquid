@@ -16,15 +16,11 @@
           <div class="footer-menu__list-title">
             Contacts
           </div>
-          <ul class="footer-menu__list-items footer-menu__list-items-desktop">
+          <ul class="footer-menu__list-items">
             <li>info@teslogic.co</li>
             <li>2093 Philadelphia<br>
               Pike #3248<br>
               Claymont, DE 19703</li>
-          </ul>
-          <ul class="footer-menu__list-items footer-menu__list-items-mobile">
-            <li>contact@teslogic.com</li>
-            <li>+1 901-375-9767</li>
           </ul>
         </div>
         <!-- <div class="footer-menu__list footer-menu__list-resources">
@@ -58,17 +54,15 @@
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
-              {% if link.links.size > 0 %}
-                <ul class="footer-menu__list-items">
-                  {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' %}
-                      <li>
-                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              {% endif %}
+              <ul class="footer-menu__list-items">
+                {% for product in collections['all'].products %}
+                  {% if product.handle != 'teslogic-transmitter-kit' %}
+                    <li>
+                      <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
             </div>
           {% endif %}
         {% endfor %}
@@ -78,9 +72,9 @@
           </div>
           <ul class="footer-menu__list-items">
             <li><a href="/privacy">Privacy Policy</a></li>
-            <li>Cookie Policy</li>
-            <li><a href="/terms">Terms of Use</a></li>
-            <li>Return Policy</li>
+            <!-- <li>Cookie Policy</li> -->
+            <li><a href="/terms">Terms of Service</a></li>
+            <!-- <li>Return Policy</li> -->
           </ul>
         </div>
         {% for link in linklists.main-menu.links %}
