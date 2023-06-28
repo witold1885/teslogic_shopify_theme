@@ -173,8 +173,7 @@
 		width: 350px;
 		/*height: 210.65px;*/
 		height: auto;
-		margin-right: 0;
-		margin-bottom: 24px;
+		margin: 0 auto 24px;
 	}
 	.product_block-product-gallery-image {
 		width: 100%;
