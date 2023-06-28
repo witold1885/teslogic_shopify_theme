@@ -80,7 +80,7 @@
 	}
 	.footer-menu__list-contacts {
 /*		width: 180px;*/
-		max-width: 155px;
+		width: 155px;
 	}
 	/*.footer-menu__list-resources {
 		display: block;
@@ -90,14 +90,14 @@
 	}*/
 	.footer-menu__list-other-products {
 /*		display: none;*/
-		max-width: 155px;
+		width: 155px;
 	}
 	/*.footer-menu__list-legal {
 		width: 180px;
 	}*/
 	.footer-menu__list-community {
 /*		display: none;*/
-		max-width: 155px;
+		width: 155px;
 	}
 	.footer-menu__list-social {
 
