@@ -21,7 +21,7 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title != 'Community' %}
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
-            <a href="/{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 or link.title == 'Other Products' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -39,7 +39,7 @@
                 <ul class="menu__item-dropdown">
                   {% for child_link in link.links %}
                     <li class="menu__item-dropdown-link">
-                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                      <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>
@@ -92,7 +92,7 @@
           {% for link in linklists.main-menu.links %}
           {% if link.title != 'Community' %}
             <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
-              <a href="/{{ link.url }}">{{ link.title }}</a>
+              <a href="{{ link.url }}">{{ link.title }}</a>
               {% if link.links.size > 0 or link.title == 'Other Products' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
                 <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -110,7 +110,7 @@
                   <ul class="menu__item-dropdown">
                     {% for child_link in link.links %}
                       <li class="menu__item-dropdown-link">
-                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                        <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
                       </li>
                     {% endfor %}
                   </ul>
