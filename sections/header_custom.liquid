@@ -19,6 +19,7 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
+        {% if link.title != 'Community' %}
           <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 or link.title == 'Other Products' %}
@@ -45,6 +46,7 @@
               {% endif %}
             {% endif %}
           </div>
+        {% endif %}
         {% endfor %}
         <!-- <div 
           id="cart-animate"
@@ -87,6 +89,7 @@
       <div class="burger-menu-wrap">
         <div class="burger-menu">
           {% for link in linklists.main-menu.links %}
+          {% if link.title != 'Community' %}
             <div class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}">
               <a href="{{ link.url }}">{{ link.title }}</a>
               {% if link.links.size > 0 or link.title == 'Other Products' %}
@@ -113,6 +116,7 @@
                 {% endif %}
               {% endif %}
             </div>
+          {% endif %}
           {% endfor %}
           <!-- <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
           <div class="menu__item"><a href="/#features">Features</a></div>
