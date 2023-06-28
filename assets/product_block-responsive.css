@@ -210,12 +210,6 @@
 		grid-column-gap: 10px;
 	}
 	.product_block-product-select-text {
-		font-family: 'Gotham';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 18px;
-		line-height: 140%;
-		color: #000000;
 		width: 100%;
 		text-align: left;
 	}
