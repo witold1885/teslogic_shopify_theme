@@ -294,5 +294,18 @@
         }      
       })
     }
+    $(document).click(function(event) { 
+      var $target = $(event.target)
+      if (!$target.closest('.menu__item-opened').length) {
+        $('.menu__item-dropdown').each(function() {
+          $(this).css('display', 'none')
+          let chevron_down = $(this).find('.menu__item-chevron-down')
+          let chevron_up = $(this).find('.menu__item-chevron-up')
+          $(chevron_down).show()
+          $(chevron_up).hide()
+          $(this).parent('.menu__item').removeClass('menu__item-opened')
+        })
+      }        
+    })
   })  
 </script>
