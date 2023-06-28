@@ -166,10 +166,11 @@
 		font-weight: 700;
 		font-size: 32px;
 		line-height: 140%;
+		margin-left: 20px;
 		margin-bottom: 44px;
 	}
 	.product_block-product-gallery {
-		width: 342px;
+		width: 350px;
 		/*height: 210.65px;*/
 		height: auto;
 		margin-right: 0;
