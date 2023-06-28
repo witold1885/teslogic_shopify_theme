@@ -260,7 +260,8 @@
 	}
 	.reviews-rating-overall-data-value {
 		font-size: 26px;
-		font-weight: 700; 
+		font-weight: 700;
+		line-height: 30px;
 	}
 	.reviews-rating-overall-data-stars {
 		grid-column-gap: 8px;
