@@ -291,7 +291,8 @@
 	}
 	.reviews-rating-stats-mark-star-value {
 		font-size: 26px;
-		font-weight: 700; 
+		font-weight: 700;
+		line-height: 31px;
 	}
 	.reviews-rating-stats-mark-star-icon {
 		width: 20px;
