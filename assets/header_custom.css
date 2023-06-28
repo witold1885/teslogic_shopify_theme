@@ -76,6 +76,9 @@
 	background: #3374FB;
 	border-radius: 100px;
 	margin-left: 8px;
+}
+.menu__item-cart a {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
