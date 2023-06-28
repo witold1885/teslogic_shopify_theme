@@ -4,10 +4,7 @@
 {%- style -%}
 
 {%- endstyle -%}
-{{ collections['all'].products | json }}
-{% for product in collections['all'].products %}
-  {{ product | json }}
-{% endfor %}
+
 <footer id="contacts" {% if template == 'cart' %}{% if cart.item_count == 0 %} style="position: fixed; bottom: 0; left: 0; right: 0;" {% endif %}{% endif %}>
   <div class="footer__wrap">
     <div class="footer-top">
@@ -63,8 +60,12 @@
               </div>
               {% if link.links.size > 0 %}
                 <ul class="footer-menu__list-items">
-                  {% for child_link in link.links %}
-                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' %}
+                      <li>
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
                   {% endfor %}
                 </ul>
               {% endif %}
@@ -103,9 +104,15 @@
             Social
           </div>
           <ul class="footer-menu__list-items">
-            <li><a href="https://www.facebook.com/teslogic" target="_blank">Facebook</a></li>
-            <li><a href="https://twitter.com/teslogic_inc" target="_blank">Twitter</a></li>
-            <li><a href="https://instagram.com/teslogic.inc?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a></li>
+            <li>
+              <a href="https://instagram.com/teslogic.inc?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/teslogic" target="_blank">Facebook</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/teslogic_inc" target="_blank">Twitter</a>
+            </li>
           </ul>
         </div>
       </div>
