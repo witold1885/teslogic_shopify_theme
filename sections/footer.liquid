@@ -4,8 +4,8 @@
 {%- style -%}
 
 {%- endstyle -%}
-
-{% for product in all_products %}
+{{ collections.frontpage.products | json }}
+{% for product in collections.frontpage.products %}
   {{ product | json }}
 {% endfor %}
 <footer id="contacts" {% if template == 'cart' %}{% if cart.item_count == 0 %} style="position: fixed; bottom: 0; left: 0; right: 0;" {% endif %}{% endif %}>
