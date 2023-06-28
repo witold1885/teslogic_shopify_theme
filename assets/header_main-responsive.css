@@ -166,6 +166,11 @@
 	.header_mobile-fix {
 		height: 104px;
 	}
+	.menu__item-dropdown {
+		width: 100%;
+		padding-right: 0;
+		z-index: 3;
+	}
 	.banner {
 		width: 100%;
 		height: 660px;
