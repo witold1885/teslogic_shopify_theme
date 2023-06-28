@@ -281,7 +281,7 @@
 		line-height: 140%; 
 	}
 	.reviews-rating-stats-marks {
-		grid-row-gap: 13px;	
+		grid-row-gap: 12px;	
 	}
 	.reviews-rating-stats-mark {
 		grid-column-gap: 20px;
