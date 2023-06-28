@@ -64,11 +64,17 @@ footer {
 	color: #FFFFFF;
 	cursor: pointer;
 }
+.footer-menu__list-contacts .footer-menu__list-items li {
+	cursor: default;
+}
 .footer-menu__list-legal .footer-menu__list-items li {
 	white-space: nowrap;
 }
 .footer-menu__list-items li:hover {
 	color: #3374FB;
+}
+.footer-menu__list-contacts .footer-menu__list-items li:hover {
+	color: #FFFFFF;
 }
 .footer-menu__list-items li a {
 	text-decoration: none;
