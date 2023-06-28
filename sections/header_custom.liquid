@@ -50,7 +50,7 @@
         {% endfor %}
         <div 
           id="cart-animate"
-          class="menu__item menu__item-cart cart-link"
+          class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
         >
           <a href="/cart">
@@ -74,7 +74,7 @@
       <div class="buttons">
         <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
-          class="menu__item cart-link mob-button button-cart"
+          class="menu__item mob-button button-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
         >
           <a href="/cart">
