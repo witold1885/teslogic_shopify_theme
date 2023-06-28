@@ -48,9 +48,9 @@
           </div>
         {% endif %}
         {% endfor %}
-        <!-- <div 
+        <div 
           id="cart-animate"
-          class="menu__item cart-link"
+          class="menu__item menu__item-cart cart-link"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
         >
           <a href="/cart">
@@ -60,8 +60,8 @@
             </div>
             <span>Cart</span>
           </a>
-        </div> -->
-        <a
+        </div>
+        <!-- <a
           id="cart-animate"
           href="/cart"
           class="menu__item menu__item-cart"
@@ -69,7 +69,7 @@
         >
           <img src="{{ 'cart-white.png' | asset_url }}">
           <span href="#">Cart</span>            
-        </a>
+        </a> -->
       </div>
       <div class="buttons">
         <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
