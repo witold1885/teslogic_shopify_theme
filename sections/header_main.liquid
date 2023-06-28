@@ -295,8 +295,8 @@
       if ($(this).attr('href') == '#') {
         e.preventDefault()
       }*/
-      e.preventDefault()
       if ($(this).attr('href') != '#') {
+        e.preventDefault()
         $('.burger-menu-wrap').hide()
         $('.button-close').hide()
         $('html, body').animate({
