@@ -139,7 +139,9 @@
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
 </div>
-
+{%- for model in product.variants -%}
+	{{ model.id }}
+{%- endfor -%}
 <script type="text/javascript">
 	$(document).ready(function() {
 		/*var amount = Number($('#amount').text())
@@ -154,9 +156,9 @@
 		})*/
 		var model_id = null
 		var product_id = {{ product.id }}
-		var variants = {{ product.variants }}
+		// var variants = {{ product.variants }}
 		console.log('product_id', product_id)
-		console.log('product.variants', variants)
+		// console.log('product.variants', variants)
 		selectModel('TT12')
 		$('.product_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
