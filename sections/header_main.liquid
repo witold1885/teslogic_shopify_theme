@@ -292,7 +292,7 @@
     $(document).on('click', 'a[href^="#"]', function (e) {
       $('.burger-menu-wrap').hide()
       $('.button-close').hide()
-      if ($(this).attr('href') != '#') {
+      if ($(this).attr('href') == '#') {
         e.preventDefault()
       }
       /*e.preventDefault()
