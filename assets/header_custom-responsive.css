@@ -113,4 +113,9 @@
 		align-items: center;
 		grid-row-gap: 24px;
 	}
+	.menu__item-cart {
+		width: auto;
+		padding: 0 23px;
+		margin-left: 8px;
+	}
 }
