@@ -37,6 +37,7 @@
 					</div>
 				</div> -->
 				<!-- <div class="product_block-product-select-text">Select your Tesla model and year:</div> -->
+				{% if product.variants.size != 0 %}
 				<div class="product_block-product-select">
 					<div class="product_block-product-select-dropdown-select product_block-product-selected">
 						<span class="product_block-product-select-value">Select model</span>
@@ -64,6 +65,7 @@
 						{%- endfor -%}
 					</div>
 				</div>
+				{% endif %}
 				<!-- <div class="product_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger" class="product_block-add-wireless-charger-checkbox" checked>
 					<label for="select-charger" class="product_block-add-wireless-charger-title">Add Wireless Charger</label>
@@ -92,6 +94,7 @@
 				{{ product.description }}
 			</div>
 			<div class="product_block-product-info-bottom">
+				{% if product.variants.size != 0 %}
 				<div class="product_block-product-select-text">Select your Tesla model and year:</div>
 				<div class="product_block-product-select">
 					<div class="product_block-product-select-dropdown-select product_block-product-selected">
@@ -120,6 +123,7 @@
 						{%- endfor -%}
 					</div>
 				</div>
+				{% endif %}
 				<!-- <div class="product_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger-mobile" class="product_block-add-wireless-charger-checkbox" checked>
 					<label for="select-charger-mobile" class="product_block-add-wireless-charger-title">Add Wireless Charger</label>
