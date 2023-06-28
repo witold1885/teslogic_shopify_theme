@@ -133,7 +133,7 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		grid-column-gap: 16px;
+		grid-column-gap: 40px;
 	}
 	.top .mob-button {
 		cursor: pointer;
