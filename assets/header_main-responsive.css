@@ -25,6 +25,12 @@
 	.title {
 		left: calc(80 * 100vw / 1366);
 	}
+	.menu__item-cart {
+		width: calc(122.27 * 100vw / 1366);
+		border-radius: calc(100 * 100vw / 1366);
+		margin-left: calc(8 * 100vw / 1366);
+		grid-column-gap: calc(10 * 100vw / 1366);
+	}
 }
 @media screen and (min-width: 1000px) and (max-width: 1700px) {
 	.top {
@@ -165,6 +171,12 @@
 	}
 	.header_mobile-fix {
 		height: 104px;
+	}
+	.menu__item-cart {
+		width: auto;
+		height: 40px;
+		padding: 0 23px;
+		margin-left: 8px;
 	}
 	.menu__item-dropdown {
 		width: 100%;
