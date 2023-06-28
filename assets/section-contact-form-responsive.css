@@ -73,7 +73,7 @@
   }
   .contact__wrap {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     grid-row-gap: 80px;
     width: 350px;
     margin: 0 auto;
