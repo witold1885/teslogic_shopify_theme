@@ -119,4 +119,13 @@
 		padding: 0 23px;
 		margin-left: 8px;
 	}
+	.menu__item-dropdown {
+		width: 100%;
+		padding-right: 0;
+		z-index: 3;
+	}
+	.menu__item-dropdown-link {
+		white-space: normal;
+		margin-right: 20px;
+	}
 }
