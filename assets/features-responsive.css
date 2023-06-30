@@ -1,8 +1,5 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {  
 	.features__title {
-		font-size: calc(52 * 100vw / 1366);
-		line-height: calc(64 * 100vw / 1366);
-		margin-left: calc(80 * 100vw / 1366);
 	}
 	.features__blocks {
 /*		grid-column-gap: calc(40px * 100vw / 1366);*/
@@ -77,10 +74,6 @@
 
 @media screen and (max-width: 999px) { 
 	.features__title {
-		font-size: 36px;
-		line-height: 43px;
-		font-weight: 400;
-		font-family: 'Gotham-Medium';
 	}
 	.features__blocks {
 	/*	overflow-x: scroll;*/

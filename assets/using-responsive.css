@@ -6,8 +6,6 @@
 	.using__title {
 		/*width: calc(550 * 100vw / 1366);*/
 		height: calc(64 * 100vw / 1366);
-		font-size: calc(52 * 100vw / 1366);
-		line-height: calc(64 * 100vw / 1366);
 	}
 	.using__content {
 		grid-column-gap: calc(44 * 100vw / 1366);
@@ -84,10 +82,6 @@
 		margin-top: 0;
 /*		width: 207px;*/
 		height: 83px;
-		font-size: 36px;
-		line-height: 36px;
-/*		letter-spacing: 0.02em;*/
-		color: #000000;
 	}
 	.using__content {
 		width: 100%;

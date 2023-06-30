@@ -143,16 +143,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .block_title {
         width: 1206px;
         margin: 0 auto;
+        font-family: 'Gotham';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 52px;
+        line-height: 64px;
+        color: #000000;
+        text-align: left;
+        margin-left: 80px;
+        letter-spacing: 0.02em;
       }
       @media screen and (min-width: 1000px) and (max-width: 1366px) {
         .block_title {
           width: calc(1206 * 100vw / 1366);
+          font-size: calc(52 * 100vw / 1366);
+          line-height: calc(64 * 100vw / 1366);
+          margin-left: calc(80 * 100vw / 1366);
         }
       }
       @media screen and (max-width: 999px) {
         .block_title {
           max-width: 350px;
           margin: 0 20px;
+          font-size: 36px;
+          line-height: 36px;
+          font-weight: 400;
+          font-family: 'Gotham-Medium';
         }
         #main-cart-footer {
           width: 350px!important;

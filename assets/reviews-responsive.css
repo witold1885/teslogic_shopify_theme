@@ -3,8 +3,6 @@
 		margin-bottom: calc(140 * 100vw / 1366);
 	}
 	.reviews-title {
-		font-size: calc(52 * 100vw / 1366);
-		line-height: calc(64 * 100vw / 1366);
 		margin-bottom: calc(40 * 100vw / 1366);
 	}
 	.reviews-data {
@@ -230,10 +228,6 @@
 		margin-bottom: 80px;
 	}
 	.reviews-title {
-		font-size: 36px;
-		line-height: 43px;
-		letter-spacing: 0.72px; 
-		text-align: left;
 		margin-bottom: 40px;
 	}
 	.reviews-data {

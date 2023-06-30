@@ -6,16 +6,8 @@
 	margin: 80px auto 140px;
 }
 .product_block-title {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 52px;
-	line-height: 64px;
-	letter-spacing: 0.02em;
-	color: #000000;
 	/*margin-left: 128px;*/
 	margin-bottom: 39.71px;
-	text-align: left;
 }
 .product_block-product {
 	display: flex;
