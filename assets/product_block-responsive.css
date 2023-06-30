@@ -159,7 +159,8 @@
 		margin-bottom: 10px;
 	}*/
 	.product_block-product-price {
-		font-weight: 700;
+		font-family: 'Gotham-Medium';
+		font-weight: 400;
 		font-size: 32px;
 		line-height: 140%;
 		margin-left: 20px;
