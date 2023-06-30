@@ -19,7 +19,7 @@
 }
 .product_block-product {
 	display: flex;
-	margin-left: 110px;
+	margin-left: 103px;
 	grid-column-gap: 158px;
 }
 .product_block-product-mobile {
@@ -56,10 +56,10 @@
 	height: 100%;
 }
 .product_block-product-gallery-nav-prev {
-	left: -47px
+	left: -40px
 }
 .product_block-product-gallery-nav-next {
-	right: -47px;
+	right: -40px;
 }
 .product_block-product-info {
 	display: flex;
