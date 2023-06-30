@@ -79,6 +79,8 @@
 	.features__title {
 		font-size: 36px;
 		line-height: 43px;
+		font-weight: 400;
+		font-family: 'Gotham-Meduim';
 	}
 	.features__blocks {
 	/*	overflow-x: scroll;*/
@@ -133,7 +135,8 @@
 		width: 300px;
 	}
 	.features__block-legend-title {
-		font-weight: 700;
+		font-weight: 400;
+		font-family: 'Gotham-Meduim';
 		font-size: 24px;
 		line-height: 31px;
 		margin-bottom: 4px;
