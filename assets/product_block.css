@@ -26,8 +26,8 @@
 	display: none;
 }
 .product_block-product-gallery {
-	width: 545px;
-	height: 378px;
+	width: 586px;
+	height: 405px; 
 	position: relative;
 	/*margin-right: 114px;*/
 	display: flex;
@@ -35,7 +35,8 @@
 	align-items: center;
 }
 .product_block-product-gallery-image {
-	width: 449px;
+	width: 100%;
+/*	width: 449px;*/
 /*	height: 323px;*/
 	/*background: rgba(69, 79, 99, 0.1);*/
 }
