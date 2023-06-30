@@ -9,7 +9,7 @@
 		margin-bottom: calc(39.71 * 100vw / 1366);
 	}
 	.product_block-product {
-		margin-left: calc(110 * 100vw / 1366);
+		margin-left: calc(103 * 100vw / 1366);
 		grid-column-gap: calc(158 * 100vw / 1366);
 	}
 	.product_block-product-gallery {
@@ -27,10 +27,10 @@
 		height: calc(32 * 100vw / 1366);
 	}
 	.product_block-product-gallery-nav-prev {
-		left: calc(-1 * 47 * 100vw / 1366)
+		left: calc(-1 * 40 * 100vw / 1366)
 	}
 	.product_block-product-gallery-nav-next {
-		right: calc(-1 * 47 * 100vw / 1366);
+		right: calc(-1 * 40 * 100vw / 1366);
 	}
 	.product_block-product-info {
 		display: flex;
