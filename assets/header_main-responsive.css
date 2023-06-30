@@ -200,7 +200,7 @@
 		font-weight: 400;
 		font-family: 'Gotham-Medium';
 		color: #FFFFFF;
-		width: calc(334 * 100vw / 390);
+		width: calc(390 * 100vw / 390);
 		margin-top: 43px;
 		text-align: center;
 	}
