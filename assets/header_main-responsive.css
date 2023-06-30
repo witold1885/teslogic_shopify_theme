@@ -173,6 +173,10 @@
 	.header_mobile-fix {
 		height: 104px;
 	}
+	.menu__item {
+		font-family: 'Gotham-Medium';
+		font-weight: 400;
+	}
 	.menu__item-cart {
 		width: auto;
 		height: 40px;
