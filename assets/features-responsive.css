@@ -80,7 +80,7 @@
 		font-size: 36px;
 		line-height: 43px;
 		font-weight: 400;
-		font-family: 'Gotham-Meduim';
+		font-family: 'Gotham-Medium';
 	}
 	.features__blocks {
 	/*	overflow-x: scroll;*/
@@ -136,7 +136,7 @@
 	}
 	.features__block-legend-title {
 		font-weight: 400;
-		font-family: 'Gotham-Meduim';
+		font-family: 'Gotham-Medium';
 		font-size: 24px;
 		line-height: 31px;
 		margin-bottom: 4px;
