@@ -6,7 +6,7 @@
 	margin: 80px auto 140px;
 }
 .product_block-title {
-	font-family: 'SF Pro';
+	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 52px;
@@ -67,7 +67,7 @@
 	grid-row-gap: 20px;
 }
 .product_block-product-price {
-	font-family: 'SF Pro';
+	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 52px;
