@@ -195,12 +195,10 @@
 		justify-content: center;
 	}
 	.banner__text {
-		font-family: 'Gotham';
-		font-style: normal;
-		font-weight: 700;
 		font-size: 36px;
-		line-height: 43px;
-/*		letter-spacing: 0.02em;*/
+		line-height: 36px;
+		font-weight: 400;
+		font-family: 'Gotham-Medium';
 		color: #FFFFFF;
 		width: calc(334 * 100vw / 390);
 		margin-top: 43px;
