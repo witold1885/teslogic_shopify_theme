@@ -13,13 +13,13 @@
 		grid-column-gap: calc(158 * 100vw / 1366);
 	}
 	.product_block-product-gallery {
-		width: calc(545 * 100vw / 1366);
-		height: calc(378 * 100vw / 1366);
+		width: calc(586 * 100vw / 1366);
+		height: calc(405 * 100vw / 1366);
 		/*margin-right: calc(114 * 100vw / 1366);*/
 	}
 	.product_block-product-gallery-image {
-		width: calc(449 * 100vw / 1366);
-		height: calc(323 * 100vw / 1366);
+/*		width: calc(449 * 100vw / 1366);*/
+/*		height: calc(323 * 100vw / 1366);*/
 	}
 	.product_block-product-gallery-nav {
 		top: calc(173 * 100vw / 1366);
