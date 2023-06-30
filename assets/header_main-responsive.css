@@ -200,7 +200,7 @@
 		font-weight: 700;
 		font-size: 36px;
 		line-height: 43px;
-		letter-spacing: 0.02em;
+/*		letter-spacing: 0.02em;*/
 		color: #FFFFFF;
 		width: calc(334 * 100vw / 390);
 		margin-top: 43px;
