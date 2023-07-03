@@ -39,7 +39,12 @@
                 <ul class="menu__item-dropdown">
                   {% for child_link in link.links %}
                     <li class="menu__item-dropdown-link">
-                      <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
+                      {% assign url_begin = child_link.url | slice: 0 %}
+                      {% if url_begin == '#' %}
+                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                      {% else %}
+                        <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
@@ -110,7 +115,12 @@
                   <ul class="menu__item-dropdown">
                     {% for child_link in link.links %}
                       <li class="menu__item-dropdown-link">
-                        <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
+                        {% assign url_begin = child_link.url | slice: 0 %}
+                        {% if url_begin == '#' %}
+                          <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                        {% else %}
+                          <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
+                        {% endif %}
                       </li>
                     {% endfor %}
                   </ul>
