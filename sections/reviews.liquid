@@ -16,7 +16,7 @@
 {% assign product = all_products['teslogic-transmitter-kit'] %}
 <!-- <div id="shopify-section-template--19543708926264__16868394313756278c" class="shopify-section"> -->
   <!-- <div id="shopify-block-3d0c2965-c6bc-43d8-9697-a54d948aa432" class="shopify-block shopify-app-block"> -->
-  	<div id="shopify-product-reviews" data-id="8374796878136" style="display: none;">
+  	<div id="shopify-product-reviews" data-id="7634013257942" style="display: none;">
   	</div>
 	<!-- </div> -->
 <!-- </div> -->
@@ -90,11 +90,11 @@
 						let script = document.createElement("script");
 				    script.id = 'singleReviewData-' + i;
 				    script.async = true;
-				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&page=2&product_id=8374796878136&shop=8cc6c3.myshopify.com
-				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8374796878136&shop=8cc6c3.myshopify.com&page=${i}&product_id=8374796878136`;
+				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback7634013257942&page=2&product_id=7634013257942&shop=8cc6c3.myshopify.com
+				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback7634013257942&shop=8cc6c3.myshopify.com&page=${i}&product_id=7634013257942`;
 				    document.body.appendChild(script);
 
-				    window.paginateCallback8374796878136 = function(a)
+				    window.paginateCallback7634013257942 = function(a)
 				    {
 				    	// console.log(a)
 				    	totalData.push(a)
@@ -149,14 +149,14 @@
 					$('#reviewsFormWrap')
 						.find('form')
 						.addClass('new-review-form')
-						.attr('id', 'new-review-form_8374796878136')
+						.attr('id', 'new-review-form_7634013257942')
 						.attr('method', 'post')
 						.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
 						.attr('onsubmit', 'SPR.submitForm(this);return false;')
 					let formHtml = `						
 		        <input type="hidden" name="review[rating]">
-		        <input type="hidden" name="product_id" value="8374796878136">
-		        <input id="review_title_8374796878136" class="review-form-title" type="hidden" name="review[title]" value="">
+		        <input type="hidden" name="product_id" value="7634013257942">
+		        <input id="review_title_7634013257942" class="review-form-title" type="hidden" name="review[title]" value="">
 		        <h3 class="spr-form-title">Write a review</h3>
 		        <div class="reviews-form-body">
 		        	<div class="reviews-form-column">
