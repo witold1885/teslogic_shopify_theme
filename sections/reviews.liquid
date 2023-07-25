@@ -111,6 +111,9 @@
 		          	sumMarks += ratingMarks[mark]
 		          }
 		          console.log('i', i)
+		          console.log('Math.ceil(reviewCount / 5)', Math.ceil(reviewCount / 5))
+		          console.log('sumMarks', sumMarks)
+		          console.log('reviewCount', reviewCount)
 	        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
 		            let marksHtml = '';
 		            for (let m = 5; m >= 1; m--) {
