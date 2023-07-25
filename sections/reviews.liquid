@@ -101,6 +101,7 @@
 	            let tmpDiv = document.createElement('div');
 	            tmpDiv.innerHTML = a.reviews;
 	            let rating = tmpDiv.querySelectorAll('.spr-starratings');
+		          console.log('rating', rating)
 
 	            for (let _i = rating.length - 1; _i >= 0; _i--) {
 		            let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
