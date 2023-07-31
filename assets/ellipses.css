@@ -39,13 +39,13 @@
 	right: calc(1051px + ((100vw - 1366px) / 2));
 	top: 4675.57px;
 }
-/*.ellipse__main-4 {
-	width: 958px;
-	height: 958px;
-	left: calc(855px + ((100vw - 1366px) / 2));
-	top: 4293px;
+.ellipse__main-4 {
+	width: 3117px;
+	height: 3117px; 
+	left: calc(-1 * 470px + ((100vw - 1366px) / 2));
+	top: 5640px;
 }
-.ellipse__main-5 {
+/*.ellipse__main-5 {
 	width: 815px;
 	height: 815px;
 	right: calc(967px + ((100vw - 1366px) / 2));
