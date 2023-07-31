@@ -110,7 +110,7 @@
 		          for (const mark in ratingMarks) {
 		          	sumMarks += ratingMarks[mark]
 		          }
-		          
+
 	        	  if (i >= Math.ceil(reviewCount / 5) && sumMarks == reviewCount) {
 		            let marksHtml = '';
 		            for (let m = 5; m >= 1; m--) {
@@ -249,7 +249,6 @@
 	        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
 	        		<div class="reviews-list-item-bottom">
 	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
-	        			<div class="reviews-list-item-spent">Time spent using app: 4 days</div>
 	        		</div>
 	        	</div>
 	        `
