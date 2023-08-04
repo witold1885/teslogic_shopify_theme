@@ -110,8 +110,10 @@
 		font-size: calc(20 * 100vw / 1366);
 	}
 	.reviews-list-item-text {
-		font-size: calc(22 * 100vw / 1366);
-		line-height: calc(32 * 100vw / 1366);
+/*		font-size: calc(22 * 100vw / 1366);*/
+/*		line-height: calc(32 * 100vw / 1366);*/
+		font-size: calc(14 * 100vw / 1366);
+		line-height: calc(17 * 100vw / 1366);
 	}
 	.reviews-list-item-bottom {
 		grid-row-gap: calc(8 * 100vw / 1366);
