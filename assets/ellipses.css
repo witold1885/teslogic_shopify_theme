@@ -88,6 +88,9 @@
 	left: calc(-1 * 470px + ((100vw - 1366px) / 2));
 	top: 0;
 }
+.ellipse__store-reviews .ellipse {
+	background: #F4F6FA;
+}
 
 .ellipse-bottom-container {
 	position: absolute;
