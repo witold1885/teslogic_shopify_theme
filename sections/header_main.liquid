@@ -253,8 +253,8 @@
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
-    window.addEventListener('scroll', setStyckyHeader)
-    function setStyckyHeader() {
+    window.addEventListener('scroll', setStickyHeader)
+    function setStickyHeader() {
       var header_main_height = $('#header_main').height()
       var header_top_height = $('#header_main').find('.top').height()
       if (window.pageYOffset >= header_top_height) {
