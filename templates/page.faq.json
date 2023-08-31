@@ -18,12 +18,12 @@
             "answer": "Installation process is very simple, it will take you no more than 10 minutes. You can find the detailed video manuals in the Manuals section."
           }
         },
-        "7398a68d-5d4b-444f-b6ec-24a83207f7e8": {
+        "b1f6dba7-e5b0-4f39-98a2-7356001a8553": {
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Does connecting Teslogic affect the car warranty?",
-            "answer": "No, it doesn't. Installing the transmitter doesn't make any changes to the car equipment"
+            "question": "Which side is the connector on RHD vehicles?",
+            "answer": "On RHD cars, the connector is located on the driver's side."
           }
         },
         "a6cb0067-9e41-4711-8b74-bb9e00b37203": {
@@ -31,7 +31,7 @@
           "settings": {
             "chapter_id": "1",
             "question": "I have installed the transmitter. How to connect it to the app?",
-            "answer": "Just run the application, the connection is automatic. In case of problems, try restarting your phone. The transmitter is active when the car is not in sleep mode"
+            "answer": "Just run the app, establish a connection with the transmitter within the app (not through the Bluetooth manager), and allow pairing of devices. In case of problems, try restarting your phone. The transmitter is active when the car is not in sleep mode."
           }
         },
         "50e32532-ad70-4e2d-afc5-440d1c15d993": {
@@ -39,7 +39,7 @@
           "settings": {
             "chapter_id": "1",
             "question": "What type of connection does Teslogic use?",
-            "answer": "Teslogic is connected via Bluetooth Low Energy protocol"
+            "answer": "Teslogic is connected via Bluetooth Low Energy protocol."
           }
         },
         "b2b23f7a-ed0d-4344-9c99-b6702744992b": {
@@ -55,69 +55,85 @@
           "settings": {
             "chapter_id": "1",
             "question": "Does Teslogic App transmit any user data to remote server?",
-            "answer": "The App transmits only depersonalized data for the purpose of statistics, the privacy of your data is of the highest priority for us"
+            "answer": "The App transmits only depersonalized data for the purpose of statistics, the privacy of your data is of the highest priority for us."
           }
         },
-        "b249d263-3513-4e3c-aa7e-4e30758993df": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "1",
-            "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
-            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
-          }
-        },
-        "4b639e15-e2d7-4a73-a57d-ee479cb192d6": {
+        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c": {
           "type": "chapter",
           "settings": {
             "chapter_id": "2",
-            "chapter": "Compatibility"
+            "chapter": "Warranty, Safety and Return Policy"
           }
         },
-        "607d0c5c-e1a8-4873-be59-e4c596186b15": {
+        "7398a68d-5d4b-444f-b6ec-24a83207f7e8": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Does Teslogic fit all Model 3\/Y or are there any exceptions?",
-            "answer": "Teslogic is compatible with all Model 3\/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
+            "question": "Does connecting Teslogic affect the car warranty?",
+            "answer": "No, it doesn't. Installing the transmitter doesn't make any changes to the car equipment."
           }
         },
-        "df090883-f0b7-447e-9ae4-f993a2b25557": {
+        "c3401778-1354-4503-b197-f8b5d9a622a9": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "What does US Spec and non-US Spec mean?",
-            "answer": "When choosing Model 3 2019-2020, please note that the kits are different for US Spec and non-US Spec. US Spec includes the USA and Canada. Non-US Spec identifies all other countries."
+            "question": "Is there a manufacturer's warranty for the Teslogic transmitter?",
+            "answer": "The Teslogic transmitter comes with a comprehensive 3-year warranty. If you encounter any issues or if the transmitter malfunctions, please get in touch with us, and we'll provide assistance."
           }
         },
-        "366cec18-ea9e-4fa6-bcd5-229bd8236ffc": {
+        "97e4f599-0a93-4af5-a281-4a14ec235abc": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Is there a version of Teslogic for Model S or X?",
-            "answer": "At the moment there are no such versions. If you are interested in Teslogic for model S\/X, please contact us, and we will think how we can help you"
+            "question": "What is your return policy?",
+            "answer": "We offer returns for items within 30 days of receipt of shipment."
           }
         },
-        "a0405dcf-1763-44c2-aee2-79e8c182d253": {
+        "51f2a674-dfc5-431d-913e-d745a79dd5cd": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "What versions of iOS\/Android is the transmitter compatible with?",
-            "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher. Using older devices, may cause a noticeable decrease in the data exchange rate."
+            "question": "Do I need to remove Teslogic before visiting service center?",
+            "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
           }
         },
-        "f2084917-d299-4cda-9192-dfd8a74f10a2": {
+        "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Is Teslogic app compatible with an Android tablet\/iPad",
-            "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
+            "question": "Does Teslogic impact any car's functionality?",
+            "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
+          }
+        },
+        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "Can using a transmitter harm my car?",
+            "answer": "No, it can't."
+          }
+        },
+        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "2",
+            "question": "Does the blind spot warning feature alert about all objects in the blind spot?",
+            "answer": "No, the sensors of the vehicle may not detect all objects situated within the blind spot and there may be no alerts displayed via Teslogic app. It is the driver's responsibility to maintain alertness while changing lanes, by conducting mandatory shoulder checks."
           }
         },
         "d4ebb7fb-5941-40e3-9573-318a4b7df89a": {
           "type": "chapter",
           "settings": {
             "chapter_id": "3",
-            "chapter": "Indicators, Data"
+            "chapter": "Measurements and Indicators"
+          }
+        },
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What system of measurement is used in Teslogic?",
+            "answer": "Teslogic works in two systems of measurements – imperial and SI. The application switches to the system used in Tesla's main interface."
           }
         },
         "faf361c7-ec88-4ccd-86fb-a43079c4295c": {
@@ -134,6 +150,14 @@
             "chapter_id": "3",
             "question": "What do Range indicators \"City\", \"Highway\" mean?",
             "answer": "Based on the statistics of your driving, Teslogic estimates driving range without charging in the city and on the highway. Highway speed should not exceed 70mph. Weather and terrain can affect this estimate."
+          }
+        },
+        "4203c377-d7b6-46b7-b02d-1c7d85a1314a": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "Why does Teslogic's range calculation differ from Tesla's range calculation?",
+            "answer": "Teslogic estimates range based on your driving statistics. Factors such as weather, terrain, and your driving style can influence this calculation. However, you have the option to revert to Tesla data. To do this, navigate to the Preferences menu and choose your desired calculation under the Range section."
           }
         },
         "88cd5123-305a-4e1d-b213-f49c7071940d": {
@@ -157,7 +181,7 @@
           "settings": {
             "chapter_id": "3",
             "question": "How to reset trip meter?",
-            "answer": "Just do a long tap on average speed or mileage"
+            "answer": "Just do a long tap on average speed or mileage."
           }
         },
         "e4de832a-9838-4a87-98b6-a687fde24ff3": {
@@ -171,85 +195,22 @@
         "44b237bd-1e37-4cc5-977e-3feddcad435c": {
           "type": "question",
           "settings": {
-            "chapter_id": "3",
+            "chapter_id": "4",
             "question": "How to create a route for the navigator?",
-            "answer": "Share your destination point with Teslogic App via Google Maps App"
-          }
-        },
-        "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "3",
-            "question": "What system of measurement is used in Teslogic?",
-            "answer": "Teslogic works in two systems of measurements – imperial and SI. The application switches to the system used in Tesla's main interface."
-          }
-        },
-        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c": {
-          "type": "chapter",
-          "settings": {
-            "chapter_id": "4",
-            "chapter": "Warranty, Safety"
-          }
-        },
-        "c3401778-1354-4503-b197-f8b5d9a622a9": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "Is there a manufacturer's warranty for the Teslogic transmitter?",
-            "answer": "The Teslogic transmitter comes with a full 3-year warranty. If you have any problems, or the transmitter is out of order, please contact us and we will help"
-          }
-        },
-        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "Can using a transmitter harm my car?",
-            "answer": "No, it can't"
-          }
-        },
-        "51f2a674-dfc5-431d-913e-d745a79dd5cd": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "Do I need to remove Teslogic before visiting service center?",
-            "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
-          }
-        },
-        "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "Does Teslogic impact any car's functionality?",
-            "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
-          }
-        },
-        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "Does the blind spot warning feature alert about all objects in the blind spot?",
-            "answer": "No, the sensors of the vehicle may not detect all objects situated within the blind spot and there may be no alerts displayed via Teslogic app. It is the driver's responsibility to maintain alertness while changing lanes, by conducting mandatory shoulder checks."
-          }
-        },
-        "97e4f599-0a93-4af5-a281-4a14ec235abc": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "4",
-            "question": "What is your return policy?",
-            "answer": "We offer returns for items within 30 days of receipt of shipment."
+            "answer": "Share your destination point with Teslogic App via Google Maps App."
           }
         },
         "82239037-f960-4f2c-aa70-d59ba5d85350": {
           "type": "chapter",
           "settings": {
-            "chapter_id": "5",
+            "chapter_id": "4",
             "chapter": "Usage"
           }
         },
         "d8d58d03-cb3c-44b5-901d-50472753a6d9": {
           "type": "question",
           "settings": {
-            "chapter_id": "5",
+            "chapter_id": "4",
             "question": "How can Teslogic transmitter be updated?",
             "answer": "The transmitter updates automatically over the air."
           }
@@ -257,7 +218,7 @@
         "6cb7fde7-205a-45c7-8d11-49516438ecee": {
           "type": "question",
           "settings": {
-            "chapter_id": "5",
+            "chapter_id": "4",
             "question": "How does Teslogic impact my Tesla’s battery?",
             "answer": "When not connected to a phone, Teslogic is in a low power mode. And it doesn't consume battery power if the car is sleeping."
           }
@@ -265,17 +226,72 @@
         "4dec977d-3de4-4711-b9d5-b70310232b6c": {
           "type": "question",
           "settings": {
-            "chapter_id": "5",
+            "chapter_id": "4",
             "question": "How can I switch the app screens?",
             "answer": "If the autopilot mode is off, the application screen can be changed by simply toggling the right selector on the steering left or right.\nWhen the autopilot is on, the Teslogic screen switching mode changes: you need to toggle the selector in the direction you need and return it back. It won't change the follow distance and the app screen will be switched."
           }
         },
-        "b1f6dba7-e5b0-4f39-98a2-7356001a8553": {
+        "25445080-e1b7-4db6-a324-67fb127dca1d": {
           "type": "question",
           "settings": {
-            "chapter_id": "1",
-            "question": "Which side is the connector on right-hand drive cars?",
-            "answer": "On RHD vehicles, the connector is located on the driver's side."
+            "chapter_id": "4",
+            "question": "How can I customize screens?",
+            "answer": "You can modify the number of displayed screens and their order within the Preferences menu. We will also add the ability to choose which options are shown on the screen in future app updates."
+          }
+        },
+        "b249d263-3513-4e3c-aa7e-4e30758993df": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "4",
+            "question": "Is it possible for a second driver to use Teslogic app on his\/her own phone?",
+            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
+          }
+        },
+        "4b639e15-e2d7-4a73-a57d-ee479cb192d6": {
+          "type": "chapter",
+          "settings": {
+            "chapter_id": "5",
+            "chapter": "Compatibility"
+          }
+        },
+        "607d0c5c-e1a8-4873-be59-e4c596186b15": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "Does Teslogic fit all Model 3\/Y or are there any exceptions?",
+            "answer": "Teslogic is compatible with all Model 3\/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
+          }
+        },
+        "df090883-f0b7-447e-9ae4-f993a2b25557": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "What does US Spec and non-US Spec mean?",
+            "answer": "When choosing Model 3 2019-2020, please note that the kits are different for US Spec and non-US Spec. US Spec includes the USA and Canada. Non-US Spec identifies all other countries."
+          }
+        },
+        "366cec18-ea9e-4fa6-bcd5-229bd8236ffc": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "Is there a version of Teslogic for Model S or X?",
+            "answer": "At the moment there are no such versions. If you are interested in Teslogic for model S\/X, please contact us, and we will think how we can help you"
+          }
+        },
+        "a0405dcf-1763-44c2-aee2-79e8c182d253": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "What versions of iOS\/Android is the transmitter compatible with?",
+            "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher. Using older devices, may cause a noticeable decrease in the data exchange rate."
+          }
+        },
+        "f2084917-d299-4cda-9192-dfd8a74f10a2": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "5",
+            "question": "Is Teslogic app compatible with an Android tablet\/iPad?",
+            "answer": "The app works on a tablet, but is not yet visually optimized. The app version for tablets will be released in several months."
           }
         },
         "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6": {
@@ -290,11 +306,34 @@
       "block_order": [
         "c17a1a0b-edf0-4b51-a238-64c2f62af8b7",
         "ed64ad88-6dc4-4875-ad76-61abd5464169",
-        "7398a68d-5d4b-444f-b6ec-24a83207f7e8",
+        "b1f6dba7-e5b0-4f39-98a2-7356001a8553",
         "a6cb0067-9e41-4711-8b74-bb9e00b37203",
         "50e32532-ad70-4e2d-afc5-440d1c15d993",
         "b2b23f7a-ed0d-4344-9c99-b6702744992b",
         "4f5e5708-4bec-429c-a0cf-0801c20a7e16",
+        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c",
+        "7398a68d-5d4b-444f-b6ec-24a83207f7e8",
+        "c3401778-1354-4503-b197-f8b5d9a622a9",
+        "97e4f599-0a93-4af5-a281-4a14ec235abc",
+        "51f2a674-dfc5-431d-913e-d745a79dd5cd",
+        "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
+        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
+        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5",
+        "d4ebb7fb-5941-40e3-9573-318a4b7df89a",
+        "413e2f73-82cb-485e-889e-39e78aa8f6e7",
+        "faf361c7-ec88-4ccd-86fb-a43079c4295c",
+        "f313dd55-ff03-400a-b2d2-c63ffeb48d93",
+        "4203c377-d7b6-46b7-b02d-1c7d85a1314a",
+        "88cd5123-305a-4e1d-b213-f49c7071940d",
+        "f29bcefa-fb81-4859-8a88-5b71ce3a6c84",
+        "96c8cee5-457a-478d-b17a-cb1e2d49eae3",
+        "e4de832a-9838-4a87-98b6-a687fde24ff3",
+        "44b237bd-1e37-4cc5-977e-3feddcad435c",
+        "82239037-f960-4f2c-aa70-d59ba5d85350",
+        "d8d58d03-cb3c-44b5-901d-50472753a6d9",
+        "6cb7fde7-205a-45c7-8d11-49516438ecee",
+        "4dec977d-3de4-4711-b9d5-b70310232b6c",
+        "25445080-e1b7-4db6-a324-67fb127dca1d",
         "b249d263-3513-4e3c-aa7e-4e30758993df",
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6",
         "607d0c5c-e1a8-4873-be59-e4c596186b15",
@@ -302,27 +341,6 @@
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
         "a0405dcf-1763-44c2-aee2-79e8c182d253",
         "f2084917-d299-4cda-9192-dfd8a74f10a2",
-        "d4ebb7fb-5941-40e3-9573-318a4b7df89a",
-        "faf361c7-ec88-4ccd-86fb-a43079c4295c",
-        "f313dd55-ff03-400a-b2d2-c63ffeb48d93",
-        "88cd5123-305a-4e1d-b213-f49c7071940d",
-        "f29bcefa-fb81-4859-8a88-5b71ce3a6c84",
-        "96c8cee5-457a-478d-b17a-cb1e2d49eae3",
-        "e4de832a-9838-4a87-98b6-a687fde24ff3",
-        "44b237bd-1e37-4cc5-977e-3feddcad435c",
-        "413e2f73-82cb-485e-889e-39e78aa8f6e7",
-        "49c6d1d9-2e3b-4719-8a98-de0b8bf2581c",
-        "c3401778-1354-4503-b197-f8b5d9a622a9",
-        "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
-        "51f2a674-dfc5-431d-913e-d745a79dd5cd",
-        "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
-        "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5",
-        "97e4f599-0a93-4af5-a281-4a14ec235abc",
-        "82239037-f960-4f2c-aa70-d59ba5d85350",
-        "d8d58d03-cb3c-44b5-901d-50472753a6d9",
-        "6cb7fde7-205a-45c7-8d11-49516438ecee",
-        "4dec977d-3de4-4711-b9d5-b70310232b6c",
-        "b1f6dba7-e5b0-4f39-98a2-7356001a8553",
         "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6"
       ],
       "settings": {
