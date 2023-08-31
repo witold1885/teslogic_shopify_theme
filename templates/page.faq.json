@@ -14,8 +14,8 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Will I be able install Teslogic device myself, or do I need to contact the service center?",
-            "answer": "Installation process is very simple, it will take you no more than 10 minutes. You can find the detailed video manuals in the Manuals section"
+            "question": "Can I install the Teslogic device myself, or should I contact the service center?",
+            "answer": "Installation process is very simple, it will take you no more than 10 minutes. You can find the detailed video manuals in the Manuals section."
           }
         },
         "7398a68d-5d4b-444f-b6ec-24a83207f7e8": {
@@ -46,7 +46,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Does Teslogic require an internet connection to work?",
+            "question": "Does Teslogic require an internet connection or cell service to work?",
             "answer": "No, it doesn't. An internet connection is only required to use the Navigation Map screen."
           }
         },
