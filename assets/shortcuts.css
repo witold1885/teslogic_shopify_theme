@@ -1,4 +1,21 @@
+.shortcuts {
+	margin-left: 80px;
+}
+.shortcuts-title {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 20px;
+	margin-bottom: 40px;
+}
+.shortcuts-title-text {
+	color: #0F0F0F;
+	/* Title */
+	font-family: Gotham;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 64px; /* 123.077% */ 
+}
 .shortcuts-content {
 	display: flex;
-	margin-left: 80px;
 }
