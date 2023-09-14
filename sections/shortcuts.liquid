@@ -10,7 +10,22 @@
 	</div>
 	<div class="shortcuts-content">
 		<div class="shortcuts-content-list">
-			<div class="shortcuts-content-list-item">
+		    {% assign articles = blogs['teslogic-shortcuts'].articles | sort: "title" %}
+		    {% for article in articles %}
+				<div class="shortcuts-content-list-item">
+					<div class="shortcuts-content-list-item-title">
+						<div class="shortcuts-content-list-item-title-icon">
+							<img src="{{ 'shortcuts_marker.svg' | asset_url }}">
+						</div>
+		  				{% assign title_array = article.title | split: " " %}
+		  				{% assign number = title_array.first %}
+		  				{% assign title = article.title | replace: number, "" %}
+						<div class="shortcuts-content-list-item-title-text">{{ title }}</div>
+					</div>
+					<div class="shortcuts-content-list-item-content">{{ article.content }}</div>
+				</div>
+		  	{% endfor %}
+			<!-- <div class="shortcuts-content-list-item">
 				<div class="shortcuts-content-list-item-title">
 					<div class="shortcuts-content-list-item-title-icon">
 						<img src="{{ 'shortcuts_marker.svg' | asset_url }}">
@@ -27,7 +42,7 @@
 					<div class="shortcuts-content-list-item-title-text">Switching Chill/Sport modes by kickdown</div>
 				</div>
 				<div class="shortcuts-content-list-item-content">The task of the organization, in particular the constant outreach support for our activities, is an interesting experiment in testing progressive development</div>
-			</div>
+			</div> -->
 			
 		</div>
 		<div class="shortcuts-content-image">
