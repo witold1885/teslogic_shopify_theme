@@ -21,6 +21,13 @@
 	display: flex;
 	grid-column-gap: 58px;
 }
+.shortcuts-content-image {
+	width: 571.205px; 
+	height: 282.301px;
+}
+.shortcuts-content-image img {
+	width: 100%;
+}
 .shortcuts-content-list {
 	display: flex;
 	flex-direction: column;
