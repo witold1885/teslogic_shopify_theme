@@ -1,11 +1,15 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
-	/*.shortcuts {
-		margin-left: 80px;
-		margin-bottom: 140px;
-	}*/
+	.shortcuts {
+/*		margin-left: 80px;*/
+		margin-bottom: calc(140 * 100vw / 1366);
+	}
 	.shortcuts-title {
 		grid-column-gap: calc(20 * 100vw / 1366);
 		margin-bottom: calc(40 * 100vw / 1366);
+	}
+	.shortcuts-title-icon {
+		width: calc(67 * 100vw / 1366);
+		height: calc(41 * 100vw / 1366); 
 	}
 	.shortcuts-title-text {
 		font-size: calc(52 * 100vw / 1366);
