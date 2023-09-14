@@ -4,6 +4,13 @@
 		margin-left: 80px;
 		margin-bottom: 130px;
 	}
+	.devices_supporting-image {
+		width: 585px;
+		height: 367px; 
+	}
+	.devices_supporting-image img {
+		width: 100%;
+	}
 	.devices_supporting-text {
 		color: #3374FB;
 		text-align: right;
@@ -14,6 +21,17 @@
 		font-weight: 700;
 		line-height: 64px; /* 123.077% */ 
 		margin-left: 125px;
+	}
+	@media screen and (min-width: 1000px) and (max-width: 1366px) {
+		.devices_supporting-image {
+			width: calc(585 * 100vw / 1920);
+			height: calc(367 * 100vw / 1920); 
+		}
+		.devices_supporting-text {
+			font-size: calc(52 * 100vw / 1920);
+			line-height: calc(64 * 100vw / 1920); /* 123.077% */ 
+			margin-left: calc(125 * 100vw / 1920);
+		}	
 	}
 </style>
 
