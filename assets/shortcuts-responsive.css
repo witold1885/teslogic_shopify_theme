@@ -20,6 +20,7 @@
 	}
 	.shortcuts-content-list {
 		grid-row-gap: calc(20 * 100vw / 1366);
+		width: calc(578 * 100vw / 1366); 
 	}
 	.shortcuts-content-list-item {
 		grid-row-gap: calc(8 * 100vw / 1366);
