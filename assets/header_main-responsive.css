@@ -91,7 +91,7 @@
 		top: calc(288 * 100vw / 1366);
 	}
 	.expand {
-		margin-bottom: calc(6 * 100vw / 1366);
+		margin-bottom: calc(9 * 100vw / 1366);
 		width: calc(64 * 100vw / 1366);
 		height: calc(64 * 100vw / 1366);
 	}
