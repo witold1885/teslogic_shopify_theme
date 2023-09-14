@@ -12,6 +12,9 @@
 	width: 67px;
 	height: 41px; 
 }
+.shortcuts-title-icon img {
+	width: 100%; 
+}
 .shortcuts-title-text {
 	color: #0F0F0F;
 	/* Title */
