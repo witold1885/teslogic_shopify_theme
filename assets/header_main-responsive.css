@@ -10,8 +10,15 @@
 	.title {
 		font-size: calc(48 * 100vw / 1920);
 		line-height: calc(64 * 100vw / 1920);
-		width: calc(541 * 100vw / 1920);
+/*		width: calc(541 * 100vw / 1920);*/
 		top: calc(288 * 100vw / 1920);
+		/*left: calc(128 * 100vw / 1920);*/
+	}
+	.subtitle {
+/*		font-size: calc(48 * 100vw / 1920);*/
+/*		line-height: calc(64 * 100vw / 1920);*/
+/*		width: calc(541 * 100vw / 1920);*/
+		top: calc(357 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 }
@@ -90,8 +97,14 @@
 	.title {
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
-		width: calc(541 * 100vw / 1366);
-		top: calc(288 * 100vw / 1366);
+/*		width: calc(541 * 100vw / 1366);*/
+		top: calc(281 * 100vw / 1366);
+	}
+	.subtitle {
+		font-size: calc(36 * 100vw / 1366);
+		line-height: calc(43 * 100vw / 1366);
+/*		width: calc(541 * 100vw / 1366);*/
+		top: calc(357 * 100vw / 1366);
 	}
 	.expand {
 		margin-bottom: calc(9 * 100vw / 1366);
