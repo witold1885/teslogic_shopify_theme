@@ -2,5 +2,11 @@
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <div class="shortcuts">
-	
+	<div class="shortcuts-title"></div>
+	<div class="shortcuts-content">
+		<div class="shortcuts-content-list"></div>
+		<div class="shortcuts-content-image">
+			<img src="{{ 'shortcuts.png' | asset_url }}" srcset="{{ 'shortcuts-retina.png' | asset_url }} 2x" loading="lazy">
+		</div>
+	</div>
 </div>
