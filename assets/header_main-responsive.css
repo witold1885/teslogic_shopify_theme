@@ -23,7 +23,10 @@
 		margin-right: calc(80 * 100vw / 1366);
 	}
 	.title {
-		left: calc(80 * 100vw / 1366);
+		left: calc(78 * 100vw / 1366);
+	}
+	.subtitle {
+		left: calc(78 * 100vw / 1366);
 	}
 	.menu__item-cart {
 		width: calc(122.27 * 100vw / 1366);

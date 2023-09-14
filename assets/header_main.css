@@ -210,9 +210,23 @@
 	color: #FFFFFF;
 	width: 541px;
 	position: absolute;
-	top: 288px;
+	top: 281px;
 /*	left: 128px;*/
-	left: 80px;
+	left: 78px;
+}
+.subtitle {
+	font-family: Gotham;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal; 
+	line-height: 43px;
+	color: #FFFFFF;
+	width: 541px;
+	position: absolute;
+	top: 357px;
+/*	left: 128px;*/
+	left: 78px;
 }
 .expand {
 	margin-bottom: 26px;
