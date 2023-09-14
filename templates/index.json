@@ -25,6 +25,11 @@
       "settings": {
       }
     },
+    "shortcuts": {
+      "type": "shortcuts",
+      "settings": {
+      }
+    },
     "box_block": {
       "type": "box_block",
       "settings": {
@@ -52,6 +57,7 @@
     "devices_supporting",
     "features",
     "significant",
+    "shortcuts",
     "box_block",
     "add_charger",
     "store_block",
