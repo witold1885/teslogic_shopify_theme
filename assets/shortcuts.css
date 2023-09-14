@@ -8,6 +8,10 @@
 	grid-column-gap: 20px;
 	margin-bottom: 40px;
 }
+.shortcuts-title-icon {
+	width: 67px;
+	height: 41px; 
+}
 .shortcuts-title-text {
 	color: #0F0F0F;
 	/* Title */
