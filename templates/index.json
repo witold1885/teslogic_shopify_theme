@@ -10,6 +10,11 @@
       "settings": {
       }
     },
+    "devices_supporting": {
+      "type": "devices_supporting",
+      "settings": {
+      }
+    },
     "main_video": {
       "type": "main_video",
       "settings": {
@@ -49,6 +54,7 @@
   "order": [
     "using",
     "shop_now",
+    "devices_supporting",
     "main_video",
     "features",
     "significant",
