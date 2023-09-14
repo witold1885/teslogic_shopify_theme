@@ -15,11 +15,6 @@
       "settings": {
       }
     },
-    "main_video": {
-      "type": "main_video",
-      "settings": {
-      }
-    },
     "features": {
       "type": "features",
       "settings": {
@@ -55,7 +50,6 @@
     "using",
     "shop_now",
     "devices_supporting",
-    "main_video",
     "features",
     "significant",
     "box_block",
