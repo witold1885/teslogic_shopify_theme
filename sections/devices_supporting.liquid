@@ -23,6 +23,15 @@
 		line-height: 64px; /* 123.077% */ 
 		margin-left: 125px;
 	}
+	.ellipse__devices_supporting {
+		width: 545px;
+		height: 545px; 
+		top: -110px;
+		right: calc(1093px + ((100vw - 1366px) / 2));
+	}
+	.ellipse__devices_supporting .ellipse {
+		background: #F4F6FA;
+	}	
 	@media screen and (min-width: 1000px) and (max-width: 1366px) {
 		.devices_supporting {
 			margin-bottom: calc(130 * 100vw / 1366);
@@ -36,6 +45,11 @@
 			font-size: calc(52 * 100vw / 1366);
 			line-height: calc(64 * 100vw / 1366); /* 123.077% */ 
 			margin-left: calc(125 * 100vw / 1366);
+		}	
+		.ellipse__devices_supporting {
+			width: calc(545 * 100vw / 1366);
+			height: calc(545 * 100vw / 1366); 
+			top: calc(-1 * 110px + ((100vw - 1366px) / 2));
 		}	
 	}
 </style>
