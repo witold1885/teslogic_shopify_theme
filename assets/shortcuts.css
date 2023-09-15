@@ -69,3 +69,12 @@
 	font-weight: 400;
 	line-height: normal; 
 }
+.ellipse__shortcuts {
+	width: 564px;
+	height: 564px; 
+	top: -110px;
+	right: 1183px;
+}
+.ellipse__shortcuts .ellipse {
+	border: 50px solid #F4F6FA; 
+}	
