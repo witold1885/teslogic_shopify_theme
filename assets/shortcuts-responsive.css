@@ -39,4 +39,16 @@
 	.shortcuts-content-list-item-content {
 		font-size: calc(14 * 100vw / 1366);
 	}
+	.ellipse__shortcuts-1 {
+		width: calc(564 * 100vw / 1366);
+		height: calc(564 * 100vw / 1366); 
+		top: calc(-1 * 11 * 100vw / 1366);
+		right: calc(1183 * 100vw / 1366);
+	}
+	.ellipse__shortcuts-2 {
+		width: calc(464 * 100vw / 1366);
+		height: calc(464 * 100vw / 1366); 
+		top: calc(39 * 100vw / 1366);
+		right: calc(1233 * 100vw / 1366);
+	}
 }
