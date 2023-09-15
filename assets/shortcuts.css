@@ -70,13 +70,21 @@
 	font-weight: 400;
 	line-height: normal; 
 }
-.ellipse__shortcuts {
+.ellipse__shortcuts-1 {
 	width: 564px;
 	height: 564px; 
-	top: -110px;
+	top: 0;
 	right: 1183px;
 }
-.ellipse__shortcuts .ellipse {
-/*	border: 50px solid #F4F6FA; */
-		background: #F4F6FA;
+.ellipse__shortcuts-1 .ellipse {
+	background: #F4F6FA;
+}	
+.ellipse__shortcuts-2 {
+	width: 514px;
+	height: 514px; 
+	top: 50px;
+	right: 1233px;
+}
+.ellipse__shortcuts-2 .ellipse {
+	background: #FEFEFE;
 }	
