@@ -1,6 +1,7 @@
 .shortcuts {
 	margin-left: 80px;
 	margin-bottom: 140px;
+	position: relative;
 }
 .shortcuts-title {
 	display: flex;
