@@ -77,5 +77,6 @@
 	right: 1183px;
 }
 .ellipse__shortcuts .ellipse {
-	border: 50px solid #F4F6FA; 
+/*	border: 50px solid #F4F6FA; */
+		background: #F4F6FA;
 }	
