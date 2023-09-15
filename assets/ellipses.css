@@ -82,16 +82,6 @@
 	background: #FEFEFE;
 }
 
-.ellipse__devices_supporting {
-	width: 545px;
-	height: 545px; 
-	top: calc(-1 * 110px + ((100vw - 1366px) / 2));
-	right: calc(1093px + ((100vw - 1366px) / 2));
-}
-.ellipse__devices_supporting .ellipse {
-	background: #F4F6FA;
-}
-	
 .ellipse__store-reviews {
 	width: 3117px;
 	height: 3117px; 
