@@ -47,6 +47,24 @@
 .shortcuts-content-image img {
 	width: 100%;
 }
+.shortcuts-content-more {
+	margin-top: 111.7px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-row-gap: 19px;
+}
+.shortcuts-content-more-text {
+	color: #3374FB;
+	text-align: center;
+	/* Subtitle */
+	font-family: Gotham;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal; 
+}
 .shortcuts-content-list {
 	display: flex;
 	flex-direction: column;
