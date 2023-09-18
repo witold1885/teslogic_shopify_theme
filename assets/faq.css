@@ -24,6 +24,7 @@
 	width: 1206px;
 	display: flex;
 	flex-direction: column;
+	grid-row-gap: 20px;
 	border-radius: 12px;
 	background: #F4F6FA;
 	padding: 20px;
@@ -31,8 +32,7 @@
 .faq__chapter-top {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 20px;	
+	align-items: center;	
 }
 .faq__chapter-title {
 	display: flex;
@@ -67,7 +67,7 @@
 	height: 32px; 
 }
 .faq__chapter-questions {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	grid-row-gap: 20px;
 }
