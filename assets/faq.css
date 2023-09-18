@@ -66,6 +66,11 @@
 	width: 32px;
 	height: 32px; 
 }
+.faq__chapter-questions {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
 .faq__chapter-question-text {
 	font-family: 'Gotham';
 	font-style: normal;
