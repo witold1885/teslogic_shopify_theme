@@ -27,16 +27,15 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	grid-column-gap: 22px;
-	margin-bottom: 36px;
+	grid-column-gap: 12px;
+	margin-bottom: 20px;
 }
 .faq__chapter-title-sign {
-	width: 28px;
-	height: 28px;
+	width: 32px;
+	height: 16px; 
 }
 .faq__chapter-title-sign img {
 	width: 100%;
-	height: 100%;
 }
 .faq__chapter-title-sign-opened {
 	display: block;
@@ -45,12 +44,12 @@
 	display: none;
 }
 .faq__chapter-title-text {
-	width: calc(100% - 28px - 22px);
+	width: calc(100% - 32px - 12px);
 	font-family: 'Gotham';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 36px;
-	line-height: 32px;
+	line-height: normal;
 	color: #000000;
 }
 .faq__chapter-question-text {
