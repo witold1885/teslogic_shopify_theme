@@ -331,7 +331,8 @@
 			$(form).find('.review-form-title').val(reviewTitle)
 			// $(form).submit()
 	    let formArray = $(form).serializeArray()
-	    let formData = { shop: '8cc6c3.myshopify.com' }
+	    // let formData = { shop: '8cc6c3.myshopify.com' }
+	    let formData = { shop: 'teslogic.co' }
 	    for (let item of formArray) {
 	    	formData[item.name] = item.value
 	    }
