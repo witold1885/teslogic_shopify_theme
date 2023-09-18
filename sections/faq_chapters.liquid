@@ -24,17 +24,19 @@
 							<img src="{{ 'chevron-down-blue.svg' | asset_url }}">
 						</div>
 					</div>
-					{% for subblock in section.blocks %}
-						{% if subblock.type == "question" %}
-							{% if subblock.settings.chapter_id == block.settings.chapter_id %}
-								<div class="faq__chapter-question">
-									<div class="faq__chapter-question-text">{{ subblock.settings.question }}</div>
-									<div class="faq__chapter-question-answer">{{ subblock.settings.answer }}</div>
-									<!-- <div class="faq__chapter-question-expand">+</div> -->
-								</div>
+					<div class="faq__chapter-questions">
+						{% for subblock in section.blocks %}
+							{% if subblock.type == "question" %}
+								{% if subblock.settings.chapter_id == block.settings.chapter_id %}
+									<div class="faq__chapter-question">
+										<div class="faq__chapter-question-text">{{ subblock.settings.question }}</div>
+										<div class="faq__chapter-question-answer">{{ subblock.settings.answer }}</div>
+										<!-- <div class="faq__chapter-question-expand">+</div> -->
+									</div>
+								{% endif %}
 							{% endif %}
-						{% endif %}
-					{% endfor %}
+						{% endfor %}
+					</div>
 				</div>
 			{% endif %}
 		{% endfor %}
