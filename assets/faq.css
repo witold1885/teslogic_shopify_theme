@@ -22,13 +22,15 @@
 }
 .faq__chapter {
 	width: 461px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
 }
 .faq__chapter-title {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	grid-column-gap: 12px;
-	margin-bottom: 20px;
 }
 .faq__chapter-title-sign {
 	width: 32px;
