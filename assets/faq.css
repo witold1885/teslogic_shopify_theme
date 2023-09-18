@@ -11,13 +11,13 @@
 	text-align: left;
 }
 .faq__chapters {
-	margin-top: 92px;
+	margin-top: 32px;
 	margin-bottom: 80px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	grid-column-gap: 120px;
-	grid-row-gap: 40px;
+	grid-row-gap: 20px;
 	margin-left: 80px;
 }
 .faq__chapter {
@@ -28,6 +28,11 @@
 	border-radius: 12px;
 	background: #F4F6FA;
 	padding: 20px;
+}
+.faq__chapter-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
 }
 .faq__chapter-title {
 	display: flex;
