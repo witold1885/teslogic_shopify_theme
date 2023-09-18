@@ -18,7 +18,7 @@
 	.shortcuts-subtitle {
 		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
-		width: calc(1200 * 100vw / 1366);
+		width: calc(1207 * 100vw / 1366);
 		margin-bottom: calc(56 * 100vw / 1366);
 	}
 	.shortcuts-content {
