@@ -50,7 +50,7 @@
 .shortcuts-content-list {
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 20px;
+	grid-row-gap: 24px;
 	width: 578px; 
 }
 .shortcuts-content-list-item {
