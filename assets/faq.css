@@ -67,6 +67,12 @@
 	width: 32px;
 	height: 32px; 
 }
+.faq__chapter-chevron img {
+	width: 100%;
+}
+.faq__chapter-chevron-reverted {
+	transform: rotate(180deg);
+}
 .faq__chapter-questions {
 	display: none;
 	flex-direction: column;
