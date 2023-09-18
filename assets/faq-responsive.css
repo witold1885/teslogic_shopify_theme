@@ -4,10 +4,10 @@
 		line-height: calc(64 * 100vw / 1366);
 	}
 	.faq__chapters {
-		margin-top: calc(92 * 100vw / 1366);
+		margin-top: calc(32 * 100vw / 1366);
 		margin-bottom: calc(80 * 100vw / 1366);
 		grid-column-gap: calc(120 * 100vw / 1366);
-		grid-row-gap: calc(40 * 100vw / 1366);
+		grid-row-gap: calc(20 * 100vw / 1366);
 		margin-left: calc(80 * 100vw / 1366);
 	}
 	.faq__chapter {
