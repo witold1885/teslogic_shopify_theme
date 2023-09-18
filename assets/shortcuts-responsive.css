@@ -29,7 +29,7 @@
 		height: calc(282.301 * 100vw / 1366);
 	}
 	.shortcuts-content-list {
-		grid-row-gap: calc(20 * 100vw / 1366);
+		grid-row-gap: calc(24 * 100vw / 1366);
 		width: calc(578 * 100vw / 1366); 
 	}
 	.shortcuts-content-list-item {
