@@ -15,6 +15,11 @@
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366); /* 123.077% */ 
 	}
+	.shortcuts-subtitle {
+		font-size: calc(22 * 100vw / 1366);
+		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
+		margin-bottom: calc(56 * 100vw / 1366);
+	}
 	.shortcuts-content {
 		grid-column-gap: calc(58 * 100vw / 1366);
 	}
