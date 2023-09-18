@@ -67,7 +67,7 @@
 	height: 32px; 
 }
 .faq__chapter-questions {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	grid-row-gap: 20px;
 }
