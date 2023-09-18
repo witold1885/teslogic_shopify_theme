@@ -58,19 +58,18 @@
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 22px;
 	line-height: 32px;
 	color: #000000;
 	cursor: pointer;
 }
 .faq__chapter-question-answer {
-	display: none;
-	margin-top: 12px;
+	margin-top: 8px;
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
-	line-height: 17px;
+	line-height: normal;
 	color: #000000;
 }
 .faq__chapter-question-expand {
