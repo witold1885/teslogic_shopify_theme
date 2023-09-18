@@ -21,8 +21,11 @@ not found in Tesla's basic functionality. These commands add convenience without
 				<div class="shortcuts-content-list-item">
 					<div class="shortcuts-content-list-item-title">
 						<div class="shortcuts-content-list-item-title-icon">
-							<!-- <img src="{{ 'shortcuts_marker.svg' | asset_url }}"> -->
-	  						<img src="{{ article.image | img_url: '848x848' }}">
+							{% if article.image %}
+	  							<img src="{{ article.image | img_url: '848x848' }}">
+	  						{% else %}
+								<img src="{{ 'shortcuts_marker.svg' | asset_url }}">
+							{% endif %}
 						</div>
 		  				{% assign title_array = article.title | split: " " %}
 		  				{% assign number = title_array.first %}
