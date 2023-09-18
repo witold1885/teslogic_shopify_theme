@@ -77,7 +77,7 @@
 				$('.faq__chapters').find('.faq__chapter-chevron').each(function() {
 					$(this).removeClass('faq__chapter-chevron-reverted')
 				})
-				$(this).parent('.faq__chapter').find('.faq__chapter-questions').show()
+				$(this).parent('.faq__chapter').find('.faq__chapter-questions').css('display', 'flex')
 				$(this).find('.faq__chapter-chevron').addClass('faq__chapter-chevron-reverted')
 			}			
 		})
