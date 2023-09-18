@@ -39,8 +39,7 @@
 		grid-column-gap: calc(8 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item-title-text {
-		font-size: calc(22 * 100vw / 1366);
-		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
+		font-size: calc(18 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item-content {
 		font-size: calc(14 * 100vw / 1366);
