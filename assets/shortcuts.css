@@ -33,6 +33,7 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px; /* 145.455% */ 
+	margin-bottom: 56px;
 }
 .shortcuts-content {
 	display: flex;
