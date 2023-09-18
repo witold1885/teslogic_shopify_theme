@@ -67,10 +67,10 @@
 	color: #000;
 	/* Text large */
 	font-family: Gotham;
-	font-size: 22px;
+	font-size: 18px;
 	font-style: normal;
-	font-weight: 400;
-	line-height: 32px; /* 145.455% */ 
+	font-weight: 700;
+	line-height: normal;
 }
 .shortcuts-content-list-item-content {
 	color: #000;
