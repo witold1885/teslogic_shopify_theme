@@ -12,10 +12,10 @@
 	}
 	.faq__chapter {
 		width: calc(461 * 100vw / 1366);
+		grid-row-gap: calc(20 * 100vw / 1366);
 	}
 	.faq__chapter-title {
 		grid-column-gap: calc(12 * 100vw / 1366);
-		margin-bottom: calc(20 * 100vw / 1366);
 	}
 	.faq__chapter-title-sign {
 		width: calc(32 * 100vw / 1366);
@@ -26,13 +26,12 @@
 		font-size: calc(36 * 100vw / 1366);
 	}
 	.faq__chapter-question-text {
-		/*font-size: calc(22 * 100vw / 1366);*/
+		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
 	}
 	.faq__chapter-question-answer {
-		margin-top: calc(12 * 100vw / 1366);
-		/*font-size: calc(14 * 100vw / 1366);*/
-		line-height: calc(17 * 100vw / 1366);
+		margin-top: calc(8 * 100vw / 1366);
+		font-size: calc(14 * 100vw / 1366);
 	}
 	.faq__chapter-question-expand {
 		width: calc(9 * 100vw / 1366);
