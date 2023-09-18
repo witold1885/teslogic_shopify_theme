@@ -68,14 +68,14 @@
 			console.log($(questions).is(':visible'))
 			if ($(questions).is(':visible')) {
 				$(this).parent('.faq__chapter').find('.faq__chapter-questions').hide()
-				$(this).find('.faq__chapter-chevron').removeClass('.faq__chapter-chevron-reverted')
+				$(this).find('.faq__chapter-chevron').removeClass('faq__chapter-chevron-reverted')
 			}
 			else {
 				$('.faq__chapters').find('.faq__chapter-questions').each(function() {
 					$(this).hide()
 				})
 				$(this).parent('.faq__chapter').find('.faq__chapter-questions').show()
-				$(this).find('.faq__chapter-chevron').addClass('.faq__chapter-chevron-reverted')
+				$(this).find('.faq__chapter-chevron').addClass('faq__chapter-chevron-reverted')
 			}			
 		})
 		/*$('.faq__chapter-question-text').on('click', function() {
