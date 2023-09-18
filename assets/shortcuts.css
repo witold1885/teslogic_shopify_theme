@@ -65,6 +65,13 @@
 	font-weight: 700;
 	line-height: normal; 
 }
+.shortcuts-content-more-icon {
+	width: 44.122px;
+	height: 27px;  
+}
+.shortcuts-content-more-icon img {
+	width: 100%;
+}
 .shortcuts-content-list {
 	display: flex;
 	flex-direction: column;
