@@ -39,7 +39,7 @@
 	}
 	.faq__chapter-questions {
 		grid-row-gap: calc(20 * 100vw / 1366);
-		padding: calc(16 * 100vw / 1366) calc(20 * 100vw / 1366) calc(20 * 100vw / 1366);
+		padding: calc(16 * 100vw / 1366) calc(20 * 100vw / 1366) calc(20 * 100vw / 1366) calc(64 * 100vw / 1366);
 	}
 	.faq__chapter-question-text {
 		font-size: calc(22 * 100vw / 1366);
