@@ -68,6 +68,7 @@
 			console.log($(questions).is(':visible'))
 			if ($(questions).is(':visible')) {
 				$(this).parent('.faq__chapter').find('.faq__chapter-questions').hide()
+				$(this).parent('.faq__chapter').removeClass('faq__chapter-opened')
 				$(this).find('.faq__chapter-chevron').removeClass('faq__chapter-chevron-reverted')
 			}
 			else {
@@ -78,6 +79,7 @@
 					$(this).removeClass('faq__chapter-chevron-reverted')
 				})
 				$(this).parent('.faq__chapter').find('.faq__chapter-questions').css('display', 'flex')
+				$(this).parent('.faq__chapter').addClass('faq__chapter-opened')
 				$(this).find('.faq__chapter-chevron').addClass('faq__chapter-chevron-reverted')
 			}			
 		})
