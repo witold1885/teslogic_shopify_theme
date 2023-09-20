@@ -25,7 +25,6 @@
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 20px;
-	padding: 20px;
 }
 .faq__chapter-top {
 	display: flex;
@@ -34,6 +33,7 @@
 	cursor: pointer;
 	background: #F4F6FA;
 	border-radius: 12px;
+	padding: 20px;
 }
 .faq__chapter-title {
 	display: flex;
@@ -77,6 +77,7 @@
 	display: none;
 	flex-direction: column;
 	grid-row-gap: 20px;
+	padding: 20px;
 	border-bottom-left-radius: 19px;
 	border-bottom-right-radius: 19px;
 	border: 3px solid var(--Background-blue, #F4F6FA); 
