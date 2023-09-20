@@ -79,7 +79,8 @@
 	padding: 16px 20px 20px;
 	border-bottom-left-radius: 19px;
 	border-bottom-right-radius: 19px;
-	border: 3px solid var(--Background-blue, #F4F6FA); 
+	border: 3px solid #F4F6FA;
+	border-top: none;
 }
 .faq__chapter-question-text {
 	font-family: 'Gotham';
