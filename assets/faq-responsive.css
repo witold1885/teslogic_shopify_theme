@@ -12,7 +12,6 @@
 	}
 	.faq__chapter {
 		width: calc(1206 * 100vw / 1366);
-		grid-row-gap: calc(20 * 100vw / 1366);
 	}
 	.faq__chapter-top {
 		border-radius: calc(12 * 100vw / 1366);
@@ -35,7 +34,7 @@
 	}
 	.faq__chapter-questions {
 		grid-row-gap: calc(20 * 100vw / 1366);
-		padding: calc(20 * 100vw / 1366);
+		padding: calc(16 * 100vw / 1366) calc(20 * 100vw / 1366) calc(20 * 100vw / 1366);
 		border-bottom-left-radius: calc(19 * 100vw / 1366);
 		border-bottom-right-radius: calc(19 * 100vw / 1366);
 	}
