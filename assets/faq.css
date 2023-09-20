@@ -26,7 +26,6 @@
 	flex-direction: column;
 	grid-row-gap: 20px;
 	padding: 20px;
-	border-radius: 19px;
 	border: 3px solid var(--Background-blue, #F4F6FA); 
 }
 .faq__chapter-top {
@@ -35,6 +34,7 @@
 	align-items: center;
 	cursor: pointer;
 	background: #F4F6FA;
+	border-radius: 12px;
 }
 .faq__chapter-title {
 	display: flex;
@@ -78,6 +78,7 @@
 	display: none;
 	flex-direction: column;
 	grid-row-gap: 20px;
+	border-radius: 19px;
 }
 .faq__chapter-question-text {
 	font-family: 'Gotham';
