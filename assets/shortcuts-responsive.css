@@ -102,4 +102,8 @@
 		width: 320px;
 		height: 158.15px;
 	}
+	.shortcuts-content-list {
+		grid-row-gap: 20px;
+		width: 100%; 
+	}
 }
