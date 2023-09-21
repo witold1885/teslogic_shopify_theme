@@ -86,4 +86,7 @@
 		width: 349px;
 		margin-bottom: 60px;
 	}
+	.shortcuts-content {
+		flex-direction: column-reverse;
+	}
 }
