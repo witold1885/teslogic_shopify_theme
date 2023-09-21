@@ -93,4 +93,7 @@
 	.shortcuts-content-bottom-mobile {
 		display: block;
 	}
+	.shortcuts-content-right {
+		display: none;
+	}
 }
