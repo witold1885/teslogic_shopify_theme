@@ -110,4 +110,11 @@
 		grid-row-gap: 8px;
 		padding: 20px;
 	}
+	.shortcuts-content-list-item-title {
+		grid-column-gap: 12px;
+	}
+	.shortcuts-content-list-item-title-text {
+		font-size: 16px;
+		line-height: 140%;
+	}
 }
