@@ -117,4 +117,12 @@
 		font-size: 16px;
 		line-height: 140%;
 	}
+	.shortcuts-content-more {
+		margin-top: 0;
+		width: 347px;
+	}
+	.shortcuts-content-more-text {
+		font-size: 26px;
+		line-height: normal; 
+	}
 }
