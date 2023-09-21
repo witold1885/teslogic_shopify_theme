@@ -88,6 +88,7 @@
 	}
 	.shortcuts-content {
 		flex-direction: column;
+		grid-row-gap: 60px;
 	}
 	.shortcuts-content-top-mobile, 
 	.shortcuts-content-bottom-mobile {
