@@ -96,4 +96,8 @@
 	.shortcuts-content-right {
 		display: none;
 	}
+	.shortcuts-content-image {
+		width: 320px;
+		height: 158.15px;
+	}
 }
