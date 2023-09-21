@@ -40,6 +40,10 @@
 	display: flex;
 	grid-column-gap: 58px;
 }
+.shortcuts-content-top-mobile, 
+.shortcuts-content-bottom-mobile {
+	display: none;
+}
 .shortcuts-content-image {
 	width: 571.205px; 
 	height: 282.301px;
