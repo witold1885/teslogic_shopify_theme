@@ -15,6 +15,11 @@
 not found in Tesla's basic functionality. These commands add convenience without affecting the driving process or compromising vehicle safety
 	</div>
 	<div class="shortcuts-content">
+		<div class="shortcuts-content-top-mobile">
+			<div class="shortcuts-content-image">
+				<img src="{{ 'shortcuts-mobile.png' | asset_url }}" srcset="{{ 'shortcuts-mobile-2x.png' | asset_url }} 2x" loading="lazy">
+			</div>			
+		</div>
 		<div class="shortcuts-content-list">
 		    {% assign articles = blogs['teslogic-shortcuts'].articles | sort: "title" %}
 		    {% for article in articles %}
@@ -49,6 +54,17 @@ not found in Tesla's basic functionality. These commands add convenience without
 					<img src="{{ 'code-more.svg' | asset_url }}">
 				</div>
 			</div>
+		</div>
+		<div class="shortcuts-content-bottom-mobile">
+			<div class="shortcuts-content-more">
+				<div class="shortcuts-content-more-text">
+					This is only the beginning.<br>
+					Many more to come...
+				</div>
+				<div class="shortcuts-content-more-icon">
+					<img src="{{ 'code-more.svg' | asset_url }}">
+				</div>
+			</div>			
 		</div>
 	</div>
 </div>
