@@ -106,4 +106,8 @@
 		grid-row-gap: 20px;
 		width: 100%; 
 	}
+	.shortcuts-content-list-item {
+		grid-row-gap: 8px;
+		padding: 20px;
+	}
 }
