@@ -76,4 +76,14 @@
 		margin-left: 20px;
 		margin-right: 16px;
 	}
+	.shortcuts-title-text {
+		font-size: 36px;
+		line-height: normal;
+	}
+	.shortcuts-subtitle {
+		font-size: 18px;
+		line-height: 140%; /* 25.2px */
+		width: 349px;
+		margin-bottom: 60px;
+	}
 }
