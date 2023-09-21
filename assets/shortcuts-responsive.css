@@ -69,3 +69,11 @@
 		right: calc(1233 * 100vw / 1366);
 	}
 }
+
+@media screen and (max-width: 999px) {
+	.shortcuts {
+		width: 354px;
+		margin-left: 20px;
+		margin-right: 16px;
+	}
+}
