@@ -87,6 +87,10 @@
 		margin-bottom: 60px;
 	}
 	.shortcuts-content {
-		flex-direction: column-reverse;
+		flex-direction: column;
+	}
+	.shortcuts-content-top-mobile, 
+	.shortcuts-content-bottom-mobile {
+		display: block;
 	}
 }
