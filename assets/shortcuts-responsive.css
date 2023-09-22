@@ -112,6 +112,8 @@
 	.shortcuts-content-list-item {
 		grid-row-gap: 8px;
 		padding: 20px;
+		border-radius: 20px;
+		background: #F4F6FA;
 	}
 	.shortcuts-content-list-item-title {
 		grid-column-gap: 12px;
