@@ -80,6 +80,8 @@
 	.shortcuts-title-text {
 		font-size: 36px;
 		line-height: normal;
+		width: 100%;
+		margin: 0;
 	}
 	.shortcuts-subtitle {
 		font-size: 18px;
