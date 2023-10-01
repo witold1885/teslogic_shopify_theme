@@ -64,7 +64,7 @@ $(document).ready(async function() {
 				</div>
 			</div>
 		`
-		$('.bloggers_block__list').append(videoItem)
+		$('.bloggers_block__list-scroller').append(videoItem)
 	}
 })
 </script>
@@ -82,6 +82,21 @@ $(document).ready(async function() {
 .bloggers_block__list {
 	display: flex;
 	grid-column-gap: 48px;
+	margin-left: 80px;
+	margin-right: 80px;
+	scrollbar-color: transparent transparent;
+	cursor: grab;
+	user-select: none;
+	width: 100vw;
+	margin-left: calc(-1 * (100vw - 1366px) / 2);
+	overflow-x: visible;
+}
+.bloggers_block__list-scroller {
+	overflow-x: scroll;
+	display: flex;
+	grid-column-gap: 48px;
+	padding-left: calc((100vw - 1366px + 160px) / 2);
+	scrollbar-color: transparent transparent;
 }
 .bloggers_block__list-item {
 	display: flex;
@@ -137,5 +152,7 @@ $(document).ready(async function() {
 
 <div class="bloggers_block">
   	<div class="block_title bloggers_block__title">Bloggers about Teslogic</div>
-	<div class="bloggers_block__list"></div>
+	<div class="bloggers_block__list">
+		<div class="bloggers_block__list-scroller"></div>		
+	</div>
 </div>
