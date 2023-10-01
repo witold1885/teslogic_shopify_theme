@@ -4,8 +4,7 @@ $(document).ready(async function() {
 	const API_KEY = 'AIzaSyBIO_rLOupamMWN0yNCUUNREWNCFi_3zpc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	console.log('videos:')
-	console.log({% videos %})
-	// const videos = 
+	console.log({{ videos | json }})
 	const videoUrls = [
 		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
 		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
@@ -87,8 +86,7 @@ $(document).ready(async function() {
 	height: 311px; 
 	padding: 24px 20px 16px;
 	border-radius: 20px;
-	background: #F4F6FA;
-	box-sizing: border-box;
+	background: #F4F6FA; 
 }
 .bloggers_block__list-item-thumbnail {
 	width: 360px;
