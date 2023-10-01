@@ -47,7 +47,7 @@ $(document).ready(async function() {
 	function addVideoItem(videoData, channelData) {
 		let videoItem = `
 			<div class="bloggers_block__list-item">
-				<div class="bloggers_block__list-item-thumbnail" style="background: url('${videoData.thumbnails.high.url}')">
+				<div class="bloggers_block__list-item-thumbnail" style="background-image: url('${videoData.thumbnails.high.url}')">
 				</div>
 				<div class="bloggers_block__list-item-channel">
 					<div class="bloggers_block__list-item-channel-thumbnail">
@@ -86,6 +86,7 @@ $(document).ready(async function() {
 	height: 202px; 
 	border-radius: 13px; 
 	overflow: hidden;
+    background-size: cover;
 }
 /*.bloggers_block__list-item-thumbnail img {
 	width: 100%;
