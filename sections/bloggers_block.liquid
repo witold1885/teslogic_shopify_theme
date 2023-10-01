@@ -57,8 +57,9 @@ $(document).ready(async function() {
 					<div class="bloggers_block__list-item-channel-thumbnail">
 						<img src="${channelData.thumbnails.default.url}">
 					</div>
-					<div class="bloggers_block__list-item-channel-description">
-						${channelData.title}: “${excerpt}”
+					<div class="bloggers_block__list-item-channel-info">
+						<span class="bloggers_block__list-item-channel-title">${channelData.title}: </span>
+						<span class="bloggers_block__list-item-channel-excerpt">“${excerpt}”</span>
 					</div>
 				</div>
 			</div>
@@ -100,10 +101,6 @@ $(document).ready(async function() {
     background-size: cover;
     background-position: center;
 }
-/*.bloggers_block__list-item-thumbnail img {
-	width: 100%;
-	height: 100%;
-}*/
 .bloggers_block__list-item-channel {
 	display: flex;
 	grid-column-gap: 8px;
@@ -117,6 +114,9 @@ $(document).ready(async function() {
 .bloggers_block__list-item-channel-thumbnail img {
 	width: 100%;
 	height: 100%;
+}
+.bloggers_block__list-item-channel-info {
+	max-width: 296px;
 }
 </style>
 
