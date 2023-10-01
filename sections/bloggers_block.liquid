@@ -22,8 +22,11 @@ $(document).ready(async function() {
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
 			let duration = videoInfo.items[0].contentDetails.duration
+									.replace('PT', '')
+									.replace('M', ':')
+									.replace('S', '')
 			console.log(duration)
-			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, video.summary_html)
+			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, duration, video.summary_html)
 		}
 	}
 
@@ -44,11 +47,11 @@ $(document).ready(async function() {
 		return data
 	}
 
-	function addVideoItem(videoData, channelData, excerpt) {
+	function addVideoItem(videoData, channelData, duration, excerpt) {
 		let videoItem = `
 			<div class="bloggers_block__list-item">
 				<div class="bloggers_block__list-item-thumbnail" style="background-image: url('${videoData.thumbnails.high.url}')">
-					<div class="bloggers_block__list-item-duration"></div>
+					<div class="bloggers_block__list-item-duration">${duration}</div>
 				</div>
 				<div class="bloggers_block__list-item-channel">
 					<div class="bloggers_block__list-item-channel-thumbnail">
