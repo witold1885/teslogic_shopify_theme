@@ -20,6 +20,7 @@ $(document).ready(async function() {
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
 			console.log(channelInfo)
+			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet)
 		}
 	}
 
@@ -42,6 +43,21 @@ $(document).ready(async function() {
 		let data = await response.json()
 		return data
 	}
+
+	function addVideoItem(videoData, channelData) {
+		let videoItem = `
+			<div class="bloggers_block__list-item">
+				<div class="bloggers_block__list-item-thumbnail">
+					<img src="${videoData.thumbnails.high.url}">
+				</div>
+				<div class="bloggers_block__list-item-channel">
+					<div class="bloggers_block__list-item-channel-thumbnail">
+						<img src="${channelData.thumbnails.default.url}">
+					</div>
+				</div>
+			</div>
+		`
+	}
 })
 </script>
 
@@ -52,11 +68,31 @@ $(document).ready(async function() {
 	font-size: 52px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 64px; /* 123.077% */ 
+	line-height: 64px; /* 123.077% */
+	margin-bottom: 40px;
+}
+.bloggers_block__list {
+	display: flex;
+	grid-column-gap: 48px;
+}
+.bloggers_block__list-item {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 12px;
+	padding: 24px 20px 16px;
+}
+.bloggers_block__list-item-channel {
+	display: flex;
+	grid-column-gap: 8px;
+}
+.bloggers_block__list-item-channel-thumbnail {
+	width: 56px;
+	height: 56px;
+	border-radius: 88px; 
 }
 </style>
 
 <div class="bloggers_block">
-  <div class="block_title bloggers_block__title">Bloggers about Teslogic</div>
-	
+  	<div class="block_title bloggers_block__title">Bloggers about Teslogic</div>
+	<div class="bloggers_block__list"></div>
 </div>
