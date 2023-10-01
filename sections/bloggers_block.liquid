@@ -1,6 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	console.log('bloggers here')
+	const API_KEY = 'AIzaSyBIO_rLOupamMWN0yNCUUNREWNCFi_3zpc'
 	const videoUrls = [
 		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
 		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
@@ -13,10 +13,26 @@ $(document).ready(function() {
 	for (let videoUrl of videoUrls) {
 		const videoId = getVideoId(videoUrl)
 		console.log(videoId)
+		if (videoId) {
+
+	        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoId}&part=snippet`)
+	            .then(response => response.json())
+	            .then(data => {
+	                if (data.items.length > 0) {
+	                    var channelId = data.items[0].snippet.channelId;
+	                    getChannelInfoById(channelId);
+	                } else {
+	                    alert('Відео не знайдено.');
+	                }
+	            })
+	            .catch(error => {
+	                console.error('Помилка запиту до API: ', error);
+	            });
+		}
 	}
 
 	function getVideoId(videoUrl) {
-	    var match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+	    let match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/);
 	    if (match) {
 	        return match[1];
 	    }
