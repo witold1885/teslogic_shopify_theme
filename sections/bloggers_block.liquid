@@ -26,7 +26,7 @@ $(document).ready(async function() {
 									.replace('PT', '')
 									.replace('M', ':')
 									.replace('S', '')
-			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, videoUrl, duration, video.summary_html)
+			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, videoId, duration, video.summary_html)
 		}
 	}
 
@@ -47,12 +47,12 @@ $(document).ready(async function() {
 		return data
 	}
 
-	function addVideoItem(videoData, channelData, url, duration, excerpt) {
+	function addVideoItem(videoData, channelData, videoId, duration, excerpt) {
 		let videoItem = `
 			<div class="bloggers_block__list-item">
 				<div class="bloggers_block__list-item-thumbnail" style="background-image: url('${videoData.thumbnails.high.url}')">
 					<!-- <div class="bloggers_block__list-item-duration">${duration}</div> -->
-					 <iframe width="360" height="202" src="https://www.youtube.com/embed/fvmXjgCjxR0"></iframe> 
+					 <iframe width="360" height="202" src="https://www.youtube.com/embed/${videoId}"></iframe> 
 				</div>
 				<div class="bloggers_block__list-item-channel">
 					<div class="bloggers_block__list-item-channel-thumbnail">
