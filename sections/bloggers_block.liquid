@@ -5,6 +5,7 @@ $(document).ready(async function() {
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	console.log('videos:')
 	console.log({{ videos | json }})
+	let videos = {{ videos | json }}
 	const videoUrls = [
 		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
 		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
@@ -14,8 +15,8 @@ $(document).ready(async function() {
 		'https://www.youtube.com/watch?v=PrWRb2_jfCE&ab_channel=i1Tesla',
 	]
 
-	for (let videoUrl of videoUrls) {
-		const videoId = getVideoId(videoUrl)
+	for (let video of videos) {
+		const videoId = getVideoId(video.body_html)
 		console.log(videoId)
 		if (videoId) {
 			let videoInfo = await getVideoInfo(videoId)
