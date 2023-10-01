@@ -1,5 +1,26 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	console.log('bloggers here')
+	const videoUrls = [
+		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
+		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
+		'https://www.youtube.com/watch?v=ugdLMiZlqNc&ab_channel=Gjeebs',
+		'https://www.youtube.com/watch?v=eSLjxnThupg&ab_channel=CfTesla',
+		'https://www.youtube.com/watch?v=m06bKl98Pws&ab_channel=BestInTESLA',
+		'https://www.youtube.com/watch?v=PrWRb2_jfCE&ab_channel=i1Tesla',
+	]
+
+	for (let videoUrl of videoUrls) {
+		const videoId = getVideoId(videoUrl)
+		console.log(videoId)
+	}
+
+	function getVideoId(videoUrl) {
+	    var match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+	    if (match) {
+	        return match[1];
+	    }
+	    return null;
+	}
 })
 </script>
