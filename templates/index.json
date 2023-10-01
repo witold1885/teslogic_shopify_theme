@@ -40,6 +40,11 @@
       "settings": {
       }
     },
+    "bloggers_block": {
+      "type": "bloggers_block",
+      "settings": {
+      }
+    },
     "store_block": {
       "type": "store_block",
       "settings": {
@@ -60,6 +65,7 @@
     "shortcuts",
     "box_block",
     "add_charger",
+    "bloggers_block",
     "store_block",
     "reviews"
   ]
