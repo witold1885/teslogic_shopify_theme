@@ -24,11 +24,11 @@ $(document).ready(async function() {
 	}
 
 	function getVideoId(videoUrl) {
-	    let match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+	    let match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/)
 	    if (match) {
-	        return match[1];
+	        return match[1]
 	    }
-	    return null;
+	    return null
 	}
 
 	async function getVideoInfo(videoId) {
@@ -44,3 +44,19 @@ $(document).ready(async function() {
 	}
 })
 </script>
+
+<style type="text/css">
+.bloggers_block__title {
+	color: #0F0F0F;
+	font-family: Gotham;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 64px; /* 123.077% */ 
+}
+</style>
+
+<div class="bloggers_block">
+  <div class="block_title bloggers_block__title">Bloggers about Teslogic</div>
+	
+</div>
