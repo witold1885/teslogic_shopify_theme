@@ -6,34 +6,28 @@ $(document).ready(async function() {
 	console.log('videos:')
 	console.log({{ videos | json }})
 	let videos = {{ videos | json }}
-	const videoUrls = [
+	/*const videoUrls = [
 		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
 		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
 		'https://www.youtube.com/watch?v=ugdLMiZlqNc&ab_channel=Gjeebs',
 		'https://www.youtube.com/watch?v=eSLjxnThupg&ab_channel=CfTesla',
 		'https://www.youtube.com/watch?v=m06bKl98Pws&ab_channel=BestInTESLA',
 		'https://www.youtube.com/watch?v=PrWRb2_jfCE&ab_channel=i1Tesla',
-	]
+	]*/
 
 	for (let video of videos) {
 		const videoId = getVideoId(video.body_html)
-		console.log(videoId)
 		if (videoId) {
 			let videoInfo = await getVideoInfo(videoId)
-			console.log(videoInfo)
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
-			console.log(channelInfo)
 			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, video.summary_html)
 		}
 	}
 
 	function getVideoId(videoUrl) {
 	    let match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/)
-	    if (match) {
-	        return match[1]
-	    }
-	    return null
+	    return match ? match[1] : null
 	}
 
 	async function getVideoInfo(videoId) {
@@ -66,6 +60,34 @@ $(document).ready(async function() {
 		`
 		$('.bloggers_block__list-scroller').append(videoItem)
 	}
+
+	const slider = document.querySelector('.bloggers_block__list-scroller')
+	let isDown = false
+	let startX
+	let scrollLeft
+
+	slider.addEventListener('mousedown', (e) => {
+	  isDown = true
+	  slider.classList.add('active')
+	  startX = e.pageX - slider.offsetLeft
+	  scrollLeft = slider.scrollLeft
+	})
+	slider.addEventListener('mouseleave', () => {
+	  isDown = false
+	  slider.classList.remove('active')
+	})
+	slider.addEventListener('mouseup', () => {
+	  isDown = false
+	  slider.classList.remove('active')
+	})
+	slider.addEventListener('mousemove', (e) => {
+	  if(!isDown) return
+	  e.preventDefault()
+	  const x = e.pageX - slider.offsetLeft
+	  const walk = (x - startX) * 1 //scroll-fast
+	  slider.scrollLeft = scrollLeft - walk
+	  // console.log(walk)
+	})
 })
 </script>
 
