@@ -16,7 +16,8 @@ $(document).ready(async function() {
 	]*/
 
 	for (let video of videos) {
-		const videoId = getVideoId(video.body_html)
+		let videoUrl = video.body_html.trim()
+		const videoId = getVideoId(videoUrl)
 		if (videoId) {
 			let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
@@ -25,8 +26,7 @@ $(document).ready(async function() {
 									.replace('PT', '')
 									.replace('M', ':')
 									.replace('S', '')
-			console.log(duration)
-			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, duration, video.summary_html)
+			addVideoItem(videoInfo.items[0].snippet, channelInfo.items[0].snippet, videoUrl, duration, video.summary_html)
 		}
 	}
 
@@ -47,11 +47,12 @@ $(document).ready(async function() {
 		return data
 	}
 
-	function addVideoItem(videoData, channelData, duration, excerpt) {
+	function addVideoItem(videoData, channelData, url, duration, excerpt) {
 		let videoItem = `
 			<div class="bloggers_block__list-item">
 				<div class="bloggers_block__list-item-thumbnail" style="background-image: url('${videoData.thumbnails.high.url}')">
-					<div class="bloggers_block__list-item-duration">${duration}</div>
+					<!-- <div class="bloggers_block__list-item-duration">${duration}</div> -->
+					<iframe id="video" width="360" height="202" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="bloggers_block__list-item-channel">
 					<div class="bloggers_block__list-item-channel-thumbnail">
@@ -142,6 +143,10 @@ $(document).ready(async function() {
 	overflow: hidden;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+.bloggers_block__list-item-duration {
+	position: absolute;
 }
 .bloggers_block__list-item-channel {
 	display: flex;
