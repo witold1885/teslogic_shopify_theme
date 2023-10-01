@@ -1,5 +1,6 @@
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(async function() {
+	const API_ENDPOINT = 'https://www.googleapis.com/youtube/v3/'
 	const API_KEY = 'AIzaSyBIO_rLOupamMWN0yNCUUNREWNCFi_3zpc'
 	const videoUrls = [
 		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
@@ -14,21 +15,22 @@ $(document).ready(function() {
 		const videoId = getVideoId(videoUrl)
 		console.log(videoId)
 		if (videoId) {
-
-	        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoId}&part=snippet`)
+			let videoInfo = await getVideoInfo(videoId)
+			console.log(videoInfo)
+	        /*fetch(`${API_ENDPOINT}videos?key=${API_KEY}&id=${videoId}&part=snippet`)
 	            .then(response => response.json())
 	            .then(data => {
 	            	console.log(data)
-	                /*if (data.items.length > 0) {
+	                if (data.items.length > 0) {
 	                    var channelId = data.items[0].snippet.channelId;
 	                    getChannelInfoById(channelId);
 	                } else {
 	                    alert('Відео не знайдено.');
-	                }*/
+	                }
 	            })
 	            .catch(error => {
 	                console.error('Помилка запиту до API: ', error);
-	            });
+	            });*/
 		}
 	}
 
@@ -38,6 +40,35 @@ $(document).ready(function() {
 	        return match[1];
 	    }
 	    return null;
+	}
+
+	async function getVideoInfo(videoId) {
+		let response = await fetch(`${API_ENDPOINT}videos?key=${API_KEY}&id=${videoId}&part=snippet`)
+		let data = await response.json()
+		return data
+	}
+
+	async function getChannelInfoById(channelId) {
+		let response = await fetch(`${API_ENDPOINT}channels?key=${API_KEY}&id=${channelId}&part=snippet`)
+		let data = await response.json()
+		console.log(data)
+	    /*fetch(`${API_ENDPOINT}channels?key=${API_KEY}&id=${channelId}&part=snippet`)
+	        .then(response => response.json())
+	        .then(data => {
+	            if (data.items.length > 0) {
+	                var channelInfo = data.items[0].snippet;
+	                var channelTitle = channelInfo.title;
+	                var channelThumbnailUrl = channelInfo.thumbnails.default.url;
+
+	                document.getElementById('channelTitle').textContent = 'Назва каналу: ' + channelTitle;
+	                document.getElementById('channelThumbnail').src = channelThumbnailUrl;
+	            } else {
+	                alert('Канал не знайдено.');
+	            }
+	        })
+	        .catch(error => {
+	            console.error('Помилка запиту до API: ', error);
+	        });*/
 	}
 })
 </script>
