@@ -237,6 +237,8 @@
 		font-weight: 700;
 		line-height: normal;
 		margin-top: 115px;
+		width: 354px;
+		text-align: left;
 	}
 	.banner__subtitle {
 		color: #FFF;
@@ -246,5 +248,7 @@
 		font-weight: 400;
 		line-height: normal; 
 		margin-top: 12px;
+		width: 354px;
+		text-align: left;
 	}
 }
