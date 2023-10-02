@@ -24,6 +24,7 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: 64px; /* 123.077% */ 
+	margin-left: 0px;
 }
 .shortcuts-subtitle {
 	color: #000;
