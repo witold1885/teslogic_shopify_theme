@@ -487,7 +487,7 @@
 		}
 		.store_block-product-mobile-top {
 			width: 350px;
-			margin: 40px auto 44.28px;
+			margin: 40px auto 20px;
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-end;
@@ -510,6 +510,27 @@
 			line-height: 140%;
 			color: #3374FB;
 			margin: 0;
+		}
+		.store_block-product-shipping {
+			display: flex;
+			align-items: center;
+			grid-column-gap: 8px;
+			margin-bottom: 40px;
+		}
+		.store_block-product-shipping-icon {
+			width: 28px;
+			height: 28px; 
+		}
+		.store_block-product-shipping-details {
+			display: flex;
+			flex-direction: column;
+			grid-row-gap: 4px;
+			color: #000;
+			font-family: Gotham;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal; 
 		}
 		.store_block-product-gallery {
 			width: 350px;
@@ -690,6 +711,13 @@
 		<div class="store_block-product-mobile-top">
 			<div class="store_block-product-title">{{ product.title }}</div>
 			<div class="store_block-product-price">$195</div>
+		</div>
+		<div class="store_block-product-shipping">
+			<img class="store_block-product-shipping-icon" src={{ 'package-outline.svg' | asset_url }}>
+			<div class="store_block-product-shipping-details">
+				<div>Free shipping in all domestic orders</div>
+				<div>No import tax for international orders</div>
+			</div>
 		</div>
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-image">
