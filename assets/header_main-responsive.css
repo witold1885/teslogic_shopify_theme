@@ -224,4 +224,22 @@
 		margin-top: 43px;
 		text-align: center;
 	}
+	.banner__title {
+		color: #FFF;
+		text-align: center;
+		/* Title Mob */
+		font-family: Gotham;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal; 
+	}
+	.banner__subtitle {
+		color: #FFF;
+		font-family: Gotham;
+		font-size: 26px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal; 
+	}
 }
