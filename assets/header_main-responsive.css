@@ -214,6 +214,7 @@
 /*		height: 660px;*/
 		height: 600px;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 	}
 	.banner__text {
@@ -234,7 +235,8 @@
 		font-size: 36px;
 		font-style: normal;
 		font-weight: 700;
-		line-height: normal; 
+		line-height: normal;
+		margin-top: 115px;
 	}
 	.banner__subtitle {
 		color: #FFF;
@@ -243,5 +245,6 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal; 
+		margin-top: 12px;
 	}
 }
