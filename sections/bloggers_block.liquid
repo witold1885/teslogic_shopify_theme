@@ -181,6 +181,16 @@ $(document).ready(async function() {
 	font-weight: 700;
 	line-height: normal; 
 }
+@media screen and (max-width: 999px) {
+	.bloggers_block__list {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-left: calc(-1 * (100vw - 390px) / 2);
+	}
+	.bloggers_block__list-scroller {
+		padding-left: calc((100vw - 390px + 40px) / 2);
+	}
+}
 </style>
 
 <div class="bloggers_block">
