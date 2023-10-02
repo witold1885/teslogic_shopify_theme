@@ -215,7 +215,7 @@
 		height: 600px;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		align-items: center;
 	}
 	.banner__text {
 		font-size: 36px;
