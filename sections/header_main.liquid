@@ -58,7 +58,7 @@
               {% if link.title == 'Other Products' %}
                 <ul class="menu__item-dropdown">
                   {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
                       <li class="menu__item-dropdown-link">
                         <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                       </li>
@@ -123,7 +123,7 @@
               {% if link.title == 'Other Products' %}
                 <ul class="menu__item-dropdown">
                   {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
                       <li class="menu__item-dropdown-link">
                         <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                       </li>
@@ -197,7 +197,7 @@
               {% if link.title == 'Other Products' %}
                 <ul class="menu__item-dropdown">
                   {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
                       <li class="menu__item-dropdown-link">
                         <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                       </li>
