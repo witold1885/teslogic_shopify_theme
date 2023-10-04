@@ -271,8 +271,8 @@
 		border-radius: 11.0448px;
 	}
 	.manuals__text {
-		margin-left: 20px;
-		margin-right: 17px;
+		margin-left: 20px!important;
+		margin-right: 17px!important;
 		margin-bottom: 80px!important;
 	}
 }
