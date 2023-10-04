@@ -7,7 +7,8 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "1",
-            "chapter": "Installation, connection"
+            "chapter": "Installation, connection",
+            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438.svg?v=1696429385"
           }
         },
         "ed64ad88-6dc4-4875-ad76-61abd5464169": {
@@ -62,7 +63,8 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "2",
-            "chapter": "Warranty, Safety and Return Policy"
+            "chapter": "Warranty, Safety and Return Policy",
+            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Warranty_1.svg?v=1696429384"
           }
         },
         "7398a68d-5d4b-444f-b6ec-24a83207f7e8": {
@@ -125,7 +127,8 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "3",
-            "chapter": "Measurements and Indicators"
+            "chapter": "Measurements and Indicators",
+            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438-1.svg?v=1696429384"
           }
         },
         "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
@@ -204,7 +207,8 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "4",
-            "chapter": "Usage"
+            "chapter": "Usage",
+            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_437.svg?v=1696429384"
           }
         },
         "d8d58d03-cb3c-44b5-901d-50472753a6d9": {
@@ -251,7 +255,8 @@
           "type": "chapter",
           "settings": {
             "chapter_id": "5",
-            "chapter": "Compatibility"
+            "chapter": "Compatibility",
+            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438-2.svg?v=1696429384"
           }
         },
         "607d0c5c-e1a8-4873-be59-e4c596186b15": {
