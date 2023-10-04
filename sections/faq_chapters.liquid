@@ -9,6 +9,7 @@
 	<div class="block_title faq__title">FAQ</div>
 	<div class="faq__chapters">
 		{% for block in section.blocks %}
+		{{ block | json }}
 			{% if block.type == "chapter" %}
 				<div class="faq__chapter">
 					<div class="faq__chapter-top">
