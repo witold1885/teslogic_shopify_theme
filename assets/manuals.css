@@ -149,7 +149,7 @@
 .manuals__text {
 	margin-left: 80px;
 	margin-right: 80px;
-	margin-bottom: 140px;
+	margin-bottom: 140px!important;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
@@ -220,7 +220,7 @@
 	.manuals__text {
 		margin-left: calc(80 * 100vw / 1366);
 		margin-right: calc(80 * 100vw / 1366);
-		margin-bottom: calc(140 * 100vw / 1366);
+		margin-bottom: calc(140 * 100vw / 1366)!important;
 	}
 }
 
