@@ -21,6 +21,84 @@
   .static-content ul, .static-content ol {
     padding-left: 20px;
   }
+	.manuals__product-select {
+		/*width: 340px;*/
+		width: 100%;
+		height: 56px;
+		background: #FFFFFF;
+		border-radius: 100px;
+		position: relative;
+		/*display: flex;*/
+		display: inline-flex;
+		/*justify-content: center;*/
+		align-items: center;
+		padding-left: 21px;
+		padding-right: 14px;
+		box-sizing: border-box;
+		margin-top: 10px;
+	}
+	.manuals__product-select:hover {
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+	}
+	.manuals__product-select-dropdown-select {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		/*grid-column-gap: 10px;*/
+		cursor: pointer;
+	}
+	.manuals__product-select-dropdown {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		padding: 12px 21px 18px;
+		display: none;
+		flex-direction: column;
+		grid-row-gap: 16px;
+		background: #FFFFFF;
+		border: 1px solid #3374FB;
+		box-sizing: border-box;
+		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+		border-radius: 35px;
+		z-index: 2;
+	}
+	.manuals__product-select-dropdown-item {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #0F0F0F;
+		cursor: pointer;
+	}
+	.manuals__product-select-text {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #000000;
+	}
+	.manuals__product-select-value {
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 32px;
+		color: #85878d;
+		margin-right: 20px;
+	}
+	.manuals__product-select-arrow {
+		width: 24px;
+		height: 24px;
+	}
+	.manuals__product-select-arrow img {
+		width: 100%;
+		height: 100%;
+	}
   @media screen and (max-width: 1456px) {
     .static-content {
       margin-left: 128px;
@@ -39,16 +117,24 @@
 
 <div class="manuals" id="manuals">
 	<div class="manuals__title">Manuals</div>
-					<div class="store_block-product-select-dropdown">
-						<div class="store_block-product-select-dropdown-select">
-							<span class="store_block-product-select-value">Select model</span>
-							<div class="store_block-product-select-arrow">
+				<div class="manuals__product-select-text">Select your Tesla model and year:</div>
+				<div class="manuals__product-select">
+					<div class="manuals__product-select-dropdown-select manuals__product-selected">
+						<span class="manuals__product-select-value">Select model</span>
+						<div class="manuals__product-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
+					</div>
+					<div class="manuals__product-select-dropdown">
+						<div class="manuals__product-select-dropdown-select">
+							<span class="manuals__product-select-value">Select model</span>
+							<div class="manuals__product-select-arrow">
 								<img src="{{ 'select_arrow.png' | asset_url }}">
 							</div>
 						</div>
 						{%- for model in product.variants -%}
 							<div 
-								class="store_block-product-select-dropdown-item" 
+								class="manuals__product-select-dropdown-item" 
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
@@ -58,6 +144,7 @@
 							</div>
 						{%- endfor -%}
 					</div>
+				</div>
 	<div class="manuals__list">
 		{% for block in section.blocks %}
 			<div class="manuals__video">
