@@ -39,7 +39,7 @@
 		font-family: Gotham;
 		font-size: 32px;
 		font-style: normal;
-		font-weight: 500;
+		font-weight: 700;
 		line-height: normal;
 		margin-bottom: 40px;
   }
@@ -140,6 +140,15 @@
 		cursor: pointer;
 		border: none;
 	}
+	.manuals__list-title {
+		color: #000;
+		font-family: Gotham;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal; 
+		margin-bottom: 40px;
+	}
   @media screen and (max-width: 1456px) {
     .static-content {
       margin-left: 128px;
@@ -191,6 +200,7 @@
 		<button class="manuals__download-button">Download</button>
 	</div>
 	<div class="manuals__list">
+		<div class="manuals__list-title">Or watch video instruction below</div>
 		{% for block in section.blocks %}
 			<div class="manuals__video">
 				{{ block.settings.code }}
