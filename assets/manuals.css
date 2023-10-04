@@ -6,6 +6,7 @@
 	font-weight: 700;
 	line-height: 64px; /* 123.077% */ 
 	text-align: left;
+	margin-bottom: 42px;
 }
 .manuals__download {
 	margin-left: 80px;
@@ -154,6 +155,7 @@
 	.manuals__title {
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366);
+		margin-bottom: calc(42 * 100vw / 1366);
 	}
 	.manuals__download {
 		margin-left: calc(80 * 100vw / 1366);
