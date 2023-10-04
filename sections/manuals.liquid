@@ -56,13 +56,21 @@
 						<img src="{{ 'select_arrow.png' | asset_url }}">
 					</div>
 				</div>
-				{%- for model in product.variants -%}
+				<!-- {%- for model in product.variants -%}
 					<div 
 						class="manuals__download-select-dropdown-item" 
 						data-model_id="{{ model.id }}"
 						data-sku="{{ model.sku }}"
 					>
 						{{ model.title }}
+					</div>
+				{%- endfor -%} -->
+        {% for link in linklists.main-menu.links %}
+					<div 
+						class="manuals__download-select-dropdown-item"
+						data-url="{{ link.url }}"
+					>
+						{{ link.title }}
 					</div>
 				{%- endfor -%}
 			</div>
@@ -82,14 +90,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var model_id = null
+		var downloadUrl = null
 		// selectModel('TT12')
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			$(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
-			let sku = $(this).data('sku')
-			selectModel(sku)
+			let url = $(this).data('url')
+			selectModel(url)
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
@@ -99,9 +107,9 @@
 				$('.manuals__download-select-dropdown').hide()
 			}        
 		})
-		function selectModel(sku) {
-			let model = $(`.manuals__download-select-dropdown-item[data-sku="${sku}"]`).first()
-			model_id = model.data('model_id')
+		function selectModel(url) {
+			let model = $(`.manuals__download-select-dropdown-item[data-url="${url}"]`).first()
+			downloadUrl = model.data('url')
 			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
