@@ -147,8 +147,8 @@
 	height: 100%;
 }
 .manuals__text {
-	margin-left: 80px;
-	margin-right: 80px;
+	margin-left: 80px!important;
+	margin-right: 80px!important;
 	margin-bottom: 140px!important;
 	max-width: 604px!important;
 }
@@ -219,8 +219,8 @@
 		border-radius: calc(11.0448 * 100vw / 1366);
 	}
 	.manuals__text {
-		margin-left: calc(80 * 100vw / 1366);
-		margin-right: calc(80 * 100vw / 1366);
+		margin-left: calc(80 * 100vw / 1366)!important;
+		margin-right: calc(80 * 100vw / 1366)!important;
 		margin-bottom: calc(140 * 100vw / 1366)!important;
 		max-width: calc(604 * 100vw / 1366)!important;
 	}
