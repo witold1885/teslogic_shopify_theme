@@ -35,8 +35,29 @@
   }
 {%- endstyle -%}
 
+{% assign product = all_products['teslogic-transmitter-kit-v2'] %}
+
 <div class="manuals" id="manuals">
 	<div class="manuals__title">Manuals</div>
+					<div class="store_block-product-select-dropdown">
+						<div class="store_block-product-select-dropdown-select">
+							<span class="store_block-product-select-value">Select model</span>
+							<div class="store_block-product-select-arrow">
+								<img src="{{ 'select_arrow.png' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+					</div>
 	<div class="manuals__list">
 		{% for block in section.blocks %}
 			<div class="manuals__video">
