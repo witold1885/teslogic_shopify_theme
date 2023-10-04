@@ -27,7 +27,7 @@
 	}
 	.faq__chapter-title-sign {
 		width: calc(32 * 100vw / 1366);
-		height: calc(16 * 100vw / 1366);
+		height: calc(32 * 100vw / 1366);
 	}
 	.faq__chapter-title-text {
 		width: calc(100% - 32 * 100vw / 1366 - 12 * 100vw / 1366);
