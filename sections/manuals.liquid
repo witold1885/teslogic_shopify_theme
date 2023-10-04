@@ -157,7 +157,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		var model_id = null
+		// selectModel('TT12')
+		$('.manuals__product-select-dropdown-select').on('click', function() {
+			$(this).parents('.manuals__product-select').find('.manuals__product-select-dropdown').toggle()
+		})
 	})
 </script>
 
