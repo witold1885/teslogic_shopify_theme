@@ -275,6 +275,24 @@
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			$(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
+		$('.manuals__download-select-dropdown-item').on('click', function() {
+			let sku = $(this).data('sku')
+			selectModel(sku)
+		})
+		$(document).click(function(event) { 
+			var $target = $(event.target)
+			if (!$target.closest('.manuals__download-select').length && 
+				!$target.closest('.manuals__download-select-dropdown').length && 
+				$('.manuals__download-select-dropdown').is(":visible")) {
+				$('.manuals__download-select-dropdown').hide()
+			}        
+		})
+		function selectModel(sku) {
+			let model = $(`.manuals__download-select-dropdown-item[data-sku="${sku}"]`).first()
+			model_id = model.data('model_id')
+			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
+			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
+		}
 	})
 </script>
 
