@@ -137,6 +137,7 @@
 		font-weight: 400;
 		line-height: 32px; /* 133.333% */ 
 		cursor: pointer;
+		border: none;
 	}
   @media screen and (max-width: 1456px) {
     .static-content {
@@ -158,35 +159,35 @@
 	<div class="block_title manuals__title">Manuals</div>
 	<div class="manuals__download">
 		<div class="manuals__download-title">Download PDF installation guide for your model</div>
-				<div class="manuals__download-select-text">Select your Tesla model and year:</div>
-				<div class="manuals__download-select">
-					<div class="manuals__download-select-dropdown-select manuals__download-selected">
-						<span class="manuals__download-select-value">Select model</span>
-						<div class="manuals__download-select-arrow">
-							<img src="{{ 'select_arrow.png' | asset_url }}">
-						</div>
-					</div>
-					<div class="manuals__download-select-dropdown">
-						<div class="manuals__download-select-dropdown-select">
-							<span class="manuals__download-select-value">Select model</span>
-							<div class="manuals__download-select-arrow">
-								<img src="{{ 'select_arrow.png' | asset_url }}">
-							</div>
-						</div>
-						{%- for model in product.variants -%}
-							<div 
-								class="manuals__download-select-dropdown-item" 
-								data-model_id="{{ model.id }}"
-								data-sku="{{ model.sku }}" 
-								data-price="{{ model.price }}"
-								data-compare_at_price="{{ model.compare_at_price }}"
-							>
-								{{ model.title }}
-							</div>
-						{%- endfor -%}
+		<div class="manuals__download-select-text">Select your Tesla model and year:</div>
+		<div class="manuals__download-select">
+			<div class="manuals__download-select-dropdown-select manuals__download-selected">
+				<span class="manuals__download-select-value">Select model</span>
+				<div class="manuals__download-select-arrow">
+					<img src="{{ 'select_arrow.png' | asset_url }}">
+				</div>
+			</div>
+			<div class="manuals__download-select-dropdown">
+				<div class="manuals__download-select-dropdown-select">
+					<span class="manuals__download-select-value">Select model</span>
+					<div class="manuals__download-select-arrow">
+						<img src="{{ 'select_arrow.png' | asset_url }}">
 					</div>
 				</div>
-				<button class="manuals__download-button" id="add">Download</button>
+				{%- for model in product.variants -%}
+					<div 
+						class="manuals__download-select-dropdown-item" 
+						data-model_id="{{ model.id }}"
+						data-sku="{{ model.sku }}" 
+						data-price="{{ model.price }}"
+						data-compare_at_price="{{ model.compare_at_price }}"
+					>
+						{{ model.title }}
+					</div>
+				{%- endfor -%}
+			</div>
+		</div>
+		<button class="manuals__download-button">Download</button>
 	</div>
 	<div class="manuals__list">
 		{% for block in section.blocks %}
