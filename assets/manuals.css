@@ -147,8 +147,9 @@
 	height: 100%;
 }
 .manuals__text {
-	margin-left: 128px;
-	margin-right: 114px;
+	margin-left: 80px;
+	margin-right: 80px;
+	margin-bottom: 140px;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
@@ -217,8 +218,9 @@
 		border-radius: calc(11.0448 * 100vw / 1366);
 	}
 	.manuals__text {
-		margin-left: calc(128 * 100vw / 1366);
-		margin-right: calc(114 * 100vw / 1366);
+		margin-left: calc(80 * 100vw / 1366);
+		margin-right: calc(80 * 100vw / 1366);
+		margin-bottom: calc(140 * 100vw / 1366);
 	}
 }
 
@@ -271,6 +273,6 @@
 	.manuals__text {
 		margin-left: 20px;
 		margin-right: 17px;
-		margin-bottom: 80px;
+		margin-bottom: 80px!important;
 	}
 }
