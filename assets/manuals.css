@@ -264,12 +264,13 @@
 		margin-bottom: 40px;
 	}
 	.manuals__video {
-		width: calc(343 * 100vw / 390);
+		width: calc(353 * 100vw / 390);
 		height: calc(194 * 100vw / 390);
 		border-radius: 11.0448px;
 	}
 	.manuals__text {
-		margin-left: 23px;
-		margin-right: 25px;
+		margin-left: 20px;
+		margin-right: 17px;
+		margin-bottom: 80px;
 	}
 }
