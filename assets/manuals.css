@@ -150,6 +150,7 @@
 	margin-left: 80px;
 	margin-right: 80px;
 	margin-bottom: 140px!important;
+	max-width: 604px!important;
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
@@ -221,6 +222,7 @@
 		margin-left: calc(80 * 100vw / 1366);
 		margin-right: calc(80 * 100vw / 1366);
 		margin-bottom: calc(140 * 100vw / 1366)!important;
+		max-width: calc(604 * 100vw / 1366)!important;
 	}
 }
 
