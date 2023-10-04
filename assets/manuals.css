@@ -137,8 +137,8 @@
 	margin-bottom: 80px;
 }
 .manuals__video {
-	width: 1110px;
-	height: 624.375px;
+	width: 1206px;
+	height: 670.888px; 
 	border-radius: 11.0448px;
 	overflow: hidden;
 }
@@ -213,8 +213,8 @@
 		margin-bottom: calc(80 * 100vw / 1366);
 	}
 	.manuals__video {
-		width: calc(1110 * 100vw / 1366);
-		height: calc(624.375 * 100vw / 1366);
+		width: calc(1206 * 100vw / 1366);
+		height: calc(670.888 * 100vw / 1366);
 		border-radius: calc(11.0448 * 100vw / 1366);
 	}
 	.manuals__text {
