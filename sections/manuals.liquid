@@ -67,7 +67,6 @@
 			</div>
 		</div>
 		<button class="manuals__download-button">Download</button>
-		<a class="manuals__download-link" href="" target="_blank" style="display: none;"></a>
 	</div>
 	<div class="manuals__list-title">Or watch video instruction below</div>
 	<div class="manuals__list">
@@ -105,7 +104,6 @@
 		}
 		$('.manuals__download-button').on('click', function() {
 			if (downloadUrl) {
-				// $('.manuals__download-link').attr('href', downloadUrl).click()
 				window.open(downloadUrl, '_blank').focus()
 			}
 		})
