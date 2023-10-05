@@ -87,8 +87,7 @@
 			$(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
-			let url = $(this).data('url')
-			selectModel(url)
+			selectModel($(this).data('url'))
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
@@ -106,7 +105,7 @@
 		}
 		$('.manuals__download-button').on('click', function() {
 			if (downloadUrl) {
-				$('.manuals__download-link').click()
+				$('.manuals__download-link').attr('href', downloadUrl).click()
 			}
 		})
 	})
