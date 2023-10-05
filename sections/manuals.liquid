@@ -105,7 +105,8 @@
 		}
 		$('.manuals__download-button').on('click', function() {
 			if (downloadUrl) {
-				$('.manuals__download-link').attr('href', downloadUrl).click()
+				// $('.manuals__download-link').attr('href', downloadUrl).click()
+				window.open(downloadUrl, '_blank').focus()
 			}
 		})
 	})
