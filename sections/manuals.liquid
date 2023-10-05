@@ -67,6 +67,7 @@
 			</div>
 		</div>
 		<button class="manuals__download-button">Download</button>
+		<a class="manuals__download-link" href="" target="_blank" style="display: none;"></a>
 	</div>
 	<div class="manuals__list-title">Or watch video instruction below</div>
 	<div class="manuals__list">
@@ -104,7 +105,9 @@
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
 		$('.manuals__download-button').on('click', function() {
-			console.log(downloadUrl)
+			if (downloadUrl) {
+				$('.manuals__download-link').click()
+			}
 		})
 	})
 </script>
