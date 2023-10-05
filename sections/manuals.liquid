@@ -56,15 +56,6 @@
 						<img src="{{ 'select_arrow.png' | asset_url }}">
 					</div>
 				</div>
-				<!-- {%- for model in product.variants -%}
-					<div 
-						class="manuals__download-select-dropdown-item" 
-						data-model_id="{{ model.id }}"
-						data-sku="{{ model.sku }}"
-					>
-						{{ model.title }}
-					</div>
-				{%- endfor -%} -->
         {% for link in linklists.manuals-menu.links %}
 					<div 
 						class="manuals__download-select-dropdown-item"
@@ -91,7 +82,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var downloadUrl = null
-		// selectModel('TT12')
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			$(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
@@ -113,6 +103,9 @@
 			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
+		$('.manuals__download-button').on('click', function() {
+			console.log(downloadUrl)
+		})
 	})
 </script>
 
