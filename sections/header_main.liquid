@@ -107,7 +107,7 @@
       <div class="subtitle">Powerful Dashboard for Model 3/Y<br>
 with access to advanced<br>
 Tesla features</div>
-      <div class="expand">
+      <div class="expand" style="cursor: pointer;">
         <img src="{{ 'expand.svg' | asset_url }}">
       </div>
     </div>
@@ -386,6 +386,9 @@ to advanced Tesla features</div>
           $(this).parent('.menu__item').removeClass('menu__item-opened')
         })
       }        
+    })
+    $('.expand').on('click', function() {
+      $('#using').scrollIntoView()
     })
   })  
 </script>
