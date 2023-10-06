@@ -38,7 +38,7 @@
 		height: calc(32 * 100vw / 1366); 
 	}
 	.faq__chapter-questions {
-		grid-row-gap: calc(20 * 100vw / 1366);
+		grid-row-gap: calc(25 * 100vw / 1366);
 		padding: calc(16 * 100vw / 1366) calc(20 * 100vw / 1366) calc(20 * 100vw / 1366) calc(64 * 100vw / 1366);
 	}
 	.faq__chapter-question-text {
