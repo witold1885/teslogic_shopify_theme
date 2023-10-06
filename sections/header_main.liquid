@@ -107,9 +107,12 @@
       <div class="subtitle">Powerful Dashboard for Model 3/Y<br>
 with access to advanced<br>
 Tesla features</div>
-      <div class="expand" style="cursor: pointer;">
+      <!-- <div class="expand" style="cursor: pointer;">
         <img src="{{ 'expand.svg' | asset_url }}">
-      </div>
+      </div> -->
+      <a class="expand" href="#using" style="cursor: pointer;">
+        <img src="{{ 'expand.svg' | asset_url }}">
+      </a>
     </div>
   </div>
 </header>
@@ -387,8 +390,8 @@ to advanced Tesla features</div>
         })
       }        
     })
-    $('.expand').on('click', function() {
+    /*$('.expand').on('click', function() {
       document.getElementById('using').scrollIntoView()
-    })
+    })*/
   })  
 </script>
