@@ -103,6 +103,7 @@
 	font-size: 14px;
 	line-height: normal;
 	color: #000000;
+	max-width: 848px;
 }
 .faq__chapter-question-expand {
 	width: 9px;
