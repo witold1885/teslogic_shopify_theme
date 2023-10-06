@@ -44,12 +44,12 @@
 	.faq__chapter-question-text {
 		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366);
-		max-width: calc(700 * 100vw / 1366);
+		max-width: calc(650 * 100vw / 1366);
 	}
 	.faq__chapter-question-answer {
 		margin-top: calc(8 * 100vw / 1366);
 		font-size: calc(14 * 100vw / 1366);
-		max-width: calc(700 * 100vw / 1366);
+		max-width: calc(650 * 100vw / 1366);
 	}
 	.faq__chapter-question-expand {
 		width: calc(9 * 100vw / 1366);
