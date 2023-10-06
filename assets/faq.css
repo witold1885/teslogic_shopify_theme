@@ -84,7 +84,7 @@
 .faq__chapter-questions {
 	display: none;
 	flex-direction: column;
-	grid-row-gap: 20px;
+	grid-row-gap: 25px;
 	padding: 16px 20px 20px 64px;
 }
 .faq__chapter-question-text {
