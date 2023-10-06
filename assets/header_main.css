@@ -46,6 +46,7 @@
 	/*mix-blend-mode: darken;*/
 }
 .menu {
+	z-index: 2;
 /*	margin-right: 114px;*/
 	margin-right: 80px;
 	display: flex;
