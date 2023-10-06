@@ -43,7 +43,7 @@
 	}
 	.faq__chapter-question-text {
 		font-size: calc(22 * 100vw / 1366);
-		line-height: calc(32 * 100vw / 1366);
+/*		line-height: calc(32 * 100vw / 1366);*/
 		max-width: calc(650 * 100vw / 1366);
 	}
 	.faq__chapter-question-answer {
@@ -108,7 +108,8 @@
 	.faq__chapter-question-text {
 		font-size: 18px;
 		font-weight: 700;
-		line-height: 140%;
+/*		line-height: 140%;*/
+		line-height: normal;
 	}
 	.faq__chapter-question-answer {
 		margin-top: 4px;
