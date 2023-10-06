@@ -48,6 +48,7 @@
 	.faq__chapter-question-answer {
 		margin-top: calc(8 * 100vw / 1366);
 		font-size: calc(14 * 100vw / 1366);
+		max-width: calc(848 * 100vw / 1366);
 	}
 	.faq__chapter-question-expand {
 		width: calc(9 * 100vw / 1366);
