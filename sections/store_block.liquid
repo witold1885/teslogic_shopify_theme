@@ -643,7 +643,7 @@
 				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">
   
-					<div class="store_block-product-price-new">$165</div>
+					<div class="store_block-product-price-new">$195</div>
 				</div>
 				<div class="store_block-product-shipping">
 					<img class="store_block-product-shipping-icon" src={{ 'package.svg' | asset_url }}>
@@ -811,8 +811,9 @@
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
-			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
-			if (model.data('compare_at_price')) {
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
+			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))	
+			/*if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
 				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
 				$('.store_block-product-price-current').hide()
@@ -824,7 +825,7 @@
 				$('.store_block-product-price-old').hide()
 				$('.store_block-product-price-new').hide()
 				$('.store_block-product-price-current').show()
-			}
+			}*/
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
