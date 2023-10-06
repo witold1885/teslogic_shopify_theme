@@ -120,7 +120,8 @@
 	#header_mobile {
 		width: 100%;
 /*		height: 764px;*/
-		height: 704px;
+/*		height: 704px;*/
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -212,7 +213,9 @@
 	.banner {
 		width: 100%;
 /*		height: 660px;*/
-		height: 600px;
+/*		height: 600px;*/
+		height: 100%;
+		flex: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
