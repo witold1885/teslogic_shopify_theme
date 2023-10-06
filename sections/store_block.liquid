@@ -643,7 +643,7 @@
 				<div class="store_block-product-title">{{ product.title }}</div>
 				<div class="store_block-product-price">
   
-					<div class="store_block-product-price-new">$195</div>
+					<div class="store_block-product-price-new store_block-product-price-mobile">$195</div>
 				</div>
 				<div class="store_block-product-shipping">
 					<img class="store_block-product-shipping-icon" src={{ 'package.svg' | asset_url }}>
@@ -813,6 +813,7 @@
 			model_id = model.data('model_id')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))	
+			$('.store_block-product-price-mobile').text('$' + (model.data('price') / 100))	
 			/*if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
 				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
