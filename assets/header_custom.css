@@ -24,7 +24,7 @@
 .top .logo {	
 	z-index: 2;
 /*	margin-left: 128px;*/
-/*	margin-left: 80px;*/
+	margin-left: 80px;
 	width: 188px;
 	height: 32px;
 	display: flex;
