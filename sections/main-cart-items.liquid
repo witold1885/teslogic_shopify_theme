@@ -493,6 +493,9 @@
   $(document).ready(function() {
     $('cart-remove-button').on('click', function() {
       $('.cart-link').hide()
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
     })
   })
 </script>
