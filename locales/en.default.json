@@ -415,7 +415,7 @@
   "shopify": {
     "checkout": {
       "contact": {
-        "last_name_label": "Last name (use only English letters}"
+        "address1_label": "Address (please use only Latin letters)"
       }
     }
   }
