@@ -493,15 +493,15 @@
   $(document).ready(function() {
     $('cart-remove-button').on('click', function() {
       $('.cart-link').hide()
-      renew()
+      renew(500)
     })
     $('quantity__button').on('click', function() {
-      renew()
+      renew(1000)
     })
-    function renew () {
+    function renew (timeout = 500) {
       setTimeout(() => {
         window.location.reload()
-      }, 500)
+      }, timeout)
     }
   })
 </script>
