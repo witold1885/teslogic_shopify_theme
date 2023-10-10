@@ -121,6 +121,8 @@
 	.shortcuts-content-list-item-title-text {
 		font-size: 16px;
 		line-height: 140%;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 	.shortcuts-content-more {
 		margin-top: 0;
@@ -128,7 +130,7 @@
 	}
 	.shortcuts-content-more-text {
 		font-size: 26px;
-		line-height: normal; 
+		line-height: normal;
 		font-weight: 400 !important;
     	font-family: 'Gotham-Medium' !important;
 	}
