@@ -129,5 +129,7 @@
 	.shortcuts-content-more-text {
 		font-size: 26px;
 		line-height: normal; 
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 }
