@@ -107,9 +107,9 @@
 	}
 	.faq__chapter-question-text {
 		font-size: 18px;
-		font-weight: 700;
-/*		line-height: 140%;*/
 		line-height: normal;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 	.faq__chapter-question-answer {
 		margin-top: 4px;
