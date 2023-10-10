@@ -238,6 +238,8 @@
 		line-height: 140%; /* 25.2px */ 
 		margin-bottom: 20px;
 		width: 310px;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 	.manuals__download-select-text {
 		margin-bottom: 8px;
@@ -260,6 +262,8 @@
 		line-height: 140%; /* 25.2px */ 
 		margin-left: 20px;
 		margin-bottom: 20px;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 	.manuals__list {
 		grid-row-gap: 40px;
