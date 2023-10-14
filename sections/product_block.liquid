@@ -157,8 +157,8 @@
 		{%- for model in product.variants -%}
 			models_ids.push({{ model.id }});
 		{%- endfor -%}
-		/*console.log('models_ids', models_ids)
-		if (models_ids.length == 1) {
+		console.log('models_ids', models_ids)
+		/*if (models_ids.length == 1) {
 			model_id = models_ids[0]
 		}
 		else if (models_ids.length > 1) {
