@@ -158,12 +158,12 @@
 			models_ids.push({{ model.id }});
 		{%- endfor -%}
 		console.log('models_ids', models_ids)
-		/*if (models_ids.length == 1) {
+		if (models_ids.length == 1) {
 			model_id = models_ids[0]
 		}
 		else if (models_ids.length > 1) {
 			selectModel('TT12')
-		}*/
+		}
 		// selectModel('TT12')
 		$('.product_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
