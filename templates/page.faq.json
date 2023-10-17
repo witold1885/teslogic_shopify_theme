@@ -99,20 +99,12 @@
             "answer": "As a precautionary measure, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
-        "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
-          "type": "question",
-          "settings": {
-            "chapter_id": "2",
-            "question": "Does Teslogic impact any car's functionality?",
-            "answer": "No, it doesn’t. Teslogic is a passive receiver of Tesla data, not more."
-          }
-        },
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
             "question": "Can using a transmitter harm my car?",
-            "answer": "No, it can't."
+            "answer": "Teslogic is designed to be safe for your vehicle and does not pose any harm."
           }
         },
         "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5": {
@@ -322,7 +314,6 @@
         "c3401778-1354-4503-b197-f8b5d9a622a9",
         "97e4f599-0a93-4af5-a281-4a14ec235abc",
         "51f2a674-dfc5-431d-913e-d745a79dd5cd",
-        "c27292bd-8f0d-48d4-9ba2-4253ef77422b",
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884",
         "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5",
         "d4ebb7fb-5941-40e3-9573-318a4b7df89a",
