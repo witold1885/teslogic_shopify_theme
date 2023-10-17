@@ -96,7 +96,7 @@
           "settings": {
             "chapter_id": "2",
             "question": "Do I need to remove Teslogic before visiting service center?",
-            "answer": "No, it’s not necessary since Teslogic transmitter is considered as a diagnostic device and doesn't make any changes to the car equipment."
+            "answer": "As a precautionary measure, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
         "c27292bd-8f0d-48d4-9ba2-4253ef77422b": {
