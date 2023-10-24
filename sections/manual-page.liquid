@@ -68,6 +68,16 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    document.addEventListener('resize', onResize)
+
+    function onResize() {
+      console.log('resize')
+    }
+  })
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
