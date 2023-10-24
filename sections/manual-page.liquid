@@ -70,8 +70,8 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    document.addEventListener('resize', onResize)
-
+    $(window).on('resize', onResize)
+    onResize()
     function onResize() {
       console.log('resize')
     }
