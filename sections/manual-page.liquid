@@ -49,13 +49,17 @@
       margin-right: calc(24 * 100vw / 390);
     }
   }
+
+  .manual_content iframe {
+    width: 100%;
+  }
 {%- endstyle -%}
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
-  <h1 class="main-page-title page-title h0">
+  <h1 class="main-page-title page-title h0 block_title">
     {{ page.title | escape }}
   </h1>
-  <div class="rte static-content">
+  <div class="rte static-content manual_content">
     {{ page.content }}
   </div>
 </div>
