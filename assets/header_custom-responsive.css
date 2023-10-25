@@ -9,10 +9,10 @@
 		width: calc(188 * 100vw / 1366);
 		height: calc(32 * 100vw / 1366);
 /*		margin-left: calc(128 * 100vw / 1366);*/
-/*		margin-left: calc(80 * 100vw / 1366);*/
+		margin-left: calc(80 * 100vw / 1366);
 	}
 	.menu {
-/*		margin-right: calc(114 * 100vw / 1366);*/
+		margin-right: calc(80 * 100vw / 1366);
 /*		grid-column-gap: calc(80 * 100vw / 1366);*/
 	}
 	.menu__item {
