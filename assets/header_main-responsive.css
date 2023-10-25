@@ -45,10 +45,10 @@
 
 @media screen and (min-width: 1367px) and (max-width: 1440px) {
 	.title {
-		left: calc(115 * 100vw / 1440);
+		left: calc((calc(100vw - 1366px) / 2 + 80) * 100vw / 1440);
 	}
 	.subtitle {
-		left: calc(115 * 100vw / 1440);
+		left: calc((calc(100vw - 1366px) / 2 + 80) * 100vw / 1440);
 	}
 }
 
