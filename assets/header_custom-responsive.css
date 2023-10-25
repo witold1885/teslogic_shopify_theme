@@ -1,41 +1,41 @@
-@media screen and (min-width: 1000px) and (max-width: 1366px) {  
+@media screen and (min-width: 1000px) and (max-width: 1440px) {  
 	#header_custom {
-		height: calc(96 * 100vw / 1366);
+		height: calc(96 * 100vw / 1440);
 	}
 	.header-fix {
-		height: calc(96 * 100vw / 1366);
+		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {	
-		width: calc(188 * 100vw / 1366);
-		height: calc(32 * 100vw / 1366);
-/*		margin-left: calc(128 * 100vw / 1366);*/
-		margin-left: calc(80 * 100vw / 1366);
+		width: calc(188 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
+/*		margin-left: calc(128 * 100vw / 1440);*/
+		margin-left: calc(80 * 100vw / 1440);
 	}
 	.menu {
-		margin-right: calc(80 * 100vw / 1366);
-/*		grid-column-gap: calc(80 * 100vw / 1366);*/
+		margin-right: calc(80 * 100vw / 1440);
+/*		grid-column-gap: calc(80 * 100vw / 1440);*/
 	}
 	.menu__item {
-		font-size: calc(16 * 100vw / 1366);
-		line-height: calc(32 * 100vw / 1366);
-		padding: calc(4 * 100vw / 1366) calc(12 * 100vw / 1366);
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+		padding: calc(4 * 100vw / 1440) calc(12 * 100vw / 1440);
 	}
 	.menu__item-cart {
-		width: calc(122.27 * 100vw / 1366);
-		border-radius: calc(100 * 100vw / 1366);
-		margin-left: calc(8 * 100vw / 1366);
-		grid-column-gap: calc(10 * 100vw / 1366);
+		width: calc(122.27 * 100vw / 1440);
+		border-radius: calc(100 * 100vw / 1440);
+		margin-left: calc(8 * 100vw / 1440);
+		grid-column-gap: calc(10 * 100vw / 1440);
 	}
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1700px) {
 	.top {
-		width: calc(1366 * 100vw / 1366);
-		height: calc(96 * 100vw / 1366);
+		width: calc(1440 * 100vw / 1440);
+		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
-		width: calc(188 * 100vw / 1366);
-		height: calc(32 * 100vw / 1366);
+		width: calc(188 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
 	}
 }
 
