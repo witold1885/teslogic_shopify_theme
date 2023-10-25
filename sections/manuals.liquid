@@ -87,7 +87,14 @@
 	$(document).ready(function() {
 		var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
-			$(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
+			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+			// $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
 			selectModel($(this).data('url'))
