@@ -161,7 +161,7 @@
 	padding: 12px 21px 18px;
 	display: none;
 	flex-direction: column;
-	grid-row-gap: 16px;
+	grid-row-gap: 5px;
 	background: #FFFFFF;
 	border: 1px solid #3374FB;
 	box-sizing: border-box;

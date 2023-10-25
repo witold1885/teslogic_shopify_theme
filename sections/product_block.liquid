@@ -166,7 +166,14 @@
 		}
 		// selectModel('TT12')
 		$('.product_block-product-select-dropdown-select').on('click', function() {
-			$(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
+			let dropdown = $(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+			// $(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
 		})
 		$('.product_block-product-select-dropdown-item').on('click', function() {
 			let sku = $(this).data('sku')

@@ -82,7 +82,7 @@
 	}
 	.product_block-product-select-dropdown {
 		padding: calc(12 * 100vw / 1366) calc(21 * 100vw / 1366) calc(18 * 100vw / 1366);
-		grid-row-gap: calc(16 * 100vw / 1366);
+		grid-row-gap: calc(5 * 100vw / 1366);
 		border: 1px solid #3374FB;
 		box-shadow: 0px calc(4 * 100vw / 1366) calc(16 * 100vw / 1366) rgba(0, 0, 0, 0.1);
 		border-radius: calc(35 * 100vw / 1366);
