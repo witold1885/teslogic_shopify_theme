@@ -42,9 +42,22 @@
 		grid-column-gap: calc(10 * 100vw / 1366);
 	}
 }
-@media screen and (min-width: 1000px) and (max-width: 1700px) {
+
+@media screen and (min-width: 1366px) and (max-width: 1440px) {
+	.top {
+		width: 1366px;
+	}
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1700px) {
 	.top {
 		width: calc(1366 * 100vw / 1366);
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1700px) {
+	.top {
+/*		width: calc(1366 * 100vw / 1366);*/
 		height: calc(96 * 100vw / 1366);
 	}
 	.top .logo {
