@@ -14,11 +14,11 @@
 }
 .manuals__download-title {
 	color: #000;
-	font-family: Gotham;
-	font-size: 32px;
+	font-family: 'Gotham';
 	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 32px;
 	margin-bottom: 40px;
 }
 .manuals__download-select-text {
@@ -163,8 +163,8 @@
 		margin-bottom: calc(80 * 100vw / 1366);
 	}
 	.manuals__download-title {
-		font-size: calc(32 * 100vw / 1366);
-		margin-bottom: calc(40 * 100vw / 1366);
+		font-size: calc(24 * 100vw / 1366);
+		line-height: calc(32 * 100vw / 1366);
 	}
 	.manuals__download-select-text {
 		font-size: calc(14 * 100vw / 1366);
@@ -234,8 +234,8 @@
 		margin-bottom: 40px;
 	}
 	.manuals__download-title {
-		font-size: 18px;
-		line-height: 140%; /* 25.2px */ 
+		font-size: 20px;
+		line-height: 32px;
 		margin-bottom: 20px;
 		width: 310px;
 		font-weight: 400 !important;
