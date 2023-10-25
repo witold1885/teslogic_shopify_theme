@@ -40,15 +40,9 @@
       ],
       "settings": {
       }
-    },
-    "back_products": {
-      "type": "back_products",
-      "settings": {
-      }
     }
   },
   "order": [
-    "manuals",
-    "back_products"
+    "manuals"
   ]
 }
