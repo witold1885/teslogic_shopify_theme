@@ -203,7 +203,7 @@
 		padding: 12px 21px 18px;
 		display: none;
 		flex-direction: column;
-		grid-row-gap: 16px;
+		grid-row-gap: 5px;
 		background: #FFFFFF;
 		border: 1px solid #3374FB;
 		box-sizing: border-box;
@@ -415,7 +415,7 @@
 		}
 		.store_block-product-select-dropdown {
 			padding: calc(12 * 100vw / 1366) calc(21 * 100vw / 1366) calc(18 * 100vw / 1366);
-			grid-row-gap: calc(16 * 100vw / 1366);
+			grid-row-gap: calc(5 * 100vw / 1366);
 			border: 1px solid #3374FB;
 			box-shadow: 0px calc(4 * 100vw / 1366) calc(16 * 100vw / 1366) rgba(0, 0, 0, 0.1);
 			border-radius: calc(35 * 100vw / 1366);
@@ -796,7 +796,14 @@
 		var model_id = null
 		// selectModel('TT22')
 		$('.store_block-product-select-dropdown-select').on('click', function() {
-			$(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
+			let dropdown = $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+			// $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
 		$('.store_block-product-select-dropdown-item').on('click', function() {
 			let sku = $(this).data('sku')
