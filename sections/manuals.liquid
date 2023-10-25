@@ -115,7 +115,8 @@
 		}
 		$('.manuals__download-button').on('click', function() {
 			if (downloadUrl) {
-				window.open(downloadUrl, '_blank').focus()
+				// window.open(downloadUrl, '_blank').focus()
+				window.location.href = downloadUrl
 			}
 		})
 	})
