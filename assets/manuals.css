@@ -140,7 +140,6 @@
 	width: 1206px;
 	height: 670.888px; 
 	border-radius: 11.0448px;
-	margin-bottom: 80px;
 	overflow: hidden;
 }
 .manuals__video iframe {
@@ -217,7 +216,6 @@
 		width: calc(1206 * 100vw / 1366);
 		height: calc(670.888 * 100vw / 1366);
 		border-radius: calc(11.0448 * 100vw / 1366);
-		margin-bottom: calc(80 * 100vw / 1366);
 	}
 	.manuals__text {
 		margin-left: calc(80 * 100vw / 1366)!important;
