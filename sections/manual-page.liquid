@@ -52,21 +52,17 @@
     outline: none;
     box-shadow: none;
   }
-  @media screen and (max-width: 1456px) {
-    .static-content {
-      margin-left: 128px;
-      margin-right: 128px;
+  @media screen and (max-width: 1366px) {
+    .manual_content {
+      margin-left: calc(80 * 100vw / 1366);
+      margin-right: calc(80 * 100vw / 1366);
     }
   }
   @media screen and (max-width: 999px) {
-    .static-content {
+    /*.static-content {
       margin-left: calc(24 * 100vw / 390);
       margin-right: calc(24 * 100vw / 390);
-    }
-    .static-content h2, .static-content h3 {
-    font-weight: 400 !important;
-      font-family: 'Gotham-Medium' !important;
-    }
+    }*/
   }
 {%- endstyle -%}
 
