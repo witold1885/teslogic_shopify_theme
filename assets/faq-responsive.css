@@ -31,7 +31,7 @@
 	}
 	.faq__chapter-title-text {
 		width: calc(100% - 32 * 100vw / 1366 - 12 * 100vw / 1366);
-		font-size: calc(36 * 100vw / 1366);
+		font-size: calc(32 * 100vw / 1366);
 	}
 	.faq__chapter-chevron {
 		width: calc(32 * 100vw / 1366);
