@@ -1,5 +1,6 @@
 <div id = "multipleReviews" > </div> {%- comment -%} Now add some styles to the page.You could move the styles into your stylesheet if you don't want them here... {%- endcomment -%} <style> #multipleReviews { background: #f7f7f7; padding: 0 1em; margin-top: 30px; } @media only screen and (min-width: 750px){ .product-review { width: 50%; } } .product-review { display: inline-block; vertical-align: top; margin: 4vh 0; padding-right: 10px; } .product-review-stars { display: inline-block; margin-top: 10px; margin-bottom: 10px; } span.product-review-title { font-weight: 400; display: block; font-family: "Montserrat", sans-serif; color: #242e2f; font-size: 1.3em; text-transform: uppercase; line-height: 1.04; padding-bottom: 10px; } .product-review-reviewer { font-size: 80%; font-style: italic; display: block; } .product-review-stars .spr-icon:before { font-family: 'wokiee_icons'; font-size: 16px; line-height: 22px; content: "\ea2d"; color: #ffb503; } .product-review-stars .spr-icon-star-empty:before { font-family: 'wokiee_icons'; font-size: 16px; line-height: 22px; content: "\ea2d"; color: #ddd; } </style>
 {{ shop.permanent_domain | json }}
+{{ all_products | json }}
 <script>
 (function() {
     window.reviewApp = window.reviewApp ||
