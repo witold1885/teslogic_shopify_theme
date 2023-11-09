@@ -6,12 +6,7 @@
         debug: false,
         reviews: [],
         reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
-        reviewStore:
-        {
-            {
-                shop.permanent_domain | json
-            }
-        },
+        reviewStore: {{ shop.permanent_domain | json }},
         /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
     };
     window.reviewApp.translations = {
