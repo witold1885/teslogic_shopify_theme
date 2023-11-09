@@ -2,8 +2,6 @@
 {{ shop.permanent_domain | json }}
 {% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
 {% assign product1 = all_products['teslogic-transmitter-kit'] %}
-{{ product2 | json }}
-{{ product1 | json }}
 <script>
 (function() {
     window.reviewApp = window.reviewApp ||
@@ -19,10 +17,13 @@
         'script_exists': 'The script has already been loaded on the page'
     };
     window.reviewApp.productIdList = [
-    {%- for reviewProduct in all_products limit: 10 -%}
-    	{{- reviewProduct.id -}}
-    	{%- unless forloop.last -%},{%- endunless -%}
-    {%- endfor -%}];
+	    /*{%- for reviewProduct in all_products limit: 10 -%}
+	    	{{- reviewProduct.id -}}
+	    	{%- unless forloop.last -%},{%- endunless -%}
+	    {%- endfor -%}*/
+    	{{- product2.id -}}, {{ product1.id }}
+    ];
+    console.log(window.reviewApp.productIdList)
     reviewApp.errLog = function(t)
     {
         if (!reviewApp.debug)
