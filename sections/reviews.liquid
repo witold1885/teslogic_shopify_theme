@@ -90,11 +90,11 @@
 						let script = document.createElement("script");
 				    script.id = 'singleReviewData-' + i;
 				    script.async = true;
-				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8143253733590&page=2&product_id=8143253733590&shop=8cc6c3.myshopify.com
-				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8143253733590&shop=teslogic.myshopify.com&page=${i}&product_id=8143253733590`;
+				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback&page=2&product_id=8143253733590&shop=8cc6c3.myshopify.com
+				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback&shop=teslogic.myshopify.com&page=${i}&product_id=8143253733590`;
 				    document.body.appendChild(script);
 
-				    window.paginateCallback8143253733590 = function(a)
+				    window.paginateCallback = function(a)
 				    {
 				    	// console.log('a', a)
 				    	totalData.push(a)
