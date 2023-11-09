@@ -87,6 +87,7 @@
 				$('script[type="application/ld+json"]').each(function() {
 					reviewsJsons.push($(this).text().trim())
 				})
+					console.log(reviewsJsons)
 				for (let reviewsJson of reviewsJsons) {
 					reviewsJsonData = JSON.parse(reviewsJson)
 					reviewsData.reviewCount += reviewsJsonData.reviewCount
