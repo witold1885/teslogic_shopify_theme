@@ -84,9 +84,15 @@
 				let reviewsJsons = []
 				let reviewsData = { reviewCount: 0, ratingValue: 0 }
 				loading = true
-				$('script[type="application/ld+json"]').each(function() {
-					reviewsJsons.push($(this).text().trim())
+				$('#shopify-product-reviews').each(function() {
+					let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
+					console.log(reviewsJson)
+					reviewsJsons.push(reviewsJson)
 				})
+				/*$('#shopify-product-reviews').find('script[type="application/ld+json"]').each(function() {
+					console.log($(this).text().trim())
+					reviewsJsons.push($(this).text().trim())
+				})*/
 					console.log(reviewsJsons)
 				for (let reviewsJson of reviewsJsons) {
 					reviewsJsonData = JSON.parse(reviewsJson)
