@@ -16,8 +16,8 @@
 {% assign product = all_products['teslogic-transmitter-kit'] %}
 <!-- <div id="shopify-section-template--19543708926264__16868394313756278c" class="shopify-section"> -->
   <!-- <div id="shopify-block-3d0c2965-c6bc-43d8-9697-a54d948aa432" class="shopify-block shopify-app-block"> -->
-  	<div id="shopify-product-reviews" class="reviews-loader" data-id="8143253733590" style="display: none;"></div>
-  	<div id="shopify-product-reviews" class="reviews-loader" data-id="7634013257942" style="display: none;"></div>
+  	<div id="shopify-product-reviews" data-id="8143253733590" style="display: none;">
+  	</div>
 	<!-- </div> -->
 <!-- </div> -->
 
@@ -74,46 +74,27 @@
 		var totalData = []
 		$('#shopify-product-reviews').on('DOMSubtreeModified', function() {
 			if (!loading) {
-				/*let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
+				let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
 				let reviewsData = null
 				if (reviewsJson != '') {
 					loading = true
 					reviewsData = JSON.parse(reviewsJson)
 					console.log(reviewsData)
-				}*/
-				let reviewsJsons = []
-				let reviewsData = { reviewCount: 0, ratingValue: 0 }
-				loading = true
-				$('.reviews-loader').each(function() {
-					let reviewsJson = $(this).find('script[type="application/ld+json"]').text().trim()
-					console.log(reviewsJson)
-					reviewsJsons.push(reviewsJson)
-				})
-				/*$('#shopify-product-reviews').find('script[type="application/ld+json"]').each(function() {
-					console.log($(this).text().trim())
-					reviewsJsons.push($(this).text().trim())
-				})*/
-					console.log(reviewsJsons)
-				for (let reviewsJson of reviewsJsons) {
-					reviewsJsonData = JSON.parse(reviewsJson)
-					reviewsData.reviewCount += reviewsJsonData.reviewCount
 				}
-					console.log(reviewsData)
 				if (reviewsData) {
 					const reviewCount = reviewsData.reviewCount
 					document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 			    let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 					for (i = 1; i <= Math.ceil(reviewCount / 5); i++) {
 						// console.log(i)
-						for (let product_id of ['8143253733590', '7634013257942']) {
-							let script = document.createElement("script");
-					    script.id = 'singleReviewData-' + i;
-					    script.async = true;
-					    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback&shop=teslogic.myshopify.com&page=${i}&product_id=${product_id}`;
-					    document.body.appendChild(script);
-					  }
+						let script = document.createElement("script");
+				    script.id = 'singleReviewData-' + i;
+				    script.async = true;
+				    // https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8143253733590&page=2&product_id=8143253733590&shop=8cc6c3.myshopify.com
+				    script.src = `https://productreviews.shopifycdn.com/proxy/v4/reviews?callback=paginateCallback8143253733590&shop=teslogic.myshopify.com&page=${i}&product_id=8143253733590`;
+				    document.body.appendChild(script);
 
-				    window.paginateCallback = function(a)
+				    window.paginateCallback8143253733590 = function(a)
 				    {
 				    	// console.log('a', a)
 				    	totalData.push(a)
