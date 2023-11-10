@@ -125,15 +125,10 @@
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
       };
 
-      console.log(window.reviewApp.reviews[i].product);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
-      console.log($(tmpFormDiv).html())
+
 				let form = $(tmpFormDiv).find('.spr-form')
-			
-      console.log(form)
-      console.log(form.html())
-      console.log(formLoaded)
 				if (!formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
@@ -193,5 +188,13 @@
     document.body.appendChild(script);
   };
   reviewApp.getReviews(window.reviewApp.productIdList);
+
+	$('#showForm').on('click', function() {
+		$('.new-review-form').css('display', 'block')
+		$('.reviews-form-shadow').css('display', 'flex')
+	})
+	$('.reviews-form-close').on('click', function() {
+		$('.reviews-form-shadow').css('display', 'none')
+	})
 })();
 </script>
