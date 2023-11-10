@@ -229,10 +229,11 @@
 	})
 	
 	$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
-		console.log($(this).data('value'))
+		window.newReviewRating = $(this).data('value')
 	})
 
 	$(document).on('click', '.reviews-form-actions .spr-button', function(e) {
+    console.log(window.newReviewRating)
 		e.preventDefault()
 		let form = $(this).parents('.new-review-form')
 		let author = $(form).find('.spr-form-contact-name').find('.spr-form-input').val()
@@ -264,7 +265,7 @@
     console.log(formData)
     console.log(window.newReviewRating)
 
-
+    return
     $.ajax({
       type: "POST",
       url: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/create',
