@@ -95,6 +95,7 @@
       reviewApp.getReviews(window.reviewApp.productIdList);
       return;
     };
+		var formLoaded = false
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
       var tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
@@ -123,6 +124,48 @@
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
       };
+				let form = $(tmpDiv).find('.spr-form')
+				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
+					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
+					$('#reviewsFormWrap')
+						.find('form')
+						.addClass('new-review-form')
+						.attr('id', 'new-review-form_8143253733590')
+						.attr('method', 'post')
+						.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
+						.attr('onsubmit', 'SPR.submitForm(this);return false;')
+					let formHtml = `						
+		        <input type="hidden" name="review[rating]">
+		        <input type="hidden" name="product_id" value="8143253733590">
+		        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
+		        <h3 class="spr-form-title">Write a review</h3>
+		        <div class="reviews-form-body">
+		        	<div class="reviews-form-column">
+			        	<div class="reviews-form-field spr-form-contact-name">
+			        		${$(form).find('.spr-form-contact-name').html()}
+			        	</div>
+		        		<div class="reviews-form-field spr-form-contact-email">
+		        			${$(form).find('.spr-form-contact-email').html()}
+			        	</div>
+		        		<div class="reviews-form-field spr-form-review-rating">
+		        			${$(form).find('.spr-form-review-rating').html()}
+			        	</div>
+		        	</div>
+		        	<div class="reviews-form-column">
+			        	<div class="reviews-form-field spr-form-review-body">
+			        		${$(form).find('.spr-form-review-body').html()}
+			        	</div>
+		        	</div>
+		        </div>
+		        <div class="reviews-form-actions">
+		        	${$(form).find('.spr-form-actions').html()}
+		        </div>
+					`
+					$('#reviewsFormWrap').find('form').html(formHtml)
+					$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
+					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
+					formLoaded = true
+				}
     };
   };
   window.reviewApp.getReviews = function(a) {
