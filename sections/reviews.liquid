@@ -169,11 +169,11 @@
 		        		<div class="reviews-form-field spr-form-review-rating">
 	                <label class="spr-form-label" for="review[rating]">Rating</label>
 	                <div class="spr-form-input spr-starrating ">
-                    <a href="#" onclick="setReviewRating(1);" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="setReviewRating(2);" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="setReviewRating(3);" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="setReviewRating(4);" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="setReviewRating(5);" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
+                    <a href="#" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
+                    <a href="#" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
+                    <a href="#" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
+                    <a href="#" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
+                    <a href="#" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
 	                </div>
 			        	</div>
 		        	</div>
@@ -227,12 +227,11 @@
 	$('.reviews-form-close').on('click', function() {
 		$('.reviews-form-shadow').css('display', 'none')
 	})
-
-	function setReviewRating(value) {
-		console.log(value)
-		window.newReviewRating = value
-	}
 	
+	$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
+		console.log($(this).data('value'))
+	}
+
 	$(document).on('click', '.reviews-form-actions .spr-button', function(e) {
 		e.preventDefault()
 		let form = $(this).parents('.new-review-form')
