@@ -150,10 +150,18 @@
 	                <input class="spr-form-input spr-form-input-text " id="review_author_8143253733590" type="text" name="review[author]" value="" placeholder="Enter your name">
 			        	</div>
 		        		<div class="reviews-form-field spr-form-contact-email">
-		        			${$(form).find('.spr-form-contact-email').html()}
+	                <label class="spr-form-label" for="review_email_8143253733590">Email</label>
+	                <input class="spr-form-input spr-form-input-email " id="review_email_8143253733590" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
 			        	</div>
 		        		<div class="reviews-form-field spr-form-review-rating">
-		        			${$(form).find('.spr-form-review-rating').html()}
+	                <label class="spr-form-label" for="review[rating]">Rating</label>
+	                <div class="spr-form-input spr-starrating ">
+	                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
+	                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
+	                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
+	                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
+	                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
+	                </div>
 			        	</div>
 		        	</div>
 		        	<div class="reviews-form-column">
