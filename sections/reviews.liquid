@@ -3,8 +3,8 @@
 
 <div id="multipleReviews"></div>
 
-{% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
 {% assign product1 = all_products['teslogic-transmitter-kit'] %}
+{% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
 <script>
 (function() {
     window.reviewApp = window.reviewApp ||
@@ -24,7 +24,7 @@
 	    	{{- reviewProduct.id -}}
 	    	{%- unless forloop.last -%},{%- endunless -%}
 	    {%- endfor -%}*/
-    	{{- product2.id -}}, {{ product1.id }}
+    	{{- product1.id -}}, {{ product2.id }}
     ];
     console.log(window.reviewApp.productIdList)
     reviewApp.errLog = function(t)
