@@ -166,7 +166,23 @@
 		        	</div>
 		        	<div class="reviews-form-column">
 			        	<div class="reviews-form-field spr-form-review-body">
-			        		${$(form).find('.spr-form-review-body').html()}
+	                <label class="spr-form-label" for="review_body_8143253733590">
+	                    Body of Review
+	                    <span role="status" aria-live="polite" aria-atomic="true">
+	                        <span class="spr-form-review-body-charactersremaining">(1500)</span>
+	                        <span class="visuallyhidden">characters remaining</span>
+	                    </span>
+	                </label>
+	                <div class="spr-form-input">
+	                    <textarea class="spr-form-input spr-form-input-textarea " id="review_body_8143253733590" data-product-id="8143253733590" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
+	                    <script>
+	                        function sprUpdateCount(e){
+						              var $el = SPR.$(e.currentTarget);
+						              SPR.$(".spr-form-review-body-charactersremaining").html('(' + (1500 - $el.val().length) + ')');
+						            }
+						            SPR.$("textarea[data-product-id=8143253733590]").keyupsprUpdateCount).trigger("keyup");
+						          </script>
+	                </div>
 			        	</div>
 		        	</div>
 		        </div>
