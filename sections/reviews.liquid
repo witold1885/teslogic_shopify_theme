@@ -62,15 +62,18 @@
       for (var _i = reviewText.length - 1; _i >= 0; _i--) {
         /*var divHtml = '';
         divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
+        let reviewerArray = reviewer[_i].innerText.split('on')
+        let reviewAuthor = reviewerArray[0].trim()
+        let reviewDate = reviewerArray[1].trim()
         let reviewHtml = `
         	<div class="reviews-list-item product-review">
         		<div class="reviews-list-item-top">
         			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
-        			<div class="reviews-list-item-date">${reviewer[_i].innerText}</div>
+        			<div class="reviews-list-item-date">${reviewDate}</div>
         		</div>
         		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
         		<div class="reviews-list-item-bottom">
-        			<div class="reviews-list-item-author">${reviewer[_i].innerText}</div>
+        			<div class="reviews-list-item-author">${reviewAuthor}</div>
         		</div>
         	</div>
         `
