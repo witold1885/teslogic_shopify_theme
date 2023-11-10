@@ -1,7 +1,51 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
-<div id="multipleReviews"></div>
+<!-- <div id="multipleReviews"></div> -->
+<div id="reviewsWrap" class="reviews">
+	<div class="block_title reviews-title">Reviews</div>
+	<div class="reviews-data">
+		<div class="reviews-data-left">
+			<div class="reviews-rating">
+				<div class="reviews-rating-overall">
+					<div class="reviews-rating-overall-title">Overall rating</div>
+					<div class="reviews-rating-overall-data">
+						<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
+						<div id="totalRatingStars" class="reviews-rating-overall-data-stars"></div>						
+					</div>					
+				</div>
+				<div class="reviews-rating-stats">
+					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
+					<div id="reviewsMarks" class="reviews-rating-stats-marks"></div>
+				</div>
+			</div>
+			<div class="reviews-write">
+				<button id="showForm">Write a review</button>
+			</div>
+		</div>
+		<div class="reviews-data-right">
+			<div id="multipleReviews" class="reviews-list"></div>
+			<div id="pagination" class="spr-pagination reviews-pagination"></div>
+			<div id="viewAll" class="reviews-expand">
+				<a class="reviews-expand-text">View all reviews</a>
+				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+			</div>
+			<div id="showLess" class="reviews-expand">
+				<a class="reviews-expand-text">Less reviews</a>
+				<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="reviews-form-shadow">
+	<div id="reviewsFormWrap" class="reviews-form-wrap">
+		<img class="reviews-form-close" src="{{ 'close-grey.png' | asset_url }}">
+		<form class="reviews-form">
+			
+		</form>
+	</div>
+</div>
 
 {% assign product1 = all_products['teslogic-transmitter-kit'] %}
 {% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
