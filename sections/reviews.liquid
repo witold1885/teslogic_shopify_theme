@@ -130,6 +130,8 @@
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
       console.log($(tmpFormDiv).html())
 				let form = $(tmpFormDiv).find('.spr-form')
+			
+      console.log(form)
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
