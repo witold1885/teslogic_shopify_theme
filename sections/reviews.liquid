@@ -125,7 +125,10 @@
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
       };
-				let form = $(tmpDiv).find('.spr-form')
+
+      var tmpFormDiv = document.createElement('div');
+      tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
+				let form = $(tmpFormDiv).find('.spr-form')
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 					$('#reviewsFormWrap')
