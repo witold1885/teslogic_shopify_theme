@@ -7,115 +7,92 @@
 {% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
 <script>
 (function() {
-    window.reviewApp = window.reviewApp ||
-    {
-        debug: false,
-        reviews: [],
-        reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
-        reviewStore: {{ shop.permanent_domain | json }},
-        /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
+  window.reviewApp = window.reviewApp || {
+    debug: false,
+    reviews: [],
+    reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
+    reviewStore: {{ shop.permanent_domain | json }},
+    /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
+  };
+  window.reviewApp.translations = {
+    'missing_id': 'Product ID array not defined',
+    'script_exists': 'The script has already been loaded on the page'
+  };
+  window.reviewApp.productIdList = [ {{- product1.id -}}, {{ product2.id }} ];
+  reviewApp.errLog = function(t) {
+    if (!reviewApp.debug) return
+    console.warn(reviewApp.translations[t])
+  };
+  var getBadges = function(a) {
+    if (typeof a === 'undefined') {
+      errLog('missing_id');
+      return
+    }
+    if (!!document.getElementById('reviewBadges')) {
+      errLog('script_exists');
+      return
+    }
+    window.badgesLoaded = function(a) {
+      console.log(a);
     };
-    window.reviewApp.translations = {
-        'missing_id': 'Product ID array not defined',
-        'script_exists': 'The script has already been loaded on the page'
+    var idString = [];
+    for (var i = a.length - 1; i >= 0; i--) {
+      idString.push('&product_ids[]=' + a[i]);
     };
-    window.reviewApp.productIdList = [
-	    /*{%- for reviewProduct in all_products limit: 10 -%}
-	    	{{- reviewProduct.id -}}
-	    	{%- unless forloop.last -%},{%- endunless -%}
-	    {%- endfor -%}*/
-    	{{- product1.id -}}, {{ product2.id }}
-    ];
-    console.log(window.reviewApp.productIdList)
-    reviewApp.errLog = function(t)
-    {
-        if (!reviewApp.debug)
-        {
-            return
-        }
-        console.warn(reviewApp.translations[t])
+    var script = document.createElement("script");
+    script.id = "reviewBadges";
+    script.async = true;
+    script.src = [window.reviewApp.reviewUrl, 'badges?callback=badgesLoaded&shop=', window.reviewApp.reviewStore, idString.join('')].join('');
+    document.body.appendChild(script);
+  };
+  window.reviewLoaded = function(a) {
+    window.reviewApp.reviews.push(a);
+    if (window.reviewApp.productIdList.length) {
+      reviewApp.getReviews(window.reviewApp.productIdList);
+      return;
     };
-    var getBadges = function(a)
-    {
-        if (typeof a === 'undefined')
-        {
-            errLog('missing_id');
-            return
-        }
-        if (!!document.getElementById('reviewBadges'))
-        {
-            errLog('script_exists');
-            return
-        }
-        window.badgesLoaded = function(a)
-        {
-            console.log(a);
-        };
-        var idString = [];
-        for (var i = a.length - 1; i >= 0; i--)
-        {
-            idString.push('&product_ids[]=' + a[i]);
-        };
-        var script = document.createElement("script");
-        script.id = "reviewBadges";
-        script.async = true;
-        script.src = [window.reviewApp.reviewUrl, 'badges?callback=badgesLoaded&shop=', window.reviewApp.reviewStore, idString.join('')].join('');
-        document.body.appendChild(script);
+    for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
+      var tmpDiv = document.createElement('div');
+      tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
+      var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
+      var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
+      var title = tmpDiv.querySelectorAll('.spr-review-header-title');
+      var rating = tmpDiv.querySelectorAll('.spr-starratings');
+      console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+      for (var _i = reviewText.length - 1; _i >= 0; _i--) {
+        /*var divHtml = '';
+        divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
+        let reviewHtml = `
+        	<div class="reviews-list-item product-review">
+        		<div class="reviews-list-item-top">
+        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+        			<div class="reviews-list-item-date">${reviewer[_i].innerText}</div>
+        		</div>
+        		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
+        		<div class="reviews-list-item-bottom">
+        			<div class="reviews-list-item-author">${reviewer[_i].innerText}</div>
+        		</div>
+        	</div>
+        `
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+      };
     };
-    window.reviewLoaded = function(a)
-    {
-        window.reviewApp.reviews.push(a);
-        if (window.reviewApp.productIdList.length)
-        {
-            reviewApp.getReviews(window.reviewApp.productIdList);
-            return;
-        };
-        for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--)
-        {
-            var tmpDiv = document.createElement('div');
-            tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
-            var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
-            var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
-            var title = tmpDiv.querySelectorAll('.spr-review-header-title');
-            var rating = tmpDiv.querySelectorAll('.spr-starratings');
-            console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
-            for (var _i = reviewText.length - 1; _i >= 0; _i--)
-            {
-                /*var divHtml = '';
-                divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
-	        let reviewHtml = `
-	        	<div class="reviews-list-item product-review">
-	        		<div class="reviews-list-item-top">
-	        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
-	        			<div class="reviews-list-item-date">${reviewer[_i].innerText}</div>
-	        		</div>
-	        		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
-	        		<div class="reviews-list-item-bottom">
-	        			<div class="reviews-list-item-author">${reviewer[_i].innerText}</div>
-	        		</div>
-	        	</div>
-	        `
-                document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
-            };
-        };
-    };
-    window.reviewApp.getReviews = function(a)
-    {
-        if (typeof a === 'undefined')
-        {
-            errLog('missing_id');
-            return
-        }
-        var productId = a.shift();
-        var script = document.createElement("script");
-        if (document.getElementById('singleReviewData'))
-        {
-            document.getElementById('singleReviewData').remove(); /* cleanup (optional) */
-        }
-        script.id = 'singleReviewData';
-        script.async = true;
-        script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
-        document.body.appendChild(script);
-    };
-    reviewApp.getReviews(window.reviewApp.productIdList);
-})(); </script>
+  };
+  window.reviewApp.getReviews = function(a) {
+    if (typeof a === 'undefined') {
+      errLog('missing_id');
+      return
+    }
+    var productId = a.shift();
+    var script = document.createElement("script");
+    if (document.getElementById('singleReviewData')) {
+      document.getElementById('singleReviewData').remove(); /* cleanup (optional) */
+    }
+    script.id = 'singleReviewData';
+    script.async = true;
+    script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
+    document.body.appendChild(script);
+  };
+  reviewApp.getReviews(window.reviewApp.productIdList);
+})();
+</script>
