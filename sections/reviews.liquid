@@ -103,7 +103,6 @@
       var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
       var title = tmpDiv.querySelectorAll('.spr-review-header-title');
       var rating = tmpDiv.querySelectorAll('.spr-starratings');
-      console.log(window.reviewApp.reviews[i]);
       // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
       for (var _i = reviewText.length - 1; _i >= 0; _i--) {
         /*var divHtml = '';
@@ -126,8 +125,10 @@
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
       };
 
+      console.log(window.reviewApp.reviews[i].product);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
+      console.log($(tmpFormDiv).html())
 				let form = $(tmpFormDiv).find('.spr-form')
 				if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
