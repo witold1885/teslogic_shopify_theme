@@ -244,6 +244,7 @@
 	  }
 
 	  console.log(totalData)
+	  showPage(1)
   };
   window.reviewApp.getReviews = function(a) {
     if (typeof a === 'undefined') {
@@ -261,6 +262,57 @@
     document.body.appendChild(script);
   };
   reviewApp.getReviews(window.reviewApp.productIdList);
+
+	function showPage(page) {
+		$('#multipleReviews').empty();
+		$('#pagination').empty();
+		for (let reviewHtml of totalData[page]) {
+			document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+		}
+		/*let rws = $($.parseHTML(totalData[page - 1].reviews));
+    $(rws).each(function(index) {
+    	if ($(this).hasClass('spr-review')) {
+				let reviewStars = $(this).find('.spr-starratings').html()
+				let reviewAuthor = '', reviewDate = ''
+				$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
+					if (index == 0) reviewAuthor = $(this).text()
+					else if (index == 1) reviewDate = $(this).text()
+				})
+				let reviewContent = $(this).find('.spr-review-content-body').text()
+        let reviewHtml = `
+        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
+        		<div class="reviews-list-item-top">
+        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
+        			<div class="reviews-list-item-date">${reviewDate}</div>
+        		</div>
+        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
+        		<div class="reviews-list-item-bottom">
+        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+        		</div>
+        	</div>
+        `
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+      }
+    	else if ($(this).hasClass('spr-pagination')) {
+    		let pagination = $(this)
+				document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
+				$('#pagination').find('.spr-pagination-page:not(.is-active), .spr-pagination-prev, .spr-pagination-next').each(function() {
+					$(this).find('a').prop('onclick', null).off('click').removeAttr('onclick')
+				})
+				const prevPageHtml = `
+					<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+					<div class="reviews-page-prev-text">Previous</div>
+				`
+				$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
+				const nextPageHtml = `
+					<div class="reviews-page-next-text">Next</div>
+					<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+				`
+				$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
+				if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
+    	}
+    });*/
+	}
 
 	$('#showForm').on('click', function() {
 		$('.new-review-form').css('display', 'block')
