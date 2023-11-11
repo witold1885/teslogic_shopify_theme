@@ -153,7 +153,7 @@
       console.log(window.reviewApp.reviews[i].form);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
-			let form = $(tmpFormDiv).find('.spr-form')
+			let form = $(tmpFormDiv).find('.new-review-form')
 			console.log(form)
 			console.log(form.html())
 			if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
