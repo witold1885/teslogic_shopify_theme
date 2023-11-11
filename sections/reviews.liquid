@@ -137,8 +137,8 @@
         	</div>
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
-
-        console.log(rating[_i].innerHTML)
+        let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+        console.log(ratingMark)
       };
 
       var tmpScriptDiv = document.createElement('div');
