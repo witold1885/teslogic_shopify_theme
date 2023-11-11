@@ -152,7 +152,7 @@
 			console.log(reviewsData)
 			reviewCount += Number(reviewsData.reviewCount)
 
-      console.log(window.reviewApp.reviews[i].product);
+      // console.log(window.reviewApp.reviews[i].product);
       var tmpProductDiv = document.createElement('div');
       tmpProductDiv.innerHTML = window.reviewApp.reviews[i].product;
 			let summaryRating = tmpProductDiv.querySelectorAll('span.spr-summary-starrating');
@@ -226,8 +226,14 @@
     	sumRatings += Number(item);
     }
     let summaryRating = sumRatings / summaryRatings.length;
+    console.log(summaryRating)
     // document.getElementById('totalRatingValue').innerText = Number(reviewsData.ratingValue).toFixed(2);
-    // document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
+    let summaryRatingHtml = `
+    	<span class="spr-starrating spr-summary-starrating" aria-label="5.0 of 5 stars" role="img">
+        <i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+      </span>
+    `
+    document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
 
 		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 
