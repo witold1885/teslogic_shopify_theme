@@ -110,6 +110,7 @@
     };
 		var formLoaded = false
 		var reviewCount = 0
+		let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
       var tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
@@ -139,6 +140,7 @@
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
         console.log(ratingMark)
+		    ratingMarks[`mark${ratingMark}`]++;
       };
 
       var tmpScriptDiv = document.createElement('div');
@@ -216,7 +218,33 @@
 					formLoaded = true
 				}
     };
+    
 		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
+
+    let sumMarks = 0
+    for (const mark in ratingMarks) {
+    	sumMarks += ratingMarks[mark]
+    }
+	  if (sumMarks == reviewCount) {
+      let marksHtml = '';
+      for (let m = 5; m >= 1; m--) {
+      	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
+      	marksHtml += `
+      		<div class="reviews-rating-stats-mark">
+      			<div class="reviews-rating-stats-mark-star">
+      				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+      				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
+      				<div class="reviews-rating-stats-mark-star-line">
+      					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
+      					</div>
+      				</div>
+      			</div>
+      			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+      		</div>
+      	`;
+      }
+      document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
+	  }
   };
   window.reviewApp.getReviews = function(a) {
     if (typeof a === 'undefined') {
