@@ -144,6 +144,9 @@
       tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
       let aggregateScript = $(tmpScriptDiv).find('script')
       console.log(aggregateScript)
+			let reviewsJson = $(aggregateScript).text().trim()
+			let reviewsData = JSON.parse(reviewsJson)
+			console.log(reviewsData)
 
 
 
