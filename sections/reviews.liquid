@@ -102,6 +102,9 @@
     document.body.appendChild(script);
   };
   window.newReviewRating = 0;
+	var totalData = [];
+	var p = 1;
+	totalData[p] = [];
   window.reviewLoaded = function(a) {
     window.reviewApp.reviews.push(a);
     if (window.reviewApp.productIdList.length) {
@@ -136,8 +139,13 @@
         		</div>
         	</div>
         `
-        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+        // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 
+				totalData[p].push(reviewHtml);
+				if (_i != 0 && _i % 5 == 0) {
+					p++;
+					totalData[p] = [];
+				}
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		    ratingMarks[`mark${ratingMark}`]++;
       };
@@ -150,14 +158,12 @@
 			reviewCount += Number(reviewsData.reviewCount)
 			sumRatings += Number(reviewsData.ratingValue)
 
-      console.log(window.reviewApp.reviews[i].form);
+      // console.log(window.reviewApp.reviews[i].form);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
 			let form = $(tmpFormDiv).find('.new-review-form')
-			console.log(form)
-			console.log(form.html())
+
 			if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
-				// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 				$('#reviewsFormWrap')
 					.find('form')
 					.addClass('new-review-form')
@@ -233,6 +239,8 @@
       }
       document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
 	  }
+
+	  console.log(totalData)
   };
   window.reviewApp.getReviews = function(a) {
     if (typeof a === 'undefined') {
