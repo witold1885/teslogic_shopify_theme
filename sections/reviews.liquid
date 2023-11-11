@@ -157,9 +157,11 @@
       tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
       let aggregateScript = $(tmpScriptDiv).find('script')
 			let reviewsJson = $(aggregateScript).text().trim()
-			let reviewsData = JSON.parse(reviewsJson)
-			reviewCount += Number(reviewsData.reviewCount)
-			sumRatings += Number(reviewsData.ratingValue)
+			if (reviewsJson != '') {
+				let reviewsData = JSON.parse(reviewsJson)
+				reviewCount += Number(reviewsData.reviewCount)
+				sumRatings += Number(reviewsData.ratingValue)
+			}
 
       // console.log(window.reviewApp.reviews[i].form);
       var tmpFormDiv = document.createElement('div');
