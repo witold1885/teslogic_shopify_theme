@@ -115,8 +115,8 @@
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
       var tmpProductDiv = document.createElement('div');
       tmpProductDiv.innerHTML = window.reviewApp.reviews[i].product;
-			let summaryRating = $(tmpProductDiv).find('span.spr-summary-starrating');
-      let summaryMark = summaryRating.getAttribute('aria-label').split(' ')[0];
+			let summaryRating = tmpProductDiv.querySelectorAll('span.spr-summary-starrating');
+      let summaryMark = summaryRating[0].getAttribute('aria-label').split(' ')[0];
 			console.log(summaryRating)
 			console.log(summaryMark)
 			summaryRatings.push(summaryMark)
