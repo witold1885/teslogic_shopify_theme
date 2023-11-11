@@ -220,10 +220,9 @@
     };
     
     let summaryRating = sumRatings / window.reviewApp.reviews.length;
-    console.log(summaryRating)
-    // document.getElementById('totalRatingValue').innerText = Number(reviewsData.ratingValue).toFixed(2);
+    document.getElementById('totalRatingValue').innerText = Number(summaryRating).toFixed(2);
     let summaryRatingHtml = `
-    	<span class="spr-starrating spr-summary-starrating" aria-label="4.5 of 5 stars" role="img">
+    	<span class="spr-starrating spr-summary-starrating" aria-label="${Number(summaryRating).toFixed(1} of 5 stars" role="img">
         <i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i>
       </span>
     `
