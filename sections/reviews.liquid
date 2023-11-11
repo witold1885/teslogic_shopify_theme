@@ -150,7 +150,7 @@
 			reviewCount += Number(reviewsData.reviewCount)
 			sumRatings += Number(reviewsData.ratingValue)
 
-      // console.log(window.reviewApp.reviews[i].product);
+      console.log(window.reviewApp.reviews[i].form);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
 			let form = $(tmpFormDiv).find('.spr-form')
