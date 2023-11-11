@@ -119,7 +119,6 @@
       var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
       var title = tmpDiv.querySelectorAll('.spr-review-header-title');
       var rating = tmpDiv.querySelectorAll('.spr-starratings');
-      console.log(window.reviewApp.reviews[i]);
       // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
       for (var _i = 0; _i < reviewText.length; _i++) {
         /*var divHtml = '';
@@ -153,6 +152,7 @@
 			console.log(reviewsData)
 			reviewCount += Number(reviewsData.reviewCount)
 
+      console.log(window.reviewApp.reviews[i].product);
       var tmpProductDiv = document.createElement('div');
       tmpProductDiv.innerHTML = window.reviewApp.reviews[i].product;
 			let summaryRating = tmpProductDiv.querySelectorAll('span.spr-summary-starrating');
@@ -221,7 +221,13 @@
 			}
     };
 
-    console.log(summaryRatings)
+    let sumRatings = 0;
+    for (let item of summaryRatings) {
+    	sumRatings += Number(item);
+    }
+    let summaryRating = sumRatings / summaryRatings.length;
+    // document.getElementById('totalRatingValue').innerText = Number(reviewsData.ratingValue).toFixed(2);
+    // document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', $(summaryRating).html());
 
 		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 
