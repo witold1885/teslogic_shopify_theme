@@ -38,14 +38,14 @@
 		<div class="reviews-data-right">
 			<div id="multipleReviews" class="reviews-list"></div>
 			<div id="pagination" class="spr-pagination reviews-pagination"></div>
-			<div id="viewAll" class="reviews-expand">
+			<!-- <div id="viewAll" class="reviews-expand">
 				<a class="reviews-expand-text">View all reviews</a>
 				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.svg' | asset_url }}">
 			</div>
 			<div id="showLess" class="reviews-expand">
 				<a class="reviews-expand-text">Less reviews</a>
 				<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.svg' | asset_url }}">
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
@@ -140,7 +140,7 @@
         		</div>
         	</div>
         `
-        // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 
 				if (r != 0 && r % 5 == 0) {
 					p++;
@@ -243,8 +243,8 @@
       document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
 	  }
 
-	  console.log(totalData)
-	  showPage(1)
+	  // console.log(totalData)
+	  // showPage(1)
   };
   window.reviewApp.getReviews = function(a) {
     if (typeof a === 'undefined') {
