@@ -110,8 +110,8 @@
     };
 		var formLoaded = false;
 		var reviewCount = 0;
+		var sumRatings = 0;
 		let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
-		var summaryRatings = [];
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
       var tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
@@ -151,6 +151,7 @@
 			let reviewsData = JSON.parse(reviewsJson)
 			console.log(reviewsData)
 			reviewCount += Number(reviewsData.reviewCount)
+			sumRatings += Number(reviewsData.ratingValue)
 
       // console.log(window.reviewApp.reviews[i].product);
       var tmpProductDiv = document.createElement('div');
@@ -220,11 +221,7 @@
 				formLoaded = true
 			}
     };
-
-    let sumRatings = 0;
-    for (let item of summaryRatings) {
-    	sumRatings += Number(item);
-    }
+    
     let summaryRating = sumRatings / summaryRatings.length;
     console.log(summaryRating)
     // document.getElementById('totalRatingValue').innerText = Number(reviewsData.ratingValue).toFixed(2);
