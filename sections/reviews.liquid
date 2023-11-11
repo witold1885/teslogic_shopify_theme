@@ -118,7 +118,6 @@
       var title = tmpDiv.querySelectorAll('.spr-review-header-title');
       var rating = tmpDiv.querySelectorAll('.spr-starratings');
       // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
-      // for (var _i = reviewText.length - 1; _i >= 0; _i--) {
       for (var _i = 0; _i < reviewText.length; _i++) {
         /*var divHtml = '';
         divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
@@ -138,13 +137,13 @@
         	</div>
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+
+        console.log(rating[_i].innerHTML)
       };
 
-      console.log(window.reviewApp.reviews[i].aggregate_rating);
       var tmpScriptDiv = document.createElement('div');
       tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
       let aggregateScript = $(tmpScriptDiv).find('script')
-      console.log(aggregateScript)
 			let reviewsJson = $(aggregateScript).text().trim()
 			let reviewsData = JSON.parse(reviewsJson)
 			console.log(reviewsData)
