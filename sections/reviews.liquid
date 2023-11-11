@@ -147,6 +147,7 @@
 			let reviewsJson = $(aggregateScript).text().trim()
 			let reviewsData = JSON.parse(reviewsJson)
 			console.log(reviewsData)
+			reviewCount += Number(reviewsData.reviewCount)
 
 
 
@@ -215,6 +216,7 @@
 					formLoaded = true
 				}
     };
+		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
   };
   window.reviewApp.getReviews = function(a) {
     if (typeof a === 'undefined') {
