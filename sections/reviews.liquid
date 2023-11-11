@@ -141,11 +141,12 @@
         `
         // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 
-				totalData[p].push(reviewHtml);
 				if (_i != 0 && _i % 5 == 0) {
 					p++;
 					totalData[p] = [];
 				}
+				totalData[p].push(reviewHtml);
+				
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		    ratingMarks[`mark${ratingMark}`]++;
       };
