@@ -121,8 +121,6 @@
       var rating = tmpDiv.querySelectorAll('.spr-starratings');
       // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
       for (var _i = 0; _i < reviewText.length; _i++) {
-        /*var divHtml = '';
-        divHtml += ['<div class="product-review"><span class="product-review-title">', title[_i].innerText, '</span><span class="product-review-text">', reviewText[_i].innerText, '</span><span class="product-review-stars">', rating[_i].innerHTML, '</span><span class="product-review-reviewer">', reviewer[_i].innerText, '</span></div>'].join('');*/
         let reviewerArray = reviewer[_i].innerText.split('on')
         let reviewAuthor = reviewerArray[0].trim()
         let reviewDate = reviewerArray[1].trim()
@@ -139,8 +137,8 @@
         	</div>
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
-        console.log(ratingMark)
 		    ratingMarks[`mark${ratingMark}`]++;
       };
 
@@ -149,7 +147,6 @@
       let aggregateScript = $(tmpScriptDiv).find('script')
 			let reviewsJson = $(aggregateScript).text().trim()
 			let reviewsData = JSON.parse(reviewsJson)
-			console.log(reviewsData)
 			reviewCount += Number(reviewsData.reviewCount)
 			sumRatings += Number(reviewsData.ratingValue)
 
@@ -157,6 +154,8 @@
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
 			let form = $(tmpFormDiv).find('.spr-form')
+			console.log(form)
+			console.log(form.html())
 			if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
 				// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
 				$('#reviewsFormWrap')
@@ -208,7 +207,6 @@
       </span>
     `
     document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRatingHtml);
-
 		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 
     let sumMarks = 0
