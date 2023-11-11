@@ -109,6 +109,7 @@
       return;
     };
 		var formLoaded = false
+		var reviewCount = 0
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
       var tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
@@ -116,8 +117,6 @@
       var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
       var title = tmpDiv.querySelectorAll('.spr-review-header-title');
       var rating = tmpDiv.querySelectorAll('.spr-starratings');
-      console.log(window.reviewApp.reviews[i].aggregate_rating);
-      console.log(window.reviewApp.reviews[i].form);
       // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
       for (var _i = reviewText.length - 1; _i >= 0; _i--) {
         /*var divHtml = '';
@@ -140,6 +139,15 @@
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
       };
 
+      console.log(window.reviewApp.reviews[i].aggregate_rating);
+      var tmpScriptDiv = document.createElement('div');
+      tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
+      let aggregateScript = $(tmpScriptDiv).find('script')
+      console.log(aggregateScript)
+
+
+
+      // console.log(window.reviewApp.reviews[i].form);
       var tmpFormDiv = document.createElement('div');
       tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
 
