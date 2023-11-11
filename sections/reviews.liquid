@@ -113,14 +113,6 @@
 		let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
 		var summaryRatings = [];
     for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
-      var tmpProductDiv = document.createElement('div');
-      tmpProductDiv.innerHTML = window.reviewApp.reviews[i].product;
-			let summaryRating = tmpProductDiv.querySelectorAll('span.spr-summary-starrating');
-      let summaryMark = summaryRating[0].getAttribute('aria-label').split(' ')[0];
-			console.log(summaryRating)
-			console.log(summaryMark)
-			summaryRatings.push(summaryMark)
-
       var tmpDiv = document.createElement('div');
       tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
       var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
@@ -161,73 +153,75 @@
 			console.log(reviewsData)
 			reviewCount += Number(reviewsData.reviewCount)
 
+      var tmpProductDiv = document.createElement('div');
+      tmpProductDiv.innerHTML = window.reviewApp.reviews[i].product;
+			let summaryRating = tmpProductDiv.querySelectorAll('span.spr-summary-starrating');
+      let summaryMark = summaryRating[0].getAttribute('aria-label').split(' ')[0];
+			summaryRatings.push(summaryMark)
 
-
-      // console.log(window.reviewApp.reviews[i].form);
-      var tmpFormDiv = document.createElement('div');
-      tmpFormDiv.innerHTML = window.reviewApp.reviews[i].product;
-
-				let form = $(tmpFormDiv).find('.spr-form')
-				if (!formLoaded) {
-					// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
-					$('#reviewsFormWrap')
-						.find('form')
-						.addClass('new-review-form')
-						.attr('id', 'new-review-form_8143253733590')
-						.attr('method', 'post')
-						.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
-						.attr('onsubmit', 'SPR.submitForm(this);return false;')
-					let formHtml = `						
-		        <input type="hidden" name="review[rating]">
-		        <input type="hidden" name="product_id" value="8143253733590">
-		        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
-		        <h3 class="spr-form-title">Write a review</h3>
-		        <div class="reviews-form-body">
-		        	<div class="reviews-form-column">
-			        	<div class="reviews-form-field spr-form-contact-name">
-	                <label class="spr-form-label" for="review_author_8143253733590">Name</label>
-	                <input class="spr-form-input spr-form-input-text " id="review_author_8143253733590" type="text" name="review[author]" value="" placeholder="Enter your name">
-			        	</div>
-		        		<div class="reviews-form-field spr-form-contact-email">
-	                <label class="spr-form-label" for="review_email_8143253733590">Email</label>
-	                <input class="spr-form-input spr-form-input-email " id="review_email_8143253733590" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
-			        	</div>
-		        		<div class="reviews-form-field spr-form-review-rating">
-	                <label class="spr-form-label" for="review[rating]">Rating</label>
-	                <div class="spr-form-input spr-starrating ">
-                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
-                    <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
-	                </div>
-			        	</div>
+			let form = $(tmpProductDiv).find('.spr-form')
+			if (!formLoaded) {
+				// document.getElementById('reviewsFormWrap').insertAdjacentHTML('beforeend', form.html())
+				$('#reviewsFormWrap')
+					.find('form')
+					.addClass('new-review-form')
+					.attr('id', 'new-review-form_8143253733590')
+					.attr('method', 'post')
+					.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
+					.attr('onsubmit', 'SPR.submitForm(this);return false;')
+				let formHtml = `						
+	        <input type="hidden" name="review[rating]">
+	        <input type="hidden" name="product_id" value="8143253733590">
+	        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
+	        <h3 class="spr-form-title">Write a review</h3>
+	        <div class="reviews-form-body">
+	        	<div class="reviews-form-column">
+		        	<div class="reviews-form-field spr-form-contact-name">
+                <label class="spr-form-label" for="review_author_8143253733590">Name</label>
+                <input class="spr-form-input spr-form-input-text " id="review_author_8143253733590" type="text" name="review[author]" value="" placeholder="Enter your name">
 		        	</div>
-		        	<div class="reviews-form-column">
-			        	<div class="reviews-form-field spr-form-review-body">
-	                <label class="spr-form-label" for="review_body_8143253733590">
-                    Body of Review
-                    <span role="status" aria-live="polite" aria-atomic="true">
-                      <span class="spr-form-review-body-charactersremaining">(1500)</span>
-                      <span class="visuallyhidden">characters remaining</span>
-                    </span>
-	                </label>
-	                <div class="spr-form-input">
-	                   <textarea class="spr-form-input spr-form-input-textarea " id="review_body_8143253733590" data-product-id="8143253733590" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
-	                </div>
-			        	</div>
+	        		<div class="reviews-form-field spr-form-contact-email">
+                <label class="spr-form-label" for="review_email_8143253733590">Email</label>
+                <input class="spr-form-input spr-form-input-email " id="review_email_8143253733590" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
 		        	</div>
-		        </div>
-		        <div class="reviews-form-actions">
-                	<input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
-		        </div>
-					`
-					$('#reviewsFormWrap').find('form').html(formHtml)
-					$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
-					$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
-					formLoaded = true
-				}
+	        		<div class="reviews-form-field spr-form-review-rating">
+                <label class="spr-form-label" for="review[rating]">Rating</label>
+                <div class="spr-form-input spr-starrating ">
+                  <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1" aria-label="1 of 5 stars">&nbsp;</a>
+                  <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2" aria-label="2 of 5 stars">&nbsp;</a>
+                  <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3" aria-label="3 of 5 stars">&nbsp;</a>
+                  <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4" aria-label="4 of 5 stars">&nbsp;</a>
+                  <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5" aria-label="5 of 5 stars">&nbsp;</a>
+                </div>
+		        	</div>
+	        	</div>
+	        	<div class="reviews-form-column">
+		        	<div class="reviews-form-field spr-form-review-body">
+                <label class="spr-form-label" for="review_body_8143253733590">
+                  Body of Review
+                  <span role="status" aria-live="polite" aria-atomic="true">
+                    <span class="spr-form-review-body-charactersremaining">(1500)</span>
+                    <span class="visuallyhidden">characters remaining</span>
+                  </span>
+                </label>
+                <div class="spr-form-input">
+                   <textarea class="spr-form-input spr-form-input-textarea " id="review_body_8143253733590" data-product-id="8143253733590" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
+                </div>
+		        	</div>
+	        	</div>
+	        </div>
+	        <div class="reviews-form-actions">
+              	<input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
+	        </div>
+				`
+				$('#reviewsFormWrap').find('form').html(formHtml)
+				$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
+				$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Submit')
+				formLoaded = true
+			}
     };
+
+    console.log(summaryRatings)
 
 		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
 
