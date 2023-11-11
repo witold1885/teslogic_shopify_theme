@@ -104,6 +104,7 @@
   window.newReviewRating = 0;
 	var totalData = [];
 	var p = 1;
+	var r = 0;
 	totalData[p] = [];
   window.reviewLoaded = function(a) {
     window.reviewApp.reviews.push(a);
@@ -141,12 +142,13 @@
         `
         // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
 
-				if (_i != 0 && _i % 5 == 0) {
+        r++;
+				if (r != 0 && r % 5 == 0) {
 					p++;
 					totalData[p] = [];
 				}
 				totalData[p].push(reviewHtml);
-				
+
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		    ratingMarks[`mark${ratingMark}`]++;
       };
