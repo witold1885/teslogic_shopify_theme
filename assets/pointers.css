@@ -111,9 +111,9 @@
 	bottom: 95px;
 }
 .pointer-dashboard-bottom-left .pointer-legend {	
-	width: 246px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
+	width: 197px;
+	height: 51px;
+	bottom: calc(-1 * (51px + 12px));
 }
 .pointer-dashboard-bottom-right {
 	width: 198px;
