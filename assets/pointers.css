@@ -116,15 +116,15 @@
 	bottom: calc(-1 * (51px + 12px));
 }
 .pointer-dashboard-bottom-right {
-	width: 198px;
-	height: 99px;
+	width: 281px;
+	height: 108px;
 	left: 671px;
-	bottom: 78px;
+	bottom: 95px;
 }
 .pointer-dashboard-bottom-right .pointer-legend {
-	width: 208px;
-	height: 34px;
-	bottom: calc(-1 * (34px + 12px));
+	width: 297px;
+	height: 51px;
+	bottom: calc(-1 * (51px + 12px));
 }
 
 .pointer-performance-top-left {
