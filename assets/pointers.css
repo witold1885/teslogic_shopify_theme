@@ -83,8 +83,8 @@
 }
 
 .pointer-dashboard-top-left {
-	width: 227px;
-	height: 83.16px;
+	width: 223px;
+	height: 80.38px;
 	left: 385px;
 	top: 78.16px;
 }
@@ -105,10 +105,10 @@
 	top: calc(-1 * (34px + 12px));
 }
 .pointer-dashboard-bottom-left {
-	width: 229px;
-	height: 95px;
+	width: 210px;
+	height: 129px;
 	left: 359px;
-	bottom: 78px;
+	bottom: 95px;
 }
 .pointer-dashboard-bottom-left .pointer-legend {	
 	width: 246px;
