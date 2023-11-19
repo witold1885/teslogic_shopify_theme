@@ -317,6 +317,7 @@
 		color: #3374FB;
 	}
 	.store_block-add-wireless-charger-time {
+		display: none;
 		margin-left: 12px;
 		font-family: 'Gotham';
 		font-style: normal;
@@ -843,6 +844,12 @@
 				$('.store_block-product-price-new').hide()
 				$('.store_block-product-price-current').show()
 			}*/
+			if (model.data('stock') <= 0) {
+				$('.store_block-add-wireless-charger-time').show()
+			}
+			else {
+				$('.store_block-add-wireless-charger-time').hide()
+			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
