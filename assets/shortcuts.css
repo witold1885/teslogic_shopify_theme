@@ -184,23 +184,6 @@
 .shortcuts-content-bottom-mobile {
 	display: none;
 }
-.shortcuts-content-more-text {
-	color: #3374FB;
-	text-align: center;
-	/* Subtitle */
-	font-family: Gotham;
-	font-size: 36px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal; 
-}
-.shortcuts-content-more-icon {
-	width: 44.122px;
-	height: 27px;  
-}
-.shortcuts-content-more-icon img {
-	width: 100%;
-}
 .ellipse__shortcuts-1 {
 	width: 564px;
 	height: 564px; 
