@@ -131,6 +131,15 @@
 	align-items: center;
 	grid-column-gap: 16px;
 }
+.shortcuts-content-list-item-title-icon {
+	width: 64px;
+	height: 64px;
+	border-radius: 8px;
+}
+.shortcuts-content-list-item-title-icon img {
+	width: 100%;
+	height: 100%;
+}
 .shortcuts-content-list-item-title-text {
 	color: #000;
 	font-family: Gotham;
