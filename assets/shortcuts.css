@@ -33,7 +33,7 @@
 .shortcuts-content-top {
 	display: flex;
 	align-items: flex-start;
-	grid-column-gap: 51px;
+	grid-column-gap: 3px;
 }
 .shortcuts-content-legend {
 	width: 609px;
@@ -64,8 +64,8 @@
 	height: 100%;
 }
 .shortcuts-content-image-desktop {
-	width: 636px; 
-	height: 309.282px;
+	width: 587px;
+	height: 286px; 
 }
 .shortcuts-content-image-desktop img {
 	width: 100%;
@@ -74,10 +74,10 @@
 	display: none;
 }
 .shortcuts-content-middle {
-	width: 1286px;
-	margin-top: 72.1px;
+	width: 1206px;
+	margin-top: 81px;
 	margin-bottom: 64px;
-	padding: 72px 90px;
+	padding: 72px 53px 72px 90px;
 	display: flex;
 	align-items: center;
 	grid-column-gap: 54px;
@@ -119,14 +119,14 @@
 .shortcuts-content-list {
 	display: flex;
 	flex-wrap: wrap;
-	grid-column-gap: 25px;
+	grid-column-gap: 28px;
 	grid-row-gap: 52px;
 }
 .shortcuts-content-list-item {
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 18px;
-	width: 412px;
+	width: 380px;
 }
 .shortcuts-content-list-item-title {
 	display: flex;
