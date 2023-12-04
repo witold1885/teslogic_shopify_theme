@@ -146,6 +146,13 @@
 		font-size: 18px;
 		line-height: 24px;
 	}
+	.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
+		width: auto;
+	}
+	.shortcuts-content-legend-icon {
+		width: 24px;
+		height: 24px;
+	}
 
 
 	.shortcuts-content-top-mobile, 
