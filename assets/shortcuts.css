@@ -133,6 +133,13 @@
 	font-weight: 700;
 	line-height: 32px; /* 145.455% */ 
 }
+.shortcuts-content-list-item-title-text:nth-child(1),
+.shortcuts-content-list-item-title-text:nth-child(3) {
+	max-width: 200px;
+}
+.shortcuts-content-list-item-title-text:nth-child(2) {
+	max-width: 275px;
+}
 .shortcuts-content-list-item-content {
 	color: #666;
 	font-family: Gotham;
