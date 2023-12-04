@@ -52,6 +52,14 @@
 	flex-direction: column;
 	grid-row-gap: 22px;
 }
+.shortcuts-content-legend-item {
+	color: #000;
+	font-family: Gotham;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 145.455% */ 
+}
 .shortcuts-content-top-mobile, 
 .shortcuts-content-bottom-mobile {
 	display: none;
