@@ -166,19 +166,23 @@
 .shortcuts-content-list-item:nth-child(6) .shortcuts-content-list-item-content {
 	max-width: 258px;
 }
+.shortcuts-content-more {
+	margin-top: 92px;
+	width: 100%;
+	color: #3374FB;
+	text-align: center;
+	/* Subtitle */
+	font-family: Gotham;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal; 
+}
 
 
 .shortcuts-content-top-mobile, 
 .shortcuts-content-bottom-mobile {
 	display: none;
-}
-.shortcuts-content-more {
-	margin-top: 111.7px;
-	width: 571.205px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	grid-row-gap: 19px;
 }
 .shortcuts-content-more-text {
 	color: #3374FB;
