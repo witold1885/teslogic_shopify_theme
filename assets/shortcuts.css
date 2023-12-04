@@ -190,10 +190,15 @@
 	font-family: Gotham;
 	font-size: 36px;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 500;
 	line-height: normal; 
 }
 
+
+.shortcuts-content-top-mobile, 
+.shortcuts-content-bottom-mobile {
+	display: none;
+}
 .ellipse__shortcuts-1 {
 	width: 564px;
 	height: 564px; 
