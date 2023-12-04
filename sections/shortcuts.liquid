@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <div class="shortcuts">
-	<div class="ellipse-container ellipse__shortcuts-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-	<div class="ellipse-container ellipse__shortcuts-2"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
+	<!-- <div class="ellipse-container ellipse__shortcuts-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
+	<!-- <div class="ellipse-container ellipse__shortcuts-2"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
 	<div class="shortcuts-title">
 		<!-- <div class="shortcuts-title-icon">
 			<img src="{{ 'code.svg' | asset_url }}">
@@ -76,56 +76,5 @@
 		<div class="shortcuts-content-more">
 			This is only the beginning. Many more to come...
 		</div>
-		<!-- <div class="shortcuts-content-top-mobile">
-			<div class="shortcuts-content-image">
-				<img src="{{ 'shortcuts-mobile.png' | asset_url }}" srcset="{{ 'shortcuts-mobile-2x.png' | asset_url }} 2x" loading="lazy">
-			</div>			
-		</div> -->
-		<!-- <div class="shortcuts-content-list">
-		    {% assign articles = blogs['teslogic-shortcuts'].articles | sort: "title" %}
-		    {% for article in articles %}
-				<div class="shortcuts-content-list-item">
-					<div class="shortcuts-content-list-item-title">
-						<div class="shortcuts-content-list-item-title-icon">
-							{% if article.image %}
-	  							<img src="{{ article.image | img_url: '848x848' }}">
-	  						{% else %}
-								<img src="{{ 'shortcuts_marker.svg' | asset_url }}">
-							{% endif %}
-						</div>
-		  				{% assign title_array = article.title | split: " " %}
-		  				{% assign number = title_array.first %}
-		  				{% assign title = article.title | replace: number, "" %}
-						<div class="shortcuts-content-list-item-title-text">{{ title }}</div>
-					</div>
-					<div class="shortcuts-content-list-item-content">{{ article.content }}</div>
-				</div>
-		  	{% endfor %}			
-		</div>
-		<div class="shortcuts-content-right">
-			<div class="shortcuts-content-image">
-				<img src="{{ 'shortcuts.png' | asset_url }}" srcset="{{ 'shortcuts-retina.png' | asset_url }} 2x" loading="lazy">
-			</div>
-			<div class="shortcuts-content-more">
-				<div class="shortcuts-content-more-text">
-					This is only the beginning.<br>
-					Many more to come...
-				</div>
-				<div class="shortcuts-content-more-icon">
-					<img src="{{ 'code-more.svg' | asset_url }}">
-				</div>
-			</div>
-		</div>
-		<div class="shortcuts-content-bottom-mobile">
-			<div class="shortcuts-content-more">
-				<div class="shortcuts-content-more-text">
-					This is only the beginning.<br>
-					Many more to come...
-				</div>
-				<div class="shortcuts-content-more-icon">
-					<img src="{{ 'code-more.svg' | asset_url }}">
-				</div>
-			</div>			
-		</div> -->
 	</div>
 </div>
