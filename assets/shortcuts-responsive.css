@@ -118,11 +118,14 @@
 		margin-right: 27.5px;
 		margin-bottom: 127px;
 	}
+	.shortcuts-title {
+		margin-bottom: 24px;
+	}
 	.shortcuts-title-text {
 		font-size: 36px;
 		line-height: 44px; /* 122.222% */ 
 		width: 100%;
-		margin-bottom: 24px;
+		margin: 0;
 	}
 	.shortcuts-content {
 		flex-direction: column;
@@ -132,6 +135,10 @@
 	.shortcuts-content-top {
 		flex-direction: column;
 		grid-row-gap: 34.33px;
+	}
+	.shortcuts-content-legend {
+		width: 100%;
+		grid-row-gap: 18px;
 	}
 
 
