@@ -63,8 +63,8 @@
 	font-weight: 400;
 	line-height: 32px; /* 145.455% */ 
 }
-.shortcuts-content-legend-item:last-child {
-	width: 578px;
+.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
+	width: 534px;
 }
 .shortcuts-content-legend-icon {
 	width: 32px;
