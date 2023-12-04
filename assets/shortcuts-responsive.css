@@ -169,6 +169,21 @@
 		flex-direction: column;
 		grid-row-gap: 24px;
 	}
+	.shortcuts-content-middle-image-desktop {
+		display: none;
+	}	
+	.shortcuts-content-middle-image-mobile {
+		width: 206px;
+		height: 85px; 
+	}
+	.shortcuts-content-middle-info-icon {
+		display: none;
+	}
+	.shortcuts-content-middle-info-text {
+		width: 279px; 
+		font-size: 18px;
+		line-height: 24px;
+	}
 
 
 	.shortcuts-content-top-mobile, 

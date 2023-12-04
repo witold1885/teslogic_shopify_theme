@@ -82,12 +82,15 @@
 	align-items: center;
 	grid-column-gap: 54px;
 }
-.shortcuts-content-middle-image {
+.shortcuts-content-middle-image-desktop {
 	width: 216px;
 	height: 88px; 
 }
-.shortcuts-content-middle-image img {
+.shortcuts-content-middle-image-desktop img {
 	width: 100%;
+}
+.shortcuts-content-middle-image-mobile {
+	display: none;
 }
 .shortcuts-content-middle-info {
 	display: flex;
