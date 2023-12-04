@@ -157,8 +157,17 @@
 		display: none;
 	}
 	.shortcuts-content-image-mobile {
+		display: block;
 		width: 100%; 
 		height: 163.62px;;
+	}
+	.shortcuts-content-middle {
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 28px;
+		flex-direction: column;
+		grid-row-gap: 24px;
 	}
 
 
