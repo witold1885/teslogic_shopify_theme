@@ -224,7 +224,8 @@
 	.shortcuts-content-more {
 		margin-top: 0;
 		width: 100%;
-		font-family: Gotham;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 		font-size: 24px;
 		line-height: 28px; 
 	}
