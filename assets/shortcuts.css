@@ -53,6 +53,9 @@
 	grid-row-gap: 22px;
 }
 .shortcuts-content-legend-item {
+	display: flex;
+	align-items: flex-start;
+	grid-column-gap: 12px;
 	color: #000;
 	font-family: Gotham;
 	font-size: 22px;
@@ -63,7 +66,6 @@
 .shortcuts-content-legend-icon {
 	width: 32px;
 	height: 32px;
-	margin-right: 12px;
 }
 .shortcuts-content-legend-icon img {
 	width: 100%;
