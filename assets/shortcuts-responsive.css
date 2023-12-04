@@ -140,6 +140,12 @@
 		width: 100%;
 		grid-row-gap: 18px;
 	}
+	.shortcuts-content-legend-item {
+		width: 100%;
+		grid-column-gap: 8px;
+		font-size: 18px;
+		line-height: 24px;
+	}
 
 
 	.shortcuts-content-top-mobile, 
