@@ -108,6 +108,39 @@
 	font-weight: 400;
 	line-height: 32px; /* 145.455% */ 
 }
+.shortcuts-content-list {
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 25px;
+	grid-row-gap: 52px;
+}
+.shortcuts-content-list-item {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 18px;
+	width: 415px;
+}
+.shortcuts-content-list-item-title {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 16px;
+}
+.shortcuts-content-list-item-title-text {
+	color: #000;
+	font-family: Gotham;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px; /* 145.455% */ 
+}
+.shortcuts-content-list-item-content {
+	color: #666;
+	font-family: Gotham;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 142.857% */ 
+}
 
 
 
@@ -139,40 +172,6 @@
 }
 .shortcuts-content-more-icon img {
 	width: 100%;
-}
-.shortcuts-content-list {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 24px;
-	width: 578px; 
-}
-.shortcuts-content-list-item {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 8px;
-}
-.shortcuts-content-list-item-title {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 8px;
-}
-.shortcuts-content-list-item-title-text {
-	color: #000;
-	/* Text large */
-	font-family: Gotham;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-}
-.shortcuts-content-list-item-content {
-	color: #000;
-	/* Text */
-	font-family: Gotham;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal; 
 }
 .ellipse__shortcuts-1 {
 	width: 564px;
