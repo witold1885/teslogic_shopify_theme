@@ -15,58 +15,99 @@
 		font-size: calc(52 * 100vw / 1366);
 		line-height: calc(64 * 100vw / 1366); /* 123.077% */ 
 	}
-	.shortcuts-subtitle {
+
+	.shortcuts-content-top {
+		grid-column-gap: calc(51 * 100vw / 1366);
+	}
+	.shortcuts-content-legend {
+		width: calc(609 * 100vw / 1366);
+		grid-row-gap: calc(22 * 100vw / 1366);
+	}
+	.shortcuts-content-legend-item {
+		grid-column-gap: calc(12 * 100vw / 1366);
 		font-size: calc(22 * 100vw / 1366);
 		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
-		width: calc(1200 * 100vw / 1366);
-		margin-bottom: calc(56 * 100vw / 1366);
 	}
-	.shortcuts-content {
-		grid-column-gap: calc(58 * 100vw / 1366);
+	.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
+		width: calc(534 * 100vw / 1366);
+	}
+	.shortcuts-content-legend-icon {
+		width: calc(32 * 100vw / 1366);
+		height: calc(32 * 100vw / 1366);
 	}
 	.shortcuts-content-image {
-		width: calc(571.205 * 100vw / 1366); 
-		height: calc(282.301 * 100vw / 1366);
+		width: calc(636 * 100vw / 1366); 
+		height: calc(309.282 * 100vw / 1366);
 	}
-	.shortcuts-content-more {
-		margin-top: calc(111.7 * 100vw / 1366);
-		width: calc(571.205 * 100vw / 1366);
-		grid-row-gap: calc(19 * 100vw / 1366);
+	.shortcuts-content-middle {
+		margin-top: calc(72.1 * 100vw / 1366);
+		margin-bottom: calc(64 * 100vw / 1366);
+		padding: calc(72 * 100vw / 1366) calc(90 * 100vw / 1366);
+		grid-column-gap: calc(54 * 100vw / 1366);
 	}
-	.shortcuts-content-more-text {
-		font-size: calc(36 * 100vw / 1366);
+	.shortcuts-content-middle-image {
+		width: calc(216 * 100vw / 1366);
+		height: calc(88 * 100vw / 1366); 
 	}
-	.shortcuts-content-more-icon {
-		width: calc(44.122 * 100vw / 1366);
-		height: calc(27 * 100vw / 1366);  
+	.shortcuts-content-middle-info {
+		grid-column-gap: calc(16 * 100vw / 1366);
+	}
+	.shortcuts-content-middle-info-icon {
+		width: calc(64 * 100vw / 1366);
+		height: calc(64 * 100vw / 1366); 
+	}
+	.shortcuts-content-middle-info-text {
+		width: calc(707 * 100vw / 1366);
+		font-size: calc(22 * 100vw / 1366);
+		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
 	}
 	.shortcuts-content-list {
-		grid-row-gap: calc(24 * 100vw / 1366);
-		width: calc(578 * 100vw / 1366); 
+		grid-column-gap: calc(25 * 100vw / 1366);
+		grid-row-gap: calc(52 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item {
-		grid-row-gap: calc(8 * 100vw / 1366);
+		grid-row-gap: calc(18 * 100vw / 1366);
+		width: calc(412 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item-title {
-		grid-column-gap: calc(8 * 100vw / 1366);
+		grid-column-gap: calc(16 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item-title-text {
-		font-size: calc(18 * 100vw / 1366);
+		font-size: calc(22 * 100vw / 1366);
+		line-height: calc(32 * 100vw / 1366); /* 145.455% */ 
+	}
+	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
+	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
+		max-width: calc(200 * 100vw / 1366);
+	}
+	.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-title-text {
+		max-width: calc(275 * 100vw / 1366);
 	}
 	.shortcuts-content-list-item-content {
 		font-size: calc(14 * 100vw / 1366);
+		line-height: calc(20 * 100vw / 1366); /* 142.857% */ 
 	}
-	.ellipse__shortcuts-1 {
-		width: calc(564 * 100vw / 1366);
-		height: calc(564 * 100vw / 1366); 
-		top: calc(-1 * 11 * 100vw / 1366);
-		right: calc(1183 * 100vw / 1366);
+	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-content {
+		max-width: calc(380 * 100vw / 1366);
 	}
-	.ellipse__shortcuts-2 {
-		width: calc(464 * 100vw / 1366);
-		height: calc(464 * 100vw / 1366); 
-		top: calc(39 * 100vw / 1366);
-		right: calc(1233 * 100vw / 1366);
+	.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-content {
+		max-width: calc(343 * 100vw / 1366);
+	}
+	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-content {
+		max-width: calc(331 * 100vw / 1366);
+	}
+	.shortcuts-content-list-item:nth-child(4) .shortcuts-content-list-item-content {
+		max-width: calc(369 * 100vw / 1366);
+	}
+	.shortcuts-content-list-item:nth-child(5) .shortcuts-content-list-item-content {
+		max-width: calc(303 * 100vw / 1366);
+	}
+	.shortcuts-content-list-item:nth-child(6) .shortcuts-content-list-item-content {
+		max-width: calc(258 * 100vw / 1366);
+	}
+	.shortcuts-content-more {
+		margin-top: calc(92 * 100vw / 1366);
+		font-size: calc(36 * 100vw / 1366);
 	}
 }
 
