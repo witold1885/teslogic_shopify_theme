@@ -46,6 +46,27 @@
 				</div>
 			</div>		
 		</div>
+		<div class="shortcuts-content-list">
+		    {% assign articles = blogs['teslogic-shortcuts'].articles | sort: "title" %}
+		    {% for article in articles %}
+				<div class="shortcuts-content-list-item">
+					<div class="shortcuts-content-list-item-title">
+						<div class="shortcuts-content-list-item-title-icon">
+							{% if article.image %}
+	  							<img src="{{ article.image | img_url: '848x848' }}">
+	  						{% else %}
+								<img src="{{ 'shortcuts_marker.svg' | asset_url }}">
+							{% endif %}
+						</div>
+		  				{% assign title_array = article.title | split: " " %}
+		  				{% assign number = title_array.first %}
+		  				{% assign title = article.title | replace: number, "" %}
+						<div class="shortcuts-content-list-item-title-text">{{ title }}</div>
+					</div>
+					<div class="shortcuts-content-list-item-content">{{ article.content }}</div>
+				</div>
+		  	{% endfor %}			
+		</div>
 		<!-- <div class="shortcuts-content-top-mobile">
 			<div class="shortcuts-content-image">
 				<img src="{{ 'shortcuts-mobile.png' | asset_url }}" srcset="{{ 'shortcuts-mobile-2x.png' | asset_url }} 2x" loading="lazy">
