@@ -213,13 +213,20 @@
 	}
 	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
 	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
-		max-width: unset;
+		max-width: 175px;
 	}
 	.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-title-text {
-		max-width: unset;
+		max-width: 200px;
 	}
 	.shortcuts-content-list-item-content {
 		max-width: unset;
+	}
+	.shortcuts-content-more {
+		margin-top: 0;
+		width: 100%;
+		font-family: Gotham;
+		font-size: 24px;
+		line-height: 28px; 
 	}
 
 }
