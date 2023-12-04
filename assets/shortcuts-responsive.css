@@ -211,5 +211,15 @@
 		font-size: 16px;
 		line-height: 22px;
 	}
+	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
+	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
+		max-width: unset;
+	}
+	.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-title-text {
+		max-width: unset;
+	}
+	.shortcuts-content-list-item-content {
+		max-width: unset;
+	}
 
 }
