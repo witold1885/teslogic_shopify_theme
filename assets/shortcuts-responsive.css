@@ -40,6 +40,7 @@
 		height: calc(309.282 * 100vw / 1366);
 	}
 	.shortcuts-content-middle {
+		width: calc(1286 * 100vw / 1366);
 		margin-top: calc(72.1 * 100vw / 1366);
 		margin-bottom: calc(64 * 100vw / 1366);
 		padding: calc(72 * 100vw / 1366) calc(90 * 100vw / 1366);
