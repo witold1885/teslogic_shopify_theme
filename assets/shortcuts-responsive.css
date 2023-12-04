@@ -186,46 +186,25 @@
 		line-height: 24px;
 		text-align: center;
 	}
-
-
-	.shortcuts-content-top-mobile, 
-	.shortcuts-content-bottom-mobile {
-		display: block;
-	}
-	.shortcuts-content-right {
-		display: none;
-	}
-	.shortcuts-content-image {
-		width: 320px;
-		height: 158.15px;
-	}
 	.shortcuts-content-list {
-		grid-row-gap: 20px;
-		width: 100%; 
+		width: 100%;
+		flex-direction: column;
+		grid-row-gap: 40px;
 	}
 	.shortcuts-content-list-item {
+		width: 100%;
 		grid-row-gap: 8px;
-		padding: 20px;
-		border-radius: 20px;
-		background: #F4F6FA;
 	}
 	.shortcuts-content-list-item-title {
 		grid-column-gap: 12px;
 	}
+	.shortcuts-content-list-item-title-icon {
+		width: 44px;
+		height: 44px;
+	}
 	.shortcuts-content-list-item-title-text {
 		font-size: 16px;
-		line-height: 140%;
-		font-weight: 400 !important;
-    	font-family: 'Gotham-Medium' !important;
+		line-height: 22px;
 	}
-	.shortcuts-content-more {
-		margin-top: 0;
-		width: 347px;
-	}
-	.shortcuts-content-more-text {
-		font-size: 26px;
-		line-height: normal;
-		font-weight: 400 !important;
-    	font-family: 'Gotham-Medium' !important;
-	}
+
 }
