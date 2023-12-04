@@ -75,6 +75,7 @@
 }
 .shortcuts-content-middle {
 	width: 1206px;
+	box-sizing: border-box;
 	margin-top: 81px;
 	margin-bottom: 64px;
 	padding: 72px 53px 72px 90px;
