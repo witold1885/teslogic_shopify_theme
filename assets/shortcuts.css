@@ -63,12 +63,15 @@
 	width: 100%;
 	height: 100%;
 }
-.shortcuts-content-image {
+.shortcuts-content-image-desktop {
 	width: 636px; 
 	height: 309.282px;
 }
-.shortcuts-content-image img {
+.shortcuts-content-image-desktop img {
 	width: 100%;
+}
+.shortcuts-content-image-mobile {
+	display: none;
 }
 .shortcuts-content-middle {
 	width: 100%;
