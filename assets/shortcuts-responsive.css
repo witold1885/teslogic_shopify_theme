@@ -1,6 +1,6 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.shortcuts {
-		margin-left: calc(80px * 100vw / 1366);
+		margin-left: calc(80 * 100vw / 1366);
 		margin-bottom: calc(140 * 100vw / 1366);
 	}
 	.shortcuts-title {
@@ -113,28 +113,28 @@
 
 @media screen and (max-width: 999px) {
 	.shortcuts {
-		width: 354px;
-		margin-left: 20px;
-		margin-right: 16px;
+		width: 335px;
+		margin-left: 27.5px;
+		margin-right: 27.5px;
 		margin-bottom: 127px;
 	}
 	.shortcuts-title-text {
 		font-size: 36px;
-		line-height: normal;
+		line-height: 44px; /* 122.222% */ 
 		width: 100%;
-		margin: 0;
-	}
-	.shortcuts-subtitle {
-		font-size: 18px;
-		line-height: 140%; /* 25.2px */
-		width: 349px;
-		margin-bottom: 60px;
+		margin-bottom: 24px;
 	}
 	.shortcuts-content {
 		flex-direction: column;
 		align-items: center;
-		grid-row-gap: 60px;
+		grid-row-gap: 52px;
 	}
+	.shortcuts-content-top {
+		flex-direction: column;
+		grid-row-gap: 34.33px;
+	}
+
+
 	.shortcuts-content-top-mobile, 
 	.shortcuts-content-bottom-mobile {
 		display: block;
