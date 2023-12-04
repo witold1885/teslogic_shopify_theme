@@ -147,11 +147,15 @@
 		line-height: 24px;
 	}
 	.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
-		width: auto;
+		width: 303px;
 	}
 	.shortcuts-content-legend-icon {
 		width: 24px;
 		height: 24px;
+	}
+	.shortcuts-content-image {
+		width: 100%; 
+		height: 163.62px;;
 	}
 
 
