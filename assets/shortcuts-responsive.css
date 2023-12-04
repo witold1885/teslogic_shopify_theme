@@ -173,6 +173,7 @@
 		display: none;
 	}	
 	.shortcuts-content-middle-image-mobile {
+		display: block;
 		width: 206px;
 		height: 85px; 
 	}
@@ -183,6 +184,7 @@
 		width: 279px; 
 		font-size: 18px;
 		line-height: 24px;
+		text-align: center;
 	}
 
 
