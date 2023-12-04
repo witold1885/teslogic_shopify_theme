@@ -41,6 +41,17 @@
 	display: flex;
 	grid-column-gap: 58px;
 }
+.shortcuts-content-top {
+	display: flex;
+	align-items: flex-start;
+	grid-column-gap: 51px;
+}
+.shortcuts-content-legend {
+	width: 609px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 22px;
+}
 .shortcuts-content-top-mobile, 
 .shortcuts-content-bottom-mobile {
 	display: none;
