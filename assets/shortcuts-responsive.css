@@ -213,6 +213,8 @@
 	.shortcuts-content-list-item-title-text {
 		font-size: 16px;
 		line-height: 22px;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 	}
 	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
 	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
