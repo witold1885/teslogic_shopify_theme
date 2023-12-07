@@ -262,10 +262,10 @@
 		color: #FFF;
 		text-align: center;
 		/* Title Mob */
-		font-family: Gotham;
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
 		font-size: 36px;
 		font-style: normal;
-		font-weight: 700;
 		line-height: normal;
 		margin-top: 115px;
 		width: 354px;
