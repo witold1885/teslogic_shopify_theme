@@ -185,6 +185,9 @@
 		width: 206px;
 		height: 85px; 
 	}
+	.shortcuts-content-middle-image-mobile img {
+		width: 100%;
+	}
 	.shortcuts-content-middle-info-icon {
 		display: none;
 	}
