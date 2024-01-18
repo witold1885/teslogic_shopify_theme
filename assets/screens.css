@@ -4,9 +4,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 }
 .screens__bg {
 	position: absolute;
+	width: 100%;
 	height: 100%;
 }
 .screens__wrap {
