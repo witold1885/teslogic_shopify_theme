@@ -203,25 +203,42 @@
 	align-items: center;
 }
 .title {
-	font-family: 'Gotham';
+	/*font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 52px;
 	line-height: 64px;
-	color: #FFFFFF;
+	color: #FFFFFF;*/
+
+color: #FFF;
+font-family: Manrope;
+font-size: 64px;
+font-style: normal;
+font-weight: 600;
+line-height: 72px; /* 112.5% */ 
+	
 	position: absolute;
 	top: 281px;
 /*	left: 128px;*/
 	left: 78px;
 }
 .subtitle {
-	font-family: Gotham;
+	/*font-family: Gotham;
 	font-size: 36px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal; 
 	line-height: 43px;
-	color: #FFFFFF;
+	color: #FFFFFF;*/
+
+color: #FFF;
+font-family: Manrope;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 32px; /* 133.333% */ 
+
+
 	position: absolute;
 	top: 357px;
 /*	left: 128px;*/
