@@ -104,3 +104,15 @@
 	font-weight: 400;
 	line-height: 20px;
 }
+.screens__select-item-text.light {
+	color: #C2C2C2; 
+}
+.screens__select-item-text.light.active {
+	color: #666;
+}
+.screens__select-item-text.dark {
+	color: #3D3D3D; 
+}
+.screens__select-item-text.dark.active {
+	color: #808080;
+}
