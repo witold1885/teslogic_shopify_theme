@@ -1,7 +1,7 @@
 .pointer {
 	position: absolute;
-	z-index: 4;
-	box-sizing: border-box;
+/*	z-index: 4;*/
+/*	box-sizing: border-box;*/
 }
 .pointer-desktop {
 	display: block;
@@ -13,8 +13,8 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
+/*	display: flex;*/
+/*	flex-direction: column;*/
 }
 .pointer-top .pointer-wrap {
 	justify-content: flex-start;
@@ -22,31 +22,7 @@
 .pointer-bottom .pointer-wrap {
 	justify-content: flex-end;
 }
-.pointer-top {
-	border-top: 1px solid #0F77F0;;
-}
-.pointer-bottom {
-	border-bottom: 1px solid #0F77F0;;
-}
-.pointer-left {
-	border-right: 1px solid #0F77F0;
-}
-.pointer-top.pointer-left {	
-	border-top-right-radius: 10px;
-}
-.pointer-top.pointer-right {	
-	border-top-left-radius: 10px;
-}
-.pointer-bottom.pointer-left {	
-	border-bottom-right-radius: 10px;
-}
-.pointer-bottom.pointer-right {	
-	border-bottom-left-radius: 10px;
-}
-.pointer-right {
-	border-left: 1px solid #0F77F0;
-}
-.pointer-point {
+/*.pointer-point {
 	position: absolute;
 	width: 7px;
 	height: 7px;
@@ -59,17 +35,17 @@
 .pointer-point img {
 	width: 100%;
 	height: 100%;
-}
+}*/
 .pointer-legend {
-	font-family: 'Gotham';
+	color: #666;
+	font-family: Manrope;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 14px;
-	line-height: 17px;
-	color: rgba(0, 0, 0, 0.64);
+	line-height: 20px;
 	position: absolute;
 }
-.pointer-top .pointer-point {
+/*.pointer-top .pointer-point {
 	bottom: 0px;
 }
 .pointer-bottom .pointer-point {
@@ -80,11 +56,51 @@
 }
 .pointer-right .pointer-point {
 	left: -4px;
+}*/
+.pointer-top {
+	top: 80px;
+}
+.pointer-bottom {
+	bottom: 92px;
+}
+.pointer-left {
+	left: 0;
+}
+.pointer-right {
+	right: 0;
+}
+
+.pointer-top .pointer-legend {
+	top: -12px;
+}
+.pointer-bottom .pointer-legend {
+	bottom: -12px;
+}
+.pointer-left .pointer-legend {
+	left: 0;
+	text-align: left;
+}
+.pointer-right .pointer-legend {
+	right: 0;
+	text-align: right;
+}
+
+.pointer-top .pointer-icon {
+	top: 4px;
+}
+.pointer-bottom .pointer-icon {
+	bottom: 4px;
+}
+.pointer-left .pointer-icon {
+	left: 0;
+}
+.pointer-right .pointer-icon {
+	right: 0;
 }
 
 .pointer-dashboard-top-left {
-	width: 223px;
-	height: 80.38px;
+	width: 537px;
+	height: 65px;
 	left: 385px;
 	top: 78.16px;
 }
