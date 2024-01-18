@@ -3,16 +3,16 @@
 
 {% style %}
 	.screens.light {
-		background: #F6F6F6;
+		background: #F6F6F6, lightgray;
 	}
 	.screens.light .screens__bg {
-		background: url({{ 'screens-bg-light.png' | asset_url}}), lightgray 50% / cover no-repeat;
+		background: url({{ 'screens-bg-light.png' | asset_url}}) 50% / cover no-repeat;
 	}
 	.screens.dark {
-		background: #090909;
+		background: #090909, lightgray;
 	}
 	.screens.dark .screens__bg {
-		background: url({{ 'screens-bg-dark.png' | asset_url}}), lightgray 50% / cover no-repeat;
+		background: url({{ 'screens-bg-dark.png' | asset_url}}) 50% / cover no-repeat;
 	}
 {% endstyle %}
 
