@@ -101,6 +101,7 @@
 	border-radius: 20px; 
 	margin-left: 8px;
 	font-weight: 400;
+	height: 36px;
 }
 .menu__item-button:hover {
 	background: #FFFFFF;
