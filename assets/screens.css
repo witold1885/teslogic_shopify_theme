@@ -70,7 +70,7 @@
 .screens__select-item {
 	width: 196px;
 	height: 112px;
-	border-top: ;
+	cursor: pointer;
 }
 .screens__select-item-marker {
 	display: none;
