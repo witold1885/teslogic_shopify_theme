@@ -216,11 +216,11 @@ font-size: 64px;
 font-style: normal;
 font-weight: 600;
 line-height: 72px; /* 112.5% */ 
-	
+
 	position: absolute;
 	top: 281px;
 /*	left: 128px;*/
-	left: 78px;
+	left: 72px;
 }
 .subtitle {
 	/*font-family: Gotham;
@@ -242,7 +242,7 @@ line-height: 32px; /* 133.333% */
 	position: absolute;
 	top: 357px;
 /*	left: 128px;*/
-	left: 78px;
+	left: 72px;
 }
 .expand {
 	margin-bottom: 26px;
