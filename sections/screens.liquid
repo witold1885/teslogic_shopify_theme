@@ -45,6 +45,9 @@
 		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-left-light.svg' | asset_url }}">
 		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-left-light.svg' | asset_url }}">
 		            <img class="pointer-point" src="{{ 'point-light.svg' | asset_url }}">
+		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-point" src="{{ 'point-dark.svg' | asset_url }}">
 		          </div>
 		        </div>
 		        <div class="pointer pointer-top pointer-right pointer-dashboard-top-right">
@@ -55,6 +58,9 @@
 		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-right-light.svg' | asset_url }}">
 		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-right-light.svg' | asset_url }}">
 		            <img class="pointer-point" src="{{ 'point-light.svg' | asset_url }}">
+		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-point" src="{{ 'point-dark.svg' | asset_url }}">
 		          </div>
 		        </div>
 		        <div class="pointer pointer-bottom pointer-left pointer-dashboard-bottom-left">
@@ -65,6 +71,9 @@
 		            <img class="pointer-line" src="{{ 'pointer-dashboard-bottom-left-light.svg' | asset_url }}">
 		            <img class="pointer-icon" src="{{ 'icon-dashboard-bottom-left-light.svg' | asset_url }}">
 		            <img class="pointer-point" src="{{ 'point-light.svg' | asset_url }}">
+		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-point" src="{{ 'point-dark.svg' | asset_url }}">
 		          </div>
 		        </div>
 		        <div class="pointer pointer-bottom pointer-right pointer-dashboard-bottom-right">
@@ -75,6 +84,9 @@
 		            <img class="pointer-line" src="{{ 'pointer-dashboard-bottom-right-light.svg' | asset_url }}">
 		            <img class="pointer-icon" src="{{ 'icon-dashboard-bottom-right-light.svg' | asset_url }}">
 		            <img class="pointer-point" src="{{ 'point-light.svg' | asset_url }}">
+		            <img class="pointer-line" src="{{ 'pointer-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-icon" src="{{ 'icon-dashboard-top-right-dark.svg' | asset_url }}">
+		            <img class="pointer-point" src="{{ 'point-dark.svg' | asset_url }}">
 		          </div>
 		        </div>
     		</div>
@@ -191,11 +203,20 @@
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
 					$(this).find(`.screens__features-image`).hide()
+					$(this).find(`.pointer-line`).hide()
+					$(this).find(`.pointer-icon`).hide()
+					$(this).find(`.pointer-point`).hide()
 					$(this).find(`.screens__features-image.${mode}`).show()
+					$(this).find(`.pointer-line.${mode}`).hide()
+					$(this).find(`.pointer-icon.${mode}`).hide()
+					$(this).find(`.pointer-point.${mode}`).hide()
 				}
 				else {
 					$(this).hide()
 					$(this).find(`.screens__features-image`).hide()
+					$(this).find(`.pointer-line`).hide()
+					$(this).find(`.pointer-icon`).hide()
+					$(this).find(`.pointer-point`).hide()
 				}
 			})
 		}
