@@ -3,21 +3,21 @@
 
 {% style %}
 	.screens.light {
-		background: #F6F6F6, url({{ 'screens-bg-light.png' | asset_url}}), lightgray 50% / cover no-repeat;
+		background: #F6F6F6;
 	}
-	/*.screens.light .screens__bg {
+	.screens.light .screens__bg {
 		background: url({{ 'screens-bg-light.png' | asset_url}}), lightgray 50% / cover no-repeat;
-	}*/
-	.screens.dark {
-		background: #090909, url({{ 'screens-bg-dark.png' | asset_url}}), lightgray 50% / cover no-repeat;
 	}
-	/*.screens.dark .screens__bg {
+	.screens.dark {
+		background: #090909;
+	}
+	.screens.dark .screens__bg {
 		background: url({{ 'screens-bg-dark.png' | asset_url}}), lightgray 50% / cover no-repeat;
-	}*/
+	}
 {% endstyle %}
 
 <div class="screens" id="screens">
-	<!-- <div class="screens__bg"></div> -->
+	<div class="screens__bg"></div>
 	<div class="screens__wrap">
 		<div class="screens__top">
 			<div class="screens__top-title">
