@@ -97,3 +97,10 @@
 .screens__select-item-title.dark.active {
 	color: #FFF;
 }
+.screens__select-item-text {
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
