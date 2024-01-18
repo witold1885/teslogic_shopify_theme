@@ -85,6 +85,8 @@
 	text-align: right;
 }
 
+
+
 .pointer-top .pointer-icon {
 	top: 4px;
 }
@@ -101,14 +103,8 @@
 .pointer-dashboard-top-left {
 	width: 537px;
 	height: 65px;
-	left: 385px;
-	top: 78.16px;
 }
-.pointer-dashboard-top-left .pointer-legend {	
-	width: 233px;
-	height: 34px;
-	top: calc(-1 * (34px + 12px));
-}
+
 .pointer-dashboard-top-right {
 	width: 137px;
 	height: 75px;
