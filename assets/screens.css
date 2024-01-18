@@ -75,8 +75,11 @@
 .screens.dark .screens__top-switcher-item {
 	color: #808080;
 }
-.screens__top-switcher-item.light.active {
+.screens.light .screens__top-switcher-item.active {
 	background: #FFF; 
+}
+.screens.dark .screens__top-switcher-item.active {
+	background: #3E3E3E; 
 }
 .screens__features {
 
