@@ -44,12 +44,15 @@
 	align-items: flex-start;
 	justify-content: center;
 /*	grid-column-gap: 32px;*/
-	grid-column-gap: 44px;
+	grid-column-gap: 24px;
+	margin-top: 34px;
 }
 .using__row {
 	margin: 0;
+	width: 306px;
+	height: 220px; 
 }
-.using__row-1 {
+/*.using__row-1 {
 	width: 183px;
 	height: 95px;
 }
@@ -64,9 +67,9 @@
 .using__row-4 {
 	width: 270px;
 	height: 112px;
-}
+}*/
 .using__row-legend-number {
-	display: flex;
+	/*display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 37px;
@@ -80,7 +83,16 @@
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 32px;
-	color: #000000;
+	color: #000000;*/
+	width: 32px;
+	height: 25px; 
+	color: #336BF9;
+	text-align: center;
+	font-family: Manrope;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 20px;
 }
 .using__row-legend-text {
 	font-family: 'Gotham';
