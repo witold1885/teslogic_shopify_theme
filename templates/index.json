@@ -5,13 +5,13 @@
       "settings": {
       }
     },
-    "devices_supporting": {
-      "type": "devices_supporting",
+    "features": {
+      "type": "features",
       "settings": {
       }
     },
-    "features": {
-      "type": "features",
+    "devices_supporting": {
+      "type": "devices_supporting",
       "settings": {
       }
     },
@@ -53,8 +53,8 @@
   },
   "order": [
     "using",
-    "devices_supporting",
     "features",
+    "devices_supporting",
     "significant",
     "shortcuts",
     "box_block",
