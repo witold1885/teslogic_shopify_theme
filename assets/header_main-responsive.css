@@ -22,35 +22,35 @@
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 }
-@media screen and (min-width: 1000px) and (max-width: 1366px) {
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
 	.top .logo {	
-		margin-left: calc(80 * 100vw / 1366);
+		margin-left: calc(80 * 100vw / 1440);
 	}
 	.menu {
-		margin-right: calc(80 * 100vw / 1366);
+		margin-right: calc(80 * 100vw / 1440);
 	}
 	.title {
-		left: calc(78 * 100vw / 1366);
+		left: calc(72 * 100vw / 1440);
 	}
 	.subtitle {
-		left: calc(78 * 100vw / 1366);
+		left: calc(72 * 100vw / 1440);
 	}
 	.menu__item-cart {
-		width: calc(122.27 * 100vw / 1366);
-		border-radius: calc(100 * 100vw / 1366);
-		margin-left: calc(8 * 100vw / 1366);
-		grid-column-gap: calc(10 * 100vw / 1366);
+		width: calc(122.27 * 100vw / 1440);
+		border-radius: calc(100 * 100vw / 1440);
+		margin-left: calc(8 * 100vw / 1440);
+		grid-column-gap: calc(10 * 100vw / 1440);
 	}
 }
 
-@media screen and (min-width: 1367px) and (max-width: 1440px) {
+/*@media screen and (min-width: 1367px) and (max-width: 1440px) {
 	.title {
 		left: calc((100vw - 1366px + 160px) / 2);
 	}
 	.subtitle {
 		left: calc((100vw - 1366px + 160px) / 2);
 	}
-}
+}*/
 
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.top {
