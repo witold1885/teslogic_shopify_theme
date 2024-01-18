@@ -5,6 +5,10 @@
 	flex-direction: column;
 	align-items: center;
 }
+.screens__bg {
+	position: absolute;
+	height: 100%;
+}
 .screens__wrap {
 	display: flex;
 	flex-direction: column;
