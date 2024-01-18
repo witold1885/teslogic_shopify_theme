@@ -204,46 +204,44 @@
 	align-items: center;
 }
 .title {
-	/*font-family: 'Gotham';
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 64px;
 	font-style: normal;
-	font-weight: 700;
-	font-size: 52px;
-	line-height: 64px;
-	color: #FFFFFF;*/
-
-color: #FFF;
-font-family: Manrope;
-font-size: 64px;
-font-style: normal;
-font-weight: 600;
-line-height: 72px; /* 112.5% */ 
-
+	font-weight: 600;
+	line-height: 72px;
 	position: absolute;
 	top: 329px;
-/*	left: 128px;*/
 	left: 72px;
 }
 .subtitle {
-	/*font-family: Gotham;
-	font-size: 36px;
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: normal; 
-	line-height: 43px;
-	color: #FFFFFF;*/
-
-color: #FFF;
-font-family: Manrope;
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: 32px; /* 133.333% */ 
-
-
+	line-height: 32px;
 	position: absolute;
 	top: 413px;
-/*	left: 128px;*/
 	left: 72px;
+}
+.banner-buttons {
+	position: absolute;
+	top: 505px;
+	left: 72px;
+	display: flex;
+	align-items: center;
+	grid-column-gap: 40px;
+}
+.banner-button-buy {
+	display: inline-flex;
+	padding: 20px 40px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 54px;
+	border: 3px solid #0068FD;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(8px); 
 }
 .expand {
 	margin-bottom: 26px;
