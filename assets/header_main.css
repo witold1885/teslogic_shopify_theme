@@ -56,11 +56,11 @@
 }
 .menu__item {
 	position: relative;
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 700;
+	font-family: Manrope;
 	font-size: 16px;
-	line-height: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px; 
 	color: #FFFFFF;
 	cursor: pointer;
 	padding: 4px 12px;
@@ -97,8 +97,8 @@
 	color: #9FA1A8;
 }
 .menu__item-button {
-	background: #3374FB;
-	border-radius: 100px;
+	background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%); 
+	border-radius: 20px; 
 	margin-left: 8px;
 	font-weight: 400;
 }
