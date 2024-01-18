@@ -15,6 +15,10 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
@@ -71,12 +75,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         font-weight: normal;
         font-style: normal;
       }
-      @font-face {
+      /*@font-face {
         font-family: 'Manrope';
         src: url({{ 'fonts/Manrope-Regular.ttf' | asset_url }}) format("truetype");
         font-weight: normal;
         font-style: normal;
-      }
+      }*/
 
       html, body {
         width: 100%;
