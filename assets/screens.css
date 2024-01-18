@@ -9,6 +9,7 @@
 .screens__wrap {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	width: 1076px;
 	height: 100%;
 	padding-top: 180px;
@@ -57,4 +58,22 @@
 }
 .screens__top-switcher-item.light.active {
 	background: #FFF; 
+}
+.screens__features {
+
+}
+.screens__select {
+	display: flex;
+	justify-content: space-between;
+	grid-column-gap: 24px;
+}
+.screens__select-item {
+	width: 196px;
+	height: 112px;
+	border-top: ;
+}
+.screens__select-item-marker {
+	width: 100%;
+	height: 4px;
+	margin-bottom: 12px;
 }
