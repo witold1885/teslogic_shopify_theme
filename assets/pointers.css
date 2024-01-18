@@ -74,10 +74,10 @@
 }
 
 .pointer-top .pointer-point {
-	bottom: -2px;
+	bottom: 0;
 }
 .pointer-bottom .pointer-point {
-	top: -2px;
+	top: 0;
 }
 .pointer-left .pointer-point {
 	right: -1px;
