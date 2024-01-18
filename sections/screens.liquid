@@ -2,8 +2,11 @@
 <link rel="stylesheet" href="{{ 'screens-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {% style %}
-	.screens {
-		background-image: url({{ 'screens-bg.png' | asset_url}});
+	.screens.light {
+		background-image: url({{ 'screens-bg-light.png' | asset_url}});
+	}
+	.screens.dark {
+		background-image: url({{ 'screens-bg-dark.png' | asset_url}});
 	}
 {% endstyle %}
 
