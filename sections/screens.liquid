@@ -70,14 +70,24 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		let mode = 'light'
-		$('.screens__select-item').each(function() {
-			if ($(this).hasClass('active')) {
-				console.log($(this).find(`.screens__select-item-marker.${mode}.active`))
-				$(this).find(`.screens__select-item-marker.${mode}.active`).show()
-			}
-			else {
-				$(this).find(`.screens__select-item-marker.${mode}:not(.active)`).show()
-			}
+		setActiveSelectItem()
+		$('.screens__select-item').on('click', function() {
+			$('.screens__select-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(this).addClass('active')
+			setActiveSelectItem()
 		})
+
+		function setActiveSelectItem() {
+			$('.screens__select-item').each(function() {
+				if ($(this).hasClass('active')) {
+					$(this).find(`.screens__select-item-marker.${mode}.active`).show()
+				}
+				else {
+					$(this).find(`.screens__select-item-marker.${mode}:not(.active)`).show()
+				}
+			})
+		}
 	})
 </script>
