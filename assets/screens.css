@@ -39,28 +39,41 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent; 
 }
-.screens__top-title-secondary {
+.screens.light .screens__top-title-secondary {
 	color: #000;
+}
+.screens.dark .screens__top-title-secondary {
+	color: #FFF;
 }
 .screens__top-switcher {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	border-radius: 6px;
+}
+.screens.light .screens__top-switcher {
 	border: 1px solid #D3D3D3; 
+}
+.screens.dark .screens__top-switcher {
+	border: 1px solid #3E3E3E; 
 }
 .screens__top-switcher-item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 14px 28px; 
-	color: #000;
+	padding: 14px 28px;
 	font-family: Manrope;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px;
 	cursor: pointer;
+}
+.screens.light .screens__top-switcher-item {
+	color: #000;
+}
+.screens.dark .screens__top-switcher-item {
+	color: #808080;
 }
 .screens__top-switcher-item.light.active {
 	background: #FFF; 
