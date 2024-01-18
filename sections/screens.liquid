@@ -29,9 +29,30 @@
 				<div class="screens__top-switcher-item" data-mode="dark">Dark</div>				
 			</div>
 		</div>
-		<div class="screens__features"></div>
+		<div class="screens__features">
+    		<div class="screens__features-block" data-type="dashboard">
+    			<img class="screens__features-image light" src="{{ '1-desktop-light.png' | asset_url }}" srcset="{{ '1-retina-light.png' | asset_url }} 2x" loading="lazy">
+          		<img class="screens__features-image dark" src="{{ '1-desktop-dark.png' | asset_url }}" srcset="{{ '1-retina-dark.png' | asset_url }} 2x" loading="lazy">
+    		</div>
+    		<div class="screens__features-block" data-type="performance">
+    			<img class="screens__features-image light" src="{{ '2-desktop-light.png' | asset_url }}" srcset="{{ '2-retina-light.png' | asset_url }} 2x" loading="lazy">
+          		<img class="screens__features-image dark" src="{{ '2-desktop-dark.png' | asset_url }}" srcset="{{ '2-retina-dark.png' | asset_url }} 2x" loading="lazy">
+    		</div>
+    		<div class="screens__features-block" data-type="energy-screen">
+    			<img class="screens__features-image light" src="{{ '3-desktop-light.png' | asset_url }}" srcset="{{ '3-retina-light.png' | asset_url }} 2x" loading="lazy">
+          		<img class="screens__features-image dark" src="{{ '3-desktop-dark.png' | asset_url }}" srcset="{{ '3-retina-dark.png' | asset_url }} 2x" loading="lazy">
+    		</div>
+    		<div class="screens__features-block" data-type="car-data">
+    			<img class="screens__features-image light" src="{{ '4-desktop-light.png' | asset_url }}" srcset="{{ '4-retina-light.png' | asset_url }} 2x" loading="lazy">
+          		<img class="screens__features-image dark" src="{{ '4-desktop-dark.png' | asset_url }}" srcset="{{ '4-retina-dark.png' | asset_url }} 2x" loading="lazy">
+    		</div>
+    		<div class="screens__features-block" data-type="map">
+    			<img class="screens__features-image light" src="{{ '5-desktop-light.png' | asset_url }}" srcset="{{ '5-retina-light.png' | asset_url }} 2x" loading="lazy">
+          		<img class="screens__features-image dark" src="{{ '5-desktop-dark.png' | asset_url }}" srcset="{{ '5-retina-dark.png' | asset_url }} 2x" loading="lazy">
+    		</div>
+		</div>
 		<div class="screens__select">
-			<div class="screens__select-item active">
+			<div class="screens__select-item active" data-type="dashboard">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker light" src="{{ 'marker-light.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
@@ -39,7 +60,7 @@
 				<div class="screens__select-item-title">Dashboard</div>
 				<div class="screens__select-item-text">Easily control the speed, power and battery of your Tesla</div>				
 			</div>
-			<div class="screens__select-item">
+			<div class="screens__select-item" data-type="performance">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker light" src="{{ 'marker-light.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
@@ -47,7 +68,7 @@
 				<div class="screens__select-item-title">Perfomance</div>
 				<div class="screens__select-item-text">Experience the performance mode data even if you are driving</div>				
 			</div>
-			<div class="screens__select-item">
+			<div class="screens__select-item" data-type="energy-screen">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker light" src="{{ 'marker-light.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
@@ -55,7 +76,7 @@
 				<div class="screens__select-item-title">Energy screen</div>
 				<div class="screens__select-item-text">Detailed pictures of how different vehicle systems consume power</div>				
 			</div>
-			<div class="screens__select-item">
+			<div class="screens__select-item" data-type="car-data">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker light" src="{{ 'marker-light.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
@@ -63,7 +84,7 @@
 				<div class="screens__select-item-title">Car Data</div>
 				<div class="screens__select-item-text">Get and share all needed info about your Tesla</div>				
 			</div>
-			<div class="screens__select-item">
+			<div class="screens__select-item" data-type="map">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker light" src="{{ 'marker-light.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
@@ -84,6 +105,10 @@
 		setActiveSelectItem()
 
 		$('.screens__top-switcher-item').on('click', function() {
+			$('.screens__top-switcher-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(this).addClass('active')
 			mode = $(this).data('mode')
 			setMode()
 			setActiveSelectItem()
@@ -94,6 +119,8 @@
 				$(this).removeClass('active')
 			})
 			$(this).addClass('active')
+			console.log($(this).data('type'))
+			setActiveFeature($(this).data('type'))
 			setActiveSelectItem()
 		})
 
@@ -101,6 +128,14 @@
 			$('.screens').removeClass('light')
 			$('.screens').removeClass('dark')
 			$('.screens').addClass(mode)
+		}
+
+		function setActiveFeature(type) {
+			console.log(type)
+			$('.screens__features-block').each(function() {
+				$(this).hide()
+			})
+			$(`.screens__features-block [data-type="${type}"]`).show();
 		}
 
 		function setActiveSelectItem() {
