@@ -88,14 +88,15 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	display: none;
 	position: relative;
 }
 .screens__features-image-wrap {
 	width: 636px;
-	height: 306px; 
+	height: 306px;
+	margin-top: 128px;
 }
 .screens__features-image {
 	width: 100%;
