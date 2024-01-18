@@ -92,8 +92,12 @@
 	align-items: center;
 	display: none;
 }
+.screens__features-image-wrap {
+	width: 636px;
+	height: 306px; 
+}
 .screens__features-image {
-	
+	width: 100%;
 }
 .screens__select {
 	display: flex;
