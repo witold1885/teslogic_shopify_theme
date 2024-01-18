@@ -76,7 +76,7 @@
 				$(this).find(`.screens__select-item-marker.${mode}.active`).show()
 			}
 			else {
-				$(this).find(`.screens__select-item-marker.${mode}`).show()
+				$(this).find(`.screens__select-item-marker.${mode}:not(.active)`).show()
 			}
 		})
 	})
