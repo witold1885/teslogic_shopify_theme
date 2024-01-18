@@ -74,19 +74,19 @@
 }
 
 .pointer-top .pointer-point {
-	bottom: -4px;
+	bottom: -2px;
 }
 .pointer-bottom .pointer-point {
-	top: -4px;
+	top: -2px;
 }
 .pointer-left .pointer-point {
-	right: -2px;
+	right: -1px;
 }
 .pointer-right .pointer-point {
-	left: -2px;
+	left: -1px;
 }
 
-.pointer-dashboard-top-left {
+/*.pointer-dashboard-top-left {
 	width: 537px;
 	height: 65px;
 }
@@ -104,7 +104,7 @@
 .pointer-dashboard-bottom-right {
 	width: 539px;
 	height: 120px; 
-}
+}*/
 
 .pointer-performance-top-left {
 	width: 68.05px;
