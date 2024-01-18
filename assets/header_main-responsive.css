@@ -24,10 +24,10 @@
 }
 @media screen and (min-width: 1000px) and (max-width: 1440px) {
 	.top .logo {	
-		margin-left: calc(80 * 100vw / 1440);
+		margin-left: calc(72 * 100vw / 1440);
 	}
 	.menu {
-		margin-right: calc(80 * 100vw / 1440);
+		margin-right: calc(72 * 100vw / 1440);
 	}
 	.title {
 		left: calc(72 * 100vw / 1440);
@@ -76,8 +76,8 @@
 		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
-		width: calc(188 * 100vw / 1440);
-		height: calc(32 * 100vw / 1440);
+		width: calc(196 * 100vw / 1440);
+		height: calc(36 * 100vw / 1440);
 	}
 /*}      */
 /*@media screen and (min-width: 1000px) and (max-width: 1250px) {        */
