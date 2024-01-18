@@ -6,3 +6,30 @@
 	flex-direction: column;
 	align-items: center;
 }
+.screens__wrap {
+	display: flex;
+	flex-direction: column;
+	width: 1076px;
+	margin-top: 180px;
+}
+.screens__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.screens__top-title {
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px; /* 123.077% */ 
+}
+.screens__top-title-primary {
+	background: linear-gradient(180deg, #0E71F0 6.39%, #1D3BFC 23.49%, #3F3CF6 33.93%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+}
+.screens__top-title-secondary {
+	color: #000;
+}
