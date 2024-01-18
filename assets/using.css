@@ -66,8 +66,9 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: 20px;
-	margin-top: 23px;
-	margin-left: 20px;
+	position: absolute;
+	top: 23px;
+	left: 20px;
 }
 .using__row-legend-text {
 	color: #4D4D4D;
