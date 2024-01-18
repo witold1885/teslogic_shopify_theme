@@ -99,6 +99,7 @@
 	.menu__item-button {
 		border-radius: calc(100 * 100vw / 1440);
 		margin-left: calc(8 * 100vw / 1440);
+		height: calc(36 * 100vw / 1440);
 	}
 	.menu__item-chevron {
 		width: calc(16 * 100vw / 1440);
