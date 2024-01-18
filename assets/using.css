@@ -50,7 +50,12 @@
 .using__row {
 	margin: 0;
 	width: 306px;
-	height: 220px; 
+}
+.using__row-block {
+	height: 220px;
+	border-radius: 24px;
+	background: #F6F6F6;
+	position: relative;
 }
 /*.using__row-1 {
 	width: 183px;
@@ -95,12 +100,12 @@
 	line-height: 20px;
 }
 .using__row-legend-text {
-	font-family: 'Gotham';
+	color: #4D4D4D;
+	font-family: Manrope;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 14px;
-	line-height: 17px;
-	color: #000000;
+	line-height: 24px;
 }
 .using__row-image-mobile {
 	display: none;
