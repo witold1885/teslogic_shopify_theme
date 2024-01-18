@@ -4,7 +4,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: lightgray 50% / cover no-repeat; 
 }
 .screens__wrap {
 	display: flex;
