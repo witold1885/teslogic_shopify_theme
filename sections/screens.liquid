@@ -72,6 +72,7 @@
 		let mode = 'light'
 		$('.screens__select-item').each(function() {
 			if ($(this).hasClass('active')) {
+				console.log($(this).find(`.screens__select-item-marker.${mode}.active`))
 				$(this).find(`.screens__select-item-marker.${mode}.active`).show()
 			}
 			else {
