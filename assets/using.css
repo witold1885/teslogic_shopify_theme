@@ -9,9 +9,15 @@
 	position: relative;
 }
 .using__title {
-	margin-top: 80px;
+	margin-top: 150px;
 	/*width: 550px;*/
 	height: 64px;
+	color: #000;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
 }
 .using__content {
 	width: 100%;
