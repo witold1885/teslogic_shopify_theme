@@ -69,8 +69,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		let mode = 'light'
+		var mode = 'light' // dark
+
 		setActiveSelectItem()
+
 		$('.screens__select-item').on('click', function() {
 			$('.screens__select-item').each(function() {
 				$(this).removeClass('active')
@@ -81,6 +83,7 @@
 
 		function setActiveSelectItem() {
 			$('.screens__select-item').each(function() {
+				$(this).find(`.screens__select-item-marker`).hide()
 				if ($(this).hasClass('active')) {
 					$(this).find(`.screens__select-item-marker.${mode}.active`).show()
 				}
