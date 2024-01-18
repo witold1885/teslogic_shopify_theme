@@ -133,9 +133,13 @@
 		function setActiveFeature(type) {
 			console.log(type)
 			$('.screens__features-block').each(function() {
-				$(this).hide()
+				if ($(this).data('type') == type) {
+					$(this).show()
+				}
+				else {
+					$(this).hide()
+				}
 			})
-			$(`.screens__features-block [data-type="${type}"]`).show();
 		}
 
 		function setActiveSelectItem() {
