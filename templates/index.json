@@ -5,11 +5,6 @@
       "settings": {
       }
     },
-    "shop_now": {
-      "type": "shop_now",
-      "settings": {
-      }
-    },
     "devices_supporting": {
       "type": "devices_supporting",
       "settings": {
@@ -58,7 +53,6 @@
   },
   "order": [
     "using",
-    "shop_now",
     "devices_supporting",
     "features",
     "significant",

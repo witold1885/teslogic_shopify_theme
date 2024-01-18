@@ -1,7 +1,6 @@
 @media screen and (min-width: 1000px) and (max-width: 1366px) {
 	.using {
-		height: calc(656 * 100vw / 1366);
-/*		grid-row-gap: calc(80 * 100vw / 1366);*/
+		margin-bottom: calc(180 * 100vw / 1366);
 	}
 	.using__title {
 		/*width: calc(550 * 100vw / 1366);*/
