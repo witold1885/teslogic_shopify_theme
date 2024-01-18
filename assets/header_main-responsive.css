@@ -93,7 +93,7 @@
 	}
 	.menu__item {
 		font-size: calc(16 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
 		padding: calc(4 * 100vw / 1440) calc(12 * 100vw / 1440);
 	}
 	.menu__item-button {
