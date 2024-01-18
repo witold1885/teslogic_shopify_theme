@@ -148,6 +148,7 @@
 			$('.screens__features-block').each(function() {
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
+					$(this).find(`.screens__features-image`).hide()
 					$(this).find(`.screens__features-image.${mode}`).show()
 				}
 				else {
