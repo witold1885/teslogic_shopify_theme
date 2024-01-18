@@ -29,13 +29,18 @@
 }
 
 .pointer-legend {
-	color: #666;
 	font-family: Manrope;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 20px;
 	position: absolute;
+}
+.screens.light .pointer-legend {
+	color: #666;
+}
+.screens.dark .pointer-legend {
+	color: #808080;
 }
 .pointer-top .pointer-legend {
 	top: -52px;
