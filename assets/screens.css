@@ -19,6 +19,7 @@
 	height: 100%;
 	padding-top: 180px;
 	padding-bottom: 180px;
+	z-index: 2;
 }
 .screens__top {
 	display: flex;
