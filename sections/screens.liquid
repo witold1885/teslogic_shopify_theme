@@ -84,17 +84,27 @@
 		function setActiveSelectItem() {
 			$('.screens__select-item').each(function() {
 				$(this).find(`.screens__select-item-title`).removeClass('light')
-				$(this).find(`.screens__select-item-title`).removeClass('dark')
 				$(this).find(`.screens__select-item-text`).removeClass('light')
+
+				$(this).find(`.screens__select-item-title`).removeClass('dark')
 				$(this).find(`.screens__select-item-text`).removeClass('dark')
+
+				$(this).find(`.screens__select-item-title`).removeClass('active')
+				$(this).find(`.screens__select-item-text`).removeClass('active')
+
 				$(this).find(`.screens__select-item-title`).addClass(mode)
 				$(this).find(`.screens__select-item-text`).addClass(mode)
+				
 				$(this).find(`.screens__select-item-marker`).hide()
 				if ($(this).hasClass('active')) {
 					$(this).find(`.screens__select-item-marker.${mode}.active`).show()
+					$(this).find(`.screens__select-item-title`).addClass('active')
+					$(this).find(`.screens__select-item-text`).addClass('active')
 				}
 				else {
 					$(this).find(`.screens__select-item-marker.${mode}:not(.active)`).show()
+					$(this).find(`.screens__select-item-title`).removeClass('active')
+					$(this).find(`.screens__select-item-text`).removeClass('active')
 				}
 			})
 		}
