@@ -201,6 +201,7 @@
 			console.log(featureType)
 			$('.screens__features-block').each(function() {
 				if ($(this).data('type') == featureType) {
+					console.log($(this).find(`.pointer-line.${mode}`))
 					$(this).css('display', 'flex')
 					$(this).find(`.screens__features-image`).hide()
 					$(this).find(`.pointer-line`).hide()
