@@ -110,9 +110,10 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var mode = 'light' // dark
+		var featureType = 'dashboard' // dark
 
 		setMode()
-		setActiveFeature('dashboard')
+		setActiveFeature()
 		setActiveSelectItem()
 
 		$('.screens__top-switcher-item').on('click', function() {
@@ -122,6 +123,7 @@
 			$(this).addClass('active')
 			mode = $(this).data('mode')
 			setMode()
+			setActiveFeature()
 			setActiveSelectItem()
 		})
 
@@ -130,8 +132,8 @@
 				$(this).removeClass('active')
 			})
 			$(this).addClass('active')
-			console.log($(this).data('type'))
-			setActiveFeature($(this).data('type'))
+			featureType = $(this).data('type')
+			setActiveFeature()
 			setActiveSelectItem()
 		})
 
@@ -141,10 +143,10 @@
 			$('.screens').addClass(mode)
 		}
 
-		function setActiveFeature(type) {
-			console.log(type)
+		function setActiveFeature() {
+			console.log(featureType)
 			$('.screens__features-block').each(function() {
-				if ($(this).data('type') == type) {
+				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
 					$(this).find(`.screens__features-image.${mode}`).show()
 				}
