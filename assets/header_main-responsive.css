@@ -35,6 +35,9 @@
 	.subtitle {
 		left: calc(72 * 100vw / 1440);
 	}
+	.banner-buttons {
+		left: calc(72 * 100vw / 1440);
+	}
 	.menu__item-cart {
 		width: calc(122.27 * 100vw / 1440);
 		border-radius: calc(100 * 100vw / 1440);
@@ -134,6 +137,16 @@
 		line-height: calc(32 * 100vw / 1440);
 /*		width: calc(541 * 100vw / 1440);*/
 		top: calc(413 * 100vw / 1440);
+	}
+	.banner-buttons {
+		top: calc(505 * 100vw / 1440);
+		grid-column-gap: calc(40 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.banner-button-buy {
+		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+		border-radius: calc(54 * 100vw / 1440);
 	}
 	.expand {
 		margin-bottom: calc(9 * 100vw / 1440);
