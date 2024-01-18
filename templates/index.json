@@ -5,8 +5,8 @@
       "settings": {
       }
     },
-    "features": {
-      "type": "features",
+    "screens": {
+      "type": "screens",
       "settings": {
       }
     },
@@ -53,7 +53,7 @@
   },
   "order": [
     "using",
-    "features",
+    "screens",
     "devices_supporting",
     "significant",
     "shortcuts",
