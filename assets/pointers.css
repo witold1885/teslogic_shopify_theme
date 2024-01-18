@@ -13,50 +13,8 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-/*	display: flex;*/
-/*	flex-direction: column;*/
 }
-.pointer-top .pointer-wrap {
-	justify-content: flex-start;
-}
-.pointer-bottom .pointer-wrap {
-	justify-content: flex-end;
-}
-/*.pointer-point {
-	position: absolute;
-	width: 7px;
-	height: 7px;
-	display: flex;
-	background: #FFFFFF;
-	border: 1px solid #0F77F0;
-	border-radius: 100%;
-	box-sizing: border-box;
-}
-.pointer-point img {
-	width: 100%;
-	height: 100%;
-}*/
-.pointer-legend {
-	color: #666;
-	font-family: Manrope;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 20px;
-	position: absolute;
-}
-/*.pointer-top .pointer-point {
-	bottom: 0px;
-}
-.pointer-bottom .pointer-point {
-	top: 0px;
-}
-.pointer-left .pointer-point {
-	right: -4px;
-}
-.pointer-right .pointer-point {
-	left: -4px;
-}*/
+
 .pointer-top {
 	top: 80px;
 }
@@ -70,6 +28,15 @@
 	right: 0;
 }
 
+.pointer-legend {
+	color: #666;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	position: absolute;
+}
 .pointer-top .pointer-legend {
 	top: -52px;
 }
@@ -85,7 +52,9 @@
 	text-align: right;
 }
 
-
+.pointer-icon {
+	position: absolute;
+}
 
 .pointer-top .pointer-icon {
 	top: 4px;
@@ -100,43 +69,41 @@
 	right: 0;
 }
 
+.pointer-point {
+	position: absolute;
+}
+
+.pointer-top .pointer-point {
+	bottom: -4px;
+}
+.pointer-bottom .pointer-point {
+	top: -4px;
+}
+.pointer-left .pointer-point {
+	right: -2px;
+}
+.pointer-right .pointer-point {
+	left: -2px;
+}
+
 .pointer-dashboard-top-left {
 	width: 537px;
 	height: 65px;
 }
 
 .pointer-dashboard-top-right {
-	width: 137px;
-	height: 75px;
-	left: 817px;
-	top: 78px;
+	width: 330px;
+	height: 65px; 
 }
-.pointer-dashboard-top-right .pointer-legend {	
-	width: 159px;
-	height: 34px;
-	top: calc(-1 * (34px + 12px));
-}
+
 .pointer-dashboard-bottom-left {
-	width: 210px;
-	height: 129px;
-	left: 359px;
-	bottom: 95px;
+	width: 304px;
+	height: 118px; 
 }
-.pointer-dashboard-bottom-left .pointer-legend {	
-	width: 197px;
-	height: 51px;
-	bottom: calc(-1 * (51px + 12px));
-}
+
 .pointer-dashboard-bottom-right {
-	width: 281px;
-	height: 108px;
-	left: 671px;
-	bottom: 95px;
-}
-.pointer-dashboard-bottom-right .pointer-legend {
-	width: 297px;
-	height: 51px;
-	bottom: calc(-1 * (51px + 12px));
+	width: 539px;
+	height: 120px; 
 }
 
 .pointer-performance-top-left {
