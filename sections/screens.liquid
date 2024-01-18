@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ 'screens.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'screens-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{% style %}
+	.screens {
+		background-image: url({{ 'screens-bg.png' | asset_url}});
+	}
+{% endstyle %}
+
+<div class="screens" id="screens">
+	<div class="screens__wrap">
+		
+	</div>
+	
+</div>
