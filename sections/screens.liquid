@@ -31,24 +31,34 @@
 		</div>
 		<div class="screens__features">
     		<div class="screens__features-block" data-type="dashboard">
-    			<img class="screens__features-image light" src="{{ '1-desktop-light.png' | asset_url }}" srcset="{{ '1-retina-light.png' | asset_url }} 2x" loading="lazy">
-          		<img class="screens__features-image dark" src="{{ '1-desktop-dark.png' | asset_url }}" srcset="{{ '1-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		<div class="screens__features-image-wrap">
+	    			<img class="screens__features-image light" src="{{ '1-desktop-light.png' | asset_url }}" srcset="{{ '1-retina-light.png' | asset_url }} 2x" loading="lazy">
+	          		<img class="screens__features-image dark" src="{{ '1-desktop-dark.png' | asset_url }}" srcset="{{ '1-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		</div>
     		</div>
     		<div class="screens__features-block" data-type="performance">
-    			<img class="screens__features-image light" src="{{ '2-desktop-light.png' | asset_url }}" srcset="{{ '2-retina-light.png' | asset_url }} 2x" loading="lazy">
-          		<img class="screens__features-image dark" src="{{ '2-desktop-dark.png' | asset_url }}" srcset="{{ '2-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		<div class="screens__features-image-wrap">
+	    			<img class="screens__features-image light" src="{{ '2-desktop-light.png' | asset_url }}" srcset="{{ '2-retina-light.png' | asset_url }} 2x" loading="lazy">
+	          		<img class="screens__features-image dark" src="{{ '2-desktop-dark.png' | asset_url }}" srcset="{{ '2-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		</div>
     		</div>
     		<div class="screens__features-block" data-type="energy-screen">
-    			<img class="screens__features-image light" src="{{ '3-desktop-light.png' | asset_url }}" srcset="{{ '3-retina-light.png' | asset_url }} 2x" loading="lazy">
-          		<img class="screens__features-image dark" src="{{ '3-desktop-dark.png' | asset_url }}" srcset="{{ '3-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		<div class="screens__features-image-wrap">
+	    			<img class="screens__features-image light" src="{{ '3-desktop-light.png' | asset_url }}" srcset="{{ '3-retina-light.png' | asset_url }} 2x" loading="lazy">
+	          		<img class="screens__features-image dark" src="{{ '3-desktop-dark.png' | asset_url }}" srcset="{{ '3-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		</div>
     		</div>
     		<div class="screens__features-block" data-type="car-data">
-    			<img class="screens__features-image light" src="{{ '4-desktop-light.png' | asset_url }}" srcset="{{ '4-retina-light.png' | asset_url }} 2x" loading="lazy">
-          		<img class="screens__features-image dark" src="{{ '4-desktop-dark.png' | asset_url }}" srcset="{{ '4-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		<div class="screens__features-image-wrap">
+	    			<img class="screens__features-image light" src="{{ '4-desktop-light.png' | asset_url }}" srcset="{{ '4-retina-light.png' | asset_url }} 2x" loading="lazy">
+	          		<img class="screens__features-image dark" src="{{ '4-desktop-dark.png' | asset_url }}" srcset="{{ '4-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		</div>
     		</div>
     		<div class="screens__features-block" data-type="map">
-    			<img class="screens__features-image light" src="{{ '5-desktop-light.png' | asset_url }}" srcset="{{ '5-retina-light.png' | asset_url }} 2x" loading="lazy">
-          		<img class="screens__features-image dark" src="{{ '5-desktop-dark.png' | asset_url }}" srcset="{{ '5-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		<div class="screens__features-image-wrap">
+	    			<img class="screens__features-image light" src="{{ '5-desktop-light.png' | asset_url }}" srcset="{{ '5-retina-light.png' | asset_url }} 2x" loading="lazy">
+	          		<img class="screens__features-image dark" src="{{ '5-desktop-dark.png' | asset_url }}" srcset="{{ '5-retina-dark.png' | asset_url }} 2x" loading="lazy">
+	    		</div>
     		</div>
 		</div>
 		<div class="screens__select">
@@ -102,6 +112,7 @@
 		var mode = 'light' // dark
 
 		setMode()
+		setActiveFeature('dashboard')
 		setActiveSelectItem()
 
 		$('.screens__top-switcher-item').on('click', function() {
@@ -134,7 +145,7 @@
 			console.log(type)
 			$('.screens__features-block').each(function() {
 				if ($(this).data('type') == type) {
-					$(this).show()
+					$(this).css('display', 'flex')
 				}
 				else {
 					$(this).hide()
