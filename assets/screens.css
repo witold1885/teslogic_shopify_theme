@@ -82,7 +82,7 @@
 	background: #3E3E3E; 
 }
 .screens__features {
-
+	flex: 1;
 }
 .screens__features-block {
 	width: 100%;
