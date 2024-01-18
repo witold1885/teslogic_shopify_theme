@@ -3,21 +3,21 @@
 
 {% style %}
 	.screens.light {
-		background: #F6F6F6;
+		background: #F6F6F6, url({{ 'screens-bg-light.png' | asset_url}}), lightgray 50% / cover no-repeat;
 	}
-	.screens__bg.light {
+	/*.screens.light .screens__bg {
 		background: url({{ 'screens-bg-light.png' | asset_url}}), lightgray 50% / cover no-repeat;
-	}
+	}*/
 	.screens.dark {
-		background: #090909;
+		background: #090909, url({{ 'screens-bg-dark.png' | asset_url}}), lightgray 50% / cover no-repeat;
 	}
-	.screens__bg.dark {
+	/*.screens.dark .screens__bg {
 		background: url({{ 'screens-bg-dark.png' | asset_url}}), lightgray 50% / cover no-repeat;
-	}
+	}*/
 {% endstyle %}
 
 <div class="screens" id="screens">
-	<div class="screens__bg"></div>
+	<!-- <div class="screens__bg"></div> -->
 	<div class="screens__wrap">
 		<div class="screens__top">
 			<div class="screens__top-title">
@@ -101,9 +101,6 @@
 			$('.screens').removeClass('light')
 			$('.screens').removeClass('dark')
 			$('.screens').addClass(mode)
-			$('.screens__bg').removeClass('light')
-			$('.screens__bg').removeClass('dark')
-			$('.screens__bg').addClass(mode)
 		}
 
 		function setActiveSelectItem() {
