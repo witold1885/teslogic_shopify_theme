@@ -78,6 +78,7 @@
 
 		$('.screens__top-switcher-item').on('click', function() {
 			mode = $(this).data('mode')
+			setMode()
 			setActiveSelectItem()
 		})
 
@@ -88,6 +89,12 @@
 			$(this).addClass('active')
 			setActiveSelectItem()
 		})
+
+		function setMode() {
+			$('.screens').removeClass('light')
+			$('.screens').removeClass('dark')
+			$('.screens').addClass(mode)
+		}
 
 		function setActiveSelectItem() {
 			$('.screens__select-item').each(function() {
