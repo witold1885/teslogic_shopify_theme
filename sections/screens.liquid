@@ -15,8 +15,8 @@
 				<div class="screens__top-title-secondary">and explore your car with Teslogic</div>
 			</div>
 			<div class="screens__top-switcher">
-				<div class="screens__top-switcher-item light active">Light</div>
-				<div class="screens__top-switcher-item dark">Dark</div>				
+				<div class="screens__top-switcher-item active" data-mode="light">Light</div>
+				<div class="screens__top-switcher-item" data-mode="dark">Dark</div>				
 			</div>
 		</div>
 		<div class="screens__features"></div>
@@ -73,6 +73,11 @@
 
 		setActiveSelectItem()
 
+		$('.screens__top-switcher-item').on('click', function() {
+			mode = $(this).data('mode')
+			setActiveSelectItem()
+		})
+
 		$('.screens__select-item').on('click', function() {
 			$('.screens__select-item').each(function() {
 				$(this).removeClass('active')
@@ -94,7 +99,7 @@
 
 				$(this).find(`.screens__select-item-title`).addClass(mode)
 				$(this).find(`.screens__select-item-text`).addClass(mode)
-				
+
 				$(this).find(`.screens__select-item-marker`).hide()
 				if ($(this).hasClass('active')) {
 					$(this).find(`.screens__select-item-marker.${mode}.active`).show()
