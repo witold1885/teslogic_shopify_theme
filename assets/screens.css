@@ -98,6 +98,7 @@
 }
 .screens__features-image {
 	width: 100%;
+	display: none;
 }
 .screens__select {
 	display: flex;
