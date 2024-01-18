@@ -8,17 +8,17 @@
 		height: calc(768 * 100vw / 1920);
 	}
 	.title {
-		font-size: calc(48 * 100vw / 1920);
-		line-height: calc(64 * 100vw / 1920);
+		font-size: calc(64 * 100vw / 1920);
+		line-height: calc(72 * 100vw / 1920);
 /*		width: calc(541 * 100vw / 1920);*/
-		top: calc(288 * 100vw / 1920);
+		top: calc(329 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 	.subtitle {
 /*		font-size: calc(48 * 100vw / 1920);*/
 /*		line-height: calc(64 * 100vw / 1920);*/
 /*		width: calc(541 * 100vw / 1920);*/
-		top: calc(357 * 100vw / 1920);
+		top: calc(413 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 }
@@ -126,13 +126,13 @@
 		font-size: calc(64 * 100vw / 1440);
 		line-height: calc(72 * 100vw / 1440);
 /*		width: calc(541 * 100vw / 1440);*/
-		top: calc(281 * 100vw / 1440);
+		top: calc(329 * 100vw / 1440);
 	}
 	.subtitle {
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 /*		width: calc(541 * 100vw / 1440);*/
-		top: calc(357 * 100vw / 1440);
+		top: calc(413 * 100vw / 1440);
 	}
 	.expand {
 		margin-bottom: calc(9 * 100vw / 1440);
