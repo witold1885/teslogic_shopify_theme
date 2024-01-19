@@ -44,36 +44,36 @@
 	scrollbar-color: transparent transparent;
 }
 .significant__features-item {
-	width: 400px;
+	width: 306px;
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 20px;
+	grid-row-gap: 16px;
 }
 .significant__features-item-image {
-	width: 400px;
-	height: 400px;
+	width: 306px;
+	height: 220px; 
 }
 .significant__features-item-image img {
 	width: 100%;
 }
-.significant__features-item-info {
+/*.significant__features-item-info {
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 8px;
-}
+}*/
 .significant__features-item-title {
-	font-family: 'Gotham';
+	color: #000;
+	font-family: Manrope;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 36px;
-	line-height: 43px;
-	color: #000000;
+	line-height: 32px;
 }
 .significant__features-item-content {
-	font-family: 'Gotham';
+	color: #666;
+	font-family: Manrope;
+	font-size: 16px;
 	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 17px;
-	color: #000000;
+	font-weight: 500;
+	line-height: 20px;
 }
