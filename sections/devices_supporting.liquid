@@ -11,13 +11,29 @@
 		height: 636px; 
 	}
 	.devices_supporting-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 60px;
 		border-radius: 40px;
-		background: url({{ 'devices_supporting-info-bg.png' | asset_url }}), lightgray 2799.678px 1595.298px / -690.99% -523.739% no-repeat, #FFF;
+		background: url({{ 'devices_supporting-info-bg.png' | asset_url }})/*, lightgray 2799.678px 1595.298px / -690.99% -523.739% no-repeat, #FFF*/;
 	}
 </style>
 
 <div class="devices_supporting">
-	<div class="devices_supporting-info"></div>
+	<div class="devices_supporting-info">
+		<div class="devices_supporting-info-texts">
+			<div class="devices_supporting-info-suptext">v2 new feature avaliable</div>
+			<div class="devices_supporting-info-title">Multiple devices support</div>
+			<div class="devices_supporting-info-subtitle">
+				You can easily connect<br>
+				2+ cross platform devices<br>
+				simultaneously
+			</div>			
+		</div>
+		<div class="devices_supporting-info-nouns"></div>
+		
+	</div>
 	<div class="devices_supporting-image">
 		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
