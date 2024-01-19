@@ -43,6 +43,10 @@
 		font-weight: 500;
 		line-height: 32px;
 	}
+	.devices_supporting-info-noun-row {
+		display: flex;
+		grid-column-gap: 25.9px;
+	}
 </style>
 
 <div class="devices_supporting">
@@ -56,7 +60,17 @@
 				simultaneously
 			</div>			
 		</div>
-		<div class="devices_supporting-info-nouns"></div>
+		<div class="devices_supporting-info-nouns">
+			<div class="devices_supporting-info-noun-row">
+				<img src="{{ 'noun-iphone-1.svg' | asset_url }}">
+				<img src="{{ 'noun-iphone-2.svg' | asset_url }}">
+				<img src="{{ 'noun-iphone-3.svg' | asset_url }}">
+			</div>
+			<div class="devices_supporting-info-noun-row">
+				<img src="{{ 'noun-ipad-1.svg' | asset_url }}">
+				<img src="{{ 'noun-ipad-2.svg' | asset_url }}">
+			</div>
+		</div>
 		
 	</div>
 	<div class="devices_supporting-image">
