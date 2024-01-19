@@ -1,10 +1,9 @@
 .significant {
 	margin-top: 180px;
 	margin-bottom: 180px;
-	margin-left: 72px;
-	margin-right: 72px;
 }
 .significant__title {
+	margin-left: 72px;
 	margin-bottom: 6px;
 	color: #000;
 	font-family: Manrope;
@@ -14,6 +13,8 @@
 	line-height: 64px;
 }
 .significant__subtitle {
+	margin-left: 72px;
+	margin-bottom: 47px;
 	color: #4D4D4D;
 	font-family: Manrope;
 	font-size: 24px;
