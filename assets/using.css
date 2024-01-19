@@ -1,12 +1,13 @@
 .using {
 	width: 1296px;
-	margin-bottom: 180px;
+	margin: 150px auto 180px;
+/*	margin-bottom: 180px;*/
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
 .using__title {
-	margin-top: 150px;
+/*	margin-top: 150px;*/
 	/*width: 550px;*/
 	height: 64px;
 	color: #000;
