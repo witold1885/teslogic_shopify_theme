@@ -1,10 +1,23 @@
 .significant {
-	margin-top: 116.57px;
-	margin-bottom: 140px;
+	margin-top: 180px;
+	margin-bottom: 180px;
 }
 .significant__title {
-	/*margin-top: 120px;*/
-	margin-bottom: 40.43px;
+	margin-bottom: 6px;
+	color: #000;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
+}
+.significant__subtitle {
+	color: #4D4D4D;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
 }
 .significant__features {
 	height: 565px;

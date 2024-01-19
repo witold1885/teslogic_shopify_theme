@@ -1,7 +1,7 @@
-@media screen and (min-width: 1000px) and (max-width: 1366px) {
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
 	.significant {
-		margin-top: calc(116.57 * 100vw / 1366);
-		margin-bottom: calc(140 * 100vw / 1366);
+		margin-top: calc(180 * 100vw / 1440);
+		margin-bottom: calc(180 * 100vw / 1440);
 	}
 }
 
