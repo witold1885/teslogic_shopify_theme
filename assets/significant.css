@@ -23,7 +23,7 @@
 	line-height: 32px;
 }
 .significant__features {
-	height: 565px;
+/*	height: 565px;*/
 	display: flex;
 /*	overflow-x: scroll;*/
 /*	flex-direction: column;*/
@@ -39,7 +39,7 @@
 .significant__features-scroller {
 	overflow-x: scroll;
 	display: flex;
-	grid-column-gap: 100px;
+	grid-column-gap: 24px;
 	padding-left: calc((100vw - 1440px + 144px) / 2);
 	scrollbar-color: transparent transparent;
 }
