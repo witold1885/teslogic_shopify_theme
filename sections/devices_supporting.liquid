@@ -53,6 +53,42 @@
 		display: flex;
 		grid-column-gap: 25.9px;
 	}
+	.devices_supporting-image img {
+		width: 100%;
+	}
+	@media screen and (min-width: 1000px) and (max-width: 1440px) {
+		.devices_supporting {
+			width: calc(1296 * 100vw / 1440);
+			margin: calc(180 * 100vw / 1440) auto;
+			grid-column-gap: calc(24 * 100vw / 1440);
+		}
+		.devices_supporting > div {		
+			width: calc(636 * 100vw / 1440);
+			height: calc(636 * 100vw / 1440); 
+		}
+		.devices_supporting-info {
+			padding: calc(60 * 100vw / 1440);
+			border-radius: calc(40 * 100vw / 1440);
+		}
+		.devices_supporting-info-suptext {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+		}
+		.devices_supporting-info-title {
+			font-size: calc(52 * 100vw / 1440);
+			line-height: calc(64 * 100vw / 1440);
+		}
+		.devices_supporting-info-subtitle {
+			font-size: calc(24 * 100vw / 1440);
+			line-height: calc(32 * 100vw / 1440);
+		}
+		.devices_supporting-info-nouns {
+			grid-row-gap: calc(26.08 * 100vw / 1440);
+		}
+		.devices_supporting-info-noun-row {
+			grid-column-gap: calc(25.9 * 100vw / 1440);
+		}
+	}
 </style>
 
 <div class="devices_supporting">
@@ -82,11 +118,4 @@
 	<div class="devices_supporting-image">
 		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
-	<!-- <div class="ellipse-container ellipse__devices_supporting"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-	<div class="devices_supporting-image">
-		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
-	</div>
-	<div class="devices_supporting-text">Now supporting<br>
-2+ devices<br>
-simultaneously</div> -->
 </div>
