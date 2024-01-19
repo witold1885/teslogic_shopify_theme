@@ -1,89 +1,27 @@
 <style type="text/css">
 	.devices_supporting {
+		width: 1296px;
+		margin: 180px auto;
 		display: flex;
-		margin-left: 80px;
-		margin-bottom: 130px;
-		position: relative;
+		justify-content: space-between;
+		grid-column-gap: 24px;
 	}
-	.devices_supporting-image {
-		width: 585px;
-		height: 367px; 
-	}
-	.devices_supporting-image img {
-		width: 100%;
-	}
-	.devices_supporting-text {
-		color: #3374FB;
-		text-align: right;
-		/* Title */
-		font-family: Gotham;
-		font-size: 52px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 64px; /* 123.077% */ 
-		margin-left: 125px;
-	}
-	.ellipse__devices_supporting {
-		width: 545px;
-		height: 545px; 
-		top: -110px;
-		right: 1093px;
-	}
-	.ellipse__devices_supporting .ellipse {
-		background: #F4F6FA;
-	}	
-	@media screen and (min-width: 1000px) and (max-width: 1366px) {
-		.devices_supporting {
-			margin-bottom: calc(130 * 100vw / 1366);
-		}
-		.devices_supporting-image {
-			width: calc(585 * 100vw / 1366);
-			height: calc(367 * 100vw / 1366); 
-			margin-bottom: calc(130 * 100vw / 1366);
-		}
-		.devices_supporting-text {
-			font-size: calc(52 * 100vw / 1366);
-			line-height: calc(64 * 100vw / 1366); /* 123.077% */ 
-			margin-left: calc(125 * 100vw / 1366);
-		}	
-		.ellipse__devices_supporting {
-			width: calc(545 * 100vw / 1366);
-			height: calc(545 * 100vw / 1366); 
-			top: calc(-1 * 110 * 100vw / 1366);
-			right: calc(1093 * 100vw / 1366);
-		}	
-	}
-	@media screen and (max-width: 999px) {
-		.devices_supporting {
-			width: 302px;
-			margin-left: 40px;
-			margin-right: 48px;
-			margin-bottom: 80px;
-			flex-direction: column;
-			grid-row-gap: 16px;
-		}
-		.devices_supporting-image {
-			width: 100%;
-			height: auto;
-		}
-		.devices_supporting-text {
-			width: 100%;
-			text-align: right;
-			font-size: 26px;
-			line-height: normal; 
-			margin-left: 0;
-			font-weight: 400 !important;
-	    	font-family: 'Gotham-Medium' !important;
-		}
+	.devices_supporting > div {		
+		width: 636px;
+		height: 636px; 
 	}
 </style>
 
 <div class="devices_supporting">
-	<div class="ellipse-container ellipse__devices_supporting"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
+	<div class="devices_supporting-info"></div>
+	<div class="devices_supporting-image">
+		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
+	</div>
+	<!-- <div class="ellipse-container ellipse__devices_supporting"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
 	<div class="devices_supporting-image">
 		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
 	<div class="devices_supporting-text">Now supporting<br>
 2+ devices<br>
-simultaneously</div>
+simultaneously</div> -->
 </div>
