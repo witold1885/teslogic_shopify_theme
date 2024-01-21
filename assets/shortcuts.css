@@ -134,6 +134,7 @@
 	border-radius: 28px;
 	border: 2px solid #EBF0FE; 
 	box-sizing: border-box;
+	overflow: hidden;
 }
 .shortcuts-features-item-image {
 	width: 100%;
