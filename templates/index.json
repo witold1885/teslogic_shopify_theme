@@ -30,11 +30,6 @@
       "settings": {
       }
     },
-    "add_charger": {
-      "type": "add_charger",
-      "settings": {
-      }
-    },
     "bloggers_block": {
       "type": "bloggers_block",
       "settings": {
@@ -58,7 +53,6 @@
     "significant",
     "shortcuts",
     "box_block",
-    "add_charger",
     "bloggers_block",
     "store_block",
     "reviews"
