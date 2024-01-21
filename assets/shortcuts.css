@@ -44,7 +44,6 @@
 	flex-wrap: wrap;
 	grid-column-gap: 24px;
 	grid-row-gap: 24px;
-	margin-bottom: 24px;
 }
 .shortcuts-info-block {
 	width: 526px;
@@ -125,7 +124,8 @@
 	flex-wrap: wrap;
 	grid-column-gap: 24px;
 	grid-row-gap: 24px;
-
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 .shortcuts-features-item {
 	width: 526px;
@@ -199,198 +199,39 @@
 	font-weight: 400;
 	line-height: 20px;
 }
-
-.shortcuts-content {
-	display: flex;
-	flex-direction: column;
-}
-.shortcuts-content-top {
-	display: flex;
-	align-items: flex-start;
-	grid-column-gap: 3px;
-}
-.shortcuts-content-legend {
-	width: 609px;
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 22px;
-}
-.shortcuts-content-legend-item {
-	display: flex;
-	align-items: flex-start;
-	grid-column-gap: 12px;
-	color: #000;
-	font-family: Gotham;
-	font-size: 22px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 32px; /* 145.455% */ 
-}
-.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
-	width: 534px;
-}
-.shortcuts-content-legend-icon {
-	width: 32px;
-	height: 32px;
-}
-.shortcuts-content-legend-icon img {
+.shortcuts-more {
 	width: 100%;
-	height: 100%;
-}
-.shortcuts-content-image-desktop {
-	width: 587px;
-	height: 286px; 
-}
-.shortcuts-content-image-desktop img {
-	width: 100%;
-}
-.shortcuts-content-image-mobile {
-	display: none;
-}
-.shortcuts-content-middle {
-	width: 1206px;
-	box-sizing: border-box;
-	margin-top: 81px;
-	margin-bottom: 64px;
-	padding: 72px 53px 72px 90px;
+	height: 256px; 
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	grid-column-gap: 54px;
-	border-radius: 12px;
-	background: #F4F6FA; 
+	grid-column-gap: 185px;
+	position: relative;
+	border-radius: 24px;
+	background: #B0C3EC; 
 }
-.shortcuts-content-middle-image-desktop {
-	width: 216px;
-	height: 88px; 
-}
-.shortcuts-content-middle-image-desktop img {
-	width: 100%;
-}
-.shortcuts-content-middle-image-mobile {
-	display: none;
-}
-.shortcuts-content-middle-info {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 16px;
-}
-.shortcuts-content-middle-info-icon {
-	width: 64px;
-	height: 64px; 
-}
-.shortcuts-content-middle-info-icon img {
-	width: 100%;
-	height: 100%;
-}
-.shortcuts-content-middle-info-text {
-	width: 707px; 
+.shortcuts-more-text {
 	color: #000;
-	font-family: Gotham;
-	font-size: 22px;
+	font-family: Manrope;
+	font-size: 32px;
 	font-style: normal;
-	font-weight: 400;
-	line-height: 32px; /* 145.455% */ 
+	font-weight: 500;
+	line-height: 40px;
 }
-.shortcuts-content-list {
-	display: flex;
-	flex-wrap: wrap;
-	grid-column-gap: 28px;
-	grid-row-gap: 52px;
-}
-.shortcuts-content-list-item {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 18px;
-	width: 380px;
-}
-.shortcuts-content-list-item-title {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 16px;
-}
-.shortcuts-content-list-item-title-icon {
-	width: 64px;
-	height: 64px;
-	border-radius: 8px;
-}
-.shortcuts-content-list-item-title-icon img {
-	width: 100%;
-	height: 100%;
-}
-.shortcuts-content-list-item-title-text {
-	color: #000;
-	font-family: Gotham;
-	font-size: 22px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 32px; /* 145.455% */ 
-}
-.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
-.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
-	max-width: 200px;
-}
-.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-title-text {
-	max-width: 275px;
-}
-.shortcuts-content-list-item-content {
-	color: #666;
-	font-family: Gotham;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 20px; /* 142.857% */ 
-}
-.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-content {
-	max-width: 380px;
-}
-.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-content {
-	max-width: 343px;
-}
-.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-content {
-	max-width: 331px;
-}
-.shortcuts-content-list-item:nth-child(4) .shortcuts-content-list-item-content {
-	max-width: 369px;
-}
-.shortcuts-content-list-item:nth-child(5) .shortcuts-content-list-item-content {
-	max-width: 303px;
-}
-.shortcuts-content-list-item:nth-child(6) .shortcuts-content-list-item-content {
-	max-width: 258px;
-}
-.shortcuts-content-more {
-	margin-top: 92px;
-	width: 100%;
-	color: #3374FB;
+.shortcuts-more-button {
+	padding: 20px 40px;
 	text-align: center;
-	/* Subtitle */
-	font-family: Gotham;
-	font-size: 36px;
+	border-radius: 54px;
+	border: 3px solid #0068FD;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(8px);
+	outline: none;
+	box-shadow: none;
+	color: #0E54FD;
+	text-align: center;
+	font-family: Manrope;
+	font-size: 24px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: normal; 
+	font-weight: 500;
+	line-height: 32px;
 }
-
-
-.shortcuts-content-top-mobile, 
-.shortcuts-content-bottom-mobile {
-	display: none;
-}
-.ellipse__shortcuts-1 {
-	width: 564px;
-	height: 564px; 
-	top: -11px;
-	right: 1183px;
-}
-.ellipse__shortcuts-1 .ellipse {
-	background: #F4F6FA;
-}	
-.ellipse__shortcuts-2 {
-	width: 464px;
-	height: 464px; 
-	top: 39px;
-	right: 1233px;
-}
-.ellipse__shortcuts-2 .ellipse {
-	background: #FEFEFE;
-}	
