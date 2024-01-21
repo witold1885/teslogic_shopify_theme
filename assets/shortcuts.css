@@ -208,7 +208,8 @@
 	grid-column-gap: 185px;
 	position: relative;
 	border-radius: 24px;
-	background: #B0C3EC; 
+	background: #FFF;
+	box-shadow: 0px 64px 64px 0px rgba(0, 0, 0, 0.04); 
 }
 .shortcuts-more-text {
 	color: #000;
@@ -234,4 +235,20 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+}
+.shortcuts-more-layer {
+	position: absolute;
+	height: 256px;
+	border-radius: 24px;
+}
+.shortcuts-more-layer-1 {
+	bottom: -24px;
+	width: 1012px;
+	background: #FCFCFC;
+	box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.02);
+}
+.shortcuts-more-layer-2 {
+	bottom: -44px;
+	width: 948px;
+	background: #F9F9F9; 
 }
