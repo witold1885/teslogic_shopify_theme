@@ -68,9 +68,6 @@
 	width: 170px;
 	height: 170px;
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 .box_block-item-big .box_block-item-top {
 	width: 234px;
@@ -84,8 +81,14 @@
 }
 .box_block-item-image {
 	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 .box_block-item-big .box_block-item-image {
 	width: 166px;
-	height: 143px; 
+	height: 143px;
+	top: 40.5px;
+	left: 32px; 
 }
