@@ -131,6 +131,8 @@
 	width: 526px;
 	height: 544px;
 	position: relative;
+	border-radius: 28px;
+	border: 2px solid #EBF0FE; 
 }
 .shortcuts-features-item-image {
 	width: 100%;
