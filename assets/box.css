@@ -1,0 +1,34 @@
+.box_block {
+	width: 100%;
+	background: #FFF;
+}
+.box_block-wrap {
+	width: 1076px;
+	margin: 0 auto;
+	padding-top: 180px;
+	padding-bottom: 180px;
+}
+.box_block-top {
+	display: flex;
+	justify-content: space-between;
+}
+.box_block-info-title {
+	color: #000;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px; 
+}
+.box_block-info-title-what {
+	color: #1657FC; 
+}
+.box_block-info-description {
+	width: 691px;
+	color: #4D4D4D;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+}
