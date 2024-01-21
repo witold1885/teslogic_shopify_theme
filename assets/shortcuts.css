@@ -265,13 +265,14 @@
 .shortcuts-more-gradient {
 	position: absolute;
 	width: 100%;
+	z-index: 4;
 }
 .shortcuts-more-gradient img {
 	width: 100%;
 }
 .shortcuts-more-gradient-top {
-	top: 57px;
+	top: 0;
 }
 .shortcuts-more-gradient-bottom {
-	bottom: 57px;
+	bottom: 0;
 }
