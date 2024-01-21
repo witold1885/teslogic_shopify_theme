@@ -149,6 +149,20 @@
 .shortcuts-features-item-image img {
 	width: 100%;
 }
+.shortcuts-features-item-speedicons {
+	position: absolute;
+	z-index: 2;
+	top: 32px;
+	left: 32px;
+	display: flex;
+	grid-column-gap: 20px;
+}
+.shortcuts-features-item-speedicon {
+	width: 60px;
+}
+.shortcuts-features-item-speedicon img {
+	width: 100%;
+}
 .shortcuts-features-item-info {
 	width: 526px;
 	height: 272px; 
