@@ -129,9 +129,16 @@
 }
 .shortcuts-features-item {
 	width: 526px;
-	height: 544px; 
+	height: 544px;
+	position: relative;
 }
 .shortcuts-features-item-image {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.shortcuts-features-item-image img {
 	width: 100%;
 }
 
