@@ -141,9 +141,20 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	right: 0;
 }
 .shortcuts-features-item-image img {
 	width: 100%;
+}
+.shortcuts-features-item-info {
+	width: 526px;
+	height: 272px; 
+	border-radius: 28px;
+	background: #FFF; 
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 .shortcuts-content {
