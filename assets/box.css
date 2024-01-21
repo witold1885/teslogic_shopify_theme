@@ -125,15 +125,24 @@
 	left: 0;
 }
 .box_block-additional-images-image {
-	width: 100%;
+	width: 226px;
+	height: 287px;
 	position: absolute;
 	bottom: 0;
 	left: 66px;
 	z-index: 2;
 }
+.box_block-additional-images-image img {
+	width: 100%;
+}
 .box_block-additional-images-photo {
+	width: 120px;
+	height: 120px;
 	position: absolute;
 	top: -22px;
 	right: -11px;
 	z-index: 3;
+}
+.box_block-additional-images-photo img {
+	width: 100%;
 }
