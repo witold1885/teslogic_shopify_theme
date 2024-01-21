@@ -1,12 +1,6 @@
 <link rel="stylesheet" href="{{ 'shortcuts.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
-{% style %}
-	.shortcuts-features-item-image-winter {
-		background: url({{ 'falling-snow.png' | asset_url }}), lightgray -763px -184.5px / 530.038% 512.5% no-repeat; 
-	}
-{% endstyle %}
-
 <div class="shortcuts">
 	<div class="shortcuts-wrap">
 		<div class="shortcuts-title">
@@ -94,8 +88,11 @@
 		    	</div>
 	    	</div>
 	    	<div class="shortcuts-features-item">
-		    	<div class="shortcuts-features-item-image shortcuts-features-item-image-winter">
+		    	<div class="shortcuts-features-item-image">
 		    		<img src="{{ 'shortcuts-image-3-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-3-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-image shortcuts-features-item-image-winter">
+		    		<img src="{{ 'falling-snow-desktop.png' | asset_url }}" srcset="{{ 'falling-snow-retina.png' | asset_url }} 2x" loading="lazy">
 		    	</div>
 		    	<div class="shortcuts-features-item-info">
 			    	<div class="shortcuts-features-item-info-title">

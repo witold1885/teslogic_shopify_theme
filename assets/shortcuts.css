@@ -143,6 +143,9 @@
 	left: 0;
 	right: 0;
 }
+.shortcuts-features-item-image-winter {
+	z-index: 2;
+}
 .shortcuts-features-item-image img {
 	width: 100%;
 }
@@ -157,7 +160,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 2;
+	z-index: 3;
 }
 .shortcuts-features-item-info-title {
 	display: flex;
