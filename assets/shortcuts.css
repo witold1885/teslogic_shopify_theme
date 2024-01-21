@@ -87,6 +87,30 @@
 .shortcuts-info-block-image img {
 	width: 100%; 
 }
+.shortcuts-info-block-between {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 32px;
+}
+.shortcuts-info-block-between-text {
+	color: #000;
+	font-family: Manrope;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.shortcuts-info-block-between:nth-child(1) .shortcuts-info-block-between-image {
+	width: 148px;
+	height: 60px; 
+}
+.shortcuts-info-block-between-image img {
+	width: 100%;
+}
+.shortcuts-info-block-between:nth-child(1) .shortcuts-info-block-between-text {
+	width: 441px; 
+}
 
 
 .shortcuts-content {
