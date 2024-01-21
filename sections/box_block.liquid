@@ -56,8 +56,12 @@
 		<div class="box_block-additional">
 			<div class="box_block-additional-images">
 				<img class="box_block-additional-images-ellipse" src="{{ 'box-ellipse-355-desktop.png' | asset_url }}" srcset="{{ 'box-ellipse-355-retina.png' | asset_url }} 2x" loading="lazy">
-				<img class="box_block-additional-images-image" src="{{ 'box-charger-image-desktop.png' | asset_url }}" srcset="{{ 'box-charger-image-retina.png' | asset_url }} 2x" loading="lazy">
-				<img class="box_block-additional-images-photo" src="{{ 'box-charger-photo-desktop.png' | asset_url }}" srcset="{{ 'box-charger-photo-retina.png' | asset_url }} 2x" loading="lazy">
+				<div class="box_block-additional-images-image">
+					<img src="{{ 'box-charger-image-desktop.png' | asset_url }}" srcset="{{ 'box-charger-image-retina.png' | asset_url }} 2x" loading="lazy">
+				</div>
+				<div class="box_block-additional-images-photo">
+					<img src="{{ 'box-charger-photo-desktop.png' | asset_url }}" srcset="{{ 'box-charger-photo-retina.png' | asset_url }} 2x" loading="lazy">
+				</div>
 				
 			</div>
 			<div class="box_block-additional-info"></div>
