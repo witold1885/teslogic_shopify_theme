@@ -151,6 +151,7 @@
 	height: 272px; 
 	border-radius: 28px;
 	padding: 28px 28px 28px 32px;
+	box-sizing: border-box;
 	background: #FFF; 
 	position: absolute;
 	bottom: 0;
