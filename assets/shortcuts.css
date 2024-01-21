@@ -127,7 +127,13 @@
 	grid-row-gap: 24px;
 
 }
-
+.shortcuts-features-item {
+	width: 526px;
+	height: 544px; 
+}
+.shortcuts-features-item-image {
+	width: 100%;
+}
 
 .shortcuts-content {
 	display: flex;
