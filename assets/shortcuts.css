@@ -93,6 +93,9 @@
 	justify-content: space-between;
 	padding: 32px;
 }
+.shortcuts-info-block-between-image img {
+	width: 100%;
+}
 .shortcuts-info-block-between-text {
 	color: #000;
 	font-family: Manrope;
@@ -101,14 +104,11 @@
 	font-weight: 400;
 	line-height: 24px;
 }
-.shortcuts-info-block-between:nth-child(1) .shortcuts-info-block-between-image {
+.shortcuts-info-artboard-image {
 	width: 148px;
 	height: 60px; 
 }
-.shortcuts-info-block-between-image img {
-	width: 100%;
-}
-.shortcuts-info-block-between:nth-child(1) .shortcuts-info-block-between-text {
+.shortcuts-info-artboard-text {
 	width: 441px; 
 }
 
