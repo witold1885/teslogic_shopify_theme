@@ -1,7 +1,11 @@
 .shortcuts {
-	margin-left: 80px;
-	margin-bottom: 140px;
-	position: relative;
+	width: 100%;
+	margin-bottom: 180px;
+	background: #F6F6F6; 
+}
+.shortcuts-wrap {
+	width: 1076px;
+	margin: 180px auto 225px;
 }
 .shortcuts-title {
 	display: flex;
