@@ -150,12 +150,35 @@
 	width: 526px;
 	height: 272px; 
 	border-radius: 28px;
+	padding: 28px 28px 28px 32px;
 	background: #FFF; 
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: 2;
+}
+.shortcuts-features-item-info-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.shortcuts-features-item-info-title-text {
+	color: #000;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px;
+}
+
+.shortcuts-features-item-info-description {
+	color: #666;
+	font-family: Manrope;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
 
 .shortcuts-content {
