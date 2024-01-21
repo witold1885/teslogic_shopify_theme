@@ -262,3 +262,16 @@
 	background: #F9F9F9;
 	z-index: 1;
 }
+.shortcuts-more-gradient {
+	position: absolute;
+	width: 100%;
+}
+.shortcuts-more-gradient img {
+	width: 100%;
+}
+.shortcuts-more-gradient-top {
+	top: 57px;
+}
+.shortcuts-more-gradient-bottom {
+	bottom: 57px;
+}
