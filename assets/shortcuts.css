@@ -44,6 +44,7 @@
 	flex-wrap: wrap;
 	grid-column-gap: 24px;
 	grid-row-gap: 24px;
+	margin-bottom: 24px;
 }
 .shortcuts-info-block {
 	width: 526px;
@@ -118,6 +119,13 @@
 }
 .shortcuts-info-info-text {
 	width: 421px;
+}
+.shortcuts-features {
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 24px;
+	grid-row-gap: 24px;
+
 }
 
 
