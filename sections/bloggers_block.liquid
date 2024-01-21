@@ -3,17 +3,7 @@ $(document).ready(async function() {
 	const API_ENDPOINT = 'https://www.googleapis.com/youtube/v3/'
 	const API_KEY = 'AIzaSyBIO_rLOupamMWN0yNCUUNREWNCFi_3zpc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
-	console.log('videos:')
-	console.log({{ videos | json }})
 	let videos = {{ videos | json }}
-	/*const videoUrls = [
-		'https://www.youtube.com/watch?v=fvmXjgCjxR0&ab_channel=LudicrousFeed',
-		'https://www.youtube.com/watch?v=zRVyK_d3k48&t=2s&ab_channel=MikeSeussTesla',
-		'https://www.youtube.com/watch?v=ugdLMiZlqNc&ab_channel=Gjeebs',
-		'https://www.youtube.com/watch?v=eSLjxnThupg&ab_channel=CfTesla',
-		'https://www.youtube.com/watch?v=m06bKl98Pws&ab_channel=BestInTESLA',
-		'https://www.youtube.com/watch?v=PrWRb2_jfCE&ab_channel=i1Tesla',
-	]*/
 
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
@@ -56,11 +46,13 @@ $(document).ready(async function() {
 					 <iframe class="bloggers_block__list-item-video-mobile" width="251" height="140" src="https://www.youtube.com/embed/${videoId}"></iframe> 
 				</div>
 				<div class="bloggers_block__list-item-channel">
-					<div class="bloggers_block__list-item-channel-thumbnail">
-						<img src="${channelData.thumbnails.default.url}">
-					</div>
-					<div class="bloggers_block__list-item-channel-info">
+					<div class="bloggers_block__list-item-channel-top">
+						<div class="bloggers_block__list-item-channel-thumbnail">
+							<img src="${channelData.thumbnails.default.url}">
+						</div>
 						<span class="bloggers_block__list-item-channel-title">${channelData.title}: </span>
+					</div>
+					<div class="bloggers_block__list-item-channel-info">						
 						<span class="bloggers_block__list-item-channel-excerpt">“${excerpt}”</span>
 					</div>
 				</div>
@@ -101,13 +93,25 @@ $(document).ready(async function() {
 
 <style type="text/css">
 .bloggers_block__title {
-	color: #0F0F0F;
-	font-family: Gotham;
+	color: #000;
+	font-family: Manrope;
 	font-size: 52px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 64px; /* 123.077% */
-	margin-bottom: 40px;
+	font-weight: 500;
+	line-height: 64px; 
+	margin-bottom: 6px;
+}
+.bloggers_block__title-bloggers {
+	color: #1657FC; 
+}
+.bloggers_block__subtitle {
+	color: #4D4D4D;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; 
+	margin-bottom: 47px;
 }
 .bloggers_block__list {
 	display: flex;
@@ -157,10 +161,8 @@ $(document).ready(async function() {
 }
 .bloggers_block__list-item-channel {
 	display: flex;
-	align-items: center;
-	grid-column-gap: 8px;  
-	height: 100%;
-  	flex: 1;
+	flex-direction: column;
+	grid-row-gap: 12px;
 }
 .bloggers_block__list-item-channel-thumbnail {
 	width: 56px;
@@ -191,7 +193,7 @@ $(document).ready(async function() {
 	font-weight: 400;
 	line-height: normal; 
 }
-@media screen and (min-width: 1000px) and (max-width: 1366px) {
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
 
 }
 @media screen and (max-width: 999px) {
@@ -263,7 +265,12 @@ $(document).ready(async function() {
 </style>
 
 <div class="bloggers_block">
-  	<div class="block_title bloggers_block__title">Bloggers’ Verdict</div>
+  	<div class="bloggers_block__title">
+  		<div class="bloggers_block__title-bloggers">Bloggers’</div> Verdict
+  	</div>
+  	<div class="bloggers_block__subtitle">
+  		Watch video reviews from popular influencers
+  	</div>
 	<div class="bloggers_block__list">
 		<div class="bloggers_block__list-scroller"></div>		
 	</div>
