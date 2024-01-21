@@ -237,26 +237,28 @@
 	border-radius: 24px;
 }
 .shortcuts-more-layer-3 {
+	width: 100%;
+	bottom: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 185px;
-	bottom: 0;
-	width: 100%;
 	background: #FFF;
 	box-shadow: 0px 64px 64px 0px rgba(0, 0, 0, 0.04);
 	z-index: 3;
 }
 .shortcuts-more-layer-2 {
-	bottom: -24px;
 	width: 1012px;
+	bottom: -24px;
+	left: 32px;
 	background: #FCFCFC;
 	box-shadow: 0px 24px 64px 0px rgba(0, 0, 0, 0.02);
 	z-index: 2;
 }
 .shortcuts-more-layer-1 {
-	bottom: -44px;
 	width: 948px;
+	bottom: -44px;
+	left: 64px;
 	background: #F9F9F9;
 	z-index: 1;
 }
