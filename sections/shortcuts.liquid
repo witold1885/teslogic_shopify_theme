@@ -46,7 +46,10 @@
 		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: "title" %}
 		    {% for article in articles %}
 		    	<div class="shortcuts-features-item">
-		    		<img src="{{ article.image | img_url: '848x848' }}">
+			    	<div class="shortcuts-features-item-image">
+			    		<img src="{{ article.image }}">
+			    		<!-- <img src="{{ article.image | img_url: '848x848' }}"> -->
+			    	</div>
 		    	</div>
 				<!-- <div class="shortcuts-content-list-item">
 					<div class="shortcuts-content-list-item-title">
