@@ -107,10 +107,17 @@
 }
 .shortcuts-info-artboard-image {
 	width: 148px;
-	height: 60px; 
+	height: 60px;
 }
 .shortcuts-info-artboard-text {
-	width: 441px; 
+	width: 441px;
+}
+.shortcuts-info-info-image {
+	width: 40px;
+	height: 40px;
+}
+.shortcuts-info-info-text {
+	width: 421px;
 }
 
 
