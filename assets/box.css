@@ -210,3 +210,12 @@
 	top: 17px;
 	left: 12px;
 }
+.box_block-charger-item-description {
+	width: 345px;
+	color: #666;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
