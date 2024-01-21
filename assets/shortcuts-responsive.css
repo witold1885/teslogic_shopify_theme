@@ -1,13 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1366px) {
-	.shortcuts {
-		margin-left: calc(80 * 100vw / 1366);
-		margin-bottom: calc(140 * 100vw / 1440);
-	}
-
-
-	.shortcuts {
-		margin-bottom: calc(180 * 100vw / 1440);
-	}
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
 	.shortcuts-wrap {
 		width: calc(1076 * 100vw / 1440);
 		padding-top: calc(180 * 100vw / 1440);
