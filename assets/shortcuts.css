@@ -5,7 +5,9 @@
 }
 .shortcuts-wrap {
 	width: 1076px;
-	margin: 180px auto 225px;
+	margin: 0 auto;
+	padding-top: 180px;
+	padding-bottom: 225px;
 }
 .shortcuts-title {
 	display: flex;
@@ -28,6 +30,30 @@
 	line-height: 64px; /* 123.077% */
 	text-transform: capitalize; 
 }
+.shortcuts-subtitle {
+	color: #000;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
+}
+.shortcuts-info {
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 24px;
+	grid-row-gap: 24px;
+}
+.shortcuts-info-block {
+	width: 526px;
+	height: 256px; 
+}
+.shortcuts-info-block:not(.shortcuts-info-block-text) {
+	border-radius: 28px;
+	background: #FFF; 
+}
+
+
 .shortcuts-content {
 	display: flex;
 	flex-direction: column;
