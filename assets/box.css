@@ -11,6 +11,13 @@
 .box_block-top {
 	display: flex;
 	justify-content: space-between;
+	height: 166px;
+	margin-bottom: 48px;
+}
+.box_block-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .box_block-info-title {
 	color: #000;
