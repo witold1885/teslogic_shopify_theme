@@ -1,6 +1,5 @@
 .store_block {
 	width: 100%;
-	margin: 0 auto;
 	padding-top: 200px;
 	padding-bottom: 200px;
 	background: #FDFDFD;
@@ -9,8 +8,7 @@
 	display: flex;
 	align-items: center;
 	width: 1296px;
-	margin-left: 72px;
-	margin-right: 72px;
+	margin: 0 auto;
 	grid-column-gap: 36px;
 }
 .store_block-product-mobile {
