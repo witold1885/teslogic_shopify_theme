@@ -58,6 +58,45 @@
 	grid-row-gap: 8px;
 }
 
+.reviews-rating-overall-title {
+	color: #CADAFC;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+.reviews-rating-overall-data {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 16px;
+	margin-bottom: 14px;
+}
+.reviews-rating-overall-data-value {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px; 
+}
+.reviews-rating-overall-data-star {
+	width: 64px;
+	height: 64px; 
+}
+.reviews-rating-overall-data-star img {
+	width: 100%; 
+}
+.reviews-rating-stats-total {
+	color: #CADAFC;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
 
 
 /*.reviews-title {
@@ -90,27 +129,6 @@
 	align-items: flex-start;
 	grid-row-gap: 8px;
 }
-.reviews-rating-overall-title {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 22px;
-	line-height: 32px;
-	color: #0F0F0F;
-}
-.reviews-rating-overall-data {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 16px;
-}
-.reviews-rating-overall-data-value {
-	font-family: 'Gotham-Medium';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 36px;
-	line-height: 43px;
-	color: #0F0F0F;
-}
 .reviews-rating-overall-data-stars {
 	display: flex;
 	grid-column-gap: 8px;
@@ -131,14 +149,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	grid-row-gap: 8px;	
-}
-.reviews-rating-stats-total {
-	font-family: 'Gotham';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 22px;
-	line-height: 32px;
-	color: #8F9197;
 }
 .reviews-rating-stats-marks {
 	width: 100%;
