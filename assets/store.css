@@ -219,6 +219,20 @@
 	align-items: center;
 	grid-column-gap: 16px;
 }
+.store_block-product-add {
+	padding: 20px 40px;
+	text-align: center;
+	border-radius: 54px;
+	background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(8px);
+	color: #FFF;
+	text-align: center;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px;
+}
 .store_block-product-order-features {
 	display: flex;
 	flex-direction: column;
