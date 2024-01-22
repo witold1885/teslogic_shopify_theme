@@ -111,7 +111,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	grid-row-gap: 32px;
-	padding: 32px;
+	padding: 40px;
 	background: #FFFFFF;
 	box-sizing: border-box;
 }
