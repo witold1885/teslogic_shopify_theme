@@ -42,3 +42,10 @@
 	left: 0;
 	z-index: 2;
 }
+.store_block-product-gallery-main {
+	width: 526px;
+	height: 526px;
+}
+.store_block-product-gallery-main img {
+	width: 100%;
+}
