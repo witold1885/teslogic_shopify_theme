@@ -277,7 +277,7 @@
 	font-weight: 400;
 	line-height: 20px; 
 }
-input.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
+input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) {
 	width: 100%;
 	padding: 16px;
 	border-radius: 15px;
@@ -292,14 +292,14 @@ input.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 	outline: none;
 	box-shadow: none;
 }
-.spr-starrating {
+.spr-form-review-rating {
 	display: flex;
 }
-.spr-starrating .spr-icon {
+.spr-form-review-rating .spr-icon {
 	width: 40px;
 	height: 40px; 
 }
-.spr-starrating .spr-icon::before {
+.spr-form-review-rating .spr-icon::before {
 	width: 100%;
 	height: 100%;
 	font-size: 30px;
@@ -307,7 +307,7 @@ input.spr-form-input:not(.spr-starrating):not(.spr-form-input-textarea) {
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
 }
-.spr-starrating .spr-icon-star-empty {
+.spr-form-review-rating .spr-icon-star-empty {
 	opacity: unset;
 }
 .spr-form-input-textarea {
