@@ -12,8 +12,13 @@ footer {
 .footer-top {
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 33px;
-	margin-bottom: 64.5px;
+	grid-column-gap: 171px;
+	margin-bottom: 67.5px;
+}
+.footer-top-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .footer-top .logo {	
 	width: 188px;
