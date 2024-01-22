@@ -226,6 +226,7 @@
 	background: #FFF;
 	box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 	position: relative;
+	box-sizing: border-box;
 }
 .reviews-form-close {
 	position: absolute;
@@ -295,6 +296,7 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 .spr-form-review-rating {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 .spr-form-review-rating-title {
 	color: #000;
