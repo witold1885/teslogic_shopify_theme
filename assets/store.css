@@ -73,8 +73,8 @@
 	font-size: 32px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 36px; /* 112.5% */
-	text-decoration-line: strikethrough; 
+	line-height: 36px;
+	text-decoration-line: strikethrough;
 }
 .store_block-product-title {
 	width: 486px; 
@@ -86,134 +86,119 @@
 	font-weight: 500;
 	line-height: 64px;
 }
-	.store_block-product-select {
-		/*width: 340px;*/
-		width: 526px;
-		height: 72px;
-		border-radius: 8px;
-		background: #E6E6E6; 
-		position: relative;
-		/*display: flex;*/
-		display: inline-flex;
-		/*justify-content: center;*/
-		align-items: center;
-		padding-left: 20px;
-		padding-right: 20px;
-		box-sizing: border-box;
-	}
-	/*.store_block-product-select:hover {
-		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-	}*/
-	.store_block-product-select-dropdown-select {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		/*grid-column-gap: 10px;*/
-		cursor: pointer;
-	}
-	.store_block-product-select-dropdown {
-		position: absolute;
-		top: 90px;
-		left: 0;
-		right: 0;
-		width: 100%;
-		padding: 20px 20px 32px 20px;
-		display: none;
-		flex-direction: column;
-		grid-row-gap: 32px;
-		border-radius: 8px;
-		border: 2px solid #E6E6E6;
-		background: #FFF;
-		box-shadow: 0px 64px 64px 0px rgba(0, 0, 0, 0.04);
-		box-sizing: border-box;
-		z-index: 2;
-	}
-	.store_block-product-select-dropdown-item {
-		color: #000; 
-		font-family: Manrope;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 32px;
-		cursor: pointer;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.store_block-product-select-dropdown-item:hover {
-		color: #1657FC; 
-	}
-	.store_block-product-select-dropdown-item img {
-		display: none;
-	}
-	.store_block-product-select-dropdown-item-selected img {
-		display: block;
-	}
-	.store_block-product-select-value {
-		color: #000;
-		font-family: Manrope;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 32px;
-	}
-	.store_block-product-select-dropdown .store_block-product-select-value {
-		color: #B9B9B9;
-	}
-	.store_block-product-select-arrow {
-		width: 12px;
-		height: 32px;
-	}
-	.store_block-product-select-arrow img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.store_block-add-wireless-charger {
-		margin-top: 8px;
-		grid-column-gap: 8px;
-		display: flex;
-		align-items: center;
-	}
-	.store_block-add-wireless-charger-checkbox {
-		width: 20px;
-  		height: 20px;
-		appearance: none;
-		-webkit-appearance: none;
-		background-color: #E0E0E0;
-		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
-/*		border: 1px solid #3374FB;*/
-/*		border-radius: 8px;*/
-		display: inline-block;
-		position: relative;
-		padding: 6.67px 5px;
-		margin: 0;
-		cursor: pointer;
-	}
-	/*.store_block-add-wireless-charger-checkbox:checked {
-		background-color: #3374FB;
-		border: 1px solid #3374FB;
-		color: #FEFEFE;
-	}*/
-	.store_block-add-wireless-charger-title {
-		color: #000;
-		font-feature-settings: 'clig' off, 'liga' off;
-		font-family: Manrope;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 20px;
-	}
-	.store_block-add-wireless-charger-price {
-		color: #1657FC;
-		font-feature-settings: 'clig' off, 'liga' off;
-		font-family: Manrope;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 20px; 
-	}
+.store_block-product-select {
+	width: 526px;
+	height: 72px;
+	border-radius: 8px;
+	background: #E6E6E6; 
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+.store_block-product-select-dropdown-select {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+.store_block-product-select-dropdown {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	padding: 20px 20px 32px 20px;
+	display: none;
+	flex-direction: column;
+	grid-row-gap: 32px;
+	border-radius: 8px;
+	border: 2px solid #E6E6E6;
+	background: #FFF;
+	box-shadow: 0px 64px 64px 0px rgba(0, 0, 0, 0.04);
+	box-sizing: border-box;
+	z-index: 2;
+}
+.store_block-product-select-dropdown-item {
+	color: #000; 
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.store_block-product-select-dropdown-item:hover {
+	color: #1657FC; 
+}
+.store_block-product-select-dropdown-item img {
+	display: none;
+}
+.store_block-product-select-dropdown-item-selected img {
+	display: block;
+}
+.store_block-product-select-value {
+	color: #000;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px;
+}
+.store_block-product-select-dropdown .store_block-product-select-value {
+	color: #B9B9B9;
+}
+.store_block-product-select-arrow {
+	width: 12px;
+	height: 32px;
+}
+.store_block-product-select-arrow img {
+	width: 100%;
+	height: 100%;
+}
+.store_block-add-wireless-charger {
+	margin-top: 8px;
+	grid-column-gap: 8px;
+	display: flex;
+	align-items: center;
+}
+.store_block-add-wireless-charger-checkbox {
+	width: 20px;
+		height: 20px;
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: #E0E0E0;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
+	display: inline-block;
+	position: relative;
+	padding: 6.67px 5px;
+	margin: 0;
+	cursor: pointer;
+}
+.store_block-add-wireless-charger-title {
+	color: #000;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.store_block-add-wireless-charger-price {
+	color: #1657FC;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; 
+}
 .store_block-product-order {
 	display: flex;
 	align-items: center;
@@ -233,6 +218,7 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+	cursor: pointer;
 }
 .store_block-product-order-features {
 	display: flex;
