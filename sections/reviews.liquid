@@ -191,6 +191,7 @@
 
 			var column1Height = 0;
 			var column2Height = 0;
+			var rowGap = 24;
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
@@ -198,9 +199,9 @@
 
 			  // Додаємо висоту елемента до меншого стовпчика
 			  if (column1Height <= column2Height) {
-			    column1Height += itemHeight;
+			    column1Height += itemHeight + rowGap;
 			  } else {
-			    column2Height += itemHeight;
+			    column2Height += itemHeight + rowGap;
 			  }
 
 			  // Додаємо елемент до контейнера
