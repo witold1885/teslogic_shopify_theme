@@ -11,7 +11,6 @@ footer {
 }
 .footer-top {
 	display: flex;
-	flex-direction: column;
 	grid-column-gap: 171px;
 	margin-bottom: 67.5px;
 }
@@ -21,19 +20,17 @@ footer {
 	justify-content: space-between;
 }
 .footer-top .logo {	
-	width: 188px;
-	height: 32px;
-	display: flex;
-	align-items: center;
+	width: 233.333px;
+	height: 40px;
 }
 .footer-top .logo img {
 	width: 100%;
 }
 .footer-menu {
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
+	flex-wrap: wrap;
 	grid-column-gap: 71px;
+	grid-row-gap: 36px;
 }
 .footer-menu__list-resources {
 	display: none;
