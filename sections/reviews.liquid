@@ -208,6 +208,8 @@
 			});
 			  console.log(column1Height)
 			  console.log(column2Height)
+			reviewsContainer.style.height = Math.max(column1Height, column2Height) + 'px';
+
 
       var tmpScriptDiv = document.createElement('div');
       tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
