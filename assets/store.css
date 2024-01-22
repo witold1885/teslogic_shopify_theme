@@ -42,7 +42,7 @@
 	left: 0;
 	z-index: 2;
 }
-..store_block-product-gallery-items .store_block-product-gallery-item:first-child .store_block-product-gallery-item-image {
+.store_block-product-gallery-items .store_block-product-gallery-item:first-child .store_block-product-gallery-item-image {
 	top: unset;
 	bottom: 0;
 }
