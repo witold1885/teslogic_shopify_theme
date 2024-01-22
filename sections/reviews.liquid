@@ -157,19 +157,18 @@
 			var column1Height = 0;
 			var column2Height = 0;
 			var rowGap = 24;
-			var padding = 0;
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
 
 			  if (column1Height <= column2Height) {
-			    column1Height += itemHeight + rowGap + 2 * padding;
+			    column1Height += itemHeight + rowGap;
 			  } else {
-			    column2Height += itemHeight + rowGap + 2 * padding;
+			    column2Height += itemHeight + rowGap;
 			  }
 			});
 
-			reviewsContainer.style.height = Math.max(column1Height, column2Height) + 'px';
+			reviewsContainer.style.height = (Math.max(column1Height, column2Height) - rowGap) + 'px';
 
 
       var tmpScriptDiv = document.createElement('div');
