@@ -200,8 +200,8 @@
 					.attr('method', 'post')
 					.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
 					.attr('onsubmit', 'SPR.submitForm(this);return false;')
-				console.log('Rating')
-				console.log($(form).find('.spr-form-review-rating').html())
+				// console.log('Rating')
+				// console.log($(form).find('.spr-form-review-rating').html())
 				let formHtml = `						
 	        <input type="hidden" name="review[rating]">
 	        <input type="hidden" name="product_id" value="8143253733590">
@@ -218,7 +218,7 @@
 	        	</div>
 	        	<div class="reviews-form-column">
 	        		<div class="reviews-form-field spr-form-review-rating">
-	        			${$(form).find('.spr-form-review-rating').html()}
+	        			${$(form).find('.spr-form-review-rating').find('.spr-form-input spr-starrating').html()}
 		        	</div>
 		        	<div class="reviews-form-field spr-form-review-body">
 		        		${$(form).find('.spr-form-review-body').html()}
