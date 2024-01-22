@@ -8,7 +8,9 @@
 .store_block-product {
 	display: flex;
 	align-items: center;
+	width: 1296px;
 	margin-left: 72px;
+	margin-right: 72px;
 	grid-column-gap: 36px;
 }
 .store_block-product-mobile {
