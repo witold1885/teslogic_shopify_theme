@@ -3,7 +3,7 @@
 
 {% style %}	
 .reviews {
-	background: url({{ 'reviews_bg.png' | asset_url }}), lightgray -666.816px -1673.512px / 296.268% 182.468% no-repeat, linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);
+	background: url({{ 'reviews_bg.png' | asset_url }}), -666.816px -1673.512px / 296.268% 182.468% no-repeat, linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);
 }
 .spr-starrating .spr-icon-star::before {
 	content: url({{ 'star-big-filled.svg' | asset_url }});
@@ -19,6 +19,17 @@
 <!-- <div id="multipleReviews"></div> -->
 <div id="reviewsWrap" class="reviews">
 	<div class="reviews-wrap">
+		<div class="reviews-top">
+			<div class="reviews-top-left">
+				<div class="reviews-top-supinfo">
+					<div class="reviews-top-supinfo-stars" id="totalRatingStars"></div>
+					<div class="reviews-top-supinfo-text">Teslogic Reviews</div>
+					
+				</div>
+			</div>
+			<div class="reviews-top-right"></div>
+			
+		</div>
 		<div class="reviews-title">Reviews</div>
 		<div class="reviews-data">
 			<div class="reviews-data-left">
