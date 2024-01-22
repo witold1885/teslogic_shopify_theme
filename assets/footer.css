@@ -36,12 +36,12 @@ footer {
 	display: none;
 }
 .footer-menu__list-title {
-	font-family: Gotham-Medium;
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 24px;
 	font-style: normal;
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 24px;
-	color: #FFFFFF;
+	font-weight: 500;
+	line-height: 32px;
 	margin-bottom: 16px;
 	white-space: nowrap;
 }
@@ -60,12 +60,12 @@ footer {
 	display: none;
 }
 .footer-menu__list-items li {
-	font-family: Gotham;
-	font-style: normal;
-	font-weight: normal;
+	color: #D0D0D0;
+	font-family: Manrope;
 	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
 	line-height: 20px;
-	color: #FFFFFF;
 	cursor: pointer;
 }
 .footer-menu__list-contacts .footer-menu__list-items li {
