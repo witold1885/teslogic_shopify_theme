@@ -177,6 +177,8 @@
 		align-items: center;
 	}
 	.store_block-add-wireless-charger-checkbox {
+		width: 20px;
+  		height: 20px;
 		appearance: none;
 		-webkit-appearance: none;
 		background-color: #E0E0E0;
@@ -195,23 +197,16 @@
 		color: #FEFEFE;
 	}*/
 	.store_block-add-wireless-charger-title {
-		margin-left: 12px;
-		font-family: 'Gotham';
+		color: #000;
+		font-feature-settings: 'clig' off, 'liga' off;
+		font-family: Manrope;
+		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
-		font-size: 14px;
-		line-height: 17px;
-		color: #0F0F0F;
-		cursor: pointer;
+		line-height: 20px;
 	}
 	.store_block-add-wireless-charger-price {
-		margin-left: 4px;
-		font-family: 'Gotham';
-		font-style: normal;
-		font-weight: 700;
-		font-size: 14px;
-		line-height: 17px;
-		color: #3374FB;
+		color: #1657FC;
 	}
 	.store_block-add-wireless-charger-time {
 		display: none;
