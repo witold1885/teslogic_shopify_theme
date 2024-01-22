@@ -15,7 +15,7 @@
 	.reviews-top-supinfo {
 		grid-column-gap: calc(12 * 100vw / 1440);
 	}
-	.reviews-top-supinfo-stars {
+	.reviews-top-supinfo-stars .spr-starrating {
 		grid-column-gap: calc(8 * 100vw / 1440);
 	}
 	.reviews-top-supinfo-stars .spr-icon {
