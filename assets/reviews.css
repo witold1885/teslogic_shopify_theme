@@ -178,6 +178,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 52px;
 }
 .reviews-bottom-text {
 	color: #FFF;
@@ -200,6 +201,7 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+	cursor: pointer;
 }
 
 
