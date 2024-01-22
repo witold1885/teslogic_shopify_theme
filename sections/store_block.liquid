@@ -90,7 +90,8 @@
 								data-compare_at_price="{{ model.compare_at_price }}"
 								data-stock="{{ model.inventory_quantity }}"
 							>
-								{{ model.title }}
+								<span>{{ model.title }}</span>
+								<img src="{{ 'store_model_selected.svg' | asset_url }}">
 							</div>
 						{%- endfor -%}
 					</div>

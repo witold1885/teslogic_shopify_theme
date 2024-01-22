@@ -136,17 +136,13 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: 32px;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.store_block-product-select-dropdown-item:hover {
 		color: #1657FC; 
-	}
-	.store_block-product-select-text {
-		font-family: 'Gotham';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 17px;
-		color: #000000;
 	}
 	.store_block-product-select-value {
 		color: #000;
@@ -156,7 +152,7 @@
 		font-weight: 500;
 		line-height: 32px;
 	}
-	.store_block-product-select-dropdown-select .store_block-product-select-value {
+	.store_block-product-select-dropdown .store_block-product-select-value {
 		color: #B9B9B9;
 	}
 	.store_block-product-select-arrow {
