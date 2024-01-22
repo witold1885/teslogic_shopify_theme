@@ -1,0 +1,108 @@
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+	.store_block {
+		padding-top: calc(200 * 100vw / 1440);
+		padding-bottom: calc(200 * 100vw / 1440);
+	}
+	.store_block-product {
+		width: calc(1296 * 100vw / 1440);
+		grid-column-gap: calc(36 * 100vw / 1440);
+	}
+	.store_block-product-gallery {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.store_block-product-gallery-items {
+		grid-row-gap: calc(12 * 100vw / 1440);
+	}
+	.store_block-product-gallery-item {
+		width: calc(86 * 100vw / 1440);
+		height: calc(86 * 100vw / 1440);
+	}
+	.store_block-product-gallery-main {
+		width: calc(526 * 100vw / 1440);
+		height: calc(526 * 100vw / 1440);
+	}
+	.store_block-product-price {
+		grid-column-gap: calc(8 * 100vw / 1440);
+		margin-bottom: calc(8 * 100vw / 1440);
+	}
+	.store_block-product-price-new {
+		font-size: calc(36 * 100vw / 1440);
+		line-height: calc(44 * 100vw / 1440);
+	}
+	.store_block-product-price-old {
+		font-size: calc(32 * 100vw / 1440);
+		line-height: calc(36 * 100vw / 1440);
+	}
+	.store_block-product-title {
+		width: calc(486 * 100vw / 1440);
+		margin-bottom: calc(20 * 100vw / 1440);
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.store_block-product-select {
+		width: calc(526 * 100vw / 1440);
+		height: calc(72 * 100vw / 1440);
+		border-radius: calc(8 * 100vw / 1440);
+		padding-left: calc(20 * 100vw / 1440);
+		padding-right: calc(20 * 100vw / 1440);
+	}
+	.store_block-product-select-dropdown {
+		top: calc(90 * 100vw / 1440);
+		padding: calc(20 * 100vw / 1440) calc(20 * 100vw / 1440) calc(32 * 100vw / 1440) calc(20 * 100vw / 1440);
+		grid-row-gap: calc(32 * 100vw / 1440);
+		border-radius: calc(8 * 100vw / 1440);
+	}
+	.store_block-product-select-dropdown-item {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.store_block-product-select-value {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.store_block-product-select-arrow {
+		width: calc(12 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
+	}
+	.store_block-add-wireless-charger {
+		margin-top: calc(8 * 100vw / 1440);
+		grid-column-gap: calc(8 * 100vw / 1440);
+	}
+	.store_block-add-wireless-charger-checkbox {
+		width: calc(20 * 100vw / 1440);
+		height: calc(20 * 100vw / 1440);
+		padding: calc(6.67 * 100vw / 1440) calc(5 * 100vw / 1440);
+	}
+	.store_block-add-wireless-charger-title {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+	.store_block-add-wireless-charger-price {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+	.store_block-product-order {
+		grid-column-gap: calc(16 * 100vw / 1440);
+		margin-top: calc(24 * 100vw / 1440);
+	}
+	.store_block-product-add {
+		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+		border-radius: calc(54 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.store_block-product-order-features {
+		grid-row-gap: calc(8 * 100vw / 1440);
+	}
+	.store_block-product-order-feature {
+		grid-column-gap: calc(8 * 100vw / 1440);
+	}
+	.store_block-product-order-feature-icon {
+		width: calc(20 * 100vw / 1440);
+		height: calc(20 * 100vw / 1440);
+	}
+	.store_block-product-order-feature-text {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+}
