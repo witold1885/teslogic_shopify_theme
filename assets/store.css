@@ -144,6 +144,12 @@
 	.store_block-product-select-dropdown-item:hover {
 		color: #1657FC; 
 	}
+	.store_block-product-select-dropdown-item img {
+		display: none;
+	}
+	.store_block-product-select-dropdown-item-selected img {
+		display: block;
+	}
 	.store_block-product-select-value {
 		color: #000;
 		font-family: Manrope;
