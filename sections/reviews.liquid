@@ -164,13 +164,13 @@
         let reviewHtml = `
         	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
         		<div class="reviews-list-item-top">
-        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+	        		<div class="reviews-list-item-top-left">
+	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+	        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+	        		</div>
         			<div class="reviews-list-item-date">${reviewDate}</div>
         		</div>
         		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
-        		<div class="reviews-list-item-bottom">
-        			<div class="reviews-list-item-author">${reviewAuthor}</div>
-        		</div>
         	</div>
         `
         document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
@@ -196,21 +196,14 @@
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
-			  console.log(item.querySelector('.reviews-list-item-date').innerText)
-			  console.log(itemHeight)
 
-			  // Додаємо висоту елемента до меншого стовпчика
 			  if (column1Height <= column2Height) {
 			    column1Height += itemHeight + rowGap + 2 * padding;
 			  } else {
 			    column2Height += itemHeight + rowGap + 2 * padding;
 			  }
-
-			  // Додаємо елемент до контейнера
-			  // container.appendChild(item);
 			});
-			  console.log(column1Height)
-			  console.log(column2Height)
+
 			reviewsContainer.style.height = Math.max(column1Height, column2Height) + 'px';
 
 
