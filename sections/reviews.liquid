@@ -162,7 +162,7 @@
         let reviewAuthor = reviewerArray[0].trim()
         let reviewDate = reviewerArray[1].trim()
         let reviewHtml = `
-        	<div class="reviews-list-item product-review">
+        	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
         		<div class="reviews-list-item-top">
         			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
         			<div class="reviews-list-item-date">${reviewDate}</div>
@@ -185,6 +185,29 @@
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		    ratingMarks[`mark${ratingMark}`]++;
       };
+
+      var reviewsContainer = document.getElementById('multipleReviews');
+			var reviewItems = document.querySelectorAll('.reviews-list-item');
+			// Змінні для зберігання суми висот елементів у кожному стовпці
+			var column1Height = 0;
+			var column2Height = 0;
+
+			// Розподіляємо елементи між стовпцями
+			reviewItems.forEach(function(item, index) {
+			  // Отримуємо висоту кожного елемента
+			  var itemHeight = item.offsetHeight;
+			  console.log(itemHeight)
+
+			  // // Додаємо висоту елемента до меншого стовпчика
+			  // if (column1Height <= column2Height) {
+			  //   column1Height += itemHeight;
+			  // } else {
+			  //   column2Height += itemHeight;
+			  // }
+
+			  // // Додаємо елемент до контейнера
+			  // container.appendChild(item);
+			});
 
       var tmpScriptDiv = document.createElement('div');
       tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
