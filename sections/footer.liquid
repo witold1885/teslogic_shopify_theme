@@ -8,8 +8,18 @@
 <footer id="contacts" {% if template == 'cart' %}{% if cart.item_count == 0 %} style="position: fixed; bottom: 0; left: 0; right: 0;" {% endif %}{% endif %}>
   <div class="footer__wrap">
     <div class="footer-top">
-      <div class="logo">
-        <img src="{{ 'logo.svg' | asset_url }}">
+      <div class="footer-top-left">
+        <div class="logo">
+          <img src="{{ 'logo.svg' | asset_url }}">
+        </div>
+        <div class="footer-links">
+          <a class="footer-links__item" href="https://apps.apple.com/am/app/teslogic-dash/id1623563438" target="_blank">
+            <img src="{{ 'app_store.png' | asset_url }}">
+          </a>
+          <a class="footer-links__item" href="https://play.google.com/store/apps/details?id=co.teslogic.teslogic_dash" target="_blank">
+            <img src="{{ 'google_play.png' | asset_url }}">
+          </a>
+        </div>
       </div>
       <div class="footer-menu">
         <div class="footer-menu__list footer-menu__list-contacts">
@@ -110,14 +120,6 @@
           </ul>
         </div>
       </div>
-    </div>
-    <div class="footer-links">
-      <a class="footer-links__item" href="https://apps.apple.com/am/app/teslogic-dash/id1623563438" target="_blank">
-        <img src="{{ 'app_store.png' | asset_url }}">
-      </a>
-      <a class="footer-links__item" href="https://play.google.com/store/apps/details?id=co.teslogic.teslogic_dash" target="_blank">
-        <img src="{{ 'google_play.png' | asset_url }}">
-      </a>
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
