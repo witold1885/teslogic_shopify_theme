@@ -242,21 +242,22 @@
 	box-sizing: border-box;
 }
 .spr-form-title {
-	font-size: 36px;
-	line-height: 43px;
-	font-family: Gotham-Medium;
+	color: #000;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
 	font-weight: 500;
-	margin-bottom: 20px;
+	line-height: 40px;
 }
 .reviews-form-body {
 	display: flex;
-	grid-column-gap: 40px;
+	grid-column-gap: 24px;
 }
 .reviews-form-column {
-	width: 424px;
+	width: 266px;
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 20px;
+	grid-row-gap: 24px;
 }
 .reviews-form-field {
 	display: flex;
