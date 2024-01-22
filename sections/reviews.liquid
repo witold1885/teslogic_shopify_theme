@@ -200,6 +200,8 @@
 					.attr('method', 'post')
 					.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
 					.attr('onsubmit', 'SPR.submitForm(this);return false;')
+				console.log('Rating')
+				console.log($(form).find('.spr-form-review-rating').html())
 				let formHtml = `						
 	        <input type="hidden" name="review[rating]">
 	        <input type="hidden" name="product_id" value="8143253733590">
