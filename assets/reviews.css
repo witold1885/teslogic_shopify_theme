@@ -340,24 +340,19 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 	height: 100%;
 }
 .reviews-form-actions {
-	margin-top: 40px;
+	margin-top: 28px;
 }
 .reviews-form-actions .spr-button {
-	display: flex;
-	width: 223px;
-	height: 78px;
-	justify-content: center;
-	align-items: center;
-	border-radius: 100px;
-	background: #3374FB;
+	padding: 14px 28px; 
+	text-align: center;
+	border-radius: 26px;
+	background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
 	color: #FFF;
 	text-align: center;
-	font-size: 32px;
-	font-family: Gotham-Medium;
-	font-weight: 500;
-	line-height: 52px;
-	border: none;
-	outline: none;
-	box-shadow: none;
+	font-family: Manrope;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
 	cursor: pointer;
 }
