@@ -212,26 +212,27 @@
 	height: 100vh;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.10);
+	background: rgba(0, 0, 0, 0.66);
 	z-index: 15;
 	display: none;
 	justify-content: center;
 	align-items: center;
 }
 .reviews-form-wrap {
-	width: 922px;
-	padding: 32px;
-	border-radius: 14px;
-	background: #FFFFFF;
+	width: 636px;
+	height: 400px; 
+	padding: 40px 40px 28px 40px;
+	border-radius: 16px;
+	background: #D9D9D9;
 	box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 	position: relative;
 }
 .reviews-form-close {
 	position: absolute;
-	width: 24px;
-	height: 24px;
-	top: 32px;
-	right: 32px;
+	width: 20px;
+	height: 20px;
+	top: 16px;
+	right: 16px;
 	cursor: pointer;
 }
 .new-review-form {
