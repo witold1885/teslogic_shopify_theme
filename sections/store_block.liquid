@@ -83,7 +83,7 @@
 						</div>
 						{%- for model in product.variants -%}
 							<div 
-								class="store_block-product-select-dropdown-item" 
+								class="store_block-product-select-dropdown-item store_block-product-select-dropdown-item-selected" 
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
@@ -220,6 +220,11 @@
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
+			$('.store_block-product-select-dropdown-item').each(function() {
+				if ($(this).data('sku') == sku) $(this).addClass('store_block-product-select-dropdown-item-selected')
+					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
+			})
+			// $(model).addClass('store_block-product-select-dropdown-item-selected')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))	
 			$('.store_block-product-price-mobile').text('$' + (model.data('price') / 100))	
