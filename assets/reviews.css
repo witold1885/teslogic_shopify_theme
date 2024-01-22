@@ -115,6 +115,14 @@
 	background: #FFFFFF;
 	box-sizing: border-box;
 }
+/* Задаємо порядок для елементів в колонках */
+.reviews-list .reviews-list-item:nth-child(odd) {
+  order: 1; /* Перший стовпчик */
+}
+
+.reviews-list .reviews-list-item:nth-child(even) {
+  order: 2; /* Другий стовпчик */
+}
 .reviews-list-item-hidden {
 	display: none;
 }
