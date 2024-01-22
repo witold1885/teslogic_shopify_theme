@@ -44,12 +44,25 @@
 	font-weight: 500;
 	line-height: 32px;
 }
-
-
-
 .reviews-title {
-	margin-bottom: 40px;
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
 }
+.reviews-top-right {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 8px;
+}
+
+
+
+/*.reviews-title {
+	margin-bottom: 40px;
+}*/
 .reviews-data {
 	display: flex;
 	justify-content: space-between;
