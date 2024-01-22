@@ -49,3 +49,20 @@
 .store_block-product-gallery-main img {
 	width: 100%;
 }
+.store_block-product-info {
+	display: flex;
+	flex-direction: column;
+}
+.store_block-product-price {
+	font-family: Manrope;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 44px;
+}
+.store_block-product-price-new {
+	color: #1657FC;
+}
+.store_block-product-price-old {
+	color: #D1D1D1;
+}
