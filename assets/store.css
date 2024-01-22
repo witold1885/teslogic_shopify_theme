@@ -218,6 +218,7 @@
 	display: flex;
 	align-items: center;
 	grid-column-gap: 16px;
+	margin-top: 24px;
 }
 .store_block-product-add {
 	padding: 20px 40px;
