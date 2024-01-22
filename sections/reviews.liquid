@@ -2,6 +2,9 @@
 <link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
 
 {% style %}	
+.reviews {
+	background: url({{ 'reviews_bg.png' | asset_url }}), lightgray -666.816px -1673.512px / 296.268% 182.468% no-repeat, linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);
+}
 .spr-starrating .spr-icon-star::before {
 	content: url({{ 'star-big-filled.svg' | asset_url }});
 }
@@ -15,37 +18,39 @@
 
 <!-- <div id="multipleReviews"></div> -->
 <div id="reviewsWrap" class="reviews">
-	<div class="block_title reviews-title">Reviews</div>
-	<div class="reviews-data">
-		<div class="reviews-data-left">
-			<div class="reviews-rating">
-				<div class="reviews-rating-overall">
-					<div class="reviews-rating-overall-title">Overall rating</div>
-					<div class="reviews-rating-overall-data">
-						<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
-						<div id="totalRatingStars" class="reviews-rating-overall-data-stars"></div>						
-					</div>					
+	<div class="reviews-wrap">
+		<div class="reviews-title">Reviews</div>
+		<div class="reviews-data">
+			<div class="reviews-data-left">
+				<div class="reviews-rating">
+					<div class="reviews-rating-overall">
+						<div class="reviews-rating-overall-title">Overall rating</div>
+						<div class="reviews-rating-overall-data">
+							<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
+							<div id="totalRatingStars" class="reviews-rating-overall-data-stars"></div>						
+						</div>					
+					</div>
+					<div class="reviews-rating-stats">
+						<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
+						<div id="reviewsMarks" class="reviews-rating-stats-marks"></div>
+					</div>
 				</div>
-				<div class="reviews-rating-stats">
-					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
-					<div id="reviewsMarks" class="reviews-rating-stats-marks"></div>
+				<div class="reviews-write">
+					<button id="showForm">Write a review</button>
 				</div>
 			</div>
-			<div class="reviews-write">
-				<button id="showForm">Write a review</button>
+			<div class="reviews-data-right">
+				<div id="multipleReviews" class="reviews-list"></div>
+				<div id="pagination" class="spr-pagination reviews-pagination"></div>
+				<!-- <div id="viewAll" class="reviews-expand">
+					<a class="reviews-expand-text">View all reviews</a>
+					<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+				</div>
+				<div id="showLess" class="reviews-expand">
+					<a class="reviews-expand-text">Less reviews</a>
+					<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+				</div> -->
 			</div>
-		</div>
-		<div class="reviews-data-right">
-			<div id="multipleReviews" class="reviews-list"></div>
-			<div id="pagination" class="spr-pagination reviews-pagination"></div>
-			<!-- <div id="viewAll" class="reviews-expand">
-				<a class="reviews-expand-text">View all reviews</a>
-				<img class="reviews-expand-icon" src="{{ 'chevron-down-blue.svg' | asset_url }}">
-			</div>
-			<div id="showLess" class="reviews-expand">
-				<a class="reviews-expand-text">Less reviews</a>
-				<img class="reviews-expand-icon reviews-expand-icon-reverted" src="{{ 'chevron-down-blue.svg' | asset_url }}">
-			</div> -->
 		</div>
 	</div>
 </div>
