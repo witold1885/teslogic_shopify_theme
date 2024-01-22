@@ -1,6 +1,18 @@
 <link rel="stylesheet" href="{{ 'store.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
+{% style %}	
+	.store_block-add-wireless-charger-checkbox:checked:after {
+		content: url({{ 'ok.svg' | asset_url }});
+		position: absolute;
+		width: 10px;
+		height: 6.667px; 
+		top: 6.67px;
+		left: 5px;
+		color: #000;
+	}
+{% endstyle %}
+
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
@@ -98,7 +110,7 @@
 				</div>
 				<div class="store_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
+					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
 					<span class="store_block-add-wireless-charger-price">+ $40</span>
 				</div>
 				<button class="store_block-product-add" id="add">Order now</button>

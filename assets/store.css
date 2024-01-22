@@ -169,3 +169,57 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	.store_block-add-wireless-charger {
+		margin-top: 8px;
+		grid-column-gap: 8px;
+		display: flex;
+		align-items: center;
+	}
+	.store_block-add-wireless-charger-checkbox {
+		appearance: none;
+		-webkit-appearance: none;
+		background-color: #E0E0E0;
+		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); 
+/*		border: 1px solid #3374FB;*/
+/*		border-radius: 8px;*/
+		display: inline-block;
+		position: relative;
+		padding: 6.67px 5px;
+		margin: 0;
+		cursor: pointer;
+	}
+	/*.store_block-add-wireless-charger-checkbox:checked {
+		background-color: #3374FB;
+		border: 1px solid #3374FB;
+		color: #FEFEFE;
+	}*/
+	.store_block-add-wireless-charger-title {
+		margin-left: 12px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #0F0F0F;
+		cursor: pointer;
+	}
+	.store_block-add-wireless-charger-price {
+		margin-left: 4px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 17px;
+		color: #3374FB;
+	}
+	.store_block-add-wireless-charger-time {
+		display: none;
+		margin-top: 10px;
+		font-family: 'Gotham';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: #0F0F0F;
+	}
