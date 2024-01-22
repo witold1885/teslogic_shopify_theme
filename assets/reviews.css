@@ -300,6 +300,7 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 	height: 40px;
 	margin: 0;
 	overflow: visible;
+	margin-bottom: 3px;
 }
 .spr-form-review-rating-title {
 	color: #000;
