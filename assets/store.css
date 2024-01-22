@@ -207,14 +207,46 @@
 	}
 	.store_block-add-wireless-charger-price {
 		color: #1657FC;
-	}
-	.store_block-add-wireless-charger-time {
-		display: none;
-		margin-top: 10px;
-		font-family: 'Gotham';
+		font-feature-settings: 'clig' off, 'liga' off;
+		font-family: Manrope;
+		font-size: 16px;
 		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 17px;
-		color: #0F0F0F;
+		font-weight: 500;
+		line-height: 20px; 
 	}
+.store_block-product-order {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 16px;
+}
+.store_block-product-order-features {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	grid-row-gap: 8px;
+}
+.store_block-product-order-feature {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 8px;
+}
+.store_block-product-order-feature-icon {
+	width: 20px;
+	height: 20px;
+}
+.store_block-product-order-feature-icon img {
+	width: 100%;
+}
+.store_block-product-order-feature-text {
+	color: #666;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+.store_block-product-order-feature-text-main {
+	color: #1657FC;
+	font-weight: 500;
+}
