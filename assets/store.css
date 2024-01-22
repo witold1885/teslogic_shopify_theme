@@ -152,6 +152,9 @@
 		font-weight: 500;
 		line-height: 32px;
 	}
+	.store_block-product-select-dropdown-select .store_block-product-select-value {
+		color: #B9B9B9;
+	}
 	.store_block-product-select-arrow {
 		width: 12px;
 		height: 32px;
