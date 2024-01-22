@@ -124,57 +124,51 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center;
+}
+.reviews-list-item-top-left {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 13px;
 }
 .reviews-list-item-date {
-	font-family: 'Gotham';
+	color: #666;
+	text-align: right;
+	font-family: Manrope;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 14px;
-	line-height: 17px;
-	color: #8F9197;
+	line-height: 24px;
 }
 .reviews-list-item-stars {
 	display: flex;
-	grid-column-gap: 8px;
+	grid-column-gap: 4px;
 }
 .reviews-list-item-stars .spr-icon {
-	width: 20px;
-	height: 20px;
+	width: 24px;
+	height: 24px; 
 }
 .reviews-list-item-stars .spr-icon::before {
 	width: 100%;
 	height: 100%;
-	font-size: 20px;
-	color: #3374FB;
+	font-size: 24px;
+	color: linear-gradient(#437DF6, #2823F9);
 }
 .reviews-list-item-text {
-/*	max-height: 94px;*/
-/*	overflow: hidden;*/
-/*	text-overflow: ellipsis;*/
-	font-family: 'Gotham';
+	color: #666;
+	font-family: Manrope;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
-/*	font-size: 22px;*/
-/*	line-height: 32px;*/
-	font-size: 14px;
-	line-height: 17px;
-	color: #000000;
+	line-height: 24px;
 }
-.reviews-list-item-bottom {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	grid-row-gap: 8px;
-}
-.reviews-list-item-author, .reviews-list-item-spent {
-	font-family: 'Gotham';
+.reviews-list-item-author {
+	color: #000;
+	font-family: Manrope;
+	font-size: 18px;
 	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 17px;
-	color: #000000;
+	font-weight: 500;
+	line-height: 24px;
 }
 
 
