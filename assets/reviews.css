@@ -356,7 +356,10 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 	font-family: Manrope;
 	font-size: 18px;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 24px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 	cursor: pointer;
 }
