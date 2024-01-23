@@ -34,6 +34,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	background: #E6E6E6;
+	border-radius: 100%;
 }
 .store_block-product-gallery-item-image {
 	width: 100%;
