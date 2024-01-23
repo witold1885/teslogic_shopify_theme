@@ -50,6 +50,7 @@
 	justify-content: flex-end;
 	align-items: center;
 	border-radius: 6px;
+	overflow: hidden;
 }
 .screens.light .screens__top-switcher {
 	border: 1px solid #D3D3D3; 
