@@ -66,8 +66,8 @@
 		left: calc(66 * 100vw / 1440);
 	}
 	.box_block-charger-images-photo {
-		width: calc(11 * 20 * 100vw / 1440);
-		height: calc(11 * 20 * 100vw / 1440);
+		width: calc(120 * 100vw / 1440);
+		height: calc(120 * 100vw / 1440);
 		top: calc(-1 * 22 * 100vw / 1440);
 		right: calc(-1 * 11 * 100vw / 1440);
 	}
