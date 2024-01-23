@@ -62,6 +62,9 @@
 	max-height: 100%;
 	display: none;
 }
+.store_block-product-gallery-main img:first-child {
+	display: block;
+}
 .store_block-product-info {
 	display: flex;
 	flex-direction: column;
