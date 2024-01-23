@@ -120,8 +120,7 @@
       </div>
       {% assign footer_icons = "Master Card,Visa,Discover,American Express,Stripe,Google,Apple,Shopify" | split: ',' %}
       {% for icon in footer_icons %}
-        {{ icon }}
-        <img src="{{ icon | append: '.svg' | asset_url }}"
+        <img src="{{ icon | append: '.svg' | asset_url }}" />
       {% endfor %}
       <div class="footer-bottom__copyright">
         © 2023 Teslogic
