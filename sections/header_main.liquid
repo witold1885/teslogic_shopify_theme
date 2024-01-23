@@ -268,7 +268,7 @@ to advanced Tesla features</div>
   console.log('userAgent')
   console.log(window.navigator.userAgent)
   var logo_white_url = "{{ 'logo.svg' | asset_url }}"
-  var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
+  // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   // console.log(logo_white_url)
@@ -282,7 +282,7 @@ to advanced Tesla features</div>
         $('#header_sticky').css({display: 'flex'})
         if (window.pageYOffset >= header_main_height) {
           $('#header_sticky').css({background: '#FEFEFE'})
-          $('#header_sticky').find('.logo img').attr('src', logo_black_url)
+          // $('#header_sticky').find('.logo img').attr('src', logo_black_url)
           $('#header_sticky').find('.menu__item').addClass('menu__item-sticky')
           $('.menu__item-chevron-down').attr('src', chevron_black)
           // $('#header_sticky').find('.menu__item').css({color: '#000000'})
