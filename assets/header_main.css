@@ -109,7 +109,7 @@
 	color: #000000;
 }
 .menu__item:not(.menu__item-button):hover {
-	color: #9FA1A8;
+	color: #BFBFBD;
 }
 .menu__item-dropdown-link:hover {
 	color: #3374FB;
