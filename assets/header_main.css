@@ -92,10 +92,10 @@
 	line-height: 32px; 
 }
 .menu__item-sticky {
-	color: #000000;
+/*	color: #000000;*/
 }
 .menu__item-opened {
-	color: #9FA1A8;
+	color: #BFBFBD;
 }
 .menu__item-button {
 	background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%); 
