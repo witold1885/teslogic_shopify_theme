@@ -59,7 +59,7 @@
 			<div>
 				<div class="store_block-product-price">  
 					<div class="store_block-product-price-new">$219</div>
-					<div class="store_block-product-price-old">$299</div>
+					<div class="store_block-product-price-old"></div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 				<!-- <div class="store_block-product-shipping">
@@ -262,6 +262,9 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))	
 			$('.store_block-product-price-mobile').text('$' + (model.data('price') / 100))	
+			if (model.data('compare_at_price')) {
+				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+			}
 			/*if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
 				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
