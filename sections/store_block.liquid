@@ -216,6 +216,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		var imgnum = 0
+		setGalleryImage()
+
+		$('.store_block-product-gallery-main').find('img').each(function() {
+			if ($(this).data('imgnum') == imgnum) $(this).show()
+			else $(this).hide()
+		})
+
 		/*var amount = Number($('#amount').text())
 		$('.store_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
