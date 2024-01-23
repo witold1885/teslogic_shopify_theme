@@ -28,6 +28,7 @@
 	width: 86px;
 	height: 86px;
 	position: relative;
+	cursor: pointer;
 }
 .store_block-product-gallery-item-ellipse {
 	width: 100%;
