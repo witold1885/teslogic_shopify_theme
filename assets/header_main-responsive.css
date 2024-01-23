@@ -110,14 +110,14 @@
 	}
 	.menu__item-dropdown {
 		top: calc(36 * 100vw / 1440);
-		left: calc(-1 * 20 * 100vw / 1440);
-		padding: calc(32 * 100vw / 1440);
-		grid-row-gap: calc(20 * 100vw / 1440);
-		border-radius: calc(8 * 100vw / 1440);
+/*		left: calc(-1 * 20 * 100vw / 1440);*/
+		padding: calc(24 * 100vw / 1440);
+		grid-row-gap: calc(24 * 100vw / 1440);
+		border-radius: calc(20 * 100vw / 1440);
 	}
 	.menu__item-dropdown-link {
-		font-size: calc(14 * 100vw / 1440);
-		line-height: calc(17 * 100vw / 1440);
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
 	}
 	.banner-desktop-wrap {
 		/*top: calc(-96 * 100vw / 1440);*/
