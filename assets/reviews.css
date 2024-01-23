@@ -201,6 +201,9 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+	border: none;
+	outline: none;
+	box-shadow: none;
 	cursor: pointer;
 }
 
