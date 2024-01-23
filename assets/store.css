@@ -225,10 +225,10 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
-	cursor: pointer;
 	border: none;
 	outline: none;
 	box-shadow: none;
+	cursor: pointer;
 }
 .store_block-product-order-features {
 	display: flex;
