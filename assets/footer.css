@@ -103,7 +103,7 @@ footer {
 	align-items: flex-start;
 }
 .footer-bottom__text {
-	width: 585px;
+/*	width: 585px;*/
 	height: 60px;
 	font-family: Gotham;
 	font-style: normal;
