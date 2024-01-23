@@ -118,12 +118,16 @@
         Tesla, Model 3, Model Y are trademarks or registered trademarks of their respective holders. <br>
         Any references to these trademarks does not imply any affiliation or endorsement.
       </div>
-      {% assign footer_icons = "Master Card,Visa,Discover,American Express,Stripe,Google,Apple,Shopify" | split: ',' %}
-      {% for icon in footer_icons %}
-        <img src="{{ icon | append: '.svg' | asset_url }}" />
-      {% endfor %}
-      <div class="footer-bottom__copyright">
-        © 2023 Teslogic
+      <div class="footer-bottom__right">
+        <div class="footer-bottom__icons">
+          {% assign footer_icons = "Master Card,Visa,Discover,American Express,Stripe,Google,Apple,Shopify" | split: ',' %}
+          {% for icon in footer_icons %}
+            <img src="{{ icon | append: '.svg' | asset_url }}" />
+          {% endfor %}
+        </div>
+        <div class="footer-bottom__copyright">
+          © 2023 Teslogic
+        </div>
       </div>
     </div>
   </div>
