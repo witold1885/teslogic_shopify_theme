@@ -118,7 +118,7 @@
         Tesla, Model 3, Model Y are trademarks or registered trademarks of their respective holders. <br>
         Any references to these trademarks does not imply any affiliation or endorsement.
       </div>
-      {% assign footer_icons = ['Master Card', 'Visa', 'Discover', 'American Express', 'Stripe', 'Google', 'Apple', 'Shopify'] %}
+      {% assign footer_icons = "Master Card,Visa,Discover,American Express,Stripe,Google,Apple,Shopify" | split: ',' %}
       {% for icon in footer_icons %}
         {{ icon }}
       {% endfor %}
