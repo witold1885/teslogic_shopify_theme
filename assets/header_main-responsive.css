@@ -97,7 +97,7 @@
 	.menu__item {
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
-		padding: calc(4 * 100vw / 1440) calc(12 * 100vw / 1440);
+		padding: calc(8 * 100vw / 1440) calc(12 * 100vw / 1440);
 	}
 	.menu__item-button {
 		border-radius: calc(100 * 100vw / 1440);
@@ -109,7 +109,7 @@
 		height: calc(16 * 100vw / 1440);
 	}
 	.menu__item-dropdown {
-		top: calc(40 * 100vw / 1440);
+		top: calc(36 * 100vw / 1440);
 		left: calc(-1 * 20 * 100vw / 1440);
 		padding: calc(32 * 100vw / 1440);
 		grid-row-gap: calc(20 * 100vw / 1440);
