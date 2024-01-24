@@ -57,6 +57,10 @@
 	text-align: right;
 }
 
+.pointer-map-bottom-right .pointer-legend {
+	width: 105%;
+}
+
 .pointer-icon {
 	position: absolute;
 }
