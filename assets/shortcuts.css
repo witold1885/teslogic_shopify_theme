@@ -63,9 +63,11 @@
 .shortcuts-info-block-text-primary {
 	color: #000;
 	margin-bottom: 12px;
+	width: 475px;
 }
 .shortcuts-info-block-text-secondary {
 	color: #4D4D4D;
+	width: 416px;
 }
 .shortcuts-info-block-relative {
 	position: relative;
