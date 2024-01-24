@@ -75,17 +75,17 @@ footer {
 	white-space: nowrap;
 }
 .footer-menu__list-items li:hover {
-	color: #3374FB;
+	color: #7D7E7F;
 }
 .footer-menu__list-contacts .footer-menu__list-items li:hover {
-	color: #FFFFFF;
+	color: #D0D0D0;
 }
 .footer-menu__list-items li a {
 	text-decoration: none;
-	color: #FFFFFF;
+	color: #D0D0D0;
 }
 .footer-menu__list-items li a:hover {
-	color: #3374FB;
+	color: #7D7E7F;
 }
 .footer-links {
 	display: flex;
