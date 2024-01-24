@@ -34,8 +34,8 @@
 	}
 	.using__row-legend-number {
 		width: calc(32 * 100vw / 1440);
-		height: calc(25 * 100vw / 1440);
-		bottom: calc(23 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
+		top: calc(20 * 100vw / 1440);
 		left: calc(20 * 100vw / 1440);
 		font-size: calc(20 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
