@@ -34,6 +34,10 @@
 	}
 	.shortcuts-info-block-text-primary {
 		margin-bottom: calc(12 * 100vw / 1440);
+		width: calc(475 * 100vw / 1440);
+	}
+	.shortcuts-info-block-text-secondary {
+		width: calc(416 * 100vw / 1440);
 	}
 	.shortcuts-info-block-image {
 		width: calc(414 * 100vw / 1440);
