@@ -257,6 +257,9 @@
 	cursor: pointer;
 	text-decoration: none;
 }
+.banner-button-buy:hover {
+	background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+}
 .banner-button-learn {
 	color: #FFF;
 	cursor: pointer;
