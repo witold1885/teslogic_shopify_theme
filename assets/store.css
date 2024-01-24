@@ -56,6 +56,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 40px;
+	background: #F6F6F6;
 }
 .store_block-product-gallery-main img {
 	max-width: 100%;
