@@ -68,8 +68,7 @@
 	display: none;
 }
 .menu__item-button:hover {
-	background: #FFFFFF;
-	color: #000000;
+	background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
 }
 .menu__item-cart {
 	width: 122.27px;
