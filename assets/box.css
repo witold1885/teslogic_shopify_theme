@@ -117,6 +117,7 @@
 	display: flex;
 	align-items: flex-end;
 	grid-column-gap: 85px;
+	width: 1117px;
 }
 .box_block-charger-images {
 	width: 355px;
