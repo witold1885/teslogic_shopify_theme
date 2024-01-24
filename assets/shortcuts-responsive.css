@@ -115,6 +115,9 @@
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
+	.shortcuts-more-button:hover {
+		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
+	}
 	.shortcuts-more-layer {
 		height: calc(256 * 100vw / 1440);
 		border-radius: calc(24 * 100vw / 1440);
