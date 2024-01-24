@@ -163,6 +163,7 @@
 			var column1Height = 0;
 			var column2Height = 0;
 			var rowGap = 24;
+			var paddingBottom = 76;
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
@@ -174,7 +175,7 @@
 			  }
 			});
 
-			reviewsContainer.style.height = (Math.max(column1Height, column2Height) - 2 * rowGap) + 'px';
+			reviewsContainer.style.height = (Math.max(column1Height, column2Height) - 2 * rowGap + paddingBottom) + 'px';
 
 
       var tmpScriptDiv = document.createElement('div');
