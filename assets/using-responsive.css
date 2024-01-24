@@ -43,6 +43,7 @@
 	.using__row-legend-text {
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
+		margin-top: calc(12 * 100vw / 1440);
 	}
 	.using__row-image-1 {
 		width: calc(163 * 100vw / 1440);
