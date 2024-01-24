@@ -104,10 +104,14 @@
 	color: #666;
 	text-align: center;
 	font-family: Manrope;
-	font-size: 20px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 32px;
+	line-height: 20px;
+}
+.box_block-item-big .box_block-item-name {
+	font-size: 20px;
+	line-height: 32px; 
 }
 .box_block-charger {
 	display: flex;
