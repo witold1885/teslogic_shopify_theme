@@ -4,6 +4,7 @@ $(document).ready(async function() {
 	const API_KEY = 'AIzaSyBIO_rLOupamMWN0yNCUUNREWNCFi_3zpc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	let videos = {{ videos | json }}
+	console.log(videos)
 
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
