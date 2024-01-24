@@ -74,6 +74,12 @@
 	right: 0;
 }
 
+.pointer-dashboard-bottom-right .pointer-icon, 
+.pointer-performance-bottom-right .pointer-icon, 
+.pointer-energy-screen-bottom-right .pointer-icon {
+	bottom: 18px;
+}
+
 .pointer-point {
 	position: absolute;
 }
