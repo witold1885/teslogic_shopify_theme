@@ -48,7 +48,6 @@
 		padding-right: calc(20 * 100vw / 1440);
 	}
 	.store_block-product-select-dropdown {
-		top: calc(90 * 100vw / 1440);
 		padding: calc(20 * 100vw / 1440) calc(20 * 100vw / 1440) calc(32 * 100vw / 1440) calc(20 * 100vw / 1440);
 		grid-row-gap: calc(32 * 100vw / 1440);
 		border-radius: calc(8 * 100vw / 1440);
