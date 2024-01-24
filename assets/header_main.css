@@ -106,8 +106,9 @@
 	padding: 8px 16px;
 }
 .menu__item-button:hover {
-	background: #FFFFFF;
-	color: #000000;
+/*	background: #FFFFFF;*/
+	background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%); 
+/*	color: #000000;*/
 }
 .menu__item:not(.menu__item-button):hover {
 	color: #BFBFBD;
