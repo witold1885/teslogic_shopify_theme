@@ -20,6 +20,7 @@
 	.store_block-product-gallery-main {
 		width: calc(526 * 100vw / 1440);
 		height: calc(526 * 100vw / 1440);
+		border-radius: calc(40 * 100vw / 1440);
 	}
 	.store_block-product-price {
 		grid-column-gap: calc(8 * 100vw / 1440);
