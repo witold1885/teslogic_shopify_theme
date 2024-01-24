@@ -100,10 +100,13 @@
 		line-height: calc(64 * 100vw / 1440);
 	}
 	#showForm {
-		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		border-radius: calc(54 * 100vw / 1440);
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
+	}
+	#showForm:before {
+		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
 	}
 	.reviews-form-wrap {
 		width: calc(636 * 100vw / 1440);
