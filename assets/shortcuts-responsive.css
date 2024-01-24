@@ -85,7 +85,6 @@
 		width: calc(60 * 100vw / 1440);
 	}
 	.shortcuts-features-item-info {
-		width: calc(526 * 100vw / 1440);
 		height: calc(272 * 100vw / 1440); 
 		border-radius: calc(28 * 100vw / 1440);
 		padding: calc(28 * 100vw / 1440) calc(28 * 100vw / 1440) calc(28 * 100vw / 1440) calc(32 * 100vw / 1440);
