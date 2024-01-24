@@ -100,9 +100,10 @@
 .menu__item-button {
 	background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%); 
 	border-radius: 20px; 
-	margin-left: 8px;
+	margin-left: 10px;
 	font-weight: 400;
 	height: 36px;
+	padding: 8px 16px;
 }
 .menu__item-button:hover {
 	background: #FFFFFF;
