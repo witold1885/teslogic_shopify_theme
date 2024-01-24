@@ -256,6 +256,7 @@
 	color: #FFF;
 	cursor: pointer;
 	text-decoration: none;
+	box-sizing: border-box;
 }
 .banner-button-buy:hover {
 	background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
