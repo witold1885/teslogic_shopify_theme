@@ -87,6 +87,9 @@ footer {
 .footer-menu__list-items li a:hover {
 	color: #7D7E7F;
 }
+.footer-menu__list-contacts .footer-menu__list-items li a:hover {
+	color: #D0D0D0;
+}
 .footer-links {
 	display: flex;
 	grid-column-gap: 24px;
