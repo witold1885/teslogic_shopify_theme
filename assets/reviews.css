@@ -295,7 +295,7 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 	padding: 16px;
 	border-radius: 15px;
 	border-radius: 6px;
-	border: 1px solid #D9D9D9; 
+	border: 1px solid #D9D9D9;
 	background: transparent;
 	font-family: Manrope;
 	font-size: 16px;
@@ -304,6 +304,9 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 	line-height: 20px;
 	outline: none;
 	box-shadow: none;
+}
+input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea):focus {
+	border: 1px solid #CCC;
 }
 .spr-form-review-rating {
 	display: flex;
