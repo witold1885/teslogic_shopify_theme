@@ -265,6 +265,9 @@
 	cursor: pointer;
 	text-decoration: none;
 }
+.banner-button-learn:hover {
+	color: #BFBFBD
+}
 .expand {
 	margin-bottom: 26px;
 	width: 64px;
