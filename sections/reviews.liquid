@@ -212,9 +212,11 @@
 	        		<h3 class="spr-form-title">Write a review</h3>
 		        	<div class="reviews-form-field spr-form-contact-name">
 		        		${$(form).find('.spr-form-contact-name').html()}
+		        		<div class="reviews-form-field-error">Please, fill in the field</div>
 		        	</div>
 	        		<div class="reviews-form-field spr-form-contact-email">
 	        			${$(form).find('.spr-form-contact-email').html()}
+		        		<div class="reviews-form-field-error">Please, fill in the field</div>
 		        	</div>
 	        	</div>
 	        	<div class="reviews-form-column">
@@ -364,7 +366,7 @@
 			$(form)
 				.find('.spr-form-contact-name')
 				.find('.spr-form-input')
-				.css('border', '1px solid red')
+				.css('border', '1px solid #FC3E30')
 			return
 		}
 		let email = $(form).find('.spr-form-contact-email').find('.spr-form-input').val()
@@ -372,7 +374,7 @@
 			$(form)
 				.find('.spr-form-contact-email')
 				.find('.spr-form-input')
-				.css('border', '1px solid red')
+				.css('border', '1px solid #FC3E30')
 			return
 		}
 		let reviewTitle = 'Review of ' + author
