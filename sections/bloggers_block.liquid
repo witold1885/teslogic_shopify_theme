@@ -45,6 +45,7 @@ $(document).ready(async function() {
 					<!-- <div class="bloggers_block__list-item-duration">${duration}</div> -->
 					<!-- <iframe class="bloggers_block__list-item-video-desktop" width="416" height="234" src="https://www.youtube.com/embed/${videoId}"></iframe> 
 					<iframe class="bloggers_block__list-item-video-mobile" width="251" height="140" src="https://www.youtube.com/embed/${videoId}"></iframe> -->
+					<img class="bloggers_block__list-item-thumbnail-yt-icon" src="{{ 'YT.svg' | asset_url }}">
 
 				</a>
 				<div class="bloggers_block__list-item-channel">
@@ -159,6 +160,13 @@ $(document).ready(async function() {
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bloggers_block__list-item-thumbnail-yt-icon {
+	width: 74px;
+	height: 52px; 
 }
 .bloggers_block__list-item-duration {
 	position: absolute;
