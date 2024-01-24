@@ -368,6 +368,10 @@
 				.find('.spr-form-contact-name')
 				.find('.spr-form-input')
 				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-contact-name')
+				.find('.reviews-form-field-error')
+				.show()
 			return
 		}
 		let email = $(form).find('.spr-form-contact-email').find('.spr-form-input').val()
@@ -376,6 +380,22 @@
 				.find('.spr-form-contact-email')
 				.find('.spr-form-input')
 				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-contact-email')
+				.find('.reviews-form-field-error')
+				.show()
+			return
+		}
+		let comment = $(form).find('.spr-form-review-body').find('.spr-form-input').val()
+		if (comment == '') {
+			$(form)
+				.find('.spr-form-review-body')
+				.find('.spr-form-input')
+				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-review-body')
+				.find('.reviews-form-field-error')
+				.show()
 			return
 		}
 		let reviewTitle = 'Review of ' + author
