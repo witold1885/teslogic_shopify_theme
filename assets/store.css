@@ -196,6 +196,7 @@
 	display: inline-block;
 	position: relative;
 	padding: 6.67px 5px;
+	border-radius: 4px;
 	margin: 0;
 	cursor: pointer;
 }
