@@ -30,10 +30,13 @@
 	margin-top: 8px;
 }
 .using__subtitle a {
-	color: #1658FC;
+	color: #1657FC;
 	display: flex;
 	align-items: center;
 	grid-column-gap: 6px;
+}
+.using__subtitle a:hover {
+	color: #0345ED;
 }
 .using__content {
 	width: 100%;
