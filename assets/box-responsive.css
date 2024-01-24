@@ -59,6 +59,7 @@
 	}
 	.box_block-charger {
 		grid-column-gap: calc(85 * 100vw / 1440);
+		width: calc(1117 * 100vw / 1440);
 	}
 	.box_block-charger-images {
 		width: calc(355 * 100vw / 1440);
