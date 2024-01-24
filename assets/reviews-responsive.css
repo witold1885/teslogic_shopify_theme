@@ -145,6 +145,11 @@
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
+	.reviews-form-field-error {
+		bottom: calc(-1 * 22 * 100vw / 1440);
+		font-size: calc(14 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 	.spr-form-review-rating {
 		height: calc(40 * 100vw / 1440);
 		margin-bottom: calc(3 * 100vw / 1440);
