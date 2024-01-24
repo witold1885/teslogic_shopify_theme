@@ -73,6 +73,7 @@
 		width: calc(20 * 100vw / 1440);
 		height: calc(20 * 100vw / 1440);
 		padding: calc(6.67 * 100vw / 1440) calc(5 * 100vw / 1440);
+		border-radius: calc(4 * 100vw / 1440);
 	}
 	.store_block-add-wireless-charger-checkbox:checked:after {
 		width: calc(10 * 100vw / 1440);
