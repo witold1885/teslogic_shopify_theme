@@ -50,6 +50,10 @@
 		left: calc(32 * 100vw / 1440);
 	}
 	.box_block-item-name {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+	.box_block-item-big .box_block-item-name {
 		font-size: calc(20 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
