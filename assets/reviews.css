@@ -278,6 +278,7 @@
 	flex-direction: column;
 	grid-row-gap: 8px;
 	margin: 0;
+	position: relative;
 }
 .reviews-form-field::before, .reviews-form-field::after {
 	display: none;
@@ -307,6 +308,16 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) 
 }
 input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea):focus {
 	border: 1px solid #CCC;
+}
+.reviews-form-field-error {
+	position: absolute;
+	top: 54px;
+	color: #FC3E30;
+	font-family: Manrope;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
 .spr-form-review-rating {
 	display: flex;
