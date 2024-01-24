@@ -56,7 +56,9 @@
 }
 .using__row-legend-number {
 	width: 32px;
-	height: 25px; 
+	height: 32px;
+	background: #FFFFFF;
+	border-radius: 100%;
 	color: #336BF9;
 	text-align: center;
 	font-family: Manrope;
@@ -65,7 +67,7 @@
 	font-weight: 700;
 	line-height: 20px;
 	position: absolute;
-	top: 23px;
+	top: 20px;
 	left: 20px;
 }
 .using__row-legend-text {
