@@ -31,7 +31,7 @@
 /*	flex-direction: column;*/
 /*	margin-left: 72px;*/
 /*	margin-right: 72px;*/
-	scrollbar-color: transparent transparent;
+/*	scrollbar-color: transparent transparent;*/
 	cursor: grab;
 	user-select: none;
 /*	width: 100vw;*/
@@ -44,7 +44,7 @@
 	grid-column-gap: 24px;
 	padding-left: calc((100vw - 1440px + 144px) / 2);
 	padding-right: 72px;
-	scrollbar-color: transparent transparent;
+	scrollbar-color: #1657FC #E3E3E3;
 }
 .significant__features-item {
 	width: 306px;
