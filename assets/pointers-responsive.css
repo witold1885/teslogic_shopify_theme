@@ -44,3 +44,11 @@
 	}
 
 }
+
+@media screen and (max-width: 999px) {
+
+	.pointer-legend {
+		font-size: 12px;
+		line-height: 18px; 
+	}
+}
