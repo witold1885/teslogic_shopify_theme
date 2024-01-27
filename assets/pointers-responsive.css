@@ -47,6 +47,12 @@
 
 @media screen and (max-width: 999px) {
 
+	.pointer-top {
+		top: 102px;
+	}
+	.pointer-bottom {
+		bottom: 126px;
+	}
 	.pointer-legend {
 		font-size: 12px;
 		line-height: 18px; 
