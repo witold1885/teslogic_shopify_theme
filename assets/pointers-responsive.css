@@ -57,4 +57,10 @@
 		font-size: 12px;
 		line-height: 18px; 
 	}
+	.pointer-top .pointer-legend {
+		top: -62px;
+	}
+	.pointer-bottom .pointer-legend {
+		bottom: -62px;
+	}
 }
