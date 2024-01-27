@@ -1,7 +1,5 @@
 .pointer {
 	position: absolute;
-/*	z-index: 4;*/
-/*	box-sizing: border-box;*/
 }
 .pointer-desktop {
 	display: block;

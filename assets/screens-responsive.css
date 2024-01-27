@@ -1,0 +1,48 @@
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+	.screens {
+		height: calc(1174 * 100vw / 1440);
+	}
+	.screens__wrap {
+		width: calc(1076 * 100vw / 1440);
+		padding-top: calc(180 * 100vw / 1440);
+		padding-bottom: calc(180 * 100vw / 1440);
+	}
+	.screens__top-title {
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.screens__top-switcher {
+		border-radius: calc(6 * 100vw / 1440);
+	}
+	.screens__top-switcher-item {
+		padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+		border-radius: calc(6 * 100vw / 1440);
+	}
+	.screens__features-image-wrap {
+		width: calc(636 * 100vw / 1440);
+		height: calc(306 * 100vw / 1440);
+		margin-top: calc(128 * 100vw / 1440);
+	}
+	.screens__select {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.screens__select-item {
+		width: calc(196 * 100vw / 1440);
+		height: calc(112 * 100vw / 1440);
+	}
+	.screens__select-item-marker {
+		height: calc(4 * 100vw / 1440);
+		margin-bottom: calc(12 * 100vw / 1440);
+	}
+	.screens__select-item-title {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+		margin-bottom: calc(4 * 100vw / 1440);
+	}
+	.screens__select-item-text {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+}
