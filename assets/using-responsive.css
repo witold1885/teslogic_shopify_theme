@@ -73,19 +73,25 @@
 
 @media screen and (max-width: 999px) {
 	.using {
-		width: 100%;
-		height: 823px;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		grid-row-gap: 40px;
-		position: relative;
+		width: 335px;
+		margin: 96px auto;
 	}
 	.using__title {
-		margin-top: 0;
-/*		width: 207px;*/
-		height: 83px;
+		height: 40px;
+		font-size: 32px;
+		line-height: 40px; 
 	}
+	.using__subtitle {
+		font-size: 18px;
+		line-height: 24px;
+		flex-direction: column;
+		grid-row-gap: 8px;
+	}
+	.using__subtitle a {
+		grid-column-gap: 4px;
+	}
+
+	
 	.using__content {
 		width: 100%;
 		display: flex;
