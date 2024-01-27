@@ -46,3 +46,18 @@
 		line-height: calc(20 * 100vw / 1440);
 	}
 }
+
+@media screen and (max-width: 999px) {
+	.screens {
+		height: 988px;
+	}
+	.screens__wrap {
+		width: 335px;
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+	.screens__top-title {
+		font-size: 32px;
+		line-height: 40px;
+	}
+}
