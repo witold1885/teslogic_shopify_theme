@@ -346,7 +346,12 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var mode = 'light' // dark
-		var featureType = 'dashboard' // dark
+		var featureType = 'dashboard'
+		var screenType = 'desktop' //mobile
+
+		function setScreenType() {
+			console.log(window.innerWidth)
+		}
 
 		setMode()
 		setActiveFeature()
