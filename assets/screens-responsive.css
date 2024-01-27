@@ -60,4 +60,8 @@
 		font-size: 32px;
 		line-height: 40px;
 	}
+
+	.screens__top-switcher {
+		display: none;
+	}
 }
