@@ -85,13 +85,14 @@
 		font-size: 18px;
 		line-height: 24px;
 		flex-direction: column;
+		align-items: flex-start;
 		grid-row-gap: 8px;
 	}
 	.using__subtitle a {
 		grid-column-gap: 4px;
 	}
 
-	
+
 	.using__content {
 		width: 100%;
 		display: flex;
