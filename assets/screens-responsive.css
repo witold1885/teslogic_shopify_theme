@@ -64,4 +64,9 @@
 	.screens__top-switcher {
 		display: none;
 	}
+	.screens__features-image-wrap {
+		width: 335px;
+		height: 162px; 
+		margin-top: 160px;
+	}
 }
