@@ -44,8 +44,10 @@
 		            <div class="pointer-legend">
 		              	Recognizable autopilot,<br>cruise and speed limit indicators
 		            </div>
-		            <img class="pointer-line light" src="{{ 'pointer-dashboard-top-left-light.svg' | asset_url }}">
-		            <img class="pointer-icon light" src="{{ 'icon-dashboard-top-left-light.svg' | asset_url }}">
+		            <img class="pointer-line light desktop" src="{{ 'pointer-dashboard-top-left-light.svg' | asset_url }}">
+		            <img class="pointer-icon light desktop" src="{{ 'icon-dashboard-top-left-light.svg' | asset_url }}">
+		            <img class="pointer-line light mobile" src="{{ 'pointer-dashboard-top-left-light-mobile.svg' | asset_url }}">
+		            <img class="pointer-icon light mobile" src="{{ 'icon-dashboard-top-left-light-mobile.svg' | asset_url }}">
 		            <img class="pointer-point light" src="{{ 'point-light.svg' | asset_url }}">
 		            <img class="pointer-line dark" src="{{ 'pointer-dashboard-top-left-dark.svg' | asset_url }}">
 		            <img class="pointer-icon dark" src="{{ 'icon-dashboard-top-left-dark.svg' | asset_url }}">
@@ -57,8 +59,10 @@
 		            <div class="pointer-legend">
 		            	Monitor your<br>Tesla battery status
 		            </div>
-		            <img class="pointer-line light" src="{{ 'pointer-dashboard-top-right-light.svg' | asset_url }}">
-		            <img class="pointer-icon light" src="{{ 'icon-dashboard-top-right-light.svg' | asset_url }}">
+		            <img class="pointer-line light desktop" src="{{ 'pointer-dashboard-top-right-light.svg' | asset_url }}">
+		            <img class="pointer-icon light desktop" src="{{ 'icon-dashboard-top-right-light.svg' | asset_url }}">
+		            <img class="pointer-line light mobile" src="{{ 'pointer-dashboard-top-right-light-mobile.svg' | asset_url }}">
+		            <img class="pointer-icon light mobile" src="{{ 'icon-dashboard-top-right-light-mobile.svg' | asset_url }}">
 		            <img class="pointer-point light" src="{{ 'point-light.svg' | asset_url }}">
 		            <img class="pointer-line dark" src="{{ 'pointer-dashboard-top-right-dark.svg' | asset_url }}">
 		            <img class="pointer-icon dark" src="{{ 'icon-dashboard-top-right-dark.svg' | asset_url }}">
@@ -70,8 +74,10 @@
 		            <div class="pointer-legend">
 		              	Miles saved by regeneration<br>and current energy consumption
 		            </div>
-		            <img class="pointer-line light" src="{{ 'pointer-dashboard-bottom-left-light.svg' | asset_url }}">
-		            <img class="pointer-icon light" src="{{ 'icon-dashboard-bottom-left-light.svg' | asset_url }}">
+		            <img class="pointer-line light desktop" src="{{ 'pointer-dashboard-bottom-left-light.svg' | asset_url }}">
+		            <img class="pointer-icon light desktop" src="{{ 'icon-dashboard-bottom-left-light.svg' | asset_url }}">
+		            <img class="pointer-line light mobile" src="{{ 'pointer-dashboard-bottom-left-light-mobile.svg' | asset_url }}">
+		            <img class="pointer-icon light mobile" src="{{ 'icon-dashboard-bottom-left-light-mobile.svg' | asset_url }}">
 		            <img class="pointer-point light" src="{{ 'point-light.svg' | asset_url }}">
 		            <img class="pointer-line dark" src="{{ 'pointer-dashboard-bottom-left-dark.svg' | asset_url }}">
 		            <img class="pointer-icon dark" src="{{ 'icon-dashboard-bottom-left-dark.svg' | asset_url }}">
@@ -83,8 +89,10 @@
 		            <div class="pointer-legend">
 		              	Teslogic supports both the SI and Imperial measurement<br>systems, synchronizing it with the main Tesla interface
 		            </div>
-		            <img class="pointer-line light" src="{{ 'pointer-dashboard-bottom-right-light.svg' | asset_url }}">
-		            <img class="pointer-icon light" src="{{ 'icon-dashboard-bottom-right-light.svg' | asset_url }}">
+		            <img class="pointer-line light desktop" src="{{ 'pointer-dashboard-bottom-right-light.svg' | asset_url }}">
+		            <img class="pointer-icon light desktop" src="{{ 'icon-dashboard-bottom-right-light.svg' | asset_url }}">
+		            <img class="pointer-line light mobile" src="{{ 'pointer-dashboard-bottom-right-light-mobile.svg' | asset_url }}">
+		            <img class="pointer-icon light mobile" src="{{ 'icon-dashboard-bottom-right-light-mobile.svg' | asset_url }}">
 		            <img class="pointer-point light" src="{{ 'point-light.svg' | asset_url }}">
 		            <img class="pointer-line dark" src="{{ 'pointer-dashboard-bottom-right-dark.svg' | asset_url }}">
 		            <img class="pointer-icon dark" src="{{ 'icon-dashboard-bottom-right-dark.svg' | asset_url }}">
@@ -409,8 +417,8 @@
 					$(this).find(`.pointer-icon`).hide()
 					$(this).find(`.pointer-point`).hide()
 					$(this).find(`.screens__features-image.${mode}.${screenType}`).show()
-					$(this).find(`.pointer-line.${mode}`).show()
-					$(this).find(`.pointer-icon.${mode}`).show()
+					$(this).find(`.pointer-line.${mode}.${screenType}`).show()
+					$(this).find(`.pointer-icon.${mode}.${screenType}`).show()
 					$(this).find(`.pointer-point.${mode}`).show()
 				}
 				else {
