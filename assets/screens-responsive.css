@@ -49,6 +49,8 @@
 
 @media screen and (max-width: 999px) {
 	.screens {
+		width: 100vw;
+		margin-left: calc(-1 * (100vw - 375px) / 2);
 		height: 988px;
 	}
 	.screens__wrap {
