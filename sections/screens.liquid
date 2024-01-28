@@ -636,6 +636,31 @@
 					$(this).find(`.screens__select-item-text`).removeClass('active')
 				}
 			})
+			$('.screen__selected-item').each(function() {
+				$(this).find(`.screen__selected-item-title`).removeClass('light')
+				$(this).find(`.screen__selected-item-text`).removeClass('light')
+
+				$(this).find(`.screen__selected-item-title`).removeClass('dark')
+				$(this).find(`.screen__selected-item-text`).removeClass('dark')
+
+				$(this).find(`.screen__selected-item-title`).removeClass('active')
+				$(this).find(`.screen__selected-item-text`).removeClass('active')
+
+				$(this).find(`.screen__selected-item-title`).addClass(mode)
+				$(this).find(`.screen__selected-item-text`).addClass(mode)
+
+				$(this).find(`.screen__selected-item-marker`).hide()
+				if ($(this).hasClass('active')) {
+					$(this).find(`.screen__selected-item-marker.${mode}.active`).show()
+					$(this).find(`.screen__selected-item-title`).addClass('active')
+					$(this).find(`.screen__selected-item-text`).addClass('active')
+				}
+				else {
+					$(this).find(`.screen__selected-item-marker.${mode}:not(.active)`).show()
+					$(this).find(`.screen__selected-item-title`).removeClass('active')
+					$(this).find(`.screen__selected-item-text`).removeClass('active')
+				}
+			})
 		}
 	})
 </script>
