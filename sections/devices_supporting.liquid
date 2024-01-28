@@ -113,6 +113,24 @@
 		.devices_supporting-image-mobile {
 			display: block;
 		}
+		.devices_supporting-info {
+			padding: 24px;
+			border-radius: 24px;
+		}
+		.devices_supporting-info-suptext {
+			font-size: 14px;
+			line-height: 20px;
+			margin-bottom: 8px;
+		}
+		.devices_supporting-info-title {
+			font-size: 32px;
+			line-height: 40px;
+			margin-bottom: 6px;
+		}
+		.devices_supporting-info-subtitle {
+			font-size: 16px;
+			line-height: 20px;
+		}
 
 	}
 </style>
@@ -143,6 +161,6 @@
 	</div>
 	<div class="devices_supporting-image">
 		<img class="devices_supporting-image-desktop" src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
-		<img class="devices_supporting-image-mobile" src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
+		<img class="devices_supporting-image-mobile" src="{{ 'devices_supporting-mobile.png' | asset_url }}" srcset="{{ 'devices_supporting-mobile-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
 </div>
