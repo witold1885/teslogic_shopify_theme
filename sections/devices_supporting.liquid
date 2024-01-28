@@ -51,9 +51,12 @@
 		justify-content: flex-end;
 		grid-row-gap: 26.08px;
 	}
-	.devices_supporting-info-noun-row {
+	.devices_supporting-info-noun-row-desktop {
 		display: flex;
 		grid-column-gap: 25.9px;
+	}
+	.devices_supporting-info-noun-row-mobile {
+		display: none;
 	}
 	.devices_supporting-image img {
 		width: 100%;
@@ -131,6 +134,16 @@
 			font-size: 16px;
 			line-height: 20px;
 		}
+		.devices_supporting-info-nouns {
+			grid-row-gap: 12.49px;
+		}
+		.devices_supporting-info-noun-row-desktop {
+			display: none;
+		}
+		.devices_supporting-info-noun-row-mobile {
+			display: flex;
+			grid-column-gap: 12.68px;
+		}
 
 	}
 </style>
@@ -147,14 +160,23 @@
 			</div>			
 		</div>
 		<div class="devices_supporting-info-nouns">
-			<div class="devices_supporting-info-noun-row">
+			<div class="devices_supporting-info-noun-row-desktop">
 				<img src="{{ 'noun-iphone-1.svg' | asset_url }}">
 				<img src="{{ 'noun-iphone-2.svg' | asset_url }}">
 				<img src="{{ 'noun-iphone-3.svg' | asset_url }}">
 			</div>
-			<div class="devices_supporting-info-noun-row">
+			<div class="devices_supporting-info-noun-row-desktop">
 				<img src="{{ 'noun-ipad-1.svg' | asset_url }}">
 				<img src="{{ 'noun-ipad-2.svg' | asset_url }}">
+			</div>
+			<div class="devices_supporting-info-noun-row-mobile">
+				<img src="{{ 'noun-iphone-1-mobile.svg' | asset_url }}">
+				<img src="{{ 'noun-iphone-2-mobile.svg' | asset_url }}">
+				<img src="{{ 'noun-iphone-3-mobile.svg' | asset_url }}">
+			</div>
+			<div class="devices_supporting-info-noun-row-mobile">
+				<img src="{{ 'noun-ipad-1-mobile.svg' | asset_url }}">
+				<img src="{{ 'noun-ipad-2-mobile.svg' | asset_url }}">
 			</div>
 		</div>
 		
