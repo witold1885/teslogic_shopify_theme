@@ -96,5 +96,31 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		padding-top: 24px;
+		padding-bottom: 28px;
+	}
+	.screen__selected-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		grid-row-gap: 4px;
+	}
+	.screen__selected-item-title {
+		color: #000;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 32px;
+	}
+	.screen__selected-item-text {
+		color: #666;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
 	}
 }
