@@ -162,3 +162,6 @@
 .screens__select-item-text.dark.active {
 	color: #808080;
 }
+.screen__selected {
+	display: none;
+}

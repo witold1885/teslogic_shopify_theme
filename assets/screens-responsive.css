@@ -90,4 +90,11 @@
 	.screens__select-item-title, .screens__select-item-text {
 		display: none;
 	}
+	.screen__selected {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
 }
