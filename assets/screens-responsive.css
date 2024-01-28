@@ -85,6 +85,7 @@
 	}
 	.screens__select-item-marker {
 		height: 2px;
+		margin-bottom: 0;
 	}
 	.screens__select-item-title, .screens__select-item-text {
 		display: none;
