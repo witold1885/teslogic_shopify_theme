@@ -464,7 +464,7 @@
 				<img class="screens__select-item-marker dark active" src="{{ 'marker-dark-active.svg' | asset_url }}">
 				<img class="screens__select-item-marker dark" src="{{ 'marker-dark.svg' | asset_url }}">
 				<div class="screens__select-item-title">Car Data</div>
-				<div class="screens__select-item-text">Get and share all needed info about your Tesla</div>				
+				<div class="screens__select-item-text">Get and share all needed info about your Tesla</div>			
 			</div>
 			<div class="screens__select-item" data-type="map">
 				<img class="screens__select-item-marker light active" src="{{ 'marker-light-active.svg' | asset_url }}">
@@ -473,12 +473,11 @@
 				<img class="screens__select-item-marker dark" src="{{ 'marker-dark.svg' | asset_url }}">
 				<div class="screens__select-item-title">Map and Nav</div>
 				<div class="screens__select-item-text">Plan your route and conveniently follow it along the way.</div>				
-			</div>
-			
+			</div>			
 		</div>
 		<div class="screen__selected">
-			<img class="screen__selected-nav screen__selected-nav-prev light" src="{{ 'screen-select-prev-light.svg' | asset_url }}">
-			<img class="screen__selected-nav screen__selected-nav-prev dark" src="{{ 'screen-select-prev-dark.svg' | asset_url }}">
+			<img class="screen__selected-nav screen__selected-nav-prev light" data-direction="prev" src="{{ 'screen-select-prev-light.svg' | asset_url }}">
+			<img class="screen__selected-nav screen__selected-nav-prev dark" data-direction="prev" src="{{ 'screen-select-prev-dark.svg' | asset_url }}">
 			<div class="screen__selected-item" data-type="dashboard">
 				<div class="screen__selected-item-title">Dashboard</div>
 				<div class="screen__selected-item-text">Easily control the speed, power<br>and battery of your Tesla</div>
@@ -499,10 +498,9 @@
 				<div class="screen__selected-item-title">Map and Nav</div>
 				<div class="screen__selected-item-text">Plan your route and conveniently<br>follow it along the way</div>
 			</div>
-			<img class="screen__selected-nav screen__selected-nav-next light" src="{{ 'screen-select-next-light.svg' | asset_url }}">
-			<img class="screen__selected-nav screen__selected-nav-next dark" src="{{ 'screen-select-next-dark.svg' | asset_url }}">
+			<img class="screen__selected-nav screen__selected-nav-next light" data-direction="next" src="{{ 'screen-select-next-light.svg' | asset_url }}">
+			<img class="screen__selected-nav screen__selected-nav-next dark" data-direction="next" src="{{ 'screen-select-next-dark.svg' | asset_url }}">
 		</div>
-
 		<div class="screens__top-switcher-mobile">
 			<div class="screens__top-switcher-item active" data-mode="light">Light</div>
 			<div class="screens__top-switcher-item" data-mode="dark">Dark</div>				
@@ -548,6 +546,11 @@
 			featureType = $(this).data('type')
 			setActiveFeature()
 			setActiveSelectItem()
+		})
+
+		$('.screen__selected-nav').on('click', function() {
+			let direction = $(this).data('direction')
+			console.log(direction)
 		})
 
 		function setMode() {
