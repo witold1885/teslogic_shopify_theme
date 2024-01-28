@@ -76,4 +76,17 @@
 		height: 162px; 
 		margin-top: 160px;
 	}
+	.screens__select {
+		grid-column-gap: 4px;
+	}
+	.screens__select-item {
+		width: 64px;
+		height: unset;
+	}
+	.screens__select-item-marker {
+		height: 2px;
+	}
+	.screens__select-item-title, .screens__select-item-text {
+		display: none;
+	}
 }
