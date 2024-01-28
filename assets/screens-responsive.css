@@ -71,6 +71,18 @@
 		border-radius: 4px;
 		overflow: hidden;
 	}
+	.screens__top-switcher-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 20px;
+		font-family: Manrope;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 18px;
+		border-radius: 4px; 
+	}
 	.screens__features-image-wrap {
 		width: 335px;
 		height: 162px; 
