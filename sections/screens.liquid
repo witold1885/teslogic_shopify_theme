@@ -512,6 +512,14 @@
 	$(document).ready(function() {
 		var mode = 'light' // dark
 		var featureType = 'dashboard'
+		var featureTypes = [
+			'dashboard',
+			'performance',
+			'energy-screen',
+			'car-data',
+			'map',
+		]
+		var featureTypeIndex = 0
 		var screenType = 'desktop' //mobile
 
 		setScreenType()
@@ -544,6 +552,7 @@
 			})
 			$(this).addClass('active')
 			featureType = $(this).data('type')
+			featureTypeIndex = featureTypes.findIndex(item => item == featureType)
 			setActiveFeature()
 			setActiveSelectItem()
 		})
@@ -551,6 +560,21 @@
 		$('.screen__selected-nav').on('click', function() {
 			let direction = $(this).data('direction')
 			console.log(direction)
+			if (direction == 'prev') {
+				featureTypeIndex--
+				if (featureTypeIndex < 0) {
+					featureTypeIndex = featureTypes.length - 1
+				}
+			}
+			if (direction == 'next') {
+				featureTypeIndex++
+				if (featureTypeIndex > featureTypes.length - 1) {
+					featureTypeIndex = 0
+				}
+			}
+			featureType = featureTypes[featureTypeIndex]
+			setActiveFeature()
+			setActiveSelectItem()
 		})
 
 		function setMode() {
