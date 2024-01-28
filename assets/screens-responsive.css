@@ -64,6 +64,13 @@
 	.screens__top-switcher {
 		display: none;
 	}
+	.screens__top-switcher-mobile {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		overflow: hidden;
+	}
 	.screens__features-image-wrap {
 		width: 335px;
 		height: 162px; 

@@ -52,6 +52,9 @@
 	border-radius: 6px;
 	overflow: hidden;
 }
+.screens__top-switcher-mobile {
+	display: none;
+}
 .screens.light .screens__top-switcher {
 	border: 1px solid #D3D3D3; 
 }
