@@ -58,6 +58,12 @@
 	.devices_supporting-image img {
 		width: 100%;
 	}
+	.devices_supporting-image-desktop {
+		display: block;
+	}
+	.devices_supporting-image-mobile {
+		display: none;
+	}
 	@media screen and (min-width: 1000px) and (max-width: 1440px) {
 		.devices_supporting {
 			width: calc(1296 * 100vw / 1440);
@@ -101,6 +107,12 @@
 			width: 335px;
 			height: 335px; 
 		}
+		.devices_supporting-image-desktop {
+			display: none;
+		}
+		.devices_supporting-image-mobile {
+			display: block;
+		}
 
 	}
 </style>
@@ -130,6 +142,7 @@
 		
 	</div>
 	<div class="devices_supporting-image">
-		<img src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
+		<img class="devices_supporting-image-desktop" src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
+		<img class="devices_supporting-image-mobile" src="{{ 'devices_supporting.png' | asset_url }}" srcset="{{ 'devices_supporting-retina.png' | asset_url }} 2x" loading="lazy">
 	</div>
 </div>
