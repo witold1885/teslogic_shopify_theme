@@ -61,7 +61,16 @@
 	.pointer-top .pointer-legend {
 		top: -62px;
 	}
-	.pointer-bottom .pointer-legend {
+	.pointer-bottom .pointer-legend.lines-2 {
+		bottom: -44px;
+	}
+	.pointer-bottom .pointer-legend.lines-3 {
 		bottom: -62px;
+	}
+	.pointer-bottom .pointer-legend.lines-4 {
+		bottom: -80px;
+	}
+	.pointer-bottom .pointer-legend.lines-5 {
+		bottom: -98px;
 	}
 }
