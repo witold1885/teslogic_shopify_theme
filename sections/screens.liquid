@@ -573,6 +573,10 @@
 				}
 			}
 			featureType = featureTypes[featureTypeIndex]
+			$('.screens__select-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(`.screens__select-item[data-type="${featureType}"]`).addClass('active')
 			setActiveFeature()
 			setActiveSelectItem()
 		})
@@ -649,7 +653,7 @@
 				$(this).find(`.screen__selected-item-title`).addClass(mode)
 				$(this).find(`.screen__selected-item-text`).addClass(mode)
 
-				$(`.screens__select-item-marker`).hide()
+				$(this).find(`.screens__select-item-marker`).hide()
 				
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
