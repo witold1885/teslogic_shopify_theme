@@ -650,15 +650,16 @@
 				$(this).find(`.screen__selected-item-text`).addClass(mode)
 
 				$(this).find(`.screen__selected-item-marker`).hide()
-				if ($(this).hasClass('active')) {
+				
+				if ($(this).data('type') == featureType) {
 					$(this).find(`.screen__selected-item-marker.${mode}.active`).show()
-					$(this).find(`.screen__selected-item-title`).addClass('active')
-					$(this).find(`.screen__selected-item-text`).addClass('active')
+					// $(this).find(`.screen__selected-item-title`).addClass('active')
+					// $(this).find(`.screen__selected-item-text`).addClass('active')
 				}
 				else {
 					$(this).find(`.screen__selected-item-marker.${mode}:not(.active)`).show()
-					$(this).find(`.screen__selected-item-title`).removeClass('active')
-					$(this).find(`.screen__selected-item-text`).removeClass('active')
+					// $(this).find(`.screen__selected-item-title`).removeClass('active')
+					// $(this).find(`.screen__selected-item-text`).removeClass('active')
 				}
 			})
 		}
