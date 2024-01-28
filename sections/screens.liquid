@@ -531,10 +531,12 @@
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
 					$(this).find(`.screens__features-image`).hide()
+					$(this).find(`.pointer-legend`).hide()
 					$(this).find(`.pointer-line`).hide()
 					$(this).find(`.pointer-icon`).hide()
 					$(this).find(`.pointer-point`).hide()
 					$(this).find(`.screens__features-image.${mode}.${screenType}`).show()
+					$(this).find(`.pointer-legend.${screenType}`).show()
 					$(this).find(`.pointer-line.${mode}.${screenType}`).show()
 					$(this).find(`.pointer-icon.${mode}.${screenType}`).show()
 					$(this).find(`.pointer-point.${mode}`).show()
@@ -542,6 +544,7 @@
 				else {
 					$(this).hide()
 					$(this).find(`.screens__features-image`).hide()
+					$(this).find(`.pointer-legend`).hide()
 					$(this).find(`.pointer-line`).hide()
 					$(this).find(`.pointer-icon`).hide()
 					$(this).find(`.pointer-point`).hide()
