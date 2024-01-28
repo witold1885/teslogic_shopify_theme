@@ -658,14 +658,10 @@
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
 					$(`.screens__select-item[data-type="${$(this).data('type')}"]`).find(`.screens__select-item-marker.${mode}.active`).show()
-					// $(this).find(`.screen__selected-item-title`).addClass('active')
-					// $(this).find(`.screen__selected-item-text`).addClass('active')
 				}
 				else {
 					$(this).css('display', 'none')
 					$(`.screens__select-item[data-type="${$(this).data('type')}"]`).find(`.screens__select-item-marker.${mode}:not(.active)`).show()
-					// $(this).find(`.screen__selected-item-title`).removeClass('active')
-					// $(this).find(`.screen__selected-item-text`).removeClass('active')
 				}
 			})
 		}
