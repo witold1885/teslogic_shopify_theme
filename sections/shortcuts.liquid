@@ -387,6 +387,8 @@
 			let block = $(this).parents('.shortcuts-features-item-mobile')
 			let show = $(block).data('show')
 			console.log(show)
+			console.log($(block).find('shortcuts-features-item-image'))
+			console.log($(block).find('shortcuts-features-item-description'))
 			if (show == 'image') {
 				$(block).find('shortcuts-features-item-image').hide()
 				$(block).find('shortcuts-features-item-description').show()
