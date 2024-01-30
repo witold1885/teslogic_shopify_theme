@@ -182,13 +182,10 @@
 	}
 	.shortcuts-info-block-text {
 		order: 2;
-		margin-top: 64px;
-	}
-	.shortcuts-info-block-text {
 		font-size: 14px;
 		line-height: 20px;
 		width: 287px;
-		margin: 0 auto;
+		margin: 64px auto 24px;
 	}
 	.shortcuts-info-block-text-primary {
 		color: #000;
