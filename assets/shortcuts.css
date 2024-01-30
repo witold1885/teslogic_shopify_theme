@@ -264,6 +264,12 @@
 	padding: 23px 43px;
 	color: #FFF;
 }
+.shortcuts-more-button-desktop {
+	display: block;
+}
+.shortcuts-more-button-mobile {
+	display: none;
+}
 .shortcuts-more-layer {
 	position: absolute;
 	height: 256px;
