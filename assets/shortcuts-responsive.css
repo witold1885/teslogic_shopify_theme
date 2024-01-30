@@ -339,6 +339,7 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: 20px;
+		flex: 1;
 	}
 	.shortcuts-features-item-title-chevron {
 		width: 10px;
