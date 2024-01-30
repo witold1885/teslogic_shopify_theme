@@ -354,6 +354,16 @@
 	.shortcuts-features-item-title-chevron-up {
 		display: none;
 	}
+	.shortcuts-features-item-speedicons {
+		top: 24px;
+		top: 24px;
+		grid-column-gap: 20px;
+	}
+	.shortcuts-more-gradient, 
+	.shortcuts-more-layer-2, 
+	.shortcuts-more-layer-1 {
+		display: none;
+	}
 
 
 
