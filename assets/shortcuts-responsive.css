@@ -371,7 +371,8 @@
 	}
 	.shortcuts-more-layer-3 {
 		height: auto;
-		grid-column-gap: 19px;
+		justify-content: space-between;
+		grid-column-gap: unset;
 		position: unset;
 		background: transparent;
 		box-shadow: unset;
