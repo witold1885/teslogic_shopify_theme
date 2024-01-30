@@ -188,7 +188,7 @@
 		</div>
 		<div class="shortcuts-features-mobile">
 	  		<div class="shortcuts-features-scroller">
-		    	<div class="shortcuts-features-item-mobile">
+		    	<div class="shortcuts-features-item-mobile" data-show="image">
 			    	<div class="shortcuts-features-item-mobile-wrap">
 				    	<div class="shortcuts-features-item-image">
 				    		<img src="{{ 'shortcuts-image-1-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-1-retina.png' | asset_url }} 2x" loading="lazy">
@@ -354,7 +354,7 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() {
+  	$(document).ready(function() {
 		const slider = document.querySelector('.shortcuts-features-scroller');
 		let isDown = false;
 		let startX;
@@ -382,5 +382,10 @@
 		  slider.scrollLeft = scrollLeft - walk;
 		  // console.log(walk);
 		});
-  })
+
+		$('.shortcuts-features-item-title-chevron').on('click', function() {
+			let show = $(this).parents('.shortcuts-features-item-mobile').data('show')
+			console.log(show)
+		}) 
+  	})
 </script>
