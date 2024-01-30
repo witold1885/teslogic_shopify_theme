@@ -369,6 +369,19 @@
 		background: unset;
 		box-shadow: unset;
 	}
+	.shortcuts-more-text {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	.shortcuts-more-button {
+		padding: 28px 14px;
+		border: 2px solid #0068FD;
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.shortcuts-more-button:hover {
+		padding: 30px 16px;
+	}
 
 
 
