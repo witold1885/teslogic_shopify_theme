@@ -389,6 +389,12 @@
 	.shortcuts-more-button:hover {
 		padding: 30px 16px;
 	}
+	.shortcuts-more-button-desktop {
+		display: none;
+	}
+	.shortcuts-more-button-mobile {
+		display: block;
+	}
 
 
 
