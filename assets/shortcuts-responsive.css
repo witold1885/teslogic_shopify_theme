@@ -280,7 +280,8 @@
 	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
-		height: 306px; 
+		height: 306px;
+		border-radius: 24px;
 	}
 	.shortcuts-features-item-mobile-wrap {
 		width: 100%;
