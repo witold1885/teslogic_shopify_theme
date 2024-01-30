@@ -386,24 +386,17 @@
 		$('.shortcuts-features-item-title-chevron').on('click', function() {
 			let block = $(this).parents('.shortcuts-features-item-mobile')
 			let show = $(block).data('show')
-			console.log(show)
-			console.log(block)
-			console.log($(block))
-			console.log(block.find('shortcuts-features-item-image'))
-			console.log(block.find('shortcuts-features-item-description'))
-			console.log($(block).find('shortcuts-features-item-image'))
-			console.log($(block).find('shortcuts-features-item-description'))
 			if (show == 'image') {
-				$(block).find('shortcuts-features-item-image').hide()
-				$(block).find('shortcuts-features-item-description').show()
+				$(block).find('.shortcuts-features-item-image').hide()
+				$(block).find('.shortcuts-features-item-description').show()
 				$(this).find('.shortcuts-features-item-title-chevron-down').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-up').show()
 				$(block).data('show', 'description')
 				return
 			}
 			if (show == 'description') {
-				$(block).find('shortcuts-features-item-description').hide()
-				$(block).find('shortcuts-features-item-image').show()
+				$(block).find('.shortcuts-features-item-description').hide()
+				$(block).find('.shortcuts-features-item-image').show()
 				$(this).find('.shortcuts-features-item-title-chevron-up').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-down').show()
 				$(block).data('show', 'image')
