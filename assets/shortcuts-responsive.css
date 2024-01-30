@@ -257,111 +257,17 @@
 	.shortcuts-info-info-text {
 		width: 287px;
 	}
+	.shortcuts-features {
+		display: flex;
+		flex-wrap: nowrap;
+		grid-column-gap: 20px;
+		grid-row-gap: unset;
+		overflow-x: scroll;
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
 
 
 
-	.shortcuts-content {
-		flex-direction: column;
-		align-items: center;
-		grid-row-gap: 52px;
-	}
-	.shortcuts-content-top {
-		flex-direction: column;
-		grid-row-gap: 34.33px;
-	}
-	.shortcuts-content-legend {
-		width: 100%;
-		grid-row-gap: 18px;
-	}
-	.shortcuts-content-legend-item {
-		width: 100%;
-		grid-column-gap: 8px;
-		font-size: 18px;
-		line-height: 24px;
-	}
-	.shortcuts-content-legend-item:last-child .shortcuts-content-legend-item-text {
-		width: 303px;
-	}
-	.shortcuts-content-legend-icon {
-		width: 24px;
-		height: 24px;
-	}
-	.shortcuts-content-image-desktop {
-		display: none;
-	}
-	.shortcuts-content-image-mobile {
-		display: block;
-		width: 100%; 
-		height: 163.62px;;
-	}
-	.shortcuts-content-middle {
-		width: 100%;
-		margin-top: 0;
-		margin-bottom: 0;
-		padding: 28px;
-		flex-direction: column;
-		grid-row-gap: 24px;
-		border-radius: 20px;
-	}
-	.shortcuts-content-middle-image-desktop {
-		display: none;
-	}	
-	.shortcuts-content-middle-image-mobile {
-		display: block;
-		width: 206px;
-		height: 85px; 
-	}
-	.shortcuts-content-middle-image-mobile img {
-		width: 100%;
-	}
-	.shortcuts-content-middle-info-icon {
-		display: none;
-	}
-	.shortcuts-content-middle-info-text {
-		width: 294px; 
-		font-size: 18px;
-		line-height: 24px;
-		text-align: center;
-	}
-	.shortcuts-content-list {
-		width: 100%;
-		flex-direction: column;
-		grid-row-gap: 40px;
-	}
-	.shortcuts-content-list-item {
-		width: 100%;
-		grid-row-gap: 8px;
-	}
-	.shortcuts-content-list-item-title {
-		grid-column-gap: 12px;
-	}
-	.shortcuts-content-list-item-title-icon {
-		width: 44px;
-		height: 44px;
-	}
-	.shortcuts-content-list-item-title-text {
-		font-size: 16px;
-		line-height: 22px;
-		font-weight: 400 !important;
-    	font-family: 'Gotham-Medium' !important;
-	}
-	.shortcuts-content-list-item:nth-child(1) .shortcuts-content-list-item-title-text,
-	.shortcuts-content-list-item:nth-child(3) .shortcuts-content-list-item-title-text {
-		max-width: 175px;
-	}
-	.shortcuts-content-list-item:nth-child(2) .shortcuts-content-list-item-title-text {
-		max-width: 200px;
-	}
-	.shortcuts-content-list-item-content {
-		max-width: unset;
-	}
-	.shortcuts-content-more {
-		margin-top: 0;
-		width: 100%;
-		font-weight: 400 !important;
-    	font-family: 'Gotham-Medium' !important;
-		font-size: 24px;
-		line-height: 28px; 
-	}
 
 }
