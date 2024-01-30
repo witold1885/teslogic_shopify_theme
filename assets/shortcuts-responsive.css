@@ -364,6 +364,11 @@
 	.shortcuts-more-layer-1 {
 		display: none;
 	}
+	.shortcuts-more-layer-3 {
+		grid-column-gap: 19px;
+		background: unset;
+		box-shadow: unset;
+	}
 
 
 
