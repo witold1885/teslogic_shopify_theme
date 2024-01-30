@@ -315,6 +315,9 @@
 		align-items: center;
 		grid-column-gap: 8px;
 		box-sizing: border-box;
+		border-top-left-radius: 24px;
+		border-top-right-radius: 24px;
+		background: #FFF; 
 	}
 	.shortcuts-features-item-title-icon {
 		width: 36px;
@@ -322,6 +325,9 @@
 	}
 	.shortcuts-features-item-title-icon img {
 		width: 100%;
+	}
+	.shortcuts-features-item-title-icon-black {
+		display: none;
 	}
 	.shortcuts-features-item-title-text {
 		color: #000;
@@ -337,6 +343,9 @@
 	}
 	.shortcuts-features-item-title-chevron img {
 		width: 100%;
+	}
+	.shortcuts-features-item-title-chevron-up {
+		display: none;
 	}
 
 
