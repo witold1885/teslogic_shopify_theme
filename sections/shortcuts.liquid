@@ -29,7 +29,8 @@
 			</div>
 			<div class="shortcuts-info-block shortcuts-info-block-artboard shortcuts-info-block-between">
 				<div class="shortcuts-info-block-between-image shortcuts-info-artboard-image">
-					<img src="{{ 'shortcuts-artboard-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-artboard-retina.png' | asset_url }} 2x" loading="lazy">
+					<img class="shortcuts-info-artboard-image-desktop" src="{{ 'shortcuts-artboard-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-artboard-retina.png' | asset_url }} 2x" loading="lazy">
+					<img class="shortcuts-info-artboard-image-mobile" src="{{ 'shortcuts-artboard-mobile.png' | asset_url }}" srcset="{{ 'shortcuts-artboard-mobile-retina.png' | asset_url }} 2x" loading="lazy">
 				</div>
 				<div class="shortcuts-info-block-between-text shortcuts-info-artboard-text">
 					To activate Shortcuts, you need to switch the Active Control toggle to the "on" position using a pin or any other sharp object.
@@ -37,7 +38,8 @@
 			</div>
 			<div class="shortcuts-info-block shortcuts-info-block-info shortcuts-info-block-between">
 				<div class="shortcuts-info-block-between-image shortcuts-info-info-image">
-					<img src="{{ 'shortcuts-info-icon.svg' | asset_url }}">
+					<img class="shortcuts-info-info-image-desktop" src="{{ 'shortcuts-info-icon.svg' | asset_url }}">
+					<img class="shortcuts-info-info-image-mobile" src="{{ 'shortcuts-info-icon-mobile.svg' | asset_url }}">
 				</div>
 				<div class="shortcuts-info-block-between-text shortcuts-info-info-text">
 					Shortcuts settings and changes are stored within the transmitter, enabling them to function when the phone is disconnected.

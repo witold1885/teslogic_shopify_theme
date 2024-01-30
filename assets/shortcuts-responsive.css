@@ -200,6 +200,7 @@
 	}
 	.shortcuts-info-block-artboard {
 		order: 3;
+		margin-bottom: 20px;
 	}
 	.shortcuts-info-block-info {
 		order: 4;
@@ -224,6 +225,37 @@
 	.shortcuts-info-block-between {
 		grid-row-gap: 16px;
 		padding: 0 24px;
+	}
+	.shortcuts-info-block-between-text {
+		color: #666;
+		font-size: 14px;
+		line-height: 20px; 
+	}
+	.shortcuts-info-artboard-image {
+		width: 70px;
+		height: 28px;
+	}
+	.shortcuts-info-artboard-image-desktop {
+		display: none;
+	}
+	.shortcuts-info-artboard-image-mobile {
+		display: block;
+	}
+	.shortcuts-info-artboard-text {
+		width: 287px;
+	}
+	.shortcuts-info-info-image {
+		width: 32px;
+		height: 32px;
+	}
+	.shortcuts-info-info-image-desktop {
+		display: none;
+	}
+	.shortcuts-info-info-image-mobile {
+		display: block;
+	}
+	.shortcuts-info-info-text {
+		width: 287px;
 	}
 
 
