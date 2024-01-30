@@ -282,6 +282,7 @@
 		width: 306px;
 		height: 306px;
 		border-radius: 24px;
+		overflow: hidden;
 	}
 	.shortcuts-features-item-mobile-wrap {
 		width: 100%;
