@@ -268,6 +268,7 @@
 		overflow-x: visible;
 		cursor: grab;
 		user-select: none;
+		margin-top: 32px;
 	}
 	.shortcuts-features-scroller {
 		overflow-x: scroll;
@@ -275,14 +276,12 @@
 		grid-column-gap: 20px;
 		margin-left: calc((100vw - 390px) / 2);
 		padding-right: 20px;
-		padding-bottom: 60px;
+		padding-bottom: 40px;
 		scrollbar-color: #1657FC #E3E3E3;
 	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
 		height: 306px;
-		border-radius: 24px;
-		overflow: hidden;
 	}
 	.shortcuts-features-item-mobile-wrap {
 		width: 306px;
