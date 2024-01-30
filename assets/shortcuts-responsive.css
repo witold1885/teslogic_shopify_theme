@@ -258,13 +258,13 @@
 		width: 287px;
 	}
 	.shortcuts-features {
+		display: none;
+	}
+	.shortcuts-features-mobile {
 		width: 100vw;
 		margin-right: 20px;
 		margin-left: calc(-1 * (100vw - 390px) / 2);
-
-		flex-wrap: nowrap;
-		grid-column-gap: unset;
-		grid-row-gap: unset;
+		display: flex;
 		overflow-x: visible;
 		cursor: grab;
 		user-select: none;

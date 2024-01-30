@@ -152,6 +152,9 @@
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
+.shortcuts-features-mobile {
+	display: none;
+}
 .shortcuts-features-item {
 	width: 526px;
 	height: 544px;
