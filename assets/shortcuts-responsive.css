@@ -179,6 +179,14 @@
 	.shortcuts-info-block-info {
 		order: 4;
 	}
+	.shortcuts-info-block {
+		width: 100%;
+		border-radius: unset;
+		background: transparent; 
+	}
+
+
+
 	.shortcuts-content {
 		flex-direction: column;
 		align-items: center;
