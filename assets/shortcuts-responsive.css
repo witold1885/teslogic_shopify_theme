@@ -289,6 +289,7 @@
 		position: relative;
 	}
 	.shortcuts-features-item-description {
+		display: none;
 		width: 100%;
 		position: absolute;
 		top: 0;
@@ -341,6 +342,7 @@
 	.shortcuts-features-item-title-chevron {
 		width: 10px;
 		height: 40px;
+		cursor: pointer;
 	}
 	.shortcuts-features-item-title-chevron img {
 		width: 100%;
