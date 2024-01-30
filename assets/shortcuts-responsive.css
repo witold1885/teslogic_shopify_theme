@@ -278,6 +278,15 @@
 		padding-bottom: 60px;
 		scrollbar-color: #1657FC #E3E3E3;
 	}
+	.shortcuts-features-item-mobile {
+		width: 306px;
+		height: 306px; 
+	}
+	.shortcuts-features-item-mobile-wrap {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
 
 
 
