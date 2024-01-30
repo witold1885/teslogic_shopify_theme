@@ -30,6 +30,8 @@
 	.significant__features-scroller {
 		grid-column-gap: 24px;
 		padding-left: calc((100vw - 390px) / 2);
+		padding-right: 20px;
+		padding-bottom: 60px;
 	}
 	.significant__features-item {
 		width: 306px;
