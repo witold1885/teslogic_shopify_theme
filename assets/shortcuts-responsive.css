@@ -258,13 +258,25 @@
 		width: 287px;
 	}
 	.shortcuts-features {
-		display: flex;
+		width: 100vw;
+		margin-right: 20px;
+		margin-left: calc(-1 * (100vw - 390px) / 2);
+
 		flex-wrap: nowrap;
-		grid-column-gap: 20px;
+		grid-column-gap: unset;
 		grid-row-gap: unset;
+		overflow-x: visible;
+		cursor: grab;
+		user-select: none;
+	}
+	.shortcuts-features-scroller {
 		overflow-x: scroll;
-		margin-top: 24px;
-		margin-bottom: 24px;
+		display: flex;
+		grid-column-gap: 20px;
+		margin-left: calc((100vw - 390px) / 2);
+		padding-right: 20px;
+		padding-bottom: 60px;
+		scrollbar-color: #1657FC #E3E3E3;
 	}
 
 
