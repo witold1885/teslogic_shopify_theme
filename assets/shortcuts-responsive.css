@@ -167,6 +167,10 @@
 		line-height: 40px;
 		margin-bottom: 24px;
 	}
+	.shortcuts-info {
+		grid-column-gap: 0;
+		grid-row-gap: 0;
+	}
 	.shortcuts-info-block-car {
 		order: 1;
 	}
