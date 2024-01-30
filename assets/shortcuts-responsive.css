@@ -138,20 +138,33 @@
 }
 
 @media screen and (max-width: 999px) {
-	.shortcuts {
+	/*.shortcuts {
 		width: 335px;
 		margin-left: 27.5px;
 		margin-right: 27.5px;
 		margin-bottom: 127px;
+	}*/
+	.shortcuts-wrap {
+		width: 335px;
+		margin: 0 auto;
+		padding-top: 96px;
+		padding-bottom: 108px;
 	}
 	.shortcuts-title {
-		margin-bottom: 24px;
+		margin-bottom: 0;
 	}
 	.shortcuts-title-text {
-		font-size: 36px;
-		line-height: 44px; /* 122.222% */ 
-		width: 100%;
-		margin: 0;
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.shortcuts-title-icon {
+		width: 40px;
+		height: 40px;  
+	}
+	.shortcuts-subtitle {
+		font-size: 32px;
+		line-height: 40px;
+		margin-bottom: 24px;
 	}
 	.shortcuts-content {
 		flex-direction: column;
