@@ -360,9 +360,9 @@
 		grid-column-gap: 20px;
 	}
 	.shortcuts-more {
-		background: transparent;
 		height: auto;
 		margin-top: 56px;
+		background: transparent;
 	}
 	.shortcuts-more-gradient, 
 	.shortcuts-more-layer-2, 
@@ -370,8 +370,10 @@
 		display: none;
 	}
 	.shortcuts-more-layer-3 {
+		height: auto;
 		grid-column-gap: 19px;
-		background: unset;
+		position: unset;
+		background: transparent;
 		box-shadow: unset;
 	}
 	.shortcuts-more-text {
