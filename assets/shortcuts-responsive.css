@@ -221,6 +221,10 @@
 	.shortcuts-info-block-image-mobile {
 		display: block;
 	}
+	.shortcuts-info-block-between {
+		grid-row-gap: 16px;
+		padding: 0 24px;
+	}
 
 
 
