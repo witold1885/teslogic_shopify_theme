@@ -188,13 +188,16 @@
 		font-size: 14px;
 		line-height: 20px;
 		width: 287px;
+		margin: 0 auto;
 	}
 	.shortcuts-info-block-text-primary {
 		color: #000;
 		margin-bottom: 12px;
+		width: 100%;
 	}
 	.shortcuts-info-block-text-secondary {
 		color: #000;
+		width: 100%;
 	}
 	.shortcuts-info-block-artboard {
 		order: 3;
