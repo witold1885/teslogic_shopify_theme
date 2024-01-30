@@ -301,6 +301,7 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: 18px;
+		box-sizing: border-box;
 	}
 	.shortcuts-features-item-title {
 		position: absolute;
@@ -313,6 +314,29 @@
 		justify-content: space-between;
 		align-items: center;
 		grid-column-gap: 8px;
+		box-sizing: border-box;
+	}
+	.shortcuts-features-item-title-icon {
+		width: 36px;
+		height: 40px;
+	}
+	.shortcuts-features-item-title-icon img {
+		width: 100%;
+	}
+	.shortcuts-features-item-title-text {
+		color: #000;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
+	.shortcuts-features-item-title-chevron {
+		width: 10px;
+		height: 40px;
+	}
+	.shortcuts-features-item-title-chevron img {
+		width: 100%;
 	}
 
 
