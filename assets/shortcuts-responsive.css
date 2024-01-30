@@ -182,7 +182,19 @@
 	}
 	.shortcuts-info-block-text {
 		order: 2;
-		margin-top: 28px;
+		margin-top: 64px;
+	}
+	.shortcuts-info-block-text {
+		font-size: 14px;
+		line-height: 20px;
+		width: 287px;
+	}
+	.shortcuts-info-block-text-primary {
+		color: #000;
+		margin-bottom: 12px;
+	}
+	.shortcuts-info-block-text-secondary {
+		color: #000;
 	}
 	.shortcuts-info-block-artboard {
 		order: 3;
