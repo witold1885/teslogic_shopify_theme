@@ -285,9 +285,11 @@
 		overflow: hidden;
 	}
 	.shortcuts-features-item-mobile-wrap {
-		width: 100%;
+		width: 306px;
 		height: 100%;
 		position: relative;
+		border-radius: 24px;
+		overflow: hidden;
 	}
 	.shortcuts-features-item-description {
 		display: none;
