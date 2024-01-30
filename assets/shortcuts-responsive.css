@@ -184,6 +184,23 @@
 		border-radius: unset;
 		background: transparent; 
 	}
+	.shortcuts-info-block-background-desktop {
+		display: none;
+	}
+	.shortcuts-info-block-background-mobile {
+		display: block;
+	}
+	.shortcuts-info-block-image {
+		width: 264px;
+		height: 128px;
+		margin-top: 36px;
+	}
+	.shortcuts-info-block-image-desktop {
+		display: none;
+	}
+	.shortcuts-info-block-image-mobile {
+		display: block;
+	}
 
 
 

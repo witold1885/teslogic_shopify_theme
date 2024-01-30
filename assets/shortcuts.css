@@ -80,11 +80,23 @@
 	top: 0;
 	left: 0;
 }
+.shortcuts-info-block-background-desktop {
+	display: block;
+}
+.shortcuts-info-block-background-mobile {
+	display: none;
+}
 .shortcuts-info-block-image {
 	width: 414px;
 	height: 202px;
 	margin-top: 28px;
 	z-index: 2;
+}
+.shortcuts-info-block-image-desktop {
+	display: block;
+}
+.shortcuts-info-block-image-mobile {
+	display: none;
 }
 .shortcuts-info-block-image img {
 	width: 100%; 
