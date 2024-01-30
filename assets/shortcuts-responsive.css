@@ -381,13 +381,13 @@
 		line-height: 24px;
 	}
 	.shortcuts-more-button {
-		padding: 28px 14px;
+		padding: 14px 28px;
 		border: 2px solid #0068FD;
 		font-size: 16px;
 		line-height: 20px;
 	}
 	.shortcuts-more-button:hover {
-		padding: 30px 16px;
+		padding: 16px 30px;
 	}
 	.shortcuts-more-button-desktop {
 		display: none;
