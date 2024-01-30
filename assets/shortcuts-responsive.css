@@ -171,22 +171,24 @@
 		grid-column-gap: 0;
 		grid-row-gap: 0;
 	}
+	.shortcuts-info-block {
+		width: 100%;
+		height: auto;
+		border-radius: unset;
+		background: transparent; 
+	}
 	.shortcuts-info-block-car {
 		order: 1;
 	}
 	.shortcuts-info-block-text {
 		order: 2;
+		margin-top: 28px;
 	}
 	.shortcuts-info-block-artboard {
 		order: 3;
 	}
 	.shortcuts-info-block-info {
 		order: 4;
-	}
-	.shortcuts-info-block {
-		width: 100%;
-		border-radius: unset;
-		background: transparent; 
 	}
 	.shortcuts-info-block-background-desktop {
 		display: none;
