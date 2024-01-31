@@ -207,6 +207,7 @@
 		justify-content: center;
 		align-items: center;
 		grid-column-gap: 23px;
+		margin: 32px auto;
 	}
 	.box_block-charger-images-mobile-item {
 		width: 148px;
