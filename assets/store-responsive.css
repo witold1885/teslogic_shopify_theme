@@ -179,4 +179,17 @@
 		position: absolute;
 		top: 0;
 	}
+	.store_block-product-select {
+		width: 100%;
+		height: 56px;
+	}
+	.store_block-product-select-dropdown {
+		padding: 18px 20px 24px;
+		grid-row-gap: 20px;
+		border-radius: 8px;
+	}
+	.store_block-product-select-dropdown-item {
+		font-size: 16px;
+		line-height: 20px;
+	}
 }
