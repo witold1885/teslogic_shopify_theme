@@ -234,6 +234,18 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 	}
+	.reviews-list-item {
+		width: 304px;
+		grid-row-gap: 16px;
+		padding: 24px;
+	}
+	.reviews-list-item-top-left {
+		grid-column-gap: 8px;
+	}
+	.reviews-list-item-date {
+		font-size: 16px;
+		line-height: 20px;
+	}
 
 
 }
