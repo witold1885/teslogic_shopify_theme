@@ -132,7 +132,8 @@
         let reviewerArray = reviewer[_i].innerText.split('on')
         let reviewAuthor = reviewerArray[0].trim()
         let reviewDate = reviewerArray[1].trim()
-        console.log(rating[_i])
+        let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+        console.log(ratingMark)
         let reviewHtml = `
         	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
         		<div class="reviews-list-item-top">
@@ -153,8 +154,6 @@
 				}
 				totalData[p].push(reviewHtml);
         r++;
-
-        let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
 		    ratingMarks[`mark${ratingMark}`]++;
       };
 
