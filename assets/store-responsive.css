@@ -145,4 +145,13 @@
 		font-size: 32px;
 		line-height: 40px;
 	}
+	.store_block-product-gallery-mobile {
+		width: 335px;
+		height: 335px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 24px; 
+		background: #FFF;
+	}
 }
