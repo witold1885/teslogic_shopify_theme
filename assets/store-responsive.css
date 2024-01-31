@@ -148,6 +148,7 @@
 	.store_block-product-gallery-mobile {
 		display: block;
 		position: relative;
+		width: 335px;
 	}
 	.store_block-product-gallery-main {
 		width: 335px;
@@ -169,9 +170,12 @@
 	.store_block-product-gallery-mobile-dot {
 		width: 6px;
 		height: 6px;
+		cursor: pointer;
 	}
 	.store_block-product-gallery-mobile-dot img {
 		width: 100%;
 		display: none;
+		position: absolute;
+		top: 0;
 	}
 }
