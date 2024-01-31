@@ -262,6 +262,11 @@
 			setGalleryImage()
 		})
 
+		$('.store_block-product-gallery-mobile-dot').on('click', function() {
+			imgnum = $(this).data('imgnum')
+			setGalleryImage()
+		})
+
 		function setGalleryImage() {
 			console.log(imgnum)
 			$('.store_block-product-gallery-main').find('img').each(function() {
