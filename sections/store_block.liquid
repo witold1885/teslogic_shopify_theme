@@ -264,7 +264,7 @@
 			// $(model).addClass('store_block-product-select-dropdown-item-selected')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
-			$('.store_block-product-add-mobile-total').text('$' + (model.data('price') / 100))
+			$('.store_block-product-add-mobile-total').text('$ ' + (model.data('price') / 100))
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
 			}
@@ -289,7 +289,7 @@
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
-		$('.store_block-add-wireless-charger-price').on('change', function() {
+		$('#select-charger').on('change', function() {
 			console.log($(this).prop('checked'))
 		})
 		var cart_qty = Number({{ cart.item_count }})
