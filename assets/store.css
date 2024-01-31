@@ -67,6 +67,9 @@
 .store_block-product-gallery-main img:first-child {
 	display: block;
 }
+.store_block-product-gallery-mobile {
+	display: none;
+}
 .store_block-product-info {
 	display: flex;
 	flex-direction: column;
