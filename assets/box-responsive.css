@@ -250,6 +250,8 @@
 	.box_block-charger-item-image-image-mobile {
 		display: block;
 		width: 100%;
+		position: absolute;
+		z-index: 2;
 	}
 	.box_block-charger-item-description {
 		width: 100%;
