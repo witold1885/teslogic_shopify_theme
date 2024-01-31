@@ -238,6 +238,7 @@
 		width: 304px;
 		grid-row-gap: 16px;
 		padding: 24px;
+		max-height: 440px;
 	}
 	.reviews-list-item-top-left {
 		grid-column-gap: 8px;
@@ -245,6 +246,14 @@
 	.reviews-list-item-date {
 		font-size: 16px;
 		line-height: 20px;
+	}
+	.reviews-list-item-stars {
+		display: none;
+	}
+	.reviews-list-item-stars-mobile {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 4px;
 	}
 
 
