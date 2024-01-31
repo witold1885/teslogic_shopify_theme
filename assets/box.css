@@ -224,6 +224,9 @@
 	top: 17px;
 	left: 12px;
 }
+.box_block-charger-item-image-image-mobile {
+	display: none;
+}
 .box_block-charger-item-description {
 	width: 345px;
 	color: #666;
