@@ -82,6 +82,33 @@
 					<img data-imgnum="4" src="{{ 'box-item-4-desktop.png' | asset_url }}" srcset="{{ 'box-item-4-retina.png' | asset_url }} 2x" loading="lazy">
 					<img data-imgnum="5" src="{{ 'box-item-5-desktop.png' | asset_url }}" srcset="{{ 'box-item-5-retina.png' | asset_url }} 2x" loading="lazy">
 				</div>
+				<div class="store_block-product-gallery-mobile-dots">
+					<div data-imgnum="0" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					<div data-imgnum="1" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					<div data-imgnum="2" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					<div data-imgnum="3" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					<div data-imgnum="4" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					<div data-imgnum="5" class="store_block-product-gallery-mobile-dot">
+						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+					</div>
+					
+				</div>
 			</div>
 			<div>
 				<!-- <div class="store_block-product-amount">
@@ -239,6 +266,16 @@
 			$('.store_block-product-gallery-main').find('img').each(function() {
 				if ($(this).data('imgnum') == imgnum) $(this).show()
 				else $(this).hide()
+			})
+			$('.store_block-product-gallery-mobile-dot').each(function() {
+				if ($(this).data('imgnum') == imgnum) {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').show()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').hide()
+				}
+				else {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').hide()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').show()
+				}
 			})
 		}
 

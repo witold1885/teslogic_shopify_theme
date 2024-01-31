@@ -158,4 +158,19 @@
 		border-radius: 24px; 
 		background: #FFF;
 	}
+	.store_block-product-gallery-mobile-dots {
+		position: absolute;
+		bottom: 12px;
+		display: flex;
+		justify-content: center;
+		grid-column-gap: 6px;
+	}
+	.store_block-product-gallery-mobile-dot {
+		width: 6px;
+		height: 6px;
+	}
+	.store_block-product-gallery-mobile-dot img {
+		width: 100%;
+		display: none;
+	}
 }
