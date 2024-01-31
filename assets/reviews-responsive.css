@@ -185,11 +185,22 @@
 
 @media screen and (max-width: 999px) {
 	.reviews {
-		margin-bottom: 80px;
+		padding-top: 96px;
+		padding-bottom: 96px;
 	}
-	.reviews-title {
-		margin-bottom: 40px;
+	.reviews-wrap {
+		width: 335px;
 	}
+	.reviews-top {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		grid-row-gap: 32px;
+		margin-bottom: 44px;
+	}
+
+
+	
 	.reviews-data {
 		width: 350px;
 		flex-direction: column;
