@@ -183,4 +183,7 @@
 	.box_block-charger-images {
 		display: none;
 	}
+	.box_block-charger-images-mobile {
+		display: flex;
+	}
 }
