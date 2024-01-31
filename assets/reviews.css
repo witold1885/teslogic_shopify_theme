@@ -78,7 +78,8 @@
 	font-size: 52px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 64px; 
+	line-height: 64px;
+	margin-bottom: 14px;
 }
 .reviews-rating-overall-data-star {
 	width: 64px;
