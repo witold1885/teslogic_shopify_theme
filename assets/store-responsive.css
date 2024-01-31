@@ -209,4 +209,10 @@
 	.store_block-add-wireless-charger {
 		margin-top: 12px;
 	}
+	.store_block-product-order {
+		flex-direction: column;
+		align-items: flex-start;
+		grid-row-gap: 12px;
+		margin-top: 24px;
+	}
 }
