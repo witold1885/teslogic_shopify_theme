@@ -198,9 +198,33 @@
 		grid-row-gap: 32px;
 		margin-bottom: 44px;
 	}
+	.reviews-top-left {
+		grid-row-gap: 12px;
+	}
+	.reviews-top-supinfo {
+		grid-column-gap: 12px;
+	}
+	.reviews-top-supinfo-stars .spr-starrating {
+		grid-column-gap: 8px;
+	}
+	.reviews-top-supinfo-stars .spr-icon {
+		width: 20px;
+		height: 20px; 
+	}
+	.reviews-top-supinfo-stars .spr-icon::before {
+		font-size: 20px;
+	}
+	.reviews-top-supinfo-text {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.reviews-title {
+		font-size: 32px;
+		line-height: 40x;
+	}
 
 
-	
+
 	.reviews-data {
 		width: 350px;
 		flex-direction: column;
