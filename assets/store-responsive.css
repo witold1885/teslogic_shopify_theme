@@ -200,4 +200,13 @@
 		width: 12px;
 		height: 20px;
 	}
+	.store_block-product-select-dropdown-item img {
+		display: none;
+	}
+	.store_block-product-select-dropdown-item-selected img {
+		display: none;
+	}
+	.store_block-add-wireless-charger {
+		margin-top: 12px;
+	}
 }
