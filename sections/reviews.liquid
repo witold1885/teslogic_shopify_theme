@@ -132,6 +132,7 @@
         let reviewerArray = reviewer[_i].innerText.split('on')
         let reviewAuthor = reviewerArray[0].trim()
         let reviewDate = reviewerArray[1].trim()
+        console.log(rating[_i])
         let reviewHtml = `
         	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
         		<div class="reviews-list-item-top">
