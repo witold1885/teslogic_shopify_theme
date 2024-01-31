@@ -245,6 +245,9 @@
 .store_block-product-add:hover {
 	background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
 }
+.store_block-product-add-mobile {
+	display: none;
+}
 .store_block-product-order-features {
 	display: flex;
 	flex-direction: column;
