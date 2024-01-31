@@ -159,6 +159,7 @@
 		background: #FFF;
 	}
 	.store_block-product-gallery-mobile-dots {
+		width: 100%;
 		position: absolute;
 		bottom: 12px;
 		display: flex;
