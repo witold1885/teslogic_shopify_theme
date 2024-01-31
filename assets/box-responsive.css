@@ -175,4 +175,9 @@
 		width: 234px;
 		height: 234px;
 	}
+	.box_block-charger {
+		width: 100%;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
