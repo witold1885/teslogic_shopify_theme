@@ -263,6 +263,7 @@
 		})
 
 		function setGalleryImage() {
+			console.log(imgnum)
 			$('.store_block-product-gallery-main').find('img').each(function() {
 				if ($(this).data('imgnum') == imgnum) $(this).show()
 				else $(this).hide()
