@@ -171,6 +171,7 @@
 		width: 6px;
 		height: 6px;
 		cursor: pointer;
+		position: relative;
 	}
 	.store_block-product-gallery-mobile-dot img {
 		width: 100%;
