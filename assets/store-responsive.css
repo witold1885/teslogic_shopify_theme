@@ -121,5 +121,25 @@
 	.store_block-product-info-main {
 		display: flex;
 		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.store_block-product-title {
+		width: 208px;
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.store_block-product-price {
+		flex-direction: column;
+		align-items: flex-end;
+		margin-bottom: 0;
+	}
+	.store_block-product-price-new {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.store_block-product-price-old {
+		font-size: 32px;
+		line-height: 40px;
 	}
 }
