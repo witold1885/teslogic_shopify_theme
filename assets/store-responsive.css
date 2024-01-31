@@ -115,6 +115,9 @@
 }
 
 @media screen and (max-width: 999px) {
+	.store_block-product {
+		width: 100%;
+	}
 	.store_block-product-gallery {
 		display: none;
 	}
