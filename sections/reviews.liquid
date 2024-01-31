@@ -34,14 +34,14 @@
 				</div>
 			</div>
 			<div class="reviews-top-right">
-				<div class="reviews-rating-overall-title">Overall rating</div>
 				<div class="reviews-rating-overall-data">
+					<div class="reviews-rating-overall-title">Overall rating</div>
 					<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
-					<div class="reviews-rating-overall-data-star">
-						<img src="{{ 'star.svg' | asset_url }}" />
-					</div>	
+					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
 				</div>
-				<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
+				<div class="reviews-rating-overall-data-star">
+					<img src="{{ 'star.svg' | asset_url }}" />
+				</div>
 			</div>			
 		</div>
 		<div class="reviews-list" id="multipleReviews"></div>
