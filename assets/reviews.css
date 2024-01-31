@@ -156,6 +156,9 @@
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
 }
+.reviews-list-item-stars-mobile {
+	display: none;
+}
 .reviews-list-item-text {
 	color: #666;
 	font-family: Manrope;
