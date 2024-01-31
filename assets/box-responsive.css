@@ -152,4 +152,8 @@
 	.box_block-items {
 		flex-wrap: wrap;
 	}
+	.box_block-item {
+		width: 148px;
+		height: 188px;
+	}
 }
