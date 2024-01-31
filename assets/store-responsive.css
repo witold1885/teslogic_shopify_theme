@@ -145,6 +145,10 @@
 		font-size: 32px;
 		line-height: 40px;
 	}
+	.store_block-product-gallery-mobile {
+		display: block;
+		position: relative;
+	}
 	.store_block-product-gallery-main {
 		width: 335px;
 		height: 335px;
