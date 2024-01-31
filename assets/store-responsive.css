@@ -118,4 +118,8 @@
 	.store_block-product-gallery {
 		display: none;
 	}
+	.store_block-product-info-main {
+		display: flex;
+		flex-direction: row-reverse;
+	}
 }
