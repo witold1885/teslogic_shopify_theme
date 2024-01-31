@@ -58,8 +58,10 @@
 }
 .reviews-top-right {
 	display: flex;
+}
+.reviews-rating-overall-data {
+	display: flex;
 	flex-direction: column;
-	grid-row-gap: 8px;
 }
 .reviews-rating-overall-title {
 	color: #CADAFC;
@@ -69,12 +71,6 @@
 	font-weight: 500;
 	line-height: 20px;
 	margin-bottom: 10px;
-}
-.reviews-rating-overall-data {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 16px;
-	margin-bottom: 14px;
 }
 .reviews-rating-overall-data-value {
 	color: #FFF;
