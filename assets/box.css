@@ -39,6 +39,9 @@
 	font-weight: 400;
 	line-height: 32px;
 }
+.box_block-info-description-mobile {
+	display: none;
+}
 .box_block-image {
 	width: 306px;
 	height: 247px;

@@ -114,5 +114,38 @@
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
+}
 
+@media screen and (max-width: 999px) {
+	.box_block-wrap {
+		width: 335px;
+		margin: 0 auto;
+		padding-top: 96px;
+		padding-bottom: 96px;
+	}
+	.box_block-top {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: auto;
+		margin-bottom: 32px;
+	}
+	.box_block-info-title {
+		font-size: 32px;
+		line-height: 40px; 
+	}
+	.box_block-info-description {
+		display: none;
+	}
+	.box_block-info-description-mobile {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 16px;
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.box_block-image {
+		display: none;
+	}
 }
