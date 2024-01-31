@@ -155,6 +155,7 @@
 	}
 	.box_block-items {
 		flex-wrap: wrap;
+		justify-content: center;
 		grid-column-gap: 24px;
 		margin-bottom: 52px;
 	}
@@ -165,5 +166,13 @@
 	.box_block-item-big {
 		width: 234px;
 		height: 282px;
+	}
+	.box_block-item-top {
+		width: 148px;
+		height: 148px;
+	}
+	.box_block-item-big .box_block-item-top {
+		width: 234px;
+		height: 234px;
 	}
 }
