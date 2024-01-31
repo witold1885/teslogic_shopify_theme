@@ -192,6 +192,34 @@
 		var imgnum = 0
 		setGalleryImage()
 
+		const slider = document.querySelector('.store_block-product-gallery-mobile');
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+
+		slider.addEventListener('mousedown', (e) => {
+		  isDown = true;
+		  slider.classList.add('active');
+		  startX = e.pageX - slider.offsetLeft;
+		  scrollLeft = slider.scrollLeft;
+		});
+		slider.addEventListener('mouseleave', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mouseup', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mousemove', (e) => {
+		  if(!isDown) return;
+		  e.preventDefault();
+		  const x = e.pageX - slider.offsetLeft;
+		  const walk = (x - startX) * 1; //scroll-fast
+		  slider.scrollLeft = scrollLeft - walk;
+		  // console.log(walk);
+		});
+		
 		$('.store_block-product-gallery-item').on('click', function() {
 			imgnum = $(this).data('imgnum')
 			setGalleryImage()
@@ -220,16 +248,6 @@
 			})
 		}
 
-		/*var amount = Number($('#amount').text())
-		$('.store_block-product-amount-button-minus').on('click', function() {
-			if (amount <= 1) return
-			amount -= 1
-			$('#amount').text(amount)
-		})
-		$('.store_block-product-amount-button-plus').on('click', function() {
-			amount += 1
-			$('#amount').text(amount)
-		})*/
 		var model_id = null
 		// selectModel('TT22')
 		$('.store_block-product-select-dropdown-select').on('click', function() {
@@ -262,7 +280,6 @@
 				if ($(this).data('sku') == sku) $(this).addClass('store_block-product-select-dropdown-item-selected')
 					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
-			// $(model).addClass('store_block-product-select-dropdown-item-selected')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
 			price = model.data('price') / 100
@@ -270,19 +287,6 @@
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
 			}
-			/*if (model.data('compare_at_price')) {
-				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
-				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
-				$('.store_block-product-price-current').hide()
-				$('.store_block-product-price-old').show()
-				$('.store_block-product-price-new').show()
-			}
-			else {
-				$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
-				$('.store_block-product-price-old').hide()
-				$('.store_block-product-price-new').hide()
-				$('.store_block-product-price-current').show()
-			}*/
 			if (model.data('stock') <= 0) {
 				$('.store_block-add-wireless-charger-time').show()
 			}
