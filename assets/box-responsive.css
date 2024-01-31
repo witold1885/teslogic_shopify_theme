@@ -185,5 +185,22 @@
 	}
 	.box_block-charger-images-mobile {
 		display: flex;
+		justify-content: center;
+		align-items: center;
+		grid-column-gap: 23px;
+	}
+	.box_block-charger-images-mobile-item {
+		width: 148px;
+		height: 148px;
+		position: relative;
+	}
+	.box_block-charger-images-mobile-item > img {
+		position: absolute;
+	}
+	.box_block-charger-images-mobile-ellipse, 
+	.box_block-charger-images-mobile-photo {
+		width: 100%;
+		top: 0;
+		left: 0;
 	}
 }
