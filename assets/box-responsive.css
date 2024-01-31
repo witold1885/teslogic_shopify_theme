@@ -183,6 +183,7 @@
 	.box_block-charger-info-title {
 		font-size: 32px;
 		line-height: 40px;
+		margin-bottom: 20px;
 	}
 	.box_block-charger-info-description {
 		display: none;
@@ -214,6 +215,12 @@
 	}
 	.box_block-charger-images-mobile-item > img {
 		position: absolute;
+	}
+	.box_block-charger-images-mobile-image {
+		width: 93.854px;
+		height: 119.122px;
+		top: 27.98px;
+		left: 27.98px;
 	}
 	.box_block-charger-images-mobile-ellipse, 
 	.box_block-charger-images-mobile-photo {
