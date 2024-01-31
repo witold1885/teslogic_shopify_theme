@@ -155,6 +155,9 @@
 .box_block-charger-images-photo img {
 	width: 100%;
 }
+.box_block-charger-images-mobile {
+	display: none;
+}
 .box_block-charger-info {
 	display: flex;
 	flex-direction: column;
