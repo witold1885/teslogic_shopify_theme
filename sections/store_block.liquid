@@ -254,6 +254,7 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
+		var price = null, charger_selected = true
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
@@ -264,7 +265,8 @@
 			// $(model).addClass('store_block-product-select-dropdown-item-selected')
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
-			$('.store_block-product-add-mobile-total').text('$ ' + (model.data('price') / 100))
+			price = model.data('price') / 100
+			setTotalPrice(price, charger_selected)
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
 			}
@@ -290,8 +292,18 @@
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('#select-charger').on('change', function() {
-			console.log($(this).prop('checked'))
+			charger_selected = $(this).prop('checked')
+			setTotalPrice(price, charger_selected)
 		})
+		function setTotalPrice(price, charger_selected) {
+			if (price) {
+				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
+				$('.store_block-product-add-mobile-total').text('$ ' + totalPrice)
+			}
+			else {
+				$('.store_block-product-add-mobile-total').text('')
+			}
+		}
 		var cart_qty = Number({{ cart.item_count }})
 		$('.store_block-product-add').on('click', function() {
 			console.log('click to add')
