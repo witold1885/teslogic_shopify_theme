@@ -110,6 +110,7 @@
 	var p = 1;
 	var r = 0;
 	totalData[p] = [];
+	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
   window.reviewLoaded = function(a) {
     window.reviewApp.reviews.push(a);
     if (window.reviewApp.productIdList.length) {
@@ -140,6 +141,10 @@
 	        		<div class="reviews-list-item-top-left">
 	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
 	        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+	        			<div class="reviews-list-item-stars-mobile product-review-stars">
+	        				<img class="reviews-list-item-stars-mobile-icon" src="${starMobile}" />
+	        				<div class="reviews-list-item-stars-mobile-value">${ratingMark}</div>
+	        			</div>
 	        		</div>
         			<div class="reviews-list-item-date">${reviewDate}</div>
         		</div>
