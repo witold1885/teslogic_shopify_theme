@@ -230,6 +230,10 @@
 		width: 128px;
 		height: 128px;
 	}
+	.reviews-list {
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
 
 
 }
