@@ -132,7 +132,8 @@
 	}
 	.box_block-info-title {
 		font-size: 32px;
-		line-height: 40px; 
+		line-height: 40px;
+		margin-bottom: 20px;
 	}
 	.box_block-info-description {
 		display: none;
@@ -147,5 +148,8 @@
 	}
 	.box_block-image {
 		display: none;
+	}
+	.box_block-items {
+		flex-wrap: wrap;
 	}
 }
