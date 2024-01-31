@@ -115,6 +115,10 @@
 }
 
 @media screen and (max-width: 999px) {
+	.store_block {
+		padding-top: 96px;
+		padding-bottom: 100px;
+	}
 	.store_block-product {
 		width: 100%;
 	}
