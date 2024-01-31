@@ -113,3 +113,9 @@
 		line-height: calc(20 * 100vw / 1440);
 	}
 }
+
+@media screen and (max-width: 999px) {
+	.store_block-product-gallery {
+		display: none;
+	}
+}
