@@ -11,9 +11,6 @@
 	margin: 0 auto;
 	grid-column-gap: 36px;
 }
-.store_block-product-mobile {
-	display: none;
-}
 .store_block-product-gallery {
 	display: flex;
 	align-items: center;
