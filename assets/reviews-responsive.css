@@ -220,7 +220,15 @@
 	}
 	.reviews-title {
 		font-size: 32px;
-		line-height: 40x;
+		line-height: 40px;
+	}
+	.reviews-top-right {
+		flex-direction: row-reverse;
+		grid-column-gap: 26px;
+	}
+	.reviews-rating-overall-data-star {
+		width: 128px;
+		height: 128px;
 	}
 
 
