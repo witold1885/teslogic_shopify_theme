@@ -235,6 +235,7 @@
 		cursor: pointer;*/
 	}
 	.store_block-product-add-mobile {
+		display: flex;
 		width: 100%;
 		padding: 16px 0;
 		border-radius: 100px;
