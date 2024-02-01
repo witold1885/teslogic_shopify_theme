@@ -199,9 +199,6 @@
 		display: none;
 	}
 	.top .buttons {
-		/*width: 153px;*/
-		/*height: 26px;*/
-		margin-right: 25px;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
