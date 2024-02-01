@@ -172,10 +172,17 @@
 			var column2Height = 0;
 			var rowGap = 24;
 			var paddingBottom = 76;
+			var maxMobileItemHeight = 440;
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
 			  console.log(itemHeight)
+			  if (window.innerWidth < 1000 && itemHeight >= maxMobileItemHeight) {
+					item.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+					item.style.backgroundClip = 'text';
+					item.style.webkitBackgroundClip = 'text';
+					item.style.webkitTextFillColor = 'transparent';
+			  }
 
 			  if (column1Height <= column2Height) {
 			    column1Height += itemHeight + rowGap;
