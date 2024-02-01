@@ -76,6 +76,9 @@
 		grid-column-gap: 9px;
 		grid-row-gap: 48px;
 	}
+	.footer-menu__list {
+		width: 163px;
+	}
 	.footer-menu__list-title {
 		font-size: 18px;
 		line-height: 24px;
