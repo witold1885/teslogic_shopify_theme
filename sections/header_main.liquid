@@ -171,8 +171,8 @@ with access to advanced Tesla features</div>
 </header>
 
 <header id="header_mobile">
-  <div class="top top-menu-closed">
-    <div class="top-wrap">
+  <div class="top-wrap">
+    <div class="top top-menu-closed">
       <a href="/" class="logo">
         <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
         <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
@@ -305,6 +305,11 @@ with access to advanced Tesla features</div>
         }
         else {      
           $('#header_sticky').css({display: 'none'})
+        }
+      }
+      else {
+        if (window.pageYOffset >= window.innerHeight) {
+          console.log('banner passed');
         }
       }
     }
