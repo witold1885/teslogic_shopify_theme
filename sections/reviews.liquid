@@ -423,6 +423,7 @@
 
 	$(document).on('click', '.reviews-list-item', function() {
 		console.log($(this).data('collapsed'))
+		console.log(typeof $(this).data('collapsed'))
 		if ($(this).data('collapsed') == 'true') {
 	  	let itemText = $(this).find('.reviews-list-item-text');
 		console.log(itemText)
