@@ -137,7 +137,6 @@
         let reviewAuthor = reviewerArray[0].trim()
         let reviewDate = reviewerArray[1].trim()
         let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
-        console.log(ratingMark)
         let reviewHtml = `
         	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
         		<div class="reviews-list-item-top">
@@ -176,7 +175,6 @@
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
-			  console.log(itemHeight)
 			  if (window.innerWidth < 1000 && itemHeight >= maxMobileItemHeight) {
 			  	let itemText = item.querySelector('.reviews-list-item-text');
 					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
