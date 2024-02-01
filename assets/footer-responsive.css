@@ -90,10 +90,23 @@
 		display: flex;
 		grid-column-gap: 8px;
 	}
+	.footer-links__item {
+		width: 164px;
+		height: 52px;
+	}
+	.footer-links__item img {
+		width: 100%;
+	}
 	.footer-divider {
 		margin: 24px 0 20px;
 	}
 	.footer-bottom {
 		flex-direction: column;
+	}
+	.footer-bottom__text br {
+		display: none;
+	}
+	.footer-bottom__right {
+		justify-content: space-between;
 	}
 }
