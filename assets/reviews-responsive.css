@@ -337,7 +337,17 @@
 		flex-direction: column;
 		grid-row-gap: 28px;
 	}
+	.reviews-form-column {
+		width: 288px;
+		grid-row-gap: 28px;
+	}
+	.spr-form-review-rating {
+		margin-bottom: 0;
+	}
 	.reviews-form-actions {
 		margin-top: 24px;
+	}
+	.reviews-form-actions .spr-button {
+		width: 288px;
 	}
 }
