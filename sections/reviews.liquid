@@ -113,6 +113,7 @@
 	var r = 0;
 	totalData[p] = [];
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
+	var reviewsContainerHeight = null;
   window.reviewLoaded = function(a) {
     window.reviewApp.reviews.push(a);
     if (window.reviewApp.productIdList.length) {
@@ -182,7 +183,11 @@
 			  }
 			});
 
-			reviewsContainer.style.height = (Math.max(column1Height, column2Height) - 2 * rowGap + paddingBottom) + 'px';
+			reviewsContainerHeight = (Math.max(column1Height, column2Height) - 2 * rowGap + paddingBottom) + 'px'
+
+			if (window.innerWidth >= 1000) {
+				reviewsContainer.style.height = reviewsContainerHeight;
+			}
 
 
       var tmpScriptDiv = document.createElement('div');
