@@ -304,16 +304,17 @@ with access to advanced Tesla features</div>
       }
     }
     $('.button-menu').on('click', function() {
+      console.log('clicked')
       $('.burger-menu-wrap').show()
       $('.button-close').show()
       $(this).hide()
-      $(this).parents('#header_mobile').find('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
+      $(this).parents('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
     })
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
       $('.button-menu').show())
       $(this).hide()
-      $(this).parents('#header_mobile').find('.top').removeClass('top-menu-opened').addClass('.top-menu-closed')
+      $(this).parents('.top').removeClass('top-menu-opened').addClass('.top-menu-closed')
     })
     $(document).on('click', 'a[href^="#"]', function (e) {
       /*$('.burger-menu-wrap').hide()
