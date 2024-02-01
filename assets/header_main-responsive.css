@@ -223,6 +223,9 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: 20px;
+		border: none;
+		outline: none;
+		box-shadow: none;
 	}
 	.button-close {
 		display: none;
@@ -326,16 +329,28 @@
 	}
 	.banner-button-buy {
 		width: 100%;
-		padding: 16px 40px;
 		border-radius: 54px;
-		border: none;
-		background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.12);
+		backdrop-filter: blur(8px);
 		text-align: center;
 		font-family: Manrope;
 		font-size: 18px;
 		font-style: normal;
 		font-weight: 500;
 		line-height: 24px;
+	}
+	.banner-menu-closed .banner-button-buy {
+		padding: 16px 40px;
+		border: none;
+		color: #FFF;
+		background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.12);
+
+	}
+	.banner-menu-opened .banner-button-buy {
+		padding: 14px 38px;
+		border: 2px solid #0068FD;
+		color: #1657FC;
+		background: rgba(255, 255, 255, 0.04);
+		
 	}
 	.banner-button-buy:hover {
 		padding: 16px 40px;
