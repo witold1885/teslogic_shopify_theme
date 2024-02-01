@@ -296,10 +296,12 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		grid-row-gap: 20px;
 		margin-top: 48px;
 	}
 	.reviews-bottom-text {
 		width: 100%;
+		text-align: center;
 		font-size: 32px;
 		line-height: 40px;
 	}
