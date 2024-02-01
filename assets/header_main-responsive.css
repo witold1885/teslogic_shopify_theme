@@ -269,6 +269,7 @@
 		align-items: center;
 	}
 	.banner-top {
+		width: 335px;
 		margin-top: 180px;
 		display: flex;
 		flex-direction: column;
@@ -281,7 +282,6 @@
 		font-style: normal;
 		font-weight: 600;
 		line-height: 48px;
-		width: 335px;
 		text-align: left;
 	}
 	.banner__subtitle {
@@ -291,14 +291,15 @@
 		font-style: normal;
 		font-weight: 300;
 		line-height: 24px;
-		width: 335px;
 		text-align: left;
 	}
 	.banner-bottom {
+		width: 335px;
 		display: flex;
 		flex-direction: column;
 	}
 	.banner-buttons {
+		width: 100%;
 		position: unset;
 	}
 	.banner-button-learn {
