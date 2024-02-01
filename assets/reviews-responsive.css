@@ -185,6 +185,8 @@
 
 @media screen and (max-width: 999px) {
 	.reviews {
+		width: 100vw;
+		margin-left: calc(-1 * (100vw - 375px) / 2);
 		padding-top: 96px;
 		padding-bottom: 96px;
 	}
