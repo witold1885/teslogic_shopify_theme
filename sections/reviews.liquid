@@ -422,18 +422,25 @@
 	})
 
 	$(document).on('click', '.reviews-list-item', function() {
-		console.log($(this).data('collapsed'))
-		console.log(typeof $(this).data('collapsed'))
-		if ($(this).data('collapsed') == true) {
-	  	let itemText = $(this).find('.reviews-list-item-text');
-		console.log(itemText)
+		let collapsed = $(this).data('collapsed');
+	  let itemText = $(this).find('.reviews-list-item-text');
+		if (collapsed == true) {
 			$(itemText).css('background', 'unset');
 			$(itemText).css('background-clip', 'unset');
 			$(itemText).css('-webkit-background-clip', 'unset');
 			$(itemText).css('-webkit-text-fill-color', 'unset');
 			$(this).css('max-height', 'unset');
 			$(this).data('collapsed', false);
-
+			return;
+		}
+		else if (collapsed == false) {
+			$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
+			$(itemText).css('background-clip', 'text');
+			$(itemText).css('-webkit-background-clip', 'text');
+			$(itemText).css('-webkit-text-fill-color', 'transparent');
+			$(this).css('max-height', '440px');
+			$(this).data('collapsed', true);
+			return;
 		}
 	})
 
