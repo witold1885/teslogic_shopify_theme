@@ -102,6 +102,7 @@
 	}
 	.footer-bottom {
 		flex-direction: column;
+		grid-row-gap: 32px;
 	}
 	.footer-bottom__text br {
 		display: none;
@@ -109,6 +110,8 @@
 	.footer-bottom__right {
 		flex-direction: column;
 		justify-content: flex-start;
+		align-items: flex-start;
+		grid-row-gap: 32px;
 	}
 	.footer-bottom__icons {
 		justify-content: space-between;
