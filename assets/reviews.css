@@ -297,7 +297,6 @@
 input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) {
 	width: 100%;
 	padding: 16px;
-	border-radius: 15px;
 	border-radius: 6px;
 	border: 1px solid #D9D9D9;
 	background: transparent;
