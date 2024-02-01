@@ -178,10 +178,11 @@
 			  var itemHeight = item.offsetHeight;
 			  console.log(itemHeight)
 			  if (window.innerWidth < 1000 && itemHeight >= maxMobileItemHeight) {
-					item.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
-					item.style.backgroundClip = 'text';
-					item.style.webkitBackgroundClip = 'text';
-					item.style.webkitTextFillColor = 'transparent';
+			  	let itemText = item.querySelector('.reviews-list-item-text');
+					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+					itemText.style.backgroundClip = 'text';
+					itemText.style.webkitBackgroundClip = 'text';
+					itemText.style.webkitTextFillColor = 'transparent';
 			  }
 
 			  if (column1Height <= column2Height) {
