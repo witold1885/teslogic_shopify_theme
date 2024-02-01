@@ -182,9 +182,9 @@
 		margin: 68px auto 0;
 	}
 	.top .logo {
-		width: 153px;
-		height: 26px;
-		margin-left: 23px;
+		width: 145px;
+		height: 16px;
+		margin-left: 0;
 		display: flex;
 		align-items: center;
 	}
