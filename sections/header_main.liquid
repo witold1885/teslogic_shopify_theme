@@ -173,7 +173,8 @@ with access to advanced Tesla features</div>
 <header id="header_mobile">
   <div class="top top-menu-closed">
     <a href="/" class="logo">
-      <img src="{{ 'logo.svg' | asset_url }}">
+      <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
+      <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
     </a>
     <div class="buttons">
       <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
@@ -302,6 +303,8 @@ with access to advanced Tesla features</div>
       $('.button-close').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-closed').addClass('top-menu-opened')
+      $(this).parents('.top').find('.logo-white').hide()
+      $(this).parents('.top').find('.logo-black').show()
       $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-closed').addClass('banner-menu-opened')
     })
     $('.button-close').on('click', function() {
@@ -309,6 +312,8 @@ with access to advanced Tesla features</div>
       $('.button-menu').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-opened').addClass('top-menu-closed')
+      $(this).parents('.top').find('.logo-black').hide()
+      $(this).parents('.top').find('.logo-white').show()
       $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-opened').addClass('banner-menu-closed')
     })
 
