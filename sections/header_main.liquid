@@ -206,7 +206,7 @@ with access to advanced Tesla features</div>
       {% if link.title != 'Community' %}
         <div
           class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
-          {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
+          {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
         >
           <a href="{{ link.url }}">{{ link.title }}</a>
           {% if link.links.size > 0 or link.title == 'Other Products' %}
