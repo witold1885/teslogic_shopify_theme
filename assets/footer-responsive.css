@@ -107,6 +107,19 @@
 		display: none;
 	}
 	.footer-bottom__right {
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	.footer-bottom__icons {
 		justify-content: space-between;
+	}
+	.footer-bottom__icons img {
+		width: 32px;
+		height: 20px;
+	} 
+	.footer-bottom__copyright {
+		text-align: left;
+		font-size: 16px;
+		line-height: 20px;
 	}
 }
