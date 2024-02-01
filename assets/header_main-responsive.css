@@ -280,14 +280,17 @@
 	}
 	.menu__item-dropdown {
 		width: 100%;
-		padding-right: 0;
 		position: unset;
 		padding: 0;
 		margin-top: 24px;
+		grid-row-gap: 20px;
+		border-radius: unset;
+		background: transparent;
+		box-shadow: unset;
 	}
 	.menu__item-dropdown-link {
-		white-space: normal;
-		margin-right: 20px;
+/*		white-space: normal;*/
+/*		margin-right: 20px;*/
 	}
 	.banner {
 		width: 100%;
