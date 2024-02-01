@@ -272,6 +272,8 @@ with access to advanced Tesla features</div>
   $(document).ready(function() {
     window.addEventListener('scroll', setStickyHeader)
     function setStickyHeader() {
+          console.log('setStickyHeader');
+  console.log(window.innerWidth)
       if (window.innerWidth >= 1000) {
         var header_main_height = $('#header_main').height()
         var header_top_height = $('#header_main').find('.top').height()
