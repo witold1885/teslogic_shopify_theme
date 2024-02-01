@@ -240,22 +240,28 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		background: #FFF;
 	}
 	.burger-menu {
 		width: 100%;
-		padding-top: 97.57px;
-		padding-bottom: 48.785px;
+		padding-top: 106px;
+		padding-bottom: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		grid-row-gap: 24px;
+		grid-row-gap: 48px;
 	}
 	/*.header_mobile-fix {
 		height: 104px;
 	}*/
 	.menu__item {
-		font-family: 'Gotham-Medium';
-		font-weight: 400;
+		color: #000;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 20px;
 	}
 	.menu__item-cart {
 		width: auto;
