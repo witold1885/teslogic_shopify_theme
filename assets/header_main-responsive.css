@@ -252,12 +252,13 @@
 		background: #FFF;
 	}
 	.burger-menu {
-		width: 100%;
+		width: 335px;
+		margin: 0 auto;
 		padding-top: 106px;
 		padding-bottom: 0;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+  		align-items: flex-start;
 		grid-row-gap: 48px;
 	}
 	/*.header_mobile-fix {
@@ -272,6 +273,7 @@
 		font-style: normal;
 		font-weight: 600;
 		line-height: 20px;
+		padding: 0;
 	}
 	.menu__item-title {
 		display: flex;
