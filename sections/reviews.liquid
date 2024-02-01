@@ -229,9 +229,15 @@
 	        <input type="hidden" name="review[rating]">
 	        <input type="hidden" name="product_id" value="8143253733590">
 	        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
+	        <div class="reviews-form-top">
+        		<h3 class="spr-form-title">Write a review</h3>
+        		<div class="reviews-form-field spr-form-review-rating">
+        			<div class="spr-form-review-rating-title">Rate:</div>
+        			<div>${$(form).find('.spr-form-review-rating').find('.spr-form-input.spr-starrating').html()}</div>
+	        	</div>
+	        </div>
 	        <div class="reviews-form-body">
 	        	<div class="reviews-form-column">
-	        		<h3 class="spr-form-title">Write a review</h3>
 		        	<div class="reviews-form-field spr-form-contact-name">
 		        		${$(form).find('.spr-form-contact-name').html()}
 		        		<div class="reviews-form-field-error">Please, fill in the field</div>
@@ -242,10 +248,6 @@
 		        	</div>
 	        	</div>
 	        	<div class="reviews-form-column">
-	        		<div class="reviews-form-field spr-form-review-rating">
-	        			<div class="spr-form-review-rating-title">Rate:</div>
-	        			<div>${$(form).find('.spr-form-review-rating').find('.spr-form-input.spr-starrating').html()}</div>
-		        	</div>
 		        	<div class="reviews-form-field spr-form-review-body">
 		        		${$(form).find('.spr-form-review-body').html()}
 		        		<div class="reviews-form-field-error">Please, fill in the field</div>
