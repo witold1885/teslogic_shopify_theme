@@ -258,6 +258,7 @@
 		height: 104px;
 	}*/
 	.menu__item {
+		flex-direction: column;
 		color: #000;
 		text-align: center;
 		font-family: Manrope;
@@ -265,6 +266,11 @@
 		font-style: normal;
 		font-weight: 600;
 		line-height: 20px;
+	}
+	.menu__item-title {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 4px;
 	}
 	.menu__item-cart {
 		width: auto;
