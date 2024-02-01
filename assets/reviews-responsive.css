@@ -292,6 +292,12 @@
 		font-size: 16px;
 		line-height: 20px;
 	}
+	.reviews-bottom {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 52px;
+	}
 
 
 }
