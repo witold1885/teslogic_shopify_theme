@@ -178,7 +178,7 @@ with access to advanced Tesla features</div>
 </header>
 
 <header id="header_mobile">
-  <div class="top">
+  <div class="top top-menu-closed">
     <a href="/" class="logo">
       <img src="{{ 'logo.svg' | asset_url }}">
     </a>
@@ -306,10 +306,14 @@ with access to advanced Tesla features</div>
     $('.button-menu').on('click', function() {
       $('.burger-menu-wrap').show()
       $('.button-close').show()
+      $(this).hide()
+      $(this).parents('#header_mobile').find('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
     })
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
-      $('.button-close').hide()
+      $('.button-menu').show())
+      $(this).hide()
+      $(this).parents('#header_mobile').find('.top').removeClass('top-menu-opened').addClass('.top-menu-closed')
     })
     $(document).on('click', 'a[href^="#"]', function (e) {
       /*$('.burger-menu-wrap').hide()
