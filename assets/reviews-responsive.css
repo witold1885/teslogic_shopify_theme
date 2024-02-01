@@ -230,9 +230,22 @@
 		width: 128px;
 		height: 128px;
 	}
+	.reviews-wrap {
+		cursor: grab;
+		user-select: none;
+		overflow-x: visible;
+		width: 100vw;
+		margin-right: 20px;
+		margin-left: calc(-1 * (100vw - 390px) / 2);
+	}
 	.reviews-list {
 		flex-direction: row;
 		flex-wrap: nowrap;
+		overflow-x: scroll;
+		margin-left: calc((100vw - 390px) / 2);
+		padding-right: 20px;
+		padding-bottom: 60px;
+		scrollbar-color: #FFFFFF #8478F7;
 	}
 	.reviews-list-item {
 		width: 304px;
