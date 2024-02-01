@@ -231,7 +231,7 @@ with access to advanced Tesla features</div>
     </div>
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
-  <div class="banner">
+  <div class="banner banner-menu-closed">
     <div class="banner-top">
       <div class="banner__title">Meet Teslogic v2</div>
       <div class="banner__subtitle">Powerful Dashboard for Model 3/Y<br>
@@ -302,12 +302,14 @@ with access to advanced Tesla features</div>
       $('.button-close').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
+      $(this).parents('#header_mobile').find('.banner').removeClass('.banner-menu-closed').addClass('.banner-menu-opened')
     })
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
       $('.button-menu').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-opened').addClass('.top-menu-closed')
+      $(this).parents('#header_mobile').find('.banner').removeClass('.banner-menu-opened').addClass('.banner-menu-closed')
     })
 
     $(document).on('click', 'a[href^="#"]', function (e) {
