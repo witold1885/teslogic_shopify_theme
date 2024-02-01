@@ -278,6 +278,9 @@
 		align-items: center;
 		grid-column-gap: 4px;
 	}
+	.menu__item-opened .menu__item-title {
+		color: #BFBFBD;
+	}
 	.menu__item-cart {
 		width: auto;
 		height: 40px;
