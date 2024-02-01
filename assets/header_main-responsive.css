@@ -211,6 +211,18 @@
 		width: 29px;
 		height: 22px;
 	}
+	.button-menu {
+		padding: 8px 16px;
+		border-radius: 54px;
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(8px);
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
 	.button-close {
 		display: none;
 		z-index: 2;
