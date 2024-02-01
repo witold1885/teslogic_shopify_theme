@@ -172,26 +172,28 @@ with access to advanced Tesla features</div>
 
 <header id="header_mobile">
   <div class="top top-menu-closed">
-    <a href="/" class="logo">
-      <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
-      <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
-    </a>
-    <div class="buttons">
-      <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
-      <div 
-        class="menu__item menu__item-cart"
-        {% if cart.item_count == 0 %} style="display: none;" {% endif %}
-      >
-        <a href="/cart">
-          <div class="cart-icon-wrap">
-            <img src="{{ 'cart-white.svg' | asset_url }}">
-            <div class="cart-qty">{{ cart.item_count }}</div>
-          </div>
-        </a>
-      </div>      
-      <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
-      <button type="button" class="mob-button button-menu">Menu</button>
-      <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
+    <div class="top-wrap">
+      <a href="/" class="logo">
+        <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
+        <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
+      </a>
+      <div class="buttons">
+        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
+        <div 
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+          </a>
+        </div>      
+        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        <button type="button" class="mob-button button-menu">Menu</button>
+        <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
+      </div>
     </div>
   </div>
   <div class="burger-menu-wrap">
