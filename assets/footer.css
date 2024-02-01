@@ -94,6 +94,9 @@ footer {
 	display: flex;
 	grid-column-gap: 24px;
 }
+.footer-links-mobile {
+	display: none;
+}
 .footer-divider {
 	display: block!important;
 	width: 100%;
