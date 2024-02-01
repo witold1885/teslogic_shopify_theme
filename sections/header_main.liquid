@@ -203,7 +203,7 @@ with access to advanced Tesla features</div>
           {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Other Products' %}
-            <div>
+            <div class="menu__item-title">
               <a href="{{ link.url }}">{{ link.title }}</a>
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -228,7 +228,7 @@ with access to advanced Tesla features</div>
               </ul>
             {% endif %}
           {% else %}
-            <div>
+            <div class="menu__item-title">
               <a href="{{ link.url }}">{{ link.title }}</a>
             </div>
           {% endif %}
