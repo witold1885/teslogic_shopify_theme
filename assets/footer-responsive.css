@@ -69,9 +69,6 @@
 		width: 164px;
 		height: 28px;
 	}
-	.footer-links {
-		display: none;
-	}
 	.footer-menu {
 		grid-column-gap: 9px;
 		grid-row-gap: 48px;
@@ -85,5 +82,18 @@
 	}
 	.footer-menu__list-items {
 		grid-row-gap: 16px;
+	}
+	.footer-links {
+		display: none;
+	}
+	.footer-links-mobile {
+		display: flex;
+		grid-column-gap: 8px;
+	}
+	.footer-divider {
+		margin: 24px 0 20px;
+	}
+	.footer-bottom {
+		flex-direction: column;
 	}
 }
