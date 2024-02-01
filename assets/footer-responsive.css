@@ -55,95 +55,21 @@
 }
 
 @media screen and (max-width: 999px) {
-	footer {
-		padding: 0;
-	}
 	.footer__wrap {
-		max-width: 390px;
-		padding: 34px 20px 42px;
+		width: 335px;
 		margin: 0 auto;
-		box-sizing: border-box;
+		padding-top: 72px;
+		padding-bottom: 72px;
 	}
 	.footer-top {
 		flex-direction: column;
-		justify-content: flex-start;
-		align-items: flex-start;
-		grid-row-gap: 40px;
-		margin-bottom: 64px;
-	}
-	.footer-top .logo {
-		width: 188px;
-		height: 32px;
-	}
-	.footer-top .logo img {
-		width: 100%;
-	}
-	.footer-menu {
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;
-		grid-column-gap: 40px;
 		grid-row-gap: 40px;
 	}
-	.footer-menu__list-contacts {
-/*		width: 180px;*/
-		width: 155px;
+	.footer-top .logo {	
+		width: 164px;
+		height: 28px;
 	}
-	/*.footer-menu__list-resources {
-		display: block;
-	}
-	.footer-menu__list-dashboard-kit {
+	.footer-links {
 		display: none;
-	}*/
-	.footer-menu__list-other-products {
-/*		display: none;*/
-		width: 155px;
-	}
-	/*.footer-menu__list-legal {
-		width: 180px;
-	}*/
-	.footer-menu__list-community {
-/*		display: none;*/
-		width: 155px;
-	}
-	.footer-menu__list-social {
-
-	}
-	/*.footer-menu__list:not(:nth-child(2n)) {
-		width: 180px;
-	}*/
-	.footer-menu__list-title {
-		font-size: 20px;
-		line-height: 24px;
-		margin-bottom: 16px;
-	}
-	.footer-menu__list-items {
-		grid-row-gap: 15px;
-	}
-	.footer-menu__list-items-desktop {
-		display: none;
-	}
-	.footer-menu__list-items-mobile {
-		display: flex;
-	}
-	.footer-menu__list-items li {
-		font-size: 14px;
-		line-height: 17px;
-	}
-	.footer-bottom {
-		flex-direction: column;
-		grid-row-gap: 40px;
-		/*justify-content: space-between;
-		align-items: flex-start;*/
-	}
-	.footer-bottom__text {
-		width: 100%;
-		height: 68px;
-		font-size: 14px;
-		line-height: 17px;
-	}
-	.footer-bottom__copyright {
-		font-size: 16px;
-		line-height: 24px;
 	}
 }
