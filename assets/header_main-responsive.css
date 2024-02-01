@@ -192,6 +192,12 @@
 	.top .logo img {
 		width: 100%;
 	}
+	.logo-white {
+		display: block;
+	}
+	.logo-black {
+		display: none;
+	}
 	.top .buttons {
 		/*width: 153px;*/
 		/*height: 26px;*/
@@ -283,6 +289,7 @@
 		position: unset;
 		padding: 0;
 		margin-top: 24px;
+		align-items: flex-start;
 		grid-row-gap: 20px;
 		border-radius: unset;
 		background: transparent;
