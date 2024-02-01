@@ -254,6 +254,9 @@
 		padding: 24px;
 		max-height: 440px;
 	}
+	.reviews-list-item-top {
+		width: 304px;
+	}
 	.reviews-list-item-top-left {
 		grid-column-gap: 8px;
 	}
