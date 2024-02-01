@@ -255,7 +255,7 @@
 		max-height: 440px;
 	}
 	.reviews-list-item-top {
-		width: 304px;
+		width: 256px;
 	}
 	.reviews-list-item-top-left {
 		grid-column-gap: 8px;
@@ -271,6 +271,22 @@
 		display: flex;
 		align-items: center;
 		grid-column-gap: 4px;
+	}
+	.reviews-list-item-stars-mobile-value {
+		color: #000;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
+	.reviews-list-item-text {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.reviews-list-item-author {
+		font-size: 16px;
+		line-height: 20px;
 	}
 
 
