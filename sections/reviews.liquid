@@ -175,6 +175,7 @@
 
 			reviewItems.forEach(function(item, index) {
 			  var itemHeight = item.offsetHeight;
+			  console.log(itemHeight)
 
 			  if (column1Height <= column2Height) {
 			    column1Height += itemHeight + rowGap;
@@ -398,7 +399,7 @@
 		  // console.log(walk);
 		});
   })
-  
+
 	$('#showForm').on('click', function() {
 		$('.new-review-form').css('display', 'block')
 		$('.reviews-form-shadow').css('display', 'flex')
