@@ -324,6 +324,10 @@
 		top: 20px;
 		right: 20px;
 	}
+	.reviews-form-top {
+		flex-direction: column;
+		grid-row-gap: 24px;
+	}
 	.spr-form-title {
 		font-size: 24px;
 		line-height: 32px;
