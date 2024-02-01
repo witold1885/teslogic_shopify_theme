@@ -285,6 +285,8 @@
 	.reviews-list-item-text {
 		font-size: 16px;
 		line-height: 20px;
+		text-overflow: ellipsis;
+  		overflow: hidden;
 	}
 	.reviews-list-item-author {
 		font-size: 16px;
