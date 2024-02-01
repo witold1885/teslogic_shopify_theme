@@ -219,9 +219,6 @@ with access to advanced Tesla features</div>
                 {% endfor %}
               </ul>
             {% else %}
-              <div>
-                <a href="{{ link.url }}">{{ link.title }}</a>
-              </div>
               <ul class="menu__item-dropdown">
                 {% for child_link in link.links %}
                   <li class="menu__item-dropdown-link">
@@ -230,6 +227,10 @@ with access to advanced Tesla features</div>
                 {% endfor %}
               </ul>
             {% endif %}
+          {% else %}
+            <div>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </div>
           {% endif %}
         </div>
       {% endif %}
