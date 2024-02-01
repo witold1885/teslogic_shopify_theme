@@ -183,6 +183,7 @@
 					itemText.style.backgroundClip = 'text';
 					itemText.style.webkitBackgroundClip = 'text';
 					itemText.style.webkitTextFillColor = 'transparent';
+					item.setAttribute('data-collapsed', 'true');
 			  }
 
 			  if (column1Height <= column2Height) {
@@ -418,6 +419,19 @@
 	
 	$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
 		window.newReviewRating = $(this).data('value')
+	})
+
+	$('.reviews-list-item').on('click', function() {
+		if ($(this).data('collapsed') == 'true') {
+	  	let itemText = $(this).find('.reviews-list-item-text');
+			$(itemText).css('background', 'unset');
+			$(itemText).css('background-clip', 'unset');
+			$(itemText).css('-webkit-background-clip', 'unset');
+			$(itemText).css('-webkit-text-fill-color', 'unset');
+			$(this).css('max-height', 'unset');
+			$(this).data('collapsed', 'false');
+
+		}
 	})
 
 	$(document).on('click', '.reviews-form-actions .spr-button', function(e) {
