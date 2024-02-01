@@ -322,4 +322,10 @@
 	.banner-button-learn {
 		display: none;
 	}
+	.expand {
+		margin-bottom: 0;
+		width: 64px;
+		height: 64px;
+		cursor: pointer;
+	}
 }
