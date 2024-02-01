@@ -64,6 +64,7 @@
 	.footer-top {
 		flex-direction: column;
 		grid-row-gap: 40px;
+		margin-bottom: 0;
 	}
 	.footer-top .logo {	
 		width: 164px;
@@ -96,6 +97,7 @@
 	}
 	.footer-links__item img {
 		width: 100%;
+		height: 100%;
 	}
 	.footer-divider {
 		margin: 24px 0 20px;
