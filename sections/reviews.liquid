@@ -421,7 +421,7 @@
 		window.newReviewRating = $(this).data('value')
 	})
 
-	$('.reviews-list-item').on('click', function() {
+	$(document).on('click', '.reviews-list-item', function() {
 		console.log($(this).data('collapsed'))
 		if ($(this).data('collapsed') == 'true') {
 	  	let itemText = $(this).find('.reviews-list-item-text');
