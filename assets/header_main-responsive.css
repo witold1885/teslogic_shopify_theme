@@ -289,4 +289,7 @@
 		width: 335px;
 		text-align: left;
 	}
+	.banner-button-learn {
+		display: none;
+	}
 }
