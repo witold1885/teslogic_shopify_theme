@@ -297,6 +297,7 @@
 		width: 335px;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 	.banner-buttons {
 		width: 100%;
