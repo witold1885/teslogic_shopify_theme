@@ -422,6 +422,7 @@
 	})
 
 	$('.reviews-list-item').on('click', function() {
+		console.log($(this).data('collapsed'))
 		if ($(this).data('collapsed') == 'true') {
 	  	let itemText = $(this).find('.reviews-list-item-text');
 			$(itemText).css('background', 'unset');
