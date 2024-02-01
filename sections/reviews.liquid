@@ -359,6 +359,16 @@
     });*/
 	}
 
+	$(window).on('resize', function() {
+		let reviewsContainer = document.getElementById('multipleReviews');
+		if (window.innerWidth >= 1000) {
+			reviewsContainer.style.height = reviewsContainerHeight;
+		}
+		else {
+			reviewsContainer.style.height = 'auto';
+		}
+	})
+
 	$('#showForm').on('click', function() {
 		$('.new-review-form').css('display', 'block')
 		$('.reviews-form-shadow').css('display', 'flex')
