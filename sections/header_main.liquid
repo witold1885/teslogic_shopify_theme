@@ -303,20 +303,20 @@ with access to advanced Tesla features</div>
         $('#header_sticky').css({display: 'none'})
       }
     }
-    console.log($('.button-menu'))
+
     $('.button-menu').on('click', function() {
-      console.log('clicked')
       $('.burger-menu-wrap').show()
       $('.button-close').show()
-      // $(this).hide()
-      // $(this).parents('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
+      $(this).hide()
+      $(this).parents('.top').removeClass('top-menu-closed').addClass('.top-menu-opened')
     })
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
-      $('.button-menu').show())
+      $('.button-menu').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-opened').addClass('.top-menu-closed')
     })
+
     $(document).on('click', 'a[href^="#"]', function (e) {
       /*$('.burger-menu-wrap').hide()
       $('.button-close').hide()
