@@ -173,14 +173,14 @@
 		align-items: center;
 		position: relative;
 	}
-	.top {
+	.top-wrap {
 		width: 100%;
 		height: 52px;
 		position: fixed;
 		z-index: 10;
 		background: transparent;
 	}
-	.top-wrap {
+	.top {
 		width: 335px;
 /*		height: 36px;*/
 		padding-top: 8px;
