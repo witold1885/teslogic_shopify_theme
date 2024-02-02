@@ -386,6 +386,9 @@
 		  	console.log(content.scrollLeft)
 		  	console.log(content.scrollWidth)
 		  	console.log(contentWidth)
+		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  	
+		  	console.log(scrollLeftPercentage + '%')
 		  });
 		  /*container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
