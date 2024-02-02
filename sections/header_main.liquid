@@ -272,6 +272,7 @@ with access to advanced Tesla features</div>
   $(document).ready(function() {
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
+    $(document.body).on('scroll', setStickyHeader)
     $(window).on('scroll', setStickyHeader) 
     function setStickyHeader() {
           console.log('setStickyHeader');
@@ -314,6 +315,7 @@ with access to advanced Tesla features</div>
       }
       else {
         console.log(window.pageYOffset)
+        console.log(document.body.pageYOffset)
         if (window.pageYOffset >= window.innerHeight) {
           console.log('banner passed');
         }
