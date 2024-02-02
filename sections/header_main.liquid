@@ -329,7 +329,7 @@ with access to advanced Tesla features</div>
     }
 
     $('.button-menu').on('click', function() {
-      $('.burger-menu-wrap').show()
+      $('.burger-menu-wrap').css('display', 'flex')
       $('.button-close').show()
       $(this).hide()
       $(this).parents('.top').removeClass('top-menu-closed').addClass('top-menu-opened')
