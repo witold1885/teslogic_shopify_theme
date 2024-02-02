@@ -386,11 +386,11 @@
 			  updateScrollbarThumbPosition();
 			});
 
-			  var _startX = event.clientX;
-			  
+			  var _startX = null;
+
 			scrollbarThumb.addEventListener('mousedown', function (event) {
 			  // Запам'ятовуємо початкову позицію курсора
-
+				if (!_startX) _startX = event.clientX;
 			  // Запам'ятовуємо початкове положення scrollbarThumb
 			  // var startThumbLeft = parseFloat(scrollbarThumb.style.left);
 			  var startThumbLeft = parseFloat(scrollbarThumb.offsetLeft);
