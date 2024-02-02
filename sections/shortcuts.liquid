@@ -379,7 +379,7 @@
 
 		  	console.log(scrollLeftPercentage + '%')
 		  	console.log(scrollRightPercentage + '%')
-		  	scrollbarThumb.style.left = scrollLeftPercentage + '%'
+		  	scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - 56px`
 		  });
 		  /*container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
