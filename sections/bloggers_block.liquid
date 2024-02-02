@@ -224,10 +224,14 @@ $(document).ready(async function() {
 
 }
 @media screen and (max-width: 999px) {
+	.bloggers_block {
+		width: 100vw;
+		margin-left: calc(-1 * (100vw - 375px) / 2);
+	}
 	.bloggers_block-wrap {
-			width: 335px;
-			padding-top: 96px;
-			padding-bottom: 108px;
+		width: 335px;
+		padding-top: 96px;
+		padding-bottom: 108px;
 	}
 	.bloggers_block__title {
 		width: 100%;
