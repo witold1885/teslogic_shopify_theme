@@ -363,6 +363,7 @@
 	.burger-menu-wrap .banner-buttons {
 		width: 335px;
   		margin: 0 auto;
+  		padding-bottom: 64px;
 	}
 	.banner-button-buy {
 		width: 100%;
@@ -384,13 +385,13 @@
 	.banner-menu-closed .banner-button-buy:hover {
 		padding: 16px 40px;
 	}
-	.banner-menu-opened .banner-button-buy {
+	.burger-menu-wrap .banner-button-buy {
 		padding: 14px 38px;
 		border: 2px solid #0068FD;
 		color: #1657FC;
 		background: rgba(255, 255, 255, 0.04);		
 	}
-	.banner-menu-opened .banner-button-buy:hover {
+	.burger-menu-wrap .banner-button-buy:hover {
 		padding: 14px 38px;
 	}
 	.banner-button-learn {
