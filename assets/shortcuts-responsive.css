@@ -274,30 +274,16 @@
 		grid-column-gap: 20px;
 		margin-left: calc((100vw - 390px) / 2);
 		margin-right: 20px;
-/*		scrollbar-color: #1657FC #E3E3E3;*/
 		cursor: grab;
 		scrollbar-color: transparent transparent;
 	}
-	/*.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar:horizontal {
-	  height: 12px;
-	}
-	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-track {
-	  background-color: #E3E3E3;
-	}
-	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-thumb {
-	  background-color: #1657FC;
-	}
-	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar {
-	  -webkit-appearance: none;
-	}*/
 	.shortcuts-features-scrollbar {
 		position: relative;
-/*		bottom: 0;*/
-/*		left: 0;*/
 		margin-left: calc((100vw - 390px) / 2);
 		width: 335px;
-		height: 10px; /* Висота вашого скроллбару */
-		background-color: #E3E3E3; /* Колір фону за скроллбаром */
+		height: 4px;
+		border-radius: 2px;
+		background-color: #E3E3E3;
 		cursor: pointer;
 	}
 	.shortcuts-features-scrollbar-thumb {
@@ -306,8 +292,8 @@
 		left: 0;
 		width: 56px;
 		height: 100%;
-		background-color: #1657FC; /* Колір фону за скроллбаром */
-
+		border-radius: 2px;
+		background-color: #1657FC;
 	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
