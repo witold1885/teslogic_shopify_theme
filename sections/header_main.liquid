@@ -270,7 +270,9 @@ with access to advanced Tesla features</div>
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
-    window.addEventListener('scroll', setStickyHeader)
+    // window.addEventListener('scroll', setStickyHeader)
+    $(document.body).on('touchmove', setStickyHeader)
+    $(window).on('scroll', setStickyHeader) 
     function setStickyHeader() {
           console.log('setStickyHeader');
   console.log(window.innerWidth)
