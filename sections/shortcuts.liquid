@@ -368,7 +368,7 @@
 
   		var container = document.querySelector('.shortcuts-features-mobile');
 		  var content = document.querySelector('.shortcuts-features-scroller');
-		  var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
+		  var scrollbarThumb = document.querySelector('.shortcuts-features-scrollbar-thumb');
 		  var items = document.querySelectorAll('.shortcuts-features-item-mobile');
 
 		 const gridGap = 20
@@ -387,8 +387,9 @@
 		  	console.log(content.scrollWidth)
 		  	console.log(contentWidth)
 		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  	
+
 		  	console.log(scrollLeftPercentage + '%')
+		  	scrollbarThumb.style.left = scrollLeftPercentage + '%'
 		  });
 		  /*container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
