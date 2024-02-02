@@ -266,7 +266,6 @@
 		cursor: grab;
 		user-select: none;
 		margin-top: 32px;
-		position: relative;
 	}
 	.shortcuts-features-scroller {
 		overflow-x: scroll;
@@ -291,13 +290,22 @@
 	  -webkit-appearance: none;
 	}*/
 	.shortcuts-features-scrollbar {
-		position: absolute;
-		bottom: 0;
+		position: relative;
+/*		bottom: 0;*/
 /*		left: 0;*/
-		left: calc((100vw - 390px) / 2);
+		margin-left: calc((100vw - 390px) / 2);
+		width: 335px;
 		height: 10px; /* Висота вашого скроллбару */
-		width: 100%;
 		background-color: #E3E3E3; /* Колір фону за скроллбаром */
+	}
+	.shortcuts-features-scrollbar-thumb {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 56px;
+		height: 100%;
+		background-color: #1657FC; /* Колір фону за скроллбаром */
+
 	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
