@@ -368,13 +368,12 @@
 		  var content = document.querySelector('.shortcuts-features-scroller');
 		  var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
 
-		  // Додаємо обробник подій для визначення прокрутки та зміни стилів
 		  container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
+		    scrollbar.style.width = container.clientWidth / content.scrollWidth * 100 + '%'; /* Додано для коректного розрахунку ширини */
 		    scrollbar.style.left = scrollLeftPercentage + '%';
 		  });
 
-		  // Додаємо обробник подій для зміни стилів при зміні розміру контенту
 		  new ResizeObserver(function () {
 		    var scrollbarWidthPercentage = (container.clientWidth / content.scrollWidth) * 100;
 		    scrollbar.style.width = scrollbarWidthPercentage + '%';
