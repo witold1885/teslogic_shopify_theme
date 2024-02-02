@@ -391,7 +391,8 @@
 			  var startX = event.clientX;
 
 			  // Запам'ятовуємо початкове положення scrollbarThumb
-			  var startThumbLeft = parseFloat(scrollbarThumb.style.left);
+			  // var startThumbLeft = parseFloat(scrollbarThumb.style.left);
+			  var startThumbLeft = parseFloat(scrollbarThumb.offsetLeft);
 
 			  console.log(startX)
 			  console.log(startThumbLeft)
