@@ -105,7 +105,7 @@
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
-	#showForm:before {
+	#showForm:hover {
 		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
 	}
 	.reviews-form-wrap {
