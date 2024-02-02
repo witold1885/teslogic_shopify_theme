@@ -402,13 +402,14 @@
 			    // Визначаємо відстань, на яку пересунувся курсор
 			    var deltaX = event.clientX - startX;
 
+			  console.log('deltaX: ', deltaX)
 			    // Розраховуємо нове положення scrollbarThumb
 			    var newThumbLeft = startThumbLeft + (deltaX / scrollbar.clientWidth) * 100;
 
+			  console.log('newThumbLeft: ', newThumbLeft)
 			    // Обмежуємо положення scrollbarThumb в межах від 0% до 100%
 			    newThumbLeft = Math.max(0, Math.min(newThumbLeft, 100));
 
-			  console.log('deltaX: ', deltaX)
 			  console.log('newThumbLeft: ', newThumbLeft)
 
 			    // Встановлюємо нове положення scrollbarThumb
