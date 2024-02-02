@@ -180,6 +180,10 @@
 		z-index: 10;
 		background: transparent;
 	}
+	.top-wrap-scrolled {
+		background: rgba(0, 0, 0, 0.32);
+		backdrop-filter: blur(32px);
+	}
 	.top {
 		width: 335px;
 /*		height: 36px;*/
