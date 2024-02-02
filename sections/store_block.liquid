@@ -232,10 +232,16 @@
 			setGalleryImage()
 		})
 
-		$('.store_block-product-gallery-mobile .store_block-product-gallery-main').on('click', function() {
-			imgnum = imgnum += 1
-			if (imgnum < 0) imgnum = 5
-			if (imgnum > 5) imgnum = 0
+		$('.store_block-product-gallery-mobile-nav').on('click', function() {
+			let direction = $(this).data('direction')
+			if (direction == 'prev') {
+				imgnum = imgnum -= 1
+				if (imgnum < 0) imgnum = 5
+			}
+			if (direction == 'next') {
+				imgnum = imgnum += 1
+				if (imgnum > 5) imgnum = 0
+			}
 			setGalleryImage()
 		})
 
