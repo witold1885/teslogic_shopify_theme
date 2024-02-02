@@ -386,22 +386,22 @@
 			  updateScrollbarThumbPosition();
 			});
 
-			  var _startX = null;
-
 			scrollbarThumb.addEventListener('mousedown', function (event) {
 			  // Запам'ятовуємо початкову позицію курсора
-				if (!_startX) _startX = event.clientX;
+			  var startX = event.clientX;
+
 			  // Запам'ятовуємо початкове положення scrollbarThumb
 			  // var startThumbLeft = parseFloat(scrollbarThumb.style.left);
-			  var startThumbLeft = parseFloat(scrollbarThumb.offsetLeft);
+			  // var startThumbLeft = parseFloat(scrollbarThumb.offsetLeft);
+			  var startThumbLeft = scrollbarThumb.getBoundingClientRect().left;;
 
-			  console.log('_startX: ', _startX)
+			  console.log('startX: ', startX)
 			  console.log('startThumbLeft: ', startThumbLeft)
 
 			  // Додаємо обробник події руху миші під час перетягування scrollbarThumb
 			  function handleMouseMove(event) {
 			    // Визначаємо відстань, на яку пересунувся курсор
-			    var deltaX = event.clientX - _startX;
+			    var deltaX = event.clientX - startX;
 
 			  console.log('deltaX: ', deltaX)
 			    // Розраховуємо нове положення scrollbarThumb
