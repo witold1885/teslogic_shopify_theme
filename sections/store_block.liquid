@@ -72,7 +72,8 @@
 					{{ product.description }}
 				</div> -->
 			</div>
-			<div class="store_block-product-gallery-mobile">				
+			<div class="store_block-product-gallery-mobile">
+				<div class="store_block-product-gallery-mobile-nav" data-direction="prev"></div>
 				<div class="store_block-product-gallery-main">
 					<img draggable="false" data-imgnum="0" src="{{ 'store-main-desktop.png' | asset_url }}" srcset="{{ 'store-main-retina.png' | asset_url }} 2x" loading="lazy">
 					<img draggable="false" data-imgnum="1" src="{{ 'box-item-1-desktop.png' | asset_url }}" srcset="{{ 'box-item-1-retina.png' | asset_url }} 2x" loading="lazy">
@@ -81,6 +82,7 @@
 					<img draggable="false" data-imgnum="4" src="{{ 'box-item-4-desktop.png' | asset_url }}" srcset="{{ 'box-item-4-retina.png' | asset_url }} 2x" loading="lazy">
 					<img draggable="false" data-imgnum="5" src="{{ 'box-item-5-desktop.png' | asset_url }}" srcset="{{ 'box-item-5-retina.png' | asset_url }} 2x" loading="lazy">
 				</div>
+				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
 				<div class="store_block-product-gallery-mobile-dots">
 					<div data-imgnum="0" class="store_block-product-gallery-mobile-dot">
 						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
@@ -238,7 +240,6 @@
 		})
 
 		function setGalleryImage() {
-			console.log(imgnum)
 			$('.store_block-product-gallery-main').find('img').each(function() {
 				if ($(this).data('imgnum') == imgnum) $(this).show()
 				else $(this).hide()
