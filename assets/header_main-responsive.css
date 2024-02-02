@@ -262,7 +262,7 @@
 		right: 0;
 		bottom: 0;
 		background: #FFF;
-		z-index: 2;
+		z-index: 5;
 	}
 	.burger-menu {
 		width: 335px;
