@@ -277,6 +277,7 @@
 /*		scrollbar-color: #1657FC #E3E3E3;*/
 	}
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar {
+		-webkit-appearance: none;
 	  width: 12px;
 	}
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-track {
