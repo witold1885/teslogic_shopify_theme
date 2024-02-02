@@ -386,6 +386,43 @@
 			  updateScrollbarThumbPosition();
 			});
 
+			scrollbarThumb.addEventListener('mousedown', function (event) {
+			  // Запам'ятовуємо початкову позицію курсора
+			  var startX = event.clientX;
+
+			  // Запам'ятовуємо початкове положення scrollbarThumb
+			  var startThumbLeft = parseFloat(scrollbarThumb.style.left);
+
+			  // Додаємо обробник події руху миші під час перетягування scrollbarThumb
+			  function handleMouseMove(event) {
+			    // Визначаємо відстань, на яку пересунувся курсор
+			    var deltaX = event.clientX - startX;
+
+			    // Розраховуємо нове положення scrollbarThumb
+			    var newThumbLeft = startThumbLeft + (deltaX / scrollbar.clientWidth) * 100;
+
+			    // Обмежуємо положення scrollbarThumb в межах від 0% до 100%
+			    newThumbLeft = Math.max(0, Math.min(newThumbLeft, 100));
+
+			    // Встановлюємо нове положення scrollbarThumb
+			    scrollbarThumb.style.left = `calc(${newThumbLeft}% - ${56 * newThumbLeft / 100}px)`;
+
+			    // Розраховуємо нове положення контенту
+			    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeft / 100);
+			  }
+
+			  // Додаємо обробник події відпускання кнопки миші
+			  function handleMouseUp() {
+			    // Видаляємо обробники подій, коли кнопку миші відпускають
+			    document.removeEventListener('mousemove', handleMouseMove);
+			    document.removeEventListener('mouseup', handleMouseUp);
+			  }
+
+			  // Додаємо обробники подій для руху миші та відпускання кнопки миші
+			  document.addEventListener('mousemove', handleMouseMove);
+			  document.addEventListener('mouseup', handleMouseUp);
+			});
+
 		  content.addEventListener('scroll', function () {
 		  	// let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
 		  	// scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`
