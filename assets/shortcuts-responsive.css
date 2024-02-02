@@ -266,6 +266,7 @@
 		cursor: grab;
 		user-select: none;
 		margin-top: 32px;
+		position: relative;
 	}
 	.shortcuts-features-scroller {
 		overflow-x: scroll;
@@ -276,7 +277,7 @@
 		padding-bottom: 40px;
 /*		scrollbar-color: #1657FC #E3E3E3;*/
 	}
-	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar:horizontal {
+	/*.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar:horizontal {
 	  height: 12px;
 	}
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-track {
@@ -287,6 +288,14 @@
 	}
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar {
 	  -webkit-appearance: none;
+	}*/
+	.shortcuts-features-scrollbar {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 10px; /* Висота вашого скроллбару */
+		width: 100%;
+		background-color: #E3E3E3; /* Колір фону за скроллбаром */
 	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
