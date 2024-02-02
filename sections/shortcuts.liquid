@@ -387,12 +387,13 @@
 			});
 
 		  content.addEventListener('scroll', function () {
-		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  	scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`
+		  	// let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  	// scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`
+		  	updateScrollbarThumbPosition()
 		  });
 
 			function updateScrollbarThumbPosition() {
-			  var scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+			  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
 			  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
 			}
 
