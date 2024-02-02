@@ -95,9 +95,14 @@ $(document).ready(async function() {
 
 <style type="text/css">
 .bloggers_block {
+	width: 100%;
+	background: #F6F6F6;
+}
+.bloggers_block-wrap {
+	width: 1296px;
+	margin: 0 auto;
 	padding-top: 180px;
 	padding-bottom: 180px;
-	background: #F6F6F6;
 }
 .bloggers_block__title {
 	color: #000;
@@ -219,10 +224,10 @@ $(document).ready(async function() {
 
 }
 @media screen and (max-width: 999px) {
-	.bloggers_block {
-		width: 335px;
-		padding-top: 96px;
-		padding-bottom: 108px;
+	.bloggers_block-wrap {
+			width: 335px;
+			padding-top: 96px;
+			padding-bottom: 108px;
 	}
 	.bloggers_block__title {
 		width: 100%;
@@ -275,13 +280,15 @@ $(document).ready(async function() {
 </style>
 
 <div class="bloggers_block">
-  	<div class="bloggers_block__title">
-  		<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
-  	</div>
-  	<div class="bloggers_block__subtitle">
-  		Watch video reviews from popular influencers
-  	</div>
-	<div class="bloggers_block__list">
-		<div class="bloggers_block__list-scroller"></div>		
+	<div class="bloggers_block-wrap">
+	  	<div class="bloggers_block__title">
+	  		<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
+	  	</div>
+	  	<div class="bloggers_block__subtitle">
+	  		Watch video reviews from popular influencers
+	  	</div>
+		<div class="bloggers_block__list">
+			<div class="bloggers_block__list-scroller"></div>		
+		</div>
 	</div>
 </div>
