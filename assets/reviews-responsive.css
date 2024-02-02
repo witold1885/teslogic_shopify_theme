@@ -120,7 +120,11 @@
 		top: calc(16 * 100vw / 1440);
 		right: calc(16 * 100vw / 1440);
 	}
+	.reviews-form-top {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
 	.spr-form-title {
+		width: calc(266 * 100vw / 1440);
 		font-size: calc(32 * 100vw / 1440);
 		line-height: calc(40 * 100vw / 1440);
 	}
