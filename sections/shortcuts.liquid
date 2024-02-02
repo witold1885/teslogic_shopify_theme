@@ -370,17 +370,32 @@
 		  var content = document.querySelector('.shortcuts-features-scroller');
 		  var scrollbarThumb = document.querySelector('.shortcuts-features-scrollbar-thumb');
 
-		  content.addEventListener('scroll', function () {
-		  	console.log('Scrolling')
-		  	console.log(content.scrollLeft)
-		  	console.log(content.scrollWidth)
-		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  	let scrollRightPercentage = 100 - scrollLeftPercentage;
+			var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
 
-		  	console.log(scrollLeftPercentage + '%')
-		  	console.log(scrollRightPercentage + '%')
+			scrollbar.addEventListener('mousedown', function (event) {
+			  // Визначаємо відстань між курсором і лівим краєм скроллбару
+			  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+			  
+			  // Визначаємо відсоткове значення, на яке слід встановити скроллбарThumb
+			  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+
+			  // Задаємо нове значення скроллбару та контенту
+			  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+
+			  // Оновлюємо положення scrollbarThumb
+			  updateScrollbarThumbPosition();
+			});
+
+		  content.addEventListener('scroll', function () {
+		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
 		  	scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`
 		  });
+
+			function updateScrollbarThumbPosition() {
+			  var scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+			  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
+			}
+
 		  /*container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
 		    scrollbar.style.width = container.clientWidth / content.scrollWidth * 100 + '%';
