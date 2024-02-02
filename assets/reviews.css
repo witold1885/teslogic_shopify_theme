@@ -190,7 +190,7 @@
 	line-height: 64px;
 }
 #showForm {
-	padding: 26px 46px;
+	padding: 23px 43px;
 	text-align: center;
 	border-radius: 54px;
 	background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%);
@@ -257,6 +257,7 @@
 .reviews-form-top {
 	display: flex;
 	grid-column-gap: 24px;
+	margin-bottom: 24px;
 }
 .spr-form-title {
 	width: 266px;
