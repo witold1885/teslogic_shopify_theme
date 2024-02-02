@@ -187,7 +187,7 @@
 	    	</div>
 		</div>
 		<div class="shortcuts-features-mobile">
-	  		<div class="shortcuts-features-scroller" data-simplebar data-simplebar-auto-hide="false">
+	  		<div class="shortcuts-features-scroller">
 		    	<div class="shortcuts-features-item-mobile" data-show="image">
 			    	<div class="shortcuts-features-item-mobile-wrap">
 				    	<div class="shortcuts-features-item-image">
@@ -362,8 +362,10 @@
 
 <script type="text/javascript">
   	$(document).ready(function() {
-  		new SimpleBar($('.shortcuts-features-scroller'))
-  		
+  		new SimpleBar($('.shortcuts-features-scroller'), {
+  			autoHide: false
+  		})
+
 		const slider = document.querySelector('.shortcuts-features-scroller');
 		let isDown = false;
 		let startX;
