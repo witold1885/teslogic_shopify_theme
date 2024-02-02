@@ -338,6 +338,7 @@
 			    	</div>
 		    	</div>
 	    	</div>
+  			<div class="shortcuts-features-scrollbar"></div>
 		</div>
 		<div class="shortcuts-more">
 			<div class="shortcuts-more-gradient shortcuts-more-gradient-top">
@@ -362,7 +363,23 @@
 
 <script type="text/javascript">
   	$(document).ready(function() {
-  		$('.shortcuts-features-scroller').addClass('show-scrollbar')
+
+  		var container = document.querySelector('.shortcuts-features-mobile');
+		  var content = document.querySelector('.shortcuts-features-scroller');
+		  var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
+
+		  // Додаємо обробник подій для визначення прокрутки та зміни стилів
+		  container.addEventListener('scroll', function () {
+		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
+		    scrollbar.style.left = scrollLeftPercentage + '%';
+		  });
+
+		  // Додаємо обробник подій для зміни стилів при зміні розміру контенту
+		  new ResizeObserver(function () {
+		    var scrollbarWidthPercentage = (container.clientWidth / content.scrollWidth) * 100;
+		    scrollbar.style.width = scrollbarWidthPercentage + '%';
+		  }).observe(content);
+
 		const slider = document.querySelector('.shortcuts-features-scroller');
 		let isDown = false;
 		let startX;
