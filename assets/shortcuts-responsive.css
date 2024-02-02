@@ -138,15 +138,12 @@
 }
 
 @media screen and (max-width: 999px) {
-	/*.shortcuts {
-		width: 335px;
-		margin-left: 27.5px;
-		margin-right: 27.5px;
-		margin-bottom: 127px;
-	}*/
+	.shortcuts {
+		width: 100vw;
+		margin-left: calc(-1 * (100vw - 375px) / 2);
+	}
 	.shortcuts-wrap {
 		width: 335px;
-		margin: 0 auto;
 		padding-top: 96px;
 		padding-bottom: 108px;
 	}
