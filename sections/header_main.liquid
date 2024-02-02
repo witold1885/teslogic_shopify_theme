@@ -316,6 +316,10 @@ with access to advanced Tesla features</div>
         console.log($('body').scrollTop())
         if ($('body').scrollTop() >= window.innerHeight) {
           console.log('banner passed');
+          $('.top-wrap').addClass('top-wrap-scrolled')
+        }
+        else {
+          $('.top-wrap').removeClass('top-wrap-scrolled')
         }
       }
     }
