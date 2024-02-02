@@ -285,6 +285,9 @@
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-thumb {
 	  background-color: #1657FC;
 	}
+	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar {
+	  -webkit-appearance: none;
+	}
 	.shortcuts-features-item-mobile {
 		width: 306px;
 		height: 306px;
