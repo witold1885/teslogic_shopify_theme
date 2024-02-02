@@ -375,7 +375,7 @@
 		  	console.log(content.scrollLeft)
 		  	console.log(content.scrollWidth)
 		  	let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  	let scrollRightPercentage = (content.scrollRight / (content.scrollWidth - content.clientWidth)) * 100;
+		  	let scrollRightPercentage = 100 - scrollLeftPercentage;
 
 		  	console.log(scrollLeftPercentage + '%')
 		  	console.log(scrollRightPercentage + '%')
