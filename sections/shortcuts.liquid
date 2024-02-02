@@ -339,6 +339,7 @@
 		    	</div>
 	    	</div>
   			<div class="shortcuts-features-scrollbar">
+				<div class="shortcuts-features-scrollbar-track"></div>
 				<div class="shortcuts-features-scrollbar-thumb"></div>
 			</div>
 		</div>
@@ -379,7 +380,7 @@
 
 		  	console.log(scrollLeftPercentage + '%')
 		  	console.log(scrollRightPercentage + '%')
-		  	scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - 56px`
+		  	scrollbarThumb.style.left = `${scrollLeftPercentage}%`
 		  });
 		  /*container.addEventListener('scroll', function () {
 		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
