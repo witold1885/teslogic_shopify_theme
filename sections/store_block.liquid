@@ -230,6 +230,13 @@
 			setGalleryImage()
 		})
 
+		$('.store_block-product-gallery-mobile .store_block-product-gallery-main').on('click', function() {
+			imgnum = imgnum += 1
+			if (imgnum < 0) imgnum = 5
+			if (imgnum > 5) imgnum = 0
+			setGalleryImage()
+		})
+
 		function setGalleryImage() {
 			console.log(imgnum)
 			$('.store_block-product-gallery-main').find('img').each(function() {
