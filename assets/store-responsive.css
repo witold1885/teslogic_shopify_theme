@@ -154,6 +154,20 @@
 		position: relative;
 		width: 335px;
 	}
+	.store_block-product-gallery-mobile-nav {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		cursor: pointer;
+	}
+	.store_block-product-gallery-mobile-nav[data-direction="prev"] {
+		left: 0;
+	}
+	.store_block-product-gallery-mobile-nav[data-direction="next"] {
+		right: 0;
+	}
 	.store_block-product-gallery-main {
 		width: 335px;
 		height: 335px;
