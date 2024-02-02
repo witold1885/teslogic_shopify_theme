@@ -399,7 +399,7 @@
 			  console.log('startThumbLeft: ', startThumbLeft)
 
 			  // Додаємо обробник події руху миші під час перетягування scrollbarThumb
-			  function handleMouseMove(event) {
+			  /*function handleMouseMove(event) {
 			    // Визначаємо відстань, на яку пересунувся курсор
 			    var deltaX = event.clientX - startX;
 
@@ -418,6 +418,23 @@
 
 			    // Розраховуємо нове положення контенту
 			    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeft / 100);
+			  }*/
+			  function handleMouseMove(event) {
+			    var deltaX = event.clientX - startX;
+			  console.log('deltaX: ', deltaX)
+			    var newThumbLeft = startThumbLeft + deltaX;
+			  console.log('newThumbLeft: ', newThumbLeft)
+
+			    // Обмежуємо положення scrollbarThumb в межах від 0 до ширини скроллбару
+			    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
+			  console.log('newThumbLeft: ', newThumbLeft)
+
+			    // Розраховуємо відсоткове положення scrollbarThumb
+			    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
+			  console.log('newThumbLeftPercentage: ', newThumbLeft)
+
+			    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${56 * newThumbLeftPercentage / 100}px)`;
+			    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
 			  }
 
 			  // Додаємо обробник події відпускання кнопки миші
