@@ -369,6 +369,13 @@
   		var container = document.querySelector('.shortcuts-features-mobile');
 		  var content = document.querySelector('.shortcuts-features-scroller');
 		  var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
+		  var items = document.querySelectorAll('.shortcuts-features-item-mobile');
+
+
+		items.forEach(function(item, index) {
+		  var itemWidth = item.offsetWidth;
+		  console.log(itemWidth)
+		});
 
 		  content.addEventListener('scroll', function () {
 		  	console.log('Scrolling')
