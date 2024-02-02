@@ -297,13 +297,6 @@
 		margin-left: calc((100vw - 390px) / 2);
 		width: 335px;
 		height: 10px; /* Висота вашого скроллбару */
-	}
-	.shortcuts-features-scrollbar-track {
-		position: absolute;
-		top: 0;
-		height: 100%;
-		left: -28px;
-		right: -28px;
 		background-color: #E3E3E3; /* Колір фону за скроллбаром */
 	}
 	.shortcuts-features-scrollbar-thumb {
