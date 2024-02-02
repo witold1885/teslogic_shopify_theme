@@ -276,9 +276,8 @@
 		padding-bottom: 40px;
 /*		scrollbar-color: #1657FC #E3E3E3;*/
 	}
-	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar {
-		-webkit-appearance: none;
-	  width: 12px;
+	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar:horizontal {
+	  height: 12px;
 	}
 	.shortcuts-features-scroller.show-scrollbar::-webkit-scrollbar-track {
 	  background-color: #E3E3E3;
