@@ -362,9 +362,13 @@
 
 <script type="text/javascript">
   	$(document).ready(function() {
-  		new SimpleBar($('.shortcuts-features-scroller'), {
+  		/*new SimpleBar($('.shortcuts-features-scroller'), {
   			autoHide: false
-  		})
+  		})*/
+  		$(".shortcuts-features-scroller").overlayScrollbars({
+	      // className: "os-theme-light",
+	      scrollbars: { autoHide: "never" }
+	    });
 
 		const slider = document.querySelector('.shortcuts-features-scroller');
 		let isDown = false;
