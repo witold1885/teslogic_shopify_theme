@@ -239,6 +239,9 @@
 		outline: none;
 		box-shadow: none;
 	}
+	.top-wrap-scrolled .button-menu {
+		background: rgba(0, 0, 0, 0.32);
+	}
 	.button-close {
 		display: none;
 		z-index: 2;
