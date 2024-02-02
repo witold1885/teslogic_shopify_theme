@@ -100,7 +100,7 @@
 		line-height: calc(64 * 100vw / 1440);
 	}
 	#showForm {
-		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
+		padding: calc(26 * 100vw / 1440) calc(46 * 100vw / 1440);
 		border-radius: calc(54 * 100vw / 1440);
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
@@ -330,6 +330,7 @@
 		margin-bottom: 24px;
 	}
 	.spr-form-title {
+		width: 288px;
 		font-size: 24px;
 		line-height: 32px;
 	}
