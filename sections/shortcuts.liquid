@@ -364,112 +364,51 @@
 </div>
 
 <script type="text/javascript">
-  	$(document).ready(function() {
+  $(document).ready(function() {
+	  var content = document.querySelector('.shortcuts-features-scroller');
+		var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
+	  var scrollbarThumb = document.querySelector('.shortcuts-features-scrollbar-thumb');
 
-  		var container = document.querySelector('.shortcuts-features-mobile');
-		  var content = document.querySelector('.shortcuts-features-scroller');
-		  var scrollbarThumb = document.querySelector('.shortcuts-features-scrollbar-thumb');
+		scrollbar.addEventListener('mousedown', function (event) {
+		  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+		  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+		  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+		  updateScrollbarThumbPosition();
+		});
 
-			var scrollbar = document.querySelector('.shortcuts-features-scrollbar');
+		scrollbarThumb.addEventListener('mousedown', function (event) {
+		  var startX = event.clientX;
+		  var startThumbLeft = scrollbarThumb.offsetLeft;
 
-			scrollbar.addEventListener('mousedown', function (event) {
-			  // Визначаємо відстань між курсором і лівим краєм скроллбару
-			  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
-			  
-			  // Визначаємо відсоткове значення, на яке слід встановити скроллбарThumb
-			  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+		  function handleMouseMove(event) {
+		    var deltaX = event.clientX - startX;
+		    var newThumbLeft = startThumbLeft + deltaX;
 
-			  // Задаємо нове значення скроллбару та контенту
-			  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+		    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
 
-			  // Оновлюємо положення scrollbarThumb
-			  updateScrollbarThumbPosition();
-			});
+		    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
 
-			scrollbarThumb.addEventListener('mousedown', function (event) {
-			  // Запам'ятовуємо початкову позицію курсора
-			  var startX = event.clientX;
+		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${56 * newThumbLeftPercentage / 100}px)`;
+		    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
+		  }
 
-			  // Запам'ятовуємо початкове положення scrollbarThumb
-			  // var startThumbLeft = parseFloat(scrollbarThumb.style.left);
-			  var startThumbLeft = scrollbarThumb.offsetLeft;
-			  // var startThumbLeft = scrollbarThumb.getBoundingClientRect().left;;
+		  function handleMouseUp() {
+		    document.removeEventListener('mousemove', handleMouseMove);
+		    document.removeEventListener('mouseup', handleMouseUp);
+		  }
 
-			  console.log('startX: ', startX)
-			  console.log('startThumbLeft: ', startThumbLeft)
+		  document.addEventListener('mousemove', handleMouseMove);
+		  document.addEventListener('mouseup', handleMouseUp);
+		});
 
-			  // Додаємо обробник події руху миші під час перетягування scrollbarThumb
-			  /*function handleMouseMove(event) {
-			    // Визначаємо відстань, на яку пересунувся курсор
-			    var deltaX = event.clientX - startX;
+	  content.addEventListener('scroll', function () {
+	  	updateScrollbarThumbPosition()
+	  });
 
-			  console.log('deltaX: ', deltaX)
-			    // Розраховуємо нове положення scrollbarThumb
-			    var newThumbLeft = startThumbLeft + (deltaX / scrollbar.clientWidth) * 100;
-
-			  console.log('newThumbLeft: ', newThumbLeft)
-			    // Обмежуємо положення scrollbarThumb в межах від 0% до 100%
-			    newThumbLeft = Math.max(0, Math.min(newThumbLeft, 100));
-
-			  console.log('newThumbLeft: ', newThumbLeft)
-
-			    // Встановлюємо нове положення scrollbarThumb
-			    scrollbarThumb.style.left = `calc(${newThumbLeft}% - ${56 * newThumbLeft / 100}px)`;
-
-			    // Розраховуємо нове положення контенту
-			    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeft / 100);
-			  }*/
-			  function handleMouseMove(event) {
-			    var deltaX = event.clientX - startX;
-			  console.log('deltaX: ', deltaX)
-			    var newThumbLeft = startThumbLeft + deltaX;
-			  console.log('newThumbLeft: ', newThumbLeft)
-
-			    // Обмежуємо положення scrollbarThumb в межах від 0 до ширини скроллбару
-			    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
-			  console.log('newThumbLeft: ', newThumbLeft)
-
-			    // Розраховуємо відсоткове положення scrollbarThumb
-			    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
-			  console.log('newThumbLeftPercentage: ', newThumbLeft)
-
-			    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${56 * newThumbLeftPercentage / 100}px)`;
-			    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
-			  }
-
-			  // Додаємо обробник події відпускання кнопки миші
-			  function handleMouseUp() {
-			    // Видаляємо обробники подій, коли кнопку миші відпускають
-			    document.removeEventListener('mousemove', handleMouseMove);
-			    document.removeEventListener('mouseup', handleMouseUp);
-			  }
-
-			  // Додаємо обробники подій для руху миші та відпускання кнопки миші
-			  document.addEventListener('mousemove', handleMouseMove);
-			  document.addEventListener('mouseup', handleMouseUp);
-			});
-
-		  content.addEventListener('scroll', function () {
-		  	// let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  	// scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`
-		  	updateScrollbarThumbPosition()
-		  });
-
-			function updateScrollbarThumbPosition() {
-			  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-			  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
-			}
-
-		  /*container.addEventListener('scroll', function () {
-		    var scrollLeftPercentage = (container.scrollLeft / (content.scrollWidth - container.clientWidth)) * 100;
-		    scrollbar.style.width = container.clientWidth / content.scrollWidth * 100 + '%';
-		    scrollbar.style.left = scrollLeftPercentage + '%';
-		  });
-
-		  new ResizeObserver(function () {
-		    var scrollbarWidthPercentage = (container.clientWidth / content.scrollWidth) * 100;
-		    scrollbar.style.width = scrollbarWidthPercentage + '%';
-		  }).observe(content);*/
+		function updateScrollbarThumbPosition() {
+		  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
+		}
 
 		const slider = document.querySelector('.shortcuts-features-scroller');
 		let isDown = false;
@@ -519,5 +458,5 @@
 				return
 			}
 		}) 
-  	})
+  })
 </script>
