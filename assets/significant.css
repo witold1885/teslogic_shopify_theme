@@ -28,6 +28,7 @@
 /*	height: 565px;*/
 	display: flex;
 	flex-direction: column;
+	grid-row-gap: 72px;
 /*	overflow-x: scroll;*/
 /*	flex-direction: column;*/
 /*	margin-left: 72px;*/
@@ -44,7 +45,6 @@
 	grid-column-gap: 24px;
 	padding-left: calc((100vw - 1440px + 144px) / 2);
 	padding-right: 72px;
-	padding-bottom: 76px;
 	cursor: grab;
 	scrollbar-color: transparent transparent;
 }
