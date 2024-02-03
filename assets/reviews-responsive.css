@@ -239,7 +239,8 @@
 	}
 	.reviews-list-wrap {
 		display: flex;
-		cursor: grab;
+		flex-direction: column;
+		grid-row-gap: 40px;
 		user-select: none;
 		overflow-x: visible;
 		width: 100vw;
@@ -250,10 +251,28 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		overflow-x: scroll;
-		margin-left: calc((100vw - 390px) / 2);
-		margin-right: 20px;
-		padding-bottom: 40px;
-		scrollbar-color: #FFFFFF #8478F7;
+		cursor: grab;
+		padding-left: calc((100vw - 335px) / 2);
+		padding-right: calc((100vw - 335px) / 2);
+		scrollbar-color: transparent transparent;
+	}
+	.reviews-list-scrollbar {
+		position: relative;
+		margin-left: calc((100vw - 335px) / 2);
+		width: 335px;
+		height: 4px;
+		border-radius: 2px;
+		background-color: #E3E3E3;
+		cursor: pointer;
+	}
+	.reviews-list-scrollbar-thumb {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 56px;
+		height: 100%;
+		border-radius: 2px;
+		background-color: #1657FC;
 	}
 	.reviews-list-item {
 		width: 304px;
