@@ -5,7 +5,7 @@
 .significant__title {
 	width: 1296px;
 	margin: 0 auto;
-	margin-bottom: 6px;
+	margin-bottom: 56px;
 	color: #000;
 	font-family: Manrope;
 	font-size: 52px;
@@ -13,31 +13,12 @@
 	font-weight: 500;
 	line-height: 64px;
 }
-.significant__subtitle {
-	width: 1296px;
-	margin: 0 auto;
-	margin-bottom: 47px;
-	color: #4D4D4D;
-	font-family: Manrope;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 32px;
-}
 .significant__features {
 	width: 100vw;
-/*	height: 565px;*/
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 72px;
-/*	overflow-x: scroll;*/
-/*	flex-direction: column;*/
-/*	margin-left: 72px;*/
-/*	scrollbar-color: transparent transparent;*/
 	user-select: none;
-/*	width: 100vw;*/
-/*	margin-left: calc(-1 * (100vw - 1296px) / 2);*/
-/*	margin-right: 72px;*/
 	overflow-x: visible;
 }
 .significant__features-scroller {
