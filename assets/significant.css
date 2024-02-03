@@ -27,12 +27,12 @@
 .significant__features {
 /*	height: 565px;*/
 	display: flex;
+	flex-direction: column;
 /*	overflow-x: scroll;*/
 /*	flex-direction: column;*/
 /*	margin-left: 72px;*/
 /*	margin-right: 72px;*/
 /*	scrollbar-color: transparent transparent;*/
-	cursor: grab;
 	user-select: none;
 /*	width: 100vw;*/
 /*	margin-left: calc(-1 * (100vw - 1440px) / 2);*/
@@ -45,7 +45,8 @@
 	padding-left: calc((100vw - 1440px + 144px) / 2);
 	padding-right: 72px;
 	padding-bottom: 76px;
-	scrollbar-color: #1657FC #E3E3E3;
+	cursor: grab;
+	scrollbar-color: transparent transparent;
 }
 .significant__features-item {
 	width: 306px;
