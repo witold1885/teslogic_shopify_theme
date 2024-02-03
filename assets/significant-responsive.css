@@ -29,7 +29,7 @@
 	.significant__features-scroller {
 		grid-column-gap: 24px;
 		padding-left: calc((100vw - 355px) / 2);
-		padding-right: 20px;
+		padding-right: calc((100vw - 355px) / 2);
 	}
 	.significant__features-scrollbar {
 		margin-left: calc((100vw - 355px) / 2);
