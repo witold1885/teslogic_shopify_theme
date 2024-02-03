@@ -45,7 +45,7 @@ $(document).ready(async function() {
 					<!-- <div class="bloggers_block__list-item-duration">${duration}</div> -->
 					<!-- <iframe class="bloggers_block__list-item-video-desktop" width="416" height="234" src="https://www.youtube.com/embed/${videoId}"></iframe> 
 					<iframe class="bloggers_block__list-item-video-mobile" width="251" height="140" src="https://www.youtube.com/embed/${videoId}"></iframe> -->
-					<img class="bloggers_block__list-item-thumbnail-yt-icon" src="{{ 'YT.svg' | asset_url }}">
+					<img draggable="false" class="bloggers_block__list-item-thumbnail-yt-icon" src="{{ 'YT.svg' | asset_url }}">
 				</a>
 				<div class="bloggers_block__list-item-channel">
 					<div class="bloggers_block__list-item-channel-top">
@@ -351,16 +351,11 @@ $(document).ready(async function() {
 		width: 100vw;
 		margin-left: calc(-1 * (100vw - 375px) / 2);
 	}
-	.bloggers_block-wrap {
-		width: 335px;
-		padding-top: 96px;
-		padding-bottom: 108px;
-	}
 	.bloggers_block__title {
 		width: 100%;
 		font-size: 32px;
 		line-height: 40px; 
-		margin-bottom: 8px;
+		margin: 96px auto 8px;
 	}
 	.bloggers_block__subtitle {
 		width: 100%;
@@ -370,14 +365,21 @@ $(document).ready(async function() {
 	}
 	.bloggers_block__list {
 		width: 100vw;
-/*		margin-left: 20px;*/
-		margin-right: 20px;
-		margin-left: calc(-1 * (100vw - 390px) / 2);
+		margin-left: calc(-1 * (100vw - 335px) / 2);
+		margin-right: calc(-1 * (100vw - 335px) / 2);
+		margin-bottom: 108px;
+		grid-row-gap: 41px;
 	}
 	.bloggers_block__list-scroller {
-		margin-left: calc((100vw - 390px) / 2);
-		padding-right: 20px;
-		padding-bottom: 41px;
+		padding-left: calc((100vw - 335px) / 2);
+		padding-right: calc((100vw - 335px) / 2);
+	}
+	.bloggers_block__list-scrollbar {
+		width: 335px;
+		margin-left: calc((100vw - 335px) / 2);
+	}
+	.bloggers_block__list-scrollbar-thumb {
+		width: 84px;
 	}
 	.bloggers_block__list-item {
 		grid-row-gap: 12px;
@@ -407,18 +409,16 @@ $(document).ready(async function() {
 </style>
 
 <div class="bloggers_block">
-	<!-- <div class="bloggers_block-wrap"> -->
-	  	<div class="bloggers_block__title">
-	  		<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
-	  	</div>
-	  	<div class="bloggers_block__subtitle">
-	  		Watch video reviews from popular influencers
-	  	</div>
-		<div class="bloggers_block__list">
-			<div class="bloggers_block__list-scroller"></div>
-			<div class="bloggers_block__list-scrollbar">
-				<div class="bloggers_block__list-scrollbar-thumb"></div>
-			</div>
+	<div class="bloggers_block__title">
+		<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
+	</div>
+	<div class="bloggers_block__subtitle">
+		Watch video reviews from popular influencers
+	</div>
+	<div class="bloggers_block__list">
+		<div class="bloggers_block__list-scroller"></div>
+		<div class="bloggers_block__list-scrollbar">
+			<div class="bloggers_block__list-scrollbar-thumb"></div>
 		</div>
-	<!-- </div> -->
+	</div>
 </div>
