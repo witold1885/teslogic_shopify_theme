@@ -25,6 +25,7 @@
 	line-height: 32px;
 }
 .significant__features {
+	width: 100vw;
 /*	height: 565px;*/
 	display: flex;
 	flex-direction: column;
@@ -35,7 +36,7 @@
 /*	scrollbar-color: transparent transparent;*/
 	user-select: none;
 /*	width: 100vw;*/
-	margin-left: calc(-1 * (100vw - 1296px) / 2);
+/*	margin-left: calc(-1 * (100vw - 1296px) / 2);*/
 	margin-right: 72px;
 	overflow-x: visible;
 }
