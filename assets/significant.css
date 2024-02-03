@@ -32,21 +32,39 @@
 /*	overflow-x: scroll;*/
 /*	flex-direction: column;*/
 /*	margin-left: 72px;*/
-/*	margin-right: 72px;*/
 /*	scrollbar-color: transparent transparent;*/
 	user-select: none;
 /*	width: 100vw;*/
-/*	margin-left: calc(-1 * (100vw - 1440px) / 2);*/
+	margin-left: calc(-1 * (100vw - 1296px) / 2);
+	margin-right: 72px;
 	overflow-x: visible;
 }
 .significant__features-scroller {
 	overflow-x: scroll;
 	display: flex;
 	grid-column-gap: 24px;
-	padding-left: calc((100vw - 1440px + 144px) / 2);
+	padding-left: calc((100vw - 1296px) / 2);
 	padding-right: 72px;
 	cursor: grab;
 	scrollbar-color: transparent transparent;
+}
+.significant__features-scrollbar {
+	position: relative;
+	margin-left: calc((100vw - 1296px) / 2);
+	width: 1296px;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #E3E3E3;
+	cursor: pointer;
+}
+.significant__features-scrollbar-thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 100%;
+	border-radius: 2px;
+	background-color: #1657FC;
 }
 .significant__features-item {
 	width: 306px;
