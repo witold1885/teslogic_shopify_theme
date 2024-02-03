@@ -37,7 +37,7 @@
 	user-select: none;
 /*	width: 100vw;*/
 /*	margin-left: calc(-1 * (100vw - 1296px) / 2);*/
-	margin-right: 72px;
+/*	margin-right: 72px;*/
 	overflow-x: visible;
 }
 .significant__features-scroller {
@@ -45,7 +45,7 @@
 	display: flex;
 	grid-column-gap: 24px;
 	padding-left: calc((100vw - 1296px) / 2);
-	padding-right: 72px;
+	padding-right: calc((100vw - 1296px) / 2);
 	cursor: grab;
 	scrollbar-color: transparent transparent;
 }
