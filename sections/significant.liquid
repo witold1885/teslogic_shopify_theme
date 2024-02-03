@@ -40,6 +40,19 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+  	var scrollbarThumbWidth
+  	onWindowResize()
+  	$(window).on('resize', onWindowResize)
+  	function onWindowResize() {
+  		if (window.innerWidth >= 1000) {
+  			scrollbarThumbWidth = 80
+  		}
+  		else {
+  			scrollbarThumbWidth = 56
+  		}
+  	}
+
+
 	  var content = document.querySelector('.significant__features-scroller');
 		var scrollbar = document.querySelector('.significant__features-scrollbar');
 	  var scrollbarThumb = document.querySelector('.significant__features-scrollbar-thumb');
@@ -63,7 +76,7 @@
 
 		    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
 
-		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${56 * newThumbLeftPercentage / 100}px)`;
+		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${scrollbarThumbWidth * newThumbLeftPercentage / 100}px)`;
 		    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
 		  }
 
@@ -82,9 +95,9 @@
 
 		function updateScrollbarThumbPosition() {
 		  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
-		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
+		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${scrollbarThumbWidth * scrollLeftPercentage / 100}px)`;
 		}
-		
+
 		const slider = document.querySelector('.significant__features-scroller');
 		let isDown = false;
 		let startX;
