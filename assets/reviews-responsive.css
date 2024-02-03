@@ -244,8 +244,8 @@
 		user-select: none;
 		overflow-x: visible;
 		width: 100vw;
-		margin-right: 20px;
-		margin-left: calc(-1 * (100vw - 390px) / 2);
+		margin-right: calc(-1 * (100vw - 335px) / 2);
+		margin-left: calc(-1 * (100vw - 335px) / 2);
 	}
 	.reviews-list {
 		flex-direction: row;
@@ -262,7 +262,7 @@
 		width: 335px;
 		height: 4px;
 		border-radius: 2px;
-		background-color: #E3E3E3;
+		background-color: #8478F7;
 		cursor: pointer;
 	}
 	.reviews-list-scrollbar-thumb {
@@ -272,7 +272,7 @@
 		width: 56px;
 		height: 100%;
 		border-radius: 2px;
-		background-color: #1657FC;
+		background-color: #FFF;
 	}
 	.reviews-list-item {
 		width: 304px;
