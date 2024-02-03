@@ -61,11 +61,6 @@
 .significant__features-item-image img {
 	width: 100%;
 }
-/*.significant__features-item-info {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 8px;
-}*/
 .significant__features-item-title {
 	color: #000;
 	font-family: Manrope;
