@@ -31,7 +31,7 @@
 		padding-left: calc((100vw - 355px) / 2);
 		padding-right: 20px;
 	}
-	.shortcuts-features-scrollbar {
+	.significant__features-scrollbar {
 		position: relative;
 		margin-left: calc((100vw - 355px) / 2);
 		width: 335px;
@@ -40,7 +40,7 @@
 		background-color: #E3E3E3;
 		cursor: pointer;
 	}
-	.shortcuts-features-scrollbar-thumb {
+	.significant__features-scrollbar-thumb {
 		position: absolute;
 		top: 0;
 		left: 0;
