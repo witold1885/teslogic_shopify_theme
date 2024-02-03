@@ -260,7 +260,7 @@
 	.shortcuts-features-mobile {
 		width: 100vw;
 		margin-right: 20px;
-		margin-left: calc(-1 * (100vw - 390px) / 2);
+		margin-left: calc(-1 * (100vw - 355px) / 2);
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: 40px;
@@ -272,14 +272,14 @@
 		overflow-x: scroll;
 		display: flex;
 		grid-column-gap: 20px;
-		margin-left: calc((100vw - 390px) / 2);
-		margin-right: 20px;
+		padding-left: calc((100vw - 315px) / 2);
+		padding-right: 20px;
 		cursor: grab;
 		scrollbar-color: transparent transparent;
 	}
 	.shortcuts-features-scrollbar {
 		position: relative;
-		margin-left: calc((100vw - 390px) / 2);
+		margin-left: calc((100vw - 315px) / 2);
 		width: 335px;
 		height: 4px;
 		border-radius: 2px;
