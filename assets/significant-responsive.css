@@ -9,6 +9,34 @@
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
 	}
+	.significant__features {
+		grid-row-gap: calc(72 * 100vw / 1440);
+	}
+	.significant__features-scroller {
+		grid-column-gap: calc(24 * 100vw / 1440);
+		padding-left: calc(((100vw - 1296px) / 2) * 100vw / 1440);
+		padding-right: calc(((100vw - 1296px) / 2) * 100vw / 1440);
+	}
+	.significant__features-scrollbar {
+		margin-left: calc(((100vw - 1296px) / 2) * 100vw / 1440);
+		width: calc(1296 * 100vw / 1440);
+	}
+	.significant__features-item {
+		width: calc(306 * 100vw / 1440);
+		grid-row-gap: calc(16 * 100vw / 1440);
+	}
+	.significant__features-item-image {
+		width: calc(306 * 100vw / 1440);
+		height: calc(220 * 100vw / 1440);
+	}
+	.significant__features-item-title {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.significant__features-item-content {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 999px) {
@@ -17,6 +45,7 @@
 		margin-bottom: 104px;
 	}
 	.significant__title {
+		width: 335px;
 		margin-bottom: 28px;
 		font-size: 32px;
 		line-height: 40px;
@@ -33,8 +62,8 @@
 		padding-right: calc((100vw - 335px) / 2);
 	}
 	.significant__features-scrollbar {
-		margin-left: calc((100vw - 335px) / 2);
 		width: 335px;
+		margin-left: calc((100vw - 335px) / 2);
 	}
 	.significant__features-scrollbar-thumb {
 		width: 56px;
