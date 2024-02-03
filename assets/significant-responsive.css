@@ -3,6 +3,12 @@
 		margin-top: calc(180 * 100vw / 1440);
 		margin-bottom: calc(180 * 100vw / 1440);
 	}
+	.significant__title {
+		width: calc(1296 * 100vw / 1440);
+		margin-bottom: calc(56 * 100vw / 1440);
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 999px) {
@@ -11,14 +17,9 @@
 		margin-bottom: 104px;
 	}
 	.significant__title {
-		margin-bottom: 8px;
+		margin-bottom: 28px;
 		font-size: 32px;
 		line-height: 40px;
-	}
-	.significant__subtitle {
-		margin-bottom: 38px;
-		font-size: 18px;
-		line-height: 24px;
 	}
 	.significant__features {
 		width: 100vw;
