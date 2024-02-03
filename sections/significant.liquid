@@ -32,11 +32,59 @@
 	  	{% endfor %}
 	  	<div><div style="margin-left: -20px"></div></div>
 	  </div>
+		<div class="significant__features-scrollbar">
+			<div class="significant__features-scrollbar-thumb"></div>
+		</div>
   </div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function() {
+	  var content = document.querySelector('.significant__features-scroller');
+		var scrollbar = document.querySelector('.significant__features-scrollbar');
+	  var scrollbarThumb = document.querySelector('.significant__features-scrollbar-thumb');
+
+		scrollbar.addEventListener('mousedown', function (event) {
+		  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+		  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+		  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+		  updateScrollbarThumbPosition();
+		});
+
+		scrollbarThumb.addEventListener('mousedown', function (event) {
+		  var startX = event.clientX;
+		  var startThumbLeft = scrollbarThumb.offsetLeft;
+
+		  function handleMouseMove(event) {
+		    var deltaX = event.clientX - startX;
+		    var newThumbLeft = startThumbLeft + deltaX;
+
+		    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
+
+		    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
+
+		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${56 * newThumbLeftPercentage / 100}px)`;
+		    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
+		  }
+
+		  function handleMouseUp() {
+		    document.removeEventListener('mousemove', handleMouseMove);
+		    document.removeEventListener('mouseup', handleMouseUp);
+		  }
+
+		  document.addEventListener('mousemove', handleMouseMove);
+		  document.addEventListener('mouseup', handleMouseUp);
+		});
+
+	  content.addEventListener('scroll', function () {
+	  	updateScrollbarThumbPosition()
+	  });
+
+		function updateScrollbarThumbPosition() {
+		  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${56 * scrollLeftPercentage / 100}px)`;
+		}
+		
 		const slider = document.querySelector('.significant__features-scroller');
 		let isDown = false;
 		let startX;
