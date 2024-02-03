@@ -32,22 +32,11 @@
 		padding-right: 20px;
 	}
 	.significant__features-scrollbar {
-		position: relative;
 		margin-left: calc((100vw - 355px) / 2);
 		width: 335px;
-		height: 4px;
-		border-radius: 2px;
-		background-color: #E3E3E3;
-		cursor: pointer;
 	}
 	.significant__features-scrollbar-thumb {
-		position: absolute;
-		top: 0;
-		left: 0;
 		width: 56px;
-		height: 100%;
-		border-radius: 2px;
-		background-color: #1657FC;
 	}
 	.significant__features-item {
 		width: 306px;
