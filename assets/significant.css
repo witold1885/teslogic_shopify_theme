@@ -45,7 +45,7 @@
 	display: flex;
 	grid-column-gap: 24px;
 	padding-left: calc((100vw - 1296px) / 2);
-	padding-right: 72px;
+	padding-right: calc((100vw - 1296px) / 2);
 	cursor: grab;
 	scrollbar-color: transparent transparent;
 }
