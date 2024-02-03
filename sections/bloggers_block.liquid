@@ -63,6 +63,63 @@ $(document).ready(async function() {
 		$('.bloggers_block__list-scroller').append(videoItem)
 	}
 
+	var scrollbarThumbWidth
+	onWindowResize()
+	$(window).on('resize', onWindowResize)
+	function onWindowResize() {
+		if (window.innerWidth >= 1000) {
+			scrollbarThumbWidth = 106
+		}
+		else {
+			scrollbarThumbWidth = 84
+		}
+	}
+
+  var content = document.querySelector('.bloggers_block__list-scroller');
+	var scrollbar = document.querySelector('.bloggers_block__list-scrollbar');
+  var scrollbarThumb = document.querySelector('.bloggers_block__list-scrollbar-thumb');
+
+	scrollbar.addEventListener('mousedown', function (event) {
+	  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+	  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+	  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+	  updateScrollbarThumbPosition();
+	});
+
+	scrollbarThumb.addEventListener('mousedown', function (event) {
+	  var startX = event.clientX;
+	  var startThumbLeft = scrollbarThumb.offsetLeft;
+
+	  function handleMouseMove(event) {
+	    var deltaX = event.clientX - startX;
+	    var newThumbLeft = startThumbLeft + deltaX;
+
+	    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
+
+	    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
+
+	    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${scrollbarThumbWidth * newThumbLeftPercentage / 100}px)`;
+	    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
+	  }
+
+	  function handleMouseUp() {
+	    document.removeEventListener('mousemove', handleMouseMove);
+	    document.removeEventListener('mouseup', handleMouseUp);
+	  }
+
+	  document.addEventListener('mousemove', handleMouseMove);
+	  document.addEventListener('mouseup', handleMouseUp);
+	});
+
+  content.addEventListener('scroll', function () {
+  	updateScrollbarThumbPosition()
+  });
+
+	function updateScrollbarThumbPosition() {
+	  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+	  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${scrollbarThumbWidth * scrollLeftPercentage / 100}px)`;
+	}
+
 	const slider = document.querySelector('.bloggers_block__list-scroller')
 	let isDown = false
 	let startX
@@ -130,25 +187,39 @@ $(document).ready(async function() {
 	margin-bottom: 47px;
 }
 .bloggers_block__list {
+	width: 100vw;
 	display: flex;
-	grid-column-gap: 24px;
-/*	margin-left: 72px;*/
-/*	margin-right: 72px;*/
-/*	scrollbar-color: transparent transparent;*/
-	cursor: grab;
+	flex-direction: column;
+	grid-row-gap: 58px;
 	user-select: none;
-/*	width: 100vw;*/
-/*	margin-left: calc(-1 * (100vw - 1440px) / 2);*/
 	overflow-x: visible;
 }
 .bloggers_block__list-scroller {
 	overflow-x: scroll;
 	display: flex;
 	grid-column-gap: 24px;
-	padding-left: calc((100vw - 1440px + 144px) / 2);
-	padding-right: 72px;
-	padding-bottom: 58px;
-	scrollbar-color: #1657FC #E3E3E3;
+	padding-left: calc((100vw - 1296px) / 2);
+	padding-right: calc((100vw - 1296px) / 2);
+	cursor: grab;
+	scrollbar-color: transparent transparent;
+}
+.bloggers_block__list-scrollbar {
+	position: relative;
+	margin-left: calc((100vw - 1296px) / 2);
+	width: 1296px;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #E3E3E3;
+	cursor: pointer;
+}
+.bloggers_block__list-scrollbar-thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 106px;
+	height: 100%;
+	border-radius: 2px;
+	background-color: #1657FC;
 }
 .bloggers_block__list-item {
 	display: flex;
@@ -292,7 +363,10 @@ $(document).ready(async function() {
 	  		Watch video reviews from popular influencers
 	  	</div>
 		<div class="bloggers_block__list">
-			<div class="bloggers_block__list-scroller"></div>		
+			<div class="bloggers_block__list-scroller"></div>
+			<div class="bloggers_block__list-scrollbar">
+				<div class="bloggers_block__list-scrollbar-thumb"></div>
+			</div>
 		</div>
 	</div>
 </div>
