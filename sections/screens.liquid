@@ -512,11 +512,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var featuresBlock = document.querySelector('.screens__features-block')
-		featuresBlock.addEventListener('mousedown', function (event) {
+		var featuresWrap = document.querySelector('.screens__features')
+		featuresWrap.addEventListener('mousedown', function (event) {
 			console.log('touching')
 		  var startX = event.clientX
-		  var startThumbLeft = featuresBlock.offsetLeft
 		  var deltaX = 0
 
 		  function handleMouseMove(event) {
