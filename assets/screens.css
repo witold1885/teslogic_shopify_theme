@@ -91,6 +91,7 @@
 }
 .screens__features {
 	flex: 1;
+	cursor: grab;
 	user-select: none;
 }
 .screens__features-block {
