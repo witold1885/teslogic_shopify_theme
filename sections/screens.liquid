@@ -533,8 +533,8 @@
 		    featuresWrap.removeEventListener('mouseup', handleMouseUp)
 		  }
 
-		  featuresWrap.addEventListener('mousemove', handleMouseMove)
-		  featuresWrap.addEventListener('mouseup', handleMouseUp)
+		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
+		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
 		}
 
 		featuresWrap.addEventListener('mousedown', handleMouseDown)
