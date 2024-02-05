@@ -181,7 +181,9 @@
 		height: 200px;
 		border-radius: 24px!important;
 		background: #FFF!important;
-		overflow: hidden;
+	}
+	.shortcuts-info-block-car .shortcuts-info-block-background {
+		border-top-right-radius: 24px;
 	}
 	.shortcuts-info-block-text {
 		order: 2;
