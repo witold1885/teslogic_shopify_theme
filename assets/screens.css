@@ -91,6 +91,7 @@
 }
 .screens__features {
 	flex: 1;
+	user-select: none;
 }
 .screens__features-block {
 	width: 100%;
