@@ -184,6 +184,7 @@
 	}
 	.shortcuts-info-block-car .shortcuts-info-block-background {
 		border-top-right-radius: 24px;
+		overflow: hidden;
 	}
 	.shortcuts-info-block-text {
 		order: 2;
