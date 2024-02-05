@@ -13,6 +13,9 @@
 	font-weight: 500;
 	line-height: 64px;
 }
+.significant__title br {
+	display: none;
+}
 .significant__features {
 	width: 100vw;
 	display: flex;
