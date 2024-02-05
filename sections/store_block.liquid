@@ -323,7 +323,7 @@
 			}
 		}
 		var cart_qty = Number({{ cart.item_count }})
-		$('.store_block-product-add').on('click', function() {
+		$('.store_block-product-add', '.store_block-product-add-mobile').on('click', function() {
 			console.log('click to add')
 			if (model_id) {
 				let items = [{
