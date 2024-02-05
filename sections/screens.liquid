@@ -513,7 +513,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var featuresWrap = document.querySelector('.screens__features')
-		featuresWrap.addEventListener('mousedown', function (event) {
+
+		function handleMouseDown(event) {
 			console.log('touching')
 		  var startX = event.clientX
 		  var deltaX = 0
@@ -534,8 +535,9 @@
 
 		  featuresWrap.addEventListener('mousemove', handleMouseMove)
 		  featuresWrap.addEventListener('mouseup', handleMouseUp)
-		})
+		}
 
+		featuresWrap.addEventListener('mousedown', handleMouseDown)
 
 		var mode = 'light' // dark
 		var featureType = 'dashboard'
