@@ -178,6 +178,7 @@
 	}
 	.shortcuts-info-block-car {
 		order: 1;
+		height: 200px;
 		background: #FFF!important;
 	}
 	.shortcuts-info-block-text {
