@@ -178,7 +178,7 @@
 	}
 	.shortcuts-info-block-car {
 		order: 1;
-		background: #FFF;
+		background: #FFF!important;
 	}
 	.shortcuts-info-block-text {
 		order: 2;
