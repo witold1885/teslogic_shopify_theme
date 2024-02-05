@@ -575,12 +575,12 @@
 		    console.log('deltaX in handleMouseDown', deltaX)
 
 		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
-		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
 		}
 
 		  function handleMouseMove(event) {
 		    deltaX = event.clientX - startX
 		    console.log('deltaX in handleMouseMove', deltaX)
+		  	featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
 		  }
 
 		  function handleMouseUp() {
