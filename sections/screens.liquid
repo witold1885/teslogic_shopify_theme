@@ -571,6 +571,10 @@
 		  var startX = event.clientX
 		  var deltaX = 0
 
+		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
+		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
+		}
+
 		  function handleMouseMove(event) {
 		    deltaX = event.clientX - startX
 		    console.log(deltaX)
@@ -584,10 +588,6 @@
 		    featuresWrap.removeEventListener('mousemove', handleMouseMove)
 		    featuresWrap.removeEventListener('mouseup', handleMouseUp)
 		  }
-
-		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
-		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
-		}
 
 		featuresWrap.addEventListener('mousedown', handleMouseDown)
 
