@@ -438,7 +438,7 @@
 		  // console.log(walk);
 		});
 
-		$('.shortcuts-features-item-title-chevron').on('click', function() {
+		$('.shortcuts-features-item-title').on('click', function() {
 			let block = $(this).parents('.shortcuts-features-item-mobile')
 			let show = $(block).data('show')
 			if (show == 'image') {
@@ -446,6 +446,7 @@
 				$(block).find('.shortcuts-features-item-description').show()
 				$(this).find('.shortcuts-features-item-title-chevron-down').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-up').show()
+				$('.shortcuts-features-item-speedicons').show()
 				$(block).data('show', 'description')
 				return
 			}
@@ -454,6 +455,7 @@
 				$(block).find('.shortcuts-features-item-image').show()
 				$(this).find('.shortcuts-features-item-title-chevron-up').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-down').show()
+				$('.shortcuts-features-item-speedicons').hide()
 				$(block).data('show', 'image')
 				return
 			}
