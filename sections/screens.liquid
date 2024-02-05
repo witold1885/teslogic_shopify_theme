@@ -566,10 +566,12 @@
 
 		var featuresWrap = document.querySelector('.screens__features')
 
+		var startX, deltaX
+
 		function handleMouseDown(event) {
 			console.log('touching')
-		  var startX = event.clientX
-		  var deltaX = 0
+		  startX = event.clientX
+		  deltaX = 0
 
 		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
 		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
