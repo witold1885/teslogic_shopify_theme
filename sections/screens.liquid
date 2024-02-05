@@ -512,8 +512,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		const featuresBlock = document.querySelector('.screens__features-block')
+		var featuresBlock = document.querySelector('.screens__features-block')
 		featuresBlock.addEventListener('mousedown', function (event) {
+			console.log('touching')
 		  var startX = event.clientX
 		  var startThumbLeft = featuresBlock.offsetLeft
 		  var deltaX = 0
@@ -523,10 +524,8 @@
 		  }
 
 		  function handleMouseUp() {
-		    console.log('deltaX', deltaX)
 		    if (deltaX != 0) {
 				let direction = deltaX > 0 ? 'prev' : 'next'
-				console.log(direction)
 				handleDirection(direction)
 			}
 		    // document.removeEventListener('mousemove', handleMouseMove)
@@ -587,7 +586,6 @@
 
 		$('.screen__selected-nav').on('click', function() {
 			let direction = $(this).data('direction')
-			console.log(direction)
 			handleDirection(direction)
 		})
 
@@ -620,7 +618,6 @@
 		}
 
 		function setActiveFeature() {
-			console.log(featureType)
 			$('.screens__features-block').each(function() {
 				if ($(this).data('type') == featureType) {
 					$(this).css('display', 'flex')
