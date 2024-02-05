@@ -529,8 +529,8 @@
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
 			}
-		    // document.removeEventListener('mousemove', handleMouseMove)
-		    // document.removeEventListener('mouseup', handleMouseUp)
+		    document.removeEventListener('mousemove', handleMouseMove)
+		    document.removeEventListener('mouseup', handleMouseUp)
 		  }
 
 		  document.addEventListener('mousemove', handleMouseMove)
