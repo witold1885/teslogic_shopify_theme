@@ -50,6 +50,9 @@
 		font-size: 32px;
 		line-height: 40px;
 	}
+	.significant__title br {
+		display: block;
+	}
 	.significant__features {
 		width: 100vw;
 		margin-left: calc(-1 * (100vw - 335px) / 2);
