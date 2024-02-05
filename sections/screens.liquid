@@ -569,6 +569,7 @@
 		var startX, deltaX, listing = false
 
 		function handleMouseDown(event) {
+			event.preventDefault()
 			console.log('touching')
 		  startX = event.clientX
 		  deltaX = 0
