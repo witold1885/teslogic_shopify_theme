@@ -512,6 +512,26 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		const featuresBlock = document.querySelector('.screens__features-block')
+		featuresBlock.addEventListener('mousedown', function (event) {
+		  var startX = event.clientX
+		  var startThumbLeft = featuresBlock.offsetLeft
+
+		  function handleMouseMove(event) {
+		    var deltaX = event.clientX - startX
+		    console.log('deltaX', deltaX)
+		  }
+
+		  function handleMouseUp() {
+		    document.removeEventListener('mousemove', handleMouseMove)
+		    document.removeEventListener('mouseup', handleMouseUp)
+		  }
+
+		  document.addEventListener('mousemove', handleMouseMove)
+		  document.addEventListener('mouseup', handleMouseUp)
+		})
+
+
 		var mode = 'light' // dark
 		var featureType = 'dashboard'
 		var featureTypes = [
