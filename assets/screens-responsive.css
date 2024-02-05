@@ -66,6 +66,11 @@
 	.screens__top-switcher {
 		display: none;
 	}
+	.screens__top-switcher-mobile-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	.screens__top-switcher-mobile {
 		display: flex;
 		justify-content: center;
