@@ -73,6 +73,12 @@
 		border-radius: 4px;
 		overflow: hidden;
 	}
+	.screens.light .screens__top-switcher-mobile {
+		border: 1px solid #D3D3D3; 
+	}
+	.screens.dark .screens__top-switcher-mobile {
+		border: 1px solid #3E3E3E; 
+	}
 	.screens__top-switcher-item {
 		display: flex;
 		justify-content: center;
