@@ -512,33 +512,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var featuresWrap = document.querySelector('.screens__features')
-
-		function handleMouseDown(event) {
-			console.log('touching')
-		  var startX = event.clientX
-		  var deltaX = 0
-
-		  function handleMouseMove(event) {
-		    deltaX = event.clientX - startX
-		    console.log(deltaX)
-		  }
-
-		  function handleMouseUp() {
-		    if (deltaX != 0) {
-				let direction = deltaX > 0 ? 'prev' : 'next'
-				handleDirection(direction)
-			}
-		    featuresWrap.removeEventListener('mousemove', handleMouseMove)
-		    featuresWrap.removeEventListener('mouseup', handleMouseUp)
-		  }
-
-		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
-		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
-		}
-
-		featuresWrap.addEventListener('mousedown', handleMouseDown)
-
 		var mode = 'light' // dark
 		var featureType = 'dashboard'
 		var featureTypes = [
@@ -591,7 +564,35 @@
 			handleDirection(direction)
 		})
 
-		function handleDirection(direction) {			
+		var featuresWrap = document.querySelector('.screens__features')
+
+		function handleMouseDown(event) {
+			console.log('touching')
+		  var startX = event.clientX
+		  var deltaX = 0
+
+		  function handleMouseMove(event) {
+		    deltaX = event.clientX - startX
+		    console.log(deltaX)
+		  }
+
+		  function handleMouseUp() {
+		    if (deltaX != 0) {
+				let direction = deltaX > 0 ? 'prev' : 'next'
+				handleDirection(direction)
+			}
+		    featuresWrap.removeEventListener('mousemove', handleMouseMove)
+		    featuresWrap.removeEventListener('mouseup', handleMouseUp)
+		  }
+
+		  featuresWrap.addEventListener('mousemove', handleMouseMove, { once: true })
+		  featuresWrap.addEventListener('mouseup', handleMouseUp, { once: true })
+		}
+
+		featuresWrap.addEventListener('mousedown', handleMouseDown)
+
+		function handleDirection(direction) {
+			console.log(direction)		
 			if (direction == 'prev') {
 				featureTypeIndex--
 				if (featureTypeIndex < 0) {
