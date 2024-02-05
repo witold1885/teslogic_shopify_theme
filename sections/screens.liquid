@@ -570,39 +570,28 @@
 
 		function handleMouseDown(event) {
 			event.preventDefault()
-			console.log('touching')
-		  startX = event.clientX
-		  deltaX = 0
-		  listing = true
-		    console.log('==================================')
-		    console.log('deltaX in handleMouseDown', deltaX)
-		    console.log('listing in handleMouseDown', listing)
-
+			startX = event.clientX
+			deltaX = 0
+			listing = true
 		}
 
-		  function handleMouseMove(event) {
+		function handleMouseMove(event) {
 		  	if (listing) {
 			    deltaX = event.clientX - startX
-			    console.log('deltaX in handleMouseMove', deltaX)
-			    console.log('listing in handleMouseMove', listing)
 			}
-		  }
+		}
 
-		  function handleMouseUp() {
-		    console.log('deltaX in handleMouseUp', deltaX)
-			console.log('listing in handleMouseUp', listing)
+		function handleMouseUp() {
 		    if (deltaX != 0 && listing) {
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
 			}
 			listing = false
-		    // featuresWrap.removeEventListener('mousemove', handleMouseMove)
-		    // featuresWrap.removeEventListener('mouseup', handleMouseUp)
-		  }
+		}
 
 		featuresWrap.addEventListener('mousedown', handleMouseDown)
-		  featuresWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
-		  	featuresWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
+		featuresWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
+		featuresWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
 
 		function handleDirection(direction) {
 			console.log(direction)		
