@@ -155,9 +155,14 @@ $(document).ready(async function() {
 	width: 100%;
 	background: #F6F6F6;
 }
+.bloggers_block__wrap {
+	width: 1296px;
+	padding-top: 180px;
+	padding-bottom: 47px;
+}
 .bloggers_block__title {
 	width: 1296px;
-	margin: 180px auto 6px;
+	margin: 0 auto 6px;
 	color: #000;
 	font-family: Manrope;
 	font-size: 52px;
@@ -170,7 +175,7 @@ $(document).ready(async function() {
 }
 .bloggers_block__subtitle {
 	width: 1296px;
-	margin: 0 auto 47px;
+	margin: 0 auto;
 	color: #4D4D4D;
 	font-family: Manrope;
 	font-size: 24px;
@@ -285,15 +290,20 @@ $(document).ready(async function() {
 	line-height: 24px;
 }
 @media screen and (min-width: 1000px) and (max-width: 1440px) {
+	.bloggers_block__wrap {
+		width: calc(1296 * 100vw / 1440);
+		padding-top: calc(180 * 100vw / 1440);
+		padding-bottom: calc(47 * 100vw / 1440);
+	}
 	.bloggers_block__title {
 		width: calc(1296 * 100vw / 1440);
-		margin: calc(180 * 100vw / 1440) auto calc(6 * 100vw / 1440);
+		margin: 0 auto calc(6 * 100vw / 1440);
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
 	}
 	.bloggers_block__subtitle {
 		width: calc(1296 * 100vw / 1440);
-		margin: 0 auto calc(47 * 100vw / 1440);
+		margin: 0 auto;
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
@@ -347,17 +357,22 @@ $(document).ready(async function() {
 	.bloggers_block {
 		width: 100vw;
 	}
+	.bloggers_block__wrap {
+		width: 335px;
+		padding-top: 96px;
+		padding-bottom: 38px;
+	}
 	.bloggers_block__title {
 		width: 335px;
 		font-size: 32px;
 		line-height: 40px; 
-		margin: 96px 0 8px;
+		margin: 0 auto 8px;
 	}
 	.bloggers_block__subtitle {
 		width: 335px;
 		font-size: 18px;
 		line-height: 24px;
-		margin: 0 0 38px;
+		margin: 0 auto;
 	}
 	.bloggers_block__list {
 		width: 100vw;
@@ -405,16 +420,18 @@ $(document).ready(async function() {
 </style>
 
 <div class="bloggers_block">
-	<div class="bloggers_block__title">
-		<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
-	</div>
-	<div class="bloggers_block__subtitle">
-		Watch video reviews from popular influencers
-	</div>
-	<div class="bloggers_block__list">
-		<div class="bloggers_block__list-scroller"></div>
-		<div class="bloggers_block__list-scrollbar">
-			<div class="bloggers_block__list-scrollbar-thumb"></div>
+	<div class="bloggers_block__wrap">
+		<div class="bloggers_block__title">
+			<span class="bloggers_block__title-bloggers">Bloggers’</span> Verdict
+		</div>
+		<div class="bloggers_block__subtitle">
+			Watch video reviews from popular influencers
+		</div>
+		<div class="bloggers_block__list">
+			<div class="bloggers_block__list-scroller"></div>
+			<div class="bloggers_block__list-scrollbar">
+				<div class="bloggers_block__list-scrollbar-thumb"></div>
+			</div>
 		</div>
 	</div>
 </div>
