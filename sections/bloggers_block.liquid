@@ -159,7 +159,7 @@ $(document).ready(async function() {
 	width: 1296px;
 	margin: 0 auto;
 	padding-top: 180px;
-	padding-bottom: 47px;
+	padding-bottom: 180px;
 }
 .bloggers_block__title {
 	width: 1296px;
@@ -176,7 +176,7 @@ $(document).ready(async function() {
 }
 .bloggers_block__subtitle {
 	width: 1296px;
-	margin: 0 auto;
+	margin: 0 auto 47px;
 	color: #4D4D4D;
 	font-family: Manrope;
 	font-size: 24px;
@@ -186,7 +186,6 @@ $(document).ready(async function() {
 }
 .bloggers_block__list {
 	width: 100vw;
-	margin-bottom: 180px;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 58px;
@@ -294,7 +293,7 @@ $(document).ready(async function() {
 	.bloggers_block__wrap {
 		width: calc(1296 * 100vw / 1440);
 		padding-top: calc(180 * 100vw / 1440);
-		padding-bottom: calc(47 * 100vw / 1440);
+		padding-bottom: calc(180 * 100vw / 1440);
 	}
 	.bloggers_block__title {
 		width: calc(1296 * 100vw / 1440);
@@ -304,12 +303,11 @@ $(document).ready(async function() {
 	}
 	.bloggers_block__subtitle {
 		width: calc(1296 * 100vw / 1440);
-		margin: 0 auto;
+		margin: 0 auto calc(47 * 100vw / 1440);
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
 	.bloggers_block__list {
-		margin-bottom: calc(180 * 100vw / 1440);
 		grid-row-gap: calc(58 * 100vw / 1440);
 	}
 	.bloggers_block__list-scroller {
@@ -362,7 +360,7 @@ $(document).ready(async function() {
 	.bloggers_block__wrap {
 		width: 335px;
 		padding-top: 96px;
-		padding-bottom: 38px;
+		padding-bottom: 108px;
 	}
 	.bloggers_block__title {
 		width: 335px;
@@ -374,13 +372,12 @@ $(document).ready(async function() {
 		width: 335px;
 		font-size: 18px;
 		line-height: 24px;
-		margin: 0 auto;
+		margin: 0 auto 38px;
 	}
 	.bloggers_block__list {
 		width: 100vw;
 		margin-left: calc(-1 * (100vw - 335px) / 2);
 		margin-right: calc(-1 * (100vw - 335px) / 2);
-		margin-bottom: 108px;
 		grid-row-gap: 41px;
 	}
 	.bloggers_block__list-scroller {
