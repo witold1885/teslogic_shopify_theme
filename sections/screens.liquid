@@ -520,6 +520,11 @@
 		  function handleMouseMove(event) {
 		    var deltaX = event.clientX - startX
 		    console.log('deltaX', deltaX)
+		    if (deltaX != 0) {
+				let direction = deltaX > 0 ? 'prev' : 'next'
+				console.log(direction)
+				handleDirection(direction)
+			}
 		  }
 
 		  function handleMouseUp() {
@@ -582,6 +587,10 @@
 		$('.screen__selected-nav').on('click', function() {
 			let direction = $(this).data('direction')
 			console.log(direction)
+			handleDirection(direction)
+		})
+
+		function handleDirection(direction) {			
 			if (direction == 'prev') {
 				featureTypeIndex--
 				if (featureTypeIndex < 0) {
@@ -601,7 +610,7 @@
 			$(`.screens__select-item[data-type="${featureType}"]`).addClass('active')
 			setActiveFeature()
 			setActiveSelectItem()
-		})
+		}
 
 		function setMode() {
 			$('.screens').removeClass('light')
