@@ -157,6 +157,7 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		grid-column-gap: 24px;
+		grid-row-gap: 32px;
 		margin-bottom: 52px;
 	}
 	.box_block-item {
