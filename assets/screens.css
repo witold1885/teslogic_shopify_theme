@@ -52,6 +52,9 @@
 	border-radius: 6px;
 	overflow: hidden;
 }
+.screens__top-switcher-mobile-wrap {
+	display: none;
+}
 .screens__top-switcher-mobile {
 	display: none;
 }
