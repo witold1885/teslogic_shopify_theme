@@ -42,7 +42,83 @@
 	.pointer-right .pointer-point {
 		left: calc(-1 * 100vw / 1440);
 	}
+	
+	.pointer-dashboard-top-left .pointer-line.desktop {
+		width: calc(537 * 100vw / 1440);
+		height: calc(65 * 100vw / 1440);
+	}
+	.pointer-dashboard-top-right .pointer-line.desktop {
+		width: calc(330 * 100vw / 1440);
+		height: calc(65 * 100vw / 1440);
+	}
+	.pointer-dashboard-bottom-left .pointer-line.desktop {
+		width: calc(304 * 100vw / 1440);
+		height: calc(118 * 100vw / 1440);
+	}
+	.pointer-dashboard-bottom-right .pointer-line.desktop {
+		width: calc(539 * 100vw / 1440);
+		height: calc(120 * 100vw / 1440);
+	}
 
+	.pointer-performance-top-left .pointer-line.desktop {
+		width: calc(369 * 100vw / 1440);
+		height: calc(82 * 100vw / 1440);
+	}
+	.pointer-performance-top-right .pointer-line.desktop {
+		width: calc(527 * 100vw / 1440);
+		height: calc(82 * 100vw / 1440);
+	}
+	.pointer-performance-bottom-left .pointer-line.desktop {
+		width: calc(533 * 100vw / 1440);
+		height: calc(67 * 100vw / 1440);
+	}
+	.pointer-performance-bottom-right .pointer-line.desktop {
+		width: calc(349 * 100vw / 1440);
+		height: calc(141 * 100vw / 1440);
+	}
+
+	.pointer-energy-screen-top-left .pointer-line.desktop {
+		width: calc(364 * 100vw / 1440);
+		height: calc(70 * 100vw / 1440);
+	}
+	.pointer-energy-screen-top-right .pointer-line.desktop {
+		width: calc(526 * 100vw / 1440);
+		height: calc(71 * 100vw / 1440);
+	}
+	.pointer-energy-screen-bottom-left .pointer-line.desktop {
+		width: calc(546 * 100vw / 1440);
+		height: calc(193 * 100vw / 1440);
+	}	
+	.pointer-energy-screen-bottom-right .pointer-line.desktop {
+		width: calc(464 * 100vw / 1440);
+		height: calc(120 * 100vw / 1440);
+	}
+
+	.pointer-car-data-top-left .pointer-line.desktop {
+		width: calc(390 * 100vw / 1440);
+		height: calc(79 * 100vw / 1440);
+	}
+	.pointer-car-data-top-right .pointer-line.desktop {
+		width: calc(264 * 100vw / 1440);
+		height: calc(79 * 100vw / 1440);
+	}
+	.pointer-car-data-bottom-left .pointer-line.desktop {
+		width: calc(311 * 100vw / 1440);
+		height: calc(140 * 100vw / 1440);
+	}
+
+	.pointer-map-top-left .pointer-line.desktop {
+		width: calc(526 * 100vw / 1440);
+		height: calc(79 * 100vw / 1440);
+	}
+	.pointer-map-bottom-left .pointer-line.desktop {
+		width: calc(254 * 100vw / 1440);
+		height: calc(93 * 100vw / 1440);
+	}
+	.pointer-map-bottom-right .pointer-line.desktop {
+		width: calc(289 * 100vw / 1440);
+		height: calc(107 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) {
