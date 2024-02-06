@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.significant {
 		margin-top: calc(180 * 100vw / 1440);
 		margin-bottom: calc(180 * 100vw / 1440);
@@ -39,44 +39,44 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.significant {
-		width: 335px;
-    	margin: 80px auto 104px;
+		width: calc(335 * 100vw / 375);
+    	margin: calc(80 * 100vw / 375) auto calc(104 * 100vw / 375);
 	}
 	.significant__title {
-		width: 335px;
-		margin-bottom: 28px;
-		font-size: 32px;
-		line-height: 40px;
+		width: calc(335 * 100vw / 375);
+		margin-bottom: calc(28 * 100vw / 375);
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.significant__title br {
 		display: block;
 	}
 	.significant__features {
 		width: 100vw;
-		margin-left: calc(-1 * (100vw - 335px) / 2);
-		margin-right: calc(-1 * (100vw - 335px) / 2);
-		grid-row-gap: 60px;
+		margin-left: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+		margin-right: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+		grid-row-gap: calc(60 * 100vw / 375);
 	}
 	.significant__features-scroller {
-		grid-column-gap: 24px;
-		padding-left: calc((100vw - 335px) / 2);
-		padding-right: calc((100vw - 335px) / 2);
+		grid-column-gap: calc(24 * 100vw / 375);
+		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
+		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
 	}
 	.significant__features-scrollbar {
-		width: 335px;
-		margin-left: calc((100vw - 335px) / 2);
+		width: calc(335 * 100vw / 375);
+		margin-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
 	}
 	.significant__features-scrollbar-thumb {
-		width: 40px;
+		width: calc(40 * 100vw / 375);
 	}
 	.significant__features-item {
-		width: 306px;
-		grid-row-gap: 16px;
+		width: calc(306 * 100vw / 375);
+		grid-row-gap: calc(16 * 100vw / 375);
 	}
 	.significant__features-item-image {
-		width: 306px;
-		height: 220px;
+		width: calc(306 * 100vw / 375);
+		height: calc(220 * 100vw / 375);
 	}
 }
