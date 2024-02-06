@@ -176,6 +176,12 @@
 		width: calc(234 * 100vw / 375);
 		height: calc(234 * 100vw / 375);
 	}
+	.box_block-item-big .box_block-item-image {
+		width: calc(166 * 100vw / 375);
+		height: calc(143 * 100vw / 375);
+		top: calc(40.5 * 100vw / 375);
+		left: calc(32 * 100vw / 375);
+	}
 	.box_block-charger {
 		width: 100%;
 		flex-direction: column;
