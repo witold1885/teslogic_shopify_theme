@@ -150,62 +150,79 @@
 	}
 
 	.pointer-dashboard-top-left .pointer-line.mobile {
-
+		width: calc(168 * 100vw / 375);
+/*		height: calc(68 * 100vw / 375);*/
 	}
 	.pointer-dashboard-top-right .pointer-line.mobile {
-
+		width: calc(96 * 100vw / 375);
+/*		height: calc(77 * 100vw / 375);*/
 	}
 	.pointer-dashboard-bottom-left .pointer-line.mobile {
-
+		width: calc(80 * 100vw / 375);
+/*		height: calc(102 * 100vw / 375);*/
 	}
 	.pointer-dashboard-bottom-right .pointer-line.mobile {
-
+		width: calc(168 * 100vw / 375);
+/*		height: calc(94 * 100vw / 375);*/
 	}
 
 	.pointer-performance-top-left .pointer-line.mobile {
-
+		width: calc(79 * 100vw / 375);
+/*		height: calc(76 * 100vw / 375);*/
 	}
 	.pointer-performance-top-right .pointer-line.mobile {
-
+		width: calc(161 * 100vw / 375);
+/*		height: calc(77 * 100vw / 375);*/
 	}
 	.pointer-performance-bottom-left .pointer-line.mobile {
-
+		width: calc(166 * 100vw / 375);
+/*		height: calc(67 * 100vw / 375);*/
 	}
 	.pointer-performance-bottom-right .pointer-line.mobile {
-
+		width: calc(67 * 100vw / 375);
+/*		height: calc(132 * 100vw / 375);*/
 	}
 
 	.pointer-energy-screen-top-left .pointer-line.mobile {
-
+		width: calc(75 * 100vw / 375);
+/*		height: calc(70 * 100vw / 375);*/
 	}
 	.pointer-energy-screen-top-right .pointer-line.mobile {
-
+		width: calc(162 * 100vw / 375);
+/*		height: calc(69 * 100vw / 375);*/
 	}
 	.pointer-energy-screen-bottom-left .pointer-line.mobile {
-
+		width: calc(174 * 100vw / 375);
+/*		height: calc(135 * 100vw / 375);*/
 	}
 	.pointer-energy-screen-bottom-right .pointer-line.mobile {
-
+		width: calc(140 * 100vw / 375);
+/*		height: calc(160 * 100vw / 375);*/
 	}
 
 	.pointer-car-data-top-left .pointer-line.mobile {
-
+		width: calc(75 * 100vw / 375);
+/*		height: calc(73 * 100vw / 375);*/
 	}
 	.pointer-car-data-top-right .pointer-line.mobile {
-
+		width: calc(43 * 100vw / 375);
+/*		height: calc(87 * 100vw / 375);*/
 	}
 	.pointer-car-data-bottom-left .pointer-line.mobile {
-
+		width: calc(60 * 100vw / 375);
+/*		height: calc(112 * 100vw / 375);*/
 	}
 
 	.pointer-map-top-left .pointer-line.mobile {
-
+		width: calc(172 * 100vw / 375);
+/*		height: calc(70 * 100vw / 375);*/
 	}
 	.pointer-map-bottom-left .pointer-line.mobile {
-
+		width: calc(124 * 100vw / 375);
+/*		height: calc(83 * 100vw / 375);*/
 	}
 	.pointer-map-bottom-right .pointer-line.mobile {
-
+		width: calc(65 * 100vw / 375);
+/*		height: calc(183 * 100vw / 375);*/
 	}
-
 }
