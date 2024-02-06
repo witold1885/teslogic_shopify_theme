@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.box_block-wrap {
 		width: calc(1076 * 100vw / 1440);
 		padding-top: calc(180 * 100vw / 1440);
@@ -116,24 +116,24 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.box_block-wrap {
-		width: 335px;
+		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
-		padding-top: 96px;
-		padding-bottom: 96px;
+		padding-top: calc(96 * 100vw / 375);
+		padding-bottom: calc(96 * 100vw / 375);
 	}
 	.box_block-top {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 		height: auto;
-		margin-bottom: 32px;
+		margin-bottom: calc(32 * 100vw / 375);
 	}
 	.box_block-info-title {
-		font-size: 32px;
-		line-height: 40px;
-		margin-bottom: 20px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
+		margin-bottom: calc(20 * 100vw / 375);
 	}
 	.box_block-info-description {
 		display: none;
@@ -142,13 +142,13 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: 16px;
+		grid-row-gap: calc(16 * 100vw / 375);
 		color: #4D4D4D;
 		font-family: Manrope;
-		font-size: 16px;
+		font-size: calc(16 * 100vw / 375);
 		font-style: normal;
 		font-weight: 400;
-		line-height: 20px; 
+		line-height: calc(20 * 100vw / 375); 
 	}
 	.box_block-image {
 		display: none;
@@ -156,25 +156,25 @@
 	.box_block-items {
 		flex-wrap: wrap;
 		justify-content: center;
-		grid-column-gap: 24px;
-		grid-row-gap: 32px;
-		margin-bottom: 52px;
+		grid-column-gap: calc(24 * 100vw / 375);
+		grid-row-gap: calc(32 * 100vw / 375);
+		margin-bottom: calc(52 * 100vw / 375);
 	}
 	.box_block-item {
-		width: 148px;
-		height: 188px;
+		width: calc(148 * 100vw / 375);
+		height: calc(188 * 100vw / 375);
 	}
 	.box_block-item-big {
-		width: 234px;
-		height: 282px;
+		width: calc(234 * 100vw / 375);
+		height: calc(282 * 100vw / 375);
 	}
 	.box_block-item-top {
-		width: 148px;
-		height: 148px;
+		width: calc(148 * 100vw / 375);
+		height: calc(148 * 100vw / 375);
 	}
 	.box_block-item-big .box_block-item-top {
-		width: 234px;
-		height: 234px;
+		width: calc(234 * 100vw / 375);
+		height: calc(234 * 100vw / 375);
 	}
 	.box_block-charger {
 		width: 100%;
@@ -182,9 +182,9 @@
 		align-items: flex-start;
 	}
 	.box_block-charger-info-title {
-		font-size: 32px;
-		line-height: 40px;
-		margin-bottom: 20px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
+		margin-bottom: calc(20 * 100vw / 375);
 	}
 	.box_block-charger-info-description {
 		display: none;
@@ -192,13 +192,13 @@
 	.box_block-charger-info-description-mobile {
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: 12px;
+		grid-row-gap: calc(12 * 100vw / 375);
 		color: #4D4D4D;
 		font-family: Manrope;
-		font-size: 16px;
+		font-size: calc(16 * 100vw / 375);
 		font-style: normal;
 		font-weight: 400;
-		line-height: 20px;
+		line-height: calc(20 * 100vw / 375);
 	}
 	.box_block-charger-images {
 		display: none;
@@ -207,22 +207,22 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		grid-column-gap: 23px;
-		margin: 32px auto;
+		grid-column-gap: calc(23 * 100vw / 375);
+		margin: calc(32 * 100vw / 375) auto;
 	}
 	.box_block-charger-images-mobile-item {
-		width: 148px;
-		height: 148px;
+		width: calc(148 * 100vw / 375);
+		height: calc(148 * 100vw / 375);
 		position: relative;
 	}
 	.box_block-charger-images-mobile-item > img {
 		position: absolute;
 	}
 	.box_block-charger-images-mobile-image {
-		width: 93.854px;
-		height: 119.122px;
-		top: 27.98px;
-		left: 27.98px;
+		width: calc(93.854 * 100vw / 375);
+		height: calc(119.122 * 100vw / 375);
+		top: calc(27.98 * 100vw / 375);
+		left: calc(27.98 * 100vw / 375);
 	}
 	.box_block-charger-images-mobile-ellipse, 
 	.box_block-charger-images-mobile-photo {
@@ -232,18 +232,18 @@
 	}
 	.box_block-charger-items {
 		flex-direction: row;
-		grid-column-gap: 8px;
+		grid-column-gap: calc(8 * 100vw / 375);
 		margin-top: 0;
 	}
 	.box_block-charger-item {
-		width: 164px;
+		width: calc(164 * 100vw / 375);
 		flex-direction: column;
 		align-items: center;
-		grid-row-gap: 12px;
+		grid-row-gap: calc(12 * 100vw / 375);
 	}
 	.box_block-charger-item-image {
-		width: 60px;
-		height: 60px;
+		width: calc(60 * 100vw / 375);
+		height: calc(60 * 100vw / 375);
 	}
 	.box_block-charger-item-image-image {
 		display: none;
@@ -257,7 +257,7 @@
 	.box_block-charger-item-description {
 		width: 100%;
 		text-align: center;
-		font-size: 12px;
-		line-height: 18px;
+		font-size: calc(12 * 100vw / 375);
+		line-height: calc(18 * 100vw / 375);
 	}
 }
