@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.store_block {
 		padding-top: calc(200 * 100vw / 1440);
 		padding-bottom: calc(200 * 100vw / 1440);
@@ -114,13 +114,13 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.store_block {
-		padding-top: 96px;
-		padding-bottom: 100px;
+		padding-top: calc(96 * 100vw / 375);
+		padding-bottom: calc(100 * 100vw / 375);
 	}
 	.store_block-product {
-		width: 375px;
+		width: calc(375 * 100vw / 375);
 	}
 	.store_block-product-gallery {
 		display: none;
@@ -135,9 +135,9 @@
 		align-items: flex-start;
 	}
 	.store_block-product-title {
-		width: 208px;
-		font-size: 32px;
-		line-height: 40px;
+		width: calc(208 * 100vw / 375);
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.store_block-product-price {
 		flex-direction: column;
@@ -145,17 +145,17 @@
 		margin-bottom: 0;
 	}
 	.store_block-product-price-new {
-		font-size: 32px;
-		line-height: 40px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.store_block-product-price-old {
-		font-size: 32px;
-		line-height: 40px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.store_block-product-gallery-mobile {
 		display: block;
 		position: relative;
-		width: 335px;
+		width: calc(335 * 100vw / 375);
 	}
 	.store_block-product-gallery-mobile-nav {
 		position: absolute;
@@ -172,25 +172,25 @@
 		right: 0;
 	}
 	.store_block-product-gallery-main {
-		width: 335px;
-		height: 335px;
+		width: calc(335 * 100vw / 375);
+		height: calc(335 * 100vw / 375);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-radius: 24px; 
+		border-radius: calc(24 * 100vw / 375); 
 		background: #FFF;
 	}
 	.store_block-product-gallery-mobile-dots {
 		width: 100%;
 		position: absolute;
-		bottom: 12px;
+		bottom: calc(12 * 100vw / 375);
 		display: flex;
 		justify-content: center;
-		grid-column-gap: 6px;
+		grid-column-gap: calc(6 * 100vw / 375);
 	}
 	.store_block-product-gallery-mobile-dot {
-		width: 6px;
-		height: 6px;
+		width: calc(6 * 100vw / 375);
+		height: calc(6 * 100vw / 375);
 		cursor: pointer;
 		position: relative;
 	}
@@ -202,24 +202,24 @@
 	}
 	.store_block-product-select {
 		width: 100%;
-		height: 56px;
+		height: calc(56 * 100vw / 375);
 	}
 	.store_block-product-select-dropdown {
-		padding: 18px 20px 24px;
-		grid-row-gap: 20px;
-		border-radius: 8px;
+		padding: calc(18 * 100vw / 375) calc(20 * 100vw / 375) calc(24 * 100vw / 375);
+		grid-row-gap: calc(20 * 100vw / 375);
+		border-radius: calc(8 * 100vw / 375);
 	}
 	.store_block-product-select-dropdown-item {
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 	.store_block-product-select-value {
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 	.store_block-product-select-arrow {
-		width: 12px;
-		height: 20px;
+		width: calc(12 * 100vw / 375);
+		height: calc(20 * 100vw / 375);
 	}
 	.store_block-product-select-dropdown-item img {
 		display: none;
@@ -228,13 +228,13 @@
 		display: none;
 	}
 	.store_block-add-wireless-charger {
-		margin-top: 12px;
+		margin-top: calc(12 * 100vw / 375);
 	}
 	.store_block-product-order {
 		flex-direction: column;
 		align-items: flex-start;
-		grid-row-gap: 12px;
-		margin-top: 24px;
+		grid-row-gap: calc(12 * 100vw / 375);
+		margin-top: calc(24 * 100vw / 375);
 	}
 	.store_block-product-add {
 		display: none;
@@ -242,9 +242,9 @@
 	.store_block-product-add-mobile {
 		display: flex;
 		width: 100%;
-		height: 56px;
+		height: calc(56 * 100vw / 375);
 		padding: 0;
-		border-radius: 100px;
+		border-radius: calc(100 * 100vw / 375);
 		border: none;
 		outline: none;
 		box-shadow: none;
@@ -255,23 +255,23 @@
 		height: 100%;
 		color: #FFF;
 		font-family: Manrope;
-		font-size: 18px;
+		font-size: calc(18 * 100vw / 375);
 		font-style: normal;
 		font-weight: 500;
-		line-height: 24px;
+		line-height: calc(24 * 100vw / 375);
 		box-sizing: border-box;
 	}
 	.store_block-product-add-mobile-text {
-		width: 233px;
-		padding: 16px 32px 16px 0;
+		width: calc(233 * 100vw / 375);
+		padding: calc(16 * 100vw / 375) calc(32 * 100vw / 375) calc(16 * 100vw / 375) 0;
 		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
 		backdrop-filter: blur(8px);
 		text-align: right;
 	}
 	.store_block-product-add-mobile-total {
-		width: 102px;
+		width: calc(102 * 100vw / 375);
 		height: 100%;
-		padding: 16px 0 16px 24px;
+		padding: calc(16 * 100vw / 375) 0 calc(16 * 100vw / 375) calc(24 * 100vw / 375);
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.16) 100%), linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 		text-align: left;
 	}
