@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 1000px) and (max-width: 576px) {
 	.using {
 		width: calc(1296 * 100vw / 1440);
 		margin: calc(150 * 100vw / 1440) auto calc(180 * 100vw / 1440);
@@ -71,38 +71,38 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.using {
-		width: 335px;
-		margin: 96px auto;
+		width: calc(335 * 100vw / 375);
+		margin: calc(96 * 100vw / 375) auto;
 	}
 	.using__title {
-		height: 40px;
-		font-size: 32px;
-		line-height: 40px; 
+		height: calc(40 * 100vw / 375);
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375); 
 	}
 	.using__subtitle {
-		font-size: 18px;
-		line-height: 24px;
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 		flex-direction: column;
 		align-items: flex-start;
-		grid-row-gap: 8px;
+		grid-row-gap: calc(8 * 100vw / 375);
 	}
 	.using__subtitle a {
-		grid-column-gap: 4px;
+		grid-column-gap: calc(4 * 100vw / 375);
 	}
 	.using__content {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		grid-row-gap: 40px;
+		grid-row-gap: calc(40 * 100vw / 375);
 	}
 	.using__row {
 		width: 100%;
 	}
 	.using__row-block {
-		height: 240px;
+		height: calc(240 * 100vw / 375);
 	}
 	.using__row-legend-text {
 		text-align: center;
@@ -115,27 +115,27 @@
 		display: block;
 	}
 	.using__row-image-mobile-1 {
-		width: 187px;
-		height: 198.473px; 
-		top: 38px;
-		left: 76px;
+		width: calc(187 * 100vw / 375);
+		height: calc(198.473 * 100vw / 375); 
+		top: calc(38 * 100vw / 375);
+		left: calc(76 * 100vw / 375);
 	}
 	.using__row-image-mobile-2 {
-		width: 299px;
-		height: 154.392px; 
-		top: 45px;
-		left: 19px;
+		width: calc(299 * 100vw / 375);
+		height: calc(154.392 * 100vw / 375); 
+		top: calc(45 * 100vw / 375);
+		left: calc(19 * 100vw / 375);
 	}
 	.using__row-image-mobile-3 {
-		width: 245px;
-		height: 199.548px; 
-		top: 31px;
-		left: 76px;
+		width: calc(245 * 100vw / 375);
+		height: calc(199.548 * 100vw / 375); 
+		top: calc(31 * 100vw / 375);
+		left: calc(76 * 100vw / 375);
 	}
 	.using__row-image-mobile-4 {
-		width: 293px;
-		height: 173.186px; 
-		top: 37px;
-		left: 22px;
+		width: calc(293 * 100vw / 375);
+		height: calc(173.186 * 100vw / 375); 
+		top: calc(37 * 100vw / 375);
+		left: calc(22 * 100vw / 375);
 	}
 }
