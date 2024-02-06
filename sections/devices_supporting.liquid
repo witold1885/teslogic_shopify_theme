@@ -58,6 +58,14 @@
 	.devices_supporting-info-noun-row-mobile {
 		display: none;
 	}
+	.devices_supporting-info-noun-row-desktop img.noun-iphone {
+		width: 54.335px;
+		height: 110.068px;
+	}
+	.devices_supporting-info-noun-row-desktop img.noun-ipad {
+		width: 107.584px;
+		height: 139.203px;
+	}
 	.devices_supporting-image img {
 		width: 100%;
 	}
@@ -98,6 +106,14 @@
 		}
 		.devices_supporting-info-noun-row {
 			grid-column-gap: calc(25.9 * 100vw / 1440);
+		}
+		.devices_supporting-info-noun-row-desktop img.noun-iphone {
+			width: calc(54.335 * 100vw / 1440);
+			height: calc(110.068 * 100vw / 1440);
+		}
+		.devices_supporting-info-noun-row-desktop img.noun-ipad {
+			width: calc(107.584 * 100vw / 1440);
+			height: calc(139.203 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -147,7 +163,14 @@
 			display: flex;
 			grid-column-gap: calc(12.68 * 100vw / 375);
 		}
-
+		.devices_supporting-info-noun-row-mobile img.noun-iphone {
+			width: calc(26.012 * 100vw / 375);
+			height: calc(53.882 * 100vw / 375);
+		}
+		.devices_supporting-info-noun-row-mobile img.noun-ipad {
+			width: calc(51.503 * 100vw / 375);
+			height: calc(68.144 * 100vw / 375);
+		}
 	}
 </style>
 
@@ -164,22 +187,22 @@
 		</div>
 		<div class="devices_supporting-info-nouns">
 			<div class="devices_supporting-info-noun-row-desktop">
-				<img src="{{ 'noun-iphone-1.svg' | asset_url }}">
-				<img src="{{ 'noun-iphone-2.svg' | asset_url }}">
-				<img src="{{ 'noun-iphone-3.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-1.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-2.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-3.svg' | asset_url }}">
 			</div>
 			<div class="devices_supporting-info-noun-row-desktop">
-				<img src="{{ 'noun-ipad-1.svg' | asset_url }}">
-				<img src="{{ 'noun-ipad-2.svg' | asset_url }}">
+				<img class="noun-ipad" src="{{ 'noun-ipad-1.svg' | asset_url }}">
+				<img class="noun-ipad" src="{{ 'noun-ipad-2.svg' | asset_url }}">
 			</div>
 			<div class="devices_supporting-info-noun-row-mobile">
-				<img src="{{ 'noun-iphone-1-mobile.svg' | asset_url }}">
-				<img src="{{ 'noun-iphone-2-mobile.svg' | asset_url }}">
-				<img src="{{ 'noun-iphone-3-mobile.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-1-mobile.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-2-mobile.svg' | asset_url }}">
+				<img class="noun-iphone" src="{{ 'noun-iphone-3-mobile.svg' | asset_url }}">
 			</div>
 			<div class="devices_supporting-info-noun-row-mobile">
-				<img src="{{ 'noun-ipad-1-mobile.svg' | asset_url }}">
-				<img src="{{ 'noun-ipad-2-mobile.svg' | asset_url }}">
+				<img class="noun-ipad" src="{{ 'noun-ipad-1-mobile.svg' | asset_url }}">
+				<img class="noun-ipad" src="{{ 'noun-ipad-2-mobile.svg' | asset_url }}">
 			</div>
 		</div>
 		
