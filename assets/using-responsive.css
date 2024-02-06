@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 576px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.using {
 		width: calc(1296 * 100vw / 1440);
 		margin: calc(150 * 100vw / 1440) auto calc(180 * 100vw / 1440);
