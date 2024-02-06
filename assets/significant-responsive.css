@@ -69,7 +69,7 @@
 		margin-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
 	}
 	.significant__features-scrollbar-thumb {
-		width: calc(40 * 100vw / 375);
+		width: 40px;
 	}
 	.significant__features-item {
 		width: calc(306 * 100vw / 375);
