@@ -11,6 +11,22 @@
 		left: 5px;
 		color: #000;
 	}
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+		.store_block-add-wireless-charger-checkbox:checked:after {
+			width: calc(10 * 100vw / 1440);
+			height: calc(6.667 * 100vw / 1440);
+			top: calc(3.33 * 100vw / 1440);
+			left: calc(5 * 100vw / 1440);
+		}
+	}
+	@media screen and (max-width: 575px) {
+		.store_block-add-wireless-charger-checkbox:checked:after {
+			width: calc(10 * 100vw / 375);
+			height: calc(6.667 * 100vw / 375);
+			top: calc(3.33 * 100vw / 375);
+			left: calc(5 * 100vw / 375);
+		}
+	}
 {% endstyle %}
 
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
