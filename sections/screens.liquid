@@ -528,7 +528,7 @@
 		$(window).on('resize', setScreenType)
 
 		function setScreenType() {
-			if (window.innerWidth < 1000) screenType = 'mobile'
+			if (window.innerWidth < 575) screenType = 'mobile'
 			else screenType = 'desktop'
 			setActiveFeature()
 		}
