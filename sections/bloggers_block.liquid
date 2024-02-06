@@ -289,7 +289,7 @@ $(document).ready(async function() {
 	font-weight: 400;
 	line-height: 24px;
 }
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.bloggers_block__wrap {
 		width: calc(1296 * 100vw / 1440);
 		padding-top: calc(180 * 100vw / 1440);
@@ -352,68 +352,68 @@ $(document).ready(async function() {
 		line-height: calc(24 * 100vw / 1440);
 	}
 }
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.bloggers_block {
 		width: 100vw;
-		margin-left: calc(-1 * (100vw - 375px) / 2);
+		margin-left: calc(-1 * (100vw - calc(375 * 100vw / 375)) / 2);
 	}
 	.bloggers_block__wrap {
-		width: 335px;
-		padding-top: 96px;
-		padding-bottom: 108px;
+		width: calc(335 * 100vw / 375);
+		padding-top: calc(96 * 100vw / 375);
+		padding-bottom: calc(108 * 100vw / 375);
 	}
 	.bloggers_block__title {
-		width: 335px;
-		font-size: 32px;
-		line-height: 40px; 
-		margin: 0 auto 8px;
+		width: calc(335 * 100vw / 375);
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375); 
+		margin: 0 auto calc(8 * 100vw / 375);
 	}
 	.bloggers_block__subtitle {
-		width: 335px;
-		font-size: 18px;
-		line-height: 24px;
-		margin: 0 auto 38px;
+		width: calc(335 * 100vw / 375);
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+		margin: 0 auto calc(38 * 100vw / 375);
 	}
 	.bloggers_block__list {
 		width: 100vw;
-		margin-left: calc(-1 * (100vw - 335px) / 2);
-		margin-right: calc(-1 * (100vw - 335px) / 2);
-		grid-row-gap: 41px;
+		margin-left: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+		margin-right: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+		grid-row-gap: calc(41 * 100vw / 375);
 	}
 	.bloggers_block__list-scroller {
-		padding-left: calc((100vw - 335px) / 2);
-		padding-right: calc((100vw - 335px) / 2);
+		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
+		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
 	}
 	.bloggers_block__list-scrollbar {
-		width: 335px;
-		margin-left: calc((100vw - 335px) / 2);
+		width: calc(335 * 100vw / 375);
+		margin-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
 	}
 	.bloggers_block__list-scrollbar-thumb {
 		width: 84px;
 	}
 	.bloggers_block__list-item {
-		grid-row-gap: 12px;
-		width: 306px; ;
+		grid-row-gap: calc(12 * 100vw / 375);
+		width: calc(306 * 100vw / 375); ;
 	}
 	.bloggers_block__list-item-thumbnail {
-		width: 306px;
-		height: 172px;
+		width: calc(306 * 100vw / 375);
+		height: calc(172 * 100vw / 375);
 	}
 	.bloggers_block__list-item-channel-top {
-		grid-column-gap: 8px;
+		grid-column-gap: calc(8 * 100vw / 375);
 	}
 	.bloggers_block__list-item-channel-thumbnail {
-		width: 24px;
-		height: 24px;
-		border-radius: 24px;
+		width: calc(24 * 100vw / 375);
+		height: calc(24 * 100vw / 375);
+		border-radius: calc(24 * 100vw / 375);
 	}
 	.bloggers_block__list-item-channel-title {
-		font-size: 18px;
-		line-height: 24px;
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 	}
 	.bloggers_block__list-item-channel-excerpt {
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 }
 </style>
