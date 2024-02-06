@@ -98,3 +98,103 @@
 .pointer-right .pointer-point {
 	left: -1px;
 }
+
+.pointer-dashboard-top-left .pointer-line.desktop {
+	width: 537px;
+	height: 65px;
+}
+.pointer-dashboard-top-right .pointer-line.desktop {
+	width: 330px;
+	height: 65px;
+}	
+.pointer-dashboard-bottom-left .pointer-line.desktop {
+	width: 304px;
+	height: 118px;
+}	
+.pointer-dashboard-bottom-right .pointer-line.desktop {
+	width: 539px;
+	height: 120px;
+}
+
+.pointer-performance-top-left .pointer-line.desktop {
+	width: 369px;
+	height: 82px;
+}	
+.pointer-performance-top-right .pointer-line.desktop {
+	width: 527px;
+	height: 82px;
+}	
+.pointer-performance-bottom-left .pointer-line.desktop {
+	width: 533px;
+	height: 67px;
+}	
+.pointer-performance-bottom-right .pointer-line.desktop {
+	width: 349px;
+	height: 141px;
+}	
+
+.pointer-energy-screen-top-left .pointer-line.desktop {
+	width: 364px;
+	height: 70px;
+}	
+.pointer-energy-screen-top-right .pointer-line.desktop {
+	width: 526px;
+	height: 71px;
+}	
+.pointer-energy-screen-bottom-left .pointer-line.desktop {
+	width: 546px;
+	height: 193px;
+}	
+.pointer-energy-screen-bottom-right .pointer-line.desktop {
+	width: 464px;
+	height: 120px;
+}	
+
+.pointer-car-data-top-left .pointer-line.desktop {
+	width: 390px;
+	height: 79px;
+}	
+.pointer-car-data-top-right .pointer-line.desktop {
+	width: 264px;
+	height: 79px;
+}	
+.pointer-car-data-bottom-left .pointer-line.desktop {
+	width: 311px;
+	height: 140px;
+}	
+
+.pointer-map-top-left .pointer-line.desktop {
+	width: 526px;
+	height: 79px;
+}	
+.pointer-map-bottom-left .pointer-line.desktop {
+	width: 254px;
+	height: 93px;
+}	
+.pointer-map-bottom-right .pointer-line.desktop {
+	width: 289px;
+	height: 107px;
+}	
+
+	/*.pointer-dashboard-top-left .pointer-line.desktop
+	.pointer-dashboard-top-right .pointer-line.desktop
+	.pointer-dashboard-bottom-left .pointer-line.desktop
+	.pointer-dashboard-bottom-right .pointer-line.desktop
+
+	.pointer-performance-top-left .pointer-line.desktop
+	.pointer-performance-top-right .pointer-line.desktop
+	.pointer-performance-bottom-left .pointer-line.desktop
+	.pointer-performance-bottom-right .pointer-line.desktop
+
+	.pointer-energy-screen-top-left .pointer-line.desktop
+	.pointer-energy-screen-top-right .pointer-line.desktop
+	.pointer-energy-screen-bottom-left .pointer-line.desktop
+	.pointer-energy-screen-bottom-right .pointer-line.desktop
+
+	.pointer-car-data-top-left .pointer-line.desktop
+	.pointer-car-data-top-right .pointer-line.desktop
+	.pointer-car-data-bottom-left .pointer-line.desktop
+
+	.pointer-map-top-left .pointer-line.desktop
+	.pointer-map-bottom-left .pointer-line.desktop
+	.pointer-map-bottom-right .pointer-line.desktop*/
