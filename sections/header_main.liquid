@@ -35,8 +35,7 @@
     background: linear-gradient(0deg, #070A08 23.08%, rgba(7, 10, 8, 0.00) 34.36%), linear-gradient(180deg, #070A08 5.73%, rgba(7, 10, 8, 0.00) 31.94%), url({{ 'bg_mobile_2x.png' | asset_url}}), lightgray -768.819px -107.262px / 371.789% 96.682% no-repeat; 
 /*    background: url({{ 'bg_mobile_2x.png' | asset_url}}), lightgray -91.807px -318.013px / 131.806% 139.158% no-repeat; */
     background-position: center;
-    background-repeat: no-repeat; 
-/*    background-size: 1000px 600px;*/
+    background-repeat: no-repeat;
     background-size: cover;
   }
 {%- endstyle -%}
@@ -279,8 +278,7 @@ with access to advanced Tesla features</div>
     $(document.body).on('scroll', setStickyHeader)
     $(window).on('scroll', setStickyHeader) 
     function setStickyHeader() {
-      console.log('setStickyHeader');
-      if (window.innerWidth >= 1000) {
+      if (window.innerWidth >= 575) {
         var header_main_height = $('#header_main').height()
         var header_top_height = $('#header_main').find('.top').height()
         if (window.pageYOffset >= header_top_height) {
@@ -317,9 +315,7 @@ with access to advanced Tesla features</div>
         }
       }
       else {
-        console.log($('body').scrollTop())
         if ($('body').scrollTop() >= window.innerHeight) {
-          console.log('banner passed');
           $('.top-wrap').addClass('top-wrap-scrolled')
         }
         else {
@@ -362,7 +358,7 @@ with access to advanced Tesla features</div>
         }, 500)
       }
     })
-    if (window.innerWidth >= 1000) {
+    if (window.innerWidth >= 575) {
       $('.menu__item').on('mouseover', function() {
         let dropdown = $(this).find('.menu__item-dropdown')
         let chevron_down = $(this).find('.menu__item-chevron-down')

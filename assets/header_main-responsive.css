@@ -82,8 +82,7 @@
 		width: calc(196 * 100vw / 1440);
 		height: calc(36 * 100vw / 1440);
 	}
-/*}      */
-/*@media screen and (min-width: 1000px) and (max-width: 1250px) {        */
+	
 	#header_main {
 		height: calc(768 * 100vw / 1440);
 	}
