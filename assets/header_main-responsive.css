@@ -22,7 +22,7 @@
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 }
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top .logo {	
 		margin-left: calc(72 * 100vw / 1440);
 	}
@@ -55,7 +55,7 @@
 	}
 }*/
 
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top {
 		width: calc(1440 * 100vw / 1440);
 	}
@@ -73,7 +73,7 @@
 	}
 }
 
-@media screen and (min-width: 1000px) and (max-width: 1700px) {
+@media screen and (min-width: 576px) and (max-width: 1700px) {
 	.top {
 /*		width: calc(1440 * 100vw / 1440);*/
 		height: calc(96 * 100vw / 1440);
@@ -159,7 +159,7 @@
 	}
 }
 
-@media screen and (max-width: 999px) { 
+@media screen and (max-width: 575px) { 
 	#header_main, #header_sticky {
 		display: none;
 	}
