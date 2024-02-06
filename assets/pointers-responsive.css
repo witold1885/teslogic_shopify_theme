@@ -42,21 +42,21 @@
 	.pointer-right .pointer-point {
 		left: calc(-1 * 100vw / 1440);
 	}
-	
+
 	.pointer-dashboard-top-left .pointer-line.desktop {
-		width: calc(537 * 100vw / 1440);
+		width: calc(537 * 100vw / 1440 + 1%);
 		height: calc(65 * 100vw / 1440);
 	}
 	.pointer-dashboard-top-right .pointer-line.desktop {
-		width: calc(330 * 100vw / 1440);
+		width: calc(330 * 100vw / 1440 + 1%);
 		height: calc(65 * 100vw / 1440);
 	}
 	.pointer-dashboard-bottom-left .pointer-line.desktop {
-		width: calc(304 * 100vw / 1440);
+		width: calc(304 * 100vw / 1440 + 1%);
 		height: calc(118 * 100vw / 1440);
 	}
 	.pointer-dashboard-bottom-right .pointer-line.desktop {
-		width: calc(539 * 100vw / 1440);
+		width: calc(539 * 100vw / 1440 + 1%);
 		height: calc(120 * 100vw / 1440);
 	}
 
@@ -148,4 +148,64 @@
 	.pointer-bottom .pointer-legend.lines-5 {
 		bottom: calc(-1 * 98 * 100vw / 375);
 	}
+
+	.pointer-dashboard-top-left .pointer-line.mobile {
+
+	}
+	.pointer-dashboard-top-right .pointer-line.mobile {
+
+	}
+	.pointer-dashboard-bottom-left .pointer-line.mobile {
+
+	}
+	.pointer-dashboard-bottom-right .pointer-line.mobile {
+
+	}
+
+	.pointer-performance-top-left .pointer-line.mobile {
+
+	}
+	.pointer-performance-top-right .pointer-line.mobile {
+
+	}
+	.pointer-performance-bottom-left .pointer-line.mobile {
+
+	}
+	.pointer-performance-bottom-right .pointer-line.mobile {
+
+	}
+
+	.pointer-energy-screen-top-left .pointer-line.mobile {
+
+	}
+	.pointer-energy-screen-top-right .pointer-line.mobile {
+
+	}
+	.pointer-energy-screen-bottom-left .pointer-line.mobile {
+
+	}
+	.pointer-energy-screen-bottom-right .pointer-line.mobile {
+
+	}
+
+	.pointer-car-data-top-left .pointer-line.mobile {
+
+	}
+	.pointer-car-data-top-right .pointer-line.mobile {
+
+	}
+	.pointer-car-data-bottom-left .pointer-line.mobile {
+
+	}
+
+	.pointer-map-top-left .pointer-line.mobile {
+
+	}
+	.pointer-map-bottom-left .pointer-line.mobile {
+
+	}
+	.pointer-map-bottom-right .pointer-line.mobile {
+
+	}
+
 }
