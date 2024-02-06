@@ -186,6 +186,10 @@
 		border-top-right-radius: calc(24 * 100vw / 375);
 		overflow: hidden;
 	}
+	.shortcuts-info-block-car .shortcuts-info-block-background-mobile {
+		width: calc(336 * 100vw / 375);
+		height: calc(216 * 100vw / 375);
+	}
 	.shortcuts-info-block-text {
 		order: 2;
 		font-size: calc(14 * 100vw / 375);
