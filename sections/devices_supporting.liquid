@@ -67,7 +67,7 @@
 	.devices_supporting-image-mobile {
 		display: none;
 	}
-	@media screen and (min-width: 1000px) and (max-width: 1440px) {
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.devices_supporting {
 			width: calc(1296 * 100vw / 1440);
 			margin: calc(180 * 100vw / 1440) auto;
@@ -100,17 +100,17 @@
 			grid-column-gap: calc(25.9 * 100vw / 1440);
 		}
 	}
-	@media screen and (max-width: 999px) {
+	@media screen and (max-width: 575px) {
 		.devices_supporting {
-			width: 335px;
-			margin: 96px auto;
+			width: calc(335 * 100vw / 375);
+			margin: calc(96 * 100vw / 375) auto;
 			flex-direction: column-reverse;
 			background: #F0F0F0;
-			border-radius: 24px;
+			border-radius: calc(24 * 100vw / 375);
 		}
 		.devices_supporting > div {		
-			width: 335px;
-			height: 335px; 
+			width: calc(335 * 100vw / 375);
+			height: calc(335 * 100vw / 375); 
 		}
 		.devices_supporting-image-desktop {
 			display: none;
@@ -119,33 +119,33 @@
 			display: block;
 		}
 		.devices_supporting-info {
-			padding: 24px;
-			border-radius: 24px;
+			padding: calc(24 * 100vw / 375);
+			border-radius: calc(24 * 100vw / 375);
 			background-position: center;
 		}
 		.devices_supporting-info-suptext {
-			font-size: 14px;
-			line-height: 20px;
-			margin-bottom: 8px;
+			font-size: calc(14 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+			margin-bottom: calc(8 * 100vw / 375);
 		}
 		.devices_supporting-info-title {
-			font-size: 32px;
-			line-height: 40px;
-			margin-bottom: 6px;
+			font-size: calc(32 * 100vw / 375);
+			line-height: calc(40 * 100vw / 375);
+			margin-bottom: calc(6 * 100vw / 375);
 		}
 		.devices_supporting-info-subtitle {
-			font-size: 16px;
-			line-height: 20px;
+			font-size: calc(16 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
 		}
 		.devices_supporting-info-nouns {
-			grid-row-gap: 12.49px;
+			grid-row-gap: calc(12.49 * 100vw / 375);
 		}
 		.devices_supporting-info-noun-row-desktop {
 			display: none;
 		}
 		.devices_supporting-info-noun-row-mobile {
 			display: flex;
-			grid-column-gap: 12.68px;
+			grid-column-gap: calc(12.68 * 100vw / 375);
 		}
 
 	}
