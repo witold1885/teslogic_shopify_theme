@@ -98,7 +98,7 @@
 	}
 	.screens__features-image-wrap {
 		width: calc(335 * 100vw / 375);
-		height: calc(162 * 100vw / 375); 
+		height: calc(162 * 100vw / 375);
 		margin-top: calc(160 * 100vw / 375);
 	}
 	.screens__select {
