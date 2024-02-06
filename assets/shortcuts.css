@@ -53,6 +53,10 @@
 	border-radius: 28px;
 	background: #FFF; 
 }
+.shortcuts-info-block-car .shortcuts-info-block-background-desktop {
+	width: 526px;
+	height: 318px;
+}
 .shortcuts-info-block-text {
 	font-family: Manrope;
 	font-size: 24px;
