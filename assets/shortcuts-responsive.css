@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.shortcuts-wrap {
 		width: calc(1076 * 100vw / 1440);
 		padding-top: calc(180 * 100vw / 1440);
@@ -137,32 +137,32 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.shortcuts {
 		width: 100vw;
-		margin-left: calc(-1 * (100vw - 375px) / 2);
+		margin-left: calc(-1 * (100vw - calc(375 * 100vw / 375)) / 2);
 	}
 	.shortcuts-wrap {
-		width: 335px;
-		padding-top: 96px;
-		padding-bottom: 108px;
+		width: calc(335 * 100vw / 375);
+		padding-top: calc(96 * 100vw / 375);
+		padding-bottom: calc(108 * 100vw / 375);
 	}
 	.shortcuts-title {
 		margin-bottom: 0;
 	}
 	.shortcuts-title-text {
-		font-size: 32px;
-		line-height: 40px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.shortcuts-title-icon {
-		width: 40px;
-		height: 40px;  
+		width: calc(40 * 100vw / 375);
+		height: calc(40 * 100vw / 375);  
 	}
 	.shortcuts-subtitle {
-		width: 300px;
-		font-size: 32px;
-		line-height: 40px;
-		margin-bottom: 24px;
+		width: calc(300 * 100vw / 375);
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
+		margin-bottom: calc(24 * 100vw / 375);
 	}
 	.shortcuts-info {
 		grid-column-gap: 0;
@@ -178,24 +178,24 @@
 	}
 	.shortcuts-info-block-car {
 		order: 1;
-		height: 200px;
-		border-radius: 24px!important;
+		height: calc(200 * 100vw / 375);
+		border-radius: calc(24 * 100vw / 375)!important;
 		background: #FFF!important;
 	}
 	.shortcuts-info-block-car .shortcuts-info-block-background {
-		border-top-right-radius: 24px;
+		border-top-right-radius: calc(24 * 100vw / 375);
 		overflow: hidden;
 	}
 	.shortcuts-info-block-text {
 		order: 2;
-		font-size: 14px;
-		line-height: 20px;
-		width: 287px;
-		margin: 28px auto 24px;
+		font-size: calc(14 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+		width: calc(287 * 100vw / 375);
+		margin: calc(28 * 100vw / 375) auto calc(24 * 100vw / 375);
 	}
 	.shortcuts-info-block-text-primary {
 		color: #000;
-		margin-bottom: 12px;
+		margin-bottom: calc(12 * 100vw / 375);
 		width: 100%;
 	}
 	.shortcuts-info-block-text-secondary {
@@ -204,7 +204,7 @@
 	}
 	.shortcuts-info-block-artboard {
 		order: 3;
-		margin-bottom: 20px;
+		margin-bottom: calc(20 * 100vw / 375);
 	}
 	.shortcuts-info-block-info {
 		order: 4;
@@ -216,9 +216,9 @@
 		display: block;
 	}
 	.shortcuts-info-block-image {
-		width: 264px;
-		height: 128px;
-		margin-top: 36px;
+		width: calc(264 * 100vw / 375);
+		height: calc(128 * 100vw / 375);
+		margin-top: calc(36 * 100vw / 375);
 	}
 	.shortcuts-info-block-image-desktop {
 		display: none;
@@ -227,17 +227,17 @@
 		display: block;
 	}
 	.shortcuts-info-block-between {
-		grid-row-gap: 16px;
-		padding: 0 24px;
+		grid-row-gap: calc(16 * 100vw / 375);
+		padding: 0 calc(24 * 100vw / 375);
 	}
 	.shortcuts-info-block-between-text {
 		color: #666;
-		font-size: 14px;
-		line-height: 20px; 
+		font-size: calc(14 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375); 
 	}
 	.shortcuts-info-artboard-image {
-		width: 70px;
-		height: 28px;
+		width: calc(70 * 100vw / 375);
+		height: calc(28 * 100vw / 375);
 	}
 	.shortcuts-info-artboard-image-desktop {
 		display: none;
@@ -246,11 +246,11 @@
 		display: block;
 	}
 	.shortcuts-info-artboard-text {
-		width: 287px;
+		width: calc(287 * 100vw / 375);
 	}
 	.shortcuts-info-info-image {
-		width: 32px;
-		height: 32px;
+		width: calc(32 * 100vw / 375);
+		height: calc(32 * 100vw / 375);
 	}
 	.shortcuts-info-info-image-desktop {
 		display: none;
@@ -259,35 +259,35 @@
 		display: block;
 	}
 	.shortcuts-info-info-text {
-		width: 287px;
+		width: calc(287 * 100vw / 375);
 	}
 	.shortcuts-features {
 		display: none;
 	}
 	.shortcuts-features-mobile {
 		width: 100vw;
-		margin-left: calc(-1 * (100vw - 335px) / 2);
-		margin-right: calc(-1 * (100vw - 335px) / 2);
+		margin-left: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+		margin-right: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: 40px;
+		grid-row-gap: calc(40 * 100vw / 375);
 		overflow-x: visible;
 		user-select: none;
-		margin-top: 32px;
+		margin-top: calc(32 * 100vw / 375);
 	}
 	.shortcuts-features-scroller {
 		overflow-x: scroll;
 		display: flex;
-		grid-column-gap: 20px;
-		padding-left: calc((100vw - 335px) / 2);
-		padding-right: calc((100vw - 335px) / 2);
+		grid-column-gap: calc(20 * 100vw / 375);
+		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
+		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
 		cursor: grab;
 		scrollbar-color: transparent transparent;
 	}
 	.shortcuts-features-scrollbar {
 		position: relative;
-		margin-left: calc((100vw - 335px) / 2);
-		width: 335px;
+		margin-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
+		width: calc(335 * 100vw / 375);
 		height: 4px;
 		border-radius: 2px;
 		background-color: #E3E3E3;
@@ -303,14 +303,14 @@
 		background-color: #1657FC;
 	}
 	.shortcuts-features-item-mobile {
-		width: 306px;
-		height: 306px;
+		width: calc(306 * 100vw / 375);
+		height: calc(306 * 100vw / 375);
 	}
 	.shortcuts-features-item-mobile-wrap {
-		width: 306px;
+		width: calc(306 * 100vw / 375);
 		height: 100%;
 		position: relative;
-		border-radius: 24px;
+		border-radius: calc(24 * 100vw / 375);
 		overflow: hidden;
 	}
 	.shortcuts-features-item-description {
@@ -322,13 +322,13 @@
 		left: 0;
 		right: 0;
 		background: #090909;
-		padding: 24px;
+		padding: calc(24 * 100vw / 375);
 		color: #F4F4F4;
 		font-family: Manrope;
-		font-size: 12px;
+		font-size: calc(12 * 100vw / 375);
 		font-style: normal;
 		font-weight: 400;
-		line-height: 18px;
+		line-height: calc(18 * 100vw / 375);
 		box-sizing: border-box;
 	}
 	.shortcuts-features-item-title {
@@ -337,19 +337,19 @@
 		left: 0;
 		right: 0;
 		z-index: 3;
-		padding: 24px;
+		padding: calc(24 * 100vw / 375);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		grid-column-gap: 8px;
+		grid-column-gap: calc(8 * 100vw / 375);
 		box-sizing: border-box;
-		border-top-left-radius: 24px;
-		border-top-right-radius: 24px;
+		border-top-left-radius: calc(24 * 100vw / 375);
+		border-top-right-radius: calc(24 * 100vw / 375);
 		background: #FFF; 
 	}
 	.shortcuts-features-item-title-icon {
-		width: 36px;
-		height: 40px;
+		width: calc(36 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
 	}
 	.shortcuts-features-item-title-icon img {
 		width: 100%;
@@ -360,15 +360,15 @@
 	.shortcuts-features-item-title-text {
 		color: #000;
 		font-family: Manrope;
-		font-size: 16px;
+		font-size: calc(16 * 100vw / 375);
 		font-style: normal;
 		font-weight: 500;
-		line-height: 20px;
+		line-height: calc(20 * 100vw / 375);
 		flex: 1;
 	}
 	.shortcuts-features-item-title-chevron {
-		width: 10px;
-		height: 40px;
+		width: calc(10 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
 		cursor: pointer;
 	}
 	.shortcuts-features-item-title-chevron img {
@@ -378,13 +378,13 @@
 		display: none;
 	}
 	.shortcuts-features-item-speedicons {
-		top: 24px;
-		top: 24px;
-		grid-column-gap: 20px;
+		top: calc(24 * 100vw / 375);
+		top: calc(24 * 100vw / 375);
+		grid-column-gap: calc(20 * 100vw / 375);
 	}
 	.shortcuts-more {
 		height: auto;
-		margin-top: 56px;
+		margin-top: calc(56 * 100vw / 375);
 		background: transparent;
 	}
 	.shortcuts-more-gradient, 
@@ -401,17 +401,17 @@
 		box-shadow: unset;
 	}
 	.shortcuts-more-text {
-		font-size: 18px;
-		line-height: 24px;
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 	}
 	.shortcuts-more-button {
-		padding: 14px 28px;
+		padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
 		border: 2px solid #0068FD;
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 	.shortcuts-more-button:hover {
-		padding: 16px 30px;
+		padding: calc(16 * 100vw / 375) calc(30 * 100vw / 375);
 	}
 	.shortcuts-more-button-desktop {
 		display: none;
