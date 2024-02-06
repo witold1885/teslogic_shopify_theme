@@ -44,19 +44,19 @@
 	}
 	
 	.pointer-dashboard-top-left .pointer-line.desktop {
-		width: calc(537 * 100vw / 1440);
+		width: calc(537 * 100vw / 1440 + 1%);
 		height: calc(65 * 100vw / 1440);
 	}
 	.pointer-dashboard-top-right .pointer-line.desktop {
-		width: calc(330 * 100vw / 1440);
+		width: calc(330 * 100vw / 1440 + 1%);
 		height: calc(65 * 100vw / 1440);
 	}
 	.pointer-dashboard-bottom-left .pointer-line.desktop {
-		width: calc(304 * 100vw / 1440);
+		width: calc(304 * 100vw / 1440 + 1%);
 		height: calc(118 * 100vw / 1440);
 	}
 	.pointer-dashboard-bottom-right .pointer-line.desktop {
-		width: calc(539 * 100vw / 1440);
+		width: calc(539 * 100vw / 1440 + 1%);
 		height: calc(120 * 100vw / 1440);
 	}
 
