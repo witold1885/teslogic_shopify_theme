@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.footer__wrap {
 		width: calc(1296 * 100vw / 1440);
 		padding-top: calc(72 * 100vw / 1440);
@@ -54,57 +54,57 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.footer__wrap {
-		width: 335px;
+		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
-		padding-top: 72px;
-		padding-bottom: 72px;
+		padding-top: calc(72 * 100vw / 375);
+		padding-bottom: calc(72 * 100vw / 375);
 	}
 	.footer-top {
 		flex-direction: column;
-		grid-row-gap: 40px;
+		grid-row-gap: calc(40 * 100vw / 375);
 		margin-bottom: 0;
 	}
 	.footer-top .logo {	
-		width: 164px;
-		height: 28px;
+		width: calc(164 * 100vw / 375);
+		height: calc(28 * 100vw / 375);
 	}
 	.footer-menu {
-		grid-column-gap: 9px;
-		grid-row-gap: 48px;
+		grid-column-gap: calc(9 * 100vw / 375);
+		grid-row-gap: calc(48 * 100vw / 375);
 	}
 	.footer-menu__list {
-		width: 163px;
+		width: calc(163 * 100vw / 375);
 	}
 	.footer-menu__list-title {
-		font-size: 18px;
-		line-height: 24px;
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 	}
 	.footer-menu__list-items {
-		grid-row-gap: 16px;
+		grid-row-gap: calc(16 * 100vw / 375);
 	}
 	.footer-links {
 		display: none;
 	}
 	.footer-links-mobile {
 		display: flex;
-		grid-column-gap: 8px;
+		grid-column-gap: calc(8 * 100vw / 375);
 	}
 	.footer-links__item {
-		width: 164px;
-		height: 52px;
+		width: calc(164 * 100vw / 375);
+		height: calc(52 * 100vw / 375);
 	}
 	.footer-links__item img {
 		width: 100%;
 		height: 100%;
 	}
 	.footer-divider {
-		margin: 24px 0 20px;
+		margin: calc(24 * 100vw / 375) 0 calc(20 * 100vw / 375);
 	}
 	.footer-bottom {
 		flex-direction: column;
-		grid-row-gap: 32px;
+		grid-row-gap: calc(32 * 100vw / 375);
 	}
 	.footer-bottom__text br {
 		display: none;
@@ -113,18 +113,18 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		grid-row-gap: 32px;
+		grid-row-gap: calc(32 * 100vw / 375);
 	}
 	.footer-bottom__icons {
 		justify-content: space-between;
 	}
 	.footer-bottom__icons img {
-		width: 32px;
-		height: 20px;
+		width: calc(32 * 100vw / 375);
+		height: calc(20 * 100vw / 375);
 	} 
 	.footer-bottom__copyright {
 		text-align: left;
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 }
