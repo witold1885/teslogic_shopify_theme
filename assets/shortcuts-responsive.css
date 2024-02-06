@@ -28,6 +28,10 @@
 	.shortcuts-info-block:not(.shortcuts-info-block-text) {
 		border-radius: calc(28 * 100vw / 1440);
 	}
+	.shortcuts-info-block-car .shortcuts-info-block-background-desktop {
+		width: calc(526 * 100vw / 1440);
+		height: calc(318 * 100vw / 1440);
+	}
 	.shortcuts-info-block-text {
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
