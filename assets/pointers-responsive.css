@@ -1,4 +1,4 @@
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
 	.pointer-top {
 		top: calc(80 * 100vw / 1440);
 	}
@@ -45,32 +45,31 @@
 
 }
 
-@media screen and (max-width: 999px) {
-
+@media screen and (max-width: 575px) {
 	.pointer-top {
-		top: 102px;
+		top: calc(102 * 100vw / 375);
 	}
 	.pointer-bottom {
-		bottom: 126px;
+		bottom: calc(126 * 100vw / 375);
 	}
 	.pointer-legend {
 		width: 300% !important;
-		font-size: 12px;
-		line-height: 18px; 
+		font-size: calc(12 * 100vw / 375);
+		line-height: calc(18 * 100vw / 375); 
 	}
 	.pointer-top .pointer-legend {
-		top: -62px;
+		top:calc( -1 * 62 * 100vw / 375);
 	}
 	.pointer-bottom .pointer-legend.lines-2 {
-		bottom: -44px;
+		bottom: calc(-1 * 44 * 100vw / 375);
 	}
 	.pointer-bottom .pointer-legend.lines-3 {
-		bottom: -62px;
+		bottom: calc(-1 * 62 * 100vw / 375);
 	}
 	.pointer-bottom .pointer-legend.lines-4 {
-		bottom: -80px;
+		bottom: calc(-1 * 80 * 100vw / 375);
 	}
 	.pointer-bottom .pointer-legend.lines-5 {
-		bottom: -98px;
+		bottom: calc(-1 * 98 * 100vw / 375);
 	}
 }
