@@ -210,7 +210,7 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		grid-column-gap: calc(16 * 100vw / 375);
+		grid-column-gap: calc(12 * 100vw / 375);
 	}
 	.top .mob-button {
 		cursor: pointer;
@@ -298,9 +298,9 @@
 	}
 	.menu__item-cart {
 		width: auto;
-		height: calc(40 * 100vw / 375);
-		padding: 0 calc(23 * 100vw / 375);
-		margin-left: calc(8 * 100vw / 375);
+		height: calc(36 * 100vw / 375);
+		padding: 0;
+		margin-left: 0;
 	}
 	.menu__item-dropdown {
 		width: 100%;
