@@ -330,7 +330,7 @@
 	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);
-		margin-top: calc(180 * 100vw / 375);
+		margin-top: calc(128 * 100vw / 375);
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: calc(8 * 100vw / 375);
