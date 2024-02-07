@@ -58,7 +58,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-01.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		Prepare your Tesla for Supercharging 10-20 minutes before <br>
@@ -81,7 +81,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-02.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		In Chill mode, a full-throttle kickdown for 1 second will <br>
@@ -105,7 +105,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-03.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		Activate this mode to lift the wipers to the area  <br>
@@ -127,7 +127,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-04.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		Adjust regenerative braking strength to minimize or <br>
@@ -148,7 +148,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-05.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		This mode distributes torque evenly between the <br>
@@ -176,7 +176,7 @@
 				    	</div>
 				    	<div class="shortcuts-features-item-info-title-icon">
 				    		<img src="{{ 'shortcuts-icon-06.svg' | asset_url }}">
-				    	</div>			    		
+				    	</div>
 			    	</div>
 			    	<div class="shortcuts-features-item-info-description">
 			    		Automatically reduce your speed to match the maximum <br>
@@ -230,7 +230,7 @@
 					    	<div class="shortcuts-features-item-title-chevron">
 					    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 					    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
-					    	</div>		    		
+					    	</div>
 				    	</div>
 			    	</div>
 		    	</div>
@@ -256,7 +256,7 @@
 					    	<div class="shortcuts-features-item-title-chevron">
 					    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 					    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
-					    	</div>		    		
+					    	</div>
 				    	</div>
 			    	</div>
 		    	</div>
@@ -279,7 +279,7 @@
 					    	<div class="shortcuts-features-item-title-chevron">
 					    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 					    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
-					    	</div>		    		
+					    	</div>
 				    	</div>
 			    	</div>
 		    	</div>
@@ -302,7 +302,7 @@
 					    	<div class="shortcuts-features-item-title-chevron">
 					    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 					    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
-					    	</div>		    		
+					    	</div>
 				    	</div>
 			    	</div>
 		    	</div>
@@ -333,7 +333,7 @@
 					    	<div class="shortcuts-features-item-title-chevron">
 					    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 					    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
-					    	</div>		    		
+					    	</div>
 				    	</div>
 			    	</div>
 		    	</div>
@@ -446,6 +446,8 @@
 				$(block).find('.shortcuts-features-item-description').show()
 				$(this).find('.shortcuts-features-item-title-chevron-down').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-up').show()
+				$(this).find('.shortcuts-features-item-title-icon-blue').hide()
+				$(this).find('.shortcuts-features-item-title-icon-black').show()
 				$('.shortcuts-features-item-speedicons').hide()
 				$(block).data('show', 'description')
 				return
@@ -455,6 +457,8 @@
 				$(block).find('.shortcuts-features-item-image').show()
 				$(this).find('.shortcuts-features-item-title-chevron-up').hide()
 				$(this).find('.shortcuts-features-item-title-chevron-down').show()
+				$(this).find('.shortcuts-features-item-title-icon-black').hide()
+				$(this).find('.shortcuts-features-item-title-icon-blue').show()
 				$('.shortcuts-features-item-speedicons').show()
 				$(block).data('show', 'image')
 				return
