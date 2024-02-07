@@ -362,6 +362,9 @@
 	.shortcuts-features-item-title-icon img {
 		width: 100%;
 	}
+	.shortcuts-features-item-title-icon-blue {
+		display: block;
+	}
 	.shortcuts-features-item-title-icon-black {
 		display: none;
 	}
