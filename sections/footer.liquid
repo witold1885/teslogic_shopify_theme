@@ -128,7 +128,10 @@
       </div>
       <div class="footer-bottom__right">
         <div class="footer-bottom__icons">
-          {% assign footer_icons = "Master Card,Visa,Discover,American Express,Stripe,Google,Apple,Shopify" | split: ',' %}
+          <!-- 
+            visa; master; paypal; amazon pay; apple pay; google pay; shop pay
+          -->
+          {% assign footer_icons = "Visa,Master Card,Paypal,Amazon,Apple,Google,Shopify" | split: ',' %}
           {% for icon in footer_icons %}
             <img src="{{ icon | append: '.svg' | asset_url }}" />
           {% endfor %}
