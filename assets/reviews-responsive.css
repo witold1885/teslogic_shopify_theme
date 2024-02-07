@@ -255,6 +255,7 @@
 		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
 		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
 		scrollbar-color: transparent transparent;
+		scrollbar-visibility: hidden;
 	}
 	.reviews-list-scrollbar {
 		position: relative;
