@@ -110,12 +110,14 @@
 		display: none;
 	}
 	.footer-bottom__right {
+		width: 100%;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
 		grid-row-gap: calc(32 * 100vw / 375);
 	}
 	.footer-bottom__icons {
+		width: 100%;
 		justify-content: space-between;
 	}
 	.footer-bottom__icons img {
