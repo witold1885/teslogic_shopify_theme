@@ -186,6 +186,10 @@
 					itemText.style.webkitBackgroundClip = 'text';
 					itemText.style.webkitTextFillColor = 'transparent';
 					item.setAttribute('data-collapsed', 'true');
+					item.querySelector('.reviews-list-item-expand').style.display = 'block';
+			  }
+			  else {
+					item.querySelector('.reviews-list-item-expand').style.display = 'none';
 			  }
 
 			  if (column1Height <= column2Height) {
