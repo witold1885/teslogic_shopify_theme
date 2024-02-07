@@ -320,8 +320,6 @@
 		position: relative;
 		border-top-left-radius: calc(24 * 100vw / 375);
 		border-top-right-radius: calc(24 * 100vw / 375);
-		border-bottom-left-radius: calc(28 * 100vw / 375);
-		border-bottom-right-radius: calc(28 * 100vw / 375);
 		overflow: hidden;
 	}
 	.shortcuts-features-item-description {
@@ -341,6 +339,8 @@
 		font-weight: 400;
 		line-height: calc(18 * 100vw / 375);
 		box-sizing: border-box;
+		border-bottom-left-radius: calc(28 * 100vw / 375);
+		border-bottom-right-radius: calc(28 * 100vw / 375);
 	}
 	.shortcuts-features-item-title {
 		position: absolute;
