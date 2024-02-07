@@ -106,11 +106,15 @@
 	}
 	.screens__select-item {
 		width: calc(64 * 100vw / 375);
-		height: calc(4 * 100vw / 375);
+		height: calc(8 * 100vw / 375);
+		position: relative;
+		display: flex;
+		align-items: center;
 	}
 	.screens__select-item-marker {
 		height: calc(2 * 100vw / 375);
 		margin-bottom: 0;
+		position: absolute;
 	}
 	.screens__select-item-marker.active {
 		height: calc(4 * 100vw / 375);
