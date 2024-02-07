@@ -356,6 +356,8 @@
 		box-sizing: border-box;
 		border-top-left-radius: calc(24 * 100vw / 375);
 		border-top-right-radius: calc(24 * 100vw / 375);
+		border-bottom-left-radius: calc(24 * 100vw / 375);
+		border-bottom-right-radius: calc(24 * 100vw / 375);
 		background: #FFF; 
 	}
 	.shortcuts-features-item-title-icon {
