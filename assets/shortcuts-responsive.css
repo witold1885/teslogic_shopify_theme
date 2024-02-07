@@ -323,8 +323,9 @@
 		overflow: hidden;
 	}
 	.shortcuts-features-item-image {
-		border-bottom-left-radius: calc(28 * 100vw / 375);
-		border-bottom-right-radius: calc(28 * 100vw / 375);
+		border-bottom-left-radius: calc(40 * 100vw / 375);
+		border-bottom-right-radius: calc(40 * 100vw / 375);
+		overflow: hidden;
 	}
 	.shortcuts-features-item-description {
 		display: none;
