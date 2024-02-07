@@ -302,6 +302,10 @@
 		padding: 0;
 		margin-left: 0;
 	}
+	.cart-icon-wrap {
+		width: calc(24 * 100vw / 375);
+		height: calc(24 * 100vw / 375);
+	}
 	.cart-qty {
 		width: calc(13 * 100vw / 375);
 		height: calc(13 * 100vw / 375);
