@@ -302,6 +302,20 @@
 		padding: 0;
 		margin-left: 0;
 	}
+	.cart-qty {
+		width: calc(13 * 100vw / 375);
+		height: calc(13 * 100vw / 375);
+		top: 0;
+		right: 0;
+		background: #3374FB;
+		color: #FFF;
+		text-align: center;
+		font-family: Manrope;
+		font-size: calc(12 * 100vw / 375);
+		font-style: normal;
+		font-weight: 600;
+		line-height: calc(12 * 100vw / 375);
+	}
 	.menu__item-dropdown {
 		width: 100%;
 		position: unset;
