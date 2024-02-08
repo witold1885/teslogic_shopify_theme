@@ -69,19 +69,24 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-	.top {
+	.top-wrap {
 		width: 100%;
 		height: calc(52 * 100vw / 375);
 		position: fixed;
 		z-index: 10;
 		background: linear-gradient(180deg, #FEFEFE 53.75%, rgba(254, 254, 254, 0) 100%);
 	}
-	.top .logo {
+	.top {
 		width: calc(335 * 100vw / 375);
 		height: calc(36 * 100vw / 375);
 		padding-top: calc(8 * 100vw / 375);
 		padding-bottom: calc(8 * 100vw / 375);
 		margin: 0 auto;
+	}
+	.top .logo {
+		width: calc(145 * 100vw / 375);
+		height: calc(16 * 100vw / 375);
+		margin-left: 0;
 		display: flex;
 		align-items: center;
 	}
