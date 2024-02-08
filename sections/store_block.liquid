@@ -43,7 +43,7 @@
 				{% for image in product.images %}
                     {% assign parts = image | split: thumb %}
                     {% if parts.size > 1 %}
-    					<div class="store_block-product-gallery-item" data-imgnum="{{ counter }}">
+    					<div class="store_block-product-gallery-item {% if counter == 0 %}active{% endif %}" data-imgnum="{{ counter }}">
     						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
     					</div>
     					{% assign counter = counter | plus: 1 %}
