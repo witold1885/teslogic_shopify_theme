@@ -104,10 +104,12 @@
               class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
               {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
             >
-              <a href="{{ link.url }}">{{ link.title }}</a>
               {% if link.links.size > 0 or link.title == 'Other Products' %}
-                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
-                <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+                <div class="menu__item-title">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                  <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+                  <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+                </div>
                 {% if link.title == 'Other Products' %}
                   <ul class="menu__item-dropdown">
                     {% for product in collections['all'].products %}
@@ -132,6 +134,10 @@
                     {% endfor %}
                   </ul>
                 {% endif %}
+              {% else %}
+                <div class="menu__item-title">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </div>
               {% endif %}
             </div>
           {% endif %}
