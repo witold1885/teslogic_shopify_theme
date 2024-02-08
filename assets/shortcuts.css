@@ -230,14 +230,14 @@
 	font-weight: 400;
 	line-height: 20px;
 }
-.shortcuts-features-item:nth-child(1) .shortcuts-features-item-info-description, 
-.shortcuts-features-item:nth-child(2) .shortcuts-features-item-info-description, 
-.shortcuts-features-item:nth-child(4) .shortcuts-features-item-info-description {
+.shortcuts-features .shortcuts-features-item:nth-child(1) .shortcuts-features-item-info-description, 
+.shortcuts-features .shortcuts-features-item:nth-child(2) .shortcuts-features-item-info-description, 
+.shortcuts-features .shortcuts-features-item:nth-child(4) .shortcuts-features-item-info-description {
 	width: 384px;
 }
-.shortcuts-features-item:nth-child(3) .shortcuts-features-item-info-description, 
-.shortcuts-features-item:nth-child(5) .shortcuts-features-item-info-description, 
-.shortcuts-features-item:nth-child(6) .shortcuts-features-item-info-description {
+.shortcuts-features .shortcuts-features-item:nth-child(3) .shortcuts-features-item-info-description, 
+.shortcuts-features .shortcuts-features-item:nth-child(5) .shortcuts-features-item-info-description, 
+.shortcuts-features .shortcuts-features-item:nth-child(6) .shortcuts-features-item-info-description {
 	width: 340px;
 }
 .shortcuts-more {
