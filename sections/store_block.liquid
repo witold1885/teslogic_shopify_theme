@@ -83,7 +83,13 @@
 				</div>
 				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
 				<div class="store_block-product-gallery-mobile-dots">
-					<div data-imgnum="0" class="store_block-product-gallery-mobile-dot">
+					{% for i in (0..5) %}
+						<div data-imgnum="{{ i }}" class="store_block-product-gallery-mobile-dot">
+							<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+							<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+						</div>
+					{% endfor %}
+					<!-- <div data-imgnum="0" class="store_block-product-gallery-mobile-dot">
 						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
 						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
 					</div>
@@ -106,7 +112,7 @@
 					<div data-imgnum="5" class="store_block-product-gallery-mobile-dot">
 						<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
 						<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
-					</div>
+					</div> -->
 					
 				</div>
 			</div>
