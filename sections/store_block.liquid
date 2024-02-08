@@ -32,8 +32,6 @@
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
-{{ product.images | json }}
-
 <div class="store_block" id="shop-now">
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
@@ -73,12 +71,15 @@
 			<div class="store_block-product-gallery-mobile">
 				<div class="store_block-product-gallery-mobile-nav" data-direction="prev"></div>
 				<div class="store_block-product-gallery-main">
-					<img draggable="false" data-imgnum="0" src="{{ 'store-item-main-desktop.png' | asset_url }}" srcset="{{ 'store-item-main-retina.png' | asset_url }} 2x" loading="lazy">
-					<img draggable="false" data-imgnum="1" src="{{ 'store-item-1-desktop.png' | asset_url }}" srcset="{{ 'store-item-1-retina.png' | asset_url }} 2x" loading="lazy">
-					<img draggable="false" data-imgnum="2" src="{{ 'store-item-2-desktop.png' | asset_url }}" srcset="{{ 'store-item-2-retina.png' | asset_url }} 2x" loading="lazy">
-					<img draggable="false" data-imgnum="3" src="{{ 'store-item-3-desktop.png' | asset_url }}" srcset="{{ 'store-item-3-retina.png' | asset_url }} 2x" loading="lazy">
-					<img draggable="false" data-imgnum="4" src="{{ 'store-item-4-desktop.png' | asset_url }}" srcset="{{ 'store-item-4-retina.png' | asset_url }} 2x" loading="lazy">
-					<img draggable="false" data-imgnum="5" src="{{ 'store-item-5-desktop.png' | asset_url }}" srcset="{{ 'store-item-5-retina.png' | asset_url }} 2x" loading="lazy">
+					{% assign full = "-full" %}
+					{% assign counter = 0 %}  
+					{% for image in product.images %}
+	                    {% assign parts = image | split: full %}
+	                    {% if parts.size > 1 %}
+							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '335x335' }}">
+	    					{% assign counter = counter | plus: 1 %}
+						{% endif %}
+					{% endfor %}
 				</div>
 				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
 				<div class="store_block-product-gallery-mobile-dots">
