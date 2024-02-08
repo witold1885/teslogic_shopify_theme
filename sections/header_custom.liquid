@@ -182,10 +182,12 @@
     $('.button-menu').on('click', function() {
       $('.burger-menu-wrap').show()
       $('.button-close').show()
+      $(this).hide()
     })
     $('.button-close').on('click', function() {
       $('.burger-menu-wrap').hide()
-      $('.button-close').hide()
+      $('.button-menu').show()
+      $(this).hide()
     })
     if (window.innerWidth >= 1000) {
       $('.menu__item').on('mouseover', function() {
