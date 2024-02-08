@@ -63,10 +63,10 @@
 	}
 	#header_custom {
 		width: 100%;
-		height: 104px;
+		height: calc(52 * 100vw / 375);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 	}
 	.top-wrap {
