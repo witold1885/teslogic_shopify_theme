@@ -38,48 +38,35 @@
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-items">
-				{% assign thumb = "-thumb" %}    
+				{% assign thumb = "-thumb" %}
+				{% assign counter = 0 %}  
 				{% for image in product.images %}
                     {% assign parts = image | split: thumb %}
                     {% if parts.size > 1 %}
-    					<div class="store_block-product-gallery-item" data-imgnum="0">
+    					<div class="store_block-product-gallery-item" data-imgnum="{{ counter }}">
     						<div class="store_block-product-gallery-item-ellipse"></div>
     						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
     					</div>
+    					{% assign counter = counter | plus: 1 %}
 					{% endif %}
 				{% endfor %}
-				<!-- <div class="store_block-product-gallery-item" data-imgnum="0">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-main-desktop.png' | asset_url }}" srcset="{{ 'store-item-main-retina.png' | asset_url }} 2x" loading="lazy">
-				</div>
-				<div class="store_block-product-gallery-item" data-imgnum="1">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-1-desktop.png' | asset_url }}" srcset="{{ 'store-item-1-retina.png' | asset_url }} 2x" loading="lazy">
-				</div>
-				<div class="store_block-product-gallery-item" data-imgnum="2">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-2-desktop.png' | asset_url }}" srcset="{{ 'store-item-2-retina.png' | asset_url }} 2x" loading="lazy">
-				</div>
-				<div class="store_block-product-gallery-item" data-imgnum="3">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-3-desktop.png' | asset_url }}" srcset="{{ 'store-item-3-retina.png' | asset_url }} 2x" loading="lazy">
-				</div>
-				<div class="store_block-product-gallery-item" data-imgnum="4">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-4-desktop.png' | asset_url }}" srcset="{{ 'store-item-4-retina.png' | asset_url }} 2x" loading="lazy">
-				</div>
-				<div class="store_block-product-gallery-item" data-imgnum="5">
-					<div class="store_block-product-gallery-item-ellipse"></div>
-					<img class="store_block-product-gallery-item-image" src="{{ 'store-item-5-desktop.png' | asset_url }}" srcset="{{ 'store-item-5-retina.png' | asset_url }} 2x" loading="lazy">
-				</div> -->
 			</div>
 			<div class="store_block-product-gallery-main">
-				<img data-imgnum="0" src="{{ 'store-item-main-desktop.png' | asset_url }}" srcset="{{ 'store-item-main-retina.png' | asset_url }} 2x" loading="lazy">
+				{% assign full = "-full" %}
+				{% assign counter = 0 %}  
+				{% for image in product.images %}
+                    {% assign parts = image | split: full %}
+                    {% if parts.size > 1 %}
+						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '526x526' }}">
+    					{% assign counter = counter | plus: 1 %}
+					{% endif %}
+				{% endfor %}
+				<!-- <img data-imgnum="0" src="{{ 'store-item-main-desktop.png' | asset_url }}" srcset="{{ 'store-item-main-retina.png' | asset_url }} 2x" loading="lazy">
 				<img data-imgnum="1" src="{{ 'store-item-1-desktop.png' | asset_url }}" srcset="{{ 'store-item-1-retina.png' | asset_url }} 2x" loading="lazy">
 				<img data-imgnum="2" src="{{ 'store-item-2-desktop.png' | asset_url }}" srcset="{{ 'store-item-2-retina.png' | asset_url }} 2x" loading="lazy">
 				<img data-imgnum="3" src="{{ 'store-item-3-desktop.png' | asset_url }}" srcset="{{ 'store-item-3-retina.png' | asset_url }} 2x" loading="lazy">
 				<img data-imgnum="4" src="{{ 'store-item-4-desktop.png' | asset_url }}" srcset="{{ 'store-item-4-retina.png' | asset_url }} 2x" loading="lazy">
-				<img data-imgnum="5" src="{{ 'store-item-5-desktop.png' | asset_url }}" srcset="{{ 'store-item-5-retina.png' | asset_url }} 2x" loading="lazy">
+				<img data-imgnum="5" src="{{ 'store-item-5-desktop.png' | asset_url }}" srcset="{{ 'store-item-5-retina.png' | asset_url }} 2x" loading="lazy"> -->
 			</div>
 		</div>
 		<div class="store_block-product-info">
