@@ -254,8 +254,12 @@
 		cursor: grab;
 		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
 		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
-		scrollbar-color: transparent transparent;
-		scrollbar-visibility: hidden;
+/*		scrollbar-color: transparent transparent;*/
+/*		scrollbar-visibility: hidden;*/
+		-webkit-overflow-scrolling: touch;
+	}
+	.reviews-list::-webkit-scrollbar {
+	  display: none;
 	}
 	.reviews-list-scrollbar {
 		position: relative;
