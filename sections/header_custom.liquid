@@ -96,71 +96,71 @@
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close.svg' | asset_url }}"></div>
       </div>
-      <div class="burger-menu-wrap">
-        <div class="burger-menu">
-          {% for link in linklists.main-menu.links %}
-          {% if link.title != 'Community' %}
-            <div
-              class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
-              {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
-            >
-              {% if link.links.size > 0 or link.title == 'Other Products' %}
-                <div class="menu__item-title">
-                  <a href="{{ link.url }}">{{ link.title }}</a>
-                  <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
-                  <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
-                </div>
-                {% if link.title == 'Other Products' %}
-                  <ul class="menu__item-dropdown">
-                    {% for product in collections['all'].products %}
-                      {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
-                        <li class="menu__item-dropdown-link">
-                          <a href="/products/{{ product.handle }}">{{ product.title }}</a>
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-                {% else %}
-                  <ul class="menu__item-dropdown">
-                    {% for child_link in link.links %}
-                      <li class="menu__item-dropdown-link">
-                        {% assign url_begin = child_link.url | slice: 0 %}
-                        {% if url_begin == '#' %}
-                          <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
-                        {% else %}
-                          <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                        {% endif %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              {% else %}
-                <div class="menu__item-title">
-                  <a href="{{ link.url }}">{{ link.title }}</a>
-                </div>
-              {% endif %}
+    </div>
+  </div>
+  <div class="burger-menu-wrap">
+    <div class="burger-menu">
+      {% for link in linklists.main-menu.links %}
+      {% if link.title != 'Community' %}
+        <div
+          class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
+        >
+          {% if link.links.size > 0 or link.title == 'Other Products' %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+            </div>
+            {% if link.title == 'Other Products' %}
+              <ul class="menu__item-dropdown">
+                {% for product in collections['all'].products %}
+                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% else %}
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    {% assign url_begin = child_link.url | slice: 0 %}
+                    {% if url_begin == '#' %}
+                      <a href="/{{ child_link.url }}">{{ child_link.title }}</a>
+                    {% else %}
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% else %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }}</a>
             </div>
           {% endif %}
-          {% endfor %}
-          <!-- <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
-          <div class="menu__item"><a href="/#features">Features</a></div>
-          <div class="menu__item"><a href="/manuals">Manuals</a></div>
-          <div class="menu__item"><a href="/faq">FAQ</a></div>
-          <div class="menu__item"><a href="/contacts">Contacts</a></div>
-          <div 
-            class="menu__item cart-link"
-            {% if cart.item_count == 0 %} style="display: none;" {% endif %}
-          >
-            <a href="/cart">
-              <div class="cart-icon-wrap">
-                <img src="{{ 'cart-black.svg' | asset_url }}">
-                <div class="cart-qty">{{ cart.item_count }}</div>
-              </div>
-              <span>Cart</span>
-            </a>
-          </div> -->      
         </div>
-      </div>
+      {% endif %}
+      {% endfor %}
+      <!-- <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
+      <div class="menu__item"><a href="/#features">Features</a></div>
+      <div class="menu__item"><a href="/manuals">Manuals</a></div>
+      <div class="menu__item"><a href="/faq">FAQ</a></div>
+      <div class="menu__item"><a href="/contacts">Contacts</a></div>
+      <div 
+        class="menu__item cart-link"
+        {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+      >
+        <a href="/cart">
+          <div class="cart-icon-wrap">
+            <img src="{{ 'cart-black.svg' | asset_url }}">
+            <div class="cart-qty">{{ cart.item_count }}</div>
+          </div>
+          <span>Cart</span>
+        </a>
+      </div> -->      
     </div>
   </div>
 </header>
