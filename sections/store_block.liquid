@@ -38,13 +38,14 @@
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
 			<div class="store_block-product-gallery-items">
-				{% assign thumb = '-thumb' %}
+				{% assign thumb = "-thumb" %}    
 				{% for image in product.images %}
-					{% if image | contains: thumb %}
-						<div class="store_block-product-gallery-item" data-imgnum="0">
-							<div class="store_block-product-gallery-item-ellipse"></div>
-							<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
-						</div>
+                    {% assign parts = image | split: thumb %}
+                    {% if parts.size > 1 %}
+    					<div class="store_block-product-gallery-item" data-imgnum="0">
+    						<div class="store_block-product-gallery-item-ellipse"></div>
+    						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
+    					</div>
 					{% endif %}
 				{% endfor %}
 				<!-- <div class="store_block-product-gallery-item" data-imgnum="0">
