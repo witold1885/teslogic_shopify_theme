@@ -94,22 +94,36 @@
 		width: 100%;
 	}
 	.top .buttons {
-		margin-right: 25px;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		grid-column-gap: 16px;
+		grid-column-gap: calc(12 * 100vw / 375);
 	}
 	.top .mob-button {
 		cursor: pointer;
 	}
 	.button-cart {
-		width: 25px;
-		height: 24px;
+		width: calc(25 * 100vw / 375);
+		height: calc(24 * 100vw / 375);
 	}
 	.button-burger {
-		width: 29px;
-		height: 22px;
+		width: calc(29 * 100vw / 375);
+		height: calc(22 * 100vw / 375);
+	}
+	.button-menu {
+		padding: calc(8 * 100vw / 375) calc(16 * 100vw / 375);
+		border-radius: calc(54 * 100vw / 375);
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(8px);
+		color: #FFF;
+		font-family: Manrope;
+		font-size: calc(16 * 100vw / 375);
+		font-style: normal;
+		font-weight: 500;
+		line-height: calc(20 * 100vw / 375);
+		border: none;
+		outline: none;
+		box-shadow: none;
 	}
 	.button-close {
 		display: none;
