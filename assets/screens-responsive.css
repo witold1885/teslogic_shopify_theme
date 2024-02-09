@@ -96,10 +96,15 @@
 		line-height: calc(18 * 100vw / 375);
 		border-radius: calc(4 * 100vw / 375); 
 	}
-	.screens__features-image-wrap {
+	/*.screens__features-image-wrap {
 		width: calc(335 * 100vw / 375);
 		height: calc(162 * 100vw / 375);
 		margin-top: calc(160 * 100vw / 375);
+	}*/
+	.screens__features-image-wrap {
+		width: 335px;
+		height: 162px;
+		margin-top: 160px;
 	}
 	.screens__select {
 		grid-column-gap: calc(4 * 100vw / 375);
