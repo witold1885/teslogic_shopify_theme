@@ -46,8 +46,28 @@
 				</div>				
 			</div>
 		</div>
-		<div class="shortcuts-features">
-	    	<div class="shortcuts-features-item">
+		<div class="shortcuts-features">			
+		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: "title" %}
+		    {% for article in articles %}
+		    	<div class="shortcuts-features-item">
+			    	<div class="shortcuts-features-item-image">
+			    		<img src="{{ article.image | img_url: '526x526' }}">
+			    	</div>
+	  				{% assign title_array = article.title | split: " " %}
+	  				{% assign number = title_array.first %}
+	  				{% assign title = article.title | replace: number, "" %}
+			    	<div class="shortcuts-features-item-info">
+				    	<div class="shortcuts-features-item-info-title">
+					    	<div class="shortcuts-features-item-info-title-text">{{ title }}</div>
+					    	<div class="shortcuts-features-item-info-title-icon">
+					    		<img src="{{ 'shortcuts-icon-01.svg' | asset_url }}">
+					    	</div>
+				    	</div>
+				    	<div class="shortcuts-features-item-info-description">{{ article.content }}</div>
+			    	</div>
+		    	</div>
+	    	{% endfor %}
+	    	<!-- <div class="shortcuts-features-item">
 		    	<div class="shortcuts-features-item-image">
 		    		<img src="{{ 'shortcuts-image-1-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-1-retina.png' | asset_url }} 2x" loading="lazy">
 		    	</div>
@@ -162,7 +182,7 @@
 				    	Automatically reduce your speed to match the maximum allowable speed limits in areas with enforced speed restrictions, helping you avoid fines for speeding.
 			    	</div>
 		    	</div>
-	    	</div>
+	    	</div> -->
 		</div>
 		<div class="shortcuts-features-mobile">
 	  		<div class="shortcuts-features-scroller">
@@ -326,7 +346,7 @@
 			</div>
 			<div class="shortcuts-more-layer shortcuts-more-layer-3">
 				<div class="shortcuts-more-text">
-					This is only the beginning.<br>Many more to come...
+					This is only the beginning. Many more to come...
 				</div>
 				<!-- <button class="shortcuts-more-button shortcuts-more-button-desktop">More Shortucts</button> -->
 				<!-- <button class="shortcuts-more-button shortcuts-more-button-mobile">More</button> -->
