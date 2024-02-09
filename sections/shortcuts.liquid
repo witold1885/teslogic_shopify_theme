@@ -204,6 +204,7 @@
 			  				{% assign number = title_array.first %}
 			  				{% assign title = article.title | replace: number, '' %}
 			  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
+			  				{{ excerpt_array | json }}
 					    	<div class="shortcuts-features-item-image">
 			    				<img draggable="false" src="{{ excerpt_array[1] | img_url: '612x612' }}">
 					    	</div>
