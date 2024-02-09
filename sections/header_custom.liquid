@@ -180,9 +180,11 @@
       var header_top_height = $('#header_main').find('.top').height()
       if (window.pageYOffset >= header_custom_height) {
         $('#header_custom').addClass('sticky')
+        $('.menu__item-chevron-down').attr('src', chevron_white)
       }
       else {      
         $('#header_custom').removeClass('sticky')
+        $('.menu__item-chevron-down').attr('src', chevron_black)
       }
     }
 
