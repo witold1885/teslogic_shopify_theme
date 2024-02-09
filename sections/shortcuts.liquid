@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="{{ 'shortcuts.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
-{% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: 'title' %}
-
 <div class="shortcuts">
 	<div class="shortcuts-wrap">
 		<div class="shortcuts-title">
@@ -48,7 +46,8 @@
 				</div>				
 			</div>
 		</div>
-		<div class="shortcuts-features">
+		<div class="shortcuts-features">			
+		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: 'title' %}
 		    {% for article in articles %}
 		    	<div class="shortcuts-features-item">
 			    	<div class="shortcuts-features-item-image">
@@ -79,6 +78,122 @@
 			    	</div>
 		    	</div>
 	    	{% endfor %}
+	    	<!-- <div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-1-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-1-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Battery<br>Preheat
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-01.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+				    	Prepare your Tesla for Supercharging 10-20 minutes before your scheduled session (not at a Tesla charging station). Engage the battery preheating function to save time during charging. Tesla typically preheats the battery before charging, but this shortcut accelerates the process. The preheating will automatically deactivate after 40 minutes.
+			    	</div>
+		    	</div>
+	    	</div>
+	    	<div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-2-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-2-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Chill<br>Kickdown
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-02.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+			    		In Chill mode, a full-throttle kickdown for 1 second will seamlessly transition your Tesla into regular Sport mode. If you refrain from full-throttle driving for 30 seconds, the vehicle will revert to Chill mode automatically.
+			    	</div>
+		    	</div>
+	    	</div>
+	    	<div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-3-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-3-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Teslogic<br>Drift Mode
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-03.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+				    	Drift mode disables traction control and also the front motor in dual motor cars, allowing you to enjoy drifting without any limitations. Warning: Use this mode only outside public roads and at your own risk!
+			    	</div>
+		    	</div>
+	    	</div>
+	    	<div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-4-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-4-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Snow<br>/ Ice mode
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-04.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+				    	This mode distributes torque evenly between the axles in a 50/50 ratio, significantly reducing the likelihood of skidding on slippery roads.
+			    	</div>
+		    	</div>
+	    	</div>
+	    	<div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-5-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-5-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Regen Settings
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-05.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+				    	Adjust regenerative braking strength to minimize or completely eliminate sudden traction loss on slippery roads. This shortcut allows you to customize regenerative braking to suit your driving conditions.
+			    	</div>
+		    	</div>
+	    	</div>
+	    	<div class="shortcuts-features-item">
+		    	<div class="shortcuts-features-item-image">
+		    		<img src="{{ 'shortcuts-image-6-desktop.png' | asset_url }}" srcset="{{ 'shortcuts-image-6-retina.png' | asset_url }} 2x" loading="lazy">
+		    	</div>
+		    	<div class="shortcuts-features-item-speedicons">
+			    	<div class="shortcuts-features-item-speedicon">
+			    		<img src="{{ 'speed-limit-75.svg' | asset_url }}">
+			    	</div>
+			    	<div class="shortcuts-features-item-speedicon">
+			    		<img src="{{ 'speed-limit-60.svg' | asset_url }}">
+			    	</div>
+		    	</div>
+		    	<div class="shortcuts-features-item-info">
+			    	<div class="shortcuts-features-item-info-title">
+				    	<div class="shortcuts-features-item-info-title-text">
+					    	Traffic Fines Avoidance
+				    	</div>
+				    	<div class="shortcuts-features-item-info-title-icon">
+				    		<img src="{{ 'shortcuts-icon-06.svg' | asset_url }}">
+				    	</div>
+			    	</div>
+			    	<div class="shortcuts-features-item-info-description">
+				    	Automatically reduce your speed to match the maximum allowable speed limits in areas with enforced speed restrictions, helping you avoid fines for speeding.
+			    	</div>
+		    	</div>
+	    	</div> -->
 		</div>
 		<div class="shortcuts-features-mobile">
 	  		<div class="shortcuts-features-scroller">
@@ -96,7 +211,7 @@
 					    	<div class="shortcuts-features-item-title">
 						    	<div class="shortcuts-features-item-title-icon">
 						    		<img class="shortcuts-features-item-title-icon-blue" src="{{ excerpt_array[1] | replace: '\n', '' }}">
-						    		<img class="shortcuts-features-item-title-icon-black" src="{{{ excerpt_array[2] | replace: '\n', '' }}">
+						    		<img class="shortcuts-features-item-title-icon-black" src="{{ excerpt_array[2] | replace: '\n', '' }}">
 						    	</div>
 						    	<div class="shortcuts-features-item-title-text">{{ title }}</div>
 						    	<div class="shortcuts-features-item-title-chevron">
