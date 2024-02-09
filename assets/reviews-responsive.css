@@ -110,7 +110,7 @@
 	}
 	.reviews-form-wrap {
 		width: calc(636 * 100vw / 1440);
-		height: calc(400 * 100vw / 1440);
+/*		height: calc(508 * 100vw / 1440);*/
 		padding: calc(40 * 100vw / 1440) calc(40 * 100vw / 1440) calc(28 * 100vw / 1440) calc(40 * 100vw / 1440);
 		border-radius: calc(16 * 100vw / 1440);
 	}
@@ -132,10 +132,6 @@
 	.reviews-form-body {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
-	.reviews-form-column {
-		width: calc(266 * 100vw / 1440);
-		grid-row-gap: calc(24 * 100vw / 1440);
-	}
 	.reviews-form-field:not(.spr-form-review-rating) {
 		grid-row-gap: calc(8 * 100vw / 1440);
 	}
@@ -144,6 +140,7 @@
 		line-height: calc(20 * 100vw / 1440);
 	}
 	input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) {
+		width: calc(266 * 100vw / 1440);
 		padding: calc(16 * 100vw / 1440);
 		border-radius: calc(15 * 100vw / 1440);
 		border-radius: calc(6 * 100vw / 1440);
