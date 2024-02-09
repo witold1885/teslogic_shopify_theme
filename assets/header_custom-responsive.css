@@ -74,6 +74,11 @@
 /*		height: calc(52 * 100vw / 375);*/
 		position: fixed;
 		z-index: 10;
+		background: linear-gradient(180deg, #FEFEFE 53.75%, rgba(254, 254, 254, 0) 100%);
+	}
+	.top-wrap-scrolled {
+		background: rgba(0, 0, 0, 0.32);
+		backdrop-filter: blur(32px);
 	}
 	.top {
 		width: calc(335 * 100vw / 375);
@@ -123,9 +128,6 @@
 		border: none;
 		outline: none;
 		box-shadow: none;
-	}
-	#header_custom.sticky .button-menu {
-		background: rgba(0, 0, 0, 0.32);
 	}
 	.button-close {
 		display: none;
