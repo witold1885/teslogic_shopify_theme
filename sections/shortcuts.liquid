@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div class="shortcuts-features">			
-		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: "title" %}
+		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: 'title' %}
 		    {% for article in articles %}
 		    	<div class="shortcuts-features-item">
 			    	<div class="shortcuts-features-item-image">
@@ -56,11 +56,9 @@
 	  				{% assign title_array = article.title | split: " " %}
 	  				{% assign number = title_array.first %}
 	  				{% assign title = article.title | replace: number, "" %}
-	  				{% assign excerpt_array = article.excerpt | split: "\n" %}
-	  				{% assign icons = excerpt_array.first | split: "\n" %}
+	  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
 	  				{{ article.excerpt }}
 	  				{{ excerpt_array | json }}
-	  				{{ icons | json }}
 			    	<div class="shortcuts-features-item-info">
 				    	<div class="shortcuts-features-item-info-title">
 					    	<div class="shortcuts-features-item-info-title-text">{{ title }}</div>
