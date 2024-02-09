@@ -220,6 +220,10 @@
 		galleryWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
 		galleryWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
 
+		galleryWrap.addEventListener('touchstart', handleMouseDown)
+		galleryWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('touchend', handleMouseUp/*, { once: true }*/)
+
 		$('.store_block-product-gallery-item').on('click', function() {
 			imgnum = $(this).data('imgnum')
 			$('.store_block-product-gallery-item').each(function() {
