@@ -5,6 +5,10 @@
 	background: #FEFEFE;
 	z-index: 10;
 }
+#header_custom.sticky {
+	background: rgba(0, 0, 0, 0.32);
+	backdrop-filter: blur(32px); 
+}
 .header-fix {
 	height: 64px;
 	display: block!important;
@@ -86,7 +90,7 @@
 	align-items: center;
 	grid-column-gap: 10px;
 	font-size: 18px;
-	font-family: Gotham;
+	font-family: Manrope;
 	font-weight: 400;
 	line-height: 32px; 
 }
