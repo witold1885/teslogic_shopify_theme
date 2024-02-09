@@ -235,7 +235,7 @@
 }
 .reviews-form-wrap {
 	width: 636px;
-	height: 400px; 
+/*	height: 508px;*/
 	padding: 40px 40px 28px 40px;
 	border-radius: 16px;
 	background: #FFF;
@@ -274,13 +274,9 @@
 }
 .reviews-form-body {
 	display: flex;
+	flex-wrap: wrap;
 	grid-column-gap: 24px;
-}
-.reviews-form-column {
-	width: 266px;
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 24px;
+	grid-row-gap: 28px;
 }
 .reviews-form-field:not(.spr-form-review-rating) {
 	display: flex;
@@ -301,7 +297,7 @@
 	line-height: 20px; 
 }
 input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) {
-	width: 100%;
+	width: 266px;
 	padding: 16px;
 	border-radius: 6px;
 	border: 1px solid #D9D9D9;
