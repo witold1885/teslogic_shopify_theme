@@ -8,7 +8,9 @@
 		<a class="using__video-show">Watch Video<img src="{{ 'chevron-right-blue.svg' | asset_url }}"></a>
 	</div>
 	<div class="using__video-popup">
-		<iframe title="Teslogic Installation Guide | Tesla Model 3 (2021+)" src="https://www.youtube.com/embed/iCKNAsNVlRk" height="720" width="1280" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
+		<div class="using__video">
+			<iframe title="Teslogic Installation Guide | Tesla Model 3 (2021+)" src="https://www.youtube.com/embed/iCKNAsNVlRk" height="720" width="1280" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
+		</div>
 	</div>
 	<div class="using__content">
 		<div class="using__row using__row-1">
@@ -52,7 +54,13 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.using__video-show').on('click', function() {
-		$('.using__video-popup').show()
+		$('.using__video-popup').css('display', 'flex')
+	})
+	
+	$(document).on('click', function (e) {
+	    if ($(e.target).closest('.using__video').length === 0) {
+	        $('.using__video-popup').hide()
+	    }
 	})
 })
 </script>
