@@ -90,13 +90,13 @@
 			  				{% assign title = article.title | replace: number, '' %}
 			  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
 					    	<div class="shortcuts-features-item-image">
-			    				<img draggable="false" src="{{ article.image | img_url: '1052x1052' }}">
+			    				<img draggable="false" src="{{ excerpt_array[1] | img_url: '612x612' }}">
 					    	</div>
 					    	<div class="shortcuts-features-item-description">{{ article.content }}</div>
 					    	<div class="shortcuts-features-item-title">
 						    	<div class="shortcuts-features-item-title-icon">
-						    		<img class="shortcuts-features-item-title-icon-blue" src="{{ excerpt_array[1] | replace: '\n', '' }}">
-						    		<img class="shortcuts-features-item-title-icon-black" src="{{{ excerpt_array[2] | replace: '\n', '' }}">
+						    		<img class="shortcuts-features-item-title-icon-blue" src="{{ excerpt_array[2] | replace: '\n', '' }}">
+						    		<img class="shortcuts-features-item-title-icon-black" src="{{ excerpt_array[3] | replace: '\n', '' }}">
 						    	</div>
 						    	<div class="shortcuts-features-item-title-text">{{ title }}</div>
 						    	<div class="shortcuts-features-item-title-chevron">
