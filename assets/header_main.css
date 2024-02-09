@@ -198,8 +198,8 @@
 /*	z-index: -1;*/
 }
 .banner-desktop {
-	width: 1366px;
-	height: 768px;
+	width: 1440px;
+	height: 810px;
 	margin: 0 auto;
 	position: relative;
 	display: flex;
