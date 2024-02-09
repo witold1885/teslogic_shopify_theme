@@ -54,7 +54,7 @@
 				{% for image in product.images %}
                     {% assign parts = image | split: full %}
                     {% if parts.size > 1 %}
-						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '526x526' }}">
+						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
     					{% assign counter = counter | plus: 1 %}
 					{% endif %}
 				{% endfor %}
@@ -76,7 +76,7 @@
 					{% for image in product.images %}
 	                    {% assign parts = image | split: full %}
 	                    {% if parts.size > 1 %}
-							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '335x335' }}">
+							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
 	    					{% assign counter = counter | plus: 1 %}
 						{% endif %}
 					{% endfor %}
