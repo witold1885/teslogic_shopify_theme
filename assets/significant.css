@@ -32,6 +32,13 @@
 	padding-right: calc((100vw - 1296px) / 2);
 	cursor: grab;
 	scrollbar-color: transparent transparent;
+	scrollbar-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.significant__features-scroller::-webkit-scrollbar {
+  display: none;
 }
 .significant__features-scrollbar {
 	position: relative;
