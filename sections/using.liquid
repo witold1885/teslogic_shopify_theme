@@ -54,16 +54,17 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	var videoShow = false
+
 	$('.using__video-show').on('click', function() {
 		$('.using__video-popup').css('display', 'flex')
 		videoShow = true
 	})
 
-	$(document).on('click', function (e) {
+	/*$(document).on('click', function (e) {
 	    if (videoShow && $(e.target).closest('.using__video').length === 0) {
 	        $('.using__video-popup').hide()
 	        videoShow = false
 	    }
-	})
+	})*/
 })
 </script>
