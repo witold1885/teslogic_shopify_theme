@@ -189,10 +189,10 @@
       }
       else {
         if ($('body').scrollTop() >= header_custom_height) {
-          $('#header_custom').addClass('sticky')
+          $('.top-wrap').addClass('top-wrap-scrolled')
         }
         else {
-          $('#header_custom').removeClass('sticky')
+          $('.top-wrap').removeClass('top-wrap-scrolled')
         }
       }
     }
