@@ -362,7 +362,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					cart_qty = cart_qty + add_items_count
+					/*cart_qty = cart_qty + add_items_count
 					$('.cart-qty').text(cart_qty)
 					$('.cart-link').fadeIn()
 					var f = $('.store_block-product-gallery-image')
@@ -388,9 +388,10 @@
 						$(this).remove();
 					});
 					$('.menu__item-button').hide();
-					$('.menu__item-cart').show();
+					$('.menu__item-cart').show();*/
 					// console.log(response)
 				  	// return response.json()
+				  	window.location.href = '/cart'
 				})
 				.catch((error) => {
 				  	console.error('Error:', error)
