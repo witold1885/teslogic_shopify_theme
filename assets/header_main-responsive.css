@@ -1,11 +1,11 @@
   
 @media screen and (min-width: 1920px) {        
 	#header_main {
-		height: calc(768 * 100vw / 1920);
+		height: calc(810 * 100vw / 1920);
 	}
 	.banner-desktop {
 		/*width: calc(1366 * 100vw / 1366);*/
-		height: calc(768 * 100vw / 1920);
+		height: calc(810 * 100vw / 1920);
 	}
 	.title {
 		font-size: calc(64 * 100vw / 1920);
@@ -84,7 +84,7 @@
 	}
 	
 	#header_main {
-		height: calc(768 * 100vw / 1440);
+		height: calc(810 * 100vw / 1440);
 	}
 	#header_sticky {
 		/*width: calc(1440 * 100vw / 1440);*/
