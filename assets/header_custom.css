@@ -62,6 +62,9 @@
 	align-items: center;
 	grid-column-gap: 4px;
 }
+#header_custom.sticky .menu__item {
+	color: #FFFFFF;
+}
 .menu__item-sticky {
 /*	color: #000000;*/
 }
@@ -81,7 +84,6 @@
 	border-radius: 100px;
 	margin-left: 10px;
 	font-weight: 400;
-	color: #000000!important;
 }
 .menu__item-cart a {
 	width: 100%;
