@@ -51,7 +51,8 @@
 	.screens {
 		width: 100vw;
 		margin-left: calc(-1 * (100vw - calc(375 * 100vw / 375)) / 2);
-		height: calc(988 * 100vw / 375);
+/*		height: calc(988 * 100vw / 375);*/
+		height: auto;
 	}
 	.screens__wrap {
 		width: calc(335 * 100vw / 375);
@@ -95,6 +96,15 @@
 		font-weight: 400;
 		line-height: calc(18 * 100vw / 375);
 		border-radius: calc(4 * 100vw / 375); 
+	}
+	.screens__features-block {
+		width: 335px;
+		height: 506px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		display: none;
+		position: relative;
 	}
 	/*.screens__features-image-wrap {
 		width: calc(335 * 100vw / 375);
