@@ -49,7 +49,7 @@
 @media screen and (min-width: 576px) and (max-width: 1700px) {
 	.top {
 /*		width: calc(1440 * 100vw / 1440);*/
-		height: calc(96 * 100vw / 1440);
+		height: calc(64 * 100vw / 1440);
 	}
 	.top .logo {
 		width: calc(188 * 100vw / 1440);
