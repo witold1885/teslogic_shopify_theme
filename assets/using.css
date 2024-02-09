@@ -39,6 +39,19 @@
 .using__subtitle a:hover {
 	color: #0345ED;
 }
+.using__video-popup {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .using__content {
 	width: 100%;
 	display: flex;
