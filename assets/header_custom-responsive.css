@@ -1,9 +1,9 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {  
 	#header_custom {
-		height: calc(96 * 100vw / 1440);
+		height: calc(64 * 100vw / 1440);
 	}
 	.header-fix {
-		height: calc(96 * 100vw / 1440);
+		height: calc(64 * 100vw / 1440);
 	}
 	.top .logo {	
 		width: calc(188 * 100vw / 1440);
