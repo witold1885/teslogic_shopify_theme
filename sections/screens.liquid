@@ -593,6 +593,10 @@
 		featuresWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
 		featuresWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
 
+		featuresWrap.addEventListener('touchstart', handleMouseDown)
+		featuresWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
+		featuresWrap.addEventListener('touchend', handleMouseUp/*, { once: true }*/)
+
 		function handleDirection(direction) {
 			console.log(direction)		
 			if (direction == 'prev') {
