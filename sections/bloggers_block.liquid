@@ -202,6 +202,13 @@ $(document).ready(async function() {
 	padding-right: calc((100vw - 1296px) / 2);
 	cursor: grab;
 	scrollbar-color: transparent transparent;
+	scrollbar-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.bloggers_block__list-scroller::-webkit-scrollbar {
+  display: none;
 }
 .bloggers_block__list-scrollbar {
 	position: relative;
