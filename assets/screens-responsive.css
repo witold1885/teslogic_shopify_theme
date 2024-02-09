@@ -100,11 +100,7 @@
 	.screens__features-block {
 		width: 335px;
 		height: 506px;
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		display: none;
-		position: relative;
+		margin: 0 auto;
 	}
 	/*.screens__features-image-wrap {
 		width: calc(335 * 100vw / 375);
