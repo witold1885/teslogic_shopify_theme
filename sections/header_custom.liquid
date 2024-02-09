@@ -171,6 +171,21 @@
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   $(document).ready(function() {
+    $(document.body).on('touchmove', setStickyHeader)
+    $(document.body).on('scroll', setStickyHeader)
+    $(window).on('scroll', setStickyHeader)
+
+    function setStickyHeader() {
+      var header_custom_height = $('#header_custom').height()
+      var header_top_height = $('#header_main').find('.top').height()
+      if (window.pageYOffset >= header_custom_height) {
+        $('#header_custom').addClass('sticky')
+      }
+      else {      
+        $('#header_custom').removeClass('sticky')
+      }
+    }
+
     $('.menu__item-button').on('mouseover', function() {
       $(this).css({color: '#000000'})
       $(this).find('a').css({color: '#000000'})
