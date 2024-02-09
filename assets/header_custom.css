@@ -68,7 +68,7 @@
 .menu__item-sticky {
 /*	color: #000000;*/
 }
-.menu__item-opened {
+.menu__item-opened, #header_custom.sticky .menu__item-opened {
 	color: #BFBFBD;
 }
 .menu__item-button {
