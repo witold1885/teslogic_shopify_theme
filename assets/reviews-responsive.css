@@ -257,8 +257,8 @@
 		scrollbar-color: transparent transparent;
 		scrollbar-visibility: hidden;
 		-webkit-overflow-scrolling: touch;
-		-ms-overflow-style: none;  /* Internet Explorer 10+ */
-    	scrollbar-width: none;  /* Firefox */
+		-ms-overflow-style: none;
+    	scrollbar-width: none;
 	}
 	.reviews-list::-webkit-scrollbar {
 	  display: none;
