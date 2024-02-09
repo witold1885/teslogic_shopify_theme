@@ -372,6 +372,7 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea):
 	box-shadow: none;
 }
 .spr-form-review-body {
+	width: 100%;
 	height: 100%;
 }
 .reviews-form-actions {
