@@ -88,18 +88,12 @@
 			  				{% assign number = title_array.first %}
 			  				{% assign title = article.title | replace: number, '' %}
 			  				{% assign title_parts = title | split: ' ' %}
-			  				{{ title_parts | json }}
 			  				{% if number != '06' %}
 			  					{% assign title_1 = title_parts[0] %}
 			  					{% assign title_2 = title | replace: title_1, '' %}
-				  				{{ title_1 }}<br>
-				  				{{ title_2 }}
 				  			{% else %}
 			  					{% assign title_1 = title_parts[0] | append: ' ' | append: title_parts[1] %}
 			  					{% assign title_2 = title | replace: title_1, '' %}
-				  				{{ title_1 }}<br>
-				  				{{ title_2 }}
-				  				
 			  				{% endif %}
 			  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
 					    	<div class="shortcuts-features-item-image">
@@ -121,7 +115,9 @@
 						    		<img class="shortcuts-features-item-title-icon-blue" src="{{ excerpt_array[2] | replace: '\n', '' }}">
 						    		<img class="shortcuts-features-item-title-icon-black" src="{{ excerpt_array[3] | replace: '\n', '' }}">
 						    	</div>
-						    	<div class="shortcuts-features-item-title-text">{{ title }}</div>
+						    	<div class="shortcuts-features-item-title-text">
+						    		{{ title_1 }}<br>{{ title_2 }}
+						    	</div>
 						    	<div class="shortcuts-features-item-title-chevron">
 						    		<img class="shortcuts-features-item-title-chevron-down" src="{{ 'shortcuts-item-mobile-chevron-down.svg' | asset_url }}">
 						    		<img class="shortcuts-features-item-title-chevron-up" src="{{ 'shortcuts-item-mobile-chevron-up.svg' | asset_url }}">
