@@ -95,7 +95,7 @@
 				  				{{ title_1 }}<br>
 				  				{{ title_2 }}
 				  			{% else %}
-			  					{% assign title_1 = title_parts[0] | concat: ' ' | concat: title_parts[1] %}
+			  					{% assign title_1 = title_parts[0] | append: ' ' | append: title_parts[1] %}
 			  					{% assign title_2 = title | replace: title_1, '' %}
 				  				{{ title_1 }}<br>
 				  				{{ title_2 }}
