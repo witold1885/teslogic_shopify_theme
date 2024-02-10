@@ -92,8 +92,14 @@
 			  				{% if number != '06' %}
 			  					{% assign title_1 = title_parts[0] %}
 			  					{% assign title_2 = title | replace: title_1, '' %}
-				  				{{ title_1 }}
+				  				{{ title_1 }}<br>
 				  				{{ title_2 }}
+				  			{% else %}
+			  					{% assign title_1 = title_parts[0] | concat: ' ' | concat: title_parts[1] %}
+			  					{% assign title_2 = title | replace: title_1, '' %}
+				  				{{ title_1 }}<br>
+				  				{{ title_2 }}
+				  				
 			  				{% endif %}
 			  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
 					    	<div class="shortcuts-features-item-image">
