@@ -570,14 +570,14 @@
 
 		function handleMouseDown(event) {
 			event.preventDefault()
-			startX = event.touches[0].clientX || event.clientX
+			startX = event.touches ? event.touches[0].clientX : event.clientX
 			deltaX = 0
 			listing = true
 		}
 
 		function handleMouseMove(event) {
 		  	if (listing) {
-		  		const clientX = event.touches[0].clientX || event.clientX
+		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
 			    deltaX = clientX - startX
 			    console.log('clientX: ', clientX)
 			    console.log('startX: ', startX)
