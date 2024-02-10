@@ -56,6 +56,14 @@
 	  				{% assign title_array = article.title | split: ' ' %}
 	  				{% assign number = title_array.first %}
 	  				{% assign title = article.title | replace: number, '' %}
+	  				{% assign title_parts = title | split: ' ' %}
+	  				{% if number != '06' %}
+	  					{% assign title_1 = title_parts[0] %}
+	  					{% assign title_2 = title | replace: title_1, '' %}
+		  			{% else %}
+	  					{% assign title_1 = title_parts[0] | append: ' ' | append: title_parts[1] %}
+	  					{% assign title_2 = title | replace: title_1, '' %}
+	  				{% endif %}
 	  				{% assign excerpt_array = article.excerpt | newline_to_br | split: '<br />' %}
 	  				{% if number == '06' %}
 				    	<div class="shortcuts-features-item-speedicons">
@@ -69,7 +77,9 @@
 				    {% endif %}
 			    	<div class="shortcuts-features-item-info">
 				    	<div class="shortcuts-features-item-info-title">
-					    	<div class="shortcuts-features-item-info-title-text">{{ title }}</div>
+					    	<div class="shortcuts-features-item-info-title-text">
+						    	{{ title_1 }}<br>{{ title_2 }}
+						    </div>
 					    	<div class="shortcuts-features-item-info-title-icon">
 					    		<img src="{{ excerpt_array.first | replace: '\n', '' }}">
 					    	</div>
