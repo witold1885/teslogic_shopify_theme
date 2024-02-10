@@ -583,10 +583,6 @@
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
-			    console.log('deltaX: ', deltaX)
-			    console.log('deltaY: ', deltaY)
-			    const cos = deltaX / deltaY
-			    console.log('cos: ', cos)
 			    if (Math.abs(deltaX / deltaY) < 1) listing = false
 			}
 		}
