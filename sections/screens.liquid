@@ -566,19 +566,25 @@
 
 		var featuresWrap = document.querySelector('.screens__features')
 
-		var startX, deltaX, listing = false
+		var startX, startY, deltaX, deltaY, listing = false
 
 		function handleMouseDown(event) {
 			event.preventDefault()
 			startX = event.touches ? event.touches[0].clientX : event.clientX
+			startY = event.touches ? event.touches[0].clientY : event.clientY
 			deltaX = 0
+			deltaY = 0
 			listing = true
 		}
 
 		function handleMouseMove(event) {
 		  	if (listing) {
 		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
+		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
+			    deltaY = clientY - startY
+			    console.log('deltaX: ', deltaX)
+			    console.log('deltaY: ', deltaY)
 			}
 		}
 
