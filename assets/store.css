@@ -13,7 +13,7 @@
 }
 .store_block-product-gallery {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	grid-column-gap: 24px;
 }
 .store_block-product-gallery-items {
