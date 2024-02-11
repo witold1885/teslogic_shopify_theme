@@ -18,11 +18,12 @@ cart-items.is-empty .title-wrapper-with-link,
 .cart__warnings {
   display: none;
   text-align: center;
-  padding: 3rem 0 1rem;
+  padding: 3rem 0 3rem;
 }
 
 .cart__empty-text {
-  margin: 4.5rem 0 2rem;
+/*  margin: 4.5rem 0 2rem;*/
+  margin: 0;
 }
 
 .cart__contents > * + * {
@@ -43,7 +44,7 @@ cart-items.is-empty .title-wrapper-with-link,
 
 @media screen and (min-width: 990px) {
   .cart__warnings {
-    padding: 7rem 0 1rem;
+    padding: 7rem 0 7rem;
   }
 
   .cart__empty-text {
