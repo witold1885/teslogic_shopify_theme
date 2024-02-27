@@ -177,7 +177,6 @@
 		}
 
 		function handleMouseMove(event) {
-			    console.log('handleMouseMove')
 		  	// if (listing) {
 		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
@@ -187,11 +186,7 @@
 			    startY = clientY
 			    if (Math.abs(deltaX / deltaY) < 1) {
 			    	listing = false
-					console.log(deltaY)
 	                const scrollTop = $('body').scrollTop()
-			    	console.log(scrollTop)
-			    	console.log(scrollTop - deltaY)
-			    	listing = false
 	                $('body').scrollTop(scrollTop - deltaY)
 				}
 			// }
