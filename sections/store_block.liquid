@@ -201,11 +201,13 @@
 			    	console.log('handleMouseUp')
 			    	console.log(deltaY)
               
-			    	console.log($('body').scrollTop())
-              
+                    const scrollTop = $('body').scrollTop()
+			    	console.log(scrollTop)
+			    	console.log(scrollTop + deltaY)
 			    	listing = false
 			    	// window.scrollBy(0, deltaY)
-			    	window.scroll(0, $('body').scrollTop() + deltaY)
+			    	// window.scroll(0, $('body').scrollTop() + deltaY)
+                    $('body').scrollTop(scrollTop + deltaY)
 
 			}
 			listing = false
