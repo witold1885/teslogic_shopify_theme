@@ -182,7 +182,11 @@
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
-			    if (Math.abs(deltaX / deltaY) < 1) listing = false
+			    if (Math.abs(deltaX / deltaY) < 1) {
+			    	listing = false
+			    	galleryWrap.removeEventListener('mousemove', handleMouseMove)
+			    	galleryWrap.removeEventListener('touchmove', handleMouseMove)
+			    }
 			}
 		}
 
