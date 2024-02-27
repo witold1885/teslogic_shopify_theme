@@ -184,9 +184,9 @@
 			    deltaY = clientY - startY
 			    if (Math.abs(deltaX / deltaY) < 1) {
 			    	console.log(deltaY)
-			    	console.log($(window).scrollTop())
+			    	console.log($('html').scrollTop())
 			    	listing = false
-			    	$(window).scrollBy(0, deltaY)
+			    	window.scrollBy(0, deltaY)
 			    }
 			}
 		}
