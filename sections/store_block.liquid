@@ -183,8 +183,15 @@
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
-			    if (Math.abs(deltaX / deltaY) < 1) listing = false
-				console.log(deltaY)
+			    if (Math.abs(deltaX / deltaY) < 1) {
+			    	listing = false
+					console.log(deltaY)
+	                const scrollTop = $('body').scrollTop()
+			    	console.log(scrollTop)
+			    	console.log(scrollTop - deltaY * 10)
+			    	listing = false
+	                $('body').scrollTop(scrollTop - deltaY * 10)
+				}
 			}
 		}
 
@@ -193,7 +200,7 @@
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
 			}
-			else {
+			/*else {
 		    	console.log('handleMouseUp')
 		    	console.log(deltaY)
           
@@ -202,7 +209,7 @@
 		    	console.log(scrollTop - deltaY * 10)
 		    	listing = false
                 $('body').scrollTop(scrollTop - deltaY * 10)
-			}
+			}*/
 			listing = false
 		}
 
