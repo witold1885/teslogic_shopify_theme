@@ -178,7 +178,7 @@
 
 		function handleMouseMove(event) {
 			    console.log('handleMouseMove')
-		  	if (listing) {
+		  	// if (listing) {
 		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
@@ -188,11 +188,11 @@
 					console.log(deltaY)
 	                const scrollTop = $('body').scrollTop()
 			    	console.log(scrollTop)
-			    	console.log(scrollTop - deltaY * 10)
+			    	console.log(scrollTop - deltaY)
 			    	listing = false
-	                $('body').scrollTop(scrollTop - deltaY * 10)
+	                $('body').scrollTop(scrollTop - deltaY)
 				}
-			}
+			// }
 		}
 
 		function handleMouseUp() {
@@ -200,16 +200,6 @@
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
 			}
-			/*else {
-		    	console.log('handleMouseUp')
-		    	console.log(deltaY)
-          
-                const scrollTop = $('body').scrollTop()
-		    	console.log(scrollTop)
-		    	console.log(scrollTop - deltaY * 10)
-		    	listing = false
-                $('body').scrollTop(scrollTop - deltaY * 10)
-			}*/
 			listing = false
 		}
 
