@@ -183,11 +183,11 @@
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
 			    if (Math.abs(deltaX / deltaY) < 1) {
-			    	console.log(deltaY)
-			    	console.log(window.scrollY)
+			    	// console.log(deltaY)
+			    	// console.log(window.scrollY)
 			    	listing = false
 			    	// window.scrollBy(0, deltaY)
-			    	window.scroll(0, window.scrollY + deltaY)
+			    	// window.scroll(0, window.scrollY + deltaY)
 			    }
 			}
 		}
@@ -196,6 +196,14 @@
 		    if (deltaX != 0 && listing) {
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
+			}
+			else {
+			    	console.log(deltaY)
+			    	console.log(window.scrollY)
+			    	listing = false
+			    	// window.scrollBy(0, deltaY)
+			    	window.scroll(0, window.scrollY + deltaY)
+				
 			}
 			listing = false
 		}
