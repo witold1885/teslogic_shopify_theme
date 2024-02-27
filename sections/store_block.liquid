@@ -174,8 +174,6 @@
 			deltaX = 0
 			deltaY = 0
 			listing = true
-			galleryWrap.addEventListener('mousemove', handleMouseMove)
-			galleryWrap.addEventListener('touchmove', handleMouseMove)
 		}
 
 		function handleMouseMove(event) {
@@ -185,9 +183,9 @@
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
 			    if (Math.abs(deltaX / deltaY) < 1) {
+			    	console.log(deltaY)
 			    	listing = false
-			    	galleryWrap.removeEventListener('mousemove', handleMouseMove)
-			    	galleryWrap.removeEventListener('touchmove', handleMouseMove)
+			    	window.scrollBy(0, deltaY);
 			    }
 			}
 		}
@@ -198,16 +196,14 @@
 				handleDirection(direction)
 			}
 			listing = false
-	    	galleryWrap.removeEventListener('mousemove', handleMouseMove)
-	    	galleryWrap.removeEventListener('touchmove', handleMouseMove)
 		}
 
 		galleryWrap.addEventListener('mousedown', handleMouseDown)
-		// galleryWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
 		galleryWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
 
 		galleryWrap.addEventListener('touchstart', handleMouseDown)
-		// galleryWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
 		galleryWrap.addEventListener('touchend', handleMouseUp/*, { once: true }*/)
 
 		$('.store_block-product-gallery-item').on('click', function() {
