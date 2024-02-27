@@ -197,9 +197,9 @@
           
                 const scrollTop = $('body').scrollTop()
 		    	console.log(scrollTop)
-		    	console.log(scrollTop * 10 - deltaY)
+		    	console.log(scrollTop - deltaY * 10)
 		    	listing = false
-                $('body').scrollTop(scrollTop * 10 - deltaY)
+                $('body').scrollTop(scrollTop - deltaY * 10)
 			}
 			listing = false
 		}
