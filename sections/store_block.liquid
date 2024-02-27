@@ -182,13 +182,7 @@
 		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
 			    deltaX = clientX - startX
 			    deltaY = clientY - startY
-			    if (Math.abs(deltaX / deltaY) < 1) {
-			    	// console.log(deltaY)
-			    	// console.log(window.scrollY)
-			    	listing = false
-			    	// window.scrollBy(0, deltaY)
-			    	// window.scroll(0, window.scrollY + deltaY)
-			    }
+			    if (Math.abs(deltaX / deltaY) < 1) listing = false
 			}
 		}
 
@@ -198,17 +192,14 @@
 				handleDirection(direction)
 			}
 			else {
-			    	console.log('handleMouseUp')
-			    	console.log(deltaY)
-              
-                    const scrollTop = $('body').scrollTop()
-			    	console.log(scrollTop)
-			    	console.log(scrollTop + deltaY)
-			    	listing = false
-			    	// window.scrollBy(0, deltaY)
-			    	// window.scroll(0, $('body').scrollTop() + deltaY)
-                    $('body').scrollTop(scrollTop + deltaY)
-
+		    	console.log('handleMouseUp')
+		    	console.log(deltaY)
+          
+                const scrollTop = $('body').scrollTop()
+		    	console.log(scrollTop)
+		    	console.log(scrollTop * 10 - deltaY)
+		    	listing = false
+                $('body').scrollTop(scrollTop * 10 - deltaY)
 			}
 			listing = false
 		}
