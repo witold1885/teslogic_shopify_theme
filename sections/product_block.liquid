@@ -34,7 +34,7 @@
 				{% assign counter = 0 %}  
 				{% for image in product.images %}
 					<div class="store_block-product-gallery-item {% if counter == 0 %}active{% endif %}" data-imgnum="{{ counter }}">
-						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
+						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '172x172' }}">
 					</div>
 					{% assign counter = counter | plus: 1 %}
 				{% endfor %}
