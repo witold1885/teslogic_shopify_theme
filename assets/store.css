@@ -247,6 +247,11 @@
 	cursor: pointer;
 	box-sizing: border-box;
 }
+.store_block-product-add-add {
+	border: 3px solid #0068FD;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+	color: #0F51FD;
+}
 .store_block-product-add:hover {
 	background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
 }
