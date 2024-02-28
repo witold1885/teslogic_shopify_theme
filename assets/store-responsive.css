@@ -41,6 +41,7 @@
 		line-height: calc(64 * 100vw / 1440);
 	}
 	.store_block-product-description {
+		margin-bottom: calc(20 * 100vw / 1440);
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
