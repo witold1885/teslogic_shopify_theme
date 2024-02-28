@@ -282,4 +282,21 @@
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.16) 100%), linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 		text-align: left;
 	}
+	.store_block-product-add-mobile.store_block-product-add-add {
+		width: 100%;
+		height: calc(56 * 100vw / 375);
+		padding: 0;
+		border-radius: calc(54 * 100vw / 375);
+		border: 3px solid #0068FD;
+		background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+		backdrop-filter: blur(8px);
+		text-align: center;
+		color: #0F51FD;
+		text-align: center;
+		font-family: Manrope;
+		font-size: calc(18 * 100vw / 375);
+		font-style: normal;
+		font-weight: 500;
+		line-height: calc(24 * 100vw / 375);
+	}
 }
