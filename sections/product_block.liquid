@@ -105,7 +105,10 @@
 					<button class="store_block-product-add">Order now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">$ 259</div>
+						<div class="store_block-product-add-mobile-total">$ {{ product.price | divided_by: 100 }}</div>
+					</button>
+					<button class="store_block-product-add-mobile store_block-product-add-add">
+						<div class="store_block-product-add-mobile-text">Add to Cart</div>
 					</button>
 					<!-- <div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
