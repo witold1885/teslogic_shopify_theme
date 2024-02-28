@@ -56,7 +56,7 @@
 				</div>
 				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
 				<div class="store_block-product-gallery-mobile-dots">
-					{% for i in (0..5) %}
+					{% for i in (0..product.images.size) %}
 						<div data-imgnum="{{ i }}" class="store_block-product-gallery-mobile-dot">
 							<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
 							<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
@@ -102,8 +102,8 @@
 				</div> -->
 				<div class="store_block-product-order">
 					<button class="store_block-product-add store_block-product-add-add product_block-product-add">Add to Cart</button>
-					<button class="store_block-product-add product_block-product-add">Order now</button>
-					<button class="store_block-product-add-mobile product_block-product-add">
+					<button class="store_block-product-add product_block-product-add" data-redirect="true">Order now</button>
+					<button class="store_block-product-add-mobile product_block-product-add" data-redirect="true">
 						<div class="store_block-product-add-mobile-text">Order now</div>
 						<div class="store_block-product-add-mobile-total">$ {{ product.price | divided_by: 100 }}</div>
 					</button>
@@ -380,6 +380,7 @@
 		}
 		var cart_qty = Number({{ cart.item_count }})
 		$('.product_block-product-add').on('click', function() {
+			const isRedirect = Boolean($(this).data('redirect'))
 			let items
 			if (model_id) {
 				items = [{
@@ -415,7 +416,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					cart_qty = cart_qty + add_items_count
+					/*cart_qty = cart_qty + add_items_count
 					$('.cart-qty').text(cart_qty)
 					$('.cart-link').fadeIn()
 					var f = $('.product_block-product-gallery-image')
@@ -440,9 +441,16 @@
 					}, 2000, function () {
 						$(this).remove();
 					});
-					$('.menu__item-cart').show();
+					$('.menu__item-cart').show();*/
 					// console.log(response)
 				  	// return response.json()
+
+				  	if (isRedirect) {
+				  		window.location.href = '/cart'
+				  	}
+				  	else {
+				  		window.location.reload(true)
+				  	}
 				})
 				.catch((error) => {
 				  	console.error('Error:', error)
