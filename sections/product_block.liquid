@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ 'product_block.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'product_block-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
+<!-- <link rel="stylesheet" href="{{ 'product_block.css' | asset_url }}" media="print" onload="this.media='all'"> -->
+<!-- <link rel="stylesheet" href="{{ 'product_block-responsive.css' | asset_url }}" media="print" onload="this.media='all'"> -->
 <link rel="stylesheet" href="{{ 'store.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
@@ -65,7 +65,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="store_block-product-select">
+				<!-- <div class="store_block-product-select">
 					<div class="store_block-product-select-dropdown-select store_block-product-selected">
 						<span class="store_block-product-select-value">Select your Tesla model and year</span>
 						<div class="store_block-product-select-arrow">
@@ -93,12 +93,12 @@
 							</div>
 						{%- endfor -%}
 					</div>
-				</div>
-				<div class="store_block-add-wireless-charger">
+				</div> -->
+				<!-- <div class="store_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
 					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
 					<span class="store_block-add-wireless-charger-price">+ $40</span>
-				</div>
+				</div> -->
 				<div class="store_block-product-order">
 					<button class="store_block-product-add">Order now</button>
 					<button class="store_block-product-add-mobile">
@@ -131,40 +131,19 @@
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
 </div>
 
-<div class="product_block" id="shop-now">
+<!-- <div class="product_block" id="shop-now">
 	<div class="block_title product_block-title">{{ product.title }}</div>
 	<div class="product_block-product">
 		<div class="product_block-product-gallery">
 			<div class="product_block-product-gallery-image">
 				<img src="{{ product.featured_media | image_url }}">
 			</div>
-			<!-- <div class="product_block-product-gallery-nav product_block-product-gallery-nav-prev">
-				<img src="{{ 'chevron-left.png' | asset_url }}">
-			</div>
-			<div class="product_block-product-gallery-nav product_block-product-gallery-nav-next">
-				<img src="{{ 'chevron-right.png' | asset_url }}">
-			</div> -->
 		</div>
 		<div class="product_block-product-info">
-			<!-- <div> -->
 				<div class="product_block-product-price">${{ product.price | divided_by: 100 }}</div>
-				<!-- <div class="product_block-product-title">{{ product.title }}</div> -->
 				<div class="product_block-product-subtitle">
 					{{ product.description }}
 				</div>
-			<!-- </div> -->
-			<!-- <div> -->
-				<!-- <div class="product_block-product-amount">
-					<div class="product_block-product-amount-button product_block-product-amount-button-minus">
-						<div></div>
-					</div>
-					<span class="product_block-product-amount-value" id="amount">1</span>
-					<div class="product_block-product-amount-button product_block-product-amount-button-plus">
-						<div></div>
-						<div></div>
-					</div>
-				</div> -->
-				<!-- <div class="product_block-product-select-text">Select your Tesla model and year:</div> -->
 				{% if product.variants.size > 1 %}
 				<div class="product_block-product-select">
 					<div class="product_block-product-select-dropdown-select product_block-product-selected">
@@ -194,23 +173,12 @@
 					</div>
 				</div>
 				{% endif %}
-				<!-- <div class="product_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger" class="product_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="product_block-add-wireless-charger-title">Add Wireless Charger</label>
-					<span class="product_block-add-wireless-charger-price">+ $40</span>
-				</div> -->
 				<button class="product_block-product-add" id="add">Add to cart</button>
-				<!-- <div class="product_block-product-subtitle" style="margin-top: calc(20 * 100vw / 1366);">
-					No import tax for international orders
-				</div> -->
-			<!-- </div> -->
 		</div>
 	</div>								
 	<div class="product_block-product-mobile">
-		<!-- <div class="product_block-product-title">{{ product.title }}</div> -->
 		<div class="product_block-product-price">
 			${{ product.price | divided_by: 100 }}
-			<!-- <div class="product_block-product-price-new">$165</div> -->
 		</div>
 		<div class="product_block-product-gallery">
 			<div class="product_block-product-gallery-image">
@@ -252,21 +220,13 @@
 					</div>
 				</div>
 				{% endif %}
-				<!-- <div class="product_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger-mobile" class="product_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger-mobile" class="product_block-add-wireless-charger-title">Add Wireless Charger</label>
-					<span class="product_block-add-wireless-charger-price">+ $40</span>
-				</div> -->
 				<button class="product_block-product-add" id="add">Add to cart</button>
-				<!-- <div class="product_block-product-subtitle" style="margin-top: calc(40 * 100vw / 1366);">
-					No import tax for international orders
-				</div> -->
 			</div>
 		</div>
 	</div>
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
-</div>
+</div> -->
 
 <script type="text/javascript">
 	$(document).ready(function() {
