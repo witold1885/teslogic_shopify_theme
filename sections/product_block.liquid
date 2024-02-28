@@ -24,21 +24,19 @@
 				{% endfor %}
 			</div>
 			<div class="store_block-product-gallery-main">
-				{% assign full = "-full" %}
 				{% assign counter = 0 %}  
 				{% for image in product.images %}
-                    {% assign parts = image | split: full %}
-                    {% if parts.size > 1 %}
-						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
-    					{% assign counter = counter | plus: 1 %}
-					{% endif %}
+					<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+					{% assign counter = counter | plus: 1 %}
 				{% endfor %}
 			</div>
 		</div>
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">$219</div>
+					<div class="store_block-product-price-new">
+						${{ product.price | divided_by: 100 }}
+					</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
@@ -46,14 +44,10 @@
 			<div class="store_block-product-gallery-mobile">
 				<div class="store_block-product-gallery-mobile-nav" data-direction="prev"></div>
 				<div class="store_block-product-gallery-main">
-					{% assign full = "-full" %}
 					{% assign counter = 0 %}  
 					{% for image in product.images %}
-	                    {% assign parts = image | split: full %}
-	                    {% if parts.size > 1 %}
-							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
-	    					{% assign counter = counter | plus: 1 %}
-						{% endif %}
+						<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+    					{% assign counter = counter | plus: 1 %}
 					{% endfor %}
 				</div>
 				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
