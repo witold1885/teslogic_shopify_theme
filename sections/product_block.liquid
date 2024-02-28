@@ -101,13 +101,13 @@
 					<span class="store_block-add-wireless-charger-price">+ $40</span>
 				</div> -->
 				<div class="store_block-product-order">
-					<button class="store_block-product-add store_block-product-add-add">Add to Cart</button>
-					<button class="store_block-product-add">Order now</button>
-					<button class="store_block-product-add-mobile">
+					<button class="store_block-product-add store_block-product-add-add product_block-product-add">Add to Cart</button>
+					<button class="store_block-product-add product_block-product-add">Order now</button>
+					<button class="store_block-product-add-mobile product_block-product-add">
 						<div class="store_block-product-add-mobile-text">Order now</div>
 						<div class="store_block-product-add-mobile-total">$ {{ product.price | divided_by: 100 }}</div>
 					</button>
-					<button class="store_block-product-add-mobile store_block-product-add-add">
+					<button class="store_block-product-add-mobile store_block-product-add-add product_block-product-add">
 						Add to Cart
 					</button>
 				</div>
@@ -217,6 +217,103 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+
+		var imgnum = 0
+		setGalleryImage()
+		
+		var galleryWrap = document.querySelector('.store_block-product-gallery-mobile')
+
+		var startX, startY, deltaX, deltaY, listing = false
+
+		function handleMouseDown(event) {
+			event.preventDefault()
+			startX = event.touches ? event.touches[0].clientX : event.clientX
+			startY = event.touches ? event.touches[0].clientY : event.clientY
+			deltaX = 0
+			deltaY = 0
+			listing = true
+		}
+
+		function handleMouseMove(event) {
+		  	// if (listing) {
+		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
+		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
+			    deltaX = clientX - startX
+			    deltaY = clientY - startY
+			    startX = clientX
+			    startY = clientY
+			    if (Math.abs(deltaX / deltaY) < 1) {
+			    	listing = false
+	                const scrollTop = $('body').scrollTop()
+	                $('body').scrollTop(scrollTop - deltaY)
+				}
+			// }
+		}
+
+		function handleMouseUp() {
+		    if (deltaX != 0 && listing) {
+				let direction = deltaX > 0 ? 'prev' : 'next'
+				handleDirection(direction)
+			}
+			listing = false
+		}
+
+		galleryWrap.addEventListener('mousedown', handleMouseDown)
+		galleryWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
+
+		galleryWrap.addEventListener('touchstart', handleMouseDown)
+		galleryWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('touchend', handleMouseUp/*, { once: true }*/)
+
+		$('.store_block-product-gallery-item').on('click', function() {
+			imgnum = $(this).data('imgnum')
+			$('.store_block-product-gallery-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(this).addClass('active')
+			setGalleryImage()
+		})
+
+		$('.store_block-product-gallery-mobile-dot').on('click', function() {
+			imgnum = $(this).data('imgnum')
+			setGalleryImage()
+		})
+
+		/*$('.store_block-product-gallery-mobile-nav').on('click', function() {
+			let direction = $(this).data('direction')
+		})*/
+
+		function handleDirection(direction) {
+			console.log(direction)
+			if (direction == 'prev') {
+				imgnum = imgnum -= 1
+				if (imgnum < 0) imgnum = 5
+			}
+			if (direction == 'next') {
+				imgnum = imgnum += 1
+				if (imgnum > 5) imgnum = 0
+			}
+			setGalleryImage()
+		}
+
+		function setGalleryImage() {
+			$('.store_block-product-gallery-main').find('img').each(function() {
+				if ($(this).data('imgnum') == imgnum) $(this).show()
+				else $(this).hide()
+			})
+			$('.store_block-product-gallery-mobile-dot').each(function() {
+				if ($(this).data('imgnum') == imgnum) {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').show()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').hide()
+				}
+				else {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').hide()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').show()
+				}
+			})
+		}
+
 		/*var amount = Number($('#amount').text())
 		$('.product_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
