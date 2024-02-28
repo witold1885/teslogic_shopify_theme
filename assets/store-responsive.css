@@ -132,6 +132,7 @@
 		display: none;
 	}
 	.store_block-product-info {
+		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
 	}
 	.store_block-product-info-main {
