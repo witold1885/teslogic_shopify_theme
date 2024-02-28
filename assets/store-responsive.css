@@ -40,6 +40,10 @@
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
 	}
+	.store_block-product-description {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 	.store_block-product-select {
 		width: calc(526 * 100vw / 1440);
 		height: calc(72 * 100vw / 1440);
