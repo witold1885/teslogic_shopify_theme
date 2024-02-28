@@ -283,14 +283,12 @@
 		text-align: left;
 	}
 	.store_block-product-add-mobile.store_block-product-add-add {
-		width: 100%;
-		height: calc(56 * 100vw / 375);
-		padding: 0;
+		justify-content: center;
+		align-items: center;
 		border-radius: calc(54 * 100vw / 375);
 		border: 3px solid #0068FD;
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
 		backdrop-filter: blur(8px);
-		text-align: center;
 		color: #0F51FD;
 		text-align: center;
 		font-family: Manrope;
