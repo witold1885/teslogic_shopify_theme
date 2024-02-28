@@ -3,6 +3,132 @@
 
 {% assign product = all_products[handle] %}
 
+<div class="store_block">
+	<div class="store_block-product" id="shop-now">
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-items">
+				{% assign thumb = "-thumb" %}
+				{% assign counter = 0 %}  
+				{% for image in product.images %}
+                    {% assign parts = image | split: thumb %}
+                    {% if parts.size > 1 %}
+    					<div class="store_block-product-gallery-item {% if counter == 0 %}active{% endif %}" data-imgnum="{{ counter }}">
+    						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
+    					</div>
+    					{% assign counter = counter | plus: 1 %}
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="store_block-product-gallery-main">
+				{% assign full = "-full" %}
+				{% assign counter = 0 %}  
+				{% for image in product.images %}
+                    {% assign parts = image | split: full %}
+                    {% if parts.size > 1 %}
+						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+    					{% assign counter = counter | plus: 1 %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="store_block-product-info">
+			<div class="store_block-product-info-main">
+				<div class="store_block-product-price">  
+					<div class="store_block-product-price-new">$219</div>
+					<div class="store_block-product-price-old"></div>
+				</div>
+				<div class="store_block-product-title">{{ product.title }}</div>
+			</div>
+			<div class="store_block-product-gallery-mobile">
+				<div class="store_block-product-gallery-mobile-nav" data-direction="prev"></div>
+				<div class="store_block-product-gallery-main">
+					{% assign full = "-full" %}
+					{% assign counter = 0 %}  
+					{% for image in product.images %}
+	                    {% assign parts = image | split: full %}
+	                    {% if parts.size > 1 %}
+							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+	    					{% assign counter = counter | plus: 1 %}
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
+				<div class="store_block-product-gallery-mobile-dots">
+					{% for i in (0..5) %}
+						<div data-imgnum="{{ i }}" class="store_block-product-gallery-mobile-dot">
+							<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+							<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+						</div>
+					{% endfor %}					
+				</div>
+			</div>
+			<div>
+				<div class="store_block-product-select">
+					<div class="store_block-product-select-dropdown-select store_block-product-selected">
+						<span class="store_block-product-select-value">Select your Tesla model and year</span>
+						<div class="store_block-product-select-arrow">
+							<img src="{{ 'select_arrow_down.svg' | asset_url }}">
+						</div>
+					</div>
+					<div class="store_block-product-select-dropdown">
+						<div class="store_block-product-select-dropdown-select">
+							<span class="store_block-product-select-value">Select your Tesla model and year</span>
+							<div class="store_block-product-select-arrow">
+								<img src="{{ 'select_arrow_up.svg' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+								data-stock="{{ model.inventory_quantity }}"
+							>
+								<span>{{ model.title }}</span>
+								<img src="{{ 'store_model_selected.svg' | asset_url }}">
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				<div class="store_block-add-wireless-charger">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
+					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
+					<span class="store_block-add-wireless-charger-price">+ $40</span>
+				</div>
+				<div class="store_block-product-order">
+					<button class="store_block-product-add">Order now</button>
+					<button class="store_block-product-add-mobile">
+						<div class="store_block-product-add-mobile-text">Order now</div>
+						<div class="store_block-product-add-mobile-total">$ 259</div>
+					</button>
+					<div class="store_block-product-order-features">
+						<div class="store_block-product-order-feature">
+							<div class="store_block-product-order-feature-icon">
+								<img src="{{ 'feature_free_shipping.svg' | asset_url }}">
+							</div>
+							<div class="store_block-product-order-feature-text">
+								<span class="store_block-product-order-feature-text-main">Free shipping</span> in all domestic orders
+							</div>
+						</div>
+						<div class="store_block-product-order-feature">
+							<div class="store_block-product-order-feature-icon">
+								<img src="{{ 'feature_no_import.svg' | asset_url }}">
+							</div>
+							<div class="store_block-product-order-feature-text">
+								<span class="store_block-product-order-feature-text-main">No import tax</span> for international orders
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
+	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
+</div>
+
 <div class="product_block" id="shop-now">
 	<div class="block_title product_block-title">{{ product.title }}</div>
 	<div class="product_block-product">
