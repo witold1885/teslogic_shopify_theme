@@ -106,25 +106,27 @@
   grid-row-gap: 8px;
 }
 .contact__field-label {
-  color: #0F0F0F;
-  font-size: 14px;
-  font-family: Gotham;
-  line-height: 24px; 
+  color: #FFF;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
 }
 .contact__field-input {
   width: 100%;
-  height: 56px;
+  height: 52px;
   background: #FFFFFF;
-  border-radius: 15px;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
   padding: 0px 16px;
   border: none;
   outline: none;
-  font-family: 'Gotham';
+  font-family: Manrope;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-  box-sizing: border-box;
+  line-height: 20px;
 }
 .contact__field-textarea {
   height: 193px;
