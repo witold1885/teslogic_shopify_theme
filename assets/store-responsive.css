@@ -16,6 +16,7 @@
 	.store_block-product-gallery-item {
 		width: calc(86 * 100vw / 1440);
 		height: calc(86 * 100vw / 1440);
+		border-radius: calc(16 * 100vw / 1440);
 	}
 	.store_block-product-gallery-main {
 		width: calc(526 * 100vw / 1440);
