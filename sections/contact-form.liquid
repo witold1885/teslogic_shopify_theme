@@ -34,6 +34,18 @@
         </ul>
       {%- endif -%}
       <div class="contact__wrap">
+        <div class="contact__info">
+          <div class="contact__info-item">
+            <div class="contact__info-item-title">Email</div>
+            <div class="contact__info-item-text">info@teslogic.co</div>
+          </div>
+          <div class="contact__info-item">
+            <div class="contact__info-item-title">Address</div>
+            <div class="contact__info-item-text">Teslogic Inc.<br>
+              2093 Philadelphia Pike #3248<br>
+              Claymont, DE 19703</div>
+          </div>
+        </div>
         {% assign form_classes = 'contact__form' %}
         {%- if form.posted_successfully? -%}
           {% assign form_classes = form_classes | append: ' contact__form-success' %}
@@ -99,18 +111,6 @@
               </button>
             <!-- </div> -->
           {%- endif -%}
-        </div>
-        <div class="contact__info">
-          <div class="contact__info-item">
-            <div class="contact__info-item-title">Email</div>
-            <div class="contact__info-item-text">info@teslogic.co</div>
-          </div>
-          <div class="contact__info-item">
-            <div class="contact__info-item-title">Address</div>
-            <div class="contact__info-item-text">Teslogic Inc.<br>
-              2093 Philadelphia Pike #3248<br>
-              Claymont, DE 19703</div>
-          </div>
         </div>
       </div>
     {%- endform -%}
