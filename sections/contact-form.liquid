@@ -93,7 +93,7 @@
                 <input type="tel" id="ContactForm-phone" class="contact__field-input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="+[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="+1">
               </div>
               <div class="contact__field">
-                <!-- <label class="contact__field-label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label> -->
+                <label class="contact__field-label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
                 <textarea
                   rows="10"
                   id="ContactForm-body"
