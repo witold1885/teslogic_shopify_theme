@@ -241,7 +241,7 @@
 		setGalleryImage()
 		
 		var galleryWrap = document.querySelector('.store_block-product-gallery-mobile')
-		var imagesCount = $('.store_block-product-gallery-main').find('img').length
+		var imagesCount = {{ product.images.size }}
 		console.log('imagesCount', imagesCount)
 
 		var startX, startY, deltaX, deltaY, listing = false
