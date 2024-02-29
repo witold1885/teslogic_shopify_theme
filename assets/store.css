@@ -24,7 +24,9 @@
 .store_block-product-gallery-item {
 	width: 86px;
 	height: 86px;
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
 	border-radius: 16px;
 	border: 1px solid #E6E6E6;
@@ -34,14 +36,6 @@
 }
 .store_block-product-gallery-item-image {
 	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}
-.store_block-product-gallery-items .store_block-product-gallery-item:first-child .store_block-product-gallery-item-image {
-	top: unset;
-	bottom: 0;
 }
 .store_block-product-gallery-main {
 	width: 526px;
