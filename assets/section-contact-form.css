@@ -47,18 +47,18 @@
   padding-bottom: 140px;
 }
 .contact__title {
-  font-family: 'Gotham-Medium';
-  font-style: normal;
-  font-weight: 700;
+  color: #000;
+  font-family: Manrope;
   font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
   line-height: 64px;
-  text-align: left;
-  margin: 0 auto 40px;
 }
 .contact__wrap {
   display: flex;
-  grid-column-gap: 307px;
-  margin: 0 80px;
+  justify-content: center;
+  align-items: flex-start;
+  grid-column-gap: 175px;
 }
 .contact__form {
   display: flex;
