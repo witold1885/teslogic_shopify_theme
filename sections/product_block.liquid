@@ -23,6 +23,11 @@
 			margin-bottom: calc(12 * 100vw / 1440);
 		}
 	}
+	@media screen and (max-width: 575px) {
+		.store_block {
+			padding-top: calc(14 * 100vw / 375);
+		}
+	}
 {% endstyle %}
 
 {% assign product = all_products[handle] %}
@@ -236,6 +241,8 @@
 		setGalleryImage()
 		
 		var galleryWrap = document.querySelector('.store_block-product-gallery-mobile')
+		var imagesCount = $('.store_block-product-gallery-main').find('img').length
+		console.log('imagesCount', imagesCount)
 
 		var startX, startY, deltaX, deltaY, listing = false
 
