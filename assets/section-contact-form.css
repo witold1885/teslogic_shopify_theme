@@ -61,12 +61,14 @@
   margin: 0 80px;
 }
 .contact__form {
-  width: 424px;
-  position: relative;
   display: flex;
+  width: 526px;
+  padding: 36px 40px;
   flex-direction: column;
   align-items: flex-start;
   grid-row-gap: 32px;
+  border-radius: 40px;
+  background: #403CF7;
 }
 .contact__form-success {
   justify-content: center;
