@@ -1,66 +1,65 @@
 
-@media screen and (min-width: 1000px) and (max-width: 1366px) {
+@media screen and (min-width: 576px) and (max-width: 1440px) {
   .contact__title {
-    font-size: calc(52 * 100vw / 1366);
-    line-height: calc(64 * 100vw / 1366);
-    margin: 0 auto calc(40 * 100vw / 1366);
+    font-size: calc(52 * 100vw / 1440);
+    line-height: calc(64 * 100vw / 1440);
+    margin: 0 auto calc(40 * 100vw / 1440);
   }
   .contact__wrap {
-    grid-column-gap: calc(307 * 100vw / 1366);
-    margin: 0 calc(80 * 100vw / 1366);
+    grid-column-gap: calc(307 * 100vw / 1440);
+    margin: 0 calc(80 * 100vw / 1440);
   }
   .contact__form {
-    width: calc(526 * 100vw / 1366);
-    padding: calc(36 * 100vw / 1366) calc(40 * 100vw / 1366);
-    grid-row-gap: calc(32 * 100vw / 1366);
-    border-radius: calc(40 * 100vw / 1366);
+    width: calc(526 * 100vw / 1440);
+    padding: calc(36 * 100vw / 1440) calc(40 * 100vw / 1440);
+    grid-row-gap: calc(32 * 100vw / 1440);
+    border-radius: calc(40 * 100vw / 1440);
   }
   .contact__fields {
-    grid-row-gap: calc(32 * 100vw / 1366);
+    grid-row-gap: calc(28 * 100vw / 1440);
   }
   .contact__field-label {
-    font-size: calc(16 * 100vw / 1366);
-    line-height: calc(20 * 100vw / 1366);
+    font-size: calc(16 * 100vw / 1440);
+    line-height: calc(20 * 100vw / 1440);
   }
   .contact__field-input {
-    height: calc(52 * 100vw / 1366);
-    border-radius: calc(6 * 100vw / 1366);
-    padding: 0 calc(16 * 100vw / 1366);
-    font-size: calc(16 * 100vw / 1366);
-    line-height: calc(20 * 100vw / 1366);
+    height: calc(52 * 100vw / 1440);
+    border-radius: calc(6 * 100vw / 1440);
+    padding: 0 calc(16 * 100vw / 1440);
+    font-size: calc(16 * 100vw / 1440);
+    line-height: calc(20 * 100vw / 1440);
   }
   .contact__field-textarea {
-    height: calc(193 * 100vw / 1366);
-    padding: calc(16 * 100vw / 1366) calc(16 * 100vw / 1366);
+    height: calc(132 * 100vw / 1440);
+    padding: calc(16 * 100vw / 1440) calc(16 * 100vw / 1440);
   }
   .contact__button {
-    width: calc(223 * 100vw / 1366);
-    height: calc(78 * 100vw / 1366);
-    border-radius: calc(100 * 100vw / 1366);
-    font-size: calc(32 * 100vw / 1366);
-    line-height: calc(52 * 100vw / 1366);
+    height: calc(52 * 100vw / 1440);
+    border-radius: calc(54 * 100vw / 1440);
+    font-size: calc(18 * 100vw / 1440);
+    line-height: calc(24 * 100vw / 1440);
   }
   .contact__info {
-    grid-row-gap: calc(40 * 100vw / 1366);
+    grid-row-gap: calc(40 * 100vw / 1440);
   }
   .contact__info-item {
-    grid-row-gap: calc(12 * 100vw / 1366);
+    grid-row-gap: calc(12 * 100vw / 1440);
   }
   .contact__info-item-title {
-    font-size: calc(36 * 100vw / 1366);
-    line-height: calc(43 * 100vw / 1366);
+    font-size: calc(36 * 100vw / 1440);
+    line-height: calc(43 * 100vw / 1440);
   }
   .contact__info-item-text {
-    font-size: calc(22 * 100vw / 1366);
-    line-height: calc(32 * 100vw / 1366);
+    font-size: calc(22 * 100vw / 1440);
+    line-height: calc(32 * 100vw / 1440);
   }
   .contact__success {
-    font-size: calc(22 * 100vw / 1366);
-    line-height: calc(32 * 100vw / 1366);
+    font-size: calc(22 * 100vw / 1440);
+    line-height: calc(32 * 100vw / 1440);
   }
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
   .contact {
     padding-top: 32px;
     padding-bottom: 80px;
