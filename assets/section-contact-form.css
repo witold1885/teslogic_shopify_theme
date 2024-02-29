@@ -155,6 +155,22 @@
   width: 425px;
   grid-row-gap: 44px;
 }
+.contact__info-top {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 24px;
+}
+.contact__info-notes {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 20px;
+  color: #4D4D4D;
+  font-family: Manrope;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
 .contact__info-item {
   display: flex;
   flex-direction: column;
