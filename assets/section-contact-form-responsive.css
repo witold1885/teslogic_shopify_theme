@@ -71,74 +71,75 @@
 
 @media screen and (max-width: 575px) {
   .contact {
-    padding-top: 32px;
-    padding-bottom: 76px;
+    padding-top: calc(32 * 100vw / 375);
+    padding-bottom: calc(76 * 100vw / 375);
   }
   .contact__title {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: calc(32 * 100vw / 375);
+    line-height: calc(40 * 100vw / 375);
   }
   .contact__wrap {
     flex-direction: column;
     align-items: flex-start;
-    grid-row-gap: 64px;
-    width: 335px;
+    grid-row-gap: calc(64 * 100vw / 375);
+    width: calc(335 * 100vw / 375);
     margin: 0 auto;
   }
   .contact__form {
     width: 100%;
-    grid-row-gap: 32px;
+    grid-row-gap: calc(32 * 100vw / 375);
     align-items: center;
   }
   .contact__fields {
-    grid-row-gap: 28px;
+    grid-row-gap: calc(28 * 100vw / 375);
   }
   .contact__field {
     width: 100%;
-    grid-row-gap: 8px;
+    grid-row-gap: calc(8 * 100vw / 375);
   }
   .contact__field-label {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: calc(16 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
   }
   .contact__field-input {
-    height: 52px;
-    padding: 0px 16px;
-    font-size: 16px;
-    line-height: 20px;
-    border-radius: 6px;
+    height: calc(52 * 100vw / 375);
+    padding: 0px calc(16 * 100vw / 375);
+    font-size: calc(16 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
+    border-radius: calc(6 * 100vw / 375);
   }
   .contact__field-textarea {
-    height: 132px;
-    padding: 16px;
+    height: calc(132 * 100vw / 375);
+    padding: calc(16 * 100vw / 375);
   }
   .contact__button {
-    height: 52px;
-    border-radius: 54px;
-    font-size: 18px;
-    line-height: 24px;
+    height: calc(52 * 100vw / 375);
+    border-radius: calc(54 * 100vw / 375);
+    font-size: calc(18 * 100vw / 375);
+    line-height: calc(24 * 100vw / 375);
   }
   .contact__info {
-    grid-row-gap: 24px;
+    width: 100%;
+    grid-row-gap: calc(24 * 100vw / 375);
   }
   .contact__info-top {
-    grid-row-gap: 16px;
+    grid-row-gap: calc(16 * 100vw / 375);
   }
   .contact__info-notes {
-    grid-row-gap: 12px;
-    font-size: 16px;
-    line-height: 20px;
+    grid-row-gap: calc(12 * 100vw / 375);
+    font-size: calc(16 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
   }
   .contact__info-item {
-    grid-row-gap: 8px;
+    grid-row-gap: calc(8 * 100vw / 375);
   }
   .contact__info-item-title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: calc(24 * 100vw / 375);
+    line-height: calc(32 * 100vw / 375);
   }
   .contact__info-item-text {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: calc(16 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
   }
   .contact__success {
     font-size: 18px;
