@@ -193,3 +193,7 @@
   font-weight: 400;
   line-height: 32px;
 }
+.contact__info a {
+  color: #1657FC;
+  text-decoration: none;
+}
