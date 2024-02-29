@@ -1,4 +1,8 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
+  .contact {
+    padding-top: calc(100 * 100vw / 1440);
+    padding-bottom: calc(185 * 100vw / 1440);
+  }
   .contact__title {
     font-size: calc(52 * 100vw / 1440);
     line-height: calc(64 * 100vw / 1440);
