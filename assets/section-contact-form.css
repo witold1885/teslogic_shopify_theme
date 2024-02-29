@@ -98,7 +98,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  grid-row-gap: 32px;
+  grid-row-gap: 28px;
 }
 .contact__field {
   width: 100%;
@@ -130,23 +130,23 @@
   line-height: 20px;
 }
 .contact__field-textarea {
-  height: 193px;
+  height: 132px;
   resize: none;
   padding: 16px 16px; 
 }
 .contact__button {
-  width: 223px;
-  height: 78px; 
-  background: #3374FB;
-  border: 1px solid #3374FB;
-  border-radius: 100px;
-  font-family: 'Gotham';
-  font-style: normal;
-  color: #FFF;
+  width: 100%;
+  height: 52px; 
+  border-radius: 54px;
+  background: #FFF;
+  backdrop-filter: blur(8px);
+  color: #403CF7;
   text-align: center;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 52px; 
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 .contact__info {
   display: flex;
