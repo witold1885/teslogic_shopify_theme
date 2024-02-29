@@ -53,6 +53,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 64px;
+  margin: 0;
 }
 .contact__wrap {
   display: flex;
@@ -177,18 +178,18 @@
   grid-row-gap: 12px;
 }
 .contact__info-item-title {
-  font-family: 'Gotham-Medium';
+  color: #000;
+  font-family: Manrope;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 43px;
-  color: #000000;
+  font-weight: 500;
+  line-height: 40px;
 }
 .contact__info-item-text {
-  font-family: 'Gotham';
+  color: #4D4D4D;
+  font-family: Manrope;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
   line-height: 32px;
-  color: #000000;
 }
