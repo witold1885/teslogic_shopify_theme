@@ -147,11 +147,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+  cursor: pointer;
 }
 .contact__info {
   display: flex;
   flex-direction: column;
-  grid-row-gap: 40px;
+  width: 425px;
+  grid-row-gap: 44px;
 }
 .contact__info-item {
   display: flex;
