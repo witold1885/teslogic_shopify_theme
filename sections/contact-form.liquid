@@ -98,7 +98,7 @@
                 {%- if form.errors contains 'email' -%}
                   <small class="contact__field-error" id="ContactForm-email-error">
                     <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                    <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                    <span class="form__message">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
                   </small>
                 {%- endif -%}
               </div>
