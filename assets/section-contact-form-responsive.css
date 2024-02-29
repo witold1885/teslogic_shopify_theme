@@ -10,8 +10,10 @@
     margin: 0 calc(80 * 100vw / 1366);
   }
   .contact__form {
-    width: calc(424 * 100vw / 1366);
+    width: calc(526 * 100vw / 1366);
+    padding: calc(36 * 100vw / 1366) calc(40 * 100vw / 1366);
     grid-row-gap: calc(32 * 100vw / 1366);
+    border-radius: calc(40 * 100vw / 1366);
   }
   .contact__fields {
     grid-row-gap: calc(32 * 100vw / 1366);
