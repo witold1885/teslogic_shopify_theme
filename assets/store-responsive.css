@@ -135,6 +135,7 @@
 	.store_block-product-info {
 		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
+		grid-row-gap: calc(12 * 100vw / 375);
 	}
 	.store_block-product-info-main {
 		display: flex;
