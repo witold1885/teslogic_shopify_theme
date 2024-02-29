@@ -52,11 +52,11 @@
     grid-row-gap: calc(12 * 100vw / 1440);
   }
   .contact__info-item-title {
-    font-size: calc(36 * 100vw / 1440);
-    line-height: calc(43 * 100vw / 1440);
+    font-size: calc(32 * 100vw / 1440);
+    line-height: calc(40 * 100vw / 1440);
   }
   .contact__info-item-text {
-    font-size: calc(22 * 100vw / 1440);
+    font-size: calc(24 * 100vw / 1440);
     line-height: calc(32 * 100vw / 1440);
   }
   .contact__success {
