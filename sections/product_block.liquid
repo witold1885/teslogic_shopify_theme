@@ -242,7 +242,6 @@
 		
 		var galleryWrap = document.querySelector('.store_block-product-gallery-mobile')
 		var imagesCount = {{ product.images.size }}
-		console.log('imagesCount', imagesCount)
 
 		var startX, startY, deltaX, deltaY, listing = false
 
@@ -272,7 +271,7 @@
 		}
 
 		function handleMouseUp() {
-		    if (deltaX != 0 && listing) {
+		    if (deltaX != 0 && listing && imagesCount > 1) {
 				let direction = deltaX > 0 ? 'prev' : 'next'
 				handleDirection(direction)
 			}
