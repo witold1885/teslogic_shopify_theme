@@ -40,7 +40,8 @@
     line-height: calc(24 * 100vw / 1440);
   }
   .contact__info {
-    grid-row-gap: calc(40 * 100vw / 1440);
+    width: calc(425 * 100vw / 1440);
+    grid-row-gap: calc(44 * 100vw / 1440);
   }
   .contact__info-item {
     grid-row-gap: calc(12 * 100vw / 1440);
