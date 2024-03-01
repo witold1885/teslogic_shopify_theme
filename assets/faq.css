@@ -52,18 +52,12 @@
 }
 .faq__chapter-title-sign {
 	width: 32px;
-	height: 32px; 
+	height: 32px;
 }
 .faq__chapter-title-sign img {
 	object-fit: contain;
 	width: 100%;
 	height: 100%;
-}
-.faq__chapter-title-sign-opened {
-	display: block;
-}
-.faq__chapter-title-sign-closed {
-	display: none;
 }
 .faq__chapter-title-text {
 	color: #000;

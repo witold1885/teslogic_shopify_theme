@@ -49,19 +49,13 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		window.is_mobile = window.innerWidth < 1000
-		// $(window).on('resize', checkMobile)
 		function checkMobile() {
 			window.is_mobile = window.innerWidth < 1000
-			// console.log(window.is_mobile)
 			if (!window.is_mobile) {
-				// $('.faq__chapter-title-sign-closed').hide()
-				// $('.faq__chapter-title-sign-opened').show()
 				$('.faq__chapter-question').show()
 				$('.faq__chapter-title').css('margin-bottom', '36px')
 			}
 			else {
-				// $('.faq__chapter-title-sign-closed').show()
-				// $('.faq__chapter-title-sign-opened').hide()
 				$('.faq__chapter-question').hide()
 				$('.faq__chapter-title').css('margin-bottom', '0')
 			}
@@ -86,65 +80,6 @@
 				$(this).find('.faq__chapter-chevron').addClass('faq__chapter-chevron-reverted')
 			}			
 		})
-		/*$('.faq__chapter-question-text').on('click', function() {
-			if ($(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text() == '+') {
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text('-')
-				if (window.is_mobile) {
-					$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').css('margin-bottom', '28px')
-				}
-				return
-			}
-			if ($(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text() == '-') {
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').text('+')
-				if (window.is_mobile) {
-					$(this).parent('.faq__chapter-question').find('.faq__chapter-question-expand').css('margin-bottom', '4px')
-				}
-				return
-			}
-		})*/
-		/*$('.faq__chapter-question-expand').on('click', function() {
-			if ($(this).text() == '+') {
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').show()
-				$(this).text('-')
-				if (window.is_mobile) {
-					$(this).css('margin-bottom', '28px')
-				}
-				return
-			}
-			if ($(this).text() == '-') {
-				$(this).parent('.faq__chapter-question').find('.faq__chapter-question-answer').hide()
-				$(this).text('+')
-				if (window.is_mobile) {
-					$(this).css('margin-bottom', '4px')
-				}
-				return
-			}
-		})*/
-		/*$('.faq__chapter-title').on('click', function() {
-			// console.log('is_mobile: ' + window.is_mobile)
-			if (window.is_mobile) {
-				// if ($(this).find('.faq__chapter-title-sign-opened').is(':visible')) {
-				if ($(this).attr('mobile_hidden') == '0') {
-					$(this).parent('.faq__chapter').find('.faq__chapter-question').hide()
-					$(this).find('.faq__chapter-title-sign-opened').hide()
-					$(this).find('.faq__chapter-title-sign-closed').show()
-					$(this).attr('mobile_hidden', '1')
-					$(this).css('margin-bottom', '0')
-					return
-				}
-				// if ($(this).find('.faq__chapter-title-sign-closed').is(':visible')) {
-				if ($(this).attr('mobile_hidden') == '1') {
-					$(this).parent('.faq__chapter').find('.faq__chapter-question').show()
-					$(this).find('.faq__chapter-title-sign-closed').hide()
-					$(this).find('.faq__chapter-title-sign-opened').show()
-					$(this).attr('mobile_hidden', '0')
-					$(this).css('margin-bottom', '24px')
-					return
-				}
-			}
-		})*/
 	})
 </script>
 
