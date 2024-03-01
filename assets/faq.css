@@ -19,13 +19,11 @@
 .faq__chapters {
 	width: 856px;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	grid-column-gap: 120px;
-	grid-row-gap: 20px;
+	flex-direction: column;
+	grid-row-gap: 32px;
 }
 .faq__chapter {
-/*	width: 1206px;*/
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	border: 3px solid #F4F6FA;
