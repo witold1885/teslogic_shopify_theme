@@ -10,11 +10,9 @@
 	}
 	.faq__chapters {
 		width: calc(856 * 100vw / 1440);
-		grid-column-gap: calc(120 * 100vw / 1440);
-		grid-row-gap: calc(20 * 100vw / 1440);
+		grid-row-gap: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter {
-/*		width: calc(1206 * 100vw / 1440);*/
 		border-radius: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-opened {
