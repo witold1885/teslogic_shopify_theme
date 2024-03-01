@@ -1,66 +1,66 @@
-@media screen and (min-width: 1000px) and (max-width: 1366px) { 
+@media screen and (min-width: 576px) and (max-width: 1440px) { 
 	.faq__title {
-		font-size: calc(52 * 100vw / 1366);
-		line-height: calc(64 * 100vw / 1366);
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
 	}
 	.faq__chapters {
-		margin-top: calc(32 * 100vw / 1366);
-		margin-bottom: calc(140 * 100vw / 1366);
-		grid-column-gap: calc(120 * 100vw / 1366);
-		grid-row-gap: calc(20 * 100vw / 1366);
-		margin-left: calc(80 * 100vw / 1366);
+		margin-top: calc(32 * 100vw / 1440);
+		margin-bottom: calc(140 * 100vw / 1440);
+		grid-column-gap: calc(120 * 100vw / 1440);
+		grid-row-gap: calc(20 * 100vw / 1440);
+		margin-left: calc(80 * 100vw / 1440);
 	}
 	.faq__chapter {
-		width: calc(1206 * 100vw / 1366);
-		border-radius: calc(12 * 100vw / 1366);
+		width: calc(1206 * 100vw / 1440);
+		border-radius: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-opened {
-		border-bottom-left-radius: calc(19 * 100vw / 1366);
-		border-bottom-right-radius: calc(19 * 100vw / 1366);
+		border-bottom-left-radius: calc(19 * 100vw / 1440);
+		border-bottom-right-radius: calc(19 * 100vw / 1440);
 	}
 	.faq__chapter-top {
-		border-radius: calc(12 * 100vw / 1366);
-		padding: calc(20 * 100vw / 1366);
+		border-radius: calc(12 * 100vw / 1440);
+		padding: calc(20 * 100vw / 1440);
 	}
 	.faq__chapter-title {
-		grid-column-gap: calc(12 * 100vw / 1366);
+		grid-column-gap: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-title-sign {
-		width: calc(32 * 100vw / 1366);
-		height: calc(32 * 100vw / 1366);
+		width: calc(32 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-title-text {
-		width: calc(100% - 32 * 100vw / 1366 - 12 * 100vw / 1366);
-		font-size: calc(32 * 100vw / 1366);
+		width: calc(100% - 32 * 100vw / 1440 - 12 * 100vw / 1440);
+		font-size: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-chevron {
-		width: calc(32 * 100vw / 1366);
-		height: calc(32 * 100vw / 1366); 
+		width: calc(32 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440); 
 	}
 	.faq__chapter-questions {
-		grid-row-gap: calc(25 * 100vw / 1366);
-		padding: calc(16 * 100vw / 1366) calc(20 * 100vw / 1366) calc(20 * 100vw / 1366) calc(64 * 100vw / 1366);
+		grid-row-gap: calc(25 * 100vw / 1440);
+		padding: calc(16 * 100vw / 1440) calc(20 * 100vw / 1440) calc(20 * 100vw / 1440) calc(64 * 100vw / 1440);
 	}
 	.faq__chapter-question-text {
-		font-size: calc(22 * 100vw / 1366);
-/*		line-height: calc(32 * 100vw / 1366);*/
-		max-width: calc(650 * 100vw / 1366);
+		font-size: calc(22 * 100vw / 1440);
+/*		line-height: calc(32 * 100vw / 1440);*/
+		max-width: calc(650 * 100vw / 1440);
 	}
 	.faq__chapter-question-answer {
-		margin-top: calc(8 * 100vw / 1366);
-		font-size: calc(14 * 100vw / 1366);
-		max-width: calc(650 * 100vw / 1366);
+		margin-top: calc(8 * 100vw / 1440);
+		font-size: calc(14 * 100vw / 1440);
+		max-width: calc(650 * 100vw / 1440);
 	}
 	.faq__chapter-question-expand {
-		width: calc(9 * 100vw / 1366);
-		height: calc(32 * 100vw / 1366);
-		/*font-size: calc(22 * 100vw / 1366);*/
-		line-height: calc(32 * 100vw / 1366);
-		margin-bottom: calc(12 * 100vw / 1366);
+		width: calc(9 * 100vw / 1440);
+		height: calc(32 * 100vw / 1440);
+		/*font-size: calc(22 * 100vw / 1440);*/
+		line-height: calc(32 * 100vw / 1440);
+		margin-bottom: calc(12 * 100vw / 1440);
 	}
 }
 
-@media screen and (max-width: 999px) { 
+@media screen and (max-width: 575px) { 
 	.faq__title {
 		font-weight: 700;
 		font-size: 36px;
