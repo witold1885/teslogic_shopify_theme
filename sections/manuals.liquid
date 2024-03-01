@@ -197,6 +197,11 @@
 		function setContent(url) {
 			const content = searchContent(url)
 			$('.manuals__content-title').text(content.title)
+
+			$('.manuals__menu-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(`.manuals__menu-item[data-url="${url}"]`).addClass('active')
 		}
 
 		function searchContent(url) {
