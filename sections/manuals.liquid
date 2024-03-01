@@ -42,7 +42,25 @@
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
 
 <div class="manuals" id="manuals">
-	<div class="block_title manuals__title">Teslogic Dash v2 Manuals</div>
+	<div class="manuals__title">Teslogic Dashboard v2 Manuals</div>
+	<div class="manuals__body">
+		<div class="manuals__menu">
+			<div class="manuals__menu-title">Select Manuals</div>
+			<div class="manuals__menu-list">
+	      {% for link in linklists.manuals-menu.links %}
+					<div 
+						class="manuals__menu-item"
+						data-url="{{ link.url }}"
+					>
+						{{ link.title }}
+					</div>
+				{%- endfor -%}
+			</div>		
+		</div>
+		<div class="manuals__content">
+			
+		</div>
+	</div>
 	<div class="manuals__download">
 		<div class="manuals__download-title">Choose your Tesla model and year:</div>
 		<!-- <div class="manuals__download-select-text">Tesla model and year:</div> -->

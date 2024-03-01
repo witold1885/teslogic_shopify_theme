@@ -8,7 +8,46 @@
 	text-align: left;
 	margin-bottom: 42px;
 }
+.manuals__body {
+	display: flex;
+	align-items: flex-start;
+	grid-column-gap: 48px;
+}
+.manuals__menu {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 32px;
+	width: 330px;
+	border-radius: 24px;
+	background: #F6F6F6;
+}
+.manuals__menu-title {
+	color: #000;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px;
+}
+.manuals__menu-list {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 36px;
+}
+.manuals__menu-item {
+	color: #888;
+	font-family: Manrope;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+.manuals__menu-item.active {
+	color: #000;
+}
+
 .manuals__download {
+	display: none;
 	margin-left: 80px;
 	margin-bottom: 80px;
 }
