@@ -111,7 +111,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*const result = []
+		const result = []
 		$('.manuals__menu-item').each(function(index) {
 			result[index] = {
 				url: $(this).data('url'),
@@ -129,11 +129,11 @@
 				}
 				const videos = $(content).find('.manuals__video iframe')
 				for (const video of videos) {
-					result[index].videos.push($(video).attr('src'))
+					result[index].videos.push({ title: $(video).attr('title'), src: $(video).attr('src') })
 				}
 				console.log(result)
 			})
-		})*/
+		})
 
 		const contents = [
 		  {
@@ -233,7 +233,9 @@
 
 		function setContent(url) {
 			const content = searchContent(url)
+
 			$('.manuals__content-title').text(content.title)
+
 			let linksHTML = ''
 			for (const link of content.links) {
 				linksHTML += `
@@ -246,6 +248,17 @@
 				`
 			}
 			$('.manuals__content-links-items').html(linksHTML)
+
+			let videosHTML = ''
+			for (const video of content.videos) {
+				videosHTML += `
+					<div class="manuals__video">
+						<iframe width="1280" height="720" src="https://www.youtube.com/embed/I3RlExqAi5w" title="Teslogic Installation Guide | Wireless Charger" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+						</iframe>
+					</div>
+				`
+			}
+			// $('.manuals__content-links-items').html(linksHTML)
 
 			$('.manuals__menu-item').each(function() {
 				$(this).removeClass('active')
