@@ -246,6 +246,12 @@
 		padding: 0 20px;
 		border-radius: 8px;
 		background: #F6F6F6;
+		position: relative;
+	}
+	.manuals__download-select-dropdown {
+		position: absolute;
+		top: 56px;
+		left: 0;
 	}
 	.manuals__download-select-dropdown-item {
 		font-size: 20px;
