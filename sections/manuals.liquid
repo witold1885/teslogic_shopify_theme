@@ -207,6 +207,10 @@
 		function searchContent(url) {
 			return contents.find(content => content.url == url)
 		}
+
+		$('.manuals__menu-item').on('click', function() {
+			setContent($(this).data('url'))
+		})
 		/*var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
