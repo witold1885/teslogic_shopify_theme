@@ -111,7 +111,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		const result = []
+		/*const result = []
 		$('.manuals__menu-item').each(function(index) {
 			result[index] = {
 				url: $(this).data('url'),
@@ -133,7 +133,7 @@
 				}
 				console.log(result)
 			})
-		})
+		})*/
 
 		const contents = [
 		  {
@@ -150,10 +150,16 @@
 		      }
 		    ],
 		    "videos": [
-		      "https://www.youtube.com/embed/iH_di0LfXzw",
-		      "https://www.youtube.com/embed/I3RlExqAi5w"
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
+		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
 		    ]
-			},
+		  },
 		  {
 		    "url": "/pages/manual-tesla-model-3-19-20-us-spec",
 		    "title": "Tesla Model 3 ('19-20 US Spec)",
@@ -168,8 +174,14 @@
 		      }
 		    ],
 		    "videos": [
-		      "https://www.youtube.com/embed/iH_di0LfXzw",
-		      "https://www.youtube.com/embed/I3RlExqAi5w"
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
+		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
 		    ]
 		  },
 		  {
@@ -186,7 +198,10 @@
 		      }
 		    ],
 		    "videos": [
-		      "https://www.youtube.com/embed/I3RlExqAi5w"
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
 		    ]
 		  },
 		  {
@@ -203,8 +218,14 @@
 		      }
 		    ],
 		    "videos": [
-		      "https://www.youtube.com/embed/iCKNAsNVlRk",
-		      "https://www.youtube.com/embed/I3RlExqAi5w"
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2021+)",
+		        "src": "https://www.youtube.com/embed/iCKNAsNVlRk"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
 		    ]
 		  },
 		  {
@@ -221,8 +242,14 @@
 		      }
 		    ],
 		    "videos": [
-		      "https://www.youtube.com/embed/C5dARhY-NnM",
-		      "https://www.youtube.com/embed/I3RlExqAi5w"
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model Y",
+		        "src": "https://www.youtube.com/embed/C5dARhY-NnM"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
 		    ]
 		  }
 		]
@@ -252,13 +279,13 @@
 			let videosHTML = ''
 			for (const video of content.videos) {
 				videosHTML += `
-					<div class="manuals__video">
-						<iframe width="1280" height="720" src="https://www.youtube.com/embed/I3RlExqAi5w" title="Teslogic Installation Guide | Wireless Charger" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+					<div class="manuals__content-video-item">
+						<iframe width="1280" height="720" src="${video.src}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
 						</iframe>
 					</div>
 				`
 			}
-			// $('.manuals__content-links-items').html(linksHTML)
+			$('.manuals__content-videos-items').html(videosHTML)
 
 			$('.manuals__menu-item').each(function() {
 				$(this).removeClass('active')
