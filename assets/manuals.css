@@ -422,10 +422,20 @@
 }
 
 @media screen and (max-width: 575px) {
-	.manuals__title {
+	.manuals {
 		width: 335px;
+		padding-top: 32px;
+		padding-bottom: 180px;
+		grid-row-gap: 40px;
+	}
+	.manuals__title {
+		width: 100%;
 		font-size: 32px;
 		line-height: 40px;
+	}
+	.manuals__body {
+		flex-direction: column;
+		grid-row-gap: 36px;
 	}
 	.manuals__menu {
 		display: none;
