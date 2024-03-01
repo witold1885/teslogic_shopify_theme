@@ -107,8 +107,8 @@
 			console.log($(this).data('url'))
 			$.get($(this).data('url')).then((response) => {
 				console.log(response)
-				const result = $.parseHTML(response)
-				console.log(result)
+				const html = $($.parseHTML(response))
+				console.log(html.find('div.page-width'))
 			})
 		})
 		/*var downloadUrl = null
