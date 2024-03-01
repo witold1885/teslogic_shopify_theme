@@ -288,8 +288,11 @@
 		}
 
 		$('.manuals__menu-item').on('click', function() {
+			selectModel($(this).data('url'))
 			setContent($(this).data('url'))
 		})
+
+		selectModel(manualUrl)
 
 		// var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
