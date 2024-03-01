@@ -1,6 +1,10 @@
 .faq {
 	width: 100%;
 	padding-top: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-row-gap: 40px;
 }
 .faq__title {
 	color: #000;
@@ -13,14 +17,11 @@
 }
 .faq__chapters {
 	width: 856px;
-	margin-top: 32px;
-	margin-bottom: 140px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	grid-column-gap: 120px;
 	grid-row-gap: 20px;
-	margin-left: 80px;
 }
 .faq__chapter {
 	width: 1206px;
