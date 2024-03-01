@@ -110,10 +110,10 @@
 				// console.log(response)
 				const html = $($.parseHTML(response))
 				const content = html.find('div.page-width')
-				const links = content.find('a')
+				const links = $(content).find('a')
 				console.log(links)
 				for (const link of links) {
-					console.log(link.attr('href'))
+					console.log($(link).attr('href'))
 				}
 			})
 		})
