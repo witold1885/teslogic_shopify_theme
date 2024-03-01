@@ -315,6 +315,27 @@
 		height: calc(453 * 100vw / 1440);
 		border-radius: calc(40 * 100vw / 1440);
 	}
+
+	
+	.manuals__list-title {
+		font-size: calc(32 * 100vw / 1440);
+		margin-left: calc(80 * 100vw / 1440);
+		margin-bottom: calc(40 * 100vw / 1440);
+	}
+	.manuals__list {
+		grid-row-gap: calc(80 * 100vw / 1440);
+		margin-bottom: calc(80 * 100vw / 1440);
+	}
+	.manuals__video {
+		width: calc(1206 * 100vw / 1440);
+		height: calc(670.888 * 100vw / 1440);
+		border-radius: calc(11.0448 * 100vw / 1440);
+	}
+	.manuals__text {
+		margin-left: calc(80 * 100vw / 1440)!important;
+		margin-bottom: calc(140 * 100vw / 1440)!important;
+		max-width: calc(604 * 100vw / 1440)!important;
+	}
 }
 
 @media screen and (max-width: 575px) {
