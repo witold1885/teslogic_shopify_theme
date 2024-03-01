@@ -7,8 +7,9 @@
 	grid-row-gap: 40px;
 }
 .faq__title {
+	width: 856px;
 	color: #000;
-	text-align: center;
+	text-align: left;
 	font-family: Manrope;
 	font-size: 52px;
 	font-style: normal;
@@ -24,7 +25,7 @@
 	grid-row-gap: 20px;
 }
 .faq__chapter {
-	width: 1206px;
+/*	width: 1206px;*/
 	display: flex;
 	flex-direction: column;
 	border: 3px solid #F4F6FA;
