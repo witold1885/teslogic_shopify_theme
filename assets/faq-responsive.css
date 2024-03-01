@@ -21,7 +21,7 @@
 	}
 	.faq__chapter-top {
 		border-radius: calc(12 * 100vw / 1440);
-		padding: calc(20 * 100vw / 1440);
+		padding: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-title {
 		grid-column-gap: calc(12 * 100vw / 1440);
@@ -33,6 +33,7 @@
 	.faq__chapter-title-text {
 		width: calc(100% - 32 * 100vw / 1440 - 12 * 100vw / 1440);
 		font-size: calc(32 * 100vw / 1440);
+		line-height: calc(40 * 100vw / 1440);
 	}
 	.faq__chapter-chevron {
 		width: calc(32 * 100vw / 1440);
