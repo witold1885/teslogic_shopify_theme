@@ -1,6 +1,7 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.faq {
 		padding-top: calc(80 * 100vw / 1440);
+		padding-bottom: calc(180 * 100vw / 1440);
 		grid-row-gap: calc(40 * 100vw / 1440);
 	}
 	.faq__title {
