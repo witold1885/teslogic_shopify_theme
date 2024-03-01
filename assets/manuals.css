@@ -55,6 +55,20 @@
 	color: #000;
 	cursor: default;
 }
+.manuals__content {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 36px;
+	margin-top: 36px;
+}
+.manuals__content-title {
+	color: #000;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px;
+}
 
 .manuals__download {
 	display: none;
