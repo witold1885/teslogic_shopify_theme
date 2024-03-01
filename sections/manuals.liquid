@@ -291,7 +291,8 @@
 		$('.manuals__menu-item').on('click', function() {
 			setContent($(this).data('url'))
 		})
-		/*var downloadUrl = null
+		
+		// var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
 			if ($(dropdown).is(':visible')) {
@@ -315,11 +316,11 @@
 		})
 		function selectModel(url) {
 			let model = $(`.manuals__download-select-dropdown-item[data-url="${url}"]`).first()
-			downloadUrl = model.data('url')
+			// downloadUrl = model.data('url')
 			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
-		$('.manuals__download-button').on('click', function() {
+		/*$('.manuals__download-button').on('click', function() {
 			if (downloadUrl) {
 				// window.open(downloadUrl, '_blank').focus()
 				window.location.href = downloadUrl
