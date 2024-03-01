@@ -59,8 +59,18 @@
 		</div>
 		<div class="manuals__content">
 			<div class="manuals__content-title"></div>
-			<div class="manuals__content-links"></div>
-			<div class="manuals__content-videos"></div>
+			<div class="manuals__content-links">
+				<div class="manuals__content-links-title">PDF Manuals:</div>
+				<div class="manuals__content-links-items">
+					
+				</div>				
+			</div>
+			<div class="manuals__content-videos">
+				<div class="manuals__content-videos-title">Video Installation Guides:</div>
+				<div class="manuals__content-videos-items">
+					
+				</div>				
+			</div>
 		</div>
 	</div>
 	<div class="manuals__download">
@@ -105,7 +115,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*const result = []
+		const result = []
 		$('.manuals__menu-item').each(function(index) {
 			result[index] = {
 				url: $(this).data('url'),
@@ -119,7 +129,7 @@
 				const content = html.find('div.page-width')
 				const links = $(content).find('a')
 				for (const link of links) {
-					result[index].links.push($(link).attr('href'))
+					result[index].links.push({ text: $(link).text(), href: $(link).attr('href') })
 				}
 				const videos = $(content).find('.manuals__video iframe')
 				for (const video of videos) {
@@ -127,7 +137,7 @@
 				}
 				console.log(result)
 			})
-		})*/
+		})
 		const contents = [
 		  {
 		    "url": "/pages/manual-tesla-model-3-17-18",
