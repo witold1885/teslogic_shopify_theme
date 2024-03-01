@@ -16,8 +16,8 @@
 		border-radius: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-opened {
-		border-bottom-left-radius: calc(19 * 100vw / 1440);
-		border-bottom-right-radius: calc(19 * 100vw / 1440);
+		border-bottom-left-radius: calc(12 * 100vw / 1440);
+		border-bottom-right-radius: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-top {
 		border-radius: calc(12 * 100vw / 1440);
@@ -31,7 +31,7 @@
 		height: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-title-text {
-		width: calc(100% - 32 * 100vw / 1440 - 12 * 100vw / 1440);
+/*		width: calc(100% - 32 * 100vw / 1440 - 12 * 100vw / 1440);*/
 		font-size: calc(32 * 100vw / 1440);
 		line-height: calc(40 * 100vw / 1440);
 	}
