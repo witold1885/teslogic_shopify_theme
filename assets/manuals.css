@@ -265,19 +265,19 @@
 
 @media screen and (max-width: 575px) {
 	.manuals {
-		width: 335px;
-		padding-top: 32px;
-		padding-bottom: 180px;
-		grid-row-gap: 40px;
+		width: calc(335 * 100vw / 375);
+		padding-top: calc(32 * 100vw / 375);
+		padding-bottom: calc(180 * 100vw / 375);
+		grid-row-gap: calc(40 * 100vw / 375);
 	}
 	.manuals__title {
 		width: 100%;
-		font-size: 32px;
-		line-height: 40px;
+		font-size: calc(32 * 100vw / 375);
+		line-height: calc(40 * 100vw / 375);
 	}
 	.manuals__body {
 		flex-direction: column;
-		grid-row-gap: 36px;
+		grid-row-gap: calc(36 * 100vw / 375);
 	}
 	.manuals__menu {
 		display: none;
@@ -289,21 +289,21 @@
 	.manuals__download-title {
 		color: #000;
 		font-family: Manrope;
-		font-size: 24px;
+		font-size: calc(24 * 100vw / 375);
 		font-style: normal;
 		font-weight: 500;
-		line-height: 32px;
-		margin-bottom: 12px;
+		line-height: calc(32 * 100vw / 375);
+		margin-bottom: calc(12 * 100vw / 375);
 	}
 	.manuals__download-select {
 		width: 100%;
-		height: 56px;
-		border-radius: 8px;
+		height: calc(56 * 100vw / 375);
+		border-radius: calc(8 * 100vw / 375);
 		background: #F6F6F6;
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		padding: 0 20px;
+		padding: 0 calc(20 * 100vw / 375);
 		box-sizing: border-box;
 	}
 	.manuals__download-select-dropdown-select {
@@ -319,22 +319,22 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		padding: 15.5px 20px;
+		padding: calc(15.5 * 100vw / 375) calc(20 * 100vw / 375);
 		display: none;
 		flex-direction: column;
-		grid-row-gap: 5px;
+		grid-row-gap: calc(5 * 100vw / 375);
 		background: #F4F6FA;
 		box-sizing: border-box;
 		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-		border-radius: 35px;
+		border-radius: calc(35 * 100vw / 375);
 		z-index: 2;
 	}
 	.manuals__download-select-dropdown-item {
 		font-family: Manrope;
 		font-style: normal;
 		font-weight: 400;
-		font-size: 20px;
-		line-height: 32px;
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(32 * 100vw / 375);
 		color: #0F0F0F;
 		cursor: pointer;
 	}
@@ -342,14 +342,14 @@
 		font-family: Manrope;
 		font-style: normal;
 		font-weight: 400;
-		font-size: 20px;
-		line-height: 32px;
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(32 * 100vw / 375);
 		color: #9FA1A8;
-		margin-right: 20px;
+		margin-right: calc(20 * 100vw / 375);
 	}
 	.manuals__download-select-arrow {
-		width: 24px;
-		height: 24px;
+		width: calc(24 * 100vw / 375);
+		height: calc(24 * 100vw / 375);
 	}
 	.manuals__download-select-arrow img {
 		width: 100%;
@@ -358,46 +358,46 @@
 	.manuals__content {
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: 36px;
+		grid-row-gap: calc(36 * 100vw / 375);
 		margin-top: 0;
 	}
 	.manuals__content-title {
-		font-size: 24px;
-		line-height: 32px;
+		font-size: calc(24 * 100vw / 375);
+		line-height: calc(32 * 100vw / 375);
 	}
 	.manuals__content-links {
-		grid-row-gap: 20px;
+		grid-row-gap: calc(20 * 100vw / 375);
 	}
 	.manuals__content-links-title,
 	.manuals__content-videos-title {
-		font-size: 18px;
-		line-height: 24px;
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 	}
 	.manuals__content-links-items {
 		flex-direction: column;
-		grid-row-gap: 24px;
+		grid-row-gap: calc(24 * 100vw / 375);
 	}
 	.manuals__content-link-item {
-		grid-column-gap: 12px;
+		grid-column-gap: calc(12 * 100vw / 375);
 	}
 	.manuals__content-link-item-icon {
-		width: 30px;
-		height: 40px; 
+		width: calc(30 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
 	}
 	.manuals__content-link-item-text {
-		font-size: 16px;
-		line-height: 20px;
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 	.manuals__content-videos {
-		grid-row-gap: 16px;
+		grid-row-gap: calc(16 * 100vw / 375);
 	}
 	.manuals__content-videos-items {
-		grid-row-gap: 16px;
+		grid-row-gap: calc(16 * 100vw / 375);
 	}
 	.manuals__content-video-item {
-		width: 336px;
-		height: 188px;
-		border-radius: 24px;
+		width: calc(336 * 100vw / 375);
+		height: calc(188 * 100vw / 375);
+		border-radius: calc(24 * 100vw / 375);
 	}
 
 	.manuals__list-title {
