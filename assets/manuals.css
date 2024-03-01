@@ -69,6 +69,11 @@
 	font-weight: 500;
 	line-height: 40px;
 }
+.manuals__content-links {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
 .manuals__content-links-title,
 .manuals__content-videos-title {
 	color: #000;
@@ -103,6 +108,11 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px;
+}
+.manuals__content-videos {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 24px;
 }
 
 
