@@ -304,6 +304,7 @@
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
 			selectModel($(this).data('url'))
+			setContent($(this).data('url'))
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
