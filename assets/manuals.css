@@ -114,6 +114,21 @@
 	flex-direction: column;
 	grid-row-gap: 24px;
 }
+.manuals__content-videos-items {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 24px;
+}
+.manuals__content-video-item {
+	width: 808px;
+	height: 453px;
+	border-radius: 40px;
+	border: 1px solid #E6E6E6;
+}
+.manuals__content-video-item iframe  {
+	width: 100%;
+	height: 100%;
+}
 
 
 
