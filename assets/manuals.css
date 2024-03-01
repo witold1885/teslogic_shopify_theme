@@ -27,6 +27,7 @@
 	width: 330px;
 	border-radius: 24px;
 	background: #F6F6F6;
+	padding: 36px 40px 48px;
 }
 .manuals__menu-title {
 	color: #000;
@@ -48,9 +49,11 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 24px;
+	cursor: pointer;
 }
 .manuals__menu-item.active {
 	color: #000;
+	cursor: default;
 }
 
 .manuals__download {
