@@ -336,6 +336,7 @@
     },
     "back_products": {
       "type": "back_products",
+      "disabled": true,
       "settings": {
       }
     }
