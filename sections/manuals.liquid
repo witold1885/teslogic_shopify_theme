@@ -103,7 +103,13 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.manuals__menu-item').each(function() {
+		const result = []
+		$('.manuals__menu-item').each(function(index) {
+			result[index] = {
+				url: $(this).data('url'),
+				text: $(this).text(),
+				links: []
+			}
 			console.log($(this).data('url'))
 			console.log($(this).text())
 			$.get($(this).data('url')).then((response) => {
@@ -114,7 +120,9 @@
 				console.log(links)
 				for (const link of links) {
 					console.log($(link).attr('href'))
+					result[index].links.push($(link).attr('href'))
 				}
+				console.log(result)
 			})
 		})
 		/*var downloadUrl = null
