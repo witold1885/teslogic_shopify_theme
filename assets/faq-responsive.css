@@ -45,20 +45,10 @@
 	.faq__chapter-question {
 		grid-row-gap: calc(12 * 100vw / 1440);
 	}
-	.faq__chapter-question-text {
+	.faq__chapter-question > div {
+		grid-column-gap: calc(8 * 100vw / 1440);
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
-	}
-	.faq__chapter-question-answer {
-		font-size: calc(24 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
-	}
-	.faq__chapter-question-expand {
-		width: calc(9 * 100vw / 1440);
-		height: calc(32 * 100vw / 1440);
-		/*font-size: calc(22 * 100vw / 1440);*/
-		line-height: calc(32 * 100vw / 1440);
-		margin-bottom: calc(12 * 100vw / 1440);
 	}
 }
 
