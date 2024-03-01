@@ -1,17 +1,15 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.faq {
 		padding-top: calc(80 * 100vw / 1440);
+		grid-row-gap: calc(40 * 100vw / 1440);
 	}
 	.faq__title {
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
 	}
 	.faq__chapters {
-		margin-top: calc(32 * 100vw / 1440);
-		margin-bottom: calc(140 * 100vw / 1440);
 		grid-column-gap: calc(120 * 100vw / 1440);
 		grid-row-gap: calc(20 * 100vw / 1440);
-		margin-left: calc(80 * 100vw / 1440);
 	}
 	.faq__chapter {
 		width: calc(1206 * 100vw / 1440);
