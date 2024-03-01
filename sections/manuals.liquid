@@ -57,6 +57,35 @@
 				{%- endfor -%}
 			</div>		
 		</div>
+		<div class="manuals__download">
+			<div class="manuals__download-title">Choose your Tesla model and year:</div>
+			<!-- <div class="manuals__download-select-text">Tesla model and year:</div> -->
+			<div class="manuals__download-select">
+				<div class="manuals__download-select-dropdown-select manuals__download-selected">
+					<span class="manuals__download-select-value">Select model</span>
+					<div class="manuals__download-select-arrow">
+						<img src="{{ 'select_arrow.png' | asset_url }}">
+					</div>
+				</div>
+				<div class="manuals__download-select-dropdown">
+					<div class="manuals__download-select-dropdown-select">
+						<span class="manuals__download-select-value">Select model</span>
+						<div class="manuals__download-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
+					</div>
+	        {% for link in linklists.manuals-menu.links %}
+						<div 
+							class="manuals__download-select-dropdown-item"
+							data-url="{{ link.url }}"
+						>
+							{{ link.title }}
+						</div>
+					{%- endfor -%}
+				</div>
+			</div>
+			<button class="manuals__download-button">Go to Manuals</button>
+		</div>
 		<div class="manuals__content">
 			<div class="manuals__content-title"></div>
 			<div class="manuals__content-links">
@@ -69,43 +98,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="manuals__download">
-		<div class="manuals__download-title">Choose your Tesla model and year:</div>
-		<!-- <div class="manuals__download-select-text">Tesla model and year:</div> -->
-		<div class="manuals__download-select">
-			<div class="manuals__download-select-dropdown-select manuals__download-selected">
-				<span class="manuals__download-select-value">Select model</span>
-				<div class="manuals__download-select-arrow">
-					<img src="{{ 'select_arrow.png' | asset_url }}">
-				</div>
-			</div>
-			<div class="manuals__download-select-dropdown">
-				<div class="manuals__download-select-dropdown-select">
-					<span class="manuals__download-select-value">Select model</span>
-					<div class="manuals__download-select-arrow">
-						<img src="{{ 'select_arrow.png' | asset_url }}">
-					</div>
-				</div>
-        {% for link in linklists.manuals-menu.links %}
-					<div 
-						class="manuals__download-select-dropdown-item"
-						data-url="{{ link.url }}"
-					>
-						{{ link.title }}
-					</div>
-				{%- endfor -%}
-			</div>
-		</div>
-		<button class="manuals__download-button">Go to Manuals</button>
-	</div>
-	<!-- <div class="manuals__list-title">Or watch video installation guides</div>
-	<div class="manuals__list">
-		{% for block in section.blocks %}
-			<div class="manuals__video">
-				{{ block.settings.code }}
-			</div>
-		{% endfor %}
-	</div> -->
 </div>
 <div class="rte static-content manuals__text">{{ page.content }}</div>
 
