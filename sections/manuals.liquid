@@ -103,7 +103,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var downloadUrl = null
+		$('.manuals__menu-item').on('click', function() {
+			console.log($(this).data('url'))
+		})
+		/*var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
 			if ($(dropdown).is(':visible')) {
@@ -136,7 +139,7 @@
 				// window.open(downloadUrl, '_blank').focus()
 				window.location.href = downloadUrl
 			}
-		})
+		})*/
 	})
 </script>
 
