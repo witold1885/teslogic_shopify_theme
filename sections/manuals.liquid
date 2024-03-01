@@ -105,6 +105,9 @@
 	$(document).ready(function() {
 		$('.manuals__menu-item').on('click', function() {
 			console.log($(this).data('url'))
+			$.get($(this).data('url')).then((response) => {
+				console.log(response)
+			})
 		})
 		/*var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
