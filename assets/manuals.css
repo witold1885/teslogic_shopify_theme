@@ -348,8 +348,8 @@
 		margin-right: calc(20 * 100vw / 375);
 	}
 	.manuals__download-select-arrow {
-		width: calc(24 * 100vw / 375);
-		height: calc(24 * 100vw / 375);
+		width: calc(12 * 100vw / 375);
+		height: calc(20 * 100vw / 375);
 	}
 	.manuals__download-select-arrow img {
 		width: 100%;
