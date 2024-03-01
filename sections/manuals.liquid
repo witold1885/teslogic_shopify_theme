@@ -63,14 +63,14 @@
 				<div class="manuals__download-select-dropdown-select manuals__download-selected">
 					<span class="manuals__download-select-value">Select model</span>
 					<div class="manuals__download-select-arrow">
-						<img src="{{ 'select_arrow.png' | asset_url }}">
+						<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
 					</div>
 				</div>
 				<div class="manuals__download-select-dropdown">
 					<div class="manuals__download-select-dropdown-select">
 						<span class="manuals__download-select-value">Select model</span>
 						<div class="manuals__download-select-arrow">
-							<img src="{{ 'select_arrow.png' | asset_url }}">
+							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
 						</div>
 					</div>
 	        {% for link in linklists.manuals-menu.links %}
@@ -83,7 +83,6 @@
 					{%- endfor -%}
 				</div>
 			</div>
-			<!-- <button class="manuals__download-button">Go to Manuals</button> -->
 		</div>
 		<div class="manuals__content">
 			<div class="manuals__content-title"></div>
@@ -291,7 +290,7 @@
 		$('.manuals__menu-item').on('click', function() {
 			setContent($(this).data('url'))
 		})
-		
+
 		// var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
