@@ -31,7 +31,6 @@
 		height: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-title-text {
-/*		width: calc(100% - 32 * 100vw / 1440 - 12 * 100vw / 1440);*/
 		font-size: calc(32 * 100vw / 1440);
 		line-height: calc(40 * 100vw / 1440);
 	}
@@ -40,18 +39,19 @@
 		height: calc(32 * 100vw / 1440); 
 	}
 	.faq__chapter-questions {
-		grid-row-gap: calc(25 * 100vw / 1440);
-		padding: calc(16 * 100vw / 1440) calc(20 * 100vw / 1440) calc(20 * 100vw / 1440) calc(64 * 100vw / 1440);
+		grid-row-gap: calc(56 * 100vw / 1440);
+		padding: calc(56 * 100vw / 1440) calc(40 * 100vw / 1440) calc(48 * 100vw / 1440) calc(40 * 100vw / 1440);
+	}
+	.faq__chapter-question {
+		grid-row-gap: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-question-text {
-		font-size: calc(22 * 100vw / 1440);
-/*		line-height: calc(32 * 100vw / 1440);*/
-		max-width: calc(650 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-question-answer {
-		margin-top: calc(8 * 100vw / 1440);
-		font-size: calc(14 * 100vw / 1440);
-		max-width: calc(650 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-question-expand {
 		width: calc(9 * 100vw / 1440);

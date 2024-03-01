@@ -28,8 +28,14 @@
 							{% if subblock.type == "question" %}
 								{% if subblock.settings.chapter_id == block.settings.chapter_id %}
 									<div class="faq__chapter-question">
-										<div class="faq__chapter-question-text">{{ subblock.settings.question }}</div>
-										<div class="faq__chapter-question-answer">{{ subblock.settings.answer }}</div>
+										<div class="faq__chapter-question-text">
+											<span class="faq__chapter-question-badge">Q:</span>
+											<span>{{ subblock.settings.question }}</span>
+										</div>
+										<div class="faq__chapter-question-answer">
+											<span class="faq__chapter-question-badge">A:</span>
+											<span>{{ subblock.settings.answer }}</span>
+										</div>
 										<!-- <div class="faq__chapter-question-expand">+</div> -->
 									</div>
 								{% endif %}
