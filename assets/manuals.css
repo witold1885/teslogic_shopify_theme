@@ -421,12 +421,16 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 575px) {
 	.manuals__title {
 		font-size: 36px;
 		margin-bottom: 40px;
 	}
+	.manuals__menu {
+		display: none;
+	}
 	.manuals__download {
+		display: flex;
 		margin-left: 20px;
 		margin-bottom: 40px;
 	}
