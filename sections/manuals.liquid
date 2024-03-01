@@ -107,20 +107,21 @@
 		$('.manuals__menu-item').each(function(index) {
 			result[index] = {
 				url: $(this).data('url'),
-				text: $(this).text(),
-				links: []
+				text: $(this).text().trim(),
+				links: [],
+				videos: []
 			}
-			console.log($(this).data('url'))
-			console.log($(this).text())
 			$.get($(this).data('url')).then((response) => {
 				// console.log(response)
 				const html = $($.parseHTML(response))
 				const content = html.find('div.page-width')
 				const links = $(content).find('a')
-				console.log(links)
 				for (const link of links) {
-					console.log($(link).attr('href'))
 					result[index].links.push($(link).attr('href'))
+				}
+				const videos = $(content).find('.manuals__video iframe')
+				for (const video of videos) {
+					result[index].videos.push($(video).attr('src'))
 				}
 				console.log(result)
 			})
