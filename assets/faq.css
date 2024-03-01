@@ -1,5 +1,6 @@
 .faq {
 	width: 100%;
+	padding-top: 80px;
 }
 .faq__title {
 	color: #000;
@@ -11,6 +12,7 @@
 	line-height: 64px;
 }
 .faq__chapters {
+	width: 856px;
 	margin-top: 32px;
 	margin-bottom: 140px;
 	display: flex;
