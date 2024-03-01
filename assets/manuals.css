@@ -1,12 +1,19 @@
+.manuals {
+	width: 1296px;
+	margin: 0 auto;
+	padding-top: 32px;
+	padding-bottom: 144px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 48px;
+}
 .manuals__title {
 	color: #000;
-	font-family: Gotham;
+	font-family: Manrope;
 	font-size: 52px;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 64px; /* 123.077% */ 
-	text-align: left;
-	margin-bottom: 42px;
+	font-weight: 500;
+	line-height: 64px;
 }
 .manuals__body {
 	display: flex;
