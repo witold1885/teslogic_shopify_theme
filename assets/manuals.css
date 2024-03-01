@@ -322,7 +322,7 @@
 		padding: calc(15.5 * 100vw / 375) calc(20 * 100vw / 375);
 		display: none;
 		flex-direction: column;
-		grid-row-gap: calc(5 * 100vw / 375);
+		grid-row-gap: calc(5.475 * 100vw / 375);
 		background: #F4F6FA;
 		box-sizing: border-box;
 		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
