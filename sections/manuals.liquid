@@ -63,13 +63,13 @@
 				<div class="manuals__content-links-title">PDF Manuals:</div>
 				<div class="manuals__content-links-items">
 					
-				</div>				
+				</div>
 			</div>
 			<div class="manuals__content-videos">
 				<div class="manuals__content-videos-title">Video Installation Guides:</div>
 				<div class="manuals__content-videos-items">
 					
-				</div>				
+				</div>
 			</div>
 		</div>
 	</div>
@@ -138,25 +138,38 @@
 				console.log(result)
 			})
 		})
+
 		const contents = [
 		  {
 		    "url": "/pages/manual-tesla-model-3-17-18",
 		    "title": "Tesla Model 3 ('17-18)",
 		    "links": [
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305",
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      {
+		        "text": "User's Manual for Tesla Model 3 ('17-18)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
 		    ],
 		    "videos": [
 		      "https://www.youtube.com/embed/iH_di0LfXzw",
 		      "https://www.youtube.com/embed/I3RlExqAi5w"
 		    ]
-		  },
+			},
 		  {
 		    "url": "/pages/manual-tesla-model-3-19-20-us-spec",
 		    "title": "Tesla Model 3 ('19-20 US Spec)",
 		    "links": [
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305",
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      {
+		        "text": "User's Manual for Tesla Model 3 ('19-20 US Spec)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
 		    ],
 		    "videos": [
 		      "https://www.youtube.com/embed/iH_di0LfXzw",
@@ -167,19 +180,31 @@
 		    "url": "/pages/manual-tesla-model-3-19-20-non-us-spec",
 		    "title": "Tesla Model 3 ('19-20 non-US Spec)",
 		    "links": [
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_Model_3_2019-2020_non-US_Spec.pdf?v=1696588525",
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      {
+		        "text": "User's Manual for Tesla Model 3 ('19-20 non-US Spec)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_Model_3_2019-2020_non-US_Spec.pdf?v=1696588525"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
 		    ],
 		    "videos": [
 		      "https://www.youtube.com/embed/I3RlExqAi5w"
 		    ]
-			},
+		  },
 		  {
 		    "url": "/pages/manual-tesla-model-3-21",
 		    "title": "Tesla Model 3 ('21+)",
 		    "links": [
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786",
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      {
+		        "text": "User's Manual for Tesla Model 3 ('21+)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
 		    ],
 		    "videos": [
 		      "https://www.youtube.com/embed/iCKNAsNVlRk",
@@ -190,8 +215,14 @@
 		    "url": "/pages/manual-tesla-model-y-all",
 		    "title": "Tesla Model Y (All)",
 		    "links": [
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786",
-		      "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      {
+		        "text": "User's Manual for Tesla Model Y (All)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
 		    ],
 		    "videos": [
 		      "https://www.youtube.com/embed/C5dARhY-NnM",
@@ -207,6 +238,18 @@
 		function setContent(url) {
 			const content = searchContent(url)
 			$('.manuals__content-title').text(content.title)
+			let linksHTML = ''
+			for (const link of content.links) {
+				linksHTML += `
+					<a href="${link.href}" class="manuals__content-link-item">
+						<div class="manuals__content-link-item-icon">
+							<img src="{{ 'pdf-icon.svg' | asset_url }}">
+						</div>
+						<div class="manuals__content-link-item-text">${link.text}</div>			
+					</a>
+				`
+			}
+			$('.manuals__content-links-items').html(linksHTML)
 
 			$('.manuals__menu-item').each(function() {
 				$(this).removeClass('active')
