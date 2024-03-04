@@ -187,6 +187,14 @@
             "answer": "Share your destination point with Teslogic App via Google Maps App."
           }
         },
+        "question_krFwPT": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "3",
+            "question": "What do the different colors of the arc around the speedometer mean?",
+            "answer": "Green: Indicates driving within the speed limit.\nRed: Indicates exceeding the speed limit.\nBlue: Indicates activation of Autopilot, similar to Tesla's visualization.\n\nYou can also adjust the speed limit warning threshold for your convenience."
+          }
+        },
         "82239037-f960-4f2c-aa70-d59ba5d85350": {
           "type": "chapter",
           "settings": {
@@ -317,6 +325,7 @@
         "f29bcefa-fb81-4859-8a88-5b71ce3a6c84",
         "e4de832a-9838-4a87-98b6-a687fde24ff3",
         "44b237bd-1e37-4cc5-977e-3feddcad435c",
+        "question_krFwPT",
         "82239037-f960-4f2c-aa70-d59ba5d85350",
         "d8d58d03-cb3c-44b5-901d-50472753a6d9",
         "6cb7fde7-205a-45c7-8d11-49516438ecee",
