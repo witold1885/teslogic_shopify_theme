@@ -192,7 +192,7 @@
           "settings": {
             "chapter_id": "3",
             "question": "What do the different colors of the arc around the speedometer mean?",
-            "answer": "Green: Indicates driving within the speed limit.\nRed: Indicates exceeding the speed limit.\nBlue: Indicates activation of Autopilot, similar to Tesla's visualization.\n\nYou can also adjust the speed limit warning threshold for your convenience."
+            "answer": "Green denotes driving within the speed limit, while red signifies exceeding it. Blue indicates activation of Autopilot, similar to Tesla's visualization.\n\nYou can also adjust the speed limit warning threshold for your convenience."
           }
         },
         "82239037-f960-4f2c-aa70-d59ba5d85350": {
