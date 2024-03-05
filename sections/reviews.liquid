@@ -74,22 +74,8 @@
 		const shop_domain = 'teslogic.myshopify.com'
 		const getReviewsUrl = `https://judge.me/api/v1/reviews?api_token=${api_token}&shop_domain=${shop_domain}`
 		console.log(getReviewsUrl)
-		/*$.get(getReviewsUrl).then((response) => {
+		$.get(getReviewsUrl).then((response) => {
 			console.log(response)
-		})*/
-		$.ajax({
-		    url: "https://judge.me/api/v1/reviews",
-		    dataType: "jsonp", // Вказуємо тип запиту
-		    data: {
-		        api_token: api_token,
-		        shop_domain: shop_domain
-		    },
-		    success: function(response) {
-		        console.log(response);
-		    },
-		    error: function(xhr, status, error) {
-		        console.error("Error:", error);
-		    }
-		});
+		})
 	})
 </script>
