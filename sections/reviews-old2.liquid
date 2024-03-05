@@ -1,0 +1,568 @@
+<link rel="stylesheet" type="text/css" href="{{ 'reviews.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'reviews-responsive.css' | asset_url }}">
+
+{% style %}	
+.reviews {
+/*	background: url({{ 'reviews_bg.png' | asset_url }}), -666.816px -1673.512px / 296.268% 182.468% no-repeat, linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);*/
+	background: url({{ 'reviews_bg_x2.png' | asset_url }}), linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);
+	background-size: cover;
+	background-position: center;
+}
+.spr-form-review-rating .spr-icon-star::before {
+	content: url({{ 'star-form-blue.svg' | asset_url }});
+}
+.spr-form-review-rating .spr-icon-star-empty::before {
+	content: url({{ 'star-form-grey.svg' | asset_url }});
+}
+.spr-form-review-rating .spr-icon-star-hover::before {
+	content: url({{ 'star-form-blue.svg' | asset_url }});
+}
+{% endstyle %}
+
+<!-- <div id="multipleReviews"></div> -->
+<div id="reviewsWrap" class="reviews">
+	<div class="reviews-wrap">
+		<div class="reviews-top">
+			<div class="reviews-top-left">
+				<div class="reviews-top-supinfo">
+					<div class="reviews-top-supinfo-stars" id="totalRatingStars"></div>
+					<div class="reviews-top-supinfo-text">Teslogic Reviews</div>					
+				</div>
+				<div class="reviews-title">
+					Positive feedback from clients — <br>
+					one of our main tasks
+				</div>
+			</div>
+			<div class="reviews-top-right">
+				<div class="reviews-rating-overall-data">
+					<div class="reviews-rating-overall-title">Overall rating</div>
+					<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
+					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
+				</div>
+				<div class="reviews-rating-overall-data-star">
+					<img src="{{ 'star.svg' | asset_url }}" />
+				</div>
+			</div>			
+		</div>
+		<div class="reviews-list-wrap">
+			<div class="reviews-list" id="multipleReviews"></div>
+			<div class="reviews-list-scrollbar">
+				<div class="reviews-list-scrollbar-thumb"></div>
+			</div>
+		</div>
+		<div class="reviews-bottom">
+			<div class="reviews-bottom-text">
+				Already own Teslogic?
+			</div>
+			<button id="showForm">Write a review</button>
+		</div>
+	</div>
+</div>
+
+<div class="reviews-form-shadow">
+	<div id="reviewsFormWrap" class="reviews-form-wrap">
+		<img class="reviews-form-close" src="{{ 'close-review-form.svg' | asset_url }}">
+		<form class="reviews-form">
+			
+		</form>
+	</div>
+</div>
+
+{% assign product1 = all_products['teslogic-transmitter-kit'] %}
+{% assign product2 = all_products['teslogic-transmitter-kit-v2'] %}
+<script>
+(function() {
+  window.reviewApp = window.reviewApp || {
+    debug: false,
+    reviews: [],
+    reviewUrl: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/',
+    reviewStore: {{ shop.permanent_domain | json }},
+    /* or hard code the myshopify url - eg: freakdesign.myshopify.com */
+  };
+  window.reviewApp.translations = {
+    'missing_id': 'Product ID array not defined',
+    'script_exists': 'The script has already been loaded on the page'
+  };
+  window.reviewApp.productIdList = [ {{- product1.id -}}, {{ product2.id }} ];
+  reviewApp.errLog = function(t) {
+    if (!reviewApp.debug) return
+    console.warn(reviewApp.translations[t])
+  };
+  var getBadges = function(a) {
+    if (typeof a === 'undefined') {
+      errLog('missing_id');
+      return
+    }
+    if (!!document.getElementById('reviewBadges')) {
+      errLog('script_exists');
+      return
+    }
+    window.badgesLoaded = function(a) {
+      console.log(a);
+    };
+    var idString = [];
+    for (var i = a.length - 1; i >= 0; i--) {
+      idString.push('&product_ids[]=' + a[i]);
+    };
+    var script = document.createElement("script");
+    script.id = "reviewBadges";
+    script.async = true;
+    script.src = [window.reviewApp.reviewUrl, 'badges?callback=badgesLoaded&shop=', window.reviewApp.reviewStore, idString.join('')].join('');
+    document.body.appendChild(script);
+  };
+  window.newReviewRating = 0;
+	var totalData = [];
+	var p = 1;
+	var r = 0;
+	totalData[p] = [];
+	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
+	var reviewsContainerHeight = null;
+  window.reviewLoaded = function(a) {
+    window.reviewApp.reviews.push(a);
+    if (window.reviewApp.productIdList.length) {
+      reviewApp.getReviews(window.reviewApp.productIdList);
+      return;
+    };
+		var formLoaded = false;
+		var reviewCount = 0;
+		var sumRatings = 0;
+		let ratingMarks = { mark5: 0, mark4: 0, mark3: 0, mark2: 0, mark1: 0 };
+    for (var i = window.reviewApp.reviews.length - 1; i >= 0; i--) {
+      var tmpDiv = document.createElement('div');
+      tmpDiv.innerHTML = window.reviewApp.reviews[i].reviews;
+      var reviewText = tmpDiv.querySelectorAll('.spr-review-content');
+      var reviewer = tmpDiv.querySelectorAll('.spr-review-header-byline');
+      var title = tmpDiv.querySelectorAll('.spr-review-header-title');
+      var rating = tmpDiv.querySelectorAll('.spr-starratings');
+      // console.log(window.reviewApp.reviews[i].reviews, reviewText.length);
+      for (var _i = 0; _i < reviewText.length; _i++) {
+        let reviewerArray = reviewer[_i].innerText.split('on')
+        let reviewAuthor = reviewerArray[0].trim()
+        let reviewDate = reviewerArray[1].trim()
+        let ratingMark = rating[_i].getAttribute('aria-label').split(' ')[0];
+        let reviewHtml = `
+        	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
+        		<div class="reviews-list-item-top">
+	        		<div class="reviews-list-item-top-left">
+	        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+	        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+	        			<div class="reviews-list-item-stars-mobile product-review-stars">
+	        				<img class="reviews-list-item-stars-mobile-icon" src="${starMobile}" />
+	        				<div class="reviews-list-item-stars-mobile-value">${ratingMark}</div>
+	        			</div>
+	        		</div>
+        			<div class="reviews-list-item-date">${reviewDate}</div>
+        		</div>
+        		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
+        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
+        	</div>
+        `
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml);
+
+				if (r != 0 && r % 5 == 0) {
+					p++;
+					totalData[p] = [];
+				}
+				totalData[p].push(reviewHtml);
+        r++;
+		    ratingMarks[`mark${ratingMark}`]++;
+      };
+
+      var reviewsContainer = document.getElementById('multipleReviews');
+			var reviewItems = document.querySelectorAll('.reviews-list-item');
+
+			var column1Height = 0;
+			var column2Height = 0;
+			var rowGap = 24;
+			var paddingBottom = 76;
+			var maxMobileItemHeight = 440;
+
+			reviewItems.forEach(function(item, index) {
+			  var itemHeight = item.offsetHeight;
+			  if (window.innerWidth < 575 && itemHeight >= maxMobileItemHeight) {
+			  	let itemText = item.querySelector('.reviews-list-item-text');
+					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+					itemText.style.backgroundClip = 'text';
+					itemText.style.webkitBackgroundClip = 'text';
+					itemText.style.webkitTextFillColor = 'transparent';
+					item.setAttribute('data-collapsed', 'true');
+					item.querySelector('.reviews-list-item-expand').style.display = 'block';
+			  }
+			  else {
+					item.querySelector('.reviews-list-item-expand').style.display = 'none';
+			  }
+
+			  if (column1Height <= column2Height) {
+			    column1Height += itemHeight + rowGap;
+			  } else {
+			    column2Height += itemHeight + rowGap;
+			  }
+			});
+
+			reviewsContainerHeight = (Math.max(column1Height, column2Height) - 2 * rowGap + paddingBottom) + 'px'
+
+			if (window.innerWidth >= 575) {
+				reviewsContainer.style.height = reviewsContainerHeight;
+			}
+
+      var tmpScriptDiv = document.createElement('div');
+      tmpScriptDiv.innerHTML = window.reviewApp.reviews[i].aggregate_rating;
+      let aggregateScript = $(tmpScriptDiv).find('script')
+			let reviewsJson = $(aggregateScript).text().trim()
+			if (reviewsJson != '') {
+				let reviewsData = JSON.parse(reviewsJson)
+				reviewCount += Number(reviewsData.reviewCount)
+				sumRatings += Number(reviewsData.ratingValue)
+			}
+
+      // console.log(window.reviewApp.reviews[i].form);
+      var tmpFormDiv = document.createElement('div');
+      tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
+			let form = $(tmpFormDiv).find('.new-review-form')
+
+			if (form.html() != '' && form.html() != undefined && form.html() != 'undefined' && !formLoaded) {
+				$('#reviewsFormWrap')
+					.find('form')
+					.addClass('new-review-form')
+					.attr('id', 'new-review-form_8143253733590')
+					.attr('method', 'post')
+					.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
+					.attr('onsubmit', 'SPR.submitForm(this);return false;')
+				// console.log('Rating')
+				// console.log($(form).find('.spr-form-review-rating').html())
+				let formHtml = `						
+	        <input type="hidden" name="review[rating]">
+	        <input type="hidden" name="product_id" value="8143253733590">
+	        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
+	        <div class="reviews-form-top">
+        		<h3 class="spr-form-title">Write a review</h3>
+        		<div class="reviews-form-field spr-form-review-rating">
+        			<div class="spr-form-review-rating-title">Rate:</div>
+        			<div>${$(form).find('.spr-form-review-rating').find('.spr-form-input.spr-starrating').html()}</div>
+	        	</div>
+	        </div>
+	        <div class="reviews-form-body">
+	        	<div class="reviews-form-field spr-form-contact-name">
+	        		${$(form).find('.spr-form-contact-name').html()}
+	        		<div class="reviews-form-field-error">Please, fill in the field</div>
+	        	</div>
+        		<div class="reviews-form-field spr-form-contact-email">
+        			${$(form).find('.spr-form-contact-email').html()}
+	        		<div class="reviews-form-field-error">Please, fill in the field</div>
+	        	</div>
+	        	<div class="reviews-form-field spr-form-review-body">
+	        		${$(form).find('.spr-form-review-body').html()}
+	        		<div class="reviews-form-field-error">Please, fill in the field</div>
+	        	</div>
+	        </div>
+	        <div class="reviews-form-actions">
+	        	${$(form).find('.spr-form-actions').html()}
+	        </div>
+				`
+				$('#reviewsFormWrap').find('form').html(formHtml)
+				$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
+				$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Send feedback')
+				formLoaded = true
+			}
+    };
+    
+    let summaryRating = sumRatings / window.reviewApp.reviews.length;
+    document.getElementById('totalRatingValue').innerText = Number(summaryRating).toFixed(2);
+    let summaryRatingHtml = `
+    	<span class="spr-starrating spr-summary-starrating" aria-label="${Number(summaryRating).toFixed(1)} of 5 stars" role="img">
+        <i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i><i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+      </span>
+    `
+    document.getElementById('totalRatingStars').insertAdjacentHTML('beforeend', summaryRatingHtml);
+		document.getElementById('totalReviewsCount').insertAdjacentHTML('beforeend', `${reviewCount} reviews`);
+
+    let sumMarks = 0
+    for (const mark in ratingMarks) {
+    	sumMarks += ratingMarks[mark]
+    }
+	  if (sumMarks == reviewCount) {
+      let marksHtml = '';
+      for (let m = 5; m >= 1; m--) {
+      	let fillPercent = ratingMarks[`mark${m}`] / reviewCount * 100;
+      	marksHtml += `
+      		<div class="reviews-rating-stats-mark">
+      			<div class="reviews-rating-stats-mark-star">
+      				<div class="reviews-rating-stats-mark-star-value">${m}</div>
+      				<img class="reviews-rating-stats-mark-star-icon" src="{{ 'star-fill.svg' | asset_url }}">
+      				<div class="reviews-rating-stats-mark-star-line">
+      					<div class="reviews-rating-stats-mark-star-line-fill" style="width: ${fillPercent}%">
+      					</div>
+      				</div>
+      			</div>
+      			<div class="reviews-rating-stats-mark-count">${ratingMarks[`mark${m}`]}</div>
+      		</div>
+      	`;
+      }
+      document.getElementById('reviewsMarks').insertAdjacentHTML('beforeend', marksHtml);
+	  }
+
+	  // console.log(totalData)
+	  // showPage(1)
+  };
+  window.reviewApp.getReviews = function(a) {
+    if (typeof a === 'undefined') {
+      errLog('missing_id');
+      return
+    }
+    var productId = a.shift();
+    var script = document.createElement("script");
+    if (document.getElementById('singleReviewData')) {
+      document.getElementById('singleReviewData').remove(); /* cleanup (optional) */
+    }
+    script.id = 'singleReviewData';
+    script.async = true;
+    script.src = [window.reviewApp.reviewUrl, 'product?callback=reviewLoaded&shop=', window.reviewApp.reviewStore, '&product_id=', productId].join('');
+    document.body.appendChild(script);
+  };
+  reviewApp.getReviews(window.reviewApp.productIdList);
+
+	function showPage(page) {
+		$('#multipleReviews').empty();
+		$('#pagination').empty();
+		for (let reviewHtml of totalData[page]) {
+			document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+		}
+		/*let rws = $($.parseHTML(totalData[page - 1].reviews));
+    $(rws).each(function(index) {
+    	if ($(this).hasClass('spr-review')) {
+				let reviewStars = $(this).find('.spr-starratings').html()
+				let reviewAuthor = '', reviewDate = ''
+				$(this).find('.spr-review-header-byline').find('strong').each(function(index) {
+					if (index == 0) reviewAuthor = $(this).text()
+					else if (index == 1) reviewDate = $(this).text()
+				})
+				let reviewContent = $(this).find('.spr-review-content-body').text()
+        let reviewHtml = `
+        	<div class="reviews-list-item product-review ${index >= 3 && !expanded ? 'reviews-list-item-hidden' : ''}">
+        		<div class="reviews-list-item-top">
+        			<div class="reviews-list-item-stars product-review-stars">${reviewStars}</div>
+        			<div class="reviews-list-item-date">${reviewDate}</div>
+        		</div>
+        		<div class="reviews-list-item-text product-review-text">${reviewContent}</div>
+        		<div class="reviews-list-item-bottom">
+        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+        		</div>
+        	</div>
+        `
+        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+      }
+    	else if ($(this).hasClass('spr-pagination')) {
+    		let pagination = $(this)
+				document.getElementById('pagination').insertAdjacentHTML('beforeend', pagination.html())
+				$('#pagination').find('.spr-pagination-page:not(.is-active), .spr-pagination-prev, .spr-pagination-next').each(function() {
+					$(this).find('a').prop('onclick', null).off('click').removeAttr('onclick')
+				})
+				const prevPageHtml = `
+					<img style="transform: rotate(90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+					<div class="reviews-page-prev-text">Previous</div>
+				`
+				$('#pagination').find('.spr-pagination-prev').find('a').html(prevPageHtml)
+				const nextPageHtml = `
+					<div class="reviews-page-next-text">Next</div>
+					<img style="transform: rotate(-90deg); transform-origin: center" src="{{ 'chevron-down-blue.svg' | asset_url }}">
+				`
+				$('#pagination').find('.spr-pagination-next').find('a').html(nextPageHtml)
+				if (!expanded) $('#pagination').addClass('reviews-pagination-hidden')
+    	}
+    });*/
+	}
+
+	$(window).on('resize', function() {
+		let reviewsContainer = document.getElementById('multipleReviews');
+		if (window.innerWidth >= 575) {
+			reviewsContainer.style.height = reviewsContainerHeight;
+		}
+		else {
+			reviewsContainer.style.height = 'auto';
+		}
+	})
+
+  $(document).ready(function() {
+		var scrollbarThumbWidth = 56
+
+	  var content = document.querySelector('.reviews-list');
+		var scrollbar = document.querySelector('.reviews-list-scrollbar');
+	  var scrollbarThumb = document.querySelector('.reviews-list-scrollbar-thumb');
+
+		scrollbar.addEventListener('mousedown', function (event) {
+		  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+		  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+		  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+		  updateScrollbarThumbPosition();
+		});
+
+		scrollbarThumb.addEventListener('mousedown', function (event) {
+		  var startX = event.clientX;
+		  var startThumbLeft = scrollbarThumb.offsetLeft;
+
+		  function handleMouseMove(event) {
+		    var deltaX = event.clientX - startX;
+		    var newThumbLeft = startThumbLeft + deltaX;
+
+		    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
+
+		    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
+
+		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${scrollbarThumbWidth * newThumbLeftPercentage / 100}px)`;
+		    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
+		  }
+
+		  function handleMouseUp() {
+		    document.removeEventListener('mousemove', handleMouseMove);
+		    document.removeEventListener('mouseup', handleMouseUp);
+		  }
+
+		  document.addEventListener('mousemove', handleMouseMove);
+		  document.addEventListener('mouseup', handleMouseUp);
+		});
+
+	  content.addEventListener('scroll', function () {
+	  	updateScrollbarThumbPosition()
+	  });
+
+		function updateScrollbarThumbPosition() {
+		  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${scrollbarThumbWidth * scrollLeftPercentage / 100}px)`;
+		}
+
+		const slider = document.querySelector('.reviews-list');
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+
+		slider.addEventListener('mousedown', (e) => {
+		  isDown = true;
+		  slider.classList.add('active');
+		  startX = e.pageX - slider.offsetLeft;
+		  scrollLeft = slider.scrollLeft;
+		});
+		slider.addEventListener('mouseleave', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mouseup', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mousemove', (e) => {
+		  if(!isDown) return;
+		  e.preventDefault();
+		  const x = e.pageX - slider.offsetLeft;
+		  const walk = (x - startX) * 1; //scroll-fast
+		  slider.scrollLeft = scrollLeft - walk;
+		  // console.log(walk);
+		});
+  })
+
+	$('#showForm').on('click', function() {
+		$('.new-review-form').css('display', 'block')
+		$('.reviews-form-shadow').css('display', 'flex')
+	})
+	$('.reviews-form-close').on('click', function() {
+		$('.reviews-form-shadow').css('display', 'none')
+	})
+	
+	$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
+		window.newReviewRating = $(this).data('value')
+	})
+
+	$(document).on('click', '.reviews-list-item', function() {
+		let collapsed = $(this).data('collapsed');
+	  let itemText = $(this).find('.reviews-list-item-text');
+		if (collapsed == true) {
+			$(itemText).css('background', 'unset');
+			$(itemText).css('background-clip', 'unset');
+			$(itemText).css('-webkit-background-clip', 'unset');
+			$(itemText).css('-webkit-text-fill-color', 'unset');
+			$(this).css('max-height', 'unset');
+			$(this).data('collapsed', false);
+			return;
+		}
+		else if (collapsed == false) {
+			$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
+			$(itemText).css('background-clip', 'text');
+			$(itemText).css('-webkit-background-clip', 'text');
+			$(itemText).css('-webkit-text-fill-color', 'transparent');
+			$(this).css('max-height', '440px');
+			$(this).data('collapsed', true);
+			return;
+		}
+	})
+
+	$(document).on('click', '.reviews-form-actions .spr-button', function(e) {
+		e.preventDefault()
+		let form = $(this).parents('.new-review-form')
+		let author = $(form).find('.spr-form-contact-name').find('.spr-form-input').val()
+		if (author == '') {
+			$(form)
+				.find('.spr-form-contact-name')
+				.find('.spr-form-input')
+				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-contact-name')
+				.find('.reviews-form-field-error')
+				.show()
+			return
+		}
+		let email = $(form).find('.spr-form-contact-email').find('.spr-form-input').val()
+		if (email == '') {
+			$(form)
+				.find('.spr-form-contact-email')
+				.find('.spr-form-input')
+				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-contact-email')
+				.find('.reviews-form-field-error')
+				.show()
+			return
+		}
+		let comment = $(form).find('.spr-form-review-body').find('.spr-form-input').val()
+		if (comment == '') {
+			$(form)
+				.find('.spr-form-review-body')
+				.find('.spr-form-input')
+				.css('border', '1px solid #FC3E30')
+			$(form)
+				.find('.spr-form-review-body')
+				.find('.reviews-form-field-error')
+				.show()
+			return
+		}
+		let reviewTitle = 'Review of ' + author
+		$(form).find('.review-form-title').val(reviewTitle)
+		// $(form).submit()
+    let formArray = $(form).serializeArray()
+    // let formData = { shop: '8cc6c3.myshopify.com' }
+    let formData = { shop: 'teslogic.myshopify.com' }
+    for (let item of formArray) {
+    	formData[item.name] = item.value
+    }
+
+    if (!formData['review[rating]']) {
+    	formData['review[rating]'] = window.newReviewRating
+    }
+
+    $.ajax({
+      type: "POST",
+      url: 'https://productreviews.shopifycdn.com/proxy/v4/reviews/create',
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      console.log(data);
+      if (data.status == 'success') {
+      	$('.reviews-form-shadow').css('display', 'none')
+      	alert('Your review was added successfully')
+      }
+      else {
+      	alert('Error adding review')
+      }
+    });
+	})
+})();
+</script>
