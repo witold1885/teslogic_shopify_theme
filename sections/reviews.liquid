@@ -69,7 +69,7 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(document).ready(async function() {
 		const api_token = 'IqnbRUjhGpWyJhj71QgpiETJNjI'
 		const shop_domain = 'teslogic.myshopify.com'
 		const getReviewsUrl = `https://judge.me/api/v1/reviews?api_token=${api_token}&shop_domain=${shop_domain}`
@@ -91,7 +91,7 @@
 		        console.error("Error:", error);
 		    }
 		});*/
-		var reviews = fetch(getReviewsUrl)
+		var reviews = await fetch(getReviewsUrl)
 		  .then(response => response.json())
 		  .then(data => { return data });
 		 console.log(reviews)
