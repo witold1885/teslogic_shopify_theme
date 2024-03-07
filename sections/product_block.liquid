@@ -85,7 +85,36 @@
 			</div>
 			<div>
 				<div class="store_block-product-description">{{ product.description }}</div>
-				<div class="store_block-product-select">
+				{% if product.variants.size > 1 %}
+				<div class="product_block-product-select">
+					<div class="product_block-product-select-dropdown-select product_block-product-selected">
+						<span class="product_block-product-select-value">Select model</span>
+						<div class="product_block-product-select-arrow">
+							<img src="{{ 'select_arrow.png' | asset_url }}">
+						</div>
+					</div>
+					<div class="product_block-product-select-dropdown">
+						<div class="product_block-product-select-dropdown-select">
+							<span class="product_block-product-select-value">Select model</span>
+							<div class="product_block-product-select-arrow">
+								<img src="{{ 'select_arrow.png' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="product_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+							>
+								{{ model.title }}
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				{% endif %}
+				<!-- <div class="store_block-product-select">
 					<div class="store_block-product-select-dropdown-select store_block-product-selected">
 						<span class="store_block-product-select-value">Select your Tesla model and year</span>
 						<div class="store_block-product-select-arrow">
@@ -113,7 +142,7 @@
 							</div>
 						{%- endfor -%}
 					</div>
-				</div>
+				</div> -->
 				<!-- <div class="store_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
 					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
