@@ -359,46 +359,46 @@
 			// selectModel('TT12')
 		}
 		// selectModel('TT12')
-		$('.product_block-product-select-dropdown-select').on('click', function() {
-			let dropdown = $(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown')
+		$('.store_block-product-select-dropdown-select').on('click', function() {
+			let dropdown = $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown')
 			if ($(dropdown).is(':visible')) {
 				$(dropdown).css('display', 'none')
 			}
 			else {
 				$(dropdown).css('display', 'flex')
 			}
-			// $(this).parents('.product_block-product-select').find('.product_block-product-select-dropdown').toggle()
+			// $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
-		$('.product_block-product-select-dropdown-item').on('click', function() {
+		$('.store_block-product-select-dropdown-item').on('click', function() {
 			let sku = $(this).data('sku')
 			selectModel(sku)
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
-			if (!$target.closest('.product_block-product-select').length && 
-				!$target.closest('.product_block-product-select-dropdown').length && 
-				$('.product_block-product-select-dropdown').is(":visible")) {
-				$('.product_block-product-select-dropdown').hide()
+			if (!$target.closest('.store_block-product-select').length && 
+				!$target.closest('.store_block-product-select-dropdown').length && 
+				$('.store_block-product-select-dropdown').is(":visible")) {
+				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
 		function selectModel(sku) {
-			let model = $(`.product_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
+			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
-			$('.product_block-product-selected').find('.product_block-product-select-value').text(model.text())			
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
 			if (model.data('compare_at_price')) {
-				$('.product_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
-				$('.product_block-product-price-new').text('$' + (model.data('price') / 100))
-				$('.product_block-product-price-current').hide()
-				$('.product_block-product-price-old').show()
-				$('.product_block-product-price-new').show()
+				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
+				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-current').hide()
+				$('.store_block-product-price-old').show()
+				$('.store_block-product-price-new').show()
 			}
 			else {
-				$('.product_block-product-price-current').text('$' + (model.data('price') / 100))
-				$('.product_block-product-price-old').hide()
-				$('.product_block-product-price-new').hide()
-				$('.product_block-product-price-current').show()
+				$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-old').hide()
+				$('.store_block-product-price-new').hide()
+				$('.store_block-product-price-current').show()
 			}
-			$('.product_block-product-select').find('.product_block-product-select-dropdown').hide()
+			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
 		$('.product_block-product-add').on('click', function() {
