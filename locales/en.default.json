@@ -415,7 +415,8 @@
   "shopify": {
     "checkout": {
       "contact": {
-        "address1_label": "Address (please use only Latin letters)"
+        "address1_label": "Address (please use only Latin letters)",
+        "optional_phone_label": "Phone (Mandatory for non-US customers)"
       }
     }
   }
