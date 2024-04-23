@@ -201,7 +201,7 @@
 		        </div>
 
 		        <div class="reviews-form-actions">
-		        	<button type="button" id="send-feedback" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Send feedback">
+		        	<button type="button" id="send-feedback" class="spr-button spr-button-primary button button-primary btn btn-primary">Send feedback</button>
 		        </div>
 			`
 			$('#reviewsFormWrap').find('form').html(formHtml)
@@ -218,13 +218,14 @@
 			$('.reviews-form-shadow').css('display', 'none')
 		})
 
-		/*$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
+		$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
 			window.newReviewRating = $(this).data('value')
-		})*/
+		})
 
 		$(document).on('click', '#send-feedback', function(e) {
 			e.preventDefault()
 			console.log('Submit!')
+			console.log(window.newReviewRating)
 		})
 	})
 </script>
