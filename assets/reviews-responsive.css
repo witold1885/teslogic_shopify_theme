@@ -247,7 +247,11 @@
 		margin-right: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
 		margin-left: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
 	}
-	.reviews-list {
+	.reviews-list-container {
+		display: none;
+	}
+	.reviews-list-container-mobile {
+		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		overflow-x: scroll;
@@ -260,13 +264,7 @@
 		-ms-overflow-style: none;
     	scrollbar-width: none;
 	}
-	.reviews-list-container {
-		display: none;
-	}
-	.reviews-list-container-mobile {
-		display: flex;
-	}
-	.reviews-list::-webkit-scrollbar {
+	.reviews-list-container-mobile::-webkit-scrollbar {
 	  display: none;
 	}
 	.reviews-list-scrollbar {
