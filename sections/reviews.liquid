@@ -87,6 +87,7 @@
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
 
+		let i = 1
 		let reviewsHtml = []
 		for (const review of reviews) {
 			if (!review.published) continue
@@ -116,6 +117,7 @@
 	        `
 	        reviewsHtml.push(reviewHtml)
 	        document.querySelector('.reviews-list-container-mobile').insertAdjacentHTML('beforeend', reviewHtml)
+	        i++
 		}
 
 		const pageSize = 10
@@ -139,15 +141,15 @@
 			$('.reviews-list-container').each(function () {
 				$(this.empty)
 			})
-			let i = 1
+			let r = 1
 			for (let reviewHtml of pageReviewsHtml) {
-		        if (i % 2 == 0) {	        	
+		        if (r % 2 == 0) {	        	
 		        	document.querySelector('.reviews-list-container-2').insertAdjacentHTML('beforeend', reviewHtml)
 		        }
 		        else {
 		        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
 		        }
-	        	i++
+	        	r++
 	        }
 		}
 
