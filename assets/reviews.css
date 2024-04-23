@@ -197,20 +197,25 @@
 .reviews-pagination-item {
 	width: 24px;
 	height: 24px;
-	color: #000;
+	border-radius: 4px;
+	color: #FFF;
+	text-align: center;
 	font-family: Manrope;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 24px;
-	text-align: center;
 	cursor: pointer;
+}
+.reviews-pagination-item-active {
+	color: #000;
+	background: #FFF;
 }
 .reviews-bottom {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 52px;
+/*	margin-top: 52px;*/
 }
 .reviews-bottom-text {
 	color: #FFF;
