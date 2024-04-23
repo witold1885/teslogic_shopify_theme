@@ -224,7 +224,7 @@
 		})
 
 		$(document).on('keydown', '.spr-form-input', function(e) {
-			$(this).parent('.reviews-form-field').find('.reviews-form-field-error').hide()
+			$(this).parents('.reviews-form-field').find('.reviews-form-field-error').hide()
 		})
 
 		$(document).on('click', '#send-feedback', function(e) {
@@ -243,6 +243,11 @@
 			console.log(email)
 			if (!email) {
 				$(form).find('.spr-form-contact-email').find('.reviews-form-field-error').show()
+			}
+			const body = $(`#review_body_${product_id}`).val()
+			console.log(body)
+			if (!body) {
+				$(form).find('.spr-form-review-body').find('.reviews-form-field-error').show()
 			}
 
 	        /*const response = await fetch(sendReviewUrl, {
