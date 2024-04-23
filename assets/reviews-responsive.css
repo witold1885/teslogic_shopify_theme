@@ -106,9 +106,6 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
-	.reviews-bottom {
-/*		margin-top: calc(52 * 100vw / 1440);*/
-	}
 	.reviews-bottom-text {
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
@@ -347,6 +344,9 @@
 	}
 	.reviews-list-item-expand img {
 		width: 100%;
+	}
+	.reviews-pagination {
+		display: none;
 	}
 	.reviews-bottom {
 		flex-direction: column;
