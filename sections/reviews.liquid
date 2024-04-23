@@ -125,6 +125,11 @@
 
 		paginate()
 
+		const chevronLeftDisabled = '{{ 'chevron-left-grey.svg' | asset_url }}'
+		const chevronLeftActive = '{{ 'chevron-left-white.svg' | asset_url }}'
+		const chevronRightDisabled = '{{ 'chevron-right-grey.svg' | asset_url }}'
+		const chevronRightActive = '{{ 'chevron-right-white.svg' | asset_url }}'
+
 		function paginate (page = 1) {
 			const startIndex = (page - 1) * pageSize;
 			const endIndex = startIndex + pageSize;
@@ -150,13 +155,13 @@
 	        const prevPage = page - 1
 	        const nextPage = page + 1
 
-			let pagination = `<div class="reviews-pagination-item reviews-pagination-item-prev ${prevPage <= 1 ? 'reviews-pagination-item-disabled' : ''}" data-page="${prevPage}">P</div>`
+			let pagination = `<div class="reviews-pagination-item reviews-pagination-item-prev ${prevPage < 1 ? 'reviews-pagination-item-disabled' : ''}" data-page="${prevPage}"><img src="${prevPage < 1 ? chevronLeftDisabled : chevronLeftActive}"></div>`
 
 			for (let p = 1; p <= pagesCount; p++) {
 				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}" data-page="${p}">${p}</div>`
 			}
 
-			pagination += `<div class="reviews-pagination-item reviews-pagination-item-next ${nextPage >= pagesCount ? 'reviews-pagination-item-disabled' : ''}" data-page="${nextPage}">N</div>`
+			pagination += `<div class="reviews-pagination-item reviews-pagination-item-next ${nextPage > pagesCount ? 'reviews-pagination-item-disabled' : ''}" data-page="${nextPage}"><img src="${nextPage > pagesCount ? chevronRightDisabled : chevronRightActive}"></div>`
 
 			$('.reviews-pagination').html(pagination)
 		}

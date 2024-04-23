@@ -207,9 +207,15 @@
 	line-height: 24px;
 	cursor: pointer;
 }
+.reviews-pagination-item img {
+	width: 100%;
+}
 .reviews-pagination-item-active {
 	color: #000;
 	background: #FFF;
+	cursor: default;
+}
+.reviews-pagination-item-disabled {
 	cursor: default;
 }
 .reviews-bottom {
