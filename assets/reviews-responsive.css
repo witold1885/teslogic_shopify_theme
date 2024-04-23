@@ -53,6 +53,7 @@
 	.reviews-rating-overall-data-star {
 		width: calc(64 * 100vw / 1440);
 		height: calc(64 * 100vw / 1440);
+		margin-top: calc(30 * 100vw / 1440);
 	}
 	.reviews-rating-stats-total {
 		font-size: calc(16 * 100vw / 1440);
@@ -220,19 +221,20 @@
 	.reviews-top-supinfo {
 		grid-column-gap: calc(12 * 100vw / 375);
 	}
-	.reviews-top-supinfo-stars .spr-starrating {
+	.reviews-top-supinfo-stars {
 		grid-column-gap: calc(8 * 100vw / 375);
 	}
-	.reviews-top-supinfo-stars .spr-icon {
+	.reviews-top-supinfo-stars img {
 		width: calc(20 * 100vw / 375);
 		height: calc(20 * 100vw / 375); 
-	}
-	.reviews-top-supinfo-stars .spr-icon::before {
-		font-size: calc(20 * 100vw / 375);
 	}
 	.reviews-top-supinfo-text {
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
+	}
+	.reviews-top-supinfo-judge {
+		width: calc(80.769 * 100vw / 375);
+		height: calc(20 * 100vw / 375);
 	}
 	.reviews-title {
 		font-size: calc(32 * 100vw / 375);
