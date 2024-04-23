@@ -18,16 +18,17 @@
 	.reviews-top-supinfo-stars {
 		grid-column-gap: calc(8 * 100vw / 1440);
 	}
-	.reviews-top-supinfo-stars .spr-icon {
+	.reviews-top-supinfo-stars img {
 		width: calc(32 * 100vw / 1440);
 		height: calc(32 * 100vw / 1440);
-	}
-	.reviews-top-supinfo-stars .spr-icon::before {
-		font-size: calc(32 * 100vw / 1440);
 	}
 	.reviews-top-supinfo-text {
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
+	}
+	.reviews-top-supinfo-judge {
+		width: 129.231px;
+		height: 32px;
 	}
 	.reviews-title {
 		font-size: calc(52 * 100vw / 1440);
