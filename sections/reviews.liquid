@@ -81,7 +81,8 @@
 		 console.log('reviews', reviews)
 		let i = 1
 		for (const review of reviews) {
-			const reviewDate = review.created_at.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+			const reviewDate = new Date(review.created_at)
+			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
@@ -93,7 +94,7 @@
 		        				<div class="reviews-list-item-stars-mobile-value">${review.rating}</div>
 		        			</div>
 		        		</div>
-	        			<div class="reviews-list-item-date">${reviewDate}</div>
+	        			<div class="reviews-list-item-date">${formattedDate}</div>
 	        		</div>
 	        		<div class="reviews-list-item-text product-review-text">${review.body}</div>
 	        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
