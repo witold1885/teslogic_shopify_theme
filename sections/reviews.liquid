@@ -128,7 +128,7 @@
 		const chevronRightDisabled = '{{ 'chevron-right-grey.svg' | asset_url }}'
 		const chevronRightActive = '{{ 'chevron-right-white.svg' | asset_url }}'
 
-		if (window.innerWidth >= 575) paginate()
+		paginate()
 
 		function paginate (page = 1) {
 			const startIndex = (page - 1) * pageSize;
@@ -259,9 +259,11 @@
 		var rowGap = 24;
 		var paddingBottom = 76;
 		var maxMobileItemHeight = 440 * window.innerWidth / 375;
+		console.log('maxMobileItemHeight', maxMobileItemHeight)
 
 		reviewItems.forEach(function(item, index) {
 		  var itemHeight = item.offsetHeight;
+		console.log('itemHeight', itemHeight)
 		  if (window.innerWidth < 575) {
 			  if (itemHeight >= maxMobileItemHeight) {
 			  	let itemText = item.querySelector('.reviews-list-item-text');
