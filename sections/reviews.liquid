@@ -119,8 +119,16 @@
 		}
 
 		const pageSize = 20
-		const pagesCount = Math.ceil(reviewsHtml.lenth / pageSize)
-		console.log(pagesCount)
+		const pagesCount = Math.ceil(reviewsHtml.length / pageSize)
+		console.log('pagesCount', pagesCount)
+
+		let pagination = ''
+
+		for (let p = 1; p <= pagesCount; p++) {
+			pagination += `<div class="reviews-pagination-item">${p}</div>`
+		}
+
+		$('.reviews-pagination').html(pagination)
 
 		paginate()
 
@@ -141,7 +149,6 @@
 		        }
 	        	i++
 	        }
-			return reviewsHtml.slice(startIndex, endIndex);
 		}
 
 		var scrollbarThumbWidth = 56
