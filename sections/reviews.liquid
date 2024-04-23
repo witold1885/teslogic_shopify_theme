@@ -73,6 +73,7 @@
 	var formLoaded = false;
 	$(document).ready(async function() {
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
+		const sendReviewUrl = 'https://api.teslogic.co/send-review'
 		// console.log(getReviewsUrl)
 		var reviews = await fetch(getReviewsUrl)
 		 	.then(response => response.json())
@@ -226,6 +227,17 @@
 			e.preventDefault()
 			console.log('Submit!')
 			console.log(window.newReviewRating)
+			const id = $('#reviewsFormWrap').find('form').find('input[name="product_id"]').val()
+			console.log(id)
+
+	        /*const response = await fetch(sendReviewUrl, {
+	            method: 'post',
+	            body,
+	            headers: {'Content-Type': 'application/json'}
+	        })
+	        const data = await response.json()
+	        console.log(response.status)
+	        console.log(data)*/
 		})
 	})
 </script>
