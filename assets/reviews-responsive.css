@@ -96,7 +96,7 @@
 		line-height: calc(24 * 100vw / 1440);
 	}
 	.reviews-bottom {
-		margin-top: calc(52 * 100vw / 1440);
+/*		margin-top: calc(52 * 100vw / 1440);*/
 	}
 	.reviews-bottom-text {
 		font-size: calc(52 * 100vw / 1440);
