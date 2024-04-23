@@ -250,7 +250,7 @@
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
 				$(itemText).css('-webkit-text-fill-color', 'transparent');
-				$(this).css('max-height', '440px');
+				$(this).css('max-height', 'calc(440 * 100vw / 375)');
 				$(this).data('collapsed', true);
 				return;
 			}
