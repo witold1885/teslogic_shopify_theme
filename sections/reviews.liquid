@@ -81,7 +81,7 @@
 		 console.log('reviews', reviews)
 		let i = 1
 		for (const review of reviews) {
-			const reviewDate = review.created_at
+			const reviewDate = review.created_at.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
