@@ -266,6 +266,7 @@
 	        const data = await response.json()
 	        if (response.status == 200) {
 	        	$('.reviews-form-shadow').css('display', 'none')
+	        	window.location.reload(true)
 	        }
 	        else {
 	        	console.log(data)
