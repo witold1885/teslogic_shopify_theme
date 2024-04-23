@@ -54,6 +54,7 @@
 				<div class="reviews-list-scrollbar-thumb"></div>
 			</div>
 		</div>
+		<div class="reviews-pagination"></div>
 		<div class="reviews-bottom">
 			<div class="reviews-bottom-text">
 				Already own Teslogic?
@@ -78,16 +79,20 @@
 	$(document).ready(async function() {
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
+		var page = 1
 
-		var reviews = await fetch(getReviewsUrl)
+		/*var reviews = await fetch(getReviewsUrl)
 		 	.then(response => response.json())
 		 	.then(result => {
-				return result.success ? result.data.reviews : []
-			})
-		 console.log('reviews', reviews)
+				return result.success ? result.reviews : []
+			})*/
+        const response = await fetch(getReviewsUrl)
+        const data = await response.json()
+        const { totalCount, avgRating, reviews } = data
+
 		let i = 1
-		let summaryRating = 0
-		let reviewsCount = 0
+		// let summaryRating = 0
+		// let reviewsCount = 0
 		for (const review of reviews) {
 			if (!review.published) continue
 			const reviewDate = new Date(review.created_at)
@@ -97,8 +102,8 @@
 				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
 				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
-			summaryRating += review.rating
-			reviewsCount++
+			// summaryRating += review.rating
+			// reviewsCount++
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
@@ -127,15 +132,14 @@
 	        i++
 		}
 
-		const totalRatingValue = summaryRating / reviewsCount
-		document.getElementById('totalRatingValue').innerText = Number(totalRatingValue).toFixed(2)
-		document.getElementById('totalReviewsCount').innerText = `${reviewsCount} reviews`
+		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
+		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
 
 		var scrollbarThumbWidth = 56
 
-	  var content = document.querySelector('.reviews-list-container-mobile');
+	  	var content = document.querySelector('.reviews-list-container-mobile');
 		var scrollbar = document.querySelector('.reviews-list-scrollbar');
-	  var scrollbarThumb = document.querySelector('.reviews-list-scrollbar-thumb');
+	  	var scrollbarThumb = document.querySelector('.reviews-list-scrollbar-thumb');
 
 		scrollbar.addEventListener('mousedown', function (event) {
 		  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
