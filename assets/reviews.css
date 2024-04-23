@@ -186,6 +186,9 @@
 	font-weight: 500;
 	line-height: 24px;
 }
+.reviews-pagination {
+	display: flex;
+}
 .reviews-bottom {
 	display: flex;
 	justify-content: space-between;
