@@ -154,7 +154,7 @@
 				.attr('id', 'new-review-form_8143253733590')
 				// .attr('method', 'post')
 				// .attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
-				.attr('onsubmit', 'submitForm(this)')
+				// .attr('onsubmit', 'submitForm(this)')
 
 			let formHtml = `						
 		        <input type="hidden" name="review[rating]">
@@ -201,12 +201,12 @@
 		        </div>
 
 		        <div class="reviews-form-actions">
-		        	<input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Send feedback">
+		        	<button type="button" id="send-feedback" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Send feedback">
 		        </div>
 			`
 			$('#reviewsFormWrap').find('form').html(formHtml)
-			$('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
-			$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Send feedback')
+			// $('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
+			// $('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Send feedback')
 			formLoaded = true
 		}
 
@@ -218,9 +218,13 @@
 			$('.reviews-form-shadow').css('display', 'none')
 		})
 
-		function submitForm(form) {
+		/*$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
+			window.newReviewRating = $(this).data('value')
+		})*/
+
+		$(document).on('click', '#send-feedback', function(e) {
+			e.preventDefault()
 			console.log('Submit!')
-			console.log(form)
-		}
+		})
 	})
 </script>
