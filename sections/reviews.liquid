@@ -122,15 +122,6 @@
 
 		const pageSize = 10
 		const pagesCount = Math.ceil(reviewsHtml.length / pageSize)
-		console.log('pagesCount', pagesCount)
-
-		let pagination = ''
-
-		for (let p = 1; p <= pagesCount; p++) {
-			pagination += `<div class="reviews-pagination-item">${p}</div>`
-		}
-
-		$('.reviews-pagination').html(pagination)
 
 		paginate()
 
@@ -138,9 +129,11 @@
 			const startIndex = (page - 1) * pageSize;
 			const endIndex = startIndex + pageSize;
 			pageReviewsHtml = reviewsHtml.slice(startIndex, endIndex);
+
 			$('.reviews-list-container').each(function () {
 				$(this.empty)
 			})
+
 			let r = 1
 			for (let reviewHtml of pageReviewsHtml) {
 		        if (r % 2 == 0) {	        	
@@ -151,6 +144,14 @@
 		        }
 	        	r++
 	        }
+
+			let pagination = ''
+
+			for (let p = 1; p <= pagesCount; p++) {
+				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}">${p}</div>`
+			}
+
+			$('.reviews-pagination').html(pagination)
 		}
 
 		var scrollbarThumbWidth = 56
