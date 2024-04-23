@@ -209,5 +209,13 @@
 			$('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Send feedback')
 			formLoaded = true
 		}
+
+		$('#showForm').on('click', function() {
+			$('.new-review-form').css('display', 'block')
+			$('.reviews-form-shadow').css('display', 'flex')
+		})
+		$('.reviews-form-close').on('click', function() {
+			$('.reviews-form-shadow').css('display', 'none')
+		})
 	})
 </script>
