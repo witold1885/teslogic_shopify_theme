@@ -45,7 +45,10 @@
 			</div>			
 		</div>
 		<div class="reviews-list-wrap">
-			<div class="reviews-list" id="multipleReviews"></div>
+			<div class="reviews-list" id="multipleReviews">
+				<div class="reviews-list-container-1"></div>
+				<div class="reviews-list-container-2"></div>
+			</div>
 			<div class="reviews-list-scrollbar">
 				<div class="reviews-list-scrollbar-thumb"></div>
 			</div>
@@ -112,7 +115,13 @@
 	        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
 	        	</div>
 	        `
-	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+	        // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+	        if (i % 2 == 0) {	        	
+	        	document.querySelector('.reviews-list-container-2').insertAdjacentHTML('beforeend', reviewHtml)
+	        }
+	        else {
+	        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
+	        }
 	        i++
 		}
 
@@ -120,7 +129,7 @@
 		document.getElementById('totalRatingValue').innerText = Number(totalRatingValue).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${reviewsCount} reviews`
 
-      	var reviewsContainer = document.getElementById('multipleReviews');
+      	/*var reviewsContainer = document.getElementById('multipleReviews');
 		var reviewItems = document.querySelectorAll('.reviews-list-item');
 
 		var column1Height = 0;
@@ -155,7 +164,7 @@
 
 		if (window.innerWidth >= 575) {
 			reviewsContainer.style.height = reviewsContainerHeight;
-		}
+		}*/
 
 		if (!formLoaded) {
 			$('#reviewsFormWrap')
