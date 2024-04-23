@@ -123,12 +123,12 @@
 		const pageSize = 10
 		const pagesCount = Math.ceil(reviewsHtml.length / pageSize)
 
-		paginate()
-
 		const chevronLeftDisabled = '{{ 'chevron-left-grey.svg' | asset_url }}'
 		const chevronLeftActive = '{{ 'chevron-left-white.svg' | asset_url }}'
 		const chevronRightDisabled = '{{ 'chevron-right-grey.svg' | asset_url }}'
 		const chevronRightActive = '{{ 'chevron-right-white.svg' | asset_url }}'
+
+		paginate()
 
 		function paginate (page = 1) {
 			const startIndex = (page - 1) * pageSize;
