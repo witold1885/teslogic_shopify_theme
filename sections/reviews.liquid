@@ -262,22 +262,23 @@
 		console.log('maxMobileItemHeight', maxMobileItemHeight)
 
 		reviewItems.forEach(function(item, index) {
-		  var itemHeight = item.offsetHeight;
-		console.log('itemHeight', itemHeight)
-		  if (window.innerWidth < 575) {
-			  if (itemHeight >= maxMobileItemHeight) {
-			  	let itemText = item.querySelector('.reviews-list-item-text');
-					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
-					itemText.style.backgroundClip = 'text';
-					itemText.style.webkitBackgroundClip = 'text';
-					itemText.style.webkitTextFillColor = 'transparent';
-					item.setAttribute('data-collapsed', 'true');
-					item.querySelector('.reviews-list-item-expand').style.display = 'block';
-			  }
-			  else {
+		  	var itemHeight = item.offsetHeight;
+			console.log('itemHeight', itemHeight)
+		  	if (window.innerWidth < 575) {
+			  	if (itemHeight >= maxMobileItemHeight) {
+					console.log('itemHeight > maxMobileItemHeight')
+				  	let itemText = item.querySelector('.reviews-list-item-text');
+						itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+						itemText.style.backgroundClip = 'text';
+						itemText.style.webkitBackgroundClip = 'text';
+						itemText.style.webkitTextFillColor = 'transparent';
+						item.setAttribute('data-collapsed', 'true');
+						item.querySelector('.reviews-list-item-expand').style.display = 'block';
+			  	}
+			  	else {
 					item.querySelector('.reviews-list-item-expand').style.display = 'none';
-			  }
-		  }
+			  	}
+		  	}
 		})
 
 		$(document).on('click', '.reviews-list-item', function() {
