@@ -227,8 +227,10 @@
 			e.preventDefault()
 			console.log('Submit!')
 			console.log(window.newReviewRating)
-			const id = $('#reviewsFormWrap').find('form').find('input[name="product_id"]').val()
-			console.log(id)
+			const product_id = $('#reviewsFormWrap').find('form').find('input[name="product_id"]').val()
+			console.log(product_id)
+			const name = $(`#review_author_${product_id}`).val()
+			console.log(name)
 
 	        /*const response = await fetch(sendReviewUrl, {
 	            method: 'post',
