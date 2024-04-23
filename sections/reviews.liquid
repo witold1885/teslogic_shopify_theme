@@ -147,17 +147,22 @@
 
 	        $('.reviews-pagination').empty()
 
-			let pagination = ''
+	        const prevPage = page - 1
+	        const nextPage = page + 1
+
+			let pagination = `<div class="reviews-pagination-item reviews-pagination-item-prev ${prevPage <= 1 ? 'reviews-pagination-item-disabled' : ''}">prevPage</div>`
 
 			for (let p = 1; p <= pagesCount; p++) {
 				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}" data-page="${p}">${p}</div>`
 			}
 
+			pagination += `<div class="reviews-pagination-item reviews-pagination-item-next ${nextPage >= pagesCount ? 'reviews-pagination-item-disabled' : ''}" data-page="${p}">nextPage</div>`
+
 			$('.reviews-pagination').html(pagination)
 		}
 
 		$(document).on('click', '.reviews-pagination-item', function() {
-			if (!$(this).hasClass('reviews-pagination-item-active')) {
+			if (!$(this).hasClass('reviews-pagination-item-active') && !(this).hasClass('reviews-pagination-item-disabled')) {
 				let page = $(this).data('page')
 				paginate(page)
 			}
