@@ -84,9 +84,10 @@
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
 
+		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
+		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
+
 		let reviewsHtml = []
-		// let summaryRating = 0
-		// let reviewsCount = 0
 		for (const review of reviews) {
 			if (!review.published) continue
 			const reviewDate = new Date(review.created_at)
@@ -96,8 +97,6 @@
 				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
 				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
-			// summaryRating += review.rating
-			// reviewsCount++
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
@@ -116,19 +115,16 @@
 	        	</div>
 	        `
 	        reviewsHtml.push(reviewHtml)
-	        // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
-	        /*if (i % 2 == 0) {	        	
-	        	document.querySelector('.reviews-list-container-2').insertAdjacentHTML('beforeend', reviewHtml)
-	        }
-	        else {
-	        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
-	        }*/
 	        document.querySelector('.reviews-list-container-mobile').insertAdjacentHTML('beforeend', reviewHtml)
 		}
 
+		const pageSize = 20
+		const pagesCount = Math.ceil(reviewsHtml.lenth / pageSize)
+		console.log(pagesCount)
+
 		paginate()
 
-		function paginate (page = 1, pageSize = 20) {
+		function paginate (page = 1) {
 			const startIndex = (page - 1) * pageSize;
 			const endIndex = startIndex + pageSize;
 			pageReviewsHtml = reviewsHtml.slice(startIndex, endIndex);
@@ -147,9 +143,6 @@
 	        }
 			return reviewsHtml.slice(startIndex, endIndex);
 		}
-
-		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
-		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
 
 		var scrollbarThumbWidth = 56
 
