@@ -272,6 +272,7 @@
 						itemText.style.backgroundClip = 'text';
 						itemText.style.webkitBackgroundClip = 'text';
 						itemText.style.webkitTextFillColor = 'transparent';
+						item.style.maxHeight = maxMobileItemHeight;
 						item.setAttribute('data-collapsed', 'true');
 						item.querySelector('.reviews-list-item-expand').style.display = 'block';
 			  	}
@@ -283,7 +284,7 @@
 
 		$(document).on('click', '.reviews-list-item', function() {
 			let collapsed = $(this).data('collapsed');
-		  let itemText = $(this).find('.reviews-list-item-text');
+		  	let itemText = $(this).find('.reviews-list-item-text');
 			if (collapsed == true) {
 				$(itemText).css('background', 'unset');
 				$(itemText).css('background-clip', 'unset');
