@@ -103,5 +103,43 @@
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
 	        i++
 		}
+
+      var reviewsContainer = document.getElementById('multipleReviews');
+			var reviewItems = document.querySelectorAll('.reviews-list-item');
+
+			var column1Height = 0;
+			var column2Height = 0;
+			var rowGap = 24;
+			var paddingBottom = 76;
+			var maxMobileItemHeight = 440;
+
+			reviewItems.forEach(function(item, index) {
+			  var itemHeight = item.offsetHeight;
+			  if (window.innerWidth < 575 && itemHeight >= maxMobileItemHeight) {
+			  	let itemText = item.querySelector('.reviews-list-item-text');
+					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+					itemText.style.backgroundClip = 'text';
+					itemText.style.webkitBackgroundClip = 'text';
+					itemText.style.webkitTextFillColor = 'transparent';
+					item.setAttribute('data-collapsed', 'true');
+					item.querySelector('.reviews-list-item-expand').style.display = 'block';
+			  }
+			  else {
+					item.querySelector('.reviews-list-item-expand').style.display = 'none';
+			  }
+
+			  if (column1Height <= column2Height) {
+			    column1Height += itemHeight + rowGap;
+			  } else {
+			    column2Height += itemHeight + rowGap;
+			  }
+			});
+
+			reviewsContainerHeight = (Math.max(column1Height, column2Height) - 2 * rowGap + paddingBottom) + 'px'
+
+			if (window.innerWidth >= 575) {
+				reviewsContainer.style.height = reviewsContainerHeight;
+			}
+
 	})
 </script>
