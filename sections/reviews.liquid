@@ -131,6 +131,80 @@
 		document.getElementById('totalRatingValue').innerText = Number(totalRatingValue).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${reviewsCount} reviews`
 
+		var scrollbarThumbWidth = 56
+
+	  var content = document.querySelector('.reviews-list-container-mobile');
+		var scrollbar = document.querySelector('.reviews-list-scrollbar');
+	  var scrollbarThumb = document.querySelector('.reviews-list-scrollbar-thumb');
+
+		scrollbar.addEventListener('mousedown', function (event) {
+		  var offsetX = event.clientX - scrollbar.getBoundingClientRect().left;
+		  var scrollLeftPercentage = (offsetX / scrollbar.clientWidth) * 100;
+		  content.scrollLeft = (content.scrollWidth - content.clientWidth) * (scrollLeftPercentage / 100);
+		  updateScrollbarThumbPosition();
+		});
+
+		scrollbarThumb.addEventListener('mousedown', function (event) {
+		  var startX = event.clientX;
+		  var startThumbLeft = scrollbarThumb.offsetLeft;
+
+		  function handleMouseMove(event) {
+		    var deltaX = event.clientX - startX;
+		    var newThumbLeft = startThumbLeft + deltaX;
+
+		    newThumbLeft = Math.max(0, Math.min(newThumbLeft, scrollbar.clientWidth));
+
+		    var newThumbLeftPercentage = (newThumbLeft / scrollbar.clientWidth) * 100;
+
+		    scrollbarThumb.style.left = `calc(${newThumbLeftPercentage}% - ${scrollbarThumbWidth * newThumbLeftPercentage / 100}px)`;
+		    content.scrollLeft = (content.scrollWidth - content.clientWidth) * (newThumbLeftPercentage / 100);
+		  }
+
+		  function handleMouseUp() {
+		    document.removeEventListener('mousemove', handleMouseMove);
+		    document.removeEventListener('mouseup', handleMouseUp);
+		  }
+
+		  document.addEventListener('mousemove', handleMouseMove);
+		  document.addEventListener('mouseup', handleMouseUp);
+		});
+
+	  content.addEventListener('scroll', function () {
+	  	updateScrollbarThumbPosition()
+	  });
+
+		function updateScrollbarThumbPosition() {
+		  let scrollLeftPercentage = (content.scrollLeft / (content.scrollWidth - content.clientWidth)) * 100;
+		  scrollbarThumb.style.left = `calc(${scrollLeftPercentage}% - ${scrollbarThumbWidth * scrollLeftPercentage / 100}px)`;
+		}
+
+		const slider = document.querySelector('.reviews-list-container-mobile');
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+
+		slider.addEventListener('mousedown', (e) => {
+		  isDown = true;
+		  slider.classList.add('active');
+		  startX = e.pageX - slider.offsetLeft;
+		  scrollLeft = slider.scrollLeft;
+		});
+		slider.addEventListener('mouseleave', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mouseup', () => {
+		  isDown = false;
+		  slider.classList.remove('active');
+		});
+		slider.addEventListener('mousemove', (e) => {
+		  if(!isDown) return;
+		  e.preventDefault();
+		  const x = e.pageX - slider.offsetLeft;
+		  const walk = (x - startX) * 1; //scroll-fast
+		  slider.scrollLeft = scrollLeft - walk;
+		  // console.log(walk);
+		});
       	/*var reviewsContainer = document.getElementById('multipleReviews');
 		var reviewItems = document.querySelectorAll('.reviews-list-item');
 
