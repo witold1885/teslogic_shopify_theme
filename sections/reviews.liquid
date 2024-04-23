@@ -25,7 +25,13 @@
 		<div class="reviews-top">
 			<div class="reviews-top-left">
 				<div class="reviews-top-supinfo">
-					<div class="reviews-top-supinfo-stars" id="totalRatingStars"></div>
+					<div class="reviews-top-supinfo-stars" id="totalRatingStars">
+						<img src="{{ 'star-white.svg' | asset_url }}">
+						<img src="{{ 'star-white.svg' | asset_url }}">
+						<img src="{{ 'star-white.svg' | asset_url }}">
+						<img src="{{ 'star-white.svg' | asset_url }}">
+						<img src="{{ 'star-white.svg' | asset_url }}">
+					</div>
 					<div class="reviews-top-supinfo-text">Teslogic Reviews</div>					
 				</div>
 				<div class="reviews-title">
@@ -259,14 +265,11 @@
 		var rowGap = 24;
 		var paddingBottom = 76;
 		var maxMobileItemHeight = 440 * window.innerWidth / 375;
-		console.log('maxMobileItemHeight', maxMobileItemHeight)
 
 		reviewItems.forEach(function(item, index) {
 		  	var itemHeight = item.offsetHeight;
-			console.log('itemHeight', itemHeight)
 		  	if (window.innerWidth < 575) {
 			  	if (itemHeight >= maxMobileItemHeight) {
-					console.log('itemHeight > maxMobileItemHeight')
 				  	let itemText = item.querySelector('.reviews-list-item-text');
 						itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
 						itemText.style.backgroundClip = 'text';

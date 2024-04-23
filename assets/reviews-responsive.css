@@ -299,7 +299,6 @@
 		width: calc(304 * 100vw / 375);
 		grid-row-gap: calc(16 * 100vw / 375);
 		padding: calc(24 * 100vw / 375);
-/*		max-height: calc(440 * 100vw / 375);*/
 	}
 	.reviews-list-item-top {
 		width: calc(256 * 100vw / 375);
