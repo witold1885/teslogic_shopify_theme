@@ -70,31 +70,33 @@
 
 <script type="text/javascript">
 	$(document).ready(async function() {
-		/*const api_token = 'IqnbRUjhGpWyJhj71QgpiETJNjI'
-		const shop_domain = 'teslogic.myshopify.com'
-		const getReviewsUrl = `https://judge.me/api/v1/reviews?api_token=${api_token}&shop_domain=${shop_domain}`*/
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
-		console.log(getReviewsUrl)
-		/*$.get(getReviewsUrl).then((response) => {
-			console.log(response)
-		})*/
-		/*$.ajax({
-		    url: "https://judge.me/api/v1/reviews",
-		    dataType: "json", // Вказуємо тип запиту
-		    data: {
-		        api_token: api_token,
-		        shop_domain: shop_domain
-		    },
-		    success: function(response) {
-		        console.log(response);
-		    },
-		    error: function(xhr, status, error) {
-		        console.error("Error:", error);
-		    }
-		});*/
+		// console.log(getReviewsUrl)
 		var reviews = await fetch(getReviewsUrl)
-		  .then(response => response.json())
-		  .then(result => { return result.success ? result.data.reviews : [] });
+		 	.then(response => response.json())
+		 	.then(result => {
+				return result.success ? result.data.reviews : []
+			})
 		 console.log('reviews', reviews)
+		for (const review of reviews) {
+	        const reviewHtml = `
+	        	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
+	        		<div class="reviews-list-item-top">
+		        		<div class="reviews-list-item-top-left">
+		        			<div class="reviews-list-item-author">${reviewAuthor}</div>
+		        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+		        			<div class="reviews-list-item-stars-mobile product-review-stars">
+		        				<img class="reviews-list-item-stars-mobile-icon" src="${starMobile}" />
+		        				<div class="reviews-list-item-stars-mobile-value">${ratingMark}</div>
+		        			</div>
+		        		</div>
+	        			<div class="reviews-list-item-date">${reviewDate}</div>
+	        		</div>
+	        		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
+	        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
+	        	</div>
+	        `
+	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+		}
 	})
 </script>
