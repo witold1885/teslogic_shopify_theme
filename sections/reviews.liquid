@@ -227,7 +227,7 @@
 			$(this).parents('.reviews-form-field').find('.reviews-form-field-error').hide()
 		})
 
-		$(document).on('click', '#send-feedback', function(e) {
+		$(document).on('click', '#send-feedback', async function(e) {
 			e.preventDefault()
 
 			const form = $('#reviewsFormWrap').find('form')
