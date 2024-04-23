@@ -124,7 +124,6 @@
 	        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
 	        }*/
 	        document.querySelector('.reviews-list-container-mobile').insertAdjacentHTML('beforeend', reviewHtml)
-	        i++
 		}
 
 		paginate()
@@ -144,6 +143,7 @@
 		        else {
 		        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
 		        }
+	        	i++
 	        }
 			return reviewsHtml.slice(startIndex, endIndex);
 		}
