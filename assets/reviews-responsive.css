@@ -35,7 +35,7 @@
 		line-height: calc(64 * 100vw / 1440);
 	}
 	.reviews-top-right {
-		grid-row-gap: calc(8 * 100vw / 1440);
+		grid-column-gap: calc(16 * 100vw / 1440);
 	}
 	.reviews-rating-overall-title {
 		font-size: calc(16 * 100vw / 1440);
@@ -43,7 +43,6 @@
 		margin-bottom: calc(10 * 100vw / 1440);
 	}
 	.reviews-rating-overall-data {
-		grid-column-gap: calc(16 * 100vw / 1440);
 		margin-bottom: calc(14 * 100vw / 1440);
 	}
 	.reviews-rating-overall-data-value {
