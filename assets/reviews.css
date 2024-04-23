@@ -81,7 +81,8 @@
 }
 .reviews-rating-overall-data-star {
 	width: 64px;
-	height: 64px; 
+	height: 64px;
+	margin-top: 30px;
 }
 .reviews-rating-overall-data-star img {
 	width: 100%; 
