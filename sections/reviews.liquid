@@ -83,6 +83,7 @@
 		 console.log('reviews', reviews)
 		let i = 1
 		let summaryRating = 0
+		let reviewsCount = 0
 		for (const review of reviews) {
 			if (!review.published) continue
 			const reviewDate = new Date(review.created_at)
@@ -93,6 +94,7 @@
 				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
 			summaryRating += review.rating
+			reviewsCount++
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
@@ -114,9 +116,9 @@
 	        i++
 		}
 
-		const totalRatingValue = summaryRating / reviews.length
+		const totalRatingValue = summaryRating / reviewsCount
 		document.getElementById('totalRatingValue').innerText = Number(totalRatingValue).toFixed(2)
-		document.getElementById('totalReviewsCount').innerText = `${reviews.length} reviews`
+		document.getElementById('totalReviewsCount').innerText = `${reviewsCount} reviews`
 
       	var reviewsContainer = document.getElementById('multipleReviews');
 		var reviewItems = document.querySelectorAll('.reviews-list-item');
