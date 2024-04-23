@@ -86,12 +86,8 @@
 			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 			let starsHtml = ''
 			for (let s = 1; s <= 5; s++) {
-				if (s <= review.rating) {
-					starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
-				}
-				else {
-					starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
-				}
+				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
+				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
@@ -151,20 +147,15 @@
 			reviewsContainer.style.height = reviewsContainerHeight;
 		}
 
-		// var tmpFormDiv = document.createElement('div');
-		// tmpFormDiv.innerHTML = window.reviewApp.reviews[i].form;
-		// let form = $(tmpFormDiv).find('.new-review-form')
-
-		if (/*form.html() != '' && form.html() != undefined && form.html() != 'undefined' && */!formLoaded) {
+		if (!formLoaded) {
 			$('#reviewsFormWrap')
 				.find('form')
 				.addClass('new-review-form')
 				.attr('id', 'new-review-form_8143253733590')
-				.attr('method', 'post')
-				.attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
-				.attr('onsubmit', 'SPR.submitForm(this);return false;')
-			// console.log('Rating')
-			// console.log($(form).find('.spr-form-review-rating').html())
+				// .attr('method', 'post')
+				// .attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
+				.attr('onsubmit', 'submitForm(this)')
+
 			let formHtml = `						
 		        <input type="hidden" name="review[rating]">
 		        <input type="hidden" name="product_id" value="8143253733590">
@@ -226,5 +217,10 @@
 		$('.reviews-form-close').on('click', function() {
 			$('.reviews-form-shadow').css('display', 'none')
 		})
+
+		function submitForm(form) {
+			console.log('Submit!')
+			console.log(form)
+		}
 	})
 </script>
