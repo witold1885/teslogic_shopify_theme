@@ -69,6 +69,7 @@
 </div>
 
 <script type="text/javascript">
+	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	$(document).ready(async function() {
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		// console.log(getReviewsUrl)
@@ -78,25 +79,28 @@
 				return result.success ? result.data.reviews : []
 			})
 		 console.log('reviews', reviews)
+		let i = 1
 		for (const review of reviews) {
+			const reviewDate = review.created_at
 	        const reviewHtml = `
-	        	<div class="reviews-list-item product-review" id="review-${i}-${_i}">
+	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
 		        		<div class="reviews-list-item-top-left">
-		        			<div class="reviews-list-item-author">${reviewAuthor}</div>
-		        			<div class="reviews-list-item-stars product-review-stars">${rating[_i].innerHTML}</div>
+		        			<div class="reviews-list-item-author">${review.reviewer.name}</div>
+		        			<div class="reviews-list-item-stars product-review-stars">${review.rating}</div>
 		        			<div class="reviews-list-item-stars-mobile product-review-stars">
 		        				<img class="reviews-list-item-stars-mobile-icon" src="${starMobile}" />
-		        				<div class="reviews-list-item-stars-mobile-value">${ratingMark}</div>
+		        				<div class="reviews-list-item-stars-mobile-value">${review.rating}</div>
 		        			</div>
 		        		</div>
 	        			<div class="reviews-list-item-date">${reviewDate}</div>
 	        		</div>
-	        		<div class="reviews-list-item-text product-review-text">${reviewText[_i].innerText}</div>
+	        		<div class="reviews-list-item-text product-review-text">${review.body}</div>
 	        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
 	        	</div>
 	        `
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
+	        i++
 		}
 	})
 </script>
