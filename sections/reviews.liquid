@@ -48,6 +48,7 @@
 			<div class="reviews-list" id="multipleReviews">
 				<div class="reviews-list-container reviews-list-container-1"></div>
 				<div class="reviews-list-container reviews-list-container-2"></div>
+				<div class="reviews-list-container-mobile"></div>
 			</div>
 			<div class="reviews-list-scrollbar">
 				<div class="reviews-list-scrollbar-thumb"></div>
@@ -122,6 +123,7 @@
 	        else {
 	        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
 	        }
+	        document.querySelector('.reviews-list-container-mobile').insertAdjacentHTML('beforeend', reviewHtml)
 	        i++
 		}
 

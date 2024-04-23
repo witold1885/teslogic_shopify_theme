@@ -260,6 +260,12 @@
 		-ms-overflow-style: none;
     	scrollbar-width: none;
 	}
+	.reviews-list-container {
+		display: none;
+	}
+	.reviews-list-container-mobile {
+		display: flex;
+	}
 	.reviews-list::-webkit-scrollbar {
 	  display: none;
 	}

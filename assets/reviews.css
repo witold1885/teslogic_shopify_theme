@@ -110,6 +110,9 @@
 	flex-direction: column;
 	grid-row-gap: 24px;	
 }
+.reviews-list-container-mobile {
+	display: none;
+}
 .reviews-list-item {
 	width: 526px;
 	display: flex;
