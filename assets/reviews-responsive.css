@@ -247,6 +247,7 @@
 	.reviews-rating-overall-data-star {
 		width: calc(128 * 100vw / 375);
 		height: calc(128 * 100vw / 375);
+		margin-top: 0;
 	}
 	.reviews-list-wrap {
 		display: flex;
