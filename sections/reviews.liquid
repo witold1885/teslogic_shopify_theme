@@ -84,12 +84,21 @@
 		for (const review of reviews) {
 			const reviewDate = new Date(review.created_at)
 			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+			let starsHtml = ''
+			for (let s = 1; s <= 5; s++) {
+				if (s <= review.rating) {
+					starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
+				}
+				else {
+					starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
+				}
+			}
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
 		        		<div class="reviews-list-item-top-left">
 		        			<div class="reviews-list-item-author">${review.reviewer.name}</div>
-		        			<div class="reviews-list-item-stars product-review-stars">${review.rating}</div>
+		        			<div class="reviews-list-item-stars product-review-stars">${starsHtml}</div>
 		        			<div class="reviews-list-item-stars-mobile product-review-stars">
 		        				<img class="reviews-list-item-stars-mobile-icon" src="${starMobile}" />
 		        				<div class="reviews-list-item-stars-mobile-value">${review.rating}</div>
