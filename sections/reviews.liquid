@@ -145,14 +145,23 @@
 	        	r++
 	        }
 
+	        $('.reviews-pagination').empty()
+
 			let pagination = ''
 
 			for (let p = 1; p <= pagesCount; p++) {
-				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}">${p}</div>`
+				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}" data-page="${p}">${p}</div>`
 			}
 
 			$('.reviews-pagination').html(pagination)
 		}
+
+		$(document).on('click', '.reviews-pagination-item', function() {
+			if (!$(this).hasClass('reviews-pagination-item-active')) {
+				let page = $(this).data('page')
+				paginate(page)
+			}
+		})
 
 		var scrollbarThumbWidth = 56
 
