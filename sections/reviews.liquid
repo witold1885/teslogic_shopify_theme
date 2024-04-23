@@ -229,35 +229,43 @@
 
 		$(document).on('click', '#send-feedback', function(e) {
 			e.preventDefault()
-			console.log('Submit!')
-			console.log(window.newReviewRating)
+
 			const form = $('#reviewsFormWrap').find('form')
 			const product_id = $(form).find('input[name="product_id"]').val()
-			console.log(product_id)
+
 			const name = $(`#review_author_${product_id}`).val()
-			console.log(name)
 			if (!name) {
 				$(form).find('.spr-form-contact-name').find('.reviews-form-field-error').show()
-			}
-			const email = $(`#review_email_${product_id}`).val()
-			console.log(email)
-			if (!email) {
-				$(form).find('.spr-form-contact-email').find('.reviews-form-field-error').show()
-			}
-			const body = $(`#review_body_${product_id}`).val()
-			console.log(body)
-			if (!body) {
-				$(form).find('.spr-form-review-body').find('.reviews-form-field-error').show()
+				return
 			}
 
-	        /*const response = await fetch(sendReviewUrl, {
+			const email = $(`#review_email_${product_id}`).val()
+			if (!email) {
+				$(form).find('.spr-form-contact-email').find('.reviews-form-field-error').show()
+				return
+			}
+
+			const body = $(`#review_body_${product_id}`).val()
+			if (!body) {
+				$(form).find('.spr-form-review-body').find('.reviews-form-field-error').show()
+				return
+			}
+
+			const rating = window.newReviewRating
+			if (!rating) {
+				return
+			}
+
+			const sendBody = { id: product_id, name, email, rating, body }
+
+	        const response = await fetch(sendReviewUrl, {
 	            method: 'post',
-	            body,
+	            body: JSON.stringify(sendBody),
 	            headers: {'Content-Type': 'application/json'}
 	        })
 	        const data = await response.json()
 	        console.log(response.status)
-	        console.log(data)*/
+	        console.log(data)
 		})
 	})
 </script>
