@@ -94,7 +94,7 @@
 		});*/
 		var reviews = await fetch(getReviewsUrl)
 		  .then(response => response.json())
-		  .then(data => { return data });
+		  .then(result => { return result.success ? result.data.reviews : [] });
 		 console.log('reviews', reviews)
 	})
 </script>
