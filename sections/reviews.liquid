@@ -128,7 +128,7 @@
 		const chevronRightDisabled = '{{ 'chevron-right-grey.svg' | asset_url }}'
 		const chevronRightActive = '{{ 'chevron-right-white.svg' | asset_url }}'
 
-		paginate()
+		if (window.innerWidth >= 575) paginate()
 
 		function paginate (page = 1) {
 			const startIndex = (page - 1) * pageSize;
