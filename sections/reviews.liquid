@@ -79,18 +79,12 @@
 	$(document).ready(async function() {
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
-		var page = 1
 
-		/*var reviews = await fetch(getReviewsUrl)
-		 	.then(response => response.json())
-		 	.then(result => {
-				return result.success ? result.reviews : []
-			})*/
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
 
-		let i = 1
+		let reviewsHtml = []
 		// let summaryRating = 0
 		// let reviewsCount = 0
 		for (const review of reviews) {
@@ -121,15 +115,37 @@
 	        		<div class="reviews-list-item-expand"><img src="{{ 'reviews-expand.svg' | asset_url }}"></div>
 	        	</div>
 	        `
+	        reviewsHtml.push(reviewHtml)
 	        // document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
-	        if (i % 2 == 0) {	        	
+	        /*if (i % 2 == 0) {	        	
 	        	document.querySelector('.reviews-list-container-2').insertAdjacentHTML('beforeend', reviewHtml)
 	        }
 	        else {
 	        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
-	        }
+	        }*/
 	        document.querySelector('.reviews-list-container-mobile').insertAdjacentHTML('beforeend', reviewHtml)
 	        i++
+		}
+
+		paginate()
+
+		function paginate (page = 1, pageSize = 20) {
+			const startIndex = (page - 1) * pageSize;
+			const endIndex = startIndex + pageSize;
+			pageReviewsHtml = reviewsHtml.slice(startIndex, endIndex);
+			$('.reviews-list-container').each(function () {
+				$(this.empty)
+			})
+			let i = 1
+			for (let reviewHtml of pageReviewsHtml) {
+		        if (i % 2 == 0) {	        	
+		        	document.querySelector('.reviews-list-container-2').insertAdjacentHTML('beforeend', reviewHtml)
+		        }
+		        else {
+		        	document.querySelector('.reviews-list-container-1').insertAdjacentHTML('beforeend', reviewHtml)
+		        }
+	        }
+			return reviewsHtml.slice(startIndex, endIndex);
 		}
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
