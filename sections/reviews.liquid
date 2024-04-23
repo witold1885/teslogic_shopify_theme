@@ -74,7 +74,7 @@
 	$(document).ready(async function() {
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
-		// console.log(getReviewsUrl)
+
 		var reviews = await fetch(getReviewsUrl)
 		 	.then(response => response.json())
 		 	.then(result => {
@@ -82,6 +82,7 @@
 			})
 		 console.log('reviews', reviews)
 		let i = 1
+		let summaryRating = 0
 		for (const review of reviews) {
 			const reviewDate = new Date(review.created_at)
 			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
@@ -90,6 +91,7 @@
 				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
 				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
+			summaryRating += review.rating
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}">
 	        		<div class="reviews-list-item-top">
@@ -110,6 +112,10 @@
 	        document.getElementById('multipleReviews').insertAdjacentHTML('beforeend', reviewHtml)
 	        i++
 		}
+
+		const totalRatingValue = summaryRating / reviews.length
+		document.getElementById('totalRatingValue').innerText = Number(totalRatingValue).toFixed(2)
+		document.getElementById('totalReviewsCount').innerText = `${reviews.length} reviews`
 
       	var reviewsContainer = document.getElementById('multipleReviews');
 		var reviewItems = document.querySelectorAll('.reviews-list-item');
@@ -153,9 +159,6 @@
 				.find('form')
 				.addClass('new-review-form')
 				.attr('id', 'new-review-form_8143253733590')
-				// .attr('method', 'post')
-				// .attr('action', '//productreviews.shopifycdn.com/api/reviews/create')
-				// .attr('onsubmit', 'submitForm(this)')
 
 			let formHtml = `						
 		        <input type="hidden" name="review[rating]">
@@ -206,13 +209,10 @@
 		        </div>
 			`
 			$('#reviewsFormWrap').find('form').html(formHtml)
-			// $('#reviewsFormWrap').find('form').find('.spr-form-review-body').find('.spr-form-label').text('Review')
-			// $('#reviewsFormWrap').find('form').find('.reviews-form-actions').find('.spr-button').val('Send feedback')
 			formLoaded = true
 		}
 
 		$('#showForm').on('click', function() {
-			// $('.new-review-form').css('display', 'block')
 			$('.reviews-form-shadow').css('display', 'flex')
 		})
 		$('.reviews-form-close').on('click', function() {
