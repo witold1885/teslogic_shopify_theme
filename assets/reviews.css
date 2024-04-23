@@ -99,11 +99,16 @@
 .reviews-list {
 	width: 100%;
 	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+/*	flex-direction: column;*/
+/*	flex-wrap: wrap;*/
 	align-items: flex-start;
 	grid-column-gap: 24px;
 	grid-row-gap: 24px;
+}
+.reviews-list-container {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 24px;	
 }
 .reviews-list-item {
 	width: 526px;
