@@ -1,0 +1,425 @@
+<link rel="stylesheet" type="text/css" href="{{ 'header_main.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'header_main-responsive.css' | asset_url }}">
+
+{%- style -%}
+  header#header_main {
+    height: 100vh;
+  }
+  .banner-desktop-wrap {
+    background: url({{ 'bg_2x.png' | asset_url}});
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat; 
+    height: 100%;
+  }
+  .banner-desktop {
+    height: 100%;
+  }
+  @media screen and (min-width: 1701px) { 
+    .banner-desktop-wrap {
+      background: url({{ 'bg_2x.png' | asset_url}});
+      background-size: cover;
+      /*background-position: right 20% center;*/
+      background-position: right center;
+      background-repeat: no-repeat; 
+    }
+  }
+  @media screen and (min-width: 1251px) and (max-width: 1366px) {  
+    .banner-desktop-wrap {
+/*      background-size: 1366px 768px;*/
+    }      
+  }
+  .banner {
+/*    background: url({{ 'bg_mobile_2x.png' | asset_url}});*/
+/*    background-position: right calc(-1 * (830px - 100vw) / 2) center;*/
+    background: linear-gradient(0deg, #070A08 23.08%, rgba(7, 10, 8, 0.00) 34.36%), linear-gradient(180deg, #070A08 5.73%, rgba(7, 10, 8, 0.00) 31.94%), url({{ 'bg_mobile_2x.png' | asset_url}}), lightgray -768.819px -107.262px / 371.789% 96.682% no-repeat; 
+/*    background: url({{ 'bg_mobile_2x.png' | asset_url}}), lightgray -91.807px -318.013px / 131.806% 139.158% no-repeat; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+{%- endstyle -%}
+
+<header id="header_main">
+  <div class="top-wrap">
+    <div class="top">
+      <a href="/" class="logo">
+        <img src="{{ 'logo.svg' | asset_url }}">
+      </a>
+      <div class="menu">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title != 'Community' %}
+          <div
+            class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
+          >
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links.size > 0 or link.title == 'Other Products' %}
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+              {% if link.title == 'Other Products' %}
+                <ul class="menu__item-dropdown">
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <ul class="menu__item-dropdown">
+                  {% for child_link in link.links %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+        {% endfor %}
+        <div 
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+            <span>Cart</span>
+          </a>
+        </div>      
+      </div>
+    </div>
+  </div>
+  <div class="header_main-fix"></div>
+  <div class="banner-desktop-wrap">
+    <div class="banner-desktop">
+      <div class="title">Meet Teslogic v2</div>
+      <div class="subtitle">Powerful Dashboard for Model 3/Y<br>
+with access to advanced Tesla features</div>
+      <div class="banner-buttons">
+        <a href="#shop-now" class="banner-button-buy">Buy now</a>
+        <a href="#using" class="banner-button-learn">Learn more</a>
+      </div>
+      <a class="expand" href="#using">
+        <img src="{{ 'expand.svg' | asset_url }}">
+      </a>
+    </div>
+  </div>
+</header>
+<header id="header_sticky">
+  <div class="top-wrap">
+    <div class="top">
+      <a href="/" class="logo">
+        <img src="{{ 'logo.svg' | asset_url }}">
+      </a>
+      <div class="menu">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title != 'Community' %}
+          <div
+            class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
+          >
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links.size > 0 or link.title == 'Other Products' %}
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+              {% if link.title == 'Other Products' %}
+                <ul class="menu__item-dropdown">
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <ul class="menu__item-dropdown">
+                  {% for child_link in link.links %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+        {% endfor %}
+        <div 
+          id="cart-animate"
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+            <span>Cart</span>
+          </a>
+        </div>      
+      </div>
+    </div>
+  </div>
+</header>
+
+<header id="header_mobile">
+  <div class="top-wrap">
+    <div class="top top-menu-closed">
+      <a href="/" class="logo">
+        <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
+        <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
+      </a>
+      <div class="buttons">
+        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
+        <div 
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+          </a>
+        </div>      
+        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        <button type="button" class="mob-button button-menu">Menu</button>
+        <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="burger-menu-wrap">
+    <div class="burger-menu">
+      {% for link in linklists.main-menu.links %}
+      {% if link.title != 'Community' %}
+        <div
+          class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+        >
+          {% if link.links.size > 0 or link.title == 'Other Products' %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+            </div>
+            {% if link.title == 'Other Products' %}
+              <ul class="menu__item-dropdown">
+                {% for product in collections['all'].products %}
+                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% else %}
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% else %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% endfor %}   
+    </div>
+      <div class="banner-buttons">
+        <a href="#shop-now" class="banner-button-buy">Buy now</a>
+        <a href="#using" class="banner-button-learn">Learn more</a>
+      </div>
+  </div>
+  <!-- <div class="header_mobile-fix"></div> -->
+  <div class="banner banner-menu-closed">
+    <div class="banner-top">
+      <div class="banner__title">Meet Teslogic v2</div>
+      <div class="banner__subtitle">Powerful Dashboard for Model 3/Y<br>
+with access to advanced Tesla features</div>
+    </div>
+    <div class="banner-bottom">
+      <div class="banner-buttons">
+        <a href="#shop-now" class="banner-button-buy">Buy now</a>
+        <a href="#using" class="banner-button-learn">Learn more</a>
+      </div>
+      <a class="expand" href="#using">
+        <img src="{{ 'expand-mobile.svg' | asset_url }}">
+      </a>
+    </div>
+  </div>
+</header>
+  
+<script type="text/javascript">
+  console.log('userAgent')
+  console.log(window.navigator.userAgent)
+  console.log(window.innerWidth)
+  console.log(window.innerHeight)
+  var logo_white_url = "{{ 'logo.svg' | asset_url }}"
+  // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
+  var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
+  // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
+  // console.log(logo_white_url)
+  // console.log(logo_black_url)
+  $(document).ready(function() {
+    // window.addEventListener('scroll', setStickyHeader)
+    $(document.body).on('touchmove', setStickyHeader)
+    $(document.body).on('scroll', setStickyHeader)
+    $(window).on('scroll', setStickyHeader) 
+    function setStickyHeader() {
+      if (window.innerWidth >= 575) {
+        var header_main_height = $('#header_main').height()
+        var header_top_height = $('#header_main').find('.top').height()
+        if (window.pageYOffset >= header_top_height) {
+          $('#header_sticky').css({display: 'flex'})
+          if (window.pageYOffset >= header_main_height) {
+            $('#header_sticky').css({background: 'rgba(0, 0, 0, 0.32)', backdropFilter: 'blur(32px)'})
+            // $('#header_sticky').find('.logo img').attr('src', logo_black_url)
+            $('#header_sticky').find('.menu__item').addClass('menu__item-sticky')
+            // $('.menu__item-chevron-down').attr('src', chevron_black)
+            // $('#header_sticky').find('.menu__item').css({color: '#000000'})
+            // $('#header_sticky').find('.menu__item a').css({color: '#000000'})
+            // $('#header_sticky').find('.menu__item-button').css({color: '#FFFFFF'})
+            // $('#header_sticky').find('.menu__item-button a').css({color: '#FFFFFF'})
+            /*$('.menu__item-button').on('mouseover', function() {
+              $(this).css({color: '#000000'})
+              $(this).find('a').css({color: '#000000'})
+            })
+            $('.menu__item-button').on('mouseleave', function() {
+              $(this).css({color: '#FFFFFF'})
+              $(this).find('a').css({color: '#FFFFFF'})
+            })*/
+          }
+          else {
+            $('#header_sticky').css({background: 'transparent', backdropFilter: 'unset'})
+            $('#header_sticky').find('.logo img').attr('src', logo_white_url)
+            $('#header_sticky').find('.menu__item').removeClass('menu__item-sticky')
+            $('.menu__item-chevron-down').attr('src', chevron_white)
+            // $('#header_sticky').find('.menu__item').css({color: '#FFFFFF'})
+            // $('#header_sticky').find('.menu__item a').css({color: '#FFFFFF'})
+          }
+        }
+        else {      
+          $('#header_sticky').css({display: 'none'})
+        }
+      }
+      else {
+        if ($('body').scrollTop() >= window.innerHeight) {
+          $('.top-wrap').addClass('top-wrap-scrolled')
+        }
+        else {
+          $('.top-wrap').removeClass('top-wrap-scrolled')
+        }
+      }
+    }
+
+    $('.button-menu').on('click', function() {
+      $('.burger-menu-wrap').css('display', 'flex')
+      $('.button-close').show()
+      $(this).hide()
+      $(this).parents('.top').removeClass('top-menu-closed').addClass('top-menu-opened')
+      $(this).parents('.top').find('.logo-white').hide()
+      $(this).parents('.top').find('.logo-black').show()
+      $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-closed').addClass('banner-menu-opened')
+    })
+    $('.button-close').on('click', function() {
+      $('.burger-menu-wrap').hide()
+      $('.button-menu').show()
+      $(this).hide()
+      $(this).parents('.top').removeClass('top-menu-opened').addClass('top-menu-closed')
+      $(this).parents('.top').find('.logo-black').hide()
+      $(this).parents('.top').find('.logo-white').show()
+      $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-opened').addClass('banner-menu-closed')
+    })
+
+    $(document).on('click', 'a[href^="#"]', function (e) {
+      /*$('.burger-menu-wrap').hide()
+      $('.button-close').hide()
+      if ($(this).attr('href') == '#') {
+        e.preventDefault()
+      }*/
+      if ($(this).attr('href') != '#') {
+        e.preventDefault()
+        $('.burger-menu-wrap').hide()
+        $('.button-close').hide()
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 500)
+      }
+    })
+    if (window.innerWidth >= 575) {
+      $('.menu__item').on('mouseover', function() {
+        let dropdown = $(this).find('.menu__item-dropdown')
+        let chevron_down = $(this).find('.menu__item-chevron-down')
+        let chevron_up = $(this).find('.menu__item-chevron-up')
+          $('.menu__item-dropdown').each(function() {
+            $(this).css('display', 'none')
+            $(this).parent('.menu__item').removeClass('menu__item-opened')
+          })
+          $(dropdown).css('display', 'flex')
+          $(chevron_down).hide()
+          $(chevron_up).show()
+          $(this).addClass('menu__item-opened')
+      })
+      $('.menu__item').on('mouseleave', function() {
+        let dropdown = $(this).find('.menu__item-dropdown')
+        let chevron_down = $(this).find('.menu__item-chevron-down')
+        let chevron_up = $(this).find('.menu__item-chevron-up')
+          $(dropdown).css('display', 'none')
+          $(chevron_down).show()
+          $(chevron_up).hide()
+          $(this).removeClass('menu__item-opened')
+      })
+    }
+    else {
+      $('.menu__item').on('click', function() {
+        let dropdown = $(this).find('.menu__item-dropdown')
+        let chevron_down = $(this).find('.menu__item-chevron-down')
+        let chevron_up = $(this).find('.menu__item-chevron-up')
+        if ($(dropdown).is(':visible')) {
+          $(dropdown).css('display', 'none')
+          $(chevron_down).show()
+          $(chevron_up).hide()
+          $(this).removeClass('menu__item-opened')
+        }
+        else {
+          $('.menu__item-dropdown').each(function() {
+            $(this).css('display', 'none')
+            $(this).parent('.menu__item').removeClass('menu__item-opened')
+          })
+          $(dropdown).css('display', 'flex')
+          $(chevron_down).hide()
+          $(chevron_up).show()
+          $(this).addClass('menu__item-opened')
+        }      
+      })
+    }
+    $(document).click(function(event) { 
+      var $target = $(event.target)
+      if (!$target.closest('.menu__item-opened').length) {
+        $('.menu__item-dropdown').each(function() {
+          $(this).css('display', 'none')
+          let chevron_down = $(this).find('.menu__item-chevron-down')
+          let chevron_up = $(this).find('.menu__item-chevron-up')
+          $(chevron_down).show()
+          $(chevron_up).hide()
+          $(this).parent('.menu__item').removeClass('menu__item-opened')
+        })
+      }        
+    })
+    /*$('.expand').on('click', function() {
+      document.getElementById('using').scrollIntoView()
+    })*/
+  })  
+</script>
