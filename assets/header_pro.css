@@ -392,6 +392,7 @@
 	flex-wrap: wrap;
 	grid-column-gap: 24px;
 	grid-row-gap: 36px;
+	width: 366px;
 }
 .experience-block-options-add-features-item {
 	display: flex;
