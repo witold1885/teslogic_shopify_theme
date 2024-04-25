@@ -316,3 +316,15 @@
 	font-weight: 600;
 	line-height: 64px;
 }
+.experience-block-options {
+	display: flex;
+	grid-column-gap: 24px;
+}
+.experience-block-options-item {
+	border-radius: 24px;
+	background: #171717; 
+}
+.experience-block-options-both {
+	width: 416px;
+	height: 416px;
+}
