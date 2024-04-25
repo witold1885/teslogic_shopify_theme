@@ -225,7 +225,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="gradient">
     <div {% if template == 'index' %}style="overflow: hidden;"{% endif %}>
-      {% if template == 'index' %}
+      {% if template == 'index' or template == 'pro' %}
         {% section 'header_main' %}
       {% elsif page.handle == 'app-redirect' %}
         <div></div>
