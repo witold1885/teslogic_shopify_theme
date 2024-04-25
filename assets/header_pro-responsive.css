@@ -29,6 +29,8 @@
 	}
 	.experience-block-wrap {
 		bottom: calc(180 * 100vw / 1920);
+	}
+	.experience-block {
 		width: calc(1077 * 100vw / 1920);
 	}
 }
@@ -179,6 +181,8 @@
 	}
 	.experience-block-wrap {
 		bottom: calc(180 * 100vw / 1440);
+	}
+	.experience-block {
 		width: calc(1077 * 100vw / 1440);
 	}
 }
