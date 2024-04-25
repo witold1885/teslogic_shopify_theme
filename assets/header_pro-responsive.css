@@ -27,6 +27,10 @@
 	.addtext {
 		top: calc(456 * 100vw / 1920);
 	}
+	.experience-block-wrap {
+		bottom: calc(180 * 100vw / 1920);
+		width: calc(1077 * 100vw / 1920);
+	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top .logo {	
@@ -173,10 +177,9 @@
 	.banner-button-buy:hover {
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 	}
-	.expand {
-		margin-bottom: calc(9 * 100vw / 1440);
-		width: calc(64 * 100vw / 1440);
-		height: calc(64 * 100vw / 1440);
+	.experience-block-wrap {
+		bottom: calc(180 * 100vw / 1440);
+		width: calc(1077 * 100vw / 1440);
 	}
 }
 
@@ -439,11 +442,5 @@
 	}
 	.banner-button-learn {
 		display: none;
-	}
-	.expand {
-		margin-bottom: 0;
-		width: calc(64 * 100vw / 375);
-		height: calc(64 * 100vw / 375);
-		cursor: pointer;
 	}
 }
