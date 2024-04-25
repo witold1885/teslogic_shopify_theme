@@ -330,4 +330,20 @@
 	padding: 32px 44px 24px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+.experience-block-options-both-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+}
+.experience-block-options-both-image {
+	width: 328px;
+	height: 158px;
+}
+.experience-block-options-both-image img {
+	width: 100%;
 }
