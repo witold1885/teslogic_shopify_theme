@@ -217,6 +217,40 @@
 		width: calc(36 * 100vw / 1440);
 		height: calc(36 * 100vw / 1440);
 	}
+	.experience-block-options-right {
+		grid-row-gap: calc(24 * 100vw / 1440);
+		width: calc(636 * 100vw / 1440);
+		height: calc(416 * 100vw / 1440);
+	}
+	.experience-block-options-right-top {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-add {
+		height: calc(196 * 100vw / 1440);
+		padding: calc(32 * 100vw / 1440);
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-add-text {
+		width: calc(180 * 100vw / 1440);
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-add-features {
+		grid-column-gap: calc(24 * 100vw / 1440);
+		grid-row-gap: calc(36 * 100vw / 1440);
+		width: calc(366 * 100vw / 1440);
+	}
+	.experience-block-options-add-features-item {
+		grid-column-gap: calc(8 * 100vw / 1440);
+	}
+	.experience-block-options-add-features-item-icon {
+		width: calc(40 * 100vw / 1440);
+		height: calc(40 * 100vw / 1440);
+	}
+	.experience-block-options-add-features-item-text {
+		font-size: calc(16 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) { 
