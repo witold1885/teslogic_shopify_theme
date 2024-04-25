@@ -25,7 +25,7 @@
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 	.addtext {
-		top: calc(488 * 100vw / 1920);
+		top: calc(456 * 100vw / 1920);
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
@@ -148,7 +148,7 @@
 		top: calc(368 * 100vw / 1440);
 	}
 	.addtext {
-		top: calc(488 * 100vw / 1440);
+		top: calc(456 * 100vw / 1440);
 		text-shadow: 0px calc(4 * 100vw / 1440) calc(24 * 100vw / 1440) #000;
 	}
 	.addtext-sup {
