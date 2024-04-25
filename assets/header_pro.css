@@ -299,11 +299,11 @@
 .experience-block-wrap {
 	position: absolute;
 	bottom: 180px;
-	width: 1077px;
-	margin: 0 auto;
+	width: 100%;
 }
 .experience-block {
-	width: 100%;
+	width: 1077px;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 32px;
