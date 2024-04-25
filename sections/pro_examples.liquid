@@ -28,6 +28,35 @@
 	.examples-variants-item {
 		display: flex;
 	}
+	.examples-variants-item-left {
+		width: 416px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.examples-variants-item-model {
+		width: 97px;
+		color: #9A9A9A;
+		font-family: Manrope;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 18px;
+	}
+	.examples-variants-item-model > div {
+		color: #656565;
+	}
+	.examples-variants-item-3-long-image {
+		width: 300px;
+		height: 92px;
+	}
+	.examples-variants-item-y-long-image {
+		width: 306px;
+		height: 102px;
+	}
+	.examples-variants-item-3-standard-image {
+		width: 300px;
+		height: 92px;
+	}
 {% endstyle %}
 
 <div class="examples-wrap">
@@ -36,24 +65,25 @@
 vs Factory Acceleration Examples</div>
 		<div class="examples-variants">
 			<div class="examples-variants-item">
-				<div class="examples-variants-item-model">Model 3<br>
-Long Range</div>
-				<img src="{{ 'pro-model-3-long.svg' | asset_url }}">
-				
+				<div class="examples-variants-item-left">
+					<div class="examples-variants-item-model">Model 3<br>Long Range</div>
+					<img class="examples-variants-item-3-long-image" src="{{ 'pro-model-3-long.svg' | asset_url }}">
+				</div>				
 			</div>
 			<div class="examples-variants-item">
-				<div class="examples-variants-item-model">Model Y<br>
-Long Range</div>
-				<img src="{{ 'pro-model-y-long.svg' | asset_url }}">
-				
+				<div class="examples-variants-item-left">
+					<div class="examples-variants-item-model">Model Y<br>Long Range</div>
+					<img class="examples-variants-item-y-long-image" src="{{ 'pro-model-y-long.svg' | asset_url }}">
+				</div>				
 			</div>
 			<div class="examples-variants-item">
-				<div class="examples-variants-item-model">Model 3<br>
-Standart Range+</div>
-				<img src="{{ 'pro-model-3-standard.svg' | asset_url }}">
-				
-			</div>
-			
+				<div class="examples-variants-item-left">
+					<div class="examples-variants-item-model">Model 3<br>Standart Range+
+						<div>980 motor, not LFP battery</div>
+					</div>
+					<img class="examples-variants-item-3-standard-image" src="{{ 'pro-model-3-standard.svg' | asset_url }}">
+				</div>				
+			</div>			
 		</div>
 	</div>
 </div>
