@@ -270,6 +270,7 @@
 }
 .banner-button-buy {
 	display: inline-flex;
+	width: 250px;
 	padding: 20px 40px;
 	justify-content: center;
 	align-items: center;
