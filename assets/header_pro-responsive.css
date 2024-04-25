@@ -185,6 +185,38 @@
 	.experience-block {
 		width: calc(1077 * 100vw / 1440);
 	}
+	.experience-block-title {
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.experience-block-options {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-item {
+		border-radius: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-both {
+		width: calc(416 * 100vw / 1440);
+		height: calc(416 * 100vw / 1440);
+		padding: calc(32 * 100vw / 1440) calc(44 * 100vw / 1440) calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-both-title {
+		font-size: calc(32 * 100vw / 1440);
+		line-height: calc(40 * 100vw / 1440);
+		margin-bottom: calc(20 * 100vw / 1440);
+	}
+	.experience-block-options-both-image {
+		width: calc(328 * 100vw / 1440);
+		height: calc(158 * 100vw / 1440);
+		margin-bottom: calc(26 * 100vw / 1440);
+	}
+	.experience-block-options-both-icons {
+		grid-column-gap: calc(16 * 100vw / 1440);
+	}
+	.experience-block-options-both-icons img {
+		width: calc(36 * 100vw / 1440);
+		height: calc(36 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) { 
