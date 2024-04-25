@@ -296,12 +296,23 @@
 .banner-button-learn:hover {
 	color: #BFBFBD
 }
-.expand {
-	margin-bottom: 26px;
-	width: 64px;
-	height: 64px;
-	cursor: pointer;
+.experience-block-wrap {
+	position: absolute;
+	bottom: 180px;
+	width: 1077px;
+	margin: 0 auto;
 }
-.expand img {
+.experience-block {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 32px;
+}
+.experience-block-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 64px;
 }
