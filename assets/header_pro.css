@@ -208,6 +208,12 @@
 	justify-content: flex-end;
 	align-items: center;
 }
+.banner-desktop-image {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+}
 .title {
 	color: #FFF;
 	font-family: Manrope;
