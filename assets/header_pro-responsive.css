@@ -24,6 +24,9 @@
 		top: calc(368 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
+	.addtext {
+		top: calc(488 * 100vw / 1920);
+	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top .logo {	
@@ -36,6 +39,9 @@
 		left: calc(72 * 100vw / 1440);
 	}
 	.subtitle {
+		left: calc(72 * 100vw / 1440);
+	}
+	.addtext {
 		left: calc(72 * 100vw / 1440);
 	}
 	.banner-buttons {
@@ -140,6 +146,18 @@
 		line-height: calc(32 * 100vw / 1440);
 /*		width: calc(541 * 100vw / 1440);*/
 		top: calc(368 * 100vw / 1440);
+	}
+	.addtext {
+		top: calc(488 * 100vw / 1440);
+		text-shadow: 0px calc(4 * 100vw / 1440) calc(24 * 100vw / 1440) #000;
+	}
+	.addtext-sup {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.addtext-main {
+		font-size: calc(64 * 100vw / 1440);
+		line-height: calc(72 * 100vw / 1440);
 	}
 	.banner-buttons {
 		top: calc(505 * 100vw / 1440);
