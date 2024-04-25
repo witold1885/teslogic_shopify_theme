@@ -225,6 +225,36 @@
 	.experience-block-options-right-top {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
+	.experience-block-options-one {
+		width: calc(306 * 100vw / 1440);
+		height: calc(196 * 100vw / 1440);
+		padding: calc(28 * 100vw / 1440) calc(32 * 100vw / 1440);
+	}
+	.experience-block-options-one-title {
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+	}
+	.experience-block-options-one-caption {
+		font-size: calc(14 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
+	.experience-block-options-one-value {
+		font-size: calc(40 * 100vw / 1440);
+		line-height: calc(48 * 100vw / 1440);
+		margin-top: calc(6 * 100vw / 1440);
+	}
+	.experience-block-options-one-plus {
+		grid-column-gap: calc(6 * 100vw / 1440);
+		margin-top: calc(2 * 100vw / 1440);
+	}
+	.experience-block-options-one-plus-icon {
+		width: calc(40 * 100vw / 1440);
+		height: calc(40 * 100vw / 1440);
+	}
+	.experience-block-options-one-plus-text {
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+	}
 	.experience-block-options-add {
 		height: calc(196 * 100vw / 1440);
 		padding: calc(32 * 100vw / 1440);
