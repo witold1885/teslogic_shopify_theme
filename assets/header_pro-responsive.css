@@ -7,6 +7,9 @@
 		/*width: calc(1366 * 100vw / 1366);*/
 		height: calc(1726 * 100vw / 1920);
 	}
+	.banner-desktop-image {
+		width: calc(1920 * 100vw / 1920);
+	}
 	.title {
 		font-size: calc(64 * 100vw / 1920);
 		line-height: calc(72 * 100vw / 1920);
