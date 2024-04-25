@@ -339,11 +339,23 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 40px;
+	margin-bottom: 20px;
 }
 .experience-block-options-both-image {
 	width: 328px;
 	height: 158px;
+	margin-bottom: 26px;
 }
 .experience-block-options-both-image img {
 	width: 100%;
+}
+.experience-block-options-both-icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column-gap: 16px;
+}
+.experience-block-options-both-icons img {
+	width: 36px;
+	height: 36px;
 }
