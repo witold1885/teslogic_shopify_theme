@@ -74,6 +74,16 @@
 		grid-row-gap: 16px;
 		padding: 0 33px 41px;
 	}
+	.order-product-data-info {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 3px;
+	}
+	.order-product-data-info-price {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 8px;		
+	}
 	.order-product-data-info-title {
 		color: #FFF;
 		font-family: Manrope;
@@ -120,7 +130,7 @@
 {% assign product2 = all_products['teslogic-pro-performace-transmitter-kit'] %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
-<div class="order-container">
+<div id="shop-now" class="order-container">
 	<div class="order-wrap">
 		<div class="order">
 			<div class="order-top">
@@ -135,7 +145,11 @@
 						</div>
 						<div class="order-product-data">
 							<div class="order-product-data-info">
-								<div class="order-product-data-info-price"></div>
+								<div class="order-product-data-info-price">
+									<div class="order-product-data-info-price-main">{{ product1.price }}</div>
+									<div class="order-product-data-info-price-old">{{ product1.compare_at_price }}</div>
+									
+								</div>
 								<div class="order-product-data-info-title">{{ product1.title }}</div>
 								
 							</div>
