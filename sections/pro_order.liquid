@@ -161,9 +161,8 @@
 						<div class="order-product-data">
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
-									<div class="order-product-data-info-price-main">{{ product1.price | divided_by: 100 }}</div>
-									<div class="order-product-data-info-price-old">{{ product1.compare_at_price | divided_by: 100 }}</div>
-									
+									<div class="order-product-data-info-price-main">$ {{ product1.price | divided_by: 100 }}</div>
+									<div class="order-product-data-info-price-old">$ {{ product1.compare_at_price | divided_by: 100 }}</div>
 								</div>
 								<div class="order-product-data-info-title">{{ product1.title }}</div>
 								
