@@ -1,0 +1,79 @@
+{% style %}
+	.info-wrap {
+		width: 100%;
+		padding-top: 180px;
+		padding-bottom: 180px;
+		height: 852px; 
+		background: #171717;
+		box-sizing: border-box;
+	}
+	.info {
+		width: 1076px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 64px;
+	}
+	.info-block-title {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 12px;
+		margin-bottom: 24px;
+	}
+	.info-block-title-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 40px;
+		text-transform: uppercase; 
+	}
+	.info-block-delimiter {
+		width: 100%;
+		height: 2px;
+		background: #A2A2A2;
+		margin-bottom: 20px;
+	}
+	.info-block-texts {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 24px;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 32px;
+	}
+	.info-block-text:first-child {
+		width: 636px;
+	}
+	.info-block-text:last-child {
+		width: 416px;
+	}
+	
+{% endstyle %}
+<div class="info-wrap">
+	<div class="info">
+		<div class="info-block">
+			<div class="info-block-title">
+				<div class="info-block-title-text">Precautions</div>				
+			</div>
+			<div class="info-block-delimiter"></div>
+			<div class="info-block-texts">
+				<div class="info-block-text">
+					There is a possibility that future Tesla software updates may cause some Teslogic Pro functions to be disabled. Teslogic will release updates to our application to address this.
+				</div>
+				<div class="info-block-text">
+					The Drift mode and Track mode functions should only be used off public roads.
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="info-block"></div>
+		
+	</div>
+	
+</div>
