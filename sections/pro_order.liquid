@@ -57,6 +57,22 @@
 		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
 		background-blend-mode: color-dodge, normal;
 		backdrop-filter: blur(6px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.order-product-image {
+		width: 100%;
+	}
+	.order-product-image img {
+		width: 100%;
+	}
+	.order-product-data {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		grid-row-gap: 16px;
+		padding: 0 33px 41px;
 	}
 	.order-date {
 		width: 100%;
@@ -108,7 +124,16 @@
 						<div class="order-product-image">
 							<img src="{{ product1.featured_image | img_url: '526x526' }}">
 						</div>
-						
+						<div class="order-product-data">
+							<div class="order-product-data-info">
+								<div class="order-product-data-info-price"></div>
+								<div class="order-product-data-info-title">{{ product1.title }}</div>
+								
+							</div>
+							<div class="order-product-data-preorder"></div>
+							<div class="order-product-data-add"></div>
+							
+						</div>
 					</div>
 					<div class="order-product"></div>
 					
