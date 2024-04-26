@@ -118,6 +118,25 @@
 		line-height: 40px;
 		width: 384px;
 	}
+	.order-product-data-preorder {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 12px;
+	}
+	.order-product-data-preorder-button {
+		display: flex;
+		width: 180px;
+		padding: 20px 0;
+		justify-content: center;
+		align-items: center;
+		color: #FFF;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px;
+	}
 	.order-product-data-add {
 		display: flex;
 		align-items: center;
@@ -128,28 +147,12 @@
 		height: 20px;
 		appearance: none;
 		-webkit-appearance: none;
-/*		background-color: #404040;*/
-	/*	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
 		background: url({{ 'pro_comparison_checkbox_inactive.svg' | asset_url }});
-/*		display: inline-block;*/
-/*		position: relative;*/
-/*		padding: 6.67px 5px;*/
-/*		border-radius: 4px;*/
-/*		margin: 0;*/
 		cursor: pointer;
 	}
 	.order-product-data-add-checkbox:checked {
 		background: url({{ 'pro_comparison_checkbox_active.svg' | asset_url }});
 	}
-	/*.order-product-data-add-checkbox:checked:after {
-		content: url({{ 'ok.svg' | asset_url }});
-		position: absolute;
-		width: 10px;
-		height: 6.667px; 
-		top: 3.33px;
-		left: 5px;
-		color: #000;
-	}*/
 	.order-product-data-add-title {
 		color: #FFF;
 		font-feature-settings: 'clig' off, 'liga' off;
@@ -227,17 +230,16 @@
 									<div class="order-product-data-info-price-main">$ {{ product1.price | divided_by: 100 }}</div>
 									<div class="order-product-data-info-price-old">$ {{ product1.compare_at_price | divided_by: 100 }}</div>
 								</div>
-								<div class="order-product-data-info-title">{{ product1.title }}</div>
-								
+								<div class="order-product-data-info-title">{{ product1.title }}</div>								
 							</div>
-							<div class="order-product-data-preorder"></div>
-							<div class="order-product-data-add"></div>
-				<div class="order-product-data-add">
-					<input type="checkbox" id="select-charger" class="order-product-data-add-checkbox" checked>
-					<label for="select-charger" class="order-product-data-add-title">With Additional Wireless Charger</label>
-					<span class="order-product-data-add-price">+ $40</span>
-				</div>
-							
+							<div class="order-product-data-preorder">
+								<button type="button" class="order-product-data-preorder-button">Preorder Now</button>
+							</div>
+							<div class="order-product-data-add">
+								<input type="checkbox" id="select-charger" class="order-product-data-add-checkbox" checked>
+								<label for="select-charger" class="order-product-data-add-title">With Additional Wireless Charger</label>
+								<span class="order-product-data-add-price">+ $40</span>
+							</div>							
 						</div>
 					</div>
 					<div class="order-product order-product-2">
