@@ -52,7 +52,40 @@
 	.info-block-text:last-child {
 		width: 416px;
 	}
-	
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+		.info-wrap {
+			padding-top: calc(180 * 100vw / 1440);
+			padding-bottom: calc(180 * 100vw / 1440);
+			height: calc(852 * 100vw / 1440);
+		}
+		.info {
+			width: calc(1076 * 100vw / 1440);
+			grid-row-gap: calc(64 * 100vw / 1440);
+		}
+		.info-block-title {
+			grid-column-gap: calc(12 * 100vw / 1440);
+			margin-bottom: calc(24 * 100vw / 1440);
+		}
+		.info-block-title-text {
+			font-size: calc(32 * 100vw / 1440);
+			line-height: calc(40 * 100vw / 1440);
+		}
+		.info-block-delimiter {
+			margin-bottom: calc(20 * 100vw / 1440);
+		}
+		.info-block-texts {
+			grid-column-gap: calc(24 * 100vw / 1440);
+			font-size: calc(24 * 100vw / 1440);
+			line-height: calc(32 * 100vw / 1440);
+		}
+		.info-block-text:first-child {
+			width: calc(636 * 100vw / 1440);
+		}
+		.info-block-text:last-child {
+			width: calc(416 * 100vw / 1440);
+		}
+	}
+		
 {% endstyle %}
 <div class="info-wrap">
 	<div class="info">
