@@ -5,10 +5,47 @@
 		padding-bottom: 180px;
 		height: 1694px; 
 		background: url({{ 'pro_comparison_bg.png' | asset_url }});
+		background-size: cover;
+  		background-position: center;
 		box-sizing: border-box;
+	}
+	.comparison {
+		width: 1296px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 40px;
+	}
+	.comparison-top {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 16px;
+	}
+	.comparison-title {
+		color: #000;
+		font-family: Manrope;
+		font-size: 52px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 64px;
+	}
+	.comparison-subtitle {
+		color: #666;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 32px;
 	}
 	
 {% endstyle %}		
 <div class="comparison-wrap">
-	
+	<div class="comparison">
+		<div class="comparison-top">
+			<div class="comparison-title">Comparison of Teslogic Features and Specs</div>
+			<div class="comparison-subtitle">Each delivering increased horsepower and access to exclusive features</div>			
+		</div>
+		<div class="comparison-table"></div>
+		<div class="comparison-check"></div>		
+	</div>
 </div>
