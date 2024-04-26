@@ -162,7 +162,10 @@
 		width: 100%;
 		height: 136px;
 		border-radius: 40px;
-		background: url({{ 'pro_order_date_bg.png' | asset_url }}), linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
+/*		background: url({{ 'pro_order_date_bg.png' | asset_url }}), linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);*/
+		background: url({{ 'pro_order_date_bg.png' | asset_url }});
+		background-size: cover;
+		background-position: center;
 		background-blend-mode: color-dodge, normal;
 		backdrop-filter: blur(6px);
 		padding: 48px;
