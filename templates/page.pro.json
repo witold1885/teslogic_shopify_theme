@@ -15,6 +15,11 @@
       "settings": {
       }
     },
+    "pro_info": {
+      "type": "pro_info",
+      "settings": {
+      }
+    },
     "reviews": {
       "type": "reviews",
       "settings": {
@@ -25,6 +30,7 @@
     "pro_examples",
     "pro_comparison",
     "pro_order",
+    "pro_info",
     "reviews"
   ]
 }
