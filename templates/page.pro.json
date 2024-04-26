@@ -5,6 +5,11 @@
       "settings": {
       }
     },
+    "pro_comparison": {
+      "type": "pro_comparison",
+      "settings": {
+      }
+    },
     "reviews": {
       "type": "reviews",
       "settings": {
@@ -12,6 +17,7 @@
     }
   },
   "order": [
+    "pro_comparison",
     "pro_examples",
     "reviews"
   ]
