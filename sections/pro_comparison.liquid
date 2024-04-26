@@ -97,6 +97,51 @@
 		height: 88px;
 		padding-bottom: 24px;
 	}
+	.comparison-check-wrap {
+		width: 100%;
+		height: 256px;
+		padding-top: 64px;
+		padding-bottom: 64px;
+		border-radius: 40px;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
+		background-blend-mode: color-dodge, normal;
+		backdrop-filter: blur(6px);
+	}
+	.comparison-check {
+		display: flex;
+		grid-column-gap: 121px;
+	}
+	.comparison-check-warning {
+		width: 702px;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 12px;
+	}
+	.comparison-check-warning-title {
+		display: flex;
+		grid-column-gap: 12px;
+	}
+	.comparison-check-warning-title-icon {
+		width: 40px;
+		height: 40px;
+	}
+	.comparison-check-warning-title-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 40px;
+	}
+	.comparison-check-warning-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
+
 	
 {% endstyle %}
 
@@ -116,12 +161,25 @@
 						<th>Pro Performance</th>
 					</tr>
 				</thead>
-				<tbody>
-					
-				</tbody>
+				<tbody></tbody>
 			</table>
 		</div>
-		<div class="comparison-check"></div>		
+		<div class="comparison-check-wrap">
+			<div class="comparison-check">
+				<div class="comparison-check-warning">
+					<div class="comparison-check-warning-title">
+						<img class="comparison-check-warning-title-icon" src="{{ 'pro_comparison_warning.svg' | asset_url }}">
+						<div class="comparison-check-warning-title-text">Pro Performance Compatibility Warning:</div>						
+					</div>
+					<div class="comparison-check-warning-text">
+						Performance version is only compatible with cars with 980 motors - Model 3 Dual Motor (2017-2019.4); Model Y 7-seater; Model Y Dual Motor (Berlin Gigafactory, VIN: XP7Y… 2023.2+). If you're not sure which engine is in your car, please send us the VIN using this form, and we'll let you know if it's possible to install the Performance version on your vehicle.
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>		
 	</div>
 </div>
 
@@ -129,6 +187,7 @@
 	$(document).ready(function() {
 		const checkBoxActive = '{{ 'pro_comparison_checkbox_active.svg' | asset_url }}'
 		const checkBoxInactive = '{{ 'pro_comparison_checkbox_inactive.svg' | asset_url }}'
+
 		const comparison = [
 		  {"feature": "Mobile App Teslogic Dash<br>+ Magnet Phone Holder", "v2": 1, "boost": 1, "performance": 1},
 		  {"feature": "Drift Mode", "v2": 1, "boost": 1, "performance": 1},
