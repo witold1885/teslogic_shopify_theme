@@ -87,6 +87,61 @@
 		flex-direction: column;
 		grid-row-gap: 4px;
 	}
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+		.examples-wrap {
+			padding-top: calc(180 * 100vw / 1440);
+			height: calc(1054 * 100vw / 1440);
+		}
+		.examples {
+			width: calc(1040 * 100vw / 1440);
+			grid-row-gap: calc(64 * 100vw / 1440);
+		}
+		.examples-title {
+			font-size: calc(52 * 100vw / 1440);
+			line-height: calc(64 * 100vw / 1440);
+		}
+		.examples-variants {
+			grid-row-gap: calc(98 * 100vw / 1440);
+		}
+		.examples-variants-item {
+			grid-column-gap: calc(56 * 100vw / 1440);
+		}
+		.examples-variants-item-car {
+			width: calc(416 * 100vw / 1440);
+		}
+		.examples-variants-item-model {
+			width: calc(97 * 100vw / 1440);
+			font-size: calc(12 * 100vw / 1440);
+			line-height: calc(18 * 100vw / 1440);
+		}
+		.examples-variants-item-3-long-image {
+			width: calc(300 * 100vw / 1440);
+			height: calc(92 * 100vw / 1440);
+		}
+		.examples-variants-item-y-long-image {
+			width: calc(306 * 100vw / 1440);
+			height: calc(102 * 100vw / 1440);
+		}
+		.examples-variants-item-3-standard-image {
+			width: calc(300 * 100vw / 1440);
+			height: calc(92 * 100vw / 1440);
+		}
+		.examples-variants-item-data {
+			grid-column-gap: calc(110 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item {
+			grid-row-gap: calc(8 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item-value {
+			font-size: calc(32 * 100vw / 1440);
+			line-height: calc(40 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item-texts {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+			grid-row-gap: calc(4 * 100vw / 1440);
+		}
+	}
 {% endstyle %}
 
 <div class="examples-wrap">
