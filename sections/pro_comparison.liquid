@@ -101,7 +101,7 @@
 		width: 100%;
 		height: 256px;
 		padding-top: 64px;
-		padding-bottom: 64px;
+		padding-left: 64px;
 		border-radius: 40px;
 		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
 		background-blend-mode: color-dodge, normal;
@@ -109,6 +109,7 @@
 	}
 	.comparison-check {
 		display: flex;
+		align-items: center;
 		grid-column-gap: 121px;
 	}
 	.comparison-check-warning {
@@ -140,6 +141,30 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: 20px;
+	}
+	.comparison-check-button {
+		padding: 20px 40px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 54px;
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+		cursor: pointer;
+		text-decoration: none;
+		box-sizing: border-box;
+	}
+	.comparison-check-button:hover {
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+		border: none;
+		padding: 23px 43px;
 	}
 
 	
@@ -173,12 +198,10 @@
 					</div>
 					<div class="comparison-check-warning-text">
 						Performance version is only compatible with cars with 980 motors - Model 3 Dual Motor (2017-2019.4); Model Y 7-seater; Model Y Dual Motor (Berlin Gigafactory, VIN: XP7Y… 2023.2+). If you're not sure which engine is in your car, please send us the VIN using this form, and we'll let you know if it's possible to install the Performance version on your vehicle.
-					</div>
-					
+					</div>					
 				</div>
-				
-			</div>
-			
+				<button class="comparison-check-button"></button>			
+			</div>			
 		</div>		
 	</div>
 </div>
