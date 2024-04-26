@@ -1,5 +1,5 @@
 {% style %}
-	.order-wrap {
+	.order-container {
 		width: 100%;
 		padding-top: 180px;
 		padding-bottom: 180px;
@@ -7,11 +7,13 @@
 		background: #020202;
 		box-sizing: border-box;
 	}
-	.order {
+	.order-wrap {
 		height: 1048px;
 		background: url({{ 'pro_order_bg.png' | asset_url }});
 		background-size: cover;
   		background-position: center;
+	}
+	.order {
   		display: flex;
   		flex-direction: column;
   		align-items: center;
@@ -40,13 +42,15 @@
 	}
 	
 {% endstyle %}
-<div class="order-wrap">
-	<div class="order">
-		<div class="order-top">
-			<div class="order-title">Ready to take your Tesla<br>to the next level?</div>
-			<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>			
+
+<div class="order-container">
+	<div class="order-wrap">
+		<div class="order">
+			<div class="order-top">
+				<div class="order-title">Ready to take your Tesla<br>to the next level?</div>
+				<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>			
+			</div>
+			<div class="order-body"></div>		
 		</div>
-		<div class="order-body"></div>
-		
 	</div>
 </div>
