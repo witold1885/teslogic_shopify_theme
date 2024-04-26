@@ -133,6 +133,9 @@
 		border-radius: 54px;
 		background: linear-gradient(174deg, #024DEE 100%, #1902A6 100%), linear-gradient(0deg, #FFFFFF 33%, #FFFFFF 0%), rgba(255, 255, 255, 0.04);
 		backdrop-filter: blur(8px);
+		border: none;
+		outline: none;
+		box-shadow: none;
 		color: #FFF;
 		text-align: center;
 		font-family: Manrope;
@@ -264,7 +267,6 @@
 								<div class="order-product-data-info-title">{{ product1.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<div class="order-product-data-preorder-features"></div>
 								<button type="button" class="order-product-data-preorder-button">Preorder Now</button>
 								<div class="order-product-data-preorder-features">
 									<div class="order-product-data-preorder-features-item">
@@ -287,7 +289,34 @@
 					<div class="order-product order-product-2">
 						<div class="order-product-image">
 							<img src="{{ product2.featured_image | img_url: '526x526' }}">
-						</div>						
+						</div>
+						<div class="order-product-data">
+							<div class="order-product-data-info">
+								<div class="order-product-data-info-price">
+									<div class="order-product-data-info-price-main">$ {{ product2.price | divided_by: 100 }}</div>
+									<div class="order-product-data-info-price-old">$ {{ product2.compare_at_price | divided_by: 100 }}</div>
+								</div>
+								<div class="order-product-data-info-title">{{ product2.title }}</div>								
+							</div>
+							<div class="order-product-data-preorder">
+								<button type="button" class="order-product-data-preorder-button">Preorder Now</button>
+								<div class="order-product-data-preorder-features">
+									<div class="order-product-data-preorder-features-item">
+										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
+										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> in all domestic orders</div>
+									</div>
+									<div class="order-product-data-preorder-features-item">
+										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
+										<div class="order-product-data-preorder-features-item-text"><span>No import tax</span> for international orders</div>
+									</div>									
+								</div>
+							</div>
+							<div class="order-product-data-add">
+								<input type="checkbox" id="select-charger" class="order-product-data-add-checkbox" checked>
+								<label for="select-charger" class="order-product-data-add-title">With Additional Wireless Charger</label>
+								<span class="order-product-data-add-price">+ $40</span>
+							</div>							
+						</div>
 					</div>					
 				</div>
 				<div class="order-date">
