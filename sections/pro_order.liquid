@@ -56,7 +56,29 @@
 		border-radius: 40px;
 		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
 		background-blend-mode: color-dodge, normal;
-		backdrop-filter: blur(6px); 
+		backdrop-filter: blur(6px);
+		padding: 48px;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.order-date-item {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 12px;
+	}
+	.order-date-item-icon {
+		width: 40px;
+		height: 40px;
+	}
+	.order-date-item-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 40px;
 	}
 	
 {% endstyle %}
@@ -66,14 +88,20 @@
 		<div class="order">
 			<div class="order-top">
 				<div class="order-title">Ready to take your Tesla<br>to the next level?</div>
-				<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>			
+				<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>
 			</div>
 			<div class="order-body">
 				<div class="order-products"></div>
 				<div class="order-date">
-					
-				</div>
-				
+					<div class="order-date-item">
+						<img class="order-date-item-icon" src="{{ 'pro_order_discount.svg' | asset_url }}">
+						<div class="order-date-item-text">Pre order discount began</div>
+					</div>
+					<div class="order-date-item">
+						<img class="order-date-item-icon" src="{{ 'pro_order_delivery.svg' | asset_url }}">
+						<div class="order-date-item-text">Estimated delivery: June 2024</div>
+					</div>
+				</div>				
 			</div>		
 		</div>
 	</div>
