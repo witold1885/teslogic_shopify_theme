@@ -50,6 +50,14 @@
 		display: flex;
 		grid-column-gap: 24px;
 	}
+	.order-product {
+		width: 526px;
+		height: 600px;
+		border-radius: 40px;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
+		background-blend-mode: color-dodge, normal;
+		backdrop-filter: blur(6px);
+	}
 	.order-date {
 		width: 100%;
 		height: 136px;
@@ -83,6 +91,10 @@
 	
 {% endstyle %}
 
+{% assign product1 = all_products['teslogic-pro-boost-transmitter-kit'] %}
+{% assign product2 = all_products['teslogic-pro-performace-transmitter-kit'] %}
+{% assign charger = all_products['teslogic-wireless-charger'] %}
+
 <div class="order-container">
 	<div class="order-wrap">
 		<div class="order">
@@ -91,7 +103,11 @@
 				<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>
 			</div>
 			<div class="order-body">
-				<div class="order-products"></div>
+				<div class="order-products">
+					<div class="order-product"></div>
+					<div class="order-product"></div>
+					
+				</div>
 				<div class="order-date">
 					<div class="order-date-item">
 						<img class="order-date-item-icon" src="{{ 'pro_order_discount.svg' | asset_url }}">
