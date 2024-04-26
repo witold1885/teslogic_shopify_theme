@@ -12,9 +12,41 @@
 		background: url({{ 'pro_order_bg.png' | asset_url }});
 		background-size: cover;
   		background-position: center;
+  		display: flex;
+  		flex-direction: column;
+  		align-items: center;
+  		grid-row-gap: 64px;
+	}
+	.order-top {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 12px;
+	}
+	.order-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 52px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 64px;
+	}
+	.order-subtitle {
+		color: #9A9A9A;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 32px;
 	}
 	
 {% endstyle %}
 <div class="order-wrap">
-	<div class="order"></div>
+	<div class="order">
+		<div class="order-top">
+			<div class="order-title">Ready to take your Tesla<br>to the next level?</div>
+			<div class="order-subtitle">Order Teslogic Pro and start your journey towards<br>unmatched driving performance and satisfaction</div>			
+		</div>
+		<div class="order-body"></div>
+		
+	</div>
 </div>
