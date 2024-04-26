@@ -82,7 +82,22 @@
 	.order-product-data-info-price {
 		display: flex;
 		align-items: center;
-		grid-column-gap: 8px;		
+		grid-column-gap: 8px;	
+		font-family: Manrope;
+		font-style: normal;
+	}
+	.order-product-data-info-price-main {
+		color: #1657FC;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 32px;
+	}
+	.order-product-data-info-price-old {
+		color: #666;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 24px;
+		text-decoration: line-through;
 	}
 	.order-product-data-info-title {
 		color: #FFF;
@@ -146,8 +161,8 @@
 						<div class="order-product-data">
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
-									<div class="order-product-data-info-price-main">{{ product1.price }}</div>
-									<div class="order-product-data-info-price-old">{{ product1.compare_at_price }}</div>
+									<div class="order-product-data-info-price-main">{{ product1.price | divided_by: 100 }}</div>
+									<div class="order-product-data-info-price-old">{{ product1.compare_at_price | divided_by: 100 }}</div>
 									
 								</div>
 								<div class="order-product-data-info-title">{{ product1.title }}</div>
