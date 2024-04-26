@@ -72,7 +72,6 @@
 	.comparison-table tbody td {
 		height: 64px;
 		color: #000;
-		opacity: 0.6;
 		font-family: Manrope;
 		font-size: 16px;
 		font-style: normal;
@@ -83,6 +82,7 @@
 		box-sizing: border-box;
 	}
 	.comparison-table tbody td:first-child {
+		opacity: 0.6;
 		text-align: left;
 		padding-left: 40px;
 		border-left: none;
@@ -144,7 +144,8 @@
 			let row = '<tr>'
 			row += `<td>${item.feature}</td>`
 			row += `<td><img src="${item.v2 ? checkBoxActive : checkBoxInactive}"></td>`
-			row += `<td></td>`
+			let boostValue = (item.boost == 1 || item.boost == 0) ? `<img src="${item.boost ? checkBoxActive : checkBoxInactive}">` : item.boost
+			row += `<td>${boostValue}</td>`
 			row += `<td></td>`
 			row += '</tr>'
 			$('.comparison-table tbody').append(row)
