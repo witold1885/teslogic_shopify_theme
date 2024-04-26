@@ -63,6 +63,9 @@
 						<th>Pro Performance</th>
 					</tr>
 				</thead>
+				<tbody>
+					
+				</tbody>
 			</table>
 		</div>
 		<div class="comparison-check"></div>		
@@ -72,7 +75,28 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		const comparison = [
-		  {"feature": "Mobile App Teslogic Dash + Magnet Phone Holder", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Mobile App Teslogic Dash<br>+ Magnet Phone Holder", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Drift Mode", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Traffic Fines Avoidance", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Chill Kickdown Mode", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Winter Package", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Activation Amber<br>Taillights Retrofit", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Activation Rear<br>Seat Heating", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Activation Steering<br>Wheel Heating", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Activation Adaptive<br>Matrix Headlights", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Adjustable Track Mode", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Increases the power of the<br>cars with installed Tesla<br>Acceleration Boost upgrade", "v2": 1, "boost": 1, "performance": 1},
+		  {"feature": "Power Increased", "v2": 1, "boost": 1, "performance": 1},
 		]
+
+		for (const item of comparison) {
+			let row = '<tr>'
+			row += `<td>${item.feature}</td>`
+			row += `<td></td>`
+			row += `<td></td>`
+			row += `<td></td>`
+			row += '</tr>'
+			$('.comparison-table table tbody').append(row)
+		}
 	})
 </script>
