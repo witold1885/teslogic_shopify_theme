@@ -17,8 +17,8 @@
     }
   },
   "order": [
-    "pro_comparison",
     "pro_examples",
+    "pro_comparison",
     "reviews"
   ]
 }
