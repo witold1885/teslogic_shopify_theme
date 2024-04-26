@@ -137,7 +137,7 @@
 		  {"feature": "Activation Adaptive<br>Matrix Headlights", "v2": 0, "boost": 1, "performance": 1},
 		  {"feature": "Adjustable Track Mode", "v2": 0, "boost": 0, "performance": 1},
 		  {"feature": "Increases the power of the<br>cars with installed Tesla<br>Acceleration Boost upgrade", "v2": 0, "boost": 0, "performance": 1},
-		  {"feature": "Power Increased", "v2": 0, "boost": 1, "performance": 1},
+		  {"feature": "Power Increased", "v2": 0, "boost": '+50 HP', "performance": '+150 HP'},
 		]
 
 		for (const item of comparison) {
@@ -146,7 +146,8 @@
 			row += `<td><img src="${item.v2 ? checkBoxActive : checkBoxInactive}"></td>`
 			let boostValue = (item.boost == 1 || item.boost == 0) ? `<img src="${item.boost ? checkBoxActive : checkBoxInactive}">` : item.boost
 			row += `<td>${boostValue}</td>`
-			row += `<td></td>`
+			let performanceValue = (item.performance == 1 || item.performance == 0) ? `<img src="${item.performance ? checkBoxActive : checkBoxInactive}">` : item.performance
+			row += `<td>${performanceValue}</td>`
 			row += '</tr>'
 			$('.comparison-table tbody').append(row)
 		}
