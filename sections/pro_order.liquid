@@ -54,12 +54,22 @@
 		width: 526px;
 		height: 600px;
 		border-radius: 40px;
-		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);
+/*		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);*/
+		background-size: cover;
+		background-position: center;
 		background-blend-mode: color-dodge, normal;
 		backdrop-filter: blur(6px);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+	}
+	.order-product-1 {
+/*		background: url({{ 'pro_order_product_1_bg.png' | asset_url }}), linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);*/
+		background: url({{ 'pro_order_product_1_bg.png' | asset_url }});
+	}
+	.order-product-2 {
+/*		background: url({{ 'pro_order_product_2_bg.png' | asset_url }}), linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);*/
+		background: url({{ 'pro_order_product_2_bg.png' | asset_url }});
 	}
 	.order-product-image {
 		width: 100%;
@@ -207,7 +217,7 @@
 			</div>
 			<div class="order-body">
 				<div class="order-products">
-					<div class="order-product">
+					<div class="order-product order-product-1">
 						<div class="order-product-image">
 							<img src="{{ product1.featured_image | img_url: '526x526' }}">
 						</div>
@@ -230,7 +240,12 @@
 							
 						</div>
 					</div>
-					<div class="order-product"></div>
+					<div class="order-product order-product-2">
+						<div class="order-product-image">
+							<img src="{{ product2.featured_image | img_url: '526x526' }}">
+						</div>
+						
+					</div>
 					
 				</div>
 				<div class="order-date">
