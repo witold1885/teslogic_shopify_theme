@@ -87,13 +87,19 @@
 	var formLoaded = false;
 	$(document).ready(async function() {
 		let product_id = null
+		let getReviewsUrl
 
 		const pathname = window.location.pathname
 		if (pathname.includes('pro')) {
 			product_id = '8482954674390'
+			getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
+		}
+		else {
+			product_id = '8143253733590'
+			getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		}
 
-		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
+		// const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
 
         const response = await fetch(getReviewsUrl)
@@ -323,12 +329,12 @@
 			$('#reviewsFormWrap')
 				.find('form')
 				.addClass('new-review-form')
-				.attr('id', 'new-review-form_8143253733590')
+				.attr('id', `new-review-form_${product_id}`)
 
 			let formHtml = `						
 		        <input type="hidden" name="review[rating]">
-		        <input type="hidden" name="product_id" value="8143253733590">
-		        <input id="review_title_8143253733590" class="review-form-title" type="hidden" name="review[title]" value="">
+		        <input type="hidden" name="product_id" value="${product_id}">
+		        <input id="review_title_${product_id}" class="review-form-title" type="hidden" name="review[title]" value="">
 
 		        <div class="reviews-form-top">
 		    		<h3 class="spr-form-title">Write a review</h3>
@@ -346,23 +352,23 @@
 
 		        <div class="reviews-form-body">
 		        	<div class="reviews-form-field spr-form-contact-name">	        		
-          				<label class="spr-form-label" for="review_author_8143253733590">Name</label>
-          				<input class="spr-form-input spr-form-input-text " id="review_author_8143253733590" type="text" name="review[author]" value="" placeholder="Enter your name">
+          				<label class="spr-form-label" for="review_author_${product_id}">Name</label>
+          				<input class="spr-form-input spr-form-input-text " id="review_author_${product_id}" type="text" name="review[author]" value="" placeholder="Enter your name">
         
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
 	        		</div>
 
 	        		<div class="reviews-form-field spr-form-contact-email">        			
-          				<label class="spr-form-label" for="review_email_8143253733590">Email</label>
-          				<input class="spr-form-input spr-form-input-email " id="review_email_8143253733590" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
+          				<label class="spr-form-label" for="review_email_${product_id}">Email</label>
+          				<input class="spr-form-input spr-form-input-email " id="review_email_${product_id}" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
         
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
 	        		</div>
 
 	        		<div class="reviews-form-field spr-form-review-body">	        		
-        				<label class="spr-form-label" for="review_body_8143253733590">Review</label>
+        				<label class="spr-form-label" for="review_body_${product_id}">Review</label>
 				        <div class="spr-form-input">
-				          	<textarea class="spr-form-input spr-form-input-textarea " id="review_body_8143253733590" data-product-id="8143253733590" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
+				          	<textarea class="spr-form-input spr-form-input-textarea " id="review_body_${product_id}" data-product-id="${product_id}" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
 				        </div>
       
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
