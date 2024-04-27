@@ -18,7 +18,7 @@
 	content: url({{ 'star-form-blue.svg' | asset_url }});
 }
 {% endstyle %}
-{{ section.settings }}
+
 <!-- <div id="multipleReviews"></div> -->
 <div id="reviewsWrap" class="reviews">
 	<div class="reviews-wrap">
@@ -86,7 +86,7 @@
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
-		console.log('{{ section.settings }}')
+		console.log('{{ section.settings.product_id }}')
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
 
