@@ -105,7 +105,6 @@
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
-        console.log('reviews', reviews)
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
@@ -178,13 +177,15 @@
 	        const prevPage = page - 1
 	        const nextPage = page + 1
 
-			let pagination = `<div class="reviews-pagination-item reviews-pagination-item-prev ${prevPage < 1 ? 'reviews-pagination-item-disabled' : ''}" data-page="${prevPage}"><img src="${prevPage < 1 ? chevronLeftDisabled : chevronLeftActive}"></div>`
+	        let pagination = ''
+
+			if (pagesCount > 1) pagination += `<div class="reviews-pagination-item reviews-pagination-item-prev ${prevPage < 1 ? 'reviews-pagination-item-disabled' : ''}" data-page="${prevPage}"><img src="${prevPage < 1 ? chevronLeftDisabled : chevronLeftActive}"></div>`
 
 			for (let p = 1; p <= pagesCount; p++) {
 				pagination += `<div class="reviews-pagination-item ${p == page ? 'reviews-pagination-item-active' : ''}" data-page="${p}">${p}</div>`
 			}
 
-			pagination += `<div class="reviews-pagination-item reviews-pagination-item-next ${nextPage > pagesCount ? 'reviews-pagination-item-disabled' : ''}" data-page="${nextPage}"><img src="${nextPage > pagesCount ? chevronRightDisabled : chevronRightActive}"></div>`
+			if (pagesCount > 1) pagination += `<div class="reviews-pagination-item reviews-pagination-item-next ${nextPage > pagesCount ? 'reviews-pagination-item-disabled' : ''}" data-page="${nextPage}"><img src="${nextPage > pagesCount ? chevronRightDisabled : chevronRightActive}"></div>`
 
 			$('.reviews-pagination').html(pagination)
 		}
