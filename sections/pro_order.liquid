@@ -383,7 +383,7 @@
 								<div class="order-product-data-info-title">{{ product1.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button" data-num="1">Preorder Now</button>
 								<div class="order-product-data-preorder-features">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -401,7 +401,7 @@
 								<span class="order-product-data-add-price">+ $40</span>
 							</div>							
 						</div>
-						<input type="hidden" id="product-boost-variant-id" value="{{ product1.variants[0].id }}">
+						<input type="hidden" id="product-1-variant-id" value="{{ product1.variants[0].id }}">
 					</div>
 					<div class="order-product order-product-2">
 						<div class="order-product-image">
@@ -416,7 +416,7 @@
 								<div class="order-product-data-info-title">{{ product2.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button" data-num="2">Preorder Now</button>
 								<div class="order-product-data-preorder-features">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -434,7 +434,7 @@
 								<span class="order-product-data-add-price">+ $40</span>
 							</div>							
 						</div>
-						<input type="hidden" id="product-performance-variant-id" value="{{ product2.variants[0].id }}">
+						<input type="hidden" id="product-2-variant-id" value="{{ product2.variants[0].id }}">
 					</div>					
 				</div>
 				<!-- <div class="order-date">
@@ -451,3 +451,13 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.order-product-data-preorder-button').on('click', function () {
+			let num = $(this).data('num')
+			let product_id = $(`#product-${num}-variant-id`).val()
+			console.log(product_id)
+		})
+	})
+</script>
