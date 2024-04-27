@@ -69,6 +69,9 @@
 		padding-left: 40px;
 		border-left: none;
 	}
+	.th-performance-mobile {
+		display: none;
+	}
 	.comparison-table tbody td {
 		height: 64px;
 		color: #000;
@@ -297,9 +300,12 @@
 		.comparison-table thead th:first-child {
 			padding-left: 20px;
 		}
-		.comparison-table thead th:last-child {
-			content: 'Pro Perfor...';
-		}
+	.th-performance-desktop {
+		display: none;
+	}
+	.th-performance-mobile {
+		display: table-cell;
+	}
 		.comparison-table thead th:nth-child(2), .comparison-table tbody td:nth-child(2) {
 			width: 41px !important;
 			text-align: left !important;
@@ -349,7 +355,8 @@
 						<th>Features</th>
 						<th>v2</th>
 						<th>Pro Boost</th>
-						<th>Pro Performance</th>
+						<th class="th-performance-desktop">Pro Performance</th>
+						<th class="th-performance-mobile">Pro Perfor...</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
