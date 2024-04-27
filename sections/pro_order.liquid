@@ -173,9 +173,14 @@
 		font-weight: 500;
 	}
 	.order-product-data-add {
-		display: flex;
 		align-items: center;
 		grid-column-gap: 8px;
+	}
+	.order-product-data-add-desktop {
+		display: flex;
+	}
+	.order-product-data-add-mobile {
+		display: none;
 	}
 	.order-product-data-add-checkbox {
 		width: 20px;
@@ -450,6 +455,12 @@
 		.order-product-data-add {
 			grid-column-gap: calc(8 * 100vw / 375);
 		}
+		.order-product-data-add-desktop {
+			display: none;
+		}
+		.order-product-data-add-mobile {
+			display: flex;
+		}
 		.order-product-data-add-checkbox {
 			width: calc(20 * 100vw / 375);
 			height: calc(20 * 100vw / 375);
@@ -496,6 +507,10 @@
 							</div>
 							<div class="order-product-data-preorder">
 								<button type="button" class="order-product-data-preorder-button" data-num="1">Preorder Now</button>
+								<div class="order-product-data-add order-product-data-add-mobile">
+									<input type="checkbox" id="select-charger-1" class="order-product-data-add-checkbox" checked>
+									<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ $40</span></label>
+								</div>
 								<div class="order-product-data-preorder-features">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -507,10 +522,10 @@
 									</div>									
 								</div>
 							</div>
-							<div class="order-product-data-add">
+							<div class="order-product-data-add order-product-data-add-desktop">
 								<input type="checkbox" id="select-charger-1" class="order-product-data-add-checkbox" checked>
 								<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ $40</span></label>
-							</div>							
+							</div>
 						</div>
 						<input type="hidden" id="product-1-variant-id" value="{{ product1.variants[0].id }}">
 					</div>
@@ -528,6 +543,10 @@
 							</div>
 							<div class="order-product-data-preorder">
 								<button type="button" class="order-product-data-preorder-button" data-num="2">Preorder Now</button>
+								<div class="order-product-data-add order-product-data-add-mobile">
+									<input type="checkbox" id="select-charger-2" class="order-product-data-add-checkbox" checked>
+									<label for="select-charger-2" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ $40</span></label>
+								</div>
 								<div class="order-product-data-preorder-features">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -539,9 +558,9 @@
 									</div>									
 								</div>
 							</div>
-							<div class="order-product-data-add">
+							<div class="order-product-data-add order-product-data-add-desktop">
 								<input type="checkbox" id="select-charger-2" class="order-product-data-add-checkbox" checked>
-								<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ $40</span></label>
+								<label for="select-charger-2" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ $40</span></label>
 							</div>							
 						</div>
 						<input type="hidden" id="product-2-variant-id" value="{{ product2.variants[0].id }}">
