@@ -82,13 +82,11 @@
 	</div>
 </div>
 
-{% assign settings = section.settings %}
-{{ sections }}
 <script type="text/javascript">
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
-		console.log('{{ section.type }}')
+		console.log('{{ sections }}')
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
 
