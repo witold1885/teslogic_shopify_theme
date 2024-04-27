@@ -86,9 +86,11 @@
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
+		let product_id = null
+
 		const pathname = window.location.pathname
 		if (pathname.includes('pro')) {
-			console.log('Is pro')
+			product_id = '8482954674390'
 		}
 
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
@@ -97,6 +99,7 @@
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
+        console.log('reviews', reviews)
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
