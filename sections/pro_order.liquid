@@ -437,6 +437,7 @@
 						<input type="hidden" id="product-2-variant-id" value="{{ product2.variants[0].id }}">
 					</div>					
 				</div>
+				<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">
 				<!-- <div class="order-date">
 					<div class="order-date-item">
 						<img class="order-date-item-icon" src="{{ 'pro_order_discount.svg' | asset_url }}">
@@ -457,7 +458,23 @@
 		$('.order-product-data-preorder-button').on('click', function () {
 			let num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
-			console.log(product_id)
+			let items = [{ id: Number(product_id), quantity: 1 }]
+			if ($(`#select-charger-${num}`).prop('checked') === true) {
+				let charger_variant_id = $('#charger-variant-id').val()
+				items.push({ id: Number(charger_variant_id), quantity: 1 })
+			}
+			let formData = { items }
+			fetch(window.Shopify.routes.root + 'cart/add.js', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			}).then(response => {
+			  	window.location.href = '/cart'
+			}).catch((error) => {
+			  	console.error('Error:', error)
+			})
 		})
 	})
 </script>
