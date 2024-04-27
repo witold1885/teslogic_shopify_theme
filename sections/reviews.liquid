@@ -81,7 +81,13 @@
 		</form>
 	</div>
 </div>
-
+{% for section in sections %}
+  {{ section }}
+  {% if section.type == "reviews" %}
+    {% assign product_id = section.settings.product_id %}
+    <!-- Тут ви можете використовувати product_id -->
+  {% endif %}
+{% endfor %}
 <script type="text/javascript">
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
