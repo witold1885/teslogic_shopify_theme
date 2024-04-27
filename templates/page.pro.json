@@ -23,6 +23,7 @@
     "reviews": {
       "type": "reviews",
       "settings": {
+        "product_id": "8482954674390"
       }
     }
   },
