@@ -152,26 +152,30 @@
 	}
 	@media screen and (max-width: 575px) {
 		.examples-wrap {
-			width: 100%;
 			padding-top: 96px;
-			height: 1138px; 
-			background: #171717;
-			box-sizing: border-box;
+			height: 1138px;
 		}
 		.examples {
 			width: 335px;
-			margin: 0 auto;
-			display: flex;
-			flex-direction: column;
 			grid-row-gap: 44px;
 		}
 		.examples-title {
-			color: #FFF;
-			font-family: Manrope;
 			font-size: 32px;
-			font-style: normal;
-			font-weight: 600;
+			font-weight: 500;
 			line-height: 40px;
+		}
+		.examples-variants {
+			grid-row-gap: 48px;
+		}
+		.examples-variants-item {
+			flex-direction: column;
+			grid-row-gap: 12px;
+		}
+		.examples-variants-item-delimiter {
+			display: none;
+		}
+		.examples-variants-item-car {
+			width: 100%;
 		}
 
 	}
