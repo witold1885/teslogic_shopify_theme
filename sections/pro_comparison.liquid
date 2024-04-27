@@ -100,6 +100,10 @@
 		height: 88px;
 		padding-bottom: 24px;
 	}
+	.comparison-table-checkbox {
+		width: 24px;
+		height: 24px;
+	}
 	.comparison-check-wrap {
 		width: 100%;
 		height: 256px;
@@ -224,6 +228,10 @@
 			height: calc(88 * 100vw / 1440);
 			padding-bottom: calc(24 * 100vw / 1440);
 		}
+		.comparison-table-checkbox {
+			width: calc(24 * 100vw / 1440);
+			height: calc(24 * 100vw / 1440);
+		}
 		.comparison-check-wrap {
 			height: calc(256 * 100vw / 1440);
 			padding-top: calc(64 * 100vw / 1440);
@@ -300,12 +308,12 @@
 		.comparison-table thead th:first-child {
 			padding-left: 20px;
 		}
-	.th-performance-desktop {
-		display: none;
-	}
-	.th-performance-mobile {
-		display: table-cell;
-	}
+		.th-performance-desktop {
+			display: none;
+		}
+		.th-performance-mobile {
+			display: table-cell;
+		}
 		.comparison-table thead th:nth-child(2), .comparison-table tbody td:nth-child(2) {
 			width: 41px !important;
 			text-align: left !important;
@@ -338,6 +346,10 @@
 		.comparison-table tbody tr:last-child td {
 			height: 76px;
 			padding-bottom: 14px;
+		}
+		.comparison-table-checkbox {
+			width: calc(18 * 100vw / 375);
+			height: calc(18 * 100vw / 375);
 		}
 	}
 {% endstyle %}
@@ -402,10 +414,10 @@
 		for (const item of comparison) {
 			let row = '<tr>'
 			row += `<td>${item.feature}</td>`
-			row += `<td><img src="${item.v2 ? checkBoxActive : checkBoxInactive}"></td>`
-			let boostValue = (item.boost == 1 || item.boost == 0) ? `<img src="${item.boost ? checkBoxActive : checkBoxInactive}">` : item.boost
+			row += `<td><img class="comparison-table-checkbox" src="${item.v2 ? checkBoxActive : checkBoxInactive}"></td>`
+			let boostValue = (item.boost == 1 || item.boost == 0) ? `<img class="comparison-table-checkbox" src="${item.boost ? checkBoxActive : checkBoxInactive}">` : item.boost
 			row += `<td>${boostValue}</td>`
-			let performanceValue = (item.performance == 1 || item.performance == 0) ? `<img src="${item.performance ? checkBoxActive : checkBoxInactive}">` : item.performance
+			let performanceValue = (item.performance == 1 || item.performance == 0) ? `<img class="comparison-table-checkbox" src="${item.performance ? checkBoxActive : checkBoxInactive}">` : item.performance
 			row += `<td>${performanceValue}</td>`
 			row += '</tr>'
 			$('.comparison-table tbody').append(row)
