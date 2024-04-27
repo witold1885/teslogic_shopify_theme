@@ -354,6 +354,21 @@
 			line-height: calc(40 * 100vw / 1440);
 		}
 	}
+	@media screen and (max-width: 575px) {
+		.order-container {
+			padding-top: calc(96 * 100vw / 375);
+			padding-bottom: calc(96 * 100vw / 375);
+			height: auto;
+		}
+		.order-wrap {
+			height: auto;
+			background: url({{ 'pro_order_bg_mobile.png' | asset_url }});
+		}
+		.order {
+	  		grid-row-gap: 40px;
+	  		width: 335px;
+		}
+	}
 	
 {% endstyle %}
 
