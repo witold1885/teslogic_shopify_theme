@@ -86,8 +86,10 @@
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
-		const pathname = window.location.pathname;
-console.log(pathname);
+		const pathname = window.location.pathname
+		if (pathname.includes('pro')) {
+			console.log('Is pro')
+		}
 
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
