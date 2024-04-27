@@ -6,7 +6,7 @@
 		height: 1694px; 
 		background: url({{ 'pro_comparison_bg.png' | asset_url }});
 		background-size: cover;
-  	background-position: center;
+  		background-position: center;
 		box-sizing: border-box;
 	}
 	.comparison {
@@ -259,6 +259,30 @@
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
 	}	
+	@media screen and (max-width: 575px) {
+		.comparison-wrap {
+			padding-top: 92px;
+			padding-bottom: 96px;
+			height: auto;
+		}
+		.comparison {
+			width: 335px;
+			grid-row-gap: 24px;
+		}
+		.comparison-top {
+			grid-row-gap: 8px;
+		}
+		.comparison-title {
+			font-size: 32px;
+			font-weight: 500;
+			line-height: 40px;
+		}
+		.comparison-subtitle {
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 20px;
+		}
+	}
 {% endstyle %}
 
 <div class="comparison-wrap">
