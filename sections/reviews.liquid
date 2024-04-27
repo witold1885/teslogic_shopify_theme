@@ -86,8 +86,8 @@
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
-		const currentUrl = window.location.href;
-console.log(currentUrl);
+		const pathname = window.location.pathname;
+console.log(pathname);
 
 		const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
