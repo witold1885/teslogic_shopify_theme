@@ -364,6 +364,8 @@
 			height: auto;
 			padding-bottom: calc(96 * 100vw / 375);
 			background: url({{ 'pro_order_bg_mobile.png' | asset_url }});
+    		background-size: cover;
+			background-position: center;
 		}
 		.order {
 	  		grid-row-gap: 40px;
@@ -419,6 +421,17 @@
 			font-weight: 500;
 			line-height: 40px;
 			width: 250px;
+		}
+		.order-product-data-preorder {
+			flex-direction: column;
+			grid-row-gap: 12px;
+		}
+		.order-product-data-preorder-button {
+			width: 100%;
+			padding: 20px 0;
+			border-radius: 54px;
+			font-size: 18px;
+			line-height: 24px;
 		}
 	}
 	
