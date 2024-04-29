@@ -582,4 +582,16 @@
 /*	grid-row-gap: 32px;*/
 		grid-row-gap: calc(24 * 100vw / 375);
 }
+.experience-block-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 64px;
+}
+.experience-block-options {
+	flex-direction: column;
+		grid-row-gap: calc(20 * 100vw / 375);
+}
 }
