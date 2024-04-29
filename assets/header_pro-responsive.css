@@ -477,6 +477,7 @@
 		position: absolute;
 		top: 0;
 		margin: 0 auto;
+		z-index: -1;
 	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);
