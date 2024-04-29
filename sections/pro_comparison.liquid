@@ -659,7 +659,7 @@
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
 
-		$('.comparison-check-dialog-button').on('click', function () {
+		$('.comparison-check-dialog-button').on('click', async function () {
 			const vin = $('#comparison-vin').val()
 			const email = $('#comparison-email').val()
 
