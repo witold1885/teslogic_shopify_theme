@@ -640,8 +640,8 @@
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 		$('.comparison-check-dialog-button').on('click', function () {
-			const vin = $('#comparison-vin'),val()
-			const email = $('#comparison-email'),val()
+			const vin = $('#comparison-vin').val()
+			const email = $('#comparison-email').val()
 
 			if (vin.length !== 17) {
 				$('#comparison-vin'),css('border-color', '#FC3E30')
