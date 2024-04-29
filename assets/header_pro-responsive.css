@@ -567,5 +567,19 @@
 	}
 	.banner-button-learn {
 		display: none;
-	}
+	}	
+.experience-block-wrap {
+	position: unset;
+	bottom: 180px;
+	width: 100%;
+}
+.experience-block {
+/*	width: 1077px;*/
+		width: calc(335 * 100vw / 375);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+/*	grid-row-gap: 32px;*/
+		grid-row-gap: calc(24 * 100vw / 375);
+}
 }
