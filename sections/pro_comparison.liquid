@@ -651,6 +651,11 @@
 			$('.comparison-dialog-shadow').css('display', 'none')
 		})
 
+		$('.comparison-check-dialog-field input').on('keydown', function () {			
+			$(this).css('border-color', '#FFF')
+			$(this).parent('.comparison-check-dialog-field').find('.comparison-check-dialog-field-error').hide()
+		})
+
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 		$('.comparison-check-dialog-button').on('click', function () {
