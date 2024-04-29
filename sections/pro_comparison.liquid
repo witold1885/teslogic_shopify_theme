@@ -219,6 +219,7 @@
 		flex-direction: column;
 		grid-row-gap: 8px;
 		width: 100%;
+		position: relative;
 	}
 	.comparison-check-dialog-field label {
 		color: #FFF;
@@ -242,6 +243,16 @@
 		font-weight: 400;
 		line-height: 20px;
 		box-sizing: border-box;
+	}
+	.comparison-check-dialog-field-error {
+		position: absolute;
+		bottom: -20px;
+		color: #FC3E30;
+		font-family: Manrope;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
 	}
 	.comparison-check-dialog-field input:active,
 	.comparison-check-dialog-field input:focus {
@@ -586,10 +597,12 @@
   		<div class="comparison-check-dialog-field">
   			<label for="comparison-vin">VIN:</label>
   			<input id="comparison-vin" type="text" placeholder="Enter car’s VIN number">
+  			<div class="comparison-check-dialog-field-error">Wrong input</div>
   		</div>
   		<div class="comparison-check-dialog-field">
   			<label for="comparison-email">E-mail:</label>
-  			<input id="comparison-email" type="text" placeholder="John.smith@example.com">
+  			<input id="comparison-email" type="email" placeholder="John.smith@example.com">
+  			<div class="comparison-check-dialog-field-error">Wrong input</div>
   		</div>  		
   	</div>
   	<button type="button" class="comparison-check-dialog-button">Send Request</button>
@@ -644,12 +657,12 @@
 			const email = $('#comparison-email').val()
 
 			if (vin.length !== 17) {
-				$('#comparison-vin'),css('border-color', '#FC3E30')
+				$('#comparison-vin').css('border-color', '#FC3E30')
 				return
 			}
 
 			if (!emailRegex.test(email)) {
-				$('#comparison-email'),css('border-color', '#FC3E30')
+				$('#comparison-email').css('border-color', '#FC3E30')
 				return
 			}
 		})
