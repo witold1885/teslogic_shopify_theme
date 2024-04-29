@@ -185,6 +185,13 @@
 		background: #171717;
 		position: relative;
 	}
+	.comparison-check-dialog-close {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 16px;
+		right: 16px;
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {		
 		.comparison-wrap {
 			padding-top: calc(180 * 100vw / 1440);
@@ -449,6 +456,7 @@
 
 <div class="comparison-dialog-shadow pro-shadow">
   <div class="comparison-check-dialog">
+  	<img class="comparison-check-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	
   </div>
 </div>
@@ -487,6 +495,10 @@
 
 		$('.comparison-check-button').on('click', function () {
 			$('.comparison-dialog-shadow').css('display', 'flex')
+		})
+
+		$('.comparison-check-dialog-close').on('click', function () {
+			$('.comparison-dialog-shadow').css('display', 'none')
 		})
 	})
 </script>
