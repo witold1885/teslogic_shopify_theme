@@ -81,7 +81,7 @@
               {% if link.title == 'Other Products' %}
                 <ul class="menu__item-dropdown">
                   {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
                       <li class="menu__item-dropdown-link">
                         <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                       </li>
@@ -234,7 +234,7 @@
               {% if link.title == 'Other Products' %}
                 <ul class="menu__item-dropdown">
                   {% for product in collections['all'].products %}
-                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
                       <li class="menu__item-dropdown-link">
                         <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                       </li>
@@ -315,7 +315,7 @@
             {% if link.title == 'Other Products' %}
               <ul class="menu__item-dropdown">
                 {% for product in collections['all'].products %}
-                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
                     <li class="menu__item-dropdown-link">
                       <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                     </li>
