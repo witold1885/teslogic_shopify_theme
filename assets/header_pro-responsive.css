@@ -481,7 +481,7 @@
 	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);
-		margin-top: calc(128 * 100vw / 375);
+		margin-top: calc(68 * 100vw / 375);
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: calc(8 * 100vw / 375);
@@ -500,7 +500,7 @@
 		font-family: Manrope;
 		font-size: calc(18 * 100vw / 375);
 		font-style: normal;
-		font-weight: 300;
+		font-weight: 500;
 		line-height: calc(24 * 100vw / 375);
 		text-align: left;
 	}
