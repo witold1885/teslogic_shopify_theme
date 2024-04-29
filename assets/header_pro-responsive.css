@@ -27,6 +27,9 @@
 	.addtext {
 		top: calc(456 * 100vw / 1920);
 	}
+	.banner-buttons {
+		top: calc(576 * 100vw / 1920);
+	}
 	.experience-block-wrap {
 		bottom: calc(180 * 100vw / 1920);
 	}
