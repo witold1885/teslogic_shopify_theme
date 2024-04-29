@@ -648,23 +648,23 @@
 		line-height: calc(48 * 100vw / 375);
 		margin-top: calc(4 * 100vw / 375);
 	}
-.experience-block-options-one-plus {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 6px;
-	margin-top: 2px;
-}
-.experience-block-options-one-plus-icon {
-	width: 40px;
-	height: 40px;
-}
-.experience-block-options-one-plus-text {
-	color: #A2A2A2;
-	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	font-family: Manrope;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 24px;
-}
+	.experience-block-options-one-plus {
+		grid-column-gap: calc(6 * 100vw / 375);
+		margin-top: 0;
+	}
+	.experience-block-options-one-plus-icon {
+		width: calc(40 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
+	}
+	.experience-block-options-one-plus-text {
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
+	.experience-block-options-add {
+		width: calc(335 * 100vw / 375);
+		height: calc(298 * 100vw / 375);
+		padding: calc(24 * 100vw / 375);
+		flex-direction: column;
+		grid-row-gap: calc(28 * 100vw / 375);
+	}
 }
