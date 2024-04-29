@@ -283,6 +283,17 @@
 		width: 40px;
 		height: 40px;
 	}
+	.order-dialog-texts {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 16px;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px;
+	}
 	.order-dialog-buttons {
 		display: flex;
 		justify-content: space-between;
@@ -291,7 +302,7 @@
 	}
 	.order-dialog-button {
 		width: 190px;
-		padding: 20px 20px;
+		padding: 17px 20px;
 		text-align: center;
 		font-family: Manrope;
 		font-size: 18px;
@@ -314,7 +325,7 @@
 		color: #FFF;
 		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 		border: none;
-		padding: 23px 23px;
+		padding: 20px 23px;
 	}
 	.order-dialog-button-preorder {
 		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
@@ -672,19 +683,10 @@
   		<img class="order-dialog-title-icon" src="{{ 'pro_info_warning.svg' | asset_url }}">
   		<div class="order-dialog-title-text">Check Compatibility</div>
   	</div>
-  	<!-- <div class="comparison-check-dialog-fields">
-  		<div class="comparison-check-dialog-field">
-  			<label for="comparison-vin">VIN:</label>
-  			<input id="comparison-vin" type="text" placeholder="Enter car’s VIN number">
-  			<div class="comparison-check-dialog-field-error">Wrong input</div>
-  		</div>
-  		<div class="comparison-check-dialog-field">
-  			<label for="comparison-email">E-mail:</label>
-  			<input id="comparison-email" type="email" placeholder="John.smith@example.com">
-  			<div class="comparison-check-dialog-field-error">Wrong input</div>
-  		</div>  		
+  	<div class="order-dialog-texts">
+  		<div>The Performance version is compatible<br>with a limited range of vehicles</div>
+  		<div>To check the compatibility of your Tesla,<br>please provide the VIN number of your vehicle.</div>
   	</div>
-  	<button type="button" class="comparison-check-dialog-button">Send Request</button> -->
   	<div class="order-dialog-buttons">
   		<button type="button" class="order-dialog-button order-dialog-button-check">Check</button>
   		<button type="button" class="order-dialog-button order-dialog-button-preorder">Preorder Now</button>
