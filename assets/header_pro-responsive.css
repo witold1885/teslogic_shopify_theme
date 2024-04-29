@@ -480,7 +480,6 @@
 		position: absolute;
 		top: 0;
 		margin: 0 auto;
-		z-index: -1;
 	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);
@@ -488,6 +487,7 @@
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: calc(8 * 100vw / 375);
+		z-index: 2;
 	}
 	.banner__title {
 		color: #FFF;
@@ -514,6 +514,7 @@
 		justify-content: flex-end;
 		align-items: flex-start;
 		grid-row-gap: calc(16 * 100vw / 375);
+		z-index: 2;
 	}
 	.addtext {
 		position: unset;
@@ -572,6 +573,7 @@
 	.experience-block-wrap {
 		position: unset;
 		padding-bottom: calc(96 * 100vw / 375);
+		z-index: 2;
 	}
 	.experience-block {
 		width: calc(335 * 100vw / 375);
