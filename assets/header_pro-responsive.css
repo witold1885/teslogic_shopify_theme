@@ -33,9 +33,9 @@
 	.experience-block-wrap {
 		bottom: calc(180 * 100vw / 1920);
 	}
-	.experience-block {
+	/*.experience-block {
 		width: calc(1077 * 100vw / 1920);
-	}
+	}*/
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top .logo {	
