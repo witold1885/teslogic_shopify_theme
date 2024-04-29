@@ -667,4 +667,25 @@
 		flex-direction: column;
 		grid-row-gap: calc(28 * 100vw / 375);
 	}
+	.experience-block-options-add-text {
+		width:  calc(260 * 100vw / 375);
+		font-size:  calc(18 * 100vw / 375);
+		line-height:  calc(24 * 100vw / 375);
+	}
+	.experience-block-options-add-features {
+		grid-column-gap: calc(24 * 100vw / 375);
+		grid-row-gap: calc(30 * 100vw / 375);
+		width: calc(335 * 100vw / 375);
+	}
+	.experience-block-options-add-features-item {
+		grid-column-gap: calc(8 * 100vw / 375);
+	}
+	.experience-block-options-add-features-item-icon {
+		width: calc(40 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
+	}
+	.experience-block-options-add-features-item-text {
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
 }
