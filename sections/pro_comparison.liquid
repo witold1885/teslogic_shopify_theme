@@ -245,6 +245,7 @@
 		box-sizing: border-box;
 	}
 	.comparison-check-dialog-field-error {
+		display: none;
 		position: absolute;
 		bottom: -20px;
 		color: #FC3E30;
@@ -658,11 +659,13 @@
 
 			if (vin.length !== 17) {
 				$('#comparison-vin').css('border-color', '#FC3E30')
+				$('#comparison-vin').parent('.comparison-check-dialog-field').find('.comparison-check-dialog-field-error').show()
 				return
 			}
 
 			if (!emailRegex.test(email)) {
 				$('#comparison-email').css('border-color', '#FC3E30')
+				$('#comparison-email').parent('.comparison-check-dialog-field').find('.comparison-check-dialog-field-error').show()
 				return
 			}
 		})
