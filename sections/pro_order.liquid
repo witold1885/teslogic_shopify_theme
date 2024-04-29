@@ -245,6 +245,44 @@
 		color: #1657FC;
 		font-weight: 500;
 	}
+	.order-dialog {
+		width: 464px;
+		height: 360px;
+		border-radius: 24px;
+		padding: 36px;
+		box-sizing: border-box;
+		background: #171717;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.order-dialog-close {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 16px;
+		right: 16px;
+		cursor: pointer;
+	}
+	.order-dialog-title {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 12px;
+	}
+	.order-dialog-title-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 40px;
+	}
+	.order-dialog-title-icon {
+		width: 40px;
+		height: 40px;
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.order-container {
 /*			padding-top: calc(180 * 100vw / 1440);*/
@@ -586,9 +624,39 @@
 	</div>
 </div>
 
+<div class="order-dialog-shadow pro-shadow">
+  <div class="order-dialog">
+  	<img class="order-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
+  	<div class="order-dialog-title">
+  		<img class="order-dialog-title-icon" src="{{ 'pro_info_warning.svg' | asset_url }}">
+  		<div class="order-dialog-title-text">Check Compatibility</div>
+  	</div>
+  	<!-- <div class="comparison-check-dialog-fields">
+  		<div class="comparison-check-dialog-field">
+  			<label for="comparison-vin">VIN:</label>
+  			<input id="comparison-vin" type="text" placeholder="Enter car’s VIN number">
+  			<div class="comparison-check-dialog-field-error">Wrong input</div>
+  		</div>
+  		<div class="comparison-check-dialog-field">
+  			<label for="comparison-email">E-mail:</label>
+  			<input id="comparison-email" type="email" placeholder="John.smith@example.com">
+  			<div class="comparison-check-dialog-field-error">Wrong input</div>
+  		</div>  		
+  	</div>
+  	<button type="button" class="comparison-check-dialog-button">Send Request</button> -->
+  </div>
+</div>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('.order-product-data-preorder-button').on('click', function () {
+			$('.order-dialog-shadow').css('display', 'flex')
+		})
+
+		$('.order-dialog-close').on('click', function () {
+			$('.order-dialog-shadow').css('display', 'none')
+		})
+		/*$('.order-product-data-preorder-button').on('click', function () {
 			let num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
 			let items = [{ id: Number(product_id), quantity: 1 }]
@@ -608,6 +676,6 @@
 			}).catch((error) => {
 			  	console.error('Error:', error)
 			})
-		})
+		})*/
 	})
 </script>
