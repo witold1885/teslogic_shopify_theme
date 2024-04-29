@@ -109,6 +109,8 @@
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
 
+		if (reviews.length == 0) $('.reviews-list-scrollbar').hide()
+
 		let i = 1
 		let reviewsHtml = []
 		for (const review of reviews) {
