@@ -583,12 +583,9 @@
 		grid-row-gap: calc(24 * 100vw / 375);
 }
 .experience-block-title {
-	color: #FFF;
-	font-family: Manrope;
-	font-size: 52px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 64px;
+		font-size: calc(32 * 100vw / 375);
+	font-weight: 500;
+		line-height: calc(40 * 100vw / 375);
 }
 .experience-block-options {
 	flex-direction: column;
