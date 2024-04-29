@@ -321,6 +321,7 @@
 		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
 		background-blend-mode: color-dodge, normal;
 		color: #0E54FD;
+		font-weight: 700;
 	}
 	.order-dialog-button-check:hover {
 		color: #FFF;
@@ -332,7 +333,8 @@
 		padding: 20px 20px;
 		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
 		backdrop-filter: blur(8px);
-		color: #FFF;		
+		color: #FFF;
+		font-weight: 500;
 	}
 	.order-dialog-button-preorder:hover {
 		background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
@@ -446,6 +448,50 @@
 		.order-product-data-delivery-text {
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
+		}
+		.order-dialog {
+			width: calc(464 * 100vw / 1440);
+			height: calc(360 * 100vw / 1440);
+			border-radius: calc(24 * 100vw / 1440);
+			padding: calc(36 * 100vw / 1440);
+		}
+		.order-dialog-close {
+			width: calc(20 * 100vw / 1440);
+			height: calc(20 * 100vw / 1440);
+			top: calc(16 * 100vw / 1440);
+			right: calc(16 * 100vw / 1440);
+		}
+		.order-dialog-title {
+			grid-column-gap: calc(12 * 100vw / 1440);
+		}
+		.order-dialog-title-text {
+			font-size: calc(32 * 100vw / 1440);
+			line-height: calc(40 * 100vw / 1440);
+		}
+		.order-dialog-title-icon {
+			width: calc(40 * 100vw / 1440);
+			height: calc(40 * 100vw / 1440);
+		}
+		.order-dialog-texts {
+			grid-row-gap: calc(16 * 100vw / 1440);
+			font-size: calc(18 * 100vw / 1440);
+			line-height: calc(24 * 100vw / 1440);
+			margin-top: calc(-1 * 12 * 100vw / 1440);
+		}
+		.order-dialog-button {
+			width: calc(190 * 100vw / 1440);
+			font-size: calc(18 * 100vw / 1440);
+			line-height: calc(24 * 100vw / 1440);
+			border-radius: calc(54 * 100vw / 1440);
+		}
+		.order-dialog-button-check {
+			padding: calc(17 * 100vw / 1440) calc(20 * 100vw / 1440);
+		}
+		.order-dialog-button-check:hover {
+			padding: calc(20 * 100vw / 1440) calc(23 * 100vw / 1440);
+		}
+		.order-dialog-button-preorder {
+			padding: calc(20 * 100vw / 1440) calc(20 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
