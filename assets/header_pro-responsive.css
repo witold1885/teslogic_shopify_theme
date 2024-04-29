@@ -510,7 +510,9 @@
 		width: calc(335 * 100vw / 375);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		justify-content: flex-end;
+		align-items: flex-start;
+		grid-row-gap: calc(16 * 100vw / 375);
 	}
 	.addtext {
 		position: unset;
