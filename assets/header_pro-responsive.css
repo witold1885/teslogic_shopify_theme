@@ -599,6 +599,7 @@
 		width: calc(335 * 100vw / 375);
 		height: calc(335 * 100vw / 375);
 		padding: calc(24 * 100vw / 375);
+		align-items: flex-start;
 	}
 	.experience-block-options-both-title {
 		font-size: calc(24 * 100vw / 375);
@@ -618,5 +619,19 @@
 	.experience-block-options-both-icons img {
 		width: calc(36 * 100vw / 375);
 		height: calc(36 * 100vw / 375);
+	}
+	.experience-block-options-right {
+		grid-row-gap: calc(20 * 100vw / 375);
+		width: calc(335 * 100vw / 375);
+		height: auto;
+	}
+	.experience-block-options-right-top {
+		flex-direction: column;
+		grid-row-gap: calc(20 * 100vw / 375);
+	}
+	.experience-block-options-one {
+		width: calc(335 * 100vw / 375);
+		height: calc(196 * 100vw / 375);
+		padding: calc(28 * 100vw / 375) calc(32 * 100vw / 375);
 	}
 }
