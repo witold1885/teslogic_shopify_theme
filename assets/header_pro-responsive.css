@@ -470,6 +470,13 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+		position: relative;
+	}
+	.banner-mobile-image {
+		width: calc(375 * 100vw / 375);
+		position: absolute;
+		top: 0;
+		margin: 0 auto;
 	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);

@@ -334,6 +334,7 @@
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
+    <img class="banner-mobile-image" src="{{ 'pro_banner_mobile.png' | asset_url}}" srcset="{{ 'pro_banner_2_mobile.png' | asset_url }} 2x" loading="lazy">
     <div class="banner-top">
       <div class="banner__title">
         Unlock the true<br>
@@ -352,9 +353,6 @@
         <a href="#shop-now" class="banner-button-buy">Buy now</a>
         <a href="#using" class="banner-button-learn">Learn more</a>
       </div>
-      <a class="expand" href="#using">
-        <img src="{{ 'expand-mobile.svg' | asset_url }}">
-      </a>
     </div>
   </div>
 </header>
@@ -516,8 +514,5 @@
         })
       }        
     })
-    /*$('.expand').on('click', function() {
-      document.getElementById('using').scrollIntoView()
-    })*/
   })  
 </script>
