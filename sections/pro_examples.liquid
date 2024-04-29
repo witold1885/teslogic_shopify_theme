@@ -25,6 +25,18 @@
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: 98px;
+		position: relative;
+	}
+	.examples-variants-note {
+		position: absolute;
+		left: 0;
+		bottom: -52px;
+		color: #656565;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 20px;
 	}
 	.examples-variants-item {
 		display: flex;
@@ -116,6 +128,11 @@
 		}
 		.examples-variants {
 			grid-row-gap: calc(98 * 100vw / 1440);
+		}
+		.examples-variants-note {
+			bottom: calc(-1 * 52 * 100vw / 1440);
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
 		}
 		.examples-variants-item {
 			grid-column-gap: calc(56 * 100vw / 1440);
@@ -268,7 +285,7 @@ vs Factory Acceleration Examples</div>
 						</div>
 					</div>
 					<div class="examples-variants-item-data-item">
-						<div class="examples-variants-item-data-item-value">3.5 sec</div>
+						<div class="examples-variants-item-data-item-value">3.5 sec*</div>
 						<div class="examples-variants-item-data-item-texts">
 							<div>Pro Performance</div>
 							<div>0 - 60 mp/h</div>
@@ -299,7 +316,7 @@ vs Factory Acceleration Examples</div>
 						</div>
 					</div>
 					<div class="examples-variants-item-data-item">
-						<div class="examples-variants-item-data-item-value">3.7 sec</div>
+						<div class="examples-variants-item-data-item-value">3.7 sec*</div>
 						<div class="examples-variants-item-data-item-texts">
 							<div>Pro Performance</div>
 							<div>0 - 60 mp/h</div>
@@ -335,7 +352,8 @@ vs Factory Acceleration Examples</div>
 						<div class="examples-variants-item-addtext-mobile">*980 motor, not LFP battery</div>
 					</div>
 				</div>
-			</div>			
+			</div>
+			<div class="examples-variants-note">*980 motor, not LFP battery</div>		
 		</div>
 	</div>
 </div>
