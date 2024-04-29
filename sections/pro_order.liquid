@@ -751,7 +751,13 @@
 		$('.order-dialog-close').on('click', function () {
 			$('.order-dialog-shadow').css('display', 'none')
 		})
-		/*$('.order-product-data-preorder-button').on('click', function () {
+
+		$('.order-dialog-button-check').on('click', function () {
+			$('.order-dialog-shadow').css('display', 'none')
+			$('.comparison-dialog-shadow').css('display', 'flex')
+		})
+
+		$('.order-dialog-button-preorder').on('click', function () {
 			let num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
 			let items = [{ id: Number(product_id), quantity: 1 }]
@@ -771,6 +777,6 @@
 			}).catch((error) => {
 			  	console.error('Error:', error)
 			})
-		})*/
+		})
 	})
 </script>
