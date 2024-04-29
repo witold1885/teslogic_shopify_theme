@@ -209,7 +209,33 @@
 	}
 	.comparison-check-dialog-fields {
 		display: flex;
-		flex-direction: column;		
+		flex-direction: column;
+		grid-row-gap: 24px;
+	}
+	.comparison-check-dialog-field {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 8px;
+	}
+	.comparison-check-dialog-field label {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.comparison-check-dialog-field input {
+		width: 100%;
+		padding: 16px;
+		border-radius: 6px;
+		border: 1px solid #D9D9D9;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
 	}
 	.comparison-check-dialog-button {
 		width: 100%;
@@ -504,7 +530,14 @@
   	<img class="comparison-check-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	<div class="comparison-check-dialog-title">Check Compatibility</div>
   	<div class="comparison-check-dialog-fields">
-  		
+  		<div class="comparison-check-dialog-field">
+  			<label for="comparison-vin">VIN:</label>
+  			<input id="comparison-vin" type="text" placeholder="Enter car’s VIN number">
+  		</div>
+  		<div class="comparison-check-dialog-field">
+  			<label for="comparison-email">E-mail:</label>
+  			<input id="comparison-email" type="text" placeholder="John.smith@example.com">
+  		</div>  		
   	</div>
   	<button type="button" class="comparison-check-dialog-button">Send Request</button>
   </div>
