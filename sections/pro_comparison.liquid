@@ -657,6 +657,7 @@
 		})
 
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+		const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
 
 		$('.comparison-check-dialog-button').on('click', function () {
 			const vin = $('#comparison-vin').val()
@@ -673,6 +674,19 @@
 				$('#comparison-email').parent('.comparison-check-dialog-field').find('.comparison-check-dialog-field-error').show()
 				return
 			}
+
+	        const response = await fetch(sendMailUrl, {
+	            method: 'post',
+	            body: JSON.stringify({ vin, email }),
+	            headers: {'Content-Type': 'application/json'}
+	        })
+	        const data = await response.json()
+	        if (response.status == 200) {
+	        	$('.comparison-dialog-shadow').css('display', 'none')
+	        }
+	        else {
+	        	console.log(data)
+	        }
 		})
 	})
 </script>
