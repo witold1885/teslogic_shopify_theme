@@ -277,7 +277,7 @@
 		grid-column-gap: calc(8 * 100vw / 1440);
 	}
 	.experience-block-options-add-features-item:nth-child(2n + 1) {
-		width: calc(122 * 100vw / 1440);
+		width: calc(170 * 100vw / 1440);
 	}
 	.experience-block-options-add-features-item-icon {
 		width: calc(40 * 100vw / 1440);
