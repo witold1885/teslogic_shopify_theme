@@ -71,6 +71,22 @@
 	align-items: center;
 	grid-column-gap: 4px;
 }
+.menu__item-pro {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 4px;
+}
+.menu__item-pro span {
+	border-radius: 4px;
+	background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%); 
+	color: #FFF;
+	text-align: center;
+	font-family: Manrope;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 12px;
+}
 .menu__item-cart {
 	width: 122.27px;
 	box-sizing: border-box;
