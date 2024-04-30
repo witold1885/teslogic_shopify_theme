@@ -288,7 +288,8 @@
 .banner-button-buy {
 	display: inline-flex;
 	width: 250px;
-	padding: 20px 40px;
+/*	padding: 20px 40px;*/
+	height: 72px;
 	justify-content: center;
 	align-items: center;
 	border-radius: 54px;
@@ -303,7 +304,7 @@
 .banner-button-buy:hover {
 	background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 	border: none;
-	padding: 23px 43px;
+/*	padding: 23px 43px;*/
 }
 .banner-button-learn {
 	color: #FFF;

@@ -145,7 +145,8 @@
 		line-height: calc(32 * 100vw / 1440);
 	}
 	.banner-button-buy {
-		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+/*		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);*/
+		height: calc(72 * 100vw / 1440);
 		border-radius: calc(54 * 100vw / 1440);
 	}
 	.banner-button-buy:hover {
