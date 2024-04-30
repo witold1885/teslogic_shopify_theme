@@ -19,6 +19,9 @@
 /*	backdrop-filter: blur(32px);*/
 	z-index: 10;
 }
+.top-link {
+	display: none;
+}
 .top-wrap {
 	width: 100%;
 }
