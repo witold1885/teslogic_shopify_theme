@@ -307,6 +307,15 @@
 	.menu__item-opened .menu__item-title {
 		color: #BFBFBD;
 	}
+	.menu__item-pro {
+		grid-column-gap: calc(4 * 100vw / 375);
+	}
+	.menu__item-pro span {
+		padding: calc(2 * 100vw / 375) calc(4 * 100vw / 375) calc(3 * 100vw / 375) calc(4 * 100vw / 375);
+		border-radius: calc(4 * 100vw / 375);
+		font-size: calc(12 * 100vw / 375);
+		line-height: calc(12 * 100vw / 375);
+	}
 	.menu__item-cart {
 		width: auto;
 		height: calc(36 * 100vw / 375);
