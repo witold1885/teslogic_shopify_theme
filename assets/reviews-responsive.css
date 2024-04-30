@@ -364,7 +364,7 @@
 		line-height: calc(40 * 100vw / 375);
 	}
 	#showForm {
-		padding: calc(16 * 100vw / 375) calc(32 * 100vw / 375);
+		padding: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375);
 		font-size: calc(18 * 100vw / 375);
 		line-height: calc(24 * 100vw / 375);
 	}
