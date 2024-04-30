@@ -291,7 +291,6 @@ with access to advanced Tesla features</div>
     $(document.body).on('scroll', setStickyHeader)
     $(window).on('scroll', setStickyHeader) 
     function setStickyHeader() {
-      console.log(window.innerWidth)
       if (window.innerWidth >= 575) {
         var header_main_height = $('#header_main').height()
         var header_top_height = $('#header_main').find('.top').height()
@@ -329,6 +328,7 @@ with access to advanced Tesla features</div>
       }
       else {
         var top_link_height = $('.top-link').height()
+        console.log(window.pageYOffset)
         console.log(top_link_height)
         if (window.pageYOffset >= top_link_height) {
           $('.top-wrap').addClass('top-wrap-passed')
