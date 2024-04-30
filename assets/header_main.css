@@ -261,6 +261,7 @@
 }
 .banner-button-buy {
 	display: inline-flex;
+	width: 175px;
 /*	padding: 20px 40px;*/
 	height: 72px;
 	justify-content: center;
