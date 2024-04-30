@@ -191,11 +191,19 @@
 		justify-content: space-between;
 		align-items: center;
 		background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), #FFF;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 20px;
+		text-decoration: none;
 	}
 	.top-wrap {
 		width: 100%;
 		height: calc(52 * 100vw / 375);
 		position: fixed;
+		top: calc(40 * 100vw / 375);
 		z-index: 10;
 		background: transparent;
 	}
