@@ -806,7 +806,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
+		var num
 		$('.order-product-data-preorder-button').on('click', function () {
+			num = $(this).data('num')
 			$('.order-dialog-shadow').css('display', 'flex')
 		})
 
@@ -820,7 +822,6 @@
 		})
 
 		$('.order-dialog-button-preorder').on('click', function () {
-			let num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
 			let items = [{ id: Number(product_id), quantity: 1 }]
 			if ($(`#select-charger-${num}`).prop('checked') === true) {
