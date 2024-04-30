@@ -183,6 +183,15 @@
 		align-items: center;
 		position: relative;
 	}
+	.top-link {
+		width: 100%;
+		height: calc(40 * 100vw / 375);
+		padding: 0 calc(20 * 100vw / 375);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), #FFF;
+	}
 	.top-wrap {
 		width: 100%;
 		height: calc(52 * 100vw / 375);
