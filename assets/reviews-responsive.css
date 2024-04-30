@@ -400,6 +400,13 @@
 		width: calc(288 * 100vw / 375);
 		grid-row-gap: calc(28 * 100vw / 375);
 	}
+	input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea) {
+		width: 100%;
+		padding: calc(16 * 100vw / 375);
+		border-radius: calc(6 * 100vw / 375);
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
 	.spr-form-review-rating {
 		margin-bottom: 0;
 	}
