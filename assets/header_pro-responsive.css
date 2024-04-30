@@ -116,6 +116,15 @@
 		line-height: calc(20 * 100vw / 1440);
 		padding: calc(8 * 100vw / 1440) calc(10 * 100vw / 1440);
 	}
+	.menu__item-pro {
+		grid-column-gap: calc(4 * 100vw / 1440);
+	}
+	.menu__item-pro span {
+		padding: calc(2 * 100vw / 1440) calc(4 * 100vw / 1440) calc(3 * 100vw / 1440) calc(4 * 100vw / 1440);
+		border-radius: calc(4 * 100vw / 1440);
+		font-size: calc(12 * 100vw / 1440);
+		line-height: calc(12 * 100vw / 1440);
+	}
 	.menu__item-button {
 		border-radius: calc(100 * 100vw / 1440);
 		margin-left: calc(10 * 100vw / 1440);
