@@ -732,9 +732,20 @@
 	            headers: {'Content-Type': 'application/json'}
 	        })
 	        const data = await response.json()
-	        	console.log(data)
+	        
 	        if (response.status == 200) {
-	        	$('.comparison-dialog-shadow').css('display', 'none')
+	        	if (data.success) {
+	        		$('.comparison-dialog-shadow').css('display', 'none')
+	        	}
+	        	else {
+	        		if (data.error == 'wrong-vin') {
+						$('#comparison-vin').css('border-color', '#FC3E30')
+						$('#comparison-vin').parent('.comparison-check-dialog-field').find('.comparison-check-dialog-field-error').show()
+	        		}
+	        		else {
+	        			console.log(data)
+	        		}
+	        	}
 	        }
 	        else {
 	        	console.log(data)
