@@ -678,19 +678,20 @@
 <div class="compatibility-success-dialog-shadow pro-shadow">
   <div class="compatibility-dialog compatibility-success-dialog">
   	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
-  	<div class="compatibility-dialog-title">Check Compatibility</div>
+  	<div class="compatibility-dialog-title">Manual check</div>
 
+  	<button type="button" class="compatibility-check-dialog-button">Close</button>
   </div>
 </div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.compatibility-check-button').on('click', function () {
-			$('.compatibility-dialog-shadow').css('display', 'flex')
+			$('.compatibility-check-dialog-shadow').css('display', 'flex')
 		})
 
-		$('.compatibility-check-dialog-close').on('click', function () {
-			$('.compatibility-dialog-shadow').css('display', 'none')
+		$('.compatibility-dialog-close').on('click', function () {
+			$(this).parents('pro-shadow').css('display', 'none')
 		})
 
 		$('.compatibility-check-dialog-field input').on('keydown', function () {			
