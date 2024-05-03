@@ -769,7 +769,7 @@
 </div>
 
 <div class="compatibility-warning-dialog-shadow pro-shadow">
-  <div class="compatibility-dialog compatibility-success-dialog">
+  <div class="compatibility-dialog compatibility-warning-dialog">
   	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	<div class="compatibility-dialog-title">Incompatible</div>
   	<div class="compatibility-dialog-texts">
@@ -783,7 +783,7 @@
   			version at a presale price of $590!
   		</div>
   	</div>
-  	<div class="compatibility-success-dialog-buttons">
+  	<div class="compatibility-warning-dialog-buttons">
   		<button type="button" class="compatibility-warning-dialog-button compatibility-warning-dialog-button-close">Close</button>
   		<button type="button" class="compatibility-warning-dialog-button compatibility-warning-dialog-button-preorder">Preorder Now</button>
   	</div>
@@ -834,7 +834,12 @@
 	        if (response.status == 200) {
 	        	if (data.success) {
 	        		$('.compatibility-check-dialog-shadow').css('display', 'none')
-	        		$('.compatibility-success-dialog-shadow').css('display', 'flex')
+	        		if (data.proceed) {
+	        			$('.compatibility-success-dialog-shadow').css('display', 'flex')
+	        		}
+	        		else {
+	        			$('.compatibility-warning-dialog-shadow').css('display', 'flex')
+	        		}
 	        	}
 	        	else {
 	        		console.log(data)
