@@ -22,6 +22,9 @@
 		font-weight: 500;
 		line-height: 64px;
 	}
+	.compatibility-title br {
+		display: none;
+	}
 	.compatibility-blocks {
 		display: flex;
 		flex-wrap: wrap;
@@ -212,10 +215,39 @@
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
 	}
+	@media screen and (max-width: 575px) {
+		.compatibility-wrap {
+			padding-top: calc(96 * 100vw / 375);
+			padding-bottom: calc(134 * 100vw / 375);
+			height: auto;
+		}
+		.compatibility {
+			width: calc(335 * 100vw / 375);
+			grid-row-gap: calc(40 * 100vw / 375);
+		}
+		.compatibility-title {
+			font-size: calc(32 * 100vw / 375);
+			line-height: calc(40 * 100vw / 375);
+		}
+		.compatibility-title br {
+			display: block;
+		}
+		.compatibility-blocks {
+			flex-direction: column;
+			grid-row-gap: calc(12 * 100vw / 375);
+		}
+		.compatibility-block {
+			border-radius: calc(24 * 100vw / 375);
+		}
+
+	}
 {% endstyle %}
 <div class="compatibility-wrap">
 	<div class="compatibility">
-		<div class="compatibility-title">Teslogic Pro Compatibility</div>
+		<div class="compatibility-title">Teslogic Pro<br>
+	.using__title br {
+		display: none;
+	}Compatibility</div>
 		<div class="compatibility-blocks">
 			<div class="compatibility-block compatibility-block-boost">
 				<div class="compatibility-block-title">Pro Boost<br>compatible with:</div>
