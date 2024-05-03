@@ -244,6 +244,19 @@
 		border: 1px solid #FFF;
 		outline: none;
 	}
+	.compatibility-dialog-texts {
+		color: #FFF;
+		font-feature-settings: 'clig' off, 'liga' off;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 20px;
+		margin-top: -6px;
+	}
 	.compatibility-check-dialog-button {
 		width: 100%;
 		padding: 20px 40px;
@@ -390,6 +403,12 @@
 			border-radius: calc(6 * 100vw / 1440);
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
+		}
+		.compatibility-dialog-texts {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+			grid-row-gap: calc(20 * 100vw / 1440);
+			margin-top: calc(-1 * 6 * 100vw / 1440);
 		}
 		.compatibility-check-dialog-button {
 			padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
@@ -679,7 +698,13 @@
   <div class="compatibility-dialog compatibility-success-dialog">
   	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	<div class="compatibility-dialog-title">Manual check</div>
-
+  	<div class="compatibility-dialog-texts">
+  		<div>
+  			Thank you for the information provided,<br>
+			we will check compatibility and send you<br>
+			a response within 2 working days.
+  		</div>
+  	</div>
   	<button type="button" class="compatibility-check-dialog-button">Close</button>
   </div>
 </div>
@@ -691,7 +716,7 @@
 		})
 
 		$('.compatibility-dialog-close').on('click', function () {
-			$(this).parents('pro-shadow').css('display', 'none')
+			$(this).parents('.pro-shadow').css('display', 'none')
 		})
 
 		$('.compatibility-check-dialog-field input').on('keydown', function () {			
@@ -727,7 +752,8 @@
 	        
 	        if (response.status == 200) {
 	        	if (data.success) {
-	        		$('.compatibility-dialog-shadow').css('display', 'none')
+	        		$('.compatibility-check-dialog-shadow').css('display', 'none')
+	        		$('.compatibility-success-dialog-shadow').css('display', 'flex')
 	        	}
 	        	else {
 	        		console.log(data)
