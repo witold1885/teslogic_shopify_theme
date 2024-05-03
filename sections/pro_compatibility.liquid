@@ -59,6 +59,9 @@
 		font-weight: 600;
 		line-height: 40px;
 	}
+	.compatibility-block-title-mobile {
+		display: none;
+	}
 	.compatibility-block-list {
 		display: flex;
 		flex-direction: column;
@@ -255,7 +258,14 @@
 			grid-row-gap: calc(20 * 100vw / 375);
 		}
 		.compatibility-block-title {
+			display: none;
+		}
+		.compatibility-block-title-mobile {
+			color: #FFF;
+			font-family: Manrope;
 			font-size: calc(24 * 100vw / 375);
+			font-style: normal;
+			font-weight: 600;
 			line-height: calc(32 * 100vw / 375);
 		}
 		.compatibility-block-list {
@@ -285,6 +295,7 @@
 		<div class="compatibility-blocks">
 			<div class="compatibility-block compatibility-block-boost">
 				<div class="compatibility-block-title">Pro Boost<br>compatible with:</div>
+				<div class="compatibility-block-title-mobile">Pro Boost<br>compatible with:</div>
 				<div class="compatibility-block-list">
 					<div class="compatibility-block-list-item">
 						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
@@ -304,6 +315,7 @@
 			</div>
 			<div class="compatibility-block compatibility-block-performance">
 				<div class="compatibility-block-title">Pro Performance only compatible<br>with AWD cars with 980 motors:</div>
+				<div class="compatibility-block-title-mobile">Pro Performance only<br>compatible with AWD<br>cars with 980 motors:</div>
 				<div class="compatibility-block-list">
 					<div class="compatibility-block-list-item">
 						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
