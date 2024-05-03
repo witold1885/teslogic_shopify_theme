@@ -1,0 +1,55 @@
+{% style %}
+	.using-wrap {
+		width: 100%;
+		padding-top: 176px;
+		padding-bottom: 180px;
+		height: 774px; 
+		background: #101010;
+		box-sizing: border-box;
+	}
+	.using {
+		width: 1296px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 34px;
+	}
+	.using-top {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 8px;
+	}
+	.using-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 52px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 64px;
+	}
+	.using-subtitle {
+		color: #A2A2A2;
+		font-family: Manrope;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 32px;
+	}
+	.using-subtitle a {
+		color: #0465FD;
+		font-weight: 500;
+	}
+	
+{% endstyle %}
+<div class="using-wrap">
+	<div class="using">
+		<div class="using-top">
+			<div class="using-title">How to use Teslogic Pro</div>
+			<div class="using-subtitle">
+				<span>Smooth start with soft installation.</span>
+				<a class="using-manuals-link">Read Manual<img src="{{ 'chevron-right-blue.svg' | asset_url }}"></a>
+			</div>ss="using-manuals-link">Read Manual<img src="{{ 'chevron-right-blue.svg' | asset_url }}"></a>
+		</div>
+
+	</div>
+</div>
