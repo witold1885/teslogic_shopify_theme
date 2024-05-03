@@ -113,10 +113,15 @@
 	.compatibility-block-check-info-text {
 		color: #FFF;
 		font-family: Manrope;
-		font-size: 16px;
 		font-style: normal;
 		font-weight: 500;
+	}
+	.compatibility-block-check-info-text-desktop {
+		font-size: 16px;
 		line-height: 20px;
+	}
+	.compatibility-block-check-info-text-mobile {
+		display: none;
 	}
 	.compatibility-check-button {
 		padding: 20px 40px;
@@ -210,7 +215,7 @@
 			width: calc(64 * 100vw / 1440);
 			height: calc(64 * 100vw / 1440);
 		}
-		.compatibility-block-check-info-text {
+		.compatibility-block-check-info-text-desktop {
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
 		}
@@ -314,6 +319,14 @@
 			font-size: calc(16 * 100vw / 375);
 			line-height: calc(20 * 100vw / 375);
 		}
+		.compatibility-block-check-info-text-desktop {
+			display: none;
+		}
+		.compatibility-block-check-info-text-mobile {
+			display: block;
+			font-size: calc(16 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
 		.compatibility-check-button {
 			padding: calc(20 * 100vw / 375) calc(40 * 100vw / 375);
 			border-radius: calc(54 * 100vw / 375);
@@ -389,10 +402,17 @@
 			<div class="compatibility-block compatibility-block-check">
 				<div class="compatibility-block-check-info">
 					<img class="compatibility-block-check-info-icon" src="{{ 'pro-combatibility-warning.svg' | asset_url }}">
-					<div class="compatibility-block-check-info-text">
+					<div class="compatibility-block-check-info-text compatibility-block-check-info-text-desktop">
 						If you're not sure which motor is in your Tesla, use the<br>
 						"Check Compatibility" option and we'll let you know if<br>
 						Pro Performance version can be installed in your vehicle.						
+					</div>
+					<div class="compatibility-block-check-info-text compatibility-block-check-info-text-mobile">
+						If you're not sure which motor is in<br>
+						your Tesla, use the "Check<br>
+						Compatibility" option and we'll let you<br>
+						know if Pro Performance version can<br>
+						be installed in your vehicle.						
 					</div>
 				</div>
 				<button type="button" class="compatibility-check-button">Check Pro Performance Compatibility</button>
