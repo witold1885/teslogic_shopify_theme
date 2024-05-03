@@ -154,6 +154,114 @@
 	.compatibility-check-button-text-mobile {
 		display: none;
 	}
+	.compatibility-check-dialog {
+		width: 464px;
+		height: 424px;
+		border-radius: 24px;
+		padding: 36px;
+		box-sizing: border-box;
+		background: #171717;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.compatibility-check-dialog-close {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 16px;
+		right: 16px;
+		cursor: pointer;
+	}
+	.compatibility-check-dialog-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 40px;
+	}
+	.compatibility-check-dialog-fields {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 24px;
+		width: 100%;
+		margin-top: -4px;
+	}
+	.compatibility-check-dialog-field {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 8px;
+		width: 100%;
+		position: relative;
+	}
+	.compatibility-check-dialog-field label {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.compatibility-check-dialog-field input {
+		width: 100%;
+		padding: 14px 16px;
+		border-radius: 6px;
+		border: 1px solid #D9D9D9;
+		outline: none;
+		background: transparent;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+		box-sizing: border-box;
+	}
+	.compatibility-check-dialog-field-error {
+		display: none;
+		position: absolute;
+		bottom: -20px;
+		color: #FC3E30;
+		font-family: Manrope;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.compatibility-check-dialog-field input:active,
+	.compatibility-check-dialog-field input:focus {
+		border: 1px solid #FFF;
+		outline: none;
+	}
+	.compatibility-check-dialog-button {
+		width: 100%;
+		padding: 20px 40px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 54px;
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px;
+		cursor: pointer;
+		text-decoration: none;
+		box-sizing: border-box;		
+	}
+	.compatibility-check-dialog-button:hover {
+		color: #FFF;
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+		border: none;
+		padding: 23px 43px;
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.compatibility-wrap {
 			padding-top: calc(180 * 100vw / 1440);
@@ -232,6 +340,48 @@
 			line-height: calc(24 * 100vw / 1440);
 		}
 		.compatibility-check-button:hover {
+			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
+		}
+		.compatibility-check-dialog {
+			width: calc(464 * 100vw / 1440);
+			height: calc(424 * 100vw / 1440);
+			border-radius: calc(24 * 100vw / 1440);
+			padding: calc(36 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-close {
+			width: calc(20 * 100vw / 1440);
+			height: calc(20 * 100vw / 1440);
+			top: calc(16 * 100vw / 1440);
+			right: calc(16 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-title {
+			font-size: calc(32 * 100vw / 1440);
+			line-height: calc(40 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-fields {
+			grid-row-gap: calc(24 * 100vw / 1440);
+			margin-top: calc(-1 * 4 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-field {
+			grid-row-gap: calc(8 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-field label {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-field input {
+			padding: calc(14 * 100vw / 1440) calc(16 * 100vw / 1440);
+			border-radius: calc(6 * 100vw / 1440);
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-button {
+			padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+			border-radius: calc(54 * 100vw / 1440);
+			font-size: calc(18 * 100vw / 1440);
+			line-height: calc(24 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-button:hover {
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
 	}
@@ -351,6 +501,55 @@
 		.compatibility-check-button-text-mobile {
 			display: block;
 		}
+		.compatibility-check-dialog {
+			width: calc(336 * 100vw / 375);
+			height: calc(380 * 100vw / 375);
+			border-radius: calc(24 * 100vw / 375);
+			padding: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375);
+		}
+		.compatibility-check-dialog-close {
+			width: calc(20 * 100vw / 375);
+			height: calc(20 * 100vw / 375);
+			top: calc(20 * 100vw / 375);
+			right: calc(20 * 100vw / 375);
+		}
+		.compatibility-check-dialog-title {
+			font-size: calc(24 * 100vw / 375);
+			line-height: calc(32 * 100vw / 375);
+		}
+		.compatibility-check-dialog-fields {
+			grid-row-gap: calc(24 * 100vw / 375);
+			margin-top: calc(-1 * 4 * 100vw / 375);
+		}
+		.compatibility-check-dialog-field {
+			grid-row-gap: calc(8 * 100vw / 375);
+		}
+		.compatibility-check-dialog-field label {
+			width: calc(100% + 24 * 100vw / 375);
+			font-size: calc(16 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
+		.compatibility-check-dialog-field input {
+			padding: calc(14 * 100vw / 375) calc(16 * 100vw / 375);
+			border-radius: calc(6 * 100vw / 375);
+			font-size: calc(16 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
+		.compatibility-check-dialog-field-error {
+			bottom: calc(-1 * 20 * 100vw / 375);
+			font-size: calc(14 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
+		.compatibility-check-dialog-button {
+			padding: calc(14 * 100vw / 375) calc(40 * 100vw / 375);
+			border-radius: calc(24 * 100vw / 375);
+			border: 3px solid #0E54FD;
+			font-size: calc(18 * 100vw / 375);
+			line-height: calc(24 * 100vw / 375);
+		}
+		.compatibility-check-dialog-button:hover {
+			padding: calc(17 * 100vw / 375) calc(43 * 100vw / 375);
+		}
 	}
 {% endstyle %}
 <div class="compatibility-wrap">
@@ -439,3 +638,86 @@
 		
 	</div>
 </div>
+
+<div class="compatibility-dialog-shadow pro-shadow">
+  <div class="compatibility-check-dialog">
+  	<img class="compatibility-check-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
+  	<div class="compatibility-check-dialog-title">Check Compatibility</div>
+  	<div class="compatibility-check-dialog-fields">
+  		<div class="compatibility-check-dialog-field">
+  			<label for="compatibility-vin">VIN: (can be copied from your Tesla app)</label>
+  			<input id="compatibility-vin" type="text" placeholder="Enter car’s VIN number">
+  			<div class="compatibility-check-dialog-field-error">Wrong input</div>
+  		</div>
+  		<div class="compatibility-check-dialog-field">
+  			<label for="compatibility-email">E-mail:</label>
+  			<input id="compatibility-email" type="email" placeholder="John.smith@example.com">
+  			<div class="compatibility-check-dialog-field-error">Wrong input</div>
+  		</div>  		
+  	</div>
+  	<button type="button" class="compatibility-check-dialog-button">Send Request</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.compatibility-check-button').on('click', function () {
+			$('.compatibility-dialog-shadow').css('display', 'flex')
+		})
+
+		$('.compatibility-check-dialog-close').on('click', function () {
+			$('.compatibility-dialog-shadow').css('display', 'none')
+		})
+
+		$('.compatibility-check-dialog-field input').on('keydown', function () {			
+			$(this).css('border-color', '#FFF')
+			$(this).parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').hide()
+		})
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+		const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
+
+		$('.compatibility-check-dialog-button').on('click', async function () {
+			const vin = $('#compatibility-vin').val()
+			const email = $('#compatibility-email').val()
+
+			if (vin.length !== 17) {
+				$('#compatibility-vin').css('border-color', '#FC3E30')
+				$('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+				return
+			}
+
+			if (!emailRegex.test(email)) {
+				$('#compatibility-email').css('border-color', '#FC3E30')
+				$('#compatibility-email').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+				return
+			}
+
+	        const response = await fetch(sendMailUrl, {
+	            method: 'post',
+	            body: JSON.stringify({ vin, email }),
+	            headers: {'Content-Type': 'application/json'}
+	        })
+	        const data = await response.json()
+	        
+	        if (response.status == 200) {
+	        	if (data.success) {
+	        		$('.compatibility-dialog-shadow').css('display', 'none')
+	        	}
+	        	else {
+	        		console.log(data)
+	        	}
+	        }
+	        else if (response.status == 400) {
+	        	console.log(data)
+        		if (data.error == 'wrong-vin') {
+					$('#compatibility-vin').css('border-color', '#FC3E30')
+					$('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+        		}
+	        }
+	        else {
+	        	console.log(data)
+	        }
+		})
+	})
+</script>
