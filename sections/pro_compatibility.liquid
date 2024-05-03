@@ -3,7 +3,7 @@
 		width: 100%;
 		padding-top: 180px;
 		padding-top: 166px;
-		height: 1002px; 
+		height: 1002px;
 		background: linear-gradient(0deg, #171717 45.07%, #181818 66.75%, #2D2D2D 100%); 
 		box-sizing: border-box;
 	}
@@ -83,6 +83,60 @@
 	}
 	.compatibility-block-list-item-info-secondary {
 		color: #9A9A9A;
+	}
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+		.compatibility-wrap {
+			padding-top: calc(180 * 100vw / 1440);
+			padding-top: calc(166 * 100vw / 1440);
+			height: calc(1002 * 100vw / 1440);
+		}
+		.compatibility {
+			width: calc(1076 * 100vw / 1440);
+			grid-row-gap: calc(40 * 100vw / 1440);
+		}
+		.compatibility-title {
+			font-size: calc(52 * 100vw / 1440);
+			line-height: calc(64 * 100vw / 1440);
+		}
+		.compatibility-blocks {
+			grid-column-gap: calc(24 * 100vw / 1440);
+			grid-row-gap: calc(24 * 100vw / 1440);
+		}
+		.compatibility-block {
+			border-radius: calc(24 * 100vw / 1440);
+		}
+		.compatibility-block-boost,
+		.compatibility-block-performance {
+			height: calc(384 * 100vw / 1440);
+			grid-row-gap: calc(32 * 100vw / 1440);
+			padding-top: calc(36 * 100vw / 1440);
+			padding-left: calc(40 * 100vw / 1440);
+		}
+		.compatibility-block-boost {
+			width: calc(416 * 100vw / 1440);
+		}
+		.compatibility-block-performance {
+			width: calc(636 * 100vw / 1440);
+		}
+		.compatibility-block-title {
+			font-size: calc(32 * 100vw / 1440);
+			line-height: calc(40 * 100vw / 1440);
+		}
+		.compatibility-block-list {
+			grid-row-gap: calc(24 * 100vw / 1440);
+		}
+		.compatibility-block-list-item {
+			grid-column-gap: calc(8 * 100vw / 1440);
+		}
+		.compatibility-block-list-item-icon {
+			width: calc(20 * 100vw / 1440);
+			height: calc(20 * 100vw / 1440);
+		}
+		.compatibility-block-list-item-info {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+			grid-row-gap: calc(4 * 100vw / 1440);
+		}
 	}
 {% endstyle %}
 <div class="compatibility-wrap">
