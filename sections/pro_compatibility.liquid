@@ -283,6 +283,50 @@
 		border: none;
 		padding: 23px 43px;
 	}
+	.compatibility-warning-dialog-buttons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	.compatibility-warning-dialog-button {
+		width: 190px;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		line-height: 24px;
+		border-radius: 54px;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+	.compatibility-warning-dialog-button-close {
+		padding: 17px 20px;
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+		font-weight: 700;
+	}
+	.compatibility-warning-dialog-button-close:hover {
+		color: #FFF;
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+		border: none;
+		padding: 20px 23px;
+	}
+	.compatibility-warning-dialog-button-preorder {
+		padding: 20px 20px;
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+		backdrop-filter: blur(8px);
+		color: #FFF;
+		font-weight: 500;
+	}
+	.compatibility-warning-dialog-button-preorder:hover {
+		background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.compatibility-wrap {
 			padding-top: calc(180 * 100vw / 1440);
@@ -418,6 +462,21 @@
 		}
 		.compatibility-check-dialog-button:hover {
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
+		}
+		.compatibility-warning-dialog-button {
+			width: calc(190 * 100vw / 1440);
+			font-size: calc(18 * 100vw / 1440);
+			line-height: calc(24 * 100vw / 1440);
+			border-radius: calc(54 * 100vw / 1440);
+		}
+		.compatibility-warning-dialog-button-close {
+			padding: calc(17 * 100vw / 1440) calc(20 * 100vw / 1440);
+		}
+		.compatibility-warning-dialog-button-close:hover {
+			padding: calc(20 * 100vw / 1440) calc(23 * 100vw / 1440);
+		}
+		.compatibility-warning-dialog-button-preorder {
+			padding: calc(20 * 100vw / 1440) calc(20 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -705,7 +764,29 @@
 			a response within 2 working days.
   		</div>
   	</div>
-  	<button type="button" class="compatibility-check-dialog-button">Close</button>
+  	<button type="button" class="compatibility-success-dialog-button">Close</button>
+  </div>
+</div>
+
+<div class="compatibility-warning-dialog-shadow pro-shadow">
+  <div class="compatibility-dialog compatibility-success-dialog">
+  	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
+  	<div class="compatibility-dialog-title">Incompatible</div>
+  	<div class="compatibility-dialog-texts">
+  		<div>
+  			After checking your VIN number, it appears that,<br>
+  			unfortunately, the installation of the Pro Performance<br>
+  			version on your car is not possible.
+  		</div>
+  		<div>
+  			However, we can offer the Pro Boost<br>
+  			version at a presale price of $590!
+  		</div>
+  	</div>
+  	<div class="compatibility-success-dialog-buttons">
+  		<button type="button" class="compatibility-warning-dialog-button compatibility-warning-dialog-button-close">Close</button>
+  		<button type="button" class="compatibility-warning-dialog-button compatibility-warning-dialog-button-preorder">Preorder Now</button>
+  	</div>
   </div>
 </div>
 
@@ -715,7 +796,7 @@
 			$('.compatibility-check-dialog-shadow').css('display', 'flex')
 		})
 
-		$('.compatibility-dialog-close').on('click', function () {
+		$('.compatibility-dialog-close, .compatibility-success-dialog-button, .compatibility-warning-dialog-button-close').on('click', function () {
 			$(this).parents('.pro-shadow').css('display', 'none')
 		})
 
