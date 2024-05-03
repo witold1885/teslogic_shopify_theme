@@ -148,6 +148,12 @@
 		border: none;
 		padding: 23px 43px;
 	}
+	.compatibility-check-button-text-desktop {
+		display: block;
+	}
+	.compatibility-check-button-text-mobile {
+		display: none;
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.compatibility-wrap {
 			padding-top: calc(180 * 100vw / 1440);
@@ -309,6 +315,7 @@
 		}
 		.compatibility-block-check-info {
 			flex-direction: column;
+			align-items: flex-start;
 			grid-row-gap: calc(12 * 100vw / 375);
 		}
 		.compatibility-block-check-info-icon {
@@ -336,7 +343,12 @@
 		.compatibility-check-button:hover {
 			padding: calc(23 * 100vw / 375) calc(43 * 100vw / 375);
 		}
-
+		.compatibility-check-button-text-desktop {
+			display: none;
+		}
+		.compatibility-check-button-text-mobile {
+			display: block;
+		}
 	}
 {% endstyle %}
 <div class="compatibility-wrap">
@@ -415,7 +427,10 @@
 						be installed in your vehicle.						
 					</div>
 				</div>
-				<button type="button" class="compatibility-check-button">Check Pro Performance Compatibility</button>
+				<button type="button" class="compatibility-check-button">
+					<span class="compatibility-check-button-text-desktop">Check Pro Performance Compatibility</span>
+					<span class="compatibility-check-button-text-mobile">Check Compatibility</span>
+				</button>
 			</div>
 			
 		</div>
