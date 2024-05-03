@@ -271,6 +271,7 @@
 	.compatibility-check-dialog-agree-checkbox {
 		width: 20px;
 		height: 20px;
+		margin: 0;
 		appearance: none;
 		-webkit-appearance: none;
 		background: url({{ 'pro_order_checkbox_inactive.svg' | asset_url }});
@@ -868,6 +869,9 @@
 		$('.compatibility-check-dialog-button').on('click', async function () {
 			const vin = $('#compatibility-vin').val()
 			const email = $('#compatibility-email').val()
+			const isAgree = $('#check-agree').prop('checked')
+
+			if (!isAgree) return
 
 			if (vin.length !== 17) {
 				$('#compatibility-vin').css('border-color', '#FC3E30')
