@@ -90,6 +90,9 @@
 	.compatibility-block-list-item-info-secondary {
 		color: #9A9A9A;
 	}
+	.compatibility-block-boost .compatibility-block-list .compatibility-block-list-item:last-child .compatibility-block-list-item-info > div:first-child {
+		width: 290px;
+	}
 	.compatibility-block-check {
 		width: 100%;
 		height: 144px;
@@ -292,6 +295,33 @@
 		}
 		.compatibility-block-performance .compatibility-block-list-item-info {
 			width: calc(260 * 100vw / 375);
+		}
+		.compatibility-block-check {
+			height: calc(320 * 100vw / 375);
+			padding: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375);
+			flex-direction: column;
+			grid-row-gap: calc(24 * 100vw / 375);
+		}
+		.compatibility-block-check-info {
+			flex-direction: column;
+			grid-row-gap: calc(12 * 100vw / 375);
+		}
+		.compatibility-block-check-info-icon {
+			width: calc(64 * 100vw / 375);
+			height: calc(64 * 100vw / 375);
+		}
+		.compatibility-block-check-info-text {
+			font-size: calc(16 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
+		.compatibility-check-button {
+			padding: calc(20 * 100vw / 375) calc(40 * 100vw / 375);
+			border-radius: calc(54 * 100vw / 375);
+			font-size: calc(18 * 100vw / 375);
+			line-height: calc(24 * 100vw / 375);
+		}
+		.compatibility-check-button:hover {
+			padding: calc(23 * 100vw / 375) calc(43 * 100vw / 375);
 		}
 
 	}
