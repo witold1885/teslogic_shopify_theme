@@ -57,6 +57,9 @@
 	.using__row {
 		margin: 0;
 		width: 306px;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 12px;
 	}
 	.using__row-block {
 		height: 220px;
@@ -151,6 +154,7 @@
 		}
 		.using__row {
 			width: calc(306 * 100vw / 1440);
+			grid-row-gap: calc(12 * 100vw / 1440);
 		}
 		.using__row-block {
 			height: calc(220 * 100vw / 1440);
@@ -223,6 +227,8 @@
 		}
 		.using__row {
 			width: 100%;
+			align-items: center;
+			grid-row-gap: calc(12 * 100vw / 375);
 		}
 		.using__row-block {
 			height: calc(240 * 100vw / 375);
