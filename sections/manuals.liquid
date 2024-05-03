@@ -277,16 +277,21 @@
 			}
 			$('.manuals__content-links-items').html(linksHTML)
 
-			let videosHTML = ''
-			for (const video of content.videos) {
-				videosHTML += `
-					<div class="manuals__content-video-item">
-						<iframe width="1280" height="720" src="${video.src}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
-						</iframe>
-					</div>
-				`
+			if (content.videos.length == 0) {
+				$('.manuals__content-videos').hide()
 			}
-			$('.manuals__content-videos-items').html(videosHTML)
+			else {
+				let videosHTML = ''
+				for (const video of content.videos) {
+					videosHTML += `
+						<div class="manuals__content-video-item">
+							<iframe width="1280" height="720" src="${video.src}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+							</iframe>
+						</div>
+					`
+				}
+				$('.manuals__content-videos-items').html(videosHTML)
+			}
 
 			$('.manuals__menu-item').each(function() {
 				$(this).removeClass('active')
