@@ -831,6 +831,7 @@
 	        })
 	        const data = await response.json()
 	        
+	        console.log(data)
 	        if (response.status == 200) {
 	        	if (data.success) {
 	        		$('.compatibility-check-dialog-shadow').css('display', 'none')
@@ -841,19 +842,12 @@
 	        			$('.compatibility-warning-dialog-shadow').css('display', 'flex')
 	        		}
 	        	}
-	        	else {
-	        		console.log(data)
-	        	}
 	        }
 	        else if (response.status == 400) {
-	        	console.log(data)
         		if (data.error == 'wrong-vin') {
 					$('#compatibility-vin').css('border-color', '#FC3E30')
 					$('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
         		}
-	        }
-	        else {
-	        	console.log(data)
 	        }
 		})
 	})
