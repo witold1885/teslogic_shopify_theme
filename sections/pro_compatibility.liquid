@@ -154,9 +154,8 @@
 	.compatibility-check-button-text-mobile {
 		display: none;
 	}
-	.compatibility-check-dialog {
-		width: 464px;
-		height: 424px;
+	.compatibility-dialog {
+		width: 467px;
 		border-radius: 24px;
 		padding: 36px;
 		box-sizing: border-box;
@@ -167,7 +166,16 @@
 		justify-content: space-between;
 		align-items: flex-start;
 	}
-	.compatibility-check-dialog-close {
+	.compatibility-check-dialog {
+		height: 424px;
+	}
+	.compatibility-success-dialog {
+		height: 300px;
+	}
+	.compatibility-warning-dialog {
+		height: 360px;
+	}
+	.compatibility-dialog-close {
 		position: absolute;
 		width: 20px;
 		height: 20px;
@@ -175,7 +183,7 @@
 		right: 16px;
 		cursor: pointer;
 	}
-	.compatibility-check-dialog-title {
+	.compatibility-dialog-title {
 		color: #FFF;
 		font-family: Manrope;
 		font-size: 32px;
@@ -342,19 +350,27 @@
 		.compatibility-check-button:hover {
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
-		.compatibility-check-dialog {
+		.compatibility-dialog {
 			width: calc(464 * 100vw / 1440);
-			height: calc(424 * 100vw / 1440);
 			border-radius: calc(24 * 100vw / 1440);
 			padding: calc(36 * 100vw / 1440);
 		}
-		.compatibility-check-dialog-close {
+		.compatibility-check-dialog {
+			height: calc(424 * 100vw / 1440);
+		}
+		.compatibility-success-dialog {
+			height: calc(300 * 100vw / 1440);
+		}
+		.compatibility-warning-dialog {
+			height: calc(360 * 100vw / 1440);
+		}
+		.compatibility-dialog-close {
 			width: calc(20 * 100vw / 1440);
 			height: calc(20 * 100vw / 1440);
 			top: calc(16 * 100vw / 1440);
 			right: calc(16 * 100vw / 1440);
 		}
-		.compatibility-check-dialog-title {
+		.compatibility-dialog-title {
 			font-size: calc(32 * 100vw / 1440);
 			line-height: calc(40 * 100vw / 1440);
 		}
@@ -639,23 +655,31 @@
 	</div>
 </div>
 
-<div class="compatibility-dialog-shadow pro-shadow">
-  <div class="compatibility-check-dialog">
-  	<img class="compatibility-check-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
-  	<div class="compatibility-check-dialog-title">Check Compatibility</div>
+<div class="compatibility-check-dialog-shadow pro-shadow">
+  <div class="compatibility-dialog compatibility-check-dialog">
+  	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
+  	<div class="compatibility-dialog-title">Check Compatibility</div>
   	<div class="compatibility-check-dialog-fields">
   		<div class="compatibility-check-dialog-field">
   			<label for="compatibility-vin">VIN: (can be copied from your Tesla app)</label>
-  			<input id="compatibility-vin" type="text" placeholder="Enter car’s VIN number">
+  			<input id="compatibility-vin" type="text" placeholder="Enter car’s VIN number" autocomplete>
   			<div class="compatibility-check-dialog-field-error">Wrong input</div>
   		</div>
   		<div class="compatibility-check-dialog-field">
   			<label for="compatibility-email">E-mail:</label>
-  			<input id="compatibility-email" type="email" placeholder="John.smith@example.com">
+  			<input id="compatibility-email" type="email" placeholder="John.smith@example.com" autocomplete>
   			<div class="compatibility-check-dialog-field-error">Wrong input</div>
   		</div>  		
   	</div>
   	<button type="button" class="compatibility-check-dialog-button">Send Request</button>
+  </div>
+</div>
+
+<div class="compatibility-success-dialog-shadow pro-shadow">
+  <div class="compatibility-dialog compatibility-success-dialog">
+  	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
+  	<div class="compatibility-dialog-title">Check Compatibility</div>
+
   </div>
 </div>
 
