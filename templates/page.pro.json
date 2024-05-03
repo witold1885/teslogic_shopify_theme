@@ -15,6 +15,11 @@
       "settings": {
       }
     },
+    "pro_compatibility": {
+      "type": "pro_compatibility",
+      "settings": {
+      }
+    },
     "pro_order": {
       "type": "pro_order",
       "settings": {
@@ -35,6 +40,7 @@
     "pro_using",
     "pro_examples",
     "pro_comparison",
+    "pro_compatibility",
     "pro_order",
     "pro_info",
     "reviews"
