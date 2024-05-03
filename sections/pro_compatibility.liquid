@@ -1,0 +1,144 @@
+{% style %}	
+	.compatibility-wrap {
+		width: 100%;
+		padding-top: 180px;
+		padding-top: 166px;
+		height: 1002px; 
+		background: linear-gradient(0deg, #171717 45.07%, #181818 66.75%, #2D2D2D 100%); 
+		box-sizing: border-box;
+	}
+	.compatibility {
+		width: 1076px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 40px;
+	}
+	.compatibility-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 52px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 64px;
+	}
+	.compatibility-blocks {
+		display: flex;
+		flex-wrap: wrap;
+		grid-column-gap: 24px;
+		grid-row-gap: 24px;
+	}
+	.compatibility-block {
+		display: flex;
+		border-radius: 24px;
+		background: #242424;
+	}
+	.compatibility-block-boost {
+		width: 416px;
+		height: 384px;
+		flex-direction: column;
+		grid-row-gap: 32px;
+		padding-top: 36px;
+		padding-left: 40px;
+	}
+	.compatibility-block-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 40px;
+	}
+	.compatibility-block-list {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 24px;
+	}
+	.compatibility-block-list-item {
+		display: flex;
+		align-items: flex-start;
+		grid-column-gap: 8px;
+	}
+	.compatibility-block-list-item-icon {
+		width: 20px;
+		height: 20px;
+	}
+	.compatibility-block-list-item-info {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 4px;
+	}
+	.compatibility-block-list-item-info-secondary {
+		color: #9A9A9A;
+	}
+{% endstyle %}
+<div class="compatibility-wrap"></div>
+	<div class="compatibility">
+		<div class="compatibility-title">Teslogic Pro Compatibility</div>
+		<div class="compatibility-blocks">
+			<div class="compatibility-block compatibility-block-boost">
+				<div class="compatibility-block-title">Pro Boost<br>compatible with:</div>
+				<div class="compatibility-block-list">
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Model 3/Y Long Range Dual Motor</div>
+							<div class="compatibility-block-list-item-info-secondary">Except RHD cars with Ryzen<br>MCU and Model 3 Highland</div>
+						</div>
+					</div>
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Model 3/Y Standard Range: Only cars<br>with 980 motor and not LFP battery  </div>
+							<div class="compatibility-block-list-item-info-secondary">Except RHD cars with Ryzen<br>MCU and Model 3 Highland</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="compatibility-block">
+				<div class="compatibility-block-title">Pro Performance only compatible<br>with AWD cars with 980 motors:</div>
+				<div class="compatibility-block-list">
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Model 3 Long Range Dual Motor (2017-2019.4)</div>
+						</div>
+					</div>
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Some Model Y 7-seaters</div>
+						</div>
+					</div>
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Some Model Y Long Range Dual Motor made in Austin</div>
+						</div>
+					</div>
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div>Some Model Y Long Range Dual Motor made in Berlin</div>
+						</div>
+					</div>
+					<div class="compatibility-block-list-item">
+						<img class="compatibility-block-list-item-icon" src="{{ 'pro-combatibility-success-icon.svg' | asset_url }}">
+						<div class="compatibility-block-list-item-info">
+							<div class="compatibility-block-list-item-info-secondary">Except RHD cars with Ryzen MCU and Model 3 Highland</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="compatibility-block"></div>
+			
+		</div>
+		
+	</div>
+</div>
