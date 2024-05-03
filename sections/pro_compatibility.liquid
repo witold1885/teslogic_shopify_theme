@@ -32,6 +32,7 @@
 		display: flex;
 		border-radius: 24px;
 		background: #242424;
+		box-sizing: border-box;
 	}
 	.compatibility-block-boost,
 	.compatibility-block-performance {
@@ -40,7 +41,6 @@
 		grid-row-gap: 32px;
 		padding-top: 36px;
 		padding-left: 40px;
-		box-sizing: border-box;
 	}
 	.compatibility-block-boost {
 		width: 416px;
@@ -83,6 +83,56 @@
 	}
 	.compatibility-block-list-item-info-secondary {
 		color: #9A9A9A;
+	}
+	.compatibility-block-check {
+		width: 100%;
+		height: 144px;
+		padding: 0 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.compatibility-block-check-info {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 12px;
+	}
+	.compatibility-block-check-info-icon {
+		width: 64px;
+		height: 64px;
+	}
+	.compatibility-block-check-info-text {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
+	.compatibility-check-button {
+		padding: 20px 40px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 54px;
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px;
+		cursor: pointer;
+		text-decoration: none;
+		box-sizing: border-box;
+	}
+	.compatibility-check-button:hover {
+		color: #FFF;
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+		border: none;
+		padding: 23px 43px;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.compatibility-wrap {
@@ -136,6 +186,30 @@
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
 			grid-row-gap: calc(4 * 100vw / 1440);
+		}
+		.compatibility-block-check {
+			height: calc(144 * 100vw / 1440);
+			padding: 0 calc(40 * 100vw / 1440);
+		}
+		.compatibility-block-check-info {
+			grid-column-gap: calc(12 * 100vw / 1440);
+		}
+		.compatibility-block-check-info-icon {
+			width: calc(64 * 100vw / 1440);
+			height: calc(64 * 100vw / 1440);
+		}
+		.compatibility-block-check-info-text {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+		}
+		.compatibility-check-button {
+			padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+			border-radius: calc(54 * 100vw / 1440);
+			font-size: calc(18 * 100vw / 1440);
+			line-height: calc(24 * 100vw / 1440);
+		}
+		.compatibility-check-button:hover {
+			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
 	}
 {% endstyle %}
@@ -197,7 +271,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="compatibility-block"></div>
+			<div class="compatibility-block compatibility-block-check">
+				<div class="compatibility-block-check-info">
+					<img class="compatibility-block-check-info-icon" src="{{ 'pro-combatibility-warning.svg' | asset_url }}">
+					<div class="compatibility-block-check-info-text">
+						If you're not sure which motor is in your Tesla, use the<br>
+						"Check Compatibility" option and we'll let you know if<br>
+						Pro Performance version can be installed in your vehicle.						
+					</div>
+				</div>
+				<button type="button" class="compatibility-check-button">Check Pro Performance Compatibility</button>
+			</div>
 			
 		</div>
 		
