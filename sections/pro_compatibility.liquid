@@ -898,7 +898,7 @@
 		})
 
 		$('#check-agree').on('change', function () {
-			$(this).css('border', 'none')
+			$(this).parent('div').css('border', 'none')
 		})
 
 		$('.compatibility-warning-dialog-button-preorder').on('click', function () {
@@ -917,7 +917,7 @@
 			const isAgree = $('#check-agree').prop('checked')
 
 			if (!isAgree) {
-				$('#check-agree').css('border', '#FC3E30')
+				$('#check-agree').parent('div').css('border', '#FC3E30')
 				return
 			}
 
