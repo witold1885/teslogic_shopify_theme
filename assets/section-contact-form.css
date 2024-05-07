@@ -115,6 +115,9 @@
   background: #FFF;
   backdrop-filter: blur(8px);
   color: #403CF7;
+  border: none;
+  outline: none;
+  box-shadow: none;
   text-align: center;
   font-family: Manrope;
   font-size: 18px;
