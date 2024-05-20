@@ -711,7 +711,7 @@
 								<div class="order-product-data-info-title">{{ product1.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button" data-num="1">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button preorder-boost" data-num="1">Preorder Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -757,7 +757,7 @@
 								<div class="order-product-data-info-title">{{ product2.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button" data-num="2">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button preorder-performance" data-num="2">Preorder Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -818,7 +818,7 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 		var num
-		$('.order-product-data-preorder-button').on('click', function () {
+		$('.order-product-data-preorder-button.preorder-performance').on('click', function () {
 			num = $(this).data('num')
 			$('.order-dialog-shadow').css('display', 'flex')
 		})
@@ -832,7 +832,8 @@
 			$('.compatibility-check-dialog-shadow').css('display', 'flex')
 		})
 
-		$('.order-dialog-button-preorder').on('click', function () {
+		$('.order-dialog-button-preorder, .preorder-boost').on('click', function () {
+			if (!num) num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
 			let items = [{ id: Number(product_id), quantity: 1 }]
 			if ($(`#select-charger-${num}`).prop('checked') === true) {
