@@ -833,7 +833,7 @@
 		})
 
 		$('.order-dialog-button-preorder, .preorder-boost').on('click', function () {
-			if (!num) num = $(this).data('num')
+			if ($(this).data('num')) num = $(this).data('num')
 			let product_id = $(`#product-${num}-variant-id`).val()
 			let items = [{ id: Number(product_id), quantity: 1 }]
 			if ($(`#select-charger-${num}`).prop('checked') === true) {
