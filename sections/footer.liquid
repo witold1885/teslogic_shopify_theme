@@ -46,7 +46,7 @@
               </div>
               <ul class="footer-menu__list-items">
                 {% for product in collections['all'].products %}
-                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' %}
+                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
                     <li>
                       <a href="/products/{{ product.handle }}">{{ product.title }}</a>
                     </li>
