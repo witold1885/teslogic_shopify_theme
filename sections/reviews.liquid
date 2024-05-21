@@ -93,8 +93,13 @@
 		    {% if item.title == 'Disabled reviews' %}
 		    	const itemContent = '{{ item.content }}'
 		    	console.log(itemContent)
+		    	const ids = itemContent.split(',')
+		    	for (const id of ids) {
+		    		diabledReviews.push(id.trim())
+		    	}
 		    {% endif %}
 	  	{% endfor %}
+	  	console.log(diabledReviews)
 		let product_id = null
 		let getReviewsUrl
 
