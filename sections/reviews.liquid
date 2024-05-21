@@ -83,6 +83,7 @@
 </div>
 
 {% assign miscData = blogs['misc-data'].articles %}
+{{ miscData | json }}
 
 <script type="text/javascript">
 	console.log('{{ miscData }}')
