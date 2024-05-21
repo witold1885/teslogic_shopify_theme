@@ -86,20 +86,18 @@
 
 <script type="text/javascript">
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}'
-	var formLoaded = false;
+	var formLoaded = false
 	$(document).ready(async function() {
 		const diabledReviews = []
 	    {% for item in miscData %}
 		    {% if item.title == 'Disabled reviews' %}
 		    	const itemContent = '{{ item.content }}'
-		    	console.log(itemContent)
 		    	const ids = itemContent.split(',')
 		    	for (const id of ids) {
-		    		diabledReviews.push(id.trim())
+		    		diabledReviews.push(Number(id.trim()))
 		    	}
 		    {% endif %}
 	  	{% endfor %}
-	  	console.log(diabledReviews)
 		let product_id = null
 		let getReviewsUrl
 
@@ -131,6 +129,7 @@
 		let reviewsHtml = []
 		for (const review of reviews) {
 			if (!review.published) continue
+			if (diabledReviews.includes(review.id)) continue
 			const reviewDate = new Date(review.created_at)
 			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 			let starsHtml = ''
