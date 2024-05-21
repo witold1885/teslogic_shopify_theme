@@ -85,13 +85,12 @@
 {% assign miscData = blogs['misc-data'].articles %}
 
 <script type="text/javascript">
-	console.log('{{ miscData }}')
 	var starMobile = '{{ 'star-mobile.svg' | asset_url }}';
 	var formLoaded = false;
 	$(document).ready(async function() {
 		const diabledReviews = []
 	    {% for item in miscData %}
-	    	console.log({{item.title}})
+	    	console.log('{{ item.title }}')
 	  	{% endfor %}
 		let product_id = null
 		let getReviewsUrl
