@@ -91,8 +91,8 @@
 		const diabledReviews = []
 	    {% for item in miscData %}
 		    {% if item.title == 'Disabled reviews' %}
-		    	const content = '{{ item.content }}'
-		    	console.log(content)
+		    	const itemContent = '{{ item.content }}'
+		    	console.log(itemContent)
 		    {% endif %}
 	  	{% endfor %}
 		let product_id = null
