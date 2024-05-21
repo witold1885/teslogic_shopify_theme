@@ -107,7 +107,6 @@
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
-        console.log('reviews', reviews)
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
@@ -126,7 +125,7 @@
 				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
 			}
 	        const reviewHtml = `
-	        	<div class="reviews-list-item product-review" id="review-${i}">
+	        	<div class="reviews-list-item product-review" id="review-${i}" data-id="${review.id}">
 	        		<div class="reviews-list-item-top">
 		        		<div class="reviews-list-item-top-left">
 		        			<div class="reviews-list-item-author">${review.reviewer.name}</div>
