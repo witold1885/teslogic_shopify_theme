@@ -173,11 +173,11 @@
 		line-height: calc(20 * 100vw / 1440);
 	}
 	.spr-form-review-rating .spr-icon {
-		width: calc(40 * 100vw / 1440);
-		height: calc(40 * 100vw / 1440);
+		width: calc(24 * 100vw / 1440);
+		height: calc(24 * 100vw / 1440);
 	}
 	.spr-form-review-rating .spr-icon::before {
-		font-size: calc(40 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
 	}
 	.spr-form-input-textarea {
 		height: calc(161 * 100vw / 1440);
