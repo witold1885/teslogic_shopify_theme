@@ -108,6 +108,24 @@
 		flex-direction: column;
 		grid-row-gap: 4px;
 	}
+	.examples-variants-item-data-item-video {
+		display: flex;
+		align-items: center;
+		grid-column-gap: 6px;
+	}
+	.examples-variants-item-data-item-video-icon {
+		width: 20px;
+		height: 20px;
+	}
+	.examples-variants-item-data-item-video-link {
+		color: #9A9A9A;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+		text-decoration-line: underline; 
+	}
 	.examples-variants-item-addtext-mobile {
 		display: none;
 	}
@@ -169,6 +187,17 @@
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
 			grid-row-gap: calc(4 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item-video {
+			grid-column-gap: calc(6 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item-video-icon {
+			width: calc(20 * 100vw / 1440);
+			height: calc(20 * 100vw / 1440);
+		}
+		.examples-variants-item-data-item-video-link {
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -307,10 +336,23 @@ vs Factory Acceleration Examples</div>
 						</div>
 					</div>
 					<div class="examples-variants-item-data-item">
-						<div class="examples-variants-item-data-item-value">4.4 sec</div>
+						<div class="examples-variants-item-data-item-value">4.2 sec</div>
 						<div class="examples-variants-item-data-item-texts">
 							<div>Pro Boost</div>
 							<div>0 - 60 mp/h</div>
+							<div class="examples-variants-item-data-item-video">
+								<img
+									class="examples-variants-item-data-item-video-icon"
+									src="{{ 'pro-video-icon.svg' | asset_url }}"
+								>
+								<a
+									class="examples-variants-item-data-item-video-link"
+									href="https://youtu.be/TAmVV-gZYYM"
+									target="_blank"
+								>
+									watch video
+								</a>								
+							</div>
 						</div>
 					</div>
 					<div class="examples-variants-item-data-item">
