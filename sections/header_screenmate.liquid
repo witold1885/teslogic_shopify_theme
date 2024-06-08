@@ -44,7 +44,7 @@
     .banner-desktop-image-wrap {
       background: url({{ 'screenmate_bg_2.png' | asset_url}});
       width: 3840px;
-      left: -960px;
+      left: calc(-1 * (3840px - 100vw) / 2);
     }
   }
   /*.experience-block-options-both{
