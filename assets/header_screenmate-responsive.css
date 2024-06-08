@@ -34,6 +34,21 @@
 	.screenmate-info {
 		bottom: calc(177 * 100vh / 1080);
 	}
+	.screenmate-info-text {
+		font-size: calc(24 * 100vh / 1080);
+		line-height: calc(32 * 100vh / 1080);
+	}
+	.screenmate-info-link {
+		grid-column-gap: calc(13 * 100vh / 1080);
+	}
+	.screenmate-info-link span {
+		font-size: calc(24 * 100vh / 1080);
+		line-height: calc(32 * 100vh / 1080);
+	}
+	.screenmate-info-link img {
+		width: calc(24 * 100vh / 1080);
+		height: calc(24 * 100vh / 1080);
+	}
 }
 @media screen and (min-width: 1920px) {
 	#header_main {
