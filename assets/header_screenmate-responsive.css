@@ -1,13 +1,14 @@
 @media screen and (max-height: 810px) {
 	.screenmate-video {
 	/*	width: calc(585 * 100vh / 810);*/
-		/*width: 585px;
-		height: calc(367 * 100vh / 810);
-		position: absolute;
+/*		width: 585px;*/
+/*		height: calc(367 * 100vh / 810);*/
+/*		position: absolute;*/
+/*		top: calc(238 * 100vh / 810);*/
 		top: calc(238 * 100vh / 810);
-		z-index: 2;
-		border-radius: 6px;
-		overflow: hidden;*/
+/*		z-index: 2;*/
+/*		border-radius: 6px;*/
+/*		overflow: hidden;*/
 	}
 }
 @media screen and (min-height: 1080px) {
