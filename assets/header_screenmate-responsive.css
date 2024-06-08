@@ -63,6 +63,9 @@
 	.screenmate-form {
 		width: calc(651 * 100vh / 1080);
 		height: calc(292 * 100vh / 1080);
+		padding: calc(40 * 100vh / 1080);
+		grid-row-gap: calc(20 * 100vh / 1080);
+		border-radius: calc(24 * 100vh / 1080);
 		top: calc(371 * 100vh / 1080);
 	}
 	.screenmate-form-title {
@@ -72,6 +75,13 @@
 	.screenmate-form-close {
 		width: calc(20 * 100vh / 1080);
 		height: calc(20 * 100vh / 1080);
+	}
+	.screenmate-form-field {
+		grid-row-gap: calc(8 * 100vh / 1080);
+	}
+	.screenmate-form-field-label {
+		font-size: calc(16 * 100vh / 1080);
+		line-height: calc(20 * 100vh / 1080);
 	}
 }
 @media screen and (min-width: 1920px) {
