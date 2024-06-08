@@ -389,6 +389,10 @@
       }
     }
 
+    $('.screenmate-info-link').on('click', function () {
+      $('.screenmate-shadow').css('display', 'flex')
+    })
+
     $('.screenmate-form-close').on('click', function () {
       $(this).parents('.screenmate-shadow').css('display', 'none')
     })
@@ -402,7 +406,7 @@
     })
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
+    const sendMailUrl = 'https://api.teslogic.co/mail/screenmate-subscribe'
 
     $('.screenmate-form-button').on('click', async function () {
       const name = $('.screenmate-form-name').val()
@@ -424,31 +428,19 @@
         return
       }
 
-          /*const response = await fetch(sendMailUrl, {
-              method: 'post',
-              body: JSON.stringify({ vin, email }),
-              headers: {'Content-Type': 'application/json'}
-          })
-          const data = await response.json()
-          
-          console.log(data)
-          if (response.status == 200) {
-            if (data.success) {
-              $('.compatibility-check-dialog-shadow').css('display', 'none')
-              if (data.proceed) {
-                $('.compatibility-success-dialog-shadow').css('display', 'flex')
-              }
-              else {
-                $('.compatibility-warning-dialog-shadow').css('display', 'flex')
-              }
-            }
-          }
-          else if (response.status == 400) {
-            if (data.error == 'wrong-vin') {
-          $('#compatibility-vin').css('border-color', '#FC3E30')
-          $('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
-            }
-          }*/
+      const response = await fetch(sendMailUrl, {
+          method: 'post',
+          body: JSON.stringify({ name, email }),
+          headers: {'Content-Type': 'application/json'}
+      })
+      const data = await response.json()
+      
+      console.log(data)
+      if (response.status == 200) {
+        if (data.success) {
+          $('.screenmate-shadow').css('display', 'none')
+        }
+      }
     })
 
     $('.button-menu').on('click', function() {
