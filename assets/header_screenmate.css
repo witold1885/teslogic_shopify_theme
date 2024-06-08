@@ -244,8 +244,8 @@
 	height: 100%;
 }
 .screenmate-video {
-	width: 585px;
-	height: 367px;
+	width: calc(585 * 100vh / 810);
+	height: calc(367 * 100vh / 810);
 	position: absolute;
 	top: calc(238 * 100vh / 810);
 	z-index: 2;
