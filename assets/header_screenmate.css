@@ -293,6 +293,26 @@
 	width: 24px;
 	height: 24px;
 }
+.screenmate-shadow {
+	/*    display: none;*/
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+  	min-height: 810px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 5;
+	background: rgba(0, 0, 0, 0.66);
+	backdrop-filter: blur(12px);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
 .screenmate-form {
 	width: 651px;
 	height: 292px;
