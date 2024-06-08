@@ -7,54 +7,19 @@
 		/*width: calc(1366 * 100vw / 1366);*/
 /*		height: calc(1083 * 100vw / 1920);*/
 	}
-	.banner-desktop-image {
-/*		width: calc(1920 * 100vw / 1920);*/
+	.banner-desktop-wrap {
+	  	min-height: calc(1080 * 100vw / 1920);
 	}
-	.title {
-		font-size: calc(64 * 100vw / 1920);
-		line-height: calc(72 * 100vw / 1920);
-/*		width: calc(541 * 100vw / 1920);*/
-		top: calc(136 * 100vw / 1920);
-		/*left: calc(128 * 100vw / 1920);*/
-	}
-	.subtitle {
-/*		font-size: calc(48 * 100vw / 1920);*/
-/*		line-height: calc(64 * 100vw / 1920);*/
-/*		width: calc(541 * 100vw / 1920);*/
-		top: calc(368 * 100vw / 1920);
-		/*left: calc(128 * 100vw / 1920);*/
-	}
-	.addtext {
-		top: calc(456 * 100vw / 1920);
-	}
-	.banner-buttons {
-		top: calc(576 * 100vw / 1920);
-	}
-	.experience-block-wrap {
-		bottom: calc(180 * 100vw / 1920);
-	}
-	/*.experience-block {
-		width: calc(1077 * 100vw / 1920);
-	}*/
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
+	.top {
+		width: calc(1440 * 100vw / 1440);
+	}
 	.top .logo {	
 		margin-left: calc(72 * 100vw / 1440);
 	}
 	.menu {
 		margin-right: calc(72 * 100vw / 1440);
-	}
-	.title {
-		left: calc(72 * 100vw / 1440);
-	}
-	.subtitle {
-		left: calc(72 * 100vw / 1440);
-	}
-	.addtext {
-		left: calc(72 * 100vw / 1440);
-	}
-	.banner-buttons {
-		left: calc(72 * 100vw / 1440);
 	}
 	.menu__item-cart {
 		width: calc(122.27 * 100vw / 1440);
@@ -62,28 +27,27 @@
 		margin-left: calc(10 * 100vw / 1440);
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
+	.banner-desktop-wrap {
+	  	min-height: calc(810 * 100vw / 1440);
+	}
+	.banner-desktop-image-wrap {
+		position: absolute;
+		width: 1920px;
+		height: 100%;
+		left: calc(- 1 * 240 * 100vw / 1440);
+	}
+	.screenmate-logo {
+		width: calc(613 * 100vw / 1440);
+		height: calc(58 * 100vw / 1440);
+		top: calc(108 * 100vw / 1440);
+	}
+	.screenmate-video {
+		width: calc(585 * 100vw / 1440);
+		height: calc(367 * 100vw / 1440);
+		top: calc(238 * 100vw / 1440);
+		border-radius: calc(6 * 100vw / 1440);
+	}
 }
-
-/*@media screen and (min-width: 1367px) and (max-width: 1440px) {
-	.title {
-		left: calc((100vw - 1366px + 160px) / 2);
-	}
-	.subtitle {
-		left: calc((100vw - 1366px + 160px) / 2);
-	}
-}*/
-
-@media screen and (min-width: 576px) and (max-width: 1440px) {
-	.top {
-		width: calc(1440 * 100vw / 1440);
-	}
-}
-
-/*@media screen and (min-width: 1367px) and (max-width: 1440px) {
-	.top {
-		width: 1366px;
-	}
-}*/
 
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
 	.top {
@@ -143,157 +107,6 @@
 		border-radius: calc(20 * 100vw / 1440);
 	}
 	.menu__item-dropdown-link {
-		font-size: calc(16 * 100vw / 1440);
-		line-height: calc(20 * 100vw / 1440);
-	}
-	.banner-desktop-wrap {
-		/*top: calc(-96 * 100vw / 1440);*/
-	}
-	.banner-desktop {
-/*		width: calc(1440 * 100vw / 1440);*/
-/*		height: calc(1083 * 100vw / 1440);*/
-	}
-	.title {
-		font-size: calc(64 * 100vw / 1440);
-		line-height: calc(72 * 100vw / 1440);
-/*		width: calc(541 * 100vw / 1440);*/
-		top: calc(136 * 100vw / 1440);
-	}
-	.subtitle {
-		font-size: calc(24 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
-/*		width: calc(541 * 100vw / 1440);*/
-		top: calc(368 * 100vw / 1440);
-	}
-	.addtext {
-		top: calc(456 * 100vw / 1440);
-		text-shadow: 0px calc(4 * 100vw / 1440) calc(24 * 100vw / 1440) #000;
-	}
-	.addtext-sup {
-		font-size: calc(24 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
-	}
-	.addtext-main {
-		font-size: calc(64 * 100vw / 1440);
-		line-height: calc(72 * 100vw / 1440);
-	}
-	.banner-buttons {
-		top: calc(576 * 100vw / 1440);
-		grid-column-gap: calc(40 * 100vw / 1440);
-		font-size: calc(24 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
-	}
-	.banner-button-buy {
-		width: calc(250 * 100vw / 1440);
-		height: calc(72 * 100vw / 1440);
-/*		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);*/
-		border-radius: calc(54 * 100vw / 1440);
-	}
-	.banner-button-buy:hover {
-		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
-	}
-	.experience-block-wrap {
-		bottom: calc(180 * 100vw / 1440);
-	}
-	.experience-block {
-		width: calc(1077 * 100vw / 1440);
-	}
-	.experience-block-title {
-		font-size: calc(52 * 100vw / 1440);
-		line-height: calc(64 * 100vw / 1440);
-	}
-	.experience-block-options {
-		grid-column-gap: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-item {
-		border-radius: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-both {
-		width: calc(416 * 100vw / 1440);
-		height: calc(416 * 100vw / 1440);
-		padding: calc(32 * 100vw / 1440) calc(44 * 100vw / 1440) calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-both-title {
-		font-size: calc(32 * 100vw / 1440);
-		line-height: calc(40 * 100vw / 1440);
-		margin-bottom: calc(20 * 100vw / 1440);
-	}
-	.experience-block-options-both-image {
-		width: calc(328 * 100vw / 1440);
-		height: calc(158 * 100vw / 1440);
-		margin-bottom: calc(26 * 100vw / 1440);
-	}
-	.experience-block-options-both-icons {
-		grid-column-gap: calc(16 * 100vw / 1440);
-	}
-	.experience-block-options-both-icons img {
-		width: calc(36 * 100vw / 1440);
-		height: calc(36 * 100vw / 1440);
-	}
-	.experience-block-options-right {
-		grid-row-gap: calc(24 * 100vw / 1440);
-		width: calc(636 * 100vw / 1440);
-		height: calc(416 * 100vw / 1440);
-	}
-	.experience-block-options-right-top {
-		grid-column-gap: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-one {
-		width: calc(306 * 100vw / 1440);
-		height: calc(196 * 100vw / 1440);
-		padding: calc(28 * 100vw / 1440) calc(32 * 100vw / 1440);
-	}
-	.experience-block-options-one-title {
-		font-size: calc(18 * 100vw / 1440);
-		line-height: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-one-caption {
-		font-size: calc(14 * 100vw / 1440);
-		line-height: calc(20 * 100vw / 1440);
-	}
-	.experience-block-options-one-value {
-		font-size: calc(40 * 100vw / 1440);
-		line-height: calc(48 * 100vw / 1440);
-		margin-top: calc(6 * 100vw / 1440);
-	}
-	.experience-block-options-one-plus {
-		grid-column-gap: calc(6 * 100vw / 1440);
-		margin-top: calc(2 * 100vw / 1440);
-	}
-	.experience-block-options-one-plus-icon {
-		width: calc(40 * 100vw / 1440);
-		height: calc(40 * 100vw / 1440);
-	}
-	.experience-block-options-one-plus-text {
-		font-size: calc(18 * 100vw / 1440);
-		line-height: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-add {
-		height: calc(196 * 100vw / 1440);
-		padding: calc(32 * 100vw / 1440);
-		grid-column-gap: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-add-text {
-		width: calc(180 * 100vw / 1440);
-		font-size: calc(18 * 100vw / 1440);
-		line-height: calc(24 * 100vw / 1440);
-	}
-	.experience-block-options-add-features {
-		grid-column-gap: calc(24 * 100vw / 1440);
-		grid-row-gap: calc(36 * 100vw / 1440);
-		width: calc(366 * 100vw / 1440);
-	}
-	.experience-block-options-add-features-item {
-		grid-column-gap: calc(8 * 100vw / 1440);
-	}
-	.experience-block-options-add-features-item:nth-child(2n + 1) {
-		width: calc(170 * 100vw / 1440);
-	}
-	.experience-block-options-add-features-item-icon {
-		width: calc(40 * 100vw / 1440);
-		height: calc(40 * 100vw / 1440);
-	}
-	.experience-block-options-add-features-item-text {
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
@@ -541,23 +354,6 @@
 		grid-row-gap: calc(16 * 100vw / 375);
 		z-index: 2;
 	}
-	.addtext {
-		position: unset;
-	}
-	.addtext-sup {
-		font-size: 18px;
-		font-weight: 500;
-		line-height: 24px;
-	}
-	.addtext-main {
-		font-size: 44px;
-		font-weight: 600;
-		line-height: 52px;
-	}
-	.banner-buttons {
-		width: 100%;
-		position: unset;
-	}
 	.burger-menu-wrap .banner-buttons {
 		width: calc(335 * 100vw / 375);
   		margin: 0 auto;
@@ -594,124 +390,5 @@
 	}
 	.banner-button-learn {
 		display: none;
-	}	
-	.experience-block-wrap {
-		position: unset;
-		padding-bottom: calc(96 * 100vw / 375);
-		z-index: 2;
-	}
-	.experience-block {
-		width: calc(335 * 100vw / 375);
-		margin: 0 auto;
-		grid-row-gap: calc(24 * 100vw / 375);
-	}
-	.experience-block-title {
-		font-size: calc(32 * 100vw / 375);
-		font-weight: 500;
-		line-height: calc(40 * 100vw / 375);
-	}
-	.experience-block-options {
-		flex-direction: column;
-		grid-row-gap: calc(20 * 100vw / 375);
-	}
-	.experience-block-options-item {
-		border-radius: calc(24 * 100vw / 375);
-	}
-	.experience-block-options-both {
-		width: calc(335 * 100vw / 375);
-		height: calc(335 * 100vw / 375);
-		padding: calc(24 * 100vw / 375);
-		align-items: flex-start;
-	}
-	.experience-block-options-both-title {
-		font-size: calc(24 * 100vw / 375);
-		line-height: calc(32 * 100vw / 375);
-		margin-bottom: calc(12 * 100vw / 375);
-	}
-	.experience-block-options-both-image {
-		width: calc(288 * 100vw / 375);
-		height: calc(138 * 100vw / 375);
-		margin-bottom:calc(6 * 100vw / 375);
-	}
-	.experience-block-options-both-icons {
-		width: 100%;
-		justify-content: space-between;
-		grid-column-gap: auto;
-	}
-	.experience-block-options-both-icons img {
-		width: calc(36 * 100vw / 375);
-		height: calc(36 * 100vw / 375);
-	}
-	.experience-block-options-right {
-		grid-row-gap: calc(20 * 100vw / 375);
-		width: calc(335 * 100vw / 375);
-		height: auto;
-	}
-	.experience-block-options-right-top {
-		flex-direction: column;
-		grid-row-gap: calc(20 * 100vw / 375);
-	}
-	.experience-block-options-one {
-		width: calc(335 * 100vw / 375);
-		height: calc(196 * 100vw / 375);
-		padding: calc(28 * 100vw / 375) calc(32 * 100vw / 375);
-	}
-	.experience-block-options-one-title {
-		font-size: calc(18 * 100vw / 375);
-		line-height: calc(24 * 100vw / 375);
-	}
-	.experience-block-options-one-caption {
-		font-size: calc(18 * 100vw / 375);
-		font-weight: 600;
-		line-height: calc(24 * 100vw / 375);
-	}
-	.experience-block-options-one-value {
-		font-size: calc(40 * 100vw / 375);
-		line-height: calc(48 * 100vw / 375);
-		margin-top: calc(4 * 100vw / 375);
-	}
-	.experience-block-options-one-plus {
-		grid-column-gap: calc(6 * 100vw / 375);
-		margin-top: 0;
-	}
-	.experience-block-options-one-plus-icon {
-		width: calc(40 * 100vw / 375);
-		height: calc(40 * 100vw / 375);
-	}
-	.experience-block-options-one-plus-text {
-		font-size: calc(18 * 100vw / 375);
-		line-height: calc(24 * 100vw / 375);
-	}
-	.experience-block-options-add {
-		width: calc(335 * 100vw / 375);
-		height: calc(298 * 100vw / 375);
-		padding: calc(24 * 100vw / 375);
-		flex-direction: column;
-		grid-row-gap: calc(28 * 100vw / 375);
-	}
-	.experience-block-options-add-text {
-		width:  calc(260 * 100vw / 375);
-		font-size:  calc(18 * 100vw / 375);
-		line-height:  calc(24 * 100vw / 375);
-	}
-	.experience-block-options-add-features {
-		grid-column-gap: calc(24 * 100vw / 375);
-		grid-row-gap: calc(30 * 100vw / 375);
-		width: calc(335 * 100vw / 375);
-	}
-	.experience-block-options-add-features-item {
-		grid-column-gap: calc(8 * 100vw / 375);
-		align-items: center;
-	}
-	.experience-block-options-add-features-item:nth-child(2n + 1) {
-		width: calc(140 * 100vw / 375);
-	}
-	.experience-block-options-add-features-item-icon {
-		width: calc(40 * 100vw / 375);
-		height: calc(40 * 100vw / 375);
-	}
-	.experience-block-options-add-features-item-text {
-		font-size: calc(16 * 100vw / 375);
-		line-height: calc(20 * 100vw / 375);
 	}
 }
