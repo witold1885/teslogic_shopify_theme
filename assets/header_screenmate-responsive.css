@@ -150,8 +150,8 @@
 		/*top: calc(-96 * 100vw / 1440);*/
 	}
 	.banner-desktop {
-		width: calc(1440 * 100vw / 1440);
-		height: calc(1083 * 100vw / 1440);
+/*		width: calc(1440 * 100vw / 1440);*/
+/*		height: calc(1083 * 100vw / 1440);*/
 	}
 	.title {
 		font-size: calc(64 * 100vw / 1440);
