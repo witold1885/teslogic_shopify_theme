@@ -261,6 +261,7 @@
 }
 .screenmate-info-text {
 	text-align: center;
+	color: #FFFFFF;
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
@@ -274,7 +275,7 @@
 	cursor: pointer;
 }
 .screenmate-info-link span {
-	color: #FFFFFF;
+	color: #2E69FD;
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
