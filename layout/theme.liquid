@@ -227,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div {% if template == 'index' %}style="overflow: hidden;"{% endif %}>
       {% if template == 'index' %}
         {% section 'header_main' %}
-      {% elsif page.handle == 'pro' %}
+      {% elsif page.handle == 'pro' or page.handle == 'screenmate' %}
         {% section 'header_pro' %}
       {% elsif page.handle == 'app-redirect' %}
         <div></div>
