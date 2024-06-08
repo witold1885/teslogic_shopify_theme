@@ -271,9 +271,10 @@
 	display: flex;
 	align-items: center;
 	grid-column-gap: 13px;
+	cursor: pointer;
 }
 .screenmate-info-link span {
-	color: #2E69FD;
+	color: #FFFFFF;
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
