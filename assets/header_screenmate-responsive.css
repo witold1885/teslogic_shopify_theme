@@ -136,7 +136,7 @@
 		margin-left: calc(10 * 100vw / 1440);
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
-	.banner-desktop-wrap {
+	.banner-desktop-wrap, .screenmate-shadow {
 	  	min-height: calc(810 * 100vw / 1440);
 	}
 }
@@ -149,19 +149,13 @@
 
 @media screen and (min-width: 576px) and (max-width: 1700px) {
 	.top {
-/*		width: calc(1440 * 100vw / 1440);*/
 		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
 		width: calc(196 * 100vw / 1440);
 		height: calc(36 * 100vw / 1440);
 	}
-	
-	#header_main {
-/*		height: calc(810 * 100vw / 1440);*/
-	}
 	#header_sticky {
-		/*width: calc(1440 * 100vw / 1440);*/
 		height: calc(64 * 100vw / 1440);
 	}
 	#header_sticky .top {
