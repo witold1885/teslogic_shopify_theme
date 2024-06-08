@@ -232,17 +232,12 @@
 /*	left: -240px;*/
     left: calc(-1 * (1920px - 100vw) / 2);
 }
-.banner-desktop-content {
-	position: absolute;
-	top: 238px;
-	z-index: 2;
-}
 .screenmate-logo {
 	width: 613px;
 	height: 58px;
-	/*position: absolute;
+	position: absolute;
 	top: 108px;
-	z-index: 2;*/
+	z-index: 2;
 }
 .screenmate-logo img {
 	width: 100%;
@@ -251,9 +246,9 @@
 .screenmate-video {
 	width: 585px;
 	height: 367px;
-	/*position: absolute;
+	position: absolute;
 	top: 238px;
-	z-index: 2;*/
+	z-index: 2;
 	border-radius: 6px;
 	overflow: hidden;
 }
@@ -262,9 +257,9 @@
 	height: 100%;
 }
 .screenmate-info {
-	/*position: absolute;
+	position: absolute;
 	bottom: 40px;
-	z-index: 2;*/
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
