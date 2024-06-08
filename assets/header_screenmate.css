@@ -219,7 +219,8 @@
 /*	width: 1440px;*/
 /*	height: 1083px;*/
 	width: 100%;
-	height: 810px;
+	min-height: 810px;
+	max-height: 1080px;
 	margin: 0 auto;
 	position: relative;
 	/*display: flex;
