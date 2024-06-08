@@ -1,7 +1,7 @@
   
 @media screen and (min-width: 1920px) {        
 	#header_main {
-		height: calc(1726 * 100vw / 1920);
+/*		height: calc(1726 * 100vw / 1920);*/
 	}
 	.banner-desktop {
 		/*width: calc(1366 * 100vw / 1366);*/
