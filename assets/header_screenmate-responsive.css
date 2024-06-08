@@ -2,7 +2,7 @@
 	.screenmate-logo {
 		top: calc(108px - (810px - 100vh) / 2);
 	}
-	.screenmate-video {
+	.screenmate-video, .screenmate-form {
 		top: calc(238px - (810px - 100vh) / 2);
 	}
 	.screenmate-info {
@@ -13,7 +13,7 @@
 	.screenmate-logo {
 		top: 241px;
 	}
-	.screenmate-video {
+	.screenmate-video, .screenmate-form {
 		top: 371px;
 	}
 	.screenmate-info {
@@ -24,7 +24,7 @@
 	.screenmate-logo {
 		top: calc(241px - (1080px - 100vh) / 2);
 	}
-	.screenmate-video {
+	.screenmate-video, .screenmate-form {
 		top: calc(371px - (1080px - 100vh) / 2);
 	}
 	.screenmate-info {
@@ -40,6 +40,11 @@
 	.screenmate-video {
 		width: calc(585 * 100vh / 1080);
 		height: calc(367 * 100vh / 1080);
+		top: calc(371 * 100vh / 1080);
+	}
+	.screenmate-form {
+		width: calc(651 * 100vh / 1080);
+		height: calc(292 * 100vh / 1080);
 		top: calc(371 * 100vh / 1080);
 	}
 	.screenmate-info {
@@ -62,15 +67,7 @@
 	}
 }
 @media screen and (min-width: 1920px) {
-	#header_main {
-/*		height: calc(1726 * 100vw / 1920);*/
-	}
-	.banner-desktop {
-		/*width: calc(1366 * 100vw / 1366);*/
-/*		height: calc(1083 * 100vw / 1920);*/
-	}
 	.banner-desktop-wrap {
-/*	  	min-height: calc(1080 * 100vw / 1920);*/
 		min-height: 1080px;
 	}
 }
