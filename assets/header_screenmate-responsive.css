@@ -92,6 +92,28 @@
 		line-height: calc(20 * 100vh / 1080);
 		border-radius: calc(6 * 100vh / 1080);
 	}
+	.screenmate-form-agree {
+		grid-column-gap: calc(8 * 100vh / 1080);
+	}
+	.screenmate-form-agree-checkbox-wrap {
+		width: calc(20 * 100vh / 1080);
+		height: calc(20 * 100vh / 1080);
+		border-radius: calc(4 * 100vh / 1080);
+	}
+	.screenmate-form-agree-checkbox {
+		width: calc(20 * 100vh / 1080);
+		height: calc(20 * 100vh / 1080);
+	}
+	.screenmate-form-agree-label {
+		font-size: calc(16 * 100vh / 1080);
+		line-height: calc(20 * 100vh / 1080);
+	}
+	.screenmate-form-button {
+		padding: calc(14px calc(28 * 100vh / 1080);
+		border-radius: calc(26 * 100vh / 1080);
+		font-size: calc(18 * 100vh / 1080);
+		line-height: calc(24 * 100vh / 1080);
+	}
 }
 @media screen and (min-width: 1920px) {
 	.banner-desktop-wrap {
