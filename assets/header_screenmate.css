@@ -308,6 +308,7 @@
 	background: linear-gradient(0deg, #000 0%, #000 100%), rgba(179, 179, 179, 0.80);
 	background-blend-mode: color-dodge, normal;
 	backdrop-filter: blur(12px);
+	box-sizing: border-box;
 }
 .screenmate-form > div {
 	width: 100%;
