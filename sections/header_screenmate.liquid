@@ -34,6 +34,12 @@
 /*    background-size: cover;*/
 /*    background-position: center;*/
   }
+  .banner-desktop-image-wrap {
+/*    height: 100%;*/
+    background: url({{ 'screenmate_bg.png' | asset_url}});
+    background-size: cover;
+    background-position: center;
+  }
   /*.experience-block-options-both{
     background: url({{ 'pro-experience-both-bg.png' | asset_url }}) #171717 no-repeat;
     background-size: cover;
@@ -129,7 +135,7 @@
     <div class="banner-desktop">
       <!-- <img class="banner-desktop-image" src="{{ 'pro_banner.png' | asset_url}}" srcset="{{ 'pro_banner_2.png' | asset_url }} 2x" loading="lazy"> -->
       <div class="banner-desktop-image-wrap">
-        <img class="banner-desktop-image" src="{{ 'screenmate_bg.png' | asset_url}}">
+        <!-- <img class="banner-desktop-image" src="{{ 'screenmate_bg.png' | asset_url}}"> -->
       </div>
       <!-- <div class="title">
         Unlock the true potential<br>
