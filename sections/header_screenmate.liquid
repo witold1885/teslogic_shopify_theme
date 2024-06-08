@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
 
 {%- style -%}
-  .pro-shadow {
-    display: none;
+  .screenmate-shadow {
+/*    display: none;*/
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -15,6 +15,7 @@
     bottom: 0;
     z-index: 5;
     background: rgba(0, 0, 0, 0.66);
+    backdrop-filter: blur(12px);
   }
   .banner-desktop-image-wrap {
     background: url({{ 'screenmate_bg.png' | asset_url}});
@@ -131,6 +132,7 @@
       </div>
     </div>
   </div>
+  <div class="screenmate-shadow"></div>
 </header>
 <header id="header_sticky">
   <div class="top-wrap">
@@ -273,7 +275,7 @@
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
-    <img class="banner-mobile-image" src="{{ 'pro_banner_mobile.png' | asset_url}}" srcset="{{ 'pro_banner_2_mobile.png' | asset_url }} 2x" loading="lazy">
+    <!-- <img class="banner-mobile-image" src="{{ 'pro_banner_mobile.png' | asset_url}}" srcset="{{ 'pro_banner_2_mobile.png' | asset_url }} 2x" loading="lazy">
     <div class="banner-top">
       <div class="banner__title">
         Unlock the true<br>
@@ -296,9 +298,9 @@
         <a href="#shop-now" class="banner-button-buy">Buy now</a>
         <a href="#using" class="banner-button-learn">Learn more</a>
       </div>
-    </div>
+    </div> -->
   </div>
-  <div class="experience-block-wrap">
+  <!-- <div class="experience-block-wrap">
     <div class="experience-block">
       <div class="experience-block-title">
         Experience the power<br>
@@ -372,7 +374,7 @@
         </div>        
       </div>
     </div>
-  </div>
+  </div> -->
 </header>
   
 <script type="text/javascript">
