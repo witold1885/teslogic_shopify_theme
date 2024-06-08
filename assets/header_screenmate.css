@@ -249,6 +249,17 @@
 	width: 100%;
 	height: 100%;
 }
+.screenmate-video {
+	width: 585px;
+	height: 367px;
+	position: absolute;
+	top: 372px;
+	z-index: 2;
+}
+.screenmate-video video {
+	width: 100%;
+	height: 100%;
+}
 .screenmate-info {
 	position: absolute;
 	bottom: 40px;
