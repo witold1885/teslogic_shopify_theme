@@ -306,7 +306,6 @@
 	z-index: 5;
 	background: rgba(0, 0, 0, 0.66);
 	backdrop-filter: blur(12px);
-	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
