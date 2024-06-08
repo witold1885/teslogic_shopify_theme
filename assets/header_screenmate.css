@@ -216,14 +216,16 @@
 /*	z-index: -1;*/
 }
 .banner-desktop {
-	width: 1440px;
-	height: 1083px;
+/*	width: 1440px;*/
+/*	height: 1083px;*/
+	width: 100%;
+	height: 810px;
 	margin: 0 auto;
 	position: relative;
-	display: flex;
+	/*display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	align-items: center;
+	align-items: center;*/
 }
 .banner-desktop-image {
 	width: 1920px;
