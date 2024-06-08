@@ -255,6 +255,8 @@
 	position: absolute;
 	top: 238px;
 	z-index: 2;
+	border-radius: 6px;
+	overflow: hidden;
 }
 .screenmate-video video {
 	width: 100%;
