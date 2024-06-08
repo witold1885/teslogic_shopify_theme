@@ -139,11 +139,11 @@
       <div class="screenmate-form-fields">
         <div class="screenmate-form-field">
           <label class="screenmate-form-field-label">Name:</label>
-          <input class="screenmate-form-field-input" type="text" placeholder="Enter your name">
+          <input class="screenmate-form-field-input screenmate-form-name" type="text" placeholder="Enter your name">
         </div>
         <div class="screenmate-form-field">
           <label class="screenmate-form-field-label">E-mail:</label>
-          <input class="screenmate-form-field-input" type="email" placeholder="John.smith@example.com">
+          <input class="screenmate-form-field-input screenmate-form-email" type="email" placeholder="John.smith@example.com">
         </div>
       </div>
       <div class="screenmate-form-submit">
@@ -388,6 +388,56 @@
         }
       }
     }
+
+
+    $('.screenmate-form-button').on('click', async function () {
+      const name = $('.screenmate-form-name').val()
+      const email = $('.screenmate-form-email').val()
+      const isAgree = $('#check-agree').prop('checked')
+
+      if (!isAgree) {
+        $('#check-agree').parent('div').css('border', '1px solid #FC3E30')
+        return
+      }
+
+      /*if (vin.length !== 17) {
+        $('#compatibility-vin').css('border-color', '#FC3E30')
+        $('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+        return
+      }
+
+      if (!emailRegex.test(email)) {
+        $('#compatibility-email').css('border-color', '#FC3E30')
+        $('#compatibility-email').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+        return
+      }*/
+
+          /*const response = await fetch(sendMailUrl, {
+              method: 'post',
+              body: JSON.stringify({ vin, email }),
+              headers: {'Content-Type': 'application/json'}
+          })
+          const data = await response.json()
+          
+          console.log(data)
+          if (response.status == 200) {
+            if (data.success) {
+              $('.compatibility-check-dialog-shadow').css('display', 'none')
+              if (data.proceed) {
+                $('.compatibility-success-dialog-shadow').css('display', 'flex')
+              }
+              else {
+                $('.compatibility-warning-dialog-shadow').css('display', 'flex')
+              }
+            }
+          }
+          else if (response.status == 400) {
+            if (data.error == 'wrong-vin') {
+          $('#compatibility-vin').css('border-color', '#FC3E30')
+          $('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+            }
+          }*/
+    })
 
     $('.button-menu').on('click', function() {
       $('.burger-menu-wrap').css('display', 'flex')
