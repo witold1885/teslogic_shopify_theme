@@ -34,19 +34,19 @@
 		position: absolute;
 		width: 1920px;
 		height: 100%;
-		left: calc(- 1 * 240 * 100vw / 1440);
+      	left: calc(-1 * (1920px - 100vw) / 2);
 	}
 	.screenmate-logo {
 		width: calc(613 * 100vw / 1440);
 		height: calc(58 * 100vw / 1440);
 		top: calc(108 * 100vw / 1440);
 	}
-	.screenmate-video {
+	/*.screenmate-video {
 		width: calc(585 * 100vw / 1440);
 		height: calc(367 * 100vw / 1440);
 		top: calc(238 * 100vw / 1440);
 		border-radius: calc(6 * 100vw / 1440);
-	}
+	}*/
 }
 
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
