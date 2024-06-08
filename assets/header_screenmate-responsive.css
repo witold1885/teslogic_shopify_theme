@@ -6,8 +6,8 @@
 /*		position: absolute;*/
 /*		top: calc(238 * 100vh / 810);*/
 /*		top: calc(238 * 100vh / 810);*/
-		top: calc(371 * 100vh / 1080);
-		top: calc(371 * 100vh / 1080 - (1080px - 100vh) / 2);
+/*		top: calc(371 * 100vh / 1080);*/
+		top: calc(371px - (1080px - 100vh) / 2);
 /*		z-index: 2;*/
 /*		border-radius: 6px;*/
 /*		overflow: hidden;*/
