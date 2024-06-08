@@ -361,34 +361,33 @@
 	background: transparent;
 	box-sizing: border-box;
 }
-	.screenmate-form-agree {
-		width: calc(100% + 24px);
-		display: flex;
-		align-items: center;
-		grid-column-gap: 8px;
-	}
-	.screenmate-form-agree-checkbox-wrap {
-		width: 20px;
-		height: 20px;
-		border-radius: 4px;
-		box-sizing: border-box;
-		overflow: hidden;
-	}
-	.screenmate-form-agree-checkbox {
-		width: 20px;
-		height: 20px;
-		margin: 0;
-		appearance: none;
-		-webkit-appearance: none;
-		cursor: pointer;
-	}
-	.screenmate-form-agree-label {
-		color: #FFF;
-		font-feature-settings: 'clig' off, 'liga' off;
-		font-family: Manrope;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 20px;
-		cursor: pointer;
-	}
+.screenmate-form-agree {
+	display: flex;
+	align-items: center;
+	grid-column-gap: 8px;
+}
+.screenmate-form-agree-checkbox-wrap {
+	width: 20px;
+	height: 20px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.screenmate-form-agree-checkbox {
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+.screenmate-form-agree-label {
+	color: #FFF;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	cursor: pointer;
+}
