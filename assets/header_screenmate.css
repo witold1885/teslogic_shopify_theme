@@ -312,6 +312,7 @@
 .screenmate-form > div {
 	width: 100%;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 }
 .screenmate-form-title {
@@ -325,4 +326,18 @@
 .screenmate-form-close {
 	width: 20px;
 	height: 20px;
+	cursor: pointer;
+}
+.screenmate-form-field {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 8px;
+}
+.screenmate-form-field-label {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
