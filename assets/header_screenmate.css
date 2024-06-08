@@ -247,7 +247,8 @@
 	width: 585px;
 	height: 367px;
 	position: absolute;
-	top: 238px;
+/*	top: 238px;*/
+		top: calc(371px - (1080px - 100vh) / 2);
 	z-index: 2;
 	border-radius: 6px;
 	overflow: hidden;
