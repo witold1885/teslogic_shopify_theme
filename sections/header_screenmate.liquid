@@ -2,10 +2,6 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
 
 {%- style -%}
-  header#header_main {
-/*    height: 100vh;*/
-    background: black;
-  }
   .pro-shadow {
     display: none;
     justify-content: center;
@@ -20,22 +16,7 @@
     z-index: 5;
     background: rgba(0, 0, 0, 0.66);
   }
-  .banner-desktop-wrap {
-/*    background: url({{ 'bg_2x.png' | asset_url}});*/
-    background: black;
-    background-size: cover;
-    background-position-x: center;
-    background-repeat: no-repeat; 
-/*    height: 100%;*/
-  }
-  .banner-desktop {
-/*    height: 100%;*/
-/*    background: url({{ 'screenmate_bg.png' | asset_url}});*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-  }
   .banner-desktop-image-wrap {
-/*    height: 100%;*/
     background: url({{ 'screenmate_bg.png' | asset_url}});
     background-size: cover;
     background-position: center;
@@ -49,11 +30,6 @@
       background-position: center;
     }
   }
-  /*.experience-block-options-both{
-    background: url({{ 'pro-experience-both-bg.png' | asset_url }}) #171717 no-repeat;
-    background-size: cover;
-    background-position: center;
-  }*/
   @media screen and (min-width: 1701px) { 
     .banner-desktop-wrap {
 /*      background: url({{ 'bg_2x.png' | asset_url}});*/
@@ -147,7 +123,7 @@
         <img src="{{ 'screenmate-logo.svg' | asset_url }}">
       </div>
       <div class="screenmate-video">
-        <video autoplay>
+        <video autoplay loop>
          <source src="{{ 'screenmate.mp4' | asset_url }}">
         </video>
       </div>
