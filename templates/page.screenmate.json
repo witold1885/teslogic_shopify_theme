@@ -1,12 +1,14 @@
 {
   "sections": {
-    "screenmate": {
-      "type": "screenmate",
+    "main": {
+      "type": "main-page",
       "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },
   "order": [
-    "screenmate"
+    "main"
   ]
 }
