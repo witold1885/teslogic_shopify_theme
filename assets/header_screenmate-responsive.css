@@ -30,12 +30,12 @@
 	.banner-desktop-wrap {
 	  	min-height: calc(810 * 100vw / 1440);
 	}
-	.banner-desktop-image-wrap {
+	/*.banner-desktop-image-wrap {
 		position: absolute;
 		width: 1920px;
 		height: 100%;
       	left: calc(-1 * (1920px - 100vw) / 2);
-	}
+	}*/
 	/*.screenmate-logo {
 		width: calc(613 * 100vw / 1440);
 		height: calc(58 * 100vw / 1440);
