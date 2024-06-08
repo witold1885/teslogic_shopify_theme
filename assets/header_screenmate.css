@@ -214,13 +214,15 @@
 	top: 0;
 	width: 100vw;
 	height: 100vh;
-  	min-height: 810px;
+/*  	min-height: 810px;*/
 /*	z-index: -1;*/
 }
 .banner-desktop {
 /*	width: 1440px;*/
 /*	height: 1083px;*/
 	width: 100%;
+	height: 100%;
+  	overflow: hidden;
 /*	min-height: 810px;*/
 /*	max-height: 1080px;*/
 	margin: 0 auto;
@@ -233,11 +235,14 @@
 .banner-desktop-image-wrap {
 	position: absolute;
 	width: 1920px;
-	height: 1080px;
+	height: 100%;
+	left: -240px;
 }
 .banner-desktop-image {
 	width: 100%;
 	height: 100%;
+	object-position: center;
+	object-fit: cover;
 	/*width: 1920px;
 	position: absolute;
 	top: 0;
