@@ -19,13 +19,14 @@
 /*		height: calc(1083 * 100vw / 1920);*/
 	}
 	.banner-desktop-wrap {
-	  	min-height: calc(1080 * 100vw / 1920);
+/*	  	min-height: calc(1080 * 100vw / 1920);*/
+		min-height: 1080px;
 	}
-	.screenmate-video {
+	/*.screenmate-video {
 		width: calc(585 * 100vw / 1920);
 		height: calc(367 * 100vw / 1920);
 		top: calc(371 * 100vw / 1920);
-	}
+	}*/
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top {
