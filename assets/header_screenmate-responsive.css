@@ -90,6 +90,7 @@
 		padding: calc(16 * 100vh / 1080);
 		font-size: calc(16 * 100vh / 1080);
 		line-height: calc(20 * 100vh / 1080);
+		border-radius: calc(6 * 100vh / 1080);
 	}
 }
 @media screen and (min-width: 1920px) {
