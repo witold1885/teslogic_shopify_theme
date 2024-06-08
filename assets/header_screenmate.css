@@ -310,6 +310,7 @@
 	backdrop-filter: blur(12px);
 }
 .screenmate-form > div {
+	width: 100%;
 	display: flex;
 	align-items: center;
 }
