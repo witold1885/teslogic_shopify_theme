@@ -8,7 +8,7 @@
 /*		height: calc(1083 * 100vw / 1920);*/
 	}
 	.banner-desktop-image {
-		width: calc(1920 * 100vw / 1920);
+/*		width: calc(1920 * 100vw / 1920);*/
 	}
 	.title {
 		font-size: calc(64 * 100vw / 1920);
