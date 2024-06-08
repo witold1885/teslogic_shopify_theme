@@ -389,6 +389,20 @@
       }
     }
 
+    $('.screenmate-form-close').on('click', function () {
+      $(this).parents('.screenmate-shadow').css('display', 'none')
+    })
+
+    $('.screenmate-form-field-input').on('keydown', function () {      
+      $(this).css('border-color', '#D9D9D9')
+    })
+
+    $('#check-agree').on('change', function () {
+      $(this).parent('div').css('border', 'none')
+    })
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
 
     $('.screenmate-form-button').on('click', async function () {
       const name = $('.screenmate-form-name').val()
@@ -400,17 +414,15 @@
         return
       }
 
-      /*if (vin.length !== 17) {
-        $('#compatibility-vin').css('border-color', '#FC3E30')
-        $('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+      if (!name) {
+        $('.screenmate-form-name').css('border-color', '#FC3E30')
         return
       }
 
       if (!emailRegex.test(email)) {
-        $('#compatibility-email').css('border-color', '#FC3E30')
-        $('#compatibility-email').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
+        $('.screenmate-form-email').css('border-color', '#FC3E30')
         return
-      }*/
+      }
 
           /*const response = await fetch(sendMailUrl, {
               method: 'post',
