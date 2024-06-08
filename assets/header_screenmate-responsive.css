@@ -109,7 +109,7 @@
 		line-height: calc(20 * 100vh / 1080);
 	}
 	.screenmate-form-button {
-		padding: calc(14px calc(28 * 100vh / 1080);
+		padding: calc(14 * 100vh / 1080) calc(28 * 100vh / 1080);
 		border-radius: calc(26 * 100vh / 1080);
 		font-size: calc(18 * 100vh / 1080);
 		line-height: calc(24 * 100vh / 1080);
@@ -136,7 +136,7 @@
 		margin-left: calc(10 * 100vw / 1440);
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
-	.banner-desktop-wrap {
+	.banner-desktop-wrap, .screenmate-shadow {
 	  	min-height: calc(810 * 100vw / 1440);
 	}
 }
@@ -149,19 +149,13 @@
 
 @media screen and (min-width: 576px) and (max-width: 1700px) {
 	.top {
-/*		width: calc(1440 * 100vw / 1440);*/
 		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
 		width: calc(196 * 100vw / 1440);
 		height: calc(36 * 100vw / 1440);
 	}
-	
-	#header_main {
-/*		height: calc(810 * 100vw / 1440);*/
-	}
 	#header_sticky {
-		/*width: calc(1440 * 100vw / 1440);*/
 		height: calc(64 * 100vw / 1440);
 	}
 	#header_sticky .top {
