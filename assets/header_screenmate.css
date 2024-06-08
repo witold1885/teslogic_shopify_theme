@@ -392,28 +392,25 @@
 	cursor: pointer;
 }
 	.screenmate-form-button {
-		width: 100%;
-		padding: 20px 40px;
+		padding: 14px 28px;
 		justify-content: center;
 		align-items: center;
-		border-radius: 54px;
-		border: 3px solid #0E54FD;
-		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
-		background-blend-mode: color-dodge, normal;
-		color: #0E54FD;
+		border-radius: 26px;
+/*		border: 3px solid #0E54FD;*/
+		background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%); 
+		color: #FFF;
 		text-align: center;
 		font-family: Manrope;
 		font-size: 18px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 24px;
 		cursor: pointer;
-		text-decoration: none;
 		box-sizing: border-box;		
 	}
-	.screenmate-form-button:hover {
+	/*.screenmate-form-button:hover {
 		color: #FFF;
 		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 		border: none;
 		padding: 23px 43px;
-	}
+	}*/
