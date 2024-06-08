@@ -22,8 +22,8 @@
 	  	min-height: calc(1080 * 100vw / 1920);
 	}
 	.screenmate-video {
-		width: calc(585 * 100vh / 1920);
-		height: calc(367 * 100vh / 1920);
+		width: calc(585 * 100vw / 1920);
+		height: calc(367 * 100vw / 1920);
 /*		top: calc(371 * 100vh / 1080);*/
 	}
 }
