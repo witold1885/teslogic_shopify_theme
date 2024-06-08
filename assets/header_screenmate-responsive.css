@@ -42,11 +42,6 @@
 		height: calc(367 * 100vh / 1080);
 		top: calc(371 * 100vh / 1080);
 	}
-	.screenmate-form {
-		width: calc(651 * 100vh / 1080);
-		height: calc(292 * 100vh / 1080);
-		top: calc(371 * 100vh / 1080);
-	}
 	.screenmate-info {
 		bottom: calc(177 * 100vh / 1080);
 	}
@@ -64,6 +59,19 @@
 	.screenmate-info-link img {
 		width: calc(24 * 100vh / 1080);
 		height: calc(24 * 100vh / 1080);
+	}
+	.screenmate-form {
+		width: calc(651 * 100vh / 1080);
+		height: calc(292 * 100vh / 1080);
+		top: calc(371 * 100vh / 1080);
+	}
+	.screenmate-form-title {
+		font-size: calc(32 * 100vh / 1080);
+		line-height: calc(40 * 100vh / 1080);
+	}
+	.screenmate-form-close {
+		width: calc(20 * 100vh / 1080);
+		height: calc(20 * 100vh / 1080);
 	}
 }
 @media screen and (min-width: 1920px) {
