@@ -111,24 +111,22 @@
   <div class="banner-desktop-wrap">
     <div class="banner-desktop">
       <div class="banner-desktop-image-wrap"></div>
-      <div class="banner-desktop-content">
-        <div class="screenmate-logo">
-          <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+      <div class="screenmate-logo">
+        <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+      </div>
+      <div class="screenmate-video">
+        <video autoplay loop>
+         <source src="{{ 'screenmate.mp4' | asset_url }}">
+        </video>
+      </div>
+      <div class="screenmate-info">
+        <div class="screenmate-info-text">
+          Introducing our Tesla Extra Computer, with limitless apps,<br>
+          an HDMI interface, CarPlay, and endless possibilities.
         </div>
-        <div class="screenmate-video">
-          <video autoplay loop>
-           <source src="{{ 'screenmate.mp4' | asset_url }}">
-          </video>
-        </div>
-        <div class="screenmate-info">
-          <div class="screenmate-info-text">
-            Introducing our Tesla Extra Computer, with limitless apps,<br>
-            an HDMI interface, CarPlay, and endless possibilities.
-          </div>
-          <div class="screenmate-info-link">
-            <span>Notify me when Teslogic ScreenMate is live</span>
-            <img src="{{ 'screenmate-chevron.svg' | asset_url}}">
-          </div>
+        <div class="screenmate-info-link">
+          <span>Notify me when Teslogic ScreenMate is live</span>
+          <img src="{{ 'screenmate-chevron.svg' | asset_url}}">
         </div>
       </div>
     </div>
