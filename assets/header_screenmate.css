@@ -227,10 +227,10 @@
 /*	max-height: 1080px;*/
 	margin: 0 auto;
 	position: relative;
-	/*display: flex;
+	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;*/
+	justify-content: flex-start;
+	align-items: center;
 }
 .banner-desktop-image-wrap {
 	position: absolute;
@@ -238,15 +238,14 @@
 	height: 100%;
 	left: -240px;
 }
-.banner-desktop-image {
+.screenmate-logo {
+	width: 613px;
+	height: 58px;
+	margin-top: 108px;
+}
+.screenmate-logo img {
 	width: 100%;
 	height: 100%;
-	object-position: center;
-	object-fit: cover;
-	/*width: 1920px;
-	position: absolute;
-	top: 0;
-	margin: 0 auto;*/
 }
 .title {
 	color: #FFF;
