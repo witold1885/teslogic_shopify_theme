@@ -76,10 +76,18 @@
 		width: calc(20 * 100vh / 1080);
 		height: calc(20 * 100vh / 1080);
 	}
+	.screenmate-form-fields {
+		grid-column-gap: calc(24 * 100vh / 1080);
+	}
 	.screenmate-form-field {
 		grid-row-gap: calc(8 * 100vh / 1080);
 	}
 	.screenmate-form-field-label {
+		font-size: calc(16 * 100vh / 1080);
+		line-height: calc(20 * 100vh / 1080);
+	}
+	.screenmate-form-field-input {
+		padding: calc(16 * 100vh / 1080);
 		font-size: calc(16 * 100vh / 1080);
 		line-height: calc(20 * 100vh / 1080);
 	}
