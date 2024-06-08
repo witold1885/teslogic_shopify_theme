@@ -243,81 +243,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {% else %}
         {% assign handle = template %}
       {% endif %}
-      <!-- <div>
-        page_handle: {{ page.handle }}<br>
-        template: {{ template }}<br>
-        handle: {{ handle }}
-      </div> -->
+      
       <main id="MainContent" class="content-for-layout focus-none main_{{ handle }}" role="main" tabindex="-1">
         {{ content_for_layout }}
       </main>
 
     <!-- </div> -->
+    {% if page.handle != 'screenmate' %}
       {% section 'footer' %}
-
-    {% if template == 'index' %}
-      <!-- <div class="ellipse-container ellipse__main-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__main-2"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__main-3"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container ellipse__main-4"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container ellipse__main-5"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__main-6"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__main-7"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__main-8"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-2"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-3"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-4"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-5"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-6"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-7"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-8"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container-mobile ellipse__main-mobile-9"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-10"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-11"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-12"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-13"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-container-mobile ellipse__main-mobile-14"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-      <!-- <div class="ellipse-bottom-container">
-        <div class="ellipse-bottom-wrap">
-          <div class="ellipse-bottom"></div>
-        </div>
-      </div> -->
-    {% elsif page.handle == 'faq' %}
-      <!-- <div class="ellipse-container ellipse__faq-1"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__faq-2"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__faq-3"><div class="ellipse-wrap"><div class="ellipse"></div></div></div>
-      <div class="ellipse-container ellipse__faq-4"><div class="ellipse-wrap"><div class="ellipse"></div></div></div> -->
-    {% elsif page.handle == 'all-products' %}
-      <!-- <div class="ellipse-all_products-container">
-        <div class="ellipse-all_products-wrap">
-          <div class="ellipse-all_products"></div>
-        </div>
-      </div> -->
-      <!-- <script type="text/javascript">
-        $(document).ready(function() {
-          var body = document.body,
-              html = document.documentElement
-
-          /*var height = Math.max(
-            document.body.scrollHeight, document.documentElement.scrollHeight,
-            document.body.offsetHeight, document.documentElement.offsetHeight,
-            document.body.clientHeight, document.documentElement.clientHeight
-          )*/
-          var height = $('header').height() + $('main').height() + $('footer').height()
-          // console.log($(document).width())
-          console.log($('header').height())
-          console.log($('main').height())
-          console.log($('footer').height())
-          console.log($(document).height())
-          console.log(height)
-          // console.log(html.clientWidth)
-          var top = height - 858 * html.clientWidth / 1366
-          // console.log(top)
-          $('.ellipse-all_products-container').css({top: top})
-        })
-      </script> -->
     {% endif %}
     </div>
 
