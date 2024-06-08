@@ -296,6 +296,11 @@
 .screenmate-form {
 	width: 651px;
 	height: 292px;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	grid-row-gap: 20px;
 	position: absolute;
 	top: 238px;
 	z-index: 2;
@@ -303,4 +308,20 @@
 	background: linear-gradient(0deg, #000 0%, #000 100%), rgba(179, 179, 179, 0.80);
 	background-blend-mode: color-dodge, normal;
 	backdrop-filter: blur(12px);
+}
+.screenmate-form > div {
+	display: flex;
+	align-items: center;
+}
+.screenmate-form-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px;
+}
+.screenmate-form-close {
+	width: 20px;
+	height: 20px;
 }
