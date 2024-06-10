@@ -564,10 +564,10 @@
 /*		border-radius: calc(375 * 100vh / 810);*/
 	}
 	.screenmate-video {
-		width: calc(320 * 100vh / 810);
-		height: calc(200 * 100vh / 810);
-		top: calc(284 * 100vh / 810);
-		border-radius: calc(6 * 100vh / 810);
+/*		width: calc(320 * 100vh / 810);*/
+/*		height: calc(200 * 100vh / 810);*/
+/*		top: calc(284 * 100vh / 810);*/
+/*		border-radius: calc(6 * 100vh / 810);*/
 	}
 	.screenmate-info {
 /*		bottom: calc(80 * 100vh / 810);*/
