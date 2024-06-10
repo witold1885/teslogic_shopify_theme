@@ -551,3 +551,34 @@
 		display: none;
 	}
 }
+@media screen and (max-width: 575px) and (max-height: 810px) {
+	.screenmate-logo {
+		width: calc(335 * 100vh / 810);
+		height: calc(30 * 100vh / 810);
+		top: calc(156 * 100vh / 810);
+	}
+	.screenmate-logo-shadow {
+		width: calc(375 * 100vh / 810);
+		height: calc(77 * 100vh / 810);
+		top: calc(136 * 100vh / 810);
+		border-radius: calc(375 * 100vh / 810);
+	}
+	.screenmate-video {
+		width: calc(320 * 100vh / 810);
+		height: calc(200 * 100vh / 810);
+		top: calc(284 * 100vh / 810);
+		border-radius: calc(6 * 100vh / 810);
+	}
+	.screenmate-info {
+		bottom: calc(80 * 100vh / 810);
+		grid-row-gap: calc(36 * 100vh / 810);
+	}
+	.screenmate-info-text {
+		font-size: calc(20 * 100vh / 810);
+		line-height: calc(24 * 100vh / 810);
+	}
+	.screenmate-info-link span {
+		font-size: calc(20 * 100vh / 810);
+		line-height: calc(24 * 100vh / 810);
+	}
+}
