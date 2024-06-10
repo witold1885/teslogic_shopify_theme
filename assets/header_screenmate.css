@@ -345,6 +345,9 @@
 	justify-content: space-between;
 	align-items: center;
 }
+.screenmate-form-top {
+	align-items: flex-start;
+}
 .screenmate-form-title {
 	color: #FFF;
 	font-family: Manrope;
@@ -397,15 +400,12 @@
 .screenmate-form-field-input::-webkit-input-placeholder {
   	color: #FFF;
 }
-
 .screenmate-form-field-input:-moz-placeholder {
   	color: #FFF;
 }
-
 .screenmate-form-field-input::-moz-placeholder {
   	color: #FFF;
 }
-
 .screenmate-form-field-input:-ms-input-placeholder {
   	color: #FFF;
 }
