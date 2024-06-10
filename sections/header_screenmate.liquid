@@ -322,16 +322,11 @@
 </div>
   
 <script type="text/javascript">
-  // console.log('userAgent')
-  // console.log(window.navigator.userAgent)
-  // console.log(window.innerWidth)
-  // console.log(window.innerHeight)
   var logo_white_url = "{{ 'logo.svg' | asset_url }}"
   // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
-  // console.log(logo_white_url)
-  // console.log(logo_black_url)
+  
   $(document).ready(function() {
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
@@ -383,22 +378,6 @@
         }
       }
     }
-
-    /*const videoWidth = 320
-    const videoHeight = 200
-    const videoRate = videoWidth / videoHeight
-
-    $(window).on('resize', handleResize)
-    function handleResize() {
-      if (window.innerWidth < 576 && window.innerHeight < 810) {
-        console.log(window.innerWidth)
-        console.log(window.innerHeight)
-        const rate = window.innerWidth / window.innerHeight
-
-        console.log({ rate })
-
-      }
-    }*/
 
     $('.screenmate-info-link').on('click', function () {
       $('.screenmate-shadow').css('display', 'flex')
