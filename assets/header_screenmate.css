@@ -229,7 +229,6 @@
 	position: absolute;
 	width: 1920px;
 	height: 100%;
-/*	left: -240px;*/
     left: calc(-1 * (1920px - 100vw) / 2);
 }
 .screenmate-logo {
@@ -298,6 +297,9 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+}
+.screenmate-info-link span:hover {
+	color: #1658FD;
 }
 .screenmate-info-link img {
 	width: 24px;
