@@ -391,6 +391,9 @@
 	background: transparent;
 	box-sizing: border-box;
 }
+.screenmate-form-field-input::placeholder {
+	color: #FFF;
+}
 .screenmate-form-agree {
 	display: flex;
 	align-items: center;
