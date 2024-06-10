@@ -522,9 +522,10 @@
 		line-height: calc(24 * 100vw / 375);
 	}
 	.screenmate-info-link span {
-		text-align: center;
 		font-size: calc(20 * 100vw / 375);
 		line-height: calc(24 * 100vw / 375);
+		text-align: center;
+		text-decoration: underline;
 	}
 	.screenmate-info-link img {
 		display: none;
