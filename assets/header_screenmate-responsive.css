@@ -629,4 +629,24 @@
 		font-size: 18px;
 		line-height: 24px;	
 	}
+	.screenmate-success {
+		width: 330px;
+		height: 164px;
+		padding: 24px;
+		grid-row-gap: 12px;
+		top: 231px;
+		border-radius: 24px;
+	}
+	.screenmate-success-title {
+		font-size: 24px;
+		line-height: 32px;
+	}
+	.screenmate-success-close {
+		width: 20px;
+		height: 20px;
+	}
+	.screenmate-success-text {
+		font-size: 20px;
+		line-height: 24px;
+	}
 }
