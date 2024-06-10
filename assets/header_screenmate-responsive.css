@@ -507,4 +507,10 @@
 		top: calc(136 * 100vw / 375);
 		border-radius: calc(375 * 100vw / 375);
 	}
+	.screenmate-video {
+		width: calc(320 * 100vw / 375);
+		height: calc(200 * 100vw / 375);
+		top: calc(284 * 100vw / 375);
+		border-radius: calc(6 * 100vw / 375);
+	}
 }
