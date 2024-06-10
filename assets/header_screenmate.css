@@ -497,3 +497,11 @@
 	height: 20px;
 	cursor: pointer;
 }
+.screenmate-success-text {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+}
