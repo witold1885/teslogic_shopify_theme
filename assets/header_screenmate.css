@@ -349,6 +349,7 @@
 	align-items: flex-start;
 }
 .screenmate-form-title {
+	width: 472px;
 	color: #FFF;
 	font-family: Manrope;
 	font-size: 32px;
