@@ -221,6 +221,7 @@
 	#header_mobile {
 		width: 100%;
 		height: 100dvh;
+		min-height: 810px;
 /*		height: calc(2210 * 100vw / 375);*/
 /*		height: 810px;*/
 /*		height: 812px;*/
