@@ -394,6 +394,21 @@
 .screenmate-form-field-input::placeholder {
 	color: #FFF;
 }
+.screenmate-form-field-input::-webkit-input-placeholder {
+  	color: #FFF;
+}
+
+.screenmate-form-field-input:-moz-placeholder {
+  	color: #FFF;
+}
+
+.screenmate-form-field-input::-moz-placeholder {
+  	color: #FFF;
+}
+
+.screenmate-form-field-input:-ms-input-placeholder {
+  	color: #FFF;
+}
 .screenmate-form-agree {
 	display: flex;
 	align-items: center;
