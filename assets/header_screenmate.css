@@ -466,7 +466,7 @@
 	width: 497px;
 	height: 200px;
 	padding: 40px;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: flex-start;
 	grid-row-gap: 16px;
