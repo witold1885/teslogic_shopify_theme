@@ -525,6 +525,7 @@
 		height: 200px;
 		top: 284px;
 		border-radius: 6px;
+		margin-left: 0;
 	}
 	.screenmate-info {
 		/*bottom: calc(80 * 100vw / 375);
