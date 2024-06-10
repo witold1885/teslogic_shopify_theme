@@ -221,7 +221,8 @@
 	#header_mobile {
 		width: 100%;
 /*		height: 100dvh;*/
-		height: calc(2210 * 100vw / 375);
+/*		height: calc(2210 * 100vw / 375);*/
+		height: 810px;
 /*		height: 812px;*/
 		display: flex;
 		flex-direction: column;
