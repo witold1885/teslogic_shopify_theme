@@ -392,7 +392,7 @@
       $('.screenmate-shadow').css('display', 'flex')
     })
 
-    $('.screenmate-form-close').on('click', function () {
+    $('.screenmate-form-close, .screenmate-success-close').on('click', function () {
       $(this).parents('.screenmate-shadow').css('display', 'none')
     })
 
@@ -437,7 +437,8 @@
       console.log(data)
       if (response.status == 200) {
         if (data.success) {
-          $('.screenmate-shadow').css('display', 'none')
+          $('.screenmate-form').css('display', 'none')
+          $('.screenmate-success').css('display', 'flex')
         }
       }
     })
