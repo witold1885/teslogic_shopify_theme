@@ -462,3 +462,38 @@
 .screenmate-form-button:hover {
 	background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
 }
+.screenmate-success {
+	width: 497px;
+	height: 200px;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	grid-row-gap: 16px;
+	position: absolute;
+	top: 305px;
+	z-index: 2;
+	border-radius: 24px;
+	background: linear-gradient(0deg, #000 0%, #000 100%), rgba(179, 179, 179, 0.80);
+	background-blend-mode: color-dodge, normal;
+	backdrop-filter: blur(12px);
+	box-sizing: border-box;
+}
+.screenmate-success-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.screenmate-success-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px;
+}
+.screenmate-success-close {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
