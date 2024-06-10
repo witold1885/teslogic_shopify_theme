@@ -80,6 +80,7 @@
 		top: calc(371 * 100vh / 1080);
 	}
 	.screenmate-form-title {
+		width: calc(472 * 100vh / 1080);
 		font-size: calc(32 * 100vh / 1080);
 		line-height: calc(40 * 100vh / 1080);
 	}
@@ -546,6 +547,7 @@
 		border-radius: 24px;
 	}
 	.screenmate-form-title {
+		width: 262px;
 		font-size: 24px;
 		line-height: 32px;
 	}
