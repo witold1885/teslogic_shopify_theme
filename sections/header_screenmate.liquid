@@ -408,12 +408,16 @@
 
     const videoWidth = 320
     const videoHeight = 200
-    
+
     $(window).on('resize', handleResize)
     function handleResize() {
-      if (window.innerWidth <= 575) {
+      if (window.innerWidth < 576 && window.innerHeight < 810) {
         console.log(window.innerWidth)
         console.log(window.innerHeight)
+        const rate = window.innerWidth / window.innerHeight
+
+        console.log({ rate })
+
       }
     }
 
