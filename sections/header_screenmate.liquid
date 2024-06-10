@@ -406,12 +406,11 @@
       }
     }
 
-    $(window).on('resize', handleResize) {
-      function handleResize() {
-        if (window.innerWidth <= 575) {
-          console.log(window.innerWidth)
-          console.log(window.innerHeight)
-        }
+    $(window).on('resize', handleResize)
+    function handleResize() {
+      if (window.innerWidth <= 575) {
+        console.log(window.innerWidth)
+        console.log(window.innerHeight)
       }
     }
 
