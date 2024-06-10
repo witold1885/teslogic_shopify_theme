@@ -496,7 +496,15 @@
 	.burger-menu-wrap .banner-button-buy:hover {
 		padding: calc(14 * 100vw / 375) calc(38 * 100vw / 375);
 	}
-	.banner-button-learn {
-		display: none;
+	.screenmate-logo {
+		width: calc(335 * 100vw / 375);
+		height: calc(30 * 100vw / 375);
+		top: calc(156 * 100vw / 375);
+	}
+	.screenmate-logo-shadow {
+		width: calc(375 * 100vw / 375);
+		height: calc(77 * 100vw / 375);
+		top: calc(136 * 100vw / 375);
+		border-radius: calc(375 * 100vw / 375);
 	}
 }
