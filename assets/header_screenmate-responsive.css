@@ -120,6 +120,11 @@
 		min-height: 1080px;
 	}
 }
+@media screen and (max-width: 1920px) {
+	.screenmate-video {
+		margin-left: -5px;
+	}
+}
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top {
 		width: calc(1440 * 100vw / 1440);
