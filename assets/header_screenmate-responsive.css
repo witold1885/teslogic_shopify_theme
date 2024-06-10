@@ -463,6 +463,8 @@
 	}
 	.banner-button-buy {
 		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 		width: 100%;
 		border-radius: calc(54 * 100vw / 375);
 		backdrop-filter: blur(8px);
