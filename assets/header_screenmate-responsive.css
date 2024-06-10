@@ -571,6 +571,10 @@
 		line-height: 20px;
 		border-radius: 6px;
 	}
+	.screenmate-form-submit {
+		flex-direction: column;
+		grid-row-gap: 20px;
+	}
 	.screenmate-form-agree {
 		align-items: flex-start;
 		grid-column-gap: 8px;
