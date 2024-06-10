@@ -499,33 +499,50 @@
 		padding: calc(14 * 100vw / 375) calc(38 * 100vw / 375);
 	}
 	.screenmate-logo {
-		width: calc(335 * 100vw / 375);
+		/*width: calc(335 * 100vw / 375);
 		height: calc(30 * 100vw / 375);
-		top: calc(156 * 100vw / 375);
+		top: calc(156 * 100vw / 375);*/
+		width: 335px;
+		height: 30px;
+		top: 156px;
 	}
 	.screenmate-logo-shadow {
-		width: calc(375 * 100vw / 375);
+		/*width: calc(375 * 100vw / 375);
 		height: calc(77 * 100vw / 375);
 		top: calc(136 * 100vw / 375);
-		border-radius: calc(375 * 100vw / 375);
+		border-radius: calc(375 * 100vw / 375);*/
+		width: 375px;
+		height: 77px;
+		top: 136px;
+		border-radius: 375px;
 	}
 	.screenmate-video {
-		width: calc(320 * 100vw / 375);
+		/*width: calc(320 * 100vw / 375);
 		height: calc(200 * 100vw / 375);
 		top: calc(284 * 100vw / 375);
-		border-radius: calc(6 * 100vw / 375);
+		border-radius: calc(6 * 100vw / 375);*/
+		width: 320px;
+		height: 200px;
+		top: 284px;
+		border-radius: 6px;
 	}
 	.screenmate-info {
-		bottom: calc(80 * 100vw / 375);
-		grid-row-gap: calc(36 * 100vw / 375);
+		/*bottom: calc(80 * 100vw / 375);
+		grid-row-gap: calc(36 * 100vw / 375);*/
+		bottom: 80px;
+		grid-row-gap: 36px;
 	}
 	.screenmate-info-text {
-		font-size: calc(20 * 100vw / 375);
-		line-height: calc(24 * 100vw / 375);
+		/*font-size: calc(20 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);*/
+		font-size: 20px;
+		line-height: 24px;
 	}
 	.screenmate-info-link span {
-		font-size: calc(20 * 100vw / 375);
-		line-height: calc(24 * 100vw / 375);
+		/*font-size: calc(20 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);*/
+		font-size: 20px;
+		line-height: 24px;
 		text-align: center;
 		text-decoration: underline;
 	}
