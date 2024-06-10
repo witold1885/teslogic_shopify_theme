@@ -593,6 +593,8 @@
 		line-height: 20px;
 	}
 	.screenmate-form-button {
+		width: 100%;
+		text-align: center;
 		padding: 14px 28px;
 		border-radius: 26px;
 		font-size: 18px;
