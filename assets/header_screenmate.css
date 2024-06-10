@@ -237,11 +237,21 @@
 	height: 58px;
 	position: absolute;
 	top: 108px;
-	z-index: 2;
+	z-index: 3;
 }
 .screenmate-logo img {
 	width: 100%;
 	height: 100%;
+}
+.screenmate-logo-shadow {
+	width: 569px;
+	height: 77px;
+	position: absolute;
+	top: 112px;
+	z-index: 2;
+	border-radius: 569px;
+	background: #000;
+	filter: blur(15px);
 }
 .screenmate-video {
 	width: 585px;
