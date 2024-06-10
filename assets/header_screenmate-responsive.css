@@ -407,7 +407,8 @@
 /*		height: 660px;*/
 /*		height: 600px;*/
 /*		height: 100%;*/		
-		height: calc(768 * 100vw / 375);
+/*		height: calc(810 * 100vw / 375);*/
+		height: 810px;
 /*		flex: 1;*/
 		display: flex;
 		flex-direction: column;
