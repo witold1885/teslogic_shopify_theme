@@ -513,4 +513,19 @@
 		top: calc(284 * 100vw / 375);
 		border-radius: calc(6 * 100vw / 375);
 	}
+	.screenmate-info {
+		bottom: calc(80 * 100vw / 375);
+		grid-row-gap: calc(36 * 100vw / 375);
+	}
+	.screenmate-info-text {
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
+	.screenmate-info-link span {
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
+	.screenmate-info-link img {
+		display: none;
+	}
 }
