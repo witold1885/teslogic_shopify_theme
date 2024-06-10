@@ -564,6 +564,7 @@
   		padding-bottom: calc(64 * 100vw / 375);
 	}
 	.banner-button-buy {
+		display: inline-flex;
 		width: 100%;
 		border-radius: calc(54 * 100vw / 375);
 		backdrop-filter: blur(8px);
@@ -573,6 +574,9 @@
 		font-style: normal;
 		font-weight: 500;
 		line-height: calc(24 * 100vw / 375);
+		cursor: pointer;
+		text-decoration: none;
+		box-sizing: border-box;
 	}
 	.banner-menu-closed .banner-button-buy {
 		padding: calc(16 * 100vw / 375) calc(40 * 100vw / 375);
