@@ -522,6 +522,7 @@
 		line-height: calc(24 * 100vw / 375);
 	}
 	.screenmate-info-link span {
+		text-align: center;
 		font-size: calc(20 * 100vw / 375);
 		line-height: calc(24 * 100vw / 375);
 	}
