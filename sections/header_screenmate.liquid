@@ -406,10 +406,10 @@
       console.log('video started')
       const animateInterval = setInterval(() => {
         console.log('animateInterval')
-        if (!animate && Date.now() - startTime >= animateStart) {
+        if (!animate && Date.now() - startTime >= animateStart * 1000) {
           animate = true
           console.log('Animate start')
-        } else if (animate && Date.now() - startTime >= animateEnd) {
+        } else if (animate && Date.now() - startTime >= animateEnd * 1000) {
           animate = false
           console.log('Animate end')
           clearInterval(animateInterval)
