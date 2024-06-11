@@ -403,7 +403,6 @@
     function steamdeckAnimate() {
       startTime = Date.now()
       animate = false
-      console.log('video started')
       const animateInterval = setInterval(() => {
         if (!animate && Date.now() - startTime >= animateStart * 1000) {
           animate = true
@@ -413,7 +412,7 @@
           $('.screenmate-steamdeck').hide()
           clearInterval(animateInterval)
         }
-      }, 500)
+      }, 250)
       setTimeout(steamdeckAnimate, totalVideoDuration * 1000)
     }
 
