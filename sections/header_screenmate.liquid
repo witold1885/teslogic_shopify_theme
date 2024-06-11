@@ -120,8 +120,11 @@
         </div>
         <div class="screenmate-info-link">
           <span>Notify me when Teslogic Screenmate is live</span>
-          <img src="{{ 'screenmate-chevron.svg' | asset_url}}">
+          <img src="{{ 'screenmate-chevron.svg' | asset_url }}">
         </div>
+      </div>
+      <div class="screenmate-steamdeck">
+        <img src="{{ 'steamdeck.png' | asset_url }}">
       </div>
     </div>
   </div>
@@ -387,6 +390,11 @@
         }
       }
     }
+
+    const totalVideoDuration = 33
+    const animateStart = 18.5
+    const animateEnd = 27
+
 
     $('.screenmate-info-link').on('click', function () {
       $('.screenmate-shadow').css('display', 'flex')
