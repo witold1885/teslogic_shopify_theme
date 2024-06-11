@@ -109,7 +109,7 @@
       </div>
       <div class="screenmate-logo-shadow"></div>
       <div class="screenmate-video">
-        <video controls autoplay loop muted playsinline>
+        <video autoplay loop muted playsinline>
          <source src="{{ 'screenmate_2.mp4' | asset_url }}">
         </video>
       </div>
@@ -406,10 +406,10 @@
       const animateInterval = setInterval(() => {
         if (!animate && Date.now() - startTime >= animateStart * 1000) {
           animate = true
-          $('.screenmate-steamdeck').show()
+          $('.screenmate-steamdeck').fadeIn(250)
         } else if (animate && Date.now() - startTime >= animateEnd * 1000) {
           animate = false
-          $('.screenmate-steamdeck').hide()
+          $('.screenmate-steamdeck').fadeOut(250)
           clearInterval(animateInterval)
         }
       }, 250)
