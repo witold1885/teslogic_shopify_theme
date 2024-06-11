@@ -306,7 +306,7 @@
 	height: 24px;
 }
 .screenmate-steamdeck {
-/*	display: none;*/
+	display: none;
 	width: 822px;
 	height: 480px;
 	position: absolute;
