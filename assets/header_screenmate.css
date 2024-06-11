@@ -306,12 +306,13 @@
 	height: 24px;
 }
 .screenmate-steamdeck {
-	display: none;
-	width: 300px;
+/*	display: none;*/
+	width: 822px;
+	height: 480px;
 	position: absolute;
 	z-index: 3;
-	bottom: 0;
-	right: 0;
+	right: -382px;
+	bottom: -90px;
 }
 .screenmate-steamdeck img {
 	width: 100%;
