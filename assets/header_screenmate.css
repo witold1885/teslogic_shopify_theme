@@ -305,6 +305,16 @@
 	width: 24px;
 	height: 24px;
 }
+.screenmate-steamdeck {
+	position: absolute;
+	z-index: 3;
+	bottom: 0;
+	right: 0;
+}
+.screenmate-steamdeck img {
+	width: 100%;
+	height: 100%;
+}
 .screenmate-shadow {
 	display: none;
 	position: fixed;
