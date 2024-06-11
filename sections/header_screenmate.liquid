@@ -398,21 +398,25 @@
     let startTime = Date.now()
     let animate = false
 
-    setTimeout(() => {
+    steamdeckAnimate()
+
+    function steamdeckAnimate() {
       startTime = Date.now()
       animate = false
       console.log('video started')
-      setTimeout(() => {
+      const animateInterval = setInterval(() => {
+        console.log('animateInterval')
         if (!animate && Date.now() - startTime >= animateStart) {
           animate = true
           console.log('Animate start')
         } else if (animate && Date.now() - startTime >= animateEnd) {
           animate = false
           console.log('Animate end')
+          clearInterval(animateInterval)
         }
       }, 500)
-    }, totalVideoDuration * 1000)
-
+      setTimeout(steamdeckAnimate, totalVideoDuration * 1000)
+    }
 
     $('.screenmate-info-link').on('click', function () {
       $('.screenmate-shadow').css('display', 'flex')
