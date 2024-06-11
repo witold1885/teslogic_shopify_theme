@@ -77,12 +77,6 @@
 		width: calc(24 * 100vh / 1080);
 		height: calc(24 * 100vh / 1080);
 	}
-	.screenmate-steamdeck {
-		width: calc(822 * 100vh / 1080);
-		height: calc(480 * 100vh / 1080);
-		right: calc(-1 * 382 * 100vh / 1080);
-		bottom: calc(-1 * 90 * 100vh / 1080);
-	}
 	.screenmate-form {
 		width: calc(651 * 100vh / 1080);
 		height: calc(332 * 100vh / 1080);
@@ -187,6 +181,12 @@
 	}
 	.banner-desktop-wrap, .screenmate-shadow {
 	  	min-height: calc(810 * 100vw / 1440);
+	}
+	.screenmate-steamdeck {
+		width: calc(822 * 100vw / 1440);
+		height: calc(480 * 100vw / 1440);
+		right: calc(-1 * 382 * 100vw / 1440);
+		bottom: calc(-1 * 90 * 100vw / 1440);
 	}
 }
 
