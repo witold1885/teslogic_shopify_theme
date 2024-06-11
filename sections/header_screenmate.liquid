@@ -395,8 +395,22 @@
     const animateStart = 18.5
     const animateEnd = 27
 
+    let startTime = Date.now()
+    let animate = false
+
     setTimeout(() => {
+      startTime = Date.now()
+      animate = false
       console.log('video started')
+      setTimeout(() => {
+        if (!animate && Date.now() - startTime >= animateStart) {
+          animate = true
+          console.log('Animate start')
+        } else if (animate && Date.now() - startTime >= animateEnd) {
+          animate = false
+          console.log('Animate end')
+        }
+      }, 500)
     }, totalVideoDuration * 1000)
 
 
