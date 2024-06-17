@@ -287,7 +287,7 @@
 .screenmate-info-link {
 	display: flex;
 	align-items: center;
-	grid-column-gap: 13px;
+	grid-column-gap: 8px;
 	cursor: pointer;
 }
 .screenmate-info-link span {
@@ -301,7 +301,11 @@
 .screenmate-info-link span:hover {
 	color: #1658FD;
 }
-.screenmate-info-link img {
+.screenmate-info-link .screenmate-info-link-kickstarter {
+	width: 205.451px;
+	height: 24px;
+}
+.screenmate-info-link .screenmate-info-link-chevron {
 	width: 24px;
 	height: 24px;
 }
