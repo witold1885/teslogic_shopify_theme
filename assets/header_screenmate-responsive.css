@@ -681,6 +681,9 @@
 	.screenmate-success-body span span {
 		display: inline;
 	}
+	.screenmate-success-body span br {
+		display: none;
+	}
 	.screenmate-success-body img {
 		width: 287px;
 		height: 33.533px;
