@@ -514,11 +514,20 @@
 	height: 20px;
 	cursor: pointer;
 }
-.screenmate-success-text {
+.screenmate-success-body {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 16px;
+}
+.screenmate-success-body span {
 	color: #FFF;
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 32px;
+}
+.screenmate-success-body img {
+	width: 416px;
+	height: 48.596px;
 }

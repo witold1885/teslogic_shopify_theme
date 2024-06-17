@@ -152,9 +152,16 @@
 		width: calc(20 * 100vh / 1080);
 		height: calc(20 * 100vh / 1080);
 	}
-	.screenmate-success-text {
+	.screenmate-success-body {
+		grid-row-gap: calc(16 * 100vh / 1080);
+	}
+	.screenmate-success-body span {
 		font-size: calc(24 * 100vh / 1080);
 		line-height: calc(32 * 100vh / 1080);
+	}
+	.screenmate-success-body img {
+		width: calc(416 * 100vh / 1080);
+		height: calc(48.596 * 100vh / 1080);
 	}
 }
 @media screen and (min-width: 1920px) {
@@ -663,8 +670,15 @@
 		width: 20px;
 		height: 20px;
 	}
-	.screenmate-success-text {
+	.screenmate-success-body {
+		grid-row-gap: 12px;
+	}
+	.screenmate-success-body span {
 		font-size: 20px;
 		line-height: 24px;
+	}
+	.screenmate-success-body img {
+		width: 287px;
+		height: 33.533px;
 	}
 }
