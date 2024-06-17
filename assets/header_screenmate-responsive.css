@@ -656,7 +656,7 @@
 	}
 	.screenmate-success {
 		width: 330px;
-		height: 210px;
+		height: 164px;
 		padding: 24px;
 		grid-row-gap: 12px;
 		top: 231px;
@@ -677,12 +677,6 @@
 		width: 262px;
 		font-size: 20px;
 		line-height: 24px;
-	}
-	.screenmate-success-body span span {
-		display: inline;
-	}
-	.screenmate-success-body span br {
-		display: none;
 	}
 	.screenmate-success-body img {
 		width: 287px;
