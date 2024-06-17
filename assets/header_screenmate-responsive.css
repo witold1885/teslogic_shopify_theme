@@ -138,7 +138,7 @@
 	}
 	.screenmate-success {
 		width: calc(497 * 100vh / 1080);
-		height: calc(200 * 100vh / 1080);
+		height: calc(265 * 100vh / 1080);
 		padding: calc(40 * 100vh / 1080);
 		grid-row-gap: calc(16 * 100vh / 1080);
 		border-radius: calc(24 * 100vh / 1080);
@@ -656,7 +656,7 @@
 	}
 	.screenmate-success {
 		width: 330px;
-		height: 164px;
+		height: 210px;
 		padding: 24px;
 		grid-row-gap: 12px;
 		top: 231px;
