@@ -674,6 +674,7 @@
 		grid-row-gap: 12px;
 	}
 	.screenmate-success-body span {
+		width: 262px;
 		font-size: 20px;
 		line-height: 24px;
 	}
