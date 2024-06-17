@@ -674,9 +674,12 @@
 		grid-row-gap: 12px;
 	}
 	.screenmate-success-body span {
-		width: 262px;
+		width: 255px;
 		font-size: 20px;
 		line-height: 24px;
+	}
+	.screenmate-success-body span br {
+		display: none;
 	}
 	.screenmate-success-body img {
 		width: 287px;
