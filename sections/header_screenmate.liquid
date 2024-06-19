@@ -405,26 +405,15 @@
     let startTime = Date.now()
     let animate = false
 
-    // steamdeckAnimate()
-
     video.play()
 
     $(video).on('play', function() {
-      console.log('Video started')
       steamdeckAnimate()
     })
 
-    /*$(video).on('ended', function() {
-        console.log('Video ended')
-        videoEnded = true
-    })*/
-
     $(video).on('timeupdate', function() {
-      console.log('this.duration:' + this.duration)
-      console.log('this.currentTime:' + this.currentTime)
         if (this.currentTime > 0 && this.currentTime < threshold) {
             if (videoEnded) {
-                console.log('Video started')
                 steamdeckAnimate()
                 videoEnded = false
             }
@@ -432,7 +421,6 @@
 
         if (this.duration - this.currentTime < threshold) {
             if (!videoEnded) {
-                console.log('Video ended')
                 videoEnded = true
             }
         }
@@ -451,7 +439,6 @@
           clearInterval(animateInterval)
         }
       }, 250)
-      // setTimeout(steamdeckAnimate, totalVideoDuration * 1000)
     }
 
     $('.screenmate-info-link').on('click', function () {
