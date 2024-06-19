@@ -236,7 +236,7 @@
 	height: 58px;
 	position: absolute;
 	top: 108px;
-	z-index: 3;
+/*	z-index: 3;*/
 }
 .screenmate-logo img {
 	width: 100%;
