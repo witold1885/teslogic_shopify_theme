@@ -412,20 +412,24 @@
 	background: transparent;
 	box-sizing: border-box;
 }
+.screenmate-form-field-input:focus, 
+.screenmate-form-field-input:active {
+	border: 1px solid #FFF;
+}
 .screenmate-form-field-input::placeholder {
-	color: #FFF;
+	color: #D9D9D9;
 }
 .screenmate-form-field-input::-webkit-input-placeholder {
-  	color: #FFF;
+  	color: #D9D9D9;
 }
 .screenmate-form-field-input:-moz-placeholder {
-  	color: #FFF;
+  	color: #D9D9D9;
 }
 .screenmate-form-field-input::-moz-placeholder {
-  	color: #FFF;
+  	color: #D9D9D9;
 }
 .screenmate-form-field-input:-ms-input-placeholder {
-  	color: #FFF;
+  	color: #D9D9D9;
 }
 .screenmate-form-agree {
 	display: flex;
