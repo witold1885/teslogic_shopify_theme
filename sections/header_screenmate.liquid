@@ -419,6 +419,7 @@
     })
 
     $(video).on('timeupdate', function() {
+        console.log(Date.now() + ': timeupdate')
         if (videoEnded && this.currentTime < 0.5) {
             console.log('Video started')
             steamdeckAnimate()
@@ -430,7 +431,6 @@
       startTime = Date.now()
       animate = false
       const animateInterval = setInterval(() => {
-        console.log(Date.now() - startTime)
         if (!animate && Date.now() - startTime >= animateStart * 1000) {
           animate = true
           $('.screenmate-steamdeck').fadeIn(250)
