@@ -420,17 +420,20 @@
     })*/
 
     $(video).on('timeupdate', function() {
+      console.log('this.duration:' + this.duration)
+      console.log('this.currentTime:' + this.currentTime)
         if (this.currentTime > 0 && this.currentTime < threshold) {
             if (videoEnded) {
-                console.log('Video started');
-                videoEnded = false;
+                console.log('Video started')
+                steamdeckAnimate()
+                videoEnded = false
             }
         }
 
         if (this.duration - this.currentTime < threshold) {
             if (!videoEnded) {
-                console.log('Video ended');
-                videoEnded = true;
+                console.log('Video ended')
+                videoEnded = true
             }
         }
     })
