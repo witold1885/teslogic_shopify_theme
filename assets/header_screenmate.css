@@ -311,12 +311,16 @@
 }
 .screenmate-steamdeck {
 	display: none;
-	width: 822px;
-	height: 480px;
+/*	width: 822px;*/
+/*	height: 480px;*/
 	position: absolute;
 /*	z-index: 3;*/
-	right: -382px;
-	bottom: -90px;
+/*	right: -382px;*/
+/*	bottom: -90px;*/
+	width: calc(822 * 100vw / 1440);
+	height: calc(480 * 100vw / 1440);
+	right: calc(-1 * 382 * 100vw / 1440);
+	bottom: calc(-1 * 90 * 100vw / 1440);
 }
 .screenmate-steamdeck img {
 	width: 100%;
