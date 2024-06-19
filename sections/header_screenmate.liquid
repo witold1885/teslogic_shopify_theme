@@ -396,35 +396,14 @@
 
     const video = $('.screenmate-video video')[0]
 
-    let videoEnded = false
-    const threshold = 0.5
-
     const animateStart = 21
     const animateEnd = 27
 
-    let startTime = Date.now()
     let animate = false
 
     video.play()
 
-    /*$(video).on('play', function() {
-      steamdeckAnimate()
-    })*/
-
     $(video).on('timeupdate', function() {
-        /*if (this.currentTime > 0 && this.currentTime < threshold) {
-            if (videoEnded) {
-                steamdeckAnimate()
-                videoEnded = false
-            }
-        }
-
-        if (this.duration - this.currentTime < threshold) {
-            if (!videoEnded) {
-                videoEnded = true
-            }
-        }*/
-        console.log('this.currentTime: ' + this.currentTime)
         if (!animate && this.currentTime >= animateStart && this.currentTime < animateEnd) {
           animate = true
           $('.screenmate-steamdeck').fadeIn(250)
@@ -433,21 +412,6 @@
           $('.screenmate-steamdeck').fadeOut(250)
         }
     })
-
-    function steamdeckAnimate() {
-      startTime = Date.now()
-      animate = false
-      const animateInterval = setInterval(() => {
-        if (!animate && Date.now() - startTime >= animateStart * 1000) {
-          animate = true
-          $('.screenmate-steamdeck').fadeIn(250)
-        } else if (animate && Date.now() - startTime >= animateEnd * 1000) {
-          animate = false
-          $('.screenmate-steamdeck').fadeOut(250)
-          clearInterval(animateInterval)
-        }
-      }, 250)
-    }
 
     $('.screenmate-info-link').on('click', function () {
       $('.screenmate-shadow').css('display', 'flex')
