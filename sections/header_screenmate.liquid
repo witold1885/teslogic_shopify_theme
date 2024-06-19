@@ -415,7 +415,8 @@
         }
     })
 
-    $('.screenmate-info-link, .menu__item-subscribe').on('click', function () {
+    $('.screenmate-info-link, .menu__item-subscribe, .banner-button-subscribe').on('click', function () {
+      $('.button-close').click()
       $('.screenmate-shadow').css('display', 'flex')
     })
 
