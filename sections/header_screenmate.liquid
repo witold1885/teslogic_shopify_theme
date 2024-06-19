@@ -425,7 +425,7 @@
             }
         }*/
         console.log('this.currentTime: ' + this.currentTime)
-        if (!animate && this.currentTime >= animateStart) {
+        if (!animate && this.currentTime >= animateStart && this.currentTime < animateEnd) {
           animate = true
           $('.screenmate-steamdeck').fadeIn(250)
         } else if (animate && this.currentTime >= animateEnd) {
