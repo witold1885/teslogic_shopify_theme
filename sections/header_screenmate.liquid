@@ -419,8 +419,8 @@
     })
 
     $(video).on('timeupdate', function() {
-        console.log(Date.now() + ': timeupdate')
-        if (videoEnded && this.currentTime < 0.5) {
+        // console.log(Date.now() + ': timeupdate')
+        if (videoEnded/* && this.currentTime < 0.5*/) {
             console.log('Video started')
             steamdeckAnimate()
             videoEnded = false
