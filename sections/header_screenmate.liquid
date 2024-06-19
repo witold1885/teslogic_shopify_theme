@@ -407,12 +407,12 @@
 
     video.play()
 
-    $(video).on('play', function() {
+    /*$(video).on('play', function() {
       steamdeckAnimate()
-    })
+    })*/
 
     $(video).on('timeupdate', function() {
-        if (this.currentTime > 0 && this.currentTime < threshold) {
+        /*if (this.currentTime > 0 && this.currentTime < threshold) {
             if (videoEnded) {
                 steamdeckAnimate()
                 videoEnded = false
@@ -423,6 +423,14 @@
             if (!videoEnded) {
                 videoEnded = true
             }
+        }*/
+        animate = false
+        if (!animate && this.currentTime >= animateStart) {
+          animate = true
+          $('.screenmate-steamdeck').fadeIn(250)
+        } else if (animate && this.currentTime >= animateEnd) {
+          animate = false
+          $('.screenmate-steamdeck').fadeOut(250)
         }
     })
 
