@@ -394,14 +394,18 @@
       }
     }
 
-    const totalVideoDuration = 33
+    // const totalVideoDuration = 33
     const animateStart = 21
-    const animateEnd = 29
+    const animateEnd = 27
 
     let startTime = Date.now()
     let animate = false
 
-    steamdeckAnimate()
+    // steamdeckAnimate()
+
+    $('.screenmate-video video').on('play', function() {
+        steamdeckAnimate();
+    })
 
     function steamdeckAnimate() {
       startTime = Date.now()
@@ -416,7 +420,7 @@
           clearInterval(animateInterval)
         }
       }, 250)
-      setTimeout(steamdeckAnimate, totalVideoDuration * 1000)
+      // setTimeout(steamdeckAnimate, totalVideoDuration * 1000)
     }
 
     $('.screenmate-info-link').on('click', function () {
