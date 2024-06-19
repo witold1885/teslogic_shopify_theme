@@ -396,13 +396,14 @@
 
     const video = $('.screenmate-video video')[0]
 
-    // const totalVideoDuration = 33
+    let videoEnded = false
+    const threshold = 0.5
+
     const animateStart = 21
     const animateEnd = 27
 
     let startTime = Date.now()
     let animate = false
-    let videoEnded = false
 
     // steamdeckAnimate()
 
@@ -413,17 +414,24 @@
       steamdeckAnimate()
     })
 
-    $(video).on('ended', function() {
+    /*$(video).on('ended', function() {
         console.log('Video ended')
         videoEnded = true
-    })
+    })*/
 
     $(video).on('timeupdate', function() {
-        // console.log(Date.now() + ': timeupdate')
-        if (videoEnded/* && this.currentTime < 0.5*/) {
-            console.log('Video started')
-            steamdeckAnimate()
-            videoEnded = false
+        if (this.currentTime > 0 && this.currentTime < threshold) {
+            if (videoEnded) {
+                console.log('Video started');
+                videoEnded = false;
+            }
+        }
+
+        if (this.duration - this.currentTime < threshold) {
+            if (!videoEnded) {
+                console.log('Video ended');
+                videoEnded = true;
+            }
         }
     })
 
