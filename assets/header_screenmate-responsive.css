@@ -17,7 +17,7 @@
 		top: 245px;
 	}
 	.screenmate-video, .screenmate-form {
-		top: 371px;
+		top: 372px;
 	}
 	.screenmate-info {
 		bottom: 177px;
@@ -34,7 +34,7 @@
 		top: calc(245px - (1080px - 100vh) / 2);
 	}
 	.screenmate-video, .screenmate-form {
-		top: calc(371px - (1080px - 100vh) / 2);
+		top: calc(372px - (1080px - 100vh) / 2);
 	}
 	.screenmate-info {
 		bottom: calc(177px - (1080px - 100vh) / 2);
@@ -57,7 +57,7 @@
 	.screenmate-video {
 		width: calc(585 * 100vh / 1080);
 		height: calc(367 * 100vh / 1080);
-		top: calc(371 * 100vh / 1080);
+		top: calc(372 * 100vh / 1080);
 	}
 	.screenmate-info {
 		bottom: calc(177 * 100vh / 1080);
@@ -87,7 +87,7 @@
 		padding: calc(40 * 100vh / 1080);
 		grid-row-gap: calc(20 * 100vh / 1080);
 		border-radius: calc(24 * 100vh / 1080);
-		top: calc(371 * 100vh / 1080);
+		top: calc(372 * 100vh / 1080);
 	}
 	.screenmate-form-title {
 		width: calc(472 * 100vh / 1080);
