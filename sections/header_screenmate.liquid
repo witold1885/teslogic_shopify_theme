@@ -404,13 +404,15 @@
     // steamdeckAnimate()
 
     $('.screenmate-video video').on('play', function() {
-        steamdeckAnimate();
+      console.log('Video started')
+      steamdeckAnimate()
     })
 
     function steamdeckAnimate() {
       startTime = Date.now()
       animate = false
       const animateInterval = setInterval(() => {
+        console.log(Date.now() - startTime)
         if (!animate && Date.now() - startTime >= animateStart * 1000) {
           animate = true
           $('.screenmate-steamdeck').fadeIn(250)
