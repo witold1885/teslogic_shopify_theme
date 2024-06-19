@@ -247,7 +247,7 @@
 	height: 77px;
 	position: absolute;
 	top: 112px;
-	z-index: 2;
+/*	z-index: 2;*/
 	border-radius: 569px;
 	background: #000;
 	filter: blur(15px);
