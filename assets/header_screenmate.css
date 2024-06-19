@@ -314,7 +314,7 @@
 	width: 822px;
 	height: 480px;
 	position: absolute;
-	z-index: 3;
+/*	z-index: 3;*/
 	right: -382px;
 	bottom: -90px;
 }
