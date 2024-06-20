@@ -256,7 +256,7 @@
 	width: 585px;
 	height: 367px;
 	position: absolute;
-	top: 238px;
+	top: 236px;
 	z-index: 2;
 	border-radius: 6px;
 	overflow: hidden;
@@ -352,7 +352,7 @@
 	justify-content: center;
 	grid-row-gap: 20px;
 	position: absolute;
-	top: 238px;
+	top: 236px;
 	z-index: 2;
 	border-radius: 24px;
 	background: linear-gradient(0deg, #000 0%, #000 100%), rgba(179, 179, 179, 0.80);
