@@ -396,14 +396,20 @@
       }
     }
 
-    const video = $('.screenmate-video video')[0]
+    let video
+
+    setVideo()
+    $(window).on('resize', setVideo)
+
+    function setVideo() {
+      video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
+      video.play()
+    }
 
     const animateStart = 21
     const animateEnd = 27
 
     let animate = false
-
-    video.play()
 
     $(video).on('timeupdate', function() {
         if (!animate && this.currentTime >= animateStart && this.currentTime < animateEnd) {
