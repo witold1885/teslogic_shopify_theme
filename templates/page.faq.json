@@ -249,7 +249,7 @@
           "settings": {
             "chapter_id": "4",
             "question": "Is it possible for a second driver to use Teslogic app on their own phone?",
-            "answer": "Yes, a second driver can run the app. Now if you close the application on the first phone, it will automatically pair with the second one. The ability to use the app for more than one user at a time will be added in the future app updates."
+            "answer": "Yes, a second driver can run the app. You can easily connect 2+ cross platform devices simultaneously."
           }
         },
         "4b639e15-e2d7-4a73-a57d-ee479cb192d6": {
