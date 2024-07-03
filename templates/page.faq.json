@@ -241,7 +241,7 @@
           "settings": {
             "chapter_id": "4",
             "question": "How can I customize screens?",
-            "answer": "You can modify the number of displayed screens and their order within the Preferences menu. We will also add the ability to choose which options are shown on the screen in future app updates."
+            "answer": "You can customize the screens shown within the app and their order. Additionally, you can select which parameters are displayed on the Dashboard and Performance screens."
           }
         },
         "b249d263-3513-4e3c-aa7e-4e30758993df": {
