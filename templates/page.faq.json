@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "faq_chapters": {
@@ -264,7 +273,7 @@
           "settings": {
             "chapter_id": "5",
             "question": "What does US Spec and non-US Spec mean?",
-            "answer": "When selecting Model 3 2019-2020, please be aware that the kits differ for US Spec and non-US Spec. The kit classification is based on the country where your Tesla is registered (not where it was manufactured). US Spec covers the USA and Canada, while non-US Spec includes all other countries."
+            "answer": "When selecting Model 3 2019-2020, please be aware that the kits differ for US Spec and non-US Spec. The kit classification is based on the country where your Tesla is registered (not where it was manufactured). US Spec covers the USA, Canada, and Mexico, while non-US Spec includes all other countries."
           }
         },
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc": {
