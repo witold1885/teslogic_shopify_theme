@@ -354,12 +354,17 @@
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   $(window).on('load', function() {
-    if (window.innerWidth >= 576) {
-      $('#header_main.header-screenmate').css('display', 'block')
-    } else {
-      $('#header_mobile.header-screenmate').css('display', 'flex')
+    var bgImage = new Image()
+    bgImage.src = '{{ 'screenmate_bg.png' | asset_url}}'
+
+    bgImage.onload = function() {
+      if (window.innerWidth >= 576) {
+        $('#header_main.header-screenmate').css('display', 'block')
+      } else {
+        $('#header_mobile.header-screenmate').css('display', 'flex')
+      }
+      $('.screenmate-loader').hide()
     }
-    $('.screenmate-loader').hide()
   })
   $(document).ready(function() {
     // window.addEventListener('scroll', setStickyHeader)
