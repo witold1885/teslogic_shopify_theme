@@ -452,11 +452,12 @@
 
     function setVideo() {
       video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
-      video.play()
+      // video.play()
     }
 
-    $(video).on('play', function() {
+    $(video).on('loadeddata', function() {
       $('.screenmate-loader').hide()
+      video.play()
     })
 
     const animateStart = 21
