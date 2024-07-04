@@ -2,8 +2,11 @@
 	.screenmate-logo {
 		top: calc(108px - (810px - 100vh) / 2);
 	}
+	.screenmate-logo-shadow {
+		top: calc(112px - (810px - 100vh) / 2);
+	}
 	.screenmate-video, .screenmate-form {
-		top: calc(236px - (810px - 100vh) / 2);
+		top: calc(236px - (810px - 100vh) / 2) !important;
 	}
 	.screenmate-info {
 		bottom: calc(40px - (810px - 100vh) / 2);
