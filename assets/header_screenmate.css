@@ -267,7 +267,7 @@
 }
 .screenmate-info {
 	position: absolute;
-	bottom: 40px;
+	top: 650px;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
