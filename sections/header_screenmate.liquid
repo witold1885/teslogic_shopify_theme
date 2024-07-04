@@ -455,7 +455,7 @@
       // video.play()
     }
 
-    $(video).on('loadeddata', function() {
+    $(video).on('canplay', function() {
       $('.screenmate-loader').hide()
       video.play()
     })
