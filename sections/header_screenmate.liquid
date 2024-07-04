@@ -9,6 +9,9 @@
     right: 0;
     bottom: 0;
     background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .banner-desktop-image-wrap {
     background: url({{ 'screenmate_bg.png' | asset_url}});
@@ -49,7 +52,11 @@
   }
 {%- endstyle -%}
 
-<div class="screenmate-loader"></div>
+<div class="screenmate-loader">  
+  <div class="screenmate-loader-logo">
+    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+  </div>
+</div>
 
 <header id="header_main" class="header-screenmate">
   <div class="top-wrap">
