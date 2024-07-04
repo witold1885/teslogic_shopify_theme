@@ -1,4 +1,4 @@
-@media screen and (max-width: 1440px) and (max-height: 810px) {
+@media screen and (max-width: 1440px) and (max-height: 810px) and (min-height: 670px) {
 	.screenmate-logo {
 		top: calc(108px - (810px - 100vh) / 2);
 	}
@@ -10,6 +10,20 @@
 	}
 	.screenmate-info {
 		bottom: calc(40px - (810px - 100vh) / 2);
+	}
+}
+@media screen and (max-width: 1440px) and (max-height: 670px) {
+	.screenmate-logo {
+		top: calc(108px - (810px - 670px) / 2);
+	}
+	.screenmate-logo-shadow {
+		top: calc(112px - (810px - 670px) / 2);
+	}
+	.screenmate-video, .screenmate-form {
+		top: calc(236px - (810px - 670px) / 2) !important;
+	}
+	.screenmate-info {
+		bottom: calc(40px - (810px - 670px) / 2);
 	}
 }
 @media screen and (min-width: 1920px) and (max-height: 1080px) {
