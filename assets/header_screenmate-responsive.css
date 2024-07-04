@@ -213,7 +213,7 @@
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
 	.banner-desktop-wrap, .screenmate-shadow {
-	  	min-height: calc(810 * 100vw / 1440);
+/*	  	min-height: calc(810 * 100vw / 1440);*/
 	}
 	.screenmate-steamdeck {
 		width: calc(822 * 100vw / 1440);
