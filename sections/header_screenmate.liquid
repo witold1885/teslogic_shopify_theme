@@ -353,14 +353,15 @@
   // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
-
-  $(document).ready(function() {
+  $(window).on('load', function() {
     if (window.innerWidth >= 576) {
       $('#header_main.header-screenmate').css('display', 'block')
     } else {
       $('#header_mobile.header-screenmate').css('display', 'flex')
     }
     $('.screenmate-loader').hide()
+  })
+  $(document).ready(function() {
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
