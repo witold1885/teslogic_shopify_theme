@@ -1,6 +1,7 @@
 #header_main {
 	width: 100%;
 	position: relative;
+	display: none;
 }
 #header_mobile {
 	display: none;
