@@ -45,7 +45,6 @@
 }
 @media screen and (max-width: 1920px) and (max-height: 810px) {
 	.screenmate-video {
-/*		top: calc(236px - ((810px - 100vh)/2));*/
 		top: 236px;
 	}
 }
