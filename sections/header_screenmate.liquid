@@ -374,7 +374,7 @@
 
       console.log(video)
 
-      $(video).on('loadeddata', function() {
+      $(video).on('canplaythrough', function() {
         $('.screenmate-loader').hide()
       })
     }, 1000)
