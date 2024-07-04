@@ -1,4 +1,4 @@
-@media screen and (max-width: 1440px) and (max-height: 810px) and (min-height: 670px) {
+/*@media screen and (max-width: 1440px) and (max-height: 810px) and (min-height: 670px) {
 	.screenmate-logo {
 		top: calc(108px - (810px - 100vh) / 2);
 	}
@@ -25,7 +25,7 @@
 	.screenmate-info {
 		bottom: calc(40px - (810px - 670px) / 2);
 	}
-}
+}*/
 @media screen and (min-width: 1920px) and (max-height: 1080px) {
 	.screenmate-logo {
 		top: 241px;
