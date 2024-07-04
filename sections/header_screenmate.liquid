@@ -19,6 +19,13 @@
     background-size: cover;
     background-position: top center;
   }
+  @media screen and (min-width: 1440px) and (min-height: 810px) {
+    .banner-desktop-image-wrap {
+      background: url({{ 'screenmate_bg_1.png' | asset_url}});
+      background-size: cover;
+      background-position: center;
+    }
+  }
   .screenmate-form-agree-checkbox {
     background: url({{ 'screenmate_checkbox_inactive.svg' | asset_url }});
     background-size: cover;
@@ -35,7 +42,7 @@
       left: calc(-1 * (3840px - 100vw) / 2);
       background: url({{ 'screenmate_bg_2.png' | asset_url}});
       background-size: cover;
-      background-position: top center;
+      background-position: center;
     }
   }
   @media screen and (min-width: 3840px) {
@@ -47,7 +54,7 @@
 
   .banner {
     background: url({{ 'screenmate_bg_mobile.png' | asset_url}});
-    background-position: top center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
