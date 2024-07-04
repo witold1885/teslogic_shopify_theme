@@ -368,7 +368,7 @@
   // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
-  $(window).on('load', function() {
+  /*$(window).on('load', function() {
     setTimeout(() => {      
       let video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
 
@@ -378,8 +378,17 @@
         $('.screenmate-loader').hide()
       })
     }, 1000)
-  })
+  })*/
   $(document).ready(function() {
+    setTimeout(() => {      
+      let video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
+
+      console.log(video)
+
+      $(video).on('canplaythrough', function() {
+        $('.screenmate-loader').hide()
+      })
+    }, 1000)
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
