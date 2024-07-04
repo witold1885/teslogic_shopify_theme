@@ -292,7 +292,7 @@
 /*		height: calc(2210 * 100vw / 375);*/
 /*		height: 810px;*/
 /*		height: 812px;*/
-		display: none;
+		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
