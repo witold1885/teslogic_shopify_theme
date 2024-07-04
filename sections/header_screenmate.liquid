@@ -456,7 +456,6 @@
     }
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
-      console.log('Подія відео завантажена')
       clearInterval(checkInterval)
       $('.screenmate-loader').hide()
       video.play()
@@ -467,7 +466,7 @@
     function checkVideoReady() {
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
-        console.log('Відео завантажене і готове до відтворення')
+        console.log('Video loaded and ready to play')
         $('.screenmate-loader').hide()
         video.play()
       }
