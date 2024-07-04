@@ -2,6 +2,14 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
 
 {%- style -%}
+  .screenmate-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+  }
   .banner-desktop-image-wrap {
     background: url({{ 'screenmate_bg.png' | asset_url}});
     background-size: cover;
@@ -41,7 +49,9 @@
   }
 {%- endstyle -%}
 
-<header id="header_main">
+<div class="screenmate-loader"></div>
+
+<header id="header_main" class="header-screenmate">
   <div class="top-wrap">
     <div class="top">
       <a href="/" class="logo">
@@ -194,7 +204,7 @@
   </div>
 </header>
 
-<header id="header_mobile">
+<header id="header_mobile" class="header-screenmate">
   <div class="top-wrap">
     <div class="top top-menu-closed">
       <a href="/" class="logo">
@@ -345,12 +355,18 @@
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
 
   $(document).ready(function() {
+    if (window.innerWidth >= 576) {
+      $('#header_main.header-screenmate').css('display', 'block')
+    } else {
+      $('#header_mobile.header-screenmate').css('display', 'flex')
+    }
+    $('.screenmate-loader').hide()
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
     $(window).on('scroll', setStickyHeader) 
     function setStickyHeader() {
-      if (window.innerWidth >= 575) {
+      if (window.innerWidth >= 576) {
         var header_main_height = $('#header_main').height()
         var header_top_height = $('#header_main').find('.top').height()
         if (window.pageYOffset >= header_top_height) {
