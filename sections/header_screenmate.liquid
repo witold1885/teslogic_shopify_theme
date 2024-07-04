@@ -380,7 +380,7 @@
     }, 1000)
   })*/
   $(document).ready(function() {
-    setTimeout(() => {      
+    /*setTimeout(() => {      
       let video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
 
       console.log(video)
@@ -393,7 +393,7 @@
         console.error('Не вдалося завантажити відео')
         $('.screenmate-loader').hide()
       })
-    }, 1000)
+    }, 1000)*/
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
@@ -454,6 +454,10 @@
       video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
       video.play()
     }
+
+    $(video).on('play', function() {
+      $('.screenmate-loader').hide()
+    })
 
     const animateStart = 21
     const animateEnd = 27
