@@ -385,7 +385,12 @@
 
       console.log(video)
 
-      $(video).on('canplaythrough', function() {
+      $(video).on('canplay loadeddata', function() {
+        $('.screenmate-loader').hide()
+      })
+
+      $(video).on('error', function() {
+        console.error('Не вдалося завантажити відео')
         $('.screenmate-loader').hide()
       })
     }, 1000)
