@@ -455,10 +455,23 @@
       // video.play()
     }
 
-    $(video).on('loadedmetadata', function() {
+    $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
+      console.log('Подія відео завантажена')
+      clearInterval(checkInterval)
       $('.screenmate-loader').hide()
       video.play()
     })
+
+    checkInterval = setInterval(checkVideoReady, 100)
+
+    function checkVideoReady() {
+      if (video.readyState >= 3) {
+        clearInterval(checkInterval)
+        console.log('Відео завантажене і готове до відтворення')
+        $('.screenmate-loader').hide()
+        video.play()
+      }
+    }
 
     const animateStart = 21
     const animateEnd = 27
