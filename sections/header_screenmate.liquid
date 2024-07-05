@@ -460,13 +460,12 @@
 
     function setVideo() {
       video = window.innerWidth >= 576 ? $('.screenmate-video video')[0] : $('.screenmate-video video')[1]
-      // video.play()
     }
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      $('.screenmate-loader').fadeOut()
       animateLogo()
+      $('.screenmate-loader').fadeOut()
       video.play()
     })
 
@@ -476,8 +475,8 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        $('.screenmate-loader').fadeOut()
         animateLogo()
+        $('.screenmate-loader').fadeOut()
         video.play()
       }
     }
