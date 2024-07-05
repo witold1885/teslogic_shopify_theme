@@ -446,15 +446,16 @@
     }
 
     function animateLogo () {
-      // const logoPosition = $('.screenmate-logo').offset()
-      // console.log(logoPosition)
-      // console.log('animating')
+      const logoPosition = $('.screenmate-logo').offset()
+      console.log(logoPosition)
+      console.log('animating')
       // console.log($('.screenmate-loader-logo'))
-      /*$('.screenmate-loader-logo').animate({
+      $('.screenmate-loader-logo').css('position', 'absolute')
+      $('.screenmate-loader-logo').animate({
         top: logoPosition.top,
         left: logoPosition.left
-      }, 1000)*/
-      var $source = $('.screenmate-loader-logo');
+      }, 1000)
+      /*var $source = $('.screenmate-loader-logo');
       var $target = $('.screenmate-logo');
       var targetOffset = $target.offset();
 
@@ -483,7 +484,7 @@
                   left: newLeft + 'px'
               });
           }
-      }, 10); // Кожні 10 мілісекунд
+      }, 10); // Кожні 10 мілісекунд*/
       console.log('hiding loader')
       // setTimeout(() => $('.screenmate-loader').fadeOut(), 1000)
     }
