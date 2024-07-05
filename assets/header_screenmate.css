@@ -231,6 +231,12 @@
 	height: 100%;
     left: calc(-1 * (1920px - 100vw) / 2);
 }
+.screenmate-loader-logo {
+	width: 613px;
+	height: 58px;
+	position: absolute;
+/*	z-index: 3;*/
+}
 .screenmate-logo {
 	width: 613px;
 	height: 58px;
