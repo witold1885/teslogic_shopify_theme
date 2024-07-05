@@ -450,8 +450,9 @@
       console.log(logoPosition)
       console.log('animating')
       // console.log($('.screenmate-loader-logo'))
-      $('.screenmate-loader-logo').css('position', 'absolute')
-      $('.screenmate-loader-logo').animate({
+      $('.screenmate-loader-logo')
+        .css('position', 'absolute')
+        .animate({
         top: logoPosition.top,
         left: logoPosition.left
       }, 1000)
@@ -486,7 +487,7 @@
           }
       }, 10); // Кожні 10 мілісекунд*/
       console.log('hiding loader')
-      // setTimeout(() => $('.screenmate-loader').fadeOut(), 1000)
+      setTimeout(() => $('.screenmate-loader').fadeOut(), 1000)
     }
 
     let video
