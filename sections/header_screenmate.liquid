@@ -447,7 +447,10 @@
 
     function animateLogo () {
       const logoPosition = $('.screenmate-logo').offset()
-      console.log(logoPosition)
+      $('.screenmate-loader-logo').animate({
+        top: logoPosition.top,
+        left: logoPosition.left
+      }, 1000)
     }
 
     let video
