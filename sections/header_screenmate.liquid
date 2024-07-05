@@ -24,11 +24,15 @@
     align-items: center;
     grid-row-gap: 78px;
   }*/
+  .screenmate-loader-logo {
+    position: absolute;
+    top: calc(50% - 39px);
+  }
   .screenmate-loader-spinner {
     width: 64px;
     padding: 8px;
-    /*position: absolute;
-    top: 512px;*/
+    position: absolute;
+    top: calc(50% + 39px);
     aspect-ratio: 1;
     border-radius: 50%;
     background: #fff;
@@ -475,7 +479,7 @@
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      animateLogo()
+      // animateLogo()
       video.play()
     })
 
@@ -485,7 +489,7 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        animateLogo()
+        // animateLogo()
         video.play()
       }
     }
