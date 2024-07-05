@@ -21,6 +21,9 @@
 		top: calc(413 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
+	.banner-buttons {
+		top: calc(505 * 100vw / 1920);
+	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.top .logo {	
