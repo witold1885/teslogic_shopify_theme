@@ -14,8 +14,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-row-gap: 78px;
+  }
+  .screenmate-loader-wrap {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 78px;
   }
   .screenmate-loader-spinner {
     width: 64px;
@@ -82,11 +88,13 @@
   }
 {%- endstyle -%}
 
-<div class="screenmate-loader">  
-  <div class="screenmate-loader-logo">
-    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+<div class="screenmate-loader">
+  <div class="screenmate-loader-wrap">
+    <div class="screenmate-loader-logo">
+      <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+    </div>
+    <div class="screenmate-loader-spinner"></div>
   </div>
-  <div class="screenmate-loader-spinner"></div>
 </div>
 
 <header id="header_main" class="header-screenmate">
