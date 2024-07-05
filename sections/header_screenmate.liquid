@@ -14,15 +14,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    grid-row-gap: 78px;
   }
-  .screenmate-loader-wrap {
+  /*.screenmate-loader-wrap {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     grid-row-gap: 78px;
-  }
+  }*/
   .screenmate-loader-spinner {
     width: 64px;
     padding: 8px;
@@ -89,12 +90,12 @@
 {%- endstyle -%}
 
 <div class="screenmate-loader">
-  <div class="screenmate-loader-wrap">
+  <!-- <div class="screenmate-loader-wrap"> -->
     <div class="screenmate-loader-logo">
       <img src="{{ 'screenmate-logo.svg' | asset_url }}">
     </div>
     <div class="screenmate-loader-spinner"></div>
-  </div>
+  <!-- </div> -->
 </div>
 
 <header id="header_main" class="header-screenmate">
@@ -455,6 +456,7 @@
       const logoPosition = $('.screenmate-logo').offset()
       $('.screenmate-loader-logo')
         .css('position', 'absolute')
+        .css('top', 'calc(50% + 78px)')
         .animate({
           top: logoPosition.top,
           left: logoPosition.left
@@ -473,7 +475,7 @@
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      // animateLogo()
+      animateLogo()
       video.play()
     })
 
@@ -483,7 +485,7 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        // animateLogo()
+        animateLogo()
         video.play()
       }
     }
