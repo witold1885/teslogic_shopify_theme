@@ -447,6 +447,8 @@
 
     function animateLogo () {
       const logoPosition = $('.screenmate-logo').offset()
+      console.log(logoPosition)
+      console.log('animating')
       $('.screenmate-loader-logo').animate({
         top: logoPosition.top,
         left: logoPosition.left
