@@ -445,6 +445,11 @@
       }
     }
 
+    function animateLogo () {
+      const logoPosition = $('.screenmate-logo').offset()
+      console.log(logoPosition)
+    }
+
     let video
 
     setVideo()
@@ -458,6 +463,7 @@
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
       $('.screenmate-loader').fadeOut()
+      animateLogo()
       video.play()
     })
 
@@ -468,6 +474,7 @@
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
         $('.screenmate-loader').fadeOut()
+        animateLogo()
         video.play()
       }
     }
