@@ -457,7 +457,7 @@
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      $('.screenmate-loader').hide()
+      $('.screenmate-loader').fadeOut()
       video.play()
     })
 
@@ -467,7 +467,7 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        $('.screenmate-loader').hide()
+        $('.screenmate-loader').fadeOut()
         video.play()
       }
     }
