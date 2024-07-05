@@ -480,7 +480,7 @@
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      // animateLogo()
+      animateLogo()
       video.play()
     })
 
@@ -490,7 +490,7 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        // animateLogo()
+        animateLogo()
         video.play()
       }
     }
