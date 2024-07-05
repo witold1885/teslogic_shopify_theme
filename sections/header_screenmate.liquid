@@ -446,14 +446,44 @@
     }
 
     function animateLogo () {
-      const logoPosition = $('.screenmate-logo').offset()
-      console.log(logoPosition)
-      console.log('animating')
-      console.log($('.screenmate-loader-logo'))
-      $('.screenmate-loader-logo').animate({
+      // const logoPosition = $('.screenmate-logo').offset()
+      // console.log(logoPosition)
+      // console.log('animating')
+      // console.log($('.screenmate-loader-logo'))
+      /*$('.screenmate-loader-logo').animate({
         top: logoPosition.top,
         left: logoPosition.left
-      }, 1000)
+      }, 1000)*/
+      var $source = $('.screenmate-loader-logo');
+      var $target = $('.screenmate-logo');
+      var targetOffset = $target.offset();
+
+      // Встановлюємо початкові координати
+      var startTop = parseInt($source.css('top'), 10);
+      var startLeft = parseInt($source.css('left'), 10);
+
+      // Цільові координати
+      var targetTop = targetOffset.top;
+      var targetLeft = targetOffset.left;
+
+      // Кількість кроків анімації
+      var steps = 100;
+      var currentStep = 0;
+
+      // Інтервал анімації
+      var interval = setInterval(function() {
+          if (currentStep >= steps) {
+              clearInterval(interval);
+          } else {
+              currentStep++;
+              var newTop = startTop + (targetTop - startTop) * (currentStep / steps);
+              var newLeft = startLeft + (targetLeft - startLeft) * (currentStep / steps);
+              $source.css({
+                  top: newTop + 'px',
+                  left: newLeft + 'px'
+              });
+          }
+      }, 10); // Кожні 10 мілісекунд
       console.log('hiding loader')
       // setTimeout(() => $('.screenmate-loader').fadeOut(), 1000)
     }
