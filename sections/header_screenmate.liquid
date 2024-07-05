@@ -453,6 +453,7 @@
         top: logoPosition.top,
         left: logoPosition.left
       }, 1000)
+      setTimeout(() => $('.screenmate-loader').fadeOut(), 1000)
     }
 
     let video
@@ -467,7 +468,6 @@
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
       animateLogo()
-      $('.screenmate-loader').fadeOut()
       video.play()
     })
 
@@ -478,7 +478,6 @@
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
         animateLogo()
-        $('.screenmate-loader').fadeOut()
         video.play()
       }
     }
