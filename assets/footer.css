@@ -97,10 +97,18 @@ footer {
 }
 .footer-links {
 	display: flex;
-	grid-column-gap: 24px;
+	grid-column-gap: 12px;
 }
 .footer-links-mobile {
 	display: none;
+}
+.footer-links__item {
+	 width: 269;
+	 height: 42px;
+}
+.footer-links__item img {
+	width: 100%;
+	height: 100%;
 }
 .footer-divider {
 	display: block!important;
