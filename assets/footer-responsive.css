@@ -16,6 +16,12 @@
 		grid-column-gap: calc(24 * 100vw / 1440);
 		grid-row-gap: calc(52 * 100vw / 1440);
 	}
+	.footer-menu__list {
+		width: calc(196 * 100vw / 1440);
+	}
+	.footer-menu__list-big {
+		width: calc(306 * 100vw / 1440);
+	}
 	.footer-menu__list-title {
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
