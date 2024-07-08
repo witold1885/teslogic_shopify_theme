@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "where_to_install": {
+      "type": "where_to_install",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "where_to_install"
+  ]
+}
