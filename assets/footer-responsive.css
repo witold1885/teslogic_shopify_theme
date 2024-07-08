@@ -38,7 +38,7 @@
 		grid-column-gap: calc(12 * 100vw / 1440);
 	}
 	.footer-links__item {
-		 width: calc(269 * 100vw / 1440);
+		 width: calc(125 * 100vw / 1440);
 		 height: calc(42 * 100vw / 1440);
 	}
 	.footer-divider {
