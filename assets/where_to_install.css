@@ -2,10 +2,10 @@
 	width: 1296px;
 	margin: 0 auto;
 	padding-top: 32px;
-	padding-bottom: 144px;
+	padding-bottom: 180px;
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 48px;
+	grid-row-gap: 36px;
 }
 .where__title {
 	color: #000;
