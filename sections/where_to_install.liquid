@@ -8,8 +8,7 @@
 	<div class="where__title">Where to install</div>
 	<div class="where__body">
 	    {% for article in articles %}
-	    	{% assign blog_content = "<p>phone: +1 123 456 78 90</p><p>site: example.com</p><p>address: some address</p>" %}
-
+	    	{% assign blog_content = article.content | append: "<p></p>" %}
 			{% assign blog_lines = article.content | split:"</p>" %}
 			<ul>
 			  {% for line in blog_lines %}
