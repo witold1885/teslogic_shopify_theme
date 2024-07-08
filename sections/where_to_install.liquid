@@ -8,6 +8,7 @@
 	    {% for article in articles %}
 	    	{% assign blog_content = article.content | append: "<p></p>" %}
 			{% assign blog_lines = article.content | split: "</p>" %}
+			{% assign latlng = '' %}
 			<div class="where__item">
 				<div class="where__item-left">
 					<div class="where__item-title">{{ article.title }}</div>
@@ -19,8 +20,12 @@
 					      <div class="where__item-data-item">
 					      	{% assign key = parts[0] | remove: "<p>" | strip %}
 					      	{% assign value = parts[1] | remove: "<p>" | strip %}
-					      	<div class="where__item-data-item-key">{{ key }}:</div>
-					      	<div class="where__item-data-item-value">{{ value }}</div>
+					      	{% if key == 'latlng' %}
+					      		{% assign latlng = value %}
+					      	{% else %}
+						      	<div class="where__item-data-item-key">{{ key }}:</div>
+						      	<div class="where__item-data-item-value">{{ value }}</div>
+					    	{% endif %}
 					      </div>
 					    {% endif %}
 					  {% endfor %}
@@ -31,6 +36,7 @@
 					<div class="where__item-image">
 						<img draggable="false" src="{{ article.image | img_url: '392x392' }}">
 					</div>
+
 					<div class="where__item-map">
 						<iframe
 						  width="392"
@@ -38,7 +44,7 @@
 						  style="border:0"
 						  loading="lazy"
 						  allowfullscreen
-						  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&center=50.4501,30.5234">
+						  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&center={{ latlng }}">
 						</iframe>
 					</div>
 				</div>				
