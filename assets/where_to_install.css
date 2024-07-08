@@ -75,23 +75,13 @@
 	justify-content: flex-end;
 	grid-column-gap: 24px;
 }
-.where__item-image {
+.where__item-image, .where__item-map {
 	width: 392px;
 	height: 288px;
 	border-radius: 24px;
 	overflow: hidden;
 }
-.where__item-image img {
-	width: 100%;
-	height: 100%;
-}
-.where__item-map {
-	width: 392px;
-	height: 288px;
-	border-radius: 24px;
-	overflow: hidden;
-}
-.where__item-map iframe {
+.where__item-image img, .where__item-map iframe {
 	width: 100%;
 	height: 100%;
 }
