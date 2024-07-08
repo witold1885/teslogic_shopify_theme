@@ -13,8 +13,8 @@
 		height: calc(40 * 100vw / 1440);
 	}
 	.footer-menu {
-		grid-column-gap: calc(71 * 100vw / 1440);
-		grid-row-gap: calc(36 * 100vw / 1440);
+		grid-column-gap: calc(24 * 100vw / 1440);
+		grid-row-gap: calc(52 * 100vw / 1440);
 	}
 	.footer-menu__list-title {
 		font-size: calc(24 * 100vw / 1440);
