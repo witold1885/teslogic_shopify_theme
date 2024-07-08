@@ -29,6 +29,7 @@ footer {
 }
 .footer-menu {
 	display: flex;
+	justify-content: flex-end;
 	flex-wrap: wrap;
 	grid-column-gap: 24px;
 	grid-row-gap: 52px;
