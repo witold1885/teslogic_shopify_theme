@@ -89,7 +89,6 @@
 	}
 	.footer-menu__list-items {
 		grid-row-gap: calc(16 * 100vw / 375);
-		line-height: calc(20 * 100vw / 375);
 	}
 	.footer-links {
 		display: none;
