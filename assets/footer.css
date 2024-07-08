@@ -32,6 +32,12 @@ footer {
 	grid-column-gap: 24px;
 	grid-row-gap: 52px;
 }
+.footer-menu__list {
+	width: 196px;
+}
+.footer-menu__list-big {
+	width: 306px;
+}
 .footer-menu__list-title {
 	color: #FFF;
 	font-family: Manrope;
