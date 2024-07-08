@@ -23,6 +23,15 @@
       </div>
       <div class="footer-menu">
         {% for link in linklists.main-menu.links %}
+          {% if link.title == 'Screenmate' %}
+            <div class="footer-menu__list">
+              <div class="footer-menu__list-title">
+                {{ link.title }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% for link in linklists.main-menu.links %}
           {% if link.title == 'Teslogic v2' %}
             <div class="footer-menu__list footer-menu__list-dashboard-kit">
               <div class="footer-menu__list-title">
