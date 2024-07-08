@@ -40,6 +40,8 @@
   }
 {%- endstyle -%}
 
+{% assign hidden_items = "Screenmate, Where to Install" | split: ", " %}
+
 <header id="header_main">
   <div class="top-wrap">
     <div class="top">
@@ -48,6 +50,7 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
+        {% unless hidden_items contains link.title %}
         {% if link.title == 'Teslogic Pro' %}
           <div class="menu__item menu__item-pro">
               <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
@@ -83,6 +86,7 @@
             {% endif %}
           </div>
         {% endif %}
+        {% endunless %}
         {% endfor %}
         <div 
           class="menu__item menu__item-cart"
