@@ -7,5 +7,19 @@
 <div class="where">
 	<div class="where__title">Where to install</div>
 	<div class="where__body">
+	    {% for article in articles %}
+	    	{% assign blog_content = "<p>phone: +1 123 456 78 90</p><p>site: example.com</p><p>address: some address</p>" %}
+
+			{% assign blog_lines = article.content | split:"</p>" %}
+			<ul>
+			  {% for line in blog_lines %}
+			    {% assign line = line | remove:"<p>" | strip %}
+			    {% if line != "" %}
+			      {% assign parts = line | split:":" %}
+			      <li><strong>{{ parts[0] | strip }}:</strong> {{ parts[1] | strip }}</li>
+			    {% endif %}
+			  {% endfor %}
+			</ul>
+	  	{% endfor %}
 	</div>
 </div>
