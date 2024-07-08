@@ -97,6 +97,7 @@ footer {
 }
 .footer-links {
 	display: flex;
+	justify-content: flex-start;
 	grid-column-gap: 12px;
 }
 .footer-links-mobile {
