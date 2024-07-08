@@ -29,11 +29,8 @@ footer {
 .footer-menu {
 	display: flex;
 	flex-wrap: wrap;
-	grid-column-gap: 71px;
-	grid-row-gap: 36px;
-}
-.footer-menu__list-resources {
-	display: none;
+	grid-column-gap: 24px;
+	grid-row-gap: 52px;
 }
 .footer-menu__list-title {
 	color: #FFF;
