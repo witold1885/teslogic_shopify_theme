@@ -70,4 +70,23 @@
 		border-radius: calc(28 * 100vw / 375);
 		flex-direction: column;
 	}
+	.where__item-left {
+		width: calc(295 * 100vw / 375);
+		grid-row-gap: calc(16 * 100vw / 375);
+	}
+	.where__item-title {
+		font-size: calc(24 * 100vw / 375);
+		line-height: calc(32 * 100vw / 375);
+	}
+	.where__item-data {
+		grid-column-gap: calc(20 * 100vw / 375);
+		grid-row-gap: calc(20 * 100vw / 375);
+	}
+	.where__item-data-item {
+		grid-row-gap: calc(4 * 100vw / 375);
+	}
+	.where__item-data-item-key, .where__item-data-item-value {
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
 }
