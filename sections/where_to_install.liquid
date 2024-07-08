@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="{{ 'where_to_install.css' | asset_url }}" media="print" onload="this.media='all'">
 
+{% assign articles = blogs['where-to-install'].articles | sort: "id" %}
+
+{{ articles | json }}
+
 <div class="where">
 	<div class="where__title">Where to install</div>
 	<div class="where__body">
