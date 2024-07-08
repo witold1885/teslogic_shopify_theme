@@ -1,0 +1,22 @@
+.where {
+	width: 1296px;
+	margin: 0 auto;
+	padding-top: 32px;
+	padding-bottom: 144px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 48px;
+}
+.where__title {
+	color: #000;
+	font-family: Manrope;
+	font-size: 52px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 64px;
+}
+.where__body {
+	display: flex;
+	align-items: flex-start;
+	grid-column-gap: 48px;
+}
