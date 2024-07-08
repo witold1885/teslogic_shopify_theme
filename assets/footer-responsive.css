@@ -77,11 +77,11 @@
 		height: calc(28 * 100vw / 375);
 	}
 	.footer-menu {
-		grid-column-gap: calc(9 * 100vw / 375);
-		grid-row-gap: calc(48 * 100vw / 375);
+		grid-column-gap: calc(7 * 100vw / 375);
+		grid-row-gap: calc(40 * 100vw / 375);
 	}
 	.footer-menu__list {
-		width: calc(163 * 100vw / 375);
+		width: calc(164 * 100vw / 375);
 	}
 	.footer-menu__list-title {
 		font-size: calc(18 * 100vw / 375);
@@ -89,6 +89,7 @@
 	}
 	.footer-menu__list-items {
 		grid-row-gap: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
 	}
 	.footer-links {
 		display: none;
