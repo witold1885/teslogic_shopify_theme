@@ -11,7 +11,8 @@ footer {
 }
 .footer-top {
 	display: flex;
-	grid-column-gap: 171px;
+/*	grid-column-gap: 171px;*/
+	justify-content: space-between;
 	margin-bottom: 67.5px;
 }
 .footer-top-left {
