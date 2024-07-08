@@ -17,6 +17,12 @@
 }
 .where__body {
 	display: flex;
-	align-items: flex-start;
-	grid-column-gap: 48px;
+	flex-direction: column;
+	grid-row-gap: 24px;
+}
+.where__item {
+	width: 100%;
+	height: 336px;
+	border-radius: 28px;
+	background: #F6F6F6;
 }
