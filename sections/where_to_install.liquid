@@ -19,6 +19,7 @@
 			</ul>
 			<div class="where__item">
 				<div class="where__item-left">
+					<div class="where__item-title">{{ article.title }}</div>
 					<div class="where__item-data">
 					  {% for line in blog_lines %}
 					    {% assign line = line | remove:"<p>" | strip %}
