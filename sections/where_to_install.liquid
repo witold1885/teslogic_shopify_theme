@@ -17,8 +17,10 @@
 					    {% if line != "" %}
 					      {% assign parts = line | split:":" %}
 					      <div class="where__item-data-item">
-					      	<div class="where__item-data-item-key">{{ parts[0] | remove: "<p>" | strip }}:</div>
-					      	<div class="where__item-data-item-value">{{ parts[1] | remove: "<p>" | strip }}</div>
+					      	{% assign key = parts[0] | remove: "<p>" | strip %}
+					      	{% assign value = parts[1] | remove: "<p>" | strip %}
+					      	<div class="where__item-data-item-key">{{ key }}:</div>
+					      	<div class="where__item-data-item-value">{{ value }}</div>
 					      </div>
 					    {% endif %}
 					  {% endfor %}
