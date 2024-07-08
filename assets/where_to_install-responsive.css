@@ -1,0 +1,52 @@
+@media screen and (min-width: 576px) and (max-width: 1440px) {
+	.where {
+		width: calc(1296 * 100vw / 1440);
+		padding-top: calc(32 * 100vw / 1440);
+		padding-bottom: calc(180 * 100vw / 1440);
+		grid-row-gap: calc(36 * 100vw / 1440);
+	}
+	.where__title {
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.where__body {
+		grid-row-gap: calc(24 * 100vw / 1440);
+	}
+	.where__item {
+		height: calc(336 * 100vw / 1440);
+		padding: calc(24 * 100vw / 1440);
+		border-radius: calc(28 * 100vw / 1440);
+	}
+	.where__item-left {
+		width: calc(392 * 100vw / 1440);
+		grid-row-gap: calc(24 * 100vw / 1440);
+	}
+	.where__item-title {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.where__item-data {
+		grid-column-gap: calc(40 * 100vw / 1440);
+		grid-row-gap: calc(24 * 100vw / 1440);
+	}
+	.where__item-data-item {
+		grid-row-gap: calc(4 * 100vw / 1440);
+	}
+	.where__item-data-item-key, .where__item-data-item-value {
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+	}
+	.where__item-right {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
+	.where__item-image {
+		width: calc(392 * 100vw / 1440);
+		height: calc(288 * 100vw / 1440);
+		border-radius: calc(24 * 100vw / 1440);
+	}
+	.where__item-map {
+		width: calc(392 * 100vw / 1440);
+		height: calc(288 * 100vw / 1440);
+		border-radius: calc(24 * 100vw / 1440);
+	}
+}
