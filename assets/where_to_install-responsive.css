@@ -39,12 +39,7 @@
 	.where__item-right {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
-	.where__item-image {
-		width: calc(392 * 100vw / 1440);
-		height: calc(288 * 100vw / 1440);
-		border-radius: calc(24 * 100vw / 1440);
-	}
-	.where__item-map {
+	.where__item-image, .where__item-map {
 		width: calc(392 * 100vw / 1440);
 		height: calc(288 * 100vw / 1440);
 		border-radius: calc(24 * 100vw / 1440);
@@ -88,5 +83,14 @@
 	.where__item-data-item-key, .where__item-data-item-value {
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
+	}
+	.where__item-right {
+		flex-direction: column;
+		grid-row-gap: calc(16 * 100vw / 375);
+	}
+	.where__item-image, .where__item-map {
+		width: calc(295 * 100vw / 375);
+		height: calc(217 * 100vw / 375);
+		border-radius: calc(24 * 100vw / 375);
 	}
 }
