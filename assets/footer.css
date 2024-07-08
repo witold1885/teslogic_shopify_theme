@@ -97,14 +97,13 @@ footer {
 }
 .footer-links {
 	display: flex;
-	justify-content: flex-start;
 	grid-column-gap: 12px;
 }
 .footer-links-mobile {
 	display: none;
 }
 .footer-links__item {
-	 width: 269;
+	 width: 125px;
 	 height: 42px;
 }
 .footer-links__item img {
