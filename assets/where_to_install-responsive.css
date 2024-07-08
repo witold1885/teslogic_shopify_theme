@@ -50,3 +50,24 @@
 		border-radius: calc(24 * 100vw / 1440);
 	}
 }
+@media screen and (max-width: 575px) {
+	.where {
+		width: calc(335 * 100vw / 375);
+		padding-top: calc(32 * 100vw / 375);
+		padding-bottom: calc(90 * 100vw / 375);
+		grid-row-gap: calc(24 * 100vw / 375);
+	}
+	.where__title {
+		font-size: calc(40 * 100vw / 375);
+		line-height: calc(48 * 100vw / 375);
+	}
+	.where__body {
+		grid-row-gap: calc(24 * 100vw / 375);
+	}
+	.where__item {
+		height: calc(821 * 100vw / 375);
+		padding: calc(20 * 100vw / 375);
+		border-radius: calc(28 * 100vw / 375);
+		flex-direction: column;
+	}
+}
