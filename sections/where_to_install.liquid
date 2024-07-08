@@ -24,7 +24,13 @@
 					      		{% assign latlng = value %}
 					      	{% else %}
 						      	<div class="where__item-data-item-key">{{ key }}:</div>
-						      	<div class="where__item-data-item-value">{{ value }}</div>
+						      	<div class="where__item-data-item-value">
+					      			{% if key == 'site' %}
+						      			<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
+							      	{% else %}
+								      	{{ value }}
+							    	{% endif %}
+						      	</div>
 					    	{% endif %}
 					      </div>
 					    {% endif %}
