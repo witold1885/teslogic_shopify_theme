@@ -84,11 +84,22 @@
             </div>
           {% endif %}
         {% endfor %}
-        <!-- {% for link in linklists.main-menu.links %}
-          {% if link.title == 'Community' %}
-            <div class="footer-menu__list footer-menu__list-community">
+        <div class="footer-menu__list footer-menu__list-contacts">
+          <div class="footer-menu__list-title">
+            Contacts
+          </div>
+          <ul class="footer-menu__list-items">
+            <li><a href="mailto:info@teslogic.co">info@teslogic.co</a></li>
+            <li>2093 Philadelphia<br>
+              Pike #3248<br>
+              Claymont, DE 19703</li>
+          </ul>
+        </div>
+        {% for link in linklists.main-menu.links %}
+          {% if link.title == 'Contacts' or link.title == 'For customer' %}
+            <div class="footer-menu__list">
               <div class="footer-menu__list-title">
-                {{ link.title }}
+                For customer
               </div>
               {% if link.links.size > 0 %}
                 <ul class="footer-menu__list-items">
@@ -99,7 +110,7 @@
               {% endif %}
             </div>
           {% endif %}
-        {% endfor %} -->
+        {% endfor %}
         <div class="footer-menu__list footer-menu__list-social">
           <div class="footer-menu__list-title">
             Social
@@ -125,17 +136,6 @@
             <!-- <li>Cookie Policy</li> -->
             <li><a href="/terms">Terms of Service</a></li>
             <!-- <li>Return Policy</li> -->
-          </ul>
-        </div>
-        <div class="footer-menu__list footer-menu__list-contacts">
-          <div class="footer-menu__list-title">
-            Contacts
-          </div>
-          <ul class="footer-menu__list-items">
-            <li><a href="mailto:info@teslogic.co">info@teslogic.co</a></li>
-            <li>2093 Philadelphia<br>
-              Pike #3248<br>
-              Claymont, DE 19703</li>
           </ul>
         </div>
       </div>
