@@ -77,9 +77,11 @@
               {% else %}
                 <ul class="menu__item-dropdown">
                   {% for child_link in link.links %}
+                  {% unless hidden_items contains child_link.title %}
                     <li class="menu__item-dropdown-link">
                       <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                     </li>
+                  {% endunless %}
                   {% endfor %}
                 </ul>
               {% endif %}
