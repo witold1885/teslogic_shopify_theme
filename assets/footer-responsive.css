@@ -35,7 +35,11 @@
 		line-height: calc(20 * 100vw / 1440);
 	}
 	.footer-links {
-		grid-column-gap: calc(24 * 100vw / 1440);
+		grid-column-gap: calc(12 * 100vw / 1440);
+	}
+	.footer-links__item {
+		 width: calc(269 * 100vw / 1440);
+		 height: calc(42 * 100vw / 1440);
 	}
 	.footer-divider {
 		margin: calc(32 * 100vw / 1440) 0;
@@ -100,10 +104,6 @@
 	.footer-links__item {
 		width: calc(164 * 100vw / 375);
 		height: calc(52 * 100vw / 375);
-	}
-	.footer-links__item img {
-		width: 100%;
-		height: 100%;
 	}
 	.footer-divider {
 		margin: calc(24 * 100vw / 375) 0 calc(20 * 100vw / 375);
