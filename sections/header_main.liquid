@@ -129,6 +129,7 @@ with access to advanced Tesla features</div>
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
+        {% unless hidden_items contains link.title %}
         {% if link.title == 'Teslogic Pro' %}
           <div class="menu__item menu__item-pro">
               <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
@@ -155,15 +156,18 @@ with access to advanced Tesla features</div>
               {% else %}
                 <ul class="menu__item-dropdown">
                   {% for child_link in link.links %}
+                  {% unless hidden_items contains child_link.title %}
                     <li class="menu__item-dropdown-link">
                       <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                     </li>
+                  {% endunless %}
                   {% endfor %}
                 </ul>
               {% endif %}
             {% endif %}
           </div>
         {% endif %}
+        {% endunless %}
         {% endfor %}
         <div 
           id="cart-animate"
