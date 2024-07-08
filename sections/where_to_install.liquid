@@ -2,8 +2,6 @@
 
 {% assign articles = blogs['where-to-install'].articles | sort: "id" %}
 
-{{ articles | json }}
-
 <div class="where">
 	<div class="where__title">Where to install</div>
 	<div class="where__body">
@@ -19,6 +17,9 @@
 			    {% endif %}
 			  {% endfor %}
 			</ul>
+			<div class="where__item">
+				
+			</div>
 	  	{% endfor %}
 	</div>
 </div>
