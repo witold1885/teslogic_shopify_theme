@@ -5,7 +5,7 @@
 		padding-bottom: calc(100 * 100vw / 1440);
 	}
 	.footer-top {
-		grid-column-gap: calc(171 * 100vw / 1440);
+/*		grid-column-gap: calc(171 * 100vw / 1440);*/
 		margin-bottom: calc(67.5 * 100vw / 1440);
 	}
 	.footer-top .logo {	
