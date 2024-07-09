@@ -35,6 +35,9 @@
 	background: #F6F6F6;
 	padding: 36px 40px 48px;
 }
+.manuals__pro .manuals__menu {
+	background: #171717;
+}
 .manuals__menu-title {
 	color: #000;
 	font-family: Manrope;
@@ -42,6 +45,9 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 40px;
+}
+.manuals__pro .manuals__menu-title {
+	color: #FFF;
 }
 .manuals__menu-list {
 	display: flex;
