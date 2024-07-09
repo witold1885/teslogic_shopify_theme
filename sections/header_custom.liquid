@@ -30,7 +30,11 @@
           >
             <a href="{{ link.url }}">{{ link.title }}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
-              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              {% if page.handle == 'pro-manuals' %}
+                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              {% else %}
+                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              {% endif %}
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
               {% if link.title == 'Accessories' %}
                 <ul class="menu__item-dropdown">
@@ -117,7 +121,11 @@
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
               <a href="{{ link.url }}">{{ link.title }}</a>
-              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              {% if page.handle == 'pro-manuals' %}
+                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              {% else %}
+                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              {% endif %}
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
             </div>
             {% if link.title == 'Accessories' %}
