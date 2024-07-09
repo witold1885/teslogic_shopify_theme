@@ -6,7 +6,7 @@
 	z-index: 10;
 }
 .header_custom-pro {
-	background: #101010;
+	background: #101010!important;
 }
 #header_custom.sticky {
 	background: rgba(0, 0, 0, 0.32);
@@ -64,6 +64,9 @@
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 4px;
+}
+.header_custom-pro .menu__item {
+	color: #FFF;
 }
 #header_custom.sticky .menu__item {
 	color: #FFFFFF;
