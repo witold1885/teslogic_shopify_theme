@@ -171,7 +171,6 @@
 
 		selectModel(manualTitle)
 
-		// var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
 			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
 			if ($(dropdown).is(':visible')) {
@@ -180,7 +179,6 @@
 			else {
 				$(dropdown).css('display', 'flex')
 			}
-			// $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
 			selectModel($(this).data('url'))
@@ -196,46 +194,8 @@
 		})
 		function selectModel(title) {
 			let model = $(`.manuals__download-select-dropdown-item[data-title="${title}"]`).first()
-			// downloadUrl = model.data('title')
 			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
-		/*$('.manuals__download-button').on('click', function() {
-			if (downloadUrl) {
-				// window.open(downloadUrl, '_blank').focus()
-				window.location.href = downloadUrl
-			}
-		})*/
 	})
 </script>
-
-{% schema %}
-{
-	"name": "Manuals",
-	"class": "index-section index-section-featured-sider",
-	"settings": [
-	],
-	"blocks": [
-		{
-			"type": "manual",
-			"name": "Manual",
-			"settings": [
-				{
-					"type": "header",
-					"content": "Edit Manual"
-				},
-				{
-					"type": "text",
-					"id": "manual",
-					"label": "Manual Name"
-				},
-				{
-					"type": "textarea",
-					"id": "code",
-					"label": "Video Code"
-				}
-			]
-		}
-	]
-}
-{% endschema %}
