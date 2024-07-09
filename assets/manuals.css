@@ -18,6 +18,9 @@
 	font-weight: 500;
 	line-height: 64px;
 }
+.manuals__pro .manuals__title {
+	color: #FFF;
+}
 .manuals__body {
 	display: flex;
 	align-items: flex-start;
