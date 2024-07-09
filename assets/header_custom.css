@@ -5,6 +5,9 @@
 	background: #FEFEFE;
 	z-index: 10;
 }
+.header_custom-pro {
+	background: #101010;
+}
 #header_custom.sticky {
 	background: rgba(0, 0, 0, 0.32);
 	backdrop-filter: blur(32px); 
