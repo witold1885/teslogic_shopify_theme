@@ -1,1 +1,380 @@
-<div></div>
+<link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- style -%}
+  .static-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .static-content h1, .static-content h2, .static-content h3, .static-content h4, .static-content h5, .static-content h6, .static-content p, .static-content span, .static-content li {
+    font-family: 'Gotham'!important;
+    font-style: normal;
+  }
+  .static-content p, .static-content span, .static-content li {    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .static-content li::marker {
+    font-weight: bold;
+  }
+  .static-content ul, .static-content ol {
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 1456px) {
+    .static-content {
+      margin-left: 128px;
+      margin-right: 128px;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    .static-content {
+      margin-left: calc(24 * 100vw / 390);
+      margin-right: calc(24 * 100vw / 390);
+    }
+	  .static-content h2, .static-content h3 {
+		font-weight: 400 !important;
+    	font-family: 'Gotham-Medium' !important;
+	  }
+  }
+{%- endstyle -%}
+
+{% assign product = all_products['teslogic-transmitter-kit-v2'] %}
+
+<div class="manuals" id="manuals">
+	<div class="manuals__title">Teslogic Pro Manuals</div>
+	<div class="manuals__body">
+		<div class="manuals__menu">
+			<div class="manuals__menu-title">Select Manuals</div>
+			<div class="manuals__menu-list">
+	      {% for link in linklists.manuals-pro-menu.links %}
+					<div 
+						class="manuals__menu-item"
+					>
+						{{ link.title }}
+					</div>
+				{%- endfor -%}
+			</div>		
+		</div>
+		<div class="manuals__download">
+			<div class="manuals__download-title">Select Manuals</div>
+			<div class="manuals__download-select">
+				<div class="manuals__download-select-dropdown-select manuals__download-selected">
+					<span class="manuals__download-select-value">Select model</span>
+					<div class="manuals__download-select-arrow">
+						<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
+					</div>
+				</div>
+				<div class="manuals__download-select-dropdown">
+					<div class="manuals__download-select-dropdown-select">
+						<span class="manuals__download-select-value">Select model</span>
+						<div class="manuals__download-select-arrow">
+							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
+						</div>
+					</div>
+	        {% for link in linklists.manuals-menu.links %}
+						<div 
+							class="manuals__download-select-dropdown-item"
+							data-url="{{ link.url }}"
+						>
+							{{ link.title }}
+						</div>
+					{%- endfor -%}
+				</div>
+			</div>
+		</div>
+		<div class="manuals__content">
+			<div class="manuals__content-title"></div>
+			<div class="manuals__content-links">
+				<div class="manuals__content-links-title">PDF Manuals:</div>
+				<div class="manuals__content-links-items"></div>
+			</div>
+			<div class="manuals__content-videos">
+				<div class="manuals__content-videos-title">Video Installation Guides:</div>
+				<div class="manuals__content-videos-items"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="rte static-content manuals__text">{{ page.content }}</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*const result = []
+		$('.manuals__menu-item').each(function(index) {
+			result[index] = {
+				url: $(this).data('url'),
+				title: $(this).text().trim(),
+				links: [],
+				videos: []
+			}
+			$.get($(this).data('url')).then((response) => {
+				// console.log(response)
+				const html = $($.parseHTML(response))
+				const content = html.find('div.page-width')
+				const links = $(content).find('a')
+				for (const link of links) {
+					result[index].links.push({ text: $(link).text(), href: $(link).attr('href') })
+				}
+				const videos = $(content).find('.manuals__video iframe')
+				for (const video of videos) {
+					result[index].videos.push({ title: $(video).attr('title'), src: $(video).attr('src') })
+				}
+				console.log(result)
+			})
+		})*/
+
+		const contents = [
+		  {
+		    "url": "/pages/manual-tesla-model-3-17-18",
+		    "title": "Tesla Model 3 ('17-18)",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>('17-18)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
+		    ],
+		    "videos": [
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
+		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
+		    ]
+		  },
+		  {
+		    "url": "/pages/manual-tesla-model-3-19-20-us-spec",
+		    "title": "Tesla Model 3 ('19-20 US Spec)",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>('19-20 US Spec)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
+		    ],
+		    "videos": [
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
+		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
+		    ]
+		  },
+		  {
+		    "url": "/pages/manual-tesla-model-3-19-20-non-us-spec",
+		    "title": "Tesla Model 3 ('19-20 non-US Spec)",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>('19-20 non-US Spec)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_Model_3_2019-2020_non-US_Spec.pdf?v=1696588525"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
+		    ],
+		    "videos": [
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
+		    ]
+		  },
+		  {
+		    "url": "/pages/manual-tesla-model-3-21",
+		    "title": "Tesla Model 3 ('21+)",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>('21+)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
+		    ],
+		    "videos": [
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model 3 (2021+)",
+		        "src": "https://www.youtube.com/embed/iCKNAsNVlRk"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
+		    ]
+		  },
+		  {
+		    "url": "/pages/manual-tesla-model-y-all",
+		    "title": "Tesla Model Y (All)",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model Y<br>(All)",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
+		      },
+		      {
+		        "text": "User's Manual for Teslogic<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
+		      }
+		    ],
+		    "videos": [
+		      {
+		        "title": "Teslogic Installation Guide | Tesla Model Y",
+		        "src": "https://www.youtube.com/embed/C5dARhY-NnM"
+		      },
+		      {
+		        "title": "Teslogic Installation Guide | Wireless Charger",
+		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
+		      }
+		    ]
+		  },
+		  {
+		    "url": "/pages/manual-tesla-model-3-highland",
+		    "title": "Tesla Model 3 Highland",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>Highland",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_MANUAL_FOR_TESLA_MODEL_3_HIGHLAND.pdf?v=1714734580"
+		      }
+		    ],
+		    "videos": []
+		  }
+		]
+
+		var manualUrl = '/pages/manual-tesla-model-3-17-18'
+
+		setContent(manualUrl)
+
+		function setContent(url) {
+			const content = searchContent(url)
+
+			$('.manuals__content-title').text(content.title)
+
+			let linksHTML = ''
+			for (const link of content.links) {
+				linksHTML += `
+					<a href="${link.href}" class="manuals__content-link-item">
+						<div class="manuals__content-link-item-icon">
+							<img src="{{ 'pdf-icon.svg' | asset_url }}">
+						</div>
+						<div class="manuals__content-link-item-text">${link.text}</div>			
+					</a>
+				`
+			}
+			$('.manuals__content-links-items').html(linksHTML)
+
+			if (content.videos.length == 0) {
+				$('.manuals__content-videos').hide()
+			}
+			else {
+				$('.manuals__content-videos').show()
+				let videosHTML = ''
+				for (const video of content.videos) {
+					videosHTML += `
+						<div class="manuals__content-video-item">
+							<iframe width="1280" height="720" src="${video.src}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+							</iframe>
+						</div>
+					`
+				}
+				$('.manuals__content-videos-items').html(videosHTML)
+			}
+
+			$('.manuals__menu-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(`.manuals__menu-item[data-url="${url}"]`).addClass('active')
+		}
+
+		function searchContent(url) {
+			return contents.find(content => content.url == url)
+		}
+
+		$('.manuals__menu-item').on('click', function() {
+			selectModel($(this).data('url'))
+			setContent($(this).data('url'))
+		})
+
+		selectModel(manualUrl)
+
+		// var downloadUrl = null
+		$('.manuals__download-select-dropdown-select').on('click', function() {
+			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+			// $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown').toggle()
+		})
+		$('.manuals__download-select-dropdown-item').on('click', function() {
+			selectModel($(this).data('url'))
+			setContent($(this).data('url'))
+		})
+		$(document).click(function(event) { 
+			var $target = $(event.target)
+			if (!$target.closest('.manuals__download-select').length && 
+				!$target.closest('.manuals__download-select-dropdown').length && 
+				$('.manuals__download-select-dropdown').is(":visible")) {
+				$('.manuals__download-select-dropdown').hide()
+			}        
+		})
+		function selectModel(url) {
+			let model = $(`.manuals__download-select-dropdown-item[data-url="${url}"]`).first()
+			// downloadUrl = model.data('url')
+			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
+			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
+		}
+		/*$('.manuals__download-button').on('click', function() {
+			if (downloadUrl) {
+				// window.open(downloadUrl, '_blank').focus()
+				window.location.href = downloadUrl
+			}
+		})*/
+	})
+</script>
+
+{% schema %}
+{
+	"name": "Manuals",
+	"class": "index-section index-section-featured-sider",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "manual",
+			"name": "Manual",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Edit Manual"
+				},
+				{
+					"type": "text",
+					"id": "manual",
+					"label": "Manual Name"
+				},
+				{
+					"type": "textarea",
+					"id": "code",
+					"label": "Video Code"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
