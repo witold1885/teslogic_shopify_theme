@@ -50,6 +50,7 @@
 	      {% for link in linklists.manuals-pro-menu.links %}
 					<div 
 						class="manuals__menu-item"
+						data-title="{{ link.title }}"
 					>
 						{{ link.title }}
 					</div>
@@ -72,10 +73,10 @@
 							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
 						</div>
 					</div>
-	        {% for link in linklists.manuals-menu.links %}
+	        {% for link in linklists.manuals-pro-menu.links %}
 						<div 
 							class="manuals__download-select-dropdown-item"
-							data-url="{{ link.url }}"
+							data-title="{{ link.title }}"
 						>
 							{{ link.title }}
 						</div>
@@ -89,10 +90,10 @@
 				<div class="manuals__content-links-title">PDF Manuals:</div>
 				<div class="manuals__content-links-items"></div>
 			</div>
-			<div class="manuals__content-videos">
+			<!-- <div class="manuals__content-videos">
 				<div class="manuals__content-videos-title">Video Installation Guides:</div>
 				<div class="manuals__content-videos-items"></div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
@@ -100,166 +101,26 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*const result = []
-		$('.manuals__menu-item').each(function(index) {
-			result[index] = {
-				url: $(this).data('url'),
-				title: $(this).text().trim(),
-				links: [],
-				videos: []
-			}
-			$.get($(this).data('url')).then((response) => {
-				// console.log(response)
-				const html = $($.parseHTML(response))
-				const content = html.find('div.page-width')
-				const links = $(content).find('a')
-				for (const link of links) {
-					result[index].links.push({ text: $(link).text(), href: $(link).attr('href') })
-				}
-				const videos = $(content).find('.manuals__video iframe')
-				for (const video of videos) {
-					result[index].videos.push({ title: $(video).attr('title'), src: $(video).attr('src') })
-				}
-				console.log(result)
-			})
-		})*/
 
 		const contents = [
 		  {
-		    "url": "/pages/manual-tesla-model-3-17-18",
-		    "title": "Tesla Model 3 ('17-18)",
+		    "title": "Model 3/Y with Intel MCU",
 		    "links": [
 		      {
-		        "text": "User's Manual for Tesla Model 3<br>('17-18)",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
-		      },
-		      {
-		        "text": "User's Manual for Teslogic<br>Wireless Charger",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
-		      }
-		    ],
-		    "videos": [
-		      {
-		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
-		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
-		      },
-		      {
-		        "title": "Teslogic Installation Guide | Wireless Charger",
-		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
-		      }
-		    ]
-		  },
-		  {
-		    "url": "/pages/manual-tesla-model-3-19-20-us-spec",
-		    "title": "Tesla Model 3 ('19-20 US Spec)",
-		    "links": [
-		      {
-		        "text": "User's Manual for Tesla Model 3<br>('19-20 US Spec)",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_17-20.pdf?v=1698389305"
-		      },
-		      {
-		        "text": "User's Manual for Teslogic<br>Wireless Charger",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
-		      }
-		    ],
-		    "videos": [
-		      {
-		        "title": "Teslogic Installation Guide | Tesla Model 3 (2018–20)",
-		        "src": "https://www.youtube.com/embed/iH_di0LfXzw"
-		      },
-		      {
-		        "title": "Teslogic Installation Guide | Wireless Charger",
-		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
-		      }
-		    ]
-		  },
-		  {
-		    "url": "/pages/manual-tesla-model-3-19-20-non-us-spec",
-		    "title": "Tesla Model 3 ('19-20 non-US Spec)",
-		    "links": [
-		      {
-		        "text": "User's Manual for Tesla Model 3<br>('19-20 non-US Spec)",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_Model_3_2019-2020_non-US_Spec.pdf?v=1696588525"
-		      },
-		      {
-		        "text": "User's Manual for Teslogic<br>Wireless Charger",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
-		      }
-		    ],
-		    "videos": [
-		      {
-		        "title": "Teslogic Installation Guide | Wireless Charger",
-		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
-		      }
-		    ]
-		  },
-		  {
-		    "url": "/pages/manual-tesla-model-3-21",
-		    "title": "Tesla Model 3 ('21+)",
-		    "links": [
-		      {
-		        "text": "User's Manual for Tesla Model 3<br>('21+)",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
-		      },
-		      {
-		        "text": "User's Manual for Teslogic<br>Wireless Charger",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
-		      }
-		    ],
-		    "videos": [
-		      {
-		        "title": "Teslogic Installation Guide | Tesla Model 3 (2021+)",
-		        "src": "https://www.youtube.com/embed/iCKNAsNVlRk"
-		      },
-		      {
-		        "title": "Teslogic Installation Guide | Wireless Charger",
-		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
-		      }
-		    ]
-		  },
-		  {
-		    "url": "/pages/manual-tesla-model-y-all",
-		    "title": "Tesla Model Y (All)",
-		    "links": [
-		      {
-		        "text": "User's Manual for Tesla Model Y<br>(All)",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Manual_For_Tesla_Model_3_21_Y_All.pdf?v=1697005786"
-		      },
-		      {
-		        "text": "User's Manual for Teslogic<br>Wireless Charger",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_WIRELESS_CHARGER_MANUAL.pdf?v=1701510005"
-		      }
-		    ],
-		    "videos": [
-		      {
-		        "title": "Teslogic Installation Guide | Tesla Model Y",
-		        "src": "https://www.youtube.com/embed/C5dARhY-NnM"
-		      },
-		      {
-		        "title": "Teslogic Installation Guide | Wireless Charger",
-		        "src": "https://www.youtube.com/embed/I3RlExqAi5w"
-		      }
-		    ]
-		  },
-		  {
-		    "url": "/pages/manual-tesla-model-3-highland",
-		    "title": "Tesla Model 3 Highland",
-		    "links": [
-		      {
-		        "text": "User's Manual for Tesla Model 3<br>Highland",
-		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/TESLOGIC_MANUAL_FOR_TESLA_MODEL_3_HIGHLAND.pdf?v=1714734580"
+		        "text": "User's Manual for Tesla Model Model 3/Y with Intel MCU",
+		        "href": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Teslogic_Pro_Installation_Manual.pdf?v=1715963798"
 		      }
 		    ],
 		    "videos": []
 		  }
 		]
 
-		var manualUrl = '/pages/manual-tesla-model-3-17-18'
+		var manualTitle = 'Model 3/Y with Intel MCU'
 
-		setContent(manualUrl)
+		setContent(manualTitle)
 
-		function setContent(url) {
-			const content = searchContent(url)
+		function setContent(title) {
+			const content = searchContent(title)
 
 			$('.manuals__content-title').text(content.title)
 
@@ -299,8 +160,8 @@
 			$(`.manuals__menu-item[data-url="${url}"]`).addClass('active')
 		}
 
-		function searchContent(url) {
-			return contents.find(content => content.url == url)
+		function searchContent(title) {
+			return contents.find(content => content.title == title)
 		}
 
 		$('.manuals__menu-item').on('click', function() {
@@ -308,7 +169,7 @@
 			setContent($(this).data('url'))
 		})
 
-		selectModel(manualUrl)
+		selectModel(manualTitle)
 
 		// var downloadUrl = null
 		$('.manuals__download-select-dropdown-select').on('click', function() {
@@ -333,9 +194,9 @@
 				$('.manuals__download-select-dropdown').hide()
 			}        
 		})
-		function selectModel(url) {
-			let model = $(`.manuals__download-select-dropdown-item[data-url="${url}"]`).first()
-			// downloadUrl = model.data('url')
+		function selectModel(title) {
+			let model = $(`.manuals__download-select-dropdown-item[data-title="${title}"]`).first()
+			// downloadUrl = model.data('title')
 			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
 			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
 		}
