@@ -186,6 +186,11 @@
 <script type="text/javascript">
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
+  {% if page.handle == 'pro-manuals' %}
+   var chevron_back = chevron_white
+  {% else %}
+   var chevron_back = chevron_black
+  {% endif %}
   $(document).ready(function() {
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
@@ -200,7 +205,7 @@
         }
         else {
           $('#header_custom').removeClass('sticky')
-          $('.menu__item-chevron-down').attr('src', chevron_black)
+          $('.menu__item-chevron-down').attr('src', chevron_back)
         }
       }
       else {
