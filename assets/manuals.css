@@ -7,7 +7,7 @@
 	flex-direction: column;
 	grid-row-gap: 48px;
 }
-.manuals__pro {
+.manuals__pro-wrap {
 	background: #101010;
 }
 .manuals__title {
