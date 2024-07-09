@@ -81,6 +81,9 @@
 	font-weight: 500;
 	line-height: 40px;
 }
+.manuals__pro .manuals__content-title {
+	color: #FFF;
+}
 .manuals__content-links {
 	display: flex;
 	flex-direction: column;
@@ -94,6 +97,10 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 32px;
+}
+.manuals__pro .manuals__content-links-title, 
+.manuals__pro .manuals__content-videos-title {
+	color: #FFF;
 }
 .manuals__content-links-items {
 	display: flex;
@@ -156,6 +163,9 @@
 	margin-left: 80px;
 	margin-bottom: 40px;
 	text-align: left;
+}
+.manuals__pro .manuals__list-title {
+	color: #FFF;
 }
 .manuals__list {
 	display: flex;
