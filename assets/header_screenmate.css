@@ -300,7 +300,7 @@
 	height: 367px;
 	position: absolute;
 	top: 236px;
-	z-index: 2;
+/*	z-index: 2;*/
 	border-radius: 6px;
 	overflow: hidden;
 }
