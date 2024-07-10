@@ -431,8 +431,10 @@
 
     $(video).on('loadedmetadata canplay canplaythrough loadeddata', function() {
       clearInterval(checkInterval)
-      animateLogo()
-      video.play()
+      setTimeout(() => {
+        animateLogo()
+        video.play()
+      }, 1000)
     })
 
     checkInterval = setInterval(checkVideoReady, 100)
@@ -441,8 +443,10 @@
       if (video.readyState >= 3) {
         clearInterval(checkInterval)
         console.log('Video loaded and ready to play')
-        animateLogo()
-        video.play()
+        setTimeout(() => {
+          animateLogo()
+          video.play()
+        }, 1000)
       }
     }
 
