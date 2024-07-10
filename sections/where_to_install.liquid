@@ -4,7 +4,10 @@
 {% assign articles = blogs['where-to-install'].articles | sort: "id" %}
 
 <div class="where">
-	<div class="where__title">Where to install</div>
+	<div class="where__top">
+		<div class="where__title">Where to install</div>
+		<div class="where__subtitle">While Teslogic devices are easy to install, you can always contact our partners who can handle the installation for you.</div>
+	</div>
 	<div class="where__body">
 	    {% for article in articles %}
 	    	{% assign blog_content = article.content | append: "<p></p>" %}

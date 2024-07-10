@@ -3,11 +3,18 @@
 		width: calc(1296 * 100vw / 1440);
 		padding-top: calc(32 * 100vw / 1440);
 		padding-bottom: calc(180 * 100vw / 1440);
-		grid-row-gap: calc(36 * 100vw / 1440);
+		grid-row-gap: calc(32 * 100vw / 1440);
+	}
+	.where__top {
+		grid-row-gap: calc(8 * 100vw / 1440);
 	}
 	.where__title {
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
+	}
+	.where__subtitle {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
 	}
 	.where__body {
 		grid-row-gap: calc(24 * 100vw / 1440);
