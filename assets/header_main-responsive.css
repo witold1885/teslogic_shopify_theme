@@ -163,7 +163,7 @@
 		border-radius: calc(54 * 100vw / 1440);
 	}
 	.banner-button-buy:hover {
-		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
+/*		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);*/
 	}
 	.expand {
 		margin-bottom: calc(9 * 100vw / 1440);
