@@ -76,10 +76,10 @@
           </div>
         {% elsif link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
           >
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -166,10 +166,10 @@
           </div>
         {% elsif link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
           >
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
