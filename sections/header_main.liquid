@@ -216,7 +216,7 @@ with access to advanced Tesla features</div>
         </div>
       {% elsif link.title != 'Community' %}
         <div
-          class="menu__item {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
           {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Accessories' %}
@@ -246,7 +246,7 @@ with access to advanced Tesla features</div>
             {% endif %}
           {% else %}
             <div class="menu__item-title">
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
             </div>
           {% endif %}
         </div>
