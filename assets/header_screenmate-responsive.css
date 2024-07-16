@@ -94,6 +94,7 @@
 	}
 	.screenmate-info-link {
 		grid-column-gap: calc(8 * 100vh / 1080);
+		padding: calc(20 * 100vh / 1080) calc(24 * 100vh / 1080);
 	}
 	.screenmate-info-link span {
 		font-size: calc(24 * 100vh / 1080);
