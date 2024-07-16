@@ -363,6 +363,18 @@
 	width: 24px;
 	height: 24px;
 }
+.screenmate-info-link .screenmate-info-link-chevron-normal {
+	display: block;
+}
+.screenmate-info-link .screenmate-info-link-chevron-hovered {
+	display: none;
+}
+.screenmate-info-link:hover .screenmate-info-link-chevron-normal {
+	display: none;
+}
+.screenmate-info-link:hover .screenmate-info-link-chevron-hovered {
+	display: block;
+}
 .screenmate-steamdeck {
 	display: none;
 /*	width: 822px;*/
