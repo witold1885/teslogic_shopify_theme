@@ -594,7 +594,7 @@
 	}
 	.screenmate-info {
 		bottom: 44px;
-		grid-row-gap: 36px;
+		grid-row-gap: 18px;
 	}
 	.screenmate-info-text {
 		font-size: 20px;
