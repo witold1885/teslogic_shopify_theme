@@ -37,8 +37,8 @@
 		top: 372px;
 	}
 	.screenmate-info {
-/*		bottom: 177px;*/
-		top: 750px;
+		bottom: 41px;
+/*		top: 750px;*/
 	}
 	.screenmate-success {
 		top: 438px;
@@ -60,8 +60,8 @@
 		top: calc(372px - (1080px - 100vh) / 2);
 	}
 	.screenmate-info {
-/*		bottom: calc(177px - (1080px - 100vh) / 2);*/
-		top: calc(750px - (1080px - 100vh) / 2);
+		bottom: calc(41px - (1080px - 100vh) / 2);
+/*		top: calc(750px - (1080px - 100vh) / 2);*/
 	}
 	.screenmate-success {
 		top: calc(438px - (1080px - 100vh) / 2);
@@ -88,8 +88,8 @@
 		top: calc(372 * 100vh / 1080);
 	}
 	.screenmate-info {
-/*		bottom: calc(177 * 100vh / 1080);*/
-		bottom: calc(750 * 100vh / 1080);
+		bottom: calc(41 * 100vh / 1080);
+/*		bottom: calc(750 * 100vh / 1080);*/
 	}
 	.screenmate-info-text {
 		font-size: calc(24 * 100vh / 1080);
