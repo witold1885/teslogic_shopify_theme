@@ -316,7 +316,7 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: center;
-	grid-row-gap: 24px;
+	grid-row-gap: 16px;
 }
 .screenmate-info-text {
 	text-align: center;
