@@ -332,6 +332,14 @@
 	align-items: center;
 	grid-column-gap: 8px;
 	cursor: pointer;
+	padding: 20px 24px;
+	border-radius: 2000px;
+	border: 3px solid #2E69FD;
+	background: rgba(0, 0, 0, 0.10);
+	backdrop-filter: blur(10px);
+}
+.screenmate-info-link:hover {
+	background: #2E69FD; 
 }
 .screenmate-info-link span {
 	color: #2E69FD;
@@ -341,9 +349,12 @@
 	font-weight: 500;
 	line-height: 32px;
 }
-.screenmate-info-link span:hover {
-	color: #1658FD;
+.screenmate-info-link:hover span{
+	color: #FFF;
 }
+/*.screenmate-info-link span:hover {
+	color: #1658FD;
+}*/
 .screenmate-info-link .screenmate-info-link-kickstarter {
 	width: 170.909px;
 	height: 20px;
