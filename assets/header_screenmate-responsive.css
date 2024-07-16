@@ -603,6 +603,8 @@
 	.screenmate-info-link {
 		flex-direction: column;
 		grid-row-gap: 12px;
+		padding: 20px 0;
+		width: calc(335 * 100vw / 375);
 	}
 	.screenmate-info-link span {
 		font-size: 20px;
