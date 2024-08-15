@@ -523,8 +523,9 @@
       console.log(data)
       if (response.status == 200) {
         if (data.success) {
-          $('.screenmate-form').css('display', 'none')
-          $('.screenmate-success').css('display', 'flex')
+          // $('.screenmate-form').css('display', 'none')
+          // $('.screenmate-success').css('display', 'flex')
+          window.location.href = '/screenmate-done'
         }
       }
     })
