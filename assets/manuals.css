@@ -67,6 +67,10 @@
 	color: #000;
 	cursor: default;
 }
+.manuals__pro .manuals__menu-item.active {
+	color: #FFF;
+	cursor: default;
+}
 .manuals__content {
 	display: flex;
 	flex-direction: column;
