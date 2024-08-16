@@ -190,7 +190,7 @@
 			$('.manuals__menu-item').each(function() {
 				$(this).removeClass('active')
 			})
-			$(`.manuals__menu-item[data-url="${url}"]`).addClass('active')
+			$(`.manuals__menu-item[data-title="${title}"]`).addClass('active')
 		}
 
 		function searchContent(title) {
@@ -198,8 +198,8 @@
 		}
 
 		$('.manuals__menu-item').on('click', function() {
-			selectModel($(this).data('url'))
-			setContent($(this).data('url'))
+			selectModel($(this).data('title'))
+			setContent($(this).data('title'))
 		})
 
 		selectModel(manualTitle)
@@ -214,8 +214,8 @@
 			}
 		})
 		$('.manuals__download-select-dropdown-item').on('click', function() {
-			selectModel($(this).data('url'))
-			setContent($(this).data('url'))
+			selectModel($(this).data('title'))
+			setContent($(this).data('title'))
 		})
 		$(document).click(function(event) { 
 			var $target = $(event.target)
