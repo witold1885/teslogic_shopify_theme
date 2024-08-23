@@ -555,7 +555,7 @@
 .screenmate-form-button:hover {
 	background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
 }
-.screenmate-success {
+.screenmate-success, .screenmate-error {
 	width: 497px;
 	height: 232px;
 	padding: 40px;
@@ -572,12 +572,12 @@
 	backdrop-filter: blur(12px);
 	box-sizing: border-box;
 }
-.screenmate-success-top {
+.screenmate-success-top, .screenmate-error-top {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-.screenmate-success-title {
+.screenmate-success-title, .screenmate-error-title {
 	color: #FFF;
 	font-family: Manrope;
 	font-size: 32px;
@@ -585,17 +585,17 @@
 	font-weight: 500;
 	line-height: 40px;
 }
-.screenmate-success-close {
+.screenmate-success-close, .screenmate-error-close {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
 }
-.screenmate-success-body {
+.screenmate-success-body, .screenmate-error-body {
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 16px;
 }
-.screenmate-success-body span {
+.screenmate-success-body span, .screenmate-error-body span {
 	color: #FFF;
 	font-family: Manrope;
 	font-size: 24px;
@@ -603,7 +603,7 @@
 	font-weight: 400;
 	line-height: 32px;
 }
-.screenmate-success-body img {
+.screenmate-success-body img, .screenmate-error-body img {
 	width: 416px;
 	height: 48.596px;
 }
