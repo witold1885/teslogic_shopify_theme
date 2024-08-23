@@ -118,7 +118,7 @@
       $('.screenmate-shadow').css('display', 'flex')
     })
 
-    $('.screenmate-form-close, .screenmate-success-close').on('click', function () {
+    $('.screenmate-form-close, .screenmate-success-close, .screenmate-error-close').on('click', function () {
       $(this).parents('.screenmate-shadow').css('display', 'none')
     })
 
@@ -161,13 +161,18 @@
       const data = await response.json()
       
       console.log(data)
-      /*if (response.status == 200) {
+      if (response.status == 200) {
         if (data.success) {
           // $('.screenmate-form').css('display', 'none')
           // $('.screenmate-success').css('display', 'flex')
           window.location.href = '/screenmate-done'
+        } else {
+          if (data.message == 'email_exists') {
+            $('.screenmate-error-body').text('This email is already registered')
+            $('.screenmate-error').css('display', 'flex')
+          }
         }
-      }*/
+      }
     })
 
     $('.button-menu').on('click', function() {
