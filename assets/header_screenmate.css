@@ -459,6 +459,7 @@
 	flex-direction: column;
 	grid-row-gap: 8px;
 	width: 50%;
+	position: relative;
 }
 .screenmate-form-field-label {
 	color: #FFF;
