@@ -124,6 +124,7 @@
 
     $('.screenmate-form-field-input').on('keydown', function () {      
       $(this).css('border-color', '#D9D9D9')
+      $(this).parent('.screenmate-form-field').find('.screenmate-form-field-error').hide()
     })
 
     $('#check-agree').on('change', function () {
@@ -168,8 +169,11 @@
           window.location.href = '/screenmate-done'
         } else {
           if (data.message == 'email_exists') {
-            $('.screenmate-error-body').text('This email is already registered')
-            $('.screenmate-error').css('display', 'flex')
+            $('#screenmate-email').css('border-color', '#FC3E30')
+            $('#screenmate-email').parent('.screenmate-form-field')
+                                  .find('.screenmate-form-field-error')
+                                  .text('This email is already registered')
+                                  .show()
           }
         }
       }

@@ -503,6 +503,17 @@
 .screenmate-form-field-input:-ms-input-placeholder {
   	color: #D9D9D9;
 }
+.screenmate-form-field-error {
+	display: none;
+	position: absolute;
+	bottom: -20px;
+	color: #FC3E30;
+	font-family: Manrope;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
 .screenmate-form-agree {
 	display: flex;
 	align-items: center;

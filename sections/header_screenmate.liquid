@@ -335,7 +335,8 @@
       </div>
       <div class="screenmate-form-field">
         <label class="screenmate-form-field-label">E-mail:</label>
-        <input class="screenmate-form-field-input screenmate-form-email" type="email" placeholder="John.smith@example.com">
+        <input id="screenmate-email" class="screenmate-form-field-input screenmate-form-email" type="email" placeholder="John.smith@example.com">
+        <div class="screenmate-form-field-error"></div>
       </div>
     </div>
     <div class="screenmate-form-submit">
@@ -363,6 +364,8 @@
       <div class="screenmate-error-title">Error!</div>
       <img class="screenmate-error-close" src="{{ 'close-white.svg' | asset_url }}">
     </div>
-    <div class="screenmate-error-body"></div>
+    <div class="screenmate-error-body">
+      <span></span>
+    </div>
   </div>
 </div>
