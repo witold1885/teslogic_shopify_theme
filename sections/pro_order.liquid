@@ -706,12 +706,12 @@
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
 									<div class="order-product-data-info-price-main">$ {{ product1.price | divided_by: 100 }}</div>
-									<div class="order-product-data-info-price-old">$ {{ product1.compare_at_price | divided_by: 100 }}</div>
+									<!-- <div class="order-product-data-info-price-old">$ {{ product1.compare_at_price | divided_by: 100 }}</div> -->
 								</div>
 								<div class="order-product-data-info-title">{{ product1.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button preorder-boost" data-num="1">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button preorder-boost" data-num="1">Order Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -739,7 +739,7 @@
 							</div>
 							<div class="order-product-data-delivery">
 								<img class="order-product-data-delivery-icon" src="{{ 'pro_order_delivery.svg' | asset_url }}">
-								<div class="order-product-data-delivery-text">Estimated delivery: <span>Mid August 2024</span></div>
+								<!-- <div class="order-product-data-delivery-text">Estimated delivery: <span>Mid August 2024</span></div> -->
 							</div>
 						</div>
 						<input type="hidden" id="product-1-variant-id" value="{{ product1.variants[0].id }}">
@@ -752,12 +752,12 @@
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
 									<div class="order-product-data-info-price-main">$ {{ product2.price | divided_by: 100 }}</div>
-									<div class="order-product-data-info-price-old">$ {{ product2.compare_at_price | divided_by: 100 }}</div>
+									<!-- <div class="order-product-data-info-price-old">$ {{ product2.compare_at_price | divided_by: 100 }}</div> -->
 								</div>
 								<div class="order-product-data-info-title">{{ product2.title }}</div>								
 							</div>
 							<div class="order-product-data-preorder">
-								<button type="button" class="order-product-data-preorder-button preorder-performance" data-num="2">Preorder Now</button>
+								<button type="button" class="order-product-data-preorder-button preorder-performance" data-num="2">Order Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
@@ -785,7 +785,7 @@
 							</div>
 							<div class="order-product-data-delivery">
 								<img class="order-product-data-delivery-icon" src="{{ 'pro_order_delivery.svg' | asset_url }}">
-								<div class="order-product-data-delivery-text">Estimated delivery: <span>Mid August 2024</span></div>
+								<!-- <div class="order-product-data-delivery-text">Estimated delivery: <span>Mid August 2024</span></div> -->
 							</div>
 						</div>
 						<input type="hidden" id="product-2-variant-id" value="{{ product2.variants[0].id }}">
@@ -810,7 +810,7 @@
   	</div>
   	<div class="order-dialog-buttons">
   		<button type="button" class="order-dialog-button order-dialog-button-check">Check</button>
-  		<button type="button" class="order-dialog-button order-dialog-button-preorder">Preorder Now</button>
+  		<button type="button" class="order-dialog-button order-dialog-button-preorder">Order Now</button>
   	</div>
   </div>
 </div>
