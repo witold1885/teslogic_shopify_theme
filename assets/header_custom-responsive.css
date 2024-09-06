@@ -79,7 +79,7 @@
 		align-items: center;
 	}
 	.header-fix {
-		height: calc(64 * 100vw / 375);
+		height: calc(52 * 100vw / 375);
 	}
 	.top-wrap {
 		width: 100%;
