@@ -21,6 +21,9 @@
 .manuals__pro .manuals__title {
 	color: #FFF;
 }
+.manuals__pro .manuals__download-title {
+	color: #FFF;
+}
 .manuals__body {
 	display: flex;
 	align-items: flex-start;
