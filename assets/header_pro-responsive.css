@@ -286,7 +286,7 @@
 	.experience-block-options-add-features-item {
 		grid-column-gap: calc(8 * 100vw / 1440);
 	}
-	.experience-block-options-add-features-item:nth-child(2n + 1) {
+	.experience-block-options-add-features-item:nth-child(2n + 1):not(:last-child) {
 		width: calc(170 * 100vw / 1440);
 	}
 	.experience-block-options-add-features-item-icon {
@@ -703,7 +703,7 @@
 		grid-column-gap: calc(8 * 100vw / 375);
 		align-items: center;
 	}
-	.experience-block-options-add-features-item:nth-child(2n + 1) {
+	.experience-block-options-add-features-item:nth-child(2n + 1):not(:last-child) {
 		width: calc(140 * 100vw / 375);
 	}
 	.experience-block-options-add-features-item-icon {
