@@ -467,7 +467,7 @@
 	display: flex;
 	grid-column-gap: 8px;
 }
-.experience-block-options-add-features-item:nth-child(2n + 1) {
+.experience-block-options-add-features-item:nth-child(2n + 1):not(:last-child) {
 	width: 170px;
 }
 .experience-block-options-add-features-item-icon {
