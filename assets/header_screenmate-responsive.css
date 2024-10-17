@@ -611,13 +611,13 @@
 		border-radius: 124px; 
 	}
 	.screenmate-info-link span {
-		font-size: 20px;
-		line-height: 24px;
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
 		text-align: center;
 	}
 	.screenmate-info-link .screenmate-info-link-kickstarter {
-		width: 205.451px;
-		height: 24px;
+		width: calc(205.451 * 100vw / 375);
+		height: calc(24 * 100vw / 375);
 	}
 	.screenmate-info-link .screenmate-info-link-chevron {
 		display: none;
