@@ -9,6 +9,8 @@ $(document).ready(async function() {
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
 		const videoId = getVideoId(videoUrl)
+		console.log('videoUrl', videoUrl)
+		console.log('videoId', videoId)
 		if (videoId) {
 			let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
