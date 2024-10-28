@@ -35,6 +35,8 @@ $(document).ready(async function() {
 			const videoHtml = videoDataItem.html
 			let channelId = videoInfo.snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
+			console.log('channelId', channelId)
+			console.log('channelInfo', channelInfo)
 			let duration = videoInfo.contentDetails.duration
 									.replace('PT', '')
 									.replace('M', ':')
