@@ -35,13 +35,13 @@ $(document).ready(async function() {
 			const videoHtml = videoDataItem.html
 			let channelId = videoInfo.snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
-			console.log('channelId', channelId)
-			console.log('channelInfo', channelInfo)
+			// console.log('channelId', channelId)
+			// console.log('channelInfo', channelInfo)
 			let duration = videoInfo.contentDetails.duration
 									.replace('PT', '')
 									.replace('M', ':')
 									.replace('S', '')
-			addVideoItem(videoUrl, videoInfo.snippet, channelInfo.snippet, videoId, duration, videoHtml)			
+			addVideoItem(videoUrl, videoInfo.snippet, channelInfo.items[0].snippet, videoId, duration, videoHtml)			
 		}
 	}
 
