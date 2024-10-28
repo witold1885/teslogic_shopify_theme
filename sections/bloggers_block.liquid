@@ -4,7 +4,7 @@ $(document).ready(async function() {
 	const API_KEY = 'AIzaSyDvyYz-_TAzYhT24B-7NQRnlBBhtIepwqc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	let videos = {{ videos | json }}
-	const videoIds = []
+	const videoData = []
 
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
@@ -12,7 +12,7 @@ $(document).ready(async function() {
 		// console.log('videoUrl', videoUrl)
 		// console.log('videoId', videoId)
 		if (videoId) {
-			videoIds.push(videoId)
+			videoData.push({ id: videoId, url: videoUrl })
 			/*let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
@@ -24,11 +24,14 @@ $(document).ready(async function() {
 		}
 	}
 
-	const videoInfos = await getVideoInfos(videoIds)
+	const videoInfos = await getVideoInfos(videoData.map(item => item.id))
 	console.log(videoInfos)
 	if (videoInfos) {
 		console.log('parsing video info')
 		for (const videoInfo of videoInfos.items) {
+			const videoId = videoInfo.id
+			const videoDataItem = videoData.find(item => item.id == videoId)
+			const videoUrl = videoDataItem.url
 			let channelId = videoInfo.snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
 			let duration = videoInfo.contentDetails.duration
