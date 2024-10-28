@@ -12,7 +12,7 @@ $(document).ready(async function() {
 		// console.log('videoUrl', videoUrl)
 		// console.log('videoId', videoId)
 		if (videoId) {
-			videoData.push({ id: videoId, url: videoUrl })
+			videoData.push({ id: videoId, url: videoUrl, html: video.summary_html })
 			/*let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
@@ -32,13 +32,14 @@ $(document).ready(async function() {
 			const videoId = videoInfo.id
 			const videoDataItem = videoData.find(item => item.id == videoId)
 			const videoUrl = videoDataItem.url
+			const videoHtml = videoDataItem.html
 			let channelId = videoInfo.snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
 			let duration = videoInfo.contentDetails.duration
 									.replace('PT', '')
 									.replace('M', ':')
 									.replace('S', '')
-			addVideoItem(videoUrl, videoInfo.snippet, channelInfo.snippet, videoId, duration, video.summary_html)			
+			addVideoItem(videoUrl, videoInfo.snippet, channelInfo.snippet, videoId, duration, videoHtml)			
 		}
 	}
 
