@@ -1,7 +1,7 @@
 <script type="text/javascript">
 $(document).ready(async function() {
 	const API_ENDPOINT = 'https://www.googleapis.com/youtube/v3/'
-	const API_KEY = 'AIzaSyAEN7rezKCQWjP0nNQsJiWmVqedfPJtc3w'
+	const API_KEY = 'AIzaSyDvyYz-_TAzYhT24B-7NQRnlBBhtIepwqc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	let videos = {{ videos | json }}
 	console.log(videos)
