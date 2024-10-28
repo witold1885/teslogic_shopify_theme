@@ -28,7 +28,7 @@ $(document).ready(async function() {
 	// console.log(videoInfos)
 	if (videoInfos) {
 		console.log('parsing video info')
-		for (const videoInfo of videoInfos.items) {
+		for (const videoInfo of videoInfos) {
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
 			let duration = videoInfo.items[0].contentDetails.duration
