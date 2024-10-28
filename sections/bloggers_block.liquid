@@ -4,7 +4,7 @@ $(document).ready(async function() {
 	const API_KEY = 'AIzaSyDvyYz-_TAzYhT24B-7NQRnlBBhtIepwqc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	let videos = {{ videos | json }}
-	// console.log(videos)
+	const videoIds = []
 
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
@@ -12,6 +12,7 @@ $(document).ready(async function() {
 		// console.log('videoUrl', videoUrl)
 		// console.log('videoId', videoId)
 		if (videoId) {
+			videoIds.push(videoId)
 			let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
 			let channelInfo = await getChannelInfo(channelId)
@@ -23,6 +24,9 @@ $(document).ready(async function() {
 		}
 	}
 
+	const videoInfos = await getVideoInfos(videoIds)
+	console.log(videoInfos)
+
 	function getVideoId(videoUrl) {
 	    let match = videoUrl.match(/[?&]v=([a-zA-Z0-9_-]+)/)
 	    return match ? match[1] : null
@@ -30,6 +34,12 @@ $(document).ready(async function() {
 
 	async function getVideoInfo(videoId) {
 		let response = await fetch(`${API_ENDPOINT}videos?key=${API_KEY}&id=${videoId}&part=snippet,contentDetails`)
+		let data = await response.json()
+		return data
+	}
+
+	async function getVideoInfos(videoIds) {
+		let response = await fetch(`${API_ENDPOINT}videos?key=${API_KEY}&id=${videoIds.join(',')}&part=snippet,contentDetails`)
 		let data = await response.json()
 		return data
 	}
