@@ -4,13 +4,13 @@ $(document).ready(async function() {
 	const API_KEY = 'AIzaSyDvyYz-_TAzYhT24B-7NQRnlBBhtIepwqc'
 	{% assign videos = blogs['bloggers-about-teslogic'].articles | sort: "title" %}
 	let videos = {{ videos | json }}
-	console.log(videos)
+	// console.log(videos)
 
 	for (let video of videos) {
 		let videoUrl = video.body_html.trim()
 		const videoId = getVideoId(videoUrl)
-		console.log('videoUrl', videoUrl)
-		console.log('videoId', videoId)
+		// console.log('videoUrl', videoUrl)
+		// console.log('videoId', videoId)
 		if (videoId) {
 			let videoInfo = await getVideoInfo(videoId)
 			let channelId = videoInfo.items[0].snippet.channelId
