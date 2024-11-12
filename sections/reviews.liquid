@@ -119,7 +119,8 @@
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
-		console.log('reviews', reviews)
+		// console.log('reviews', reviews)
+		const filteredReviews = reviews.filter(item => item.product_external_id == Number(product_id))
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
@@ -128,7 +129,7 @@
 
 		let i = 1
 		let reviewsHtml = []
-		for (const review of reviews) {
+		for (const review of filteredReviews) {
 			if (!review.published) continue
 			if (diabledReviews.includes(review.id)) continue
 			const reviewDate = new Date(review.created_at)
