@@ -55,13 +55,6 @@
   }
 {%- endstyle -%}
 
-{% comment %} <div class="screenmate-loader">
-  <div class="screenmate-loader-logo">
-    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
-  </div>
-  <div class="screenmate-loader-spinner"></div>
-</div> {% endcomment %}
-
 <header id="header_main" class="header-screenmate">
   <div class="top-wrap">
     <div class="top">
@@ -123,9 +116,9 @@
     </div>
   </div>
   <div class="header_main-fix"></div>
-  {% comment %} <div class="banner-desktop-wrap">
+  <div class="banner-desktop-wrap">
     <div class="banner-desktop">
-      <div class="banner-desktop-image-wrap"></div>
+      {% comment %} <div class="banner-desktop-image-wrap"></div>
       <div class="screenmate-logo-shadow"></div>
       <div class="screenmate-logo">
         <img src="{{ 'screenmate-logo.svg' | asset_url }}">
@@ -149,9 +142,9 @@
       </div>
       <div class="screenmate-steamdeck">
         <img src="{{ 'steamdeck.png' | asset_url }}">
-      </div>
+      </div> {% endcomment %}
     </div>
-  </div> {% endcomment %}
+  </div>
 </header>
 <header id="header_sticky">
   <div class="top-wrap">
