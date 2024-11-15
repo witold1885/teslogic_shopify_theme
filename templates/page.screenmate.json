@@ -1,13 +1,13 @@
 {
     "sections": {
-      "screenmate": {
-        "type": "screenmate",
+      "screenmate_meet": {
+        "type": "screenmate_meet",
         "settings": {
         }
       }
     },
     "order": [
-      "screenmate"
+      "screenmate_meet"
     ]
   }
   
