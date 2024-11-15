@@ -2,21 +2,26 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
 
 {%- style -%}
+    .banner-desktop-wrap {
+        background: url({{ 'bg_screenmate.png' | asset_url }});
+    }
+
+
   .banner-desktop-image-wrap {
-    background: url({{ 'screenmate_bg.png' | asset_url}});
+    background: url({{ 'screenmate_bg.png' | asset_url }});
     background-size: cover;
     background-position: center;
   }
   /*@media screen and (max-height: 1080px) {
     .banner-desktop-image-wrap {
-      background: url({{ 'screenmate_bg_1.png' | asset_url}});
+      background: url({{ 'screenmate_bg_1.png' | asset_url }});
       background-size: cover;
       background-position: top center;
     }
   }
   @media screen and (max-width: 1440px) and (min-height: 810px) {
     .banner-desktop-image-wrap {
-      background: url({{ 'screenmate_bg.png' | asset_url}});
+      background: url({{ 'screenmate_bg.png' | asset_url }});
       background-size: cover;
       background-position: center;
     }
