@@ -80,9 +80,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.screenmate-meet-video-play').on('click', function() {
-            $('.screenmate-meet-video-data').show()
-        })
+        $('.screenmate-meet-video-play').on('click', function () {
+            const videoSrc = 'https://www.youtube.com/embed/_Xa4kt9xD3Y?autoplay=1'; // Додаємо ?autoplay=1
+            $('#youtube-video').attr('src', videoSrc); // Встановлюємо URL відео в iframe
+            $('.screenmate-meet-video-data').show(); // Показуємо блок з відео
+        });
     })
 </script>
 
@@ -100,7 +102,7 @@
                     <iframe
                         width="1076"
                         height="605"
-                        src="https://www.youtube.com/embed/_Xa4kt9xD3Y"
+                        src=""
                         title="Teslogic Screenmate: the Ultimate Extra Computer for your Tesla"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
