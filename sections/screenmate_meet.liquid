@@ -1,4 +1,4 @@
-<style>
+<style type="text/css">
     .screenmate-meet {
         background: #FBFBFB;
         margin: 0 auto;
@@ -14,7 +14,7 @@
         flex-direction: column;
         row-gap: 40px;
     }
-    .screenmate-meet-text {
+    .screenmate-meet-title {
         width: 980px;
         color: var(--Black, #0F0F0F);
         font-family: Manrope;
@@ -23,19 +23,49 @@
         font-weight: 500;
         line-height: 64px;
     }
-    .screenmate-meet-video-wrap {
+    .screenmate-meet-body {
         display: flex;
         flex-direction: column;
         row-gap: 48px;
+    }
+    .screenmate-meet-kickstarter {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+    }
+    .screenmate-meet-kickstarter-text {
+        color: #9A9A9A;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+    }
+    .screenmate-meet-kickstarter-logo {
+        width: 201px;
+        height: 24px;
+    }
+    .screenmate-meet-kickstarter-logo img {
+        width: 100%;
     }
 </style>
 
 <div class="screenmate-meet">
     <div class="screenmate-meet-wrap">
-        <div class="screenmate-meet-text">
+        <div class="screenmate-meet-title">
             Meet Teslogic Screenmate, a device that transforms your Tesla's screen
         </div>
-        <div class="screenmate-meet-video-wrap"></div>
-
+        <div class="screenmate-meet-body">
+            <div class="screenmate-meet-video-wrap">
+                <img src="{{ 'sreenmate_meet_video.png' | asset_url }}" >
+            </div>
+            <div class="screenmate-meet-kickstarter">
+                <div class="screenmate-meet-kickstarter-text">Trusted by over 1300 bakers on</div>
+                <div class="screenmate-meet-kickstarter-logo">
+                    <img src="{{ 'screenmate_meet_kickstarter_logo.png' | asset_url }}">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
