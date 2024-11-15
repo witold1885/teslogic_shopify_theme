@@ -210,9 +210,10 @@
 .banner-desktop-wrap {
 	position: absolute;
 	top: 0;
-	width: 100vw;
-	height: 100vh;
-  	min-height: 922px;
+	/* width: 100vw; */
+	/* height: 100vh; */
+  	/* min-height: 922px; */
+    height: 922px;
 }
 .banner-desktop {
 	width: 100%;
