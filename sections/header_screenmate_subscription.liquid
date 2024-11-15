@@ -1,0 +1,371 @@
+<link rel="stylesheet" type="text/css" href="{{ 'header_screenmate.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
+
+{%- style -%}
+  .banner-desktop-image-wrap {
+    background: url({{ 'screenmate_bg.png' | asset_url}});
+    background-size: cover;
+    background-position: center;
+  }
+  /*@media screen and (max-height: 1080px) {
+    .banner-desktop-image-wrap {
+      background: url({{ 'screenmate_bg_1.png' | asset_url}});
+      background-size: cover;
+      background-position: top center;
+    }
+  }
+  @media screen and (max-width: 1440px) and (min-height: 810px) {
+    .banner-desktop-image-wrap {
+      background: url({{ 'screenmate_bg.png' | asset_url}});
+      background-size: cover;
+      background-position: center;
+    }
+  }*/
+  .screenmate-form-agree-checkbox {
+    background: url({{ 'screenmate_checkbox_inactive.svg' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+  .screenmate-form-agree-checkbox:checked {
+    background: url({{ 'screenmate_checkbox_active.svg' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and (min-width: 1920px) {
+    .banner-desktop-image-wrap {
+      width: 3840px;
+      left: calc(-1 * (3840px - 100vw) / 2);
+      background: url({{ 'screenmate_bg_2.png' | asset_url}});
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  @media screen and (min-width: 3840px) {
+    .banner-desktop-image-wrap {
+      width: calc(3840 * 100vw / 3840);
+      left: 0;
+    }
+  }
+
+  .banner {
+    background: url({{ 'screenmate_bg_mobile.png' | asset_url}});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+{%- endstyle -%}
+
+<div class="screenmate-loader">
+  <div class="screenmate-loader-logo">
+    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+  </div>
+  <div class="screenmate-loader-spinner"></div>
+</div>
+
+<header id="header_main" class="header-screenmate">
+  <div class="top-wrap">
+    <div class="top">
+      <a href="/" class="logo">
+        <img src="{{ 'logo.svg' | asset_url }}">
+      </a>
+      <div class="menu">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title == 'Screenmate' %}
+          <div class="menu__item menu__item-pro">
+              <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
+          </div>
+        {% elsif link.title != 'Community' %}
+          <div
+            class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+          >
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
+            {% if link.links.size > 0 or link.title == 'Accessories' %}
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+              {% if link.title == 'Accessories' %}
+                <ul class="menu__item-dropdown">
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <ul class="menu__item-dropdown">
+                  {% for child_link in link.links %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+        {% endfor %}
+        <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div>
+        <!-- <div 
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+            <span>Cart</span>
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="header_main-fix"></div>
+  <div class="banner-desktop-wrap">
+    <div class="banner-desktop">
+      <div class="banner-desktop-image-wrap"></div>
+      <div class="screenmate-logo-shadow"></div>
+      <div class="screenmate-logo">
+        <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+      </div>
+      <div class="screenmate-video">
+        <video loop muted playsinline>
+         <source src="{{ 'screenmate.mp4' | asset_url }}">
+        </video>
+      </div>
+      <div class="screenmate-info">
+        <div class="screenmate-info-text">
+          Introducing our Tesla Extra Computer with smart dashboard,<br>
+          limitless apps, an HDMI interface and endless possibilities.
+        </div>
+        <button class="screenmate-info-link">
+          <span>Screenmate is live on</span>
+          <img class="screenmate-info-link-kickstarter" src="{{ 'kickstarter.svg' | asset_url }}">
+          <img class="screenmate-info-link-chevron screenmate-info-link-chevron-normal" src="{{ 'screenmate-chevron.svg' | asset_url }}">
+          <img class="screenmate-info-link-chevron screenmate-info-link-chevron-hovered" src="{{ 'screenmate-chevron-white.svg' | asset_url }}">
+        </button>
+      </div>
+      <div class="screenmate-steamdeck">
+        <img src="{{ 'steamdeck.png' | asset_url }}">
+      </div>
+    </div>
+  </div>
+</header>
+<header id="header_sticky">
+  <div class="top-wrap">
+    <div class="top">
+      <a href="/" class="logo">
+        <img src="{{ 'logo.svg' | asset_url }}">
+      </a>
+      <div class="menu">
+        {% for link in linklists.main-menu.links %}
+        {% if link.title == 'Screenmate' %}
+          <div class="menu__item menu__item-pro">
+              <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
+          </div>
+        {% elsif link.title != 'Community' %}
+          <div
+            class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+          >
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
+            {% if link.links.size > 0 or link.title == 'Accessories' %}
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+              {% if link.title == 'Accessories' %}
+                <ul class="menu__item-dropdown">
+                  {% for product in collections['all'].products %}
+                    {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
+                      <li class="menu__item-dropdown-link">
+                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <ul class="menu__item-dropdown">
+                  {% for child_link in link.links %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+        {% endfor %}
+        <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div>
+        <!-- <div 
+          id="cart-animate"
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+            <span>Cart</span>
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</header>
+
+<header id="header_mobile" class="header-screenmate">
+  <div class="top-wrap">
+    <div class="top top-menu-closed">
+      <a href="/" class="logo">
+        <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
+        <img class="logo-black" src="{{ 'logo_black.svg' | asset_url }}">
+      </a>
+      <div class="buttons">
+        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
+        <div 
+          class="menu__item menu__item-cart"
+          {% if cart.item_count == 0 %} style="display: none;" {% endif %}
+        >
+          <a href="/cart">
+            <div class="cart-icon-wrap">
+              <img src="{{ 'cart-white.svg' | asset_url }}">
+              <div class="cart-qty">{{ cart.item_count }}</div>
+            </div>
+          </a>
+        </div>      
+        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        <button type="button" class="mob-button button-menu">Menu</button>
+        <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="burger-menu-wrap">
+    <div class="burger-menu">
+      {% for link in linklists.main-menu.links %}
+      {% if link.title == 'Screenmate' %}
+        <div class="menu__item menu__item-pro">
+            <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
+        </div>
+      {% elsif link.title != 'Community' %}
+        <div
+          class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+        >
+          {% if link.links.size > 0 or link.title == 'Accessories' %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
+              <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
+            </div>
+            {% if link.title == 'Accessories' %}
+              <ul class="menu__item-dropdown">
+                {% for product in collections['all'].products %}
+                  {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'teslogic-transmitter-kit-v2' and product.handle != 'teslogic-pro-boost-transmitter-kit' and product.handle != 'teslogic-pro-performace-transmitter-kit' %}
+                    <li class="menu__item-dropdown-link">
+                      <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% else %}
+              <ul class="menu__item-dropdown">
+                {% for child_link in link.links %}
+                  <li class="menu__item-dropdown-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% else %}
+            <div class="menu__item-title">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% endfor %}   
+    </div>
+      <div class="banner-buttons">
+        <a class="banner-button-subscribe">Subscribe</a>
+      </div>
+  </div>
+  <!-- <div class="header_mobile-fix"></div> -->
+  <div class="banner banner-menu-closed">
+      <div class="screenmate-logo-shadow"></div>
+      <div class="screenmate-logo">
+        <img src="{{ 'screenmate-logo-mobile.svg' | asset_url }}">
+      </div>
+      <div class="screenmate-video">
+        <video loop muted playsinline>
+         <source src="{{ 'screenmate.mp4' | asset_url }}">
+        </video>
+      </div>
+      <div class="screenmate-info">
+        <div class="screenmate-info-text">
+          Introducing our Tesla Extra<br>
+          Computer with smart dashboard,<br>
+          limitless apps, an HDMI interface<br>
+          and endless possibilities.
+        </div>
+        <button class="screenmate-info-link">
+          <span>Screenmate is live on</span>
+          <img class="screenmate-info-link-kickstarter" src="{{ 'kickstarter.svg' | asset_url }}">
+          <img class="screenmate-info-link-chevron" src="{{ 'screenmate-chevron.svg' | asset_url }}">
+        </button>
+      </div>
+  </div>
+</header>
+
+<div class="screenmate-shadow">
+  <div class="screenmate-logo">
+    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
+  </div>
+  <div class="screenmate-form">
+    <div class="screenmate-form-top">
+      <div class="screenmate-form-title">Subscribe to Screenmate launch updates</div>
+      <img class="screenmate-form-close" src="{{ 'close-white.svg' | asset_url }}">
+    </div>
+    <div class="screenmate-form-fields">
+      <div class="screenmate-form-field">
+        <label class="screenmate-form-field-label">Name:</label>
+        <input class="screenmate-form-field-input screenmate-form-name" type="text" placeholder="Enter your name">
+      </div>
+      <div class="screenmate-form-field">
+        <label class="screenmate-form-field-label">E-mail:</label>
+        <input id="screenmate-email" class="screenmate-form-field-input screenmate-form-email" type="email" placeholder="John.smith@example.com">
+        <div class="screenmate-form-field-error"></div>
+      </div>
+    </div>
+    <div class="screenmate-form-submit">
+      <button class="screenmate-form-button">Subscribe</button>
+      <div class="screenmate-form-agree">
+        <div class="screenmate-form-agree-checkbox-wrap">
+          <input type="checkbox" id="check-agree" class="screenmate-form-agree-checkbox" checked>
+        </div>
+        <label for="check-agree" class="screenmate-form-agree-label">I agree to receive Information emails from Teslogic</label>
+      </div>
+    </div>
+  </div>
+  <div class="screenmate-success">
+    <div class="screenmate-success-top">
+      <div class="screenmate-success-title">Thank you!</div>
+      <img class="screenmate-success-close" src="{{ 'close-white.svg' | asset_url }}">
+    </div>
+    <div class="screenmate-success-body">
+      <span>We will inform you when <br>Screenmate сampaign goes live on Kickstarter.</span>
+      <!-- <img src="{{ 'kickstarter-green.svg' | asset_url }}"> -->
+    </div>
+  </div>
+  <div class="screenmate-error">
+    <div class="screenmate-error-top">
+      <div class="screenmate-error-title">Error!</div>
+      <img class="screenmate-error-close" src="{{ 'close-white.svg' | asset_url }}">
+    </div>
+    <div class="screenmate-error-body">
+      <span></span>
+    </div>
+  </div>
+</div>
