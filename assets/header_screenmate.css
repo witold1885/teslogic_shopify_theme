@@ -212,7 +212,7 @@
 	top: 0;
 	width: 100vw;
 	height: 100vh;
-  	min-height: 810px;
+  	min-height: 922px;
 }
 .banner-desktop {
 	width: 100%;
@@ -220,10 +220,20 @@
   	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: center;
+	align-items: center; */
+}
+.banner-desktop-ellipse {
+    position: absolute;
+    width: 1663.117px;
+    height: 1139.96px;
+    left: -562.62px;
+    bottom: -389.35px;
+    border-radius: 1663.117px;
+    background: radial-gradient(50% 50% at 50% 50%, #3D353A 0%, rgba(61, 53, 58, 0.00) 100%);
+    mix-blend-mode: difference;
 }
 .banner-desktop-image-wrap {
 	position: absolute;
