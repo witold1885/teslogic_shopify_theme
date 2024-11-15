@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "screenmate_subscription": {
+      "type": "screenmate_subscription",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "screenmate_subscription"
+  ]
+}

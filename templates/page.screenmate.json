@@ -1,12 +1,13 @@
 {
-  "sections": {
-    "screenmate": {
-      "type": "screenmate",
-      "settings": {
+    "sections": {
+      "screenmate": {
+        "type": "screenmate",
+        "settings": {
+        }
       }
-    }
-  },
-  "order": [
-    "screenmate"
-  ]
-}
+    },
+    "order": [
+      "screenmate"
+    ]
+  }
+  
