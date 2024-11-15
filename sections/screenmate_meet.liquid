@@ -52,6 +52,9 @@
         width: 100%;
         height: 100%;
     }
+    .screenmate-meet-video-data {
+        display: none;
+    }
     .screenmate-meet-kickstarter {
         display: flex;
         align-items: center;
@@ -75,6 +78,14 @@
     }
 </style>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.screenmate-meet-video-play').on('click', function() {
+            $('.screenmate-meet-video-data').show()
+        })
+    })
+</script>
+
 <div class="screenmate-meet">
     <div class="screenmate-meet-wrap">
         <div class="screenmate-meet-title">
@@ -85,7 +96,7 @@
                 <div class="screenmate-meet-video-play">
                     <img src="{{ 'screenmate_meet_yt_play.svg' | asset_url }}">
                 </div>
-                <div class="">
+                <div class="screenmate-meet-video-data">
                     <iframe
                         width="1076"
                         height="605"
