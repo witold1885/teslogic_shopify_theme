@@ -237,13 +237,17 @@
     bottom: 172px;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: flex-start;
-	align-items: center; */
+    row-gap: 26.12px;
+	justify-content: flex-end;
     margin-left: 72px;
-
 }
-.banner-desktop-body img {
+.banner-desktop-body-device {
+    width: 445px;
+    height: 329.715px;
     margin-left: -15px;
+}
+.banner-desktop-body-device {
+    width: 100%;
 }
 .banner-desktop-body-subtitle {
     color: #FFF;
