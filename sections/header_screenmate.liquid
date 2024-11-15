@@ -8,58 +8,12 @@
         background-position: center;
     }
 
-
-  .banner-desktop-image-wrap {
-    background: url({{ 'screenmate_bg.png' | asset_url }});
-    background-size: cover;
-    background-position: center;
-  }
-  /*@media screen and (max-height: 1080px) {
-    .banner-desktop-image-wrap {
-      background: url({{ 'screenmate_bg_1.png' | asset_url }});
-      background-size: cover;
-      background-position: top center;
-    }
-  }
-  @media screen and (max-width: 1440px) and (min-height: 810px) {
-    .banner-desktop-image-wrap {
-      background: url({{ 'screenmate_bg.png' | asset_url }});
-      background-size: cover;
-      background-position: center;
-    }
-  }*/
-  .screenmate-form-agree-checkbox {
-    background: url({{ 'screenmate_checkbox_inactive.svg' | asset_url }});
-    background-size: cover;
-    background-position: center;
-  }
-  .screenmate-form-agree-checkbox:checked {
-    background: url({{ 'screenmate_checkbox_active.svg' | asset_url }});
-    background-size: cover;
-    background-position: center;
-  }
-  @media screen and (min-width: 1920px) {
-    .banner-desktop-image-wrap {
-      width: 3840px;
-      left: calc(-1 * (3840px - 100vw) / 2);
-      background: url({{ 'screenmate_bg_2.png' | asset_url}});
-      background-size: cover;
-      background-position: center;
-    }
-  }
-  @media screen and (min-width: 3840px) {
-    .banner-desktop-image-wrap {
-      width: calc(3840 * 100vw / 3840);
-      left: 0;
-    }
-  }
-
-  .banner {
+    .banner {
     background: url({{ 'screenmate_bg_mobile.png' | asset_url}});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+    }
 {%- endstyle -%}
 
 <header id="header_main" class="header-screenmate">
@@ -338,54 +292,3 @@
       </div>
   </div>
 </header>
-
-<div class="screenmate-shadow">
-  <div class="screenmate-logo">
-    <img src="{{ 'screenmate-logo.svg' | asset_url }}">
-  </div>
-  <div class="screenmate-form">
-    <div class="screenmate-form-top">
-      <div class="screenmate-form-title">Subscribe to Screenmate launch updates</div>
-      <img class="screenmate-form-close" src="{{ 'close-white.svg' | asset_url }}">
-    </div>
-    <div class="screenmate-form-fields">
-      <div class="screenmate-form-field">
-        <label class="screenmate-form-field-label">Name:</label>
-        <input class="screenmate-form-field-input screenmate-form-name" type="text" placeholder="Enter your name">
-      </div>
-      <div class="screenmate-form-field">
-        <label class="screenmate-form-field-label">E-mail:</label>
-        <input id="screenmate-email" class="screenmate-form-field-input screenmate-form-email" type="email" placeholder="John.smith@example.com">
-        <div class="screenmate-form-field-error"></div>
-      </div>
-    </div>
-    <div class="screenmate-form-submit">
-      <button class="screenmate-form-button">Subscribe</button>
-      <div class="screenmate-form-agree">
-        <div class="screenmate-form-agree-checkbox-wrap">
-          <input type="checkbox" id="check-agree" class="screenmate-form-agree-checkbox" checked>
-        </div>
-        <label for="check-agree" class="screenmate-form-agree-label">I agree to receive Information emails from Teslogic</label>
-      </div>
-    </div>
-  </div>
-  <div class="screenmate-success">
-    <div class="screenmate-success-top">
-      <div class="screenmate-success-title">Thank you!</div>
-      <img class="screenmate-success-close" src="{{ 'close-white.svg' | asset_url }}">
-    </div>
-    <div class="screenmate-success-body">
-      <span>We will inform you when <br>Screenmate сampaign goes live on Kickstarter.</span>
-      <!-- <img src="{{ 'kickstarter-green.svg' | asset_url }}"> -->
-    </div>
-  </div>
-  <div class="screenmate-error">
-    <div class="screenmate-error-top">
-      <div class="screenmate-error-title">Error!</div>
-      <img class="screenmate-error-close" src="{{ 'close-white.svg' | asset_url }}">
-    </div>
-    <div class="screenmate-error-body">
-      <span></span>
-    </div>
-  </div>
-</div>
