@@ -239,7 +239,9 @@
 	flex-direction: column;
     row-gap: 32px;
 	justify-content: flex-end;
+	width: 100%;
     margin-left: 72px;
+    margin-right: 72px;
 }
 .banner-desktop-body-device {
     width: 445px;
@@ -285,6 +287,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 32px;
+    cursor: pointer;
 }
 .banner-desktop-body-caption-subtitle {
     color: #FFF;
