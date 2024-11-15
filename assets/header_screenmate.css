@@ -241,6 +241,17 @@
 	align-items: center; */
 
 }
+.banner-desktop-body img {
+    margin-left: -15px;
+}
+.banner-desktop-body-subtitle {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 64px;
+}
 .banner-desktop-image-wrap {
 	position: absolute;
 	width: 1920px;
