@@ -4,10 +4,16 @@
         "type": "screenmate_meet",
         "settings": {
         }
+      },
+      "screenmate_apps": {
+        "type": "screenmate_apps",
+        "settings": {
+        }
       }
     },
     "order": [
-      "screenmate_meet"
+      "screenmate_meet",
+      "screenmate_apps"
     ]
   }
   
