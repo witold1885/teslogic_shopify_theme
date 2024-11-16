@@ -120,6 +120,7 @@
 {% endcapture %}
 
 {% assign features = features_json | parse_json %}
+{{ features | json }}
 
 <div class="screenmate-apps">
     <div class="screenmate-apps-wrap">
