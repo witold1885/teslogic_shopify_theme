@@ -119,8 +119,7 @@
   ]
 {% endcapture %}
 
-{% comment %} {% assign features = features_json | parse_json %} {% endcomment %}
-{% component type: "json", source_type: "string", source: "{{features_json}}", collectionVariable: "features" %}
+{% assign features = features_json | parse_json %}
 {{ features | json }}
 
 <div class="screenmate-apps">
