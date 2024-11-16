@@ -138,10 +138,11 @@
             </div>
             <div class="screenmate-apps-features">
                 {% for feature in features %}
+                    {% assign parts = feature | split: "||" %}
                     <div class="screenmate-apps-feature">
-                    <img src="{{ feature.image | asset_url }}" alt="{{ feature.title }}">
-                    <h3>{{ feature.title }}</h3>
-                    <p>{{ feature.description }}</p>
+                        <h2>{{ parts[0] }}</h2>
+                        <p>{{ parts[1] }}</p>
+                        <img src="{{ parts[2] | asset_url }}" alt="{{ parts[0] }}">
                     </div>
                 {% endfor %}
             </div>
