@@ -130,24 +130,28 @@
                 <div class="screenmate-apps-collage-background"></div>
                 <div class="screenmate-apps-collage-image"></div>
             </div>
-            <div class="screenmate-apps-features">
-                {% for feature in features %}
-                    {% assign parts = feature | split: "||" %}
-                    <div class="screenmate-apps-feature">
-                        <h2>{{ parts[0] }}</h2>
-                        <p>{{ parts[1] }}</p>
-                        <img src="{{ parts[2] | asset_url }}" alt="{{ parts[0] }}">
-                    </div>
-                {% endfor %}
-            </div>
+            <div class="screenmate-apps-features"></div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    fetch('{{ "screenmate_apps_features.json" | asset_url }}')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
+    $(document).ready(function() {
+        let featuresHtml = ''
+        fetch('{{ "screenmate_apps_features.json" | asset_url }}')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    featuresHtml += `
+                        <div class="screenmate-apps-feature">
+                            <h2>${item.title}</h2>
+                            <p>${item.description}</p>
+                            <img src="{{ item.image | asset_url }}" alt="${item.title}">
+                        </div>
+                    `
+                })
+
+                $('.screenmate-apps-features').html(featuresHtml)
+            })
+    })
 </script>
