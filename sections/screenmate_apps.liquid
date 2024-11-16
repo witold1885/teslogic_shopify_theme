@@ -1,19 +1,42 @@
 <style type="text/css">
-    .screenmate-meet {
+    .screenmate-apps {
         background: #F6F6F6;
         margin: 0 auto;
         padding: 180px 0 212px;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .screenmate-apps-wrap {
+        width: 1076px;
+        display: flex;
+        flex-direction: column;
         row-gap: 40px;
+    }
+    .screenmate-apps-title {
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+    }
+    .screenmate-apps-title span {
+        color: var(--Black, #0F0F0F);
+        font-family: Manrope;
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 64px;
+    }
+    .screenmate-apps-title img {
+        width: 48px;
+        height: 52px;
     }
 </style>
 
 <div class="screenmate-apps">
     <div class="screenmate-meet-wrap">
         <div class="screenmate-meet-title">
-            Meet Teslogic Screenmate, a device that transforms your Tesla's screen
+            <span>Any App at Your Fingertips</span>
+            <img src="{{ 'playmarket.svg' | asset_url }}">
         </div>
         <div class="screenmate-meet-body">
         </div>
