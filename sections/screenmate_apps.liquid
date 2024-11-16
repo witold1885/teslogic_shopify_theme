@@ -55,7 +55,7 @@
         bottom: 0;
         z-index: 1;
         border-radius: 40px 40px 64px 64px;
-        background: lightgray -2406.935px -596.701px / 436.885% 354.49% no-repeat;
+        background: url({{ 'screenmate_apps_background.png' | asset_url }}) lightgray -2406.935px -596.701px / 436.885% 354.49% no-repeat;
     }
     .screenmate-meet-collage-image {
         width: 1028px;
@@ -63,6 +63,7 @@
         top: 0;
         z-index: 2;
         border-radius: 40px;
+        background: url({{ 'screenmate_apps_image.png' | asset_url }}) lightgray 50% / contain no-repeat;
     }
 </style>
 
@@ -76,7 +77,7 @@
             <div class="screenmate-meet-collage">
                 <div class="screenmate-meet-collage-background"></div>
                 <div class="screenmate-meet-collage-image">
-                    <img src="{{ 'screenmate_apps_image.png' | asset_url }}">
+                    {% comment %} <img src="{{ 'screenmate_apps_image.png' | asset_url }}"> {% endcomment %}
                 </div>
             </div>
         </div>
