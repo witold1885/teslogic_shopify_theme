@@ -119,7 +119,7 @@
   ]
 {% endcapture %}
 
-{% assign features = features_json | strip | parse_json %}
+{% assign features = features_json | strip %}
 {{ features | json }}
 
 <div class="screenmate-apps">
