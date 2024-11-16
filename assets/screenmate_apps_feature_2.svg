@@ -1,0 +1,25 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="59.397" y="101.823" width="36" height="36" rx="8" transform="rotate(45 59.397 101.823)" fill="#F5F5F5"/>
+<rect x="93.3381" y="67.8823" width="36" height="36" rx="8" transform="rotate(45 93.3381 67.8823)" fill="#F5F5F5"/>
+<rect x="127.279" y="101.823" width="36" height="36" rx="8" transform="rotate(45 127.279 101.823)" fill="#F5F5F5"/>
+<rect x="161.22" y="67.8823" width="36" height="36" rx="8" transform="rotate(45 161.22 67.8823)" fill="#F5F5F5"/>
+<rect x="93.3381" y="135.764" width="36" height="36" rx="8" transform="rotate(45 93.3381 135.764)" fill="#F5F5F5"/>
+<rect x="127.279" y="33.9412" width="36" height="36" rx="8" transform="rotate(45 127.279 33.9412)" fill="#F5F5F5"/>
+<rect x="59.397" y="33.9412" width="36" height="36" rx="8" transform="rotate(45 59.397 33.9412)" fill="#F5F5F5"/>
+<rect x="25.4558" y="68" width="36" height="36" rx="8" transform="rotate(45 25.4558 68)" fill="#F5F5F5"/>
+<rect x="195.162" y="101.823" width="36" height="36" rx="8" transform="rotate(45 195.162 101.823)" fill="#F5F5F5"/>
+<rect x="161.22" y="135.764" width="36" height="36" rx="8" transform="rotate(45 161.22 135.764)" fill="#F5F5F5"/>
+<path d="M165.021 54.6705L132.473 87.2185C129.349 90.3427 129.349 95.408 132.473 98.5322L155.564 121.622C158.688 124.747 158.688 129.812 155.564 132.936L132.936 155.564C129.812 158.688 124.747 158.688 121.622 155.564L96.8737 130.815C94.921 128.862 91.7552 128.862 89.8026 130.815L55.3671 165.25" stroke="#0465FD" stroke-width="3" stroke-linecap="round"/>
+<rect x="51.0212" y="186.641" width="24" height="24" rx="12" transform="rotate(-135 51.0212 186.641)" fill="#0465FD"/>
+<path d="M45.4801 168.44C45.0581 168.598 45.0445 169.19 45.4587 169.368L49.3804 171.049C49.4984 171.099 49.5924 171.193 49.643 171.311L51.3237 175.233C51.5012 175.647 52.0932 175.634 52.2514 175.212L55.928 165.407C56.0787 165.005 55.6862 164.613 55.2842 164.764L45.4801 168.44Z" fill="white"/>
+<g clip-path="url(#clip0_7953_2114)">
+<rect x="170.385" y="65.2769" width="24" height="24" rx="12" transform="rotate(-135 170.385 65.2769)" fill="#0465FD"/>
+<circle opacity="0.4" cx="170.385" cy="48.3064" r="8" transform="rotate(-135 170.385 48.3064)" fill="#303543"/>
+<circle cx="170.385" cy="48.3063" r="3.2" transform="rotate(-135 170.385 48.3063)" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_7953_2114">
+<rect x="170.385" y="65.2769" width="24" height="24" rx="12" transform="rotate(-135 170.385 65.2769)" fill="white"/>
+</clipPath>
+</defs>
+</svg>
