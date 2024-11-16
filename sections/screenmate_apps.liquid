@@ -18,7 +18,7 @@
         align-items: center;
         column-gap: 24px;
     }
-    .screenmate-apps-title span {
+    .screenmate-apps-title div {
         color: var(--Black, #0F0F0F);
         font-family: Manrope;
         font-size: 52px;
@@ -30,15 +30,55 @@
         width: 48px;
         height: 52px;
     }
+    .screenmate-apps-body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: 24px;
+    }
+    .screenmate-meet-collage {
+        width: 100%;
+        height: 581px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .screenmate-meet-collage > div {
+        position: absolute;
+    }
+    .screenmate-meet-collage-background {
+        width: 100%;
+        height: 517px;
+        bottom: 0;
+        z-index: 1;
+        border-radius: 40px 40px 64px 64px;
+        background: lightgray -2406.935px -596.701px / 436.885% 354.49% no-repeat;
+    }
+    .screenmate-meet-collage-image {
+        width: 1028px;
+        height: 557px;
+        top: 0;
+        z-index: 2;
+        border-radius: 40px;
+    }
 </style>
 
 <div class="screenmate-apps">
     <div class="screenmate-meet-wrap">
         <div class="screenmate-meet-title">
-            <span>Any App at Your Fingertips</span>
+            <div>Any App at Your Fingertips</div>
             <img src="{{ 'playmarket.svg' | asset_url }}">
         </div>
         <div class="screenmate-meet-body">
+            <div class="screenmate-meet-collage">
+                <div class="screenmate-meet-collage-background"></div>
+                <div class="screenmate-meet-collage-image">
+                    <img src="{{ 'screenmate_apps_image.png' | asset_url }}">
+                </div>
+            </div>
         </div>
     </div>
 </div>
