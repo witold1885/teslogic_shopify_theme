@@ -74,6 +74,14 @@
         flex-wrap: wrap;
         gap: 24px;
     }
+    .screenmate-apps-feature {
+        width: 526px;
+        height: 226px;
+        border-radius: 24px;
+        position: relative;
+        border: 1px solid #E0E0E0;
+        background: #FFF;
+    }
 </style>
 
 {% capture features_json %}
@@ -126,7 +134,7 @@
             </div>
             <div class="screenmate-apps-features">
                 {% for feature in features %}
-                    <div class="feature">
+                    <div class="screenmate-apps-feature">
                     <img src="{{ feature.image | asset_url }}" alt="{{ feature.title }}">
                     <h3>{{ feature.title }}</h3>
                     <p>{{ feature.description }}</p>
