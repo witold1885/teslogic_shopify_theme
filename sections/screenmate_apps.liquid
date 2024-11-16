@@ -75,50 +75,35 @@
         gap: 24px;
     }
     .screenmate-apps-feature {
+        position: relative;
         width: 526px;
         height: 226px;
+        padding: 28px 32px;
         border-radius: 24px;
-        position: relative;
         border: 1px solid #E0E0E0;
         background: #FFF;
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+    }
+    .screenmate-apps-feature-title {
+        color: #000;
+        font-family: Manrope;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px;
+    }
+    .screenmate-apps-feature-description {
+        color: #666;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
     }
 </style>
-
-{% capture features_json %}
-  [ 
-    {
-        "title": "Entertainment", 
-        "description": "Access your favorite streaming services directly from your Tesla's screen. Watch movies, TV shows, and more with smooth, high-quality playback.", 
-        "image": "screenmate_apps_feature_1.svg"
-    },
-    {
-        "title": "Navigation", 
-        "description": "Utilize popular navigation apps like Google Maps, Waze, and others.", 
-        "image": "screenmate_apps_feature_2.svg"
-    },
-    {
-        "title": "Stay Connected", 
-        "description": "Effortless access to social media, emails, video calls, and messaging apps—Screenmate keeps you in touch on the go.", 
-        "image": "screenmate_apps_feature_3.svg"
-    },
-    {
-        "title": "Music", 
-        "description": "Seamless access to your favorite music apps. Enjoy high-quality streaming from popular services, bringing your playlists to life on your Tesla.", 
-        "image": "screenmate_apps_feature_4.svg"
-    },
-    {
-        "title": "Mobile Gaming", 
-        "description": "Experience the thrill of mobile gaming directly on your Tesla. Access a variety of exciting games available through Google Play Games.", 
-        "image": "screenmate_apps_feature_5.svg"
-    },
-    {
-        "title": "Anything Else", 
-        "description": "Transform your Tesla into a versatile hub with Teslogic Screenmate, giving you effortless access to a wide range of applications.", 
-        "image": "screenmate_apps_feature_6.svg"
-    }
-  ]
-{% endcapture %}
 
 <div class="screenmate-apps">
     <div class="screenmate-apps-wrap">
@@ -145,8 +130,8 @@
                 data.forEach(item => {
                     featuresHtml += `
                         <div class="screenmate-apps-feature">
-                            <h2>${item.title}</h2>
-                            <p>${item.description}</p>
+                            <div class="screenmate-apps-feature-title">${item.title}</div>
+                            <div class="screenmate-apps-feature-description">${item.description}</div>
                             <img src="{{ item.image | asset_url }}" alt="${item.title}">
                         </div>
                     `
