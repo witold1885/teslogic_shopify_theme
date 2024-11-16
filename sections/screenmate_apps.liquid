@@ -119,7 +119,11 @@
   ]
 {% endcapture %}
 
-{{ features_json | strip }}
+{% assign features = "" | split: "," %}
+{% assign features = features | push: "Entertainment||Access your favorite streaming services directly from your Tesla's screen. Watch movies, TV shows, and more with smooth, high-quality playback.||screenmate_apps_feature_1.svg" %}
+{% assign features = features | push: "Navigation||Utilize popular navigation apps like Google Maps, Waze, and others.||screenmate_apps_feature_2.svg" %}
+{% assign features = features | push: "Stay Connected||Effortless access to social media, emails, video calls, and messaging apps—Screenmate keeps you in touch on the go.||screenmate_apps_feature_3.svg" %}
+
 
 <div class="screenmate-apps">
     <div class="screenmate-apps-wrap">
