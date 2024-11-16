@@ -128,6 +128,7 @@
             .then(response => response.json())
             .then(data => {
                 data.forEach(item => {
+                    console.log(item)
                     console.log({{ item.image | asset_url }})
                     featuresHtml += `
                         <div class="screenmate-apps-feature">
