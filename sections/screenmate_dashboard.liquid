@@ -117,6 +117,21 @@
         background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(180deg, #222 0%, #090909 100%);
         box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
     }
+    .screenmate-dashboard-controls-item img {
+        width: 48px;
+        height: 48px;
+    }
+    .screenmate-dashboard-controls-item-text {
+        color: #3D3D3D;
+        text-align: center;
+        font-family: "Universal Sans Display";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.252px;
+        text-transform: capitalize;
+    }
 </style>
 
 {% assign controls = blogs['screenmate-controls'].articles | sort: 'title' %}
@@ -172,7 +187,8 @@
                     {% assign number = title_array.first %}
                     {% assign title = control.title | replace: number, '' %}
                     <div class="screenmate-dashboard-controls-item screenmate-dashboard-controls-item-{{ number }}">
-
+                        <img src="{{ control.image | img_url }}" alt="{{ title }}">
+                        <div class="screenmate-dashboard-controls-item-text">{{ title }}</div>
                     </div>
 	    	    {% endfor %}
             </div>
