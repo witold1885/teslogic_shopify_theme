@@ -124,9 +124,9 @@
                     {% assign number = title_array.first %}
                     {% assign title = feature.title | replace: number, '' %}
                     <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
-                        <div class="screenmate-apps-feature-title">{{ feature.title }}</div>
+                        <div class="screenmate-apps-feature-title">{{ title }}</div>
                         <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
-                        <img src="{{ feature.image }}" alt="{{ feature.title }}">
+                        <img src="{{ feature.image }}" alt="{{ title }}">
                     </div>
 	    	    {% endfor %}
             </div>
