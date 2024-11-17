@@ -106,6 +106,7 @@
 </style>
 
 {% assign features = blogs['screenmate-apps'].articles | sort: 'title' %}
+{{ features | json }}
 
 <div class="screenmate-apps">
     <div class="screenmate-apps-wrap">
