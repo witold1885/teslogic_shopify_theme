@@ -135,9 +135,37 @@
         letter-spacing: 0.252px;
         text-transform: capitalize;
     }
+    .screenmate-dashboard-commands-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    .screenmate-dashboard-commands-item {
+        width: 251px;
+        padding: 16px 12px 16px 16px;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        border-radius: 16px;
+        background: #FFF;
+        box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
+    }
+    .screenmate-dashboard-commands-item img {
+        width: 32px;
+        height: 32px;
+    }
+    .screenmate-dashboard-commands-item-text {
+        color: #3B3B3B;
+        font-family: "SF Pro Display";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
 </style>
 
 {% assign controls = blogs['screenmate-controls'].articles | sort: 'title' %}
+{% assign commands = blogs['screenmate-commands'].articles | sort: 'title' %}
 
 <div class="screenmate-dashboard">
     <div class="screenmate-dashboard-wrap">
@@ -216,6 +244,15 @@
                 functions and automation scripts in Python. Here you can find examples of these scripts.
             </div>
             <div class="screenmate-dashboard-commands-items">
+		        {% for command in commands %}
+                    {% assign title_array = command.title | split: ' ' %}
+                    {% assign number = title_array.first %}
+                    {% assign title = command.title | replace: number, '' %}
+                    <div class="screenmate-dashboard-commands-item screenmate-dashboard-commands-item-{{ number }}">
+                        <img src="{{ control.image | img_url }}" alt="{{ title }}">
+                        <div class="screenmate-dashboard-commands-item-text">{{ title }}</div>
+                    </div>
+	    	    {% endfor %}
             </div>
         </div>
     </div>
