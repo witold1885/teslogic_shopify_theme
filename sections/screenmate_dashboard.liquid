@@ -190,10 +190,14 @@
                     <div class="screenmate-dashboard-controls-item screenmate-dashboard-controls-item-{{ number }}">
                         <img src="{{ control.image | img_url }}" alt="{{ title }}">
                         <div class="screenmate-dashboard-controls-item-text">
-                            {% if title_parts.size == 2 %}{{ title_parts[0] }}<br>{{ title_parts[1] }}
-                            {% elsif title_parts.size == 3 %}{{ title_parts[0] }} {{ title_parts[1] }}<br>{{ title_parts[2] }}
-                            {% elsif title_parts.size == 4 %}{{ title_parts[0] }} {{ title_parts[1] }}<br>{{ title_parts[2] }} {{ title_parts[3] }}
-                            {% else %}{{ title }}
+                            {% if title_parts.size == 2 %}
+                                {{ title_parts[0] }}<br>{{ title_parts[1] }}
+                            {% elsif title_parts.size == 3 %}
+                                {{ title_parts[0] }} {{ title_parts[1] }}<br>{{ title_parts[2] }}
+                            {% elsif title_parts.size == 4 %}
+                                {{ title_parts[0] }} {{ title_parts[1] }}<br>{{ title_parts[2] }} {{ title_parts[3] }}
+                            {% else %}
+                                {{ title }}
                             {% endif %}
                         </div>
                     </div>
