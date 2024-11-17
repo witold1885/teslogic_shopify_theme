@@ -12,10 +12,61 @@
         display: flex;
         flex-direction: column;
     }
+    .screenmate-dashboard-collage {
+        width: 100%;
+        height: 641px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .screenmate-dashboard-collage > div {
+        position: absolute;
+    }
+    .screenmate-dashboard-collage-background {
+        width: 100%;
+        height: 577px;
+        bottom: 0;
+        z-index: 1;
+        border-radius: 64px 64px 40px 40px;
+        background: url({{ 'screenmate_dashboard_background.png' | asset_url }}) lightgray 3743.703px 3056.701px / -881.461% -763.56% no-repeat, #F6F6F6;
+        background-size: cover;
+        background-position: center;
+    }
+    .screenmate-dashboard-collage-main {
+        width: 1028px;
+        height: 617px;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+    }
+    .screenmate-dashboard-collage-main > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 502px;
+        padding: 20px 24px 24px;
+        border-radius: 40px;
+        border: 2px solid #FFF;
+        background: linear-gradient(180deg, #F7F7F7 0%, #FFF 100%);
+        box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+    }
 </style>
 
 <div class="screenmate-dashboard">
     <div class="screenmate-dashboard-wrap">
-
+        <div class="screenmate-dashboard-collage">
+            <div class="screenmate-dashboard-collage-background"></div>
+            <div class="screenmate-dashboard-collage-main">
+                <div class="screenmate-dashboard-collage-main-left">
+                    <img src="{{ 'screenmate_dashboard_image_1.png' | asset_url }}" alt="">
+                </div>
+                <div class="screenmate-dashboard-collage-main-right">
+                    <img src="{{ 'screenmate_dashboard_image_2.png' | asset_url }}" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
