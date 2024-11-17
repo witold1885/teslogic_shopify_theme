@@ -163,6 +163,44 @@
         font-weight: 400;
         line-height: 20px;
     }
+    .screenmate-dashboard-native {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 98px;
+    }
+    .screenmate-dashboard-native-info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+    }
+    .screenmate-dashboard-native-info-title {
+        color: var(--Black, #0F0F0F);
+        font-family: Manrope;
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 64px;
+    }
+    .screenmate-dashboard-native-info-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 18px;
+    }
+    .screenmate-dashboard-native-info-content > div {
+        color: #666;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    .screenmate-dashboard-native-info-content > div a {
+        color: #0465FD;
+        font-weight: 500;
+        text-decoration: none;
+    }
 </style>
 
 {% assign controls = blogs['screenmate-controls'].articles | sort: 'title' %}
@@ -257,7 +295,24 @@
             </div>
         </div>
         <div class="screenmate-dashboard-native">
-            <div class="screenmate-dashboard-native-info"></div>
+            <div class="screenmate-dashboard-native-info">
+                <div class="screenmate-dashboard-native-info-title">
+                    Teslogic v2 Dashboard <br>Native Support
+                </div>
+                <div class="screenmate-dashboard-native-info-content">
+                    <div>
+                        Teslogic v2 transforms your phone into a fully functional instrument <br>
+                        cluster, conveniently positioned right in your line of sight.
+                    </div>
+                    <div>
+                        The app features five customizable screens, allowing you to switch <br>
+                        between them effortlessly using the selector on your steering wheel. 
+                    </div>
+                    <div>
+                        For details about the product, visit <a href="/">v2 page</a>.
+                    </div>
+                </div>            
+            </div>
             <div class="screenmate-dashboard-native-collage"></div>
 
         </div>
