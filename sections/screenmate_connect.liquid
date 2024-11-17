@@ -99,6 +99,7 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+        margin-bottom: 24px;
     }
     .screenmate-connect-consoles-info-icons img {
         width: 48px;
@@ -113,6 +114,23 @@
     }
     .screenmate-connect-consoles-image img {
         width: 100%;
+    }
+    .screenmate-connect-consoles-info-title {
+        color: #000;
+        font-family: Manrope;
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 64px;
+        margin-bottom: 16px;
+    }
+    .screenmate-connect-consoles-info-text {
+        color: #666;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
     }
 </style>
 
@@ -148,6 +166,16 @@
                     <img src="{{ 'screenmate_connect_icon_steam.svg' | asset_url }}" alt="">
                     <img src="{{ 'screenmate_connect_icon_xbox.svg' | asset_url }}" alt="">
                     <img src="{{ 'screenmate_connect_icon_ps.svg' | asset_url }}" alt="">
+                </div>
+                <div class="screenmate-connect-consoles-info-title">
+                    Console and <br>HDMI devices <br>connection
+                </div>
+                <div class="screenmate-connect-consoles-info-text">
+                    Screenmate significantly expands the gaming <br>
+                    capabilities of your Tesla. It allows you to run <br>
+                    Android games directly on the powerful Qualcomm <br>
+                    chipset or connect your favorite gaming console <br>
+                    via HDMI or USB.
                 </div>
             </div>
             <div class="screenmate-connect-consoles-image">
