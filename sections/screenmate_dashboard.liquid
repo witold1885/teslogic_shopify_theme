@@ -201,6 +201,36 @@
         font-weight: 500;
         text-decoration: none;
     }
+    .screenmate-dashboard-native-collage {
+        width: 416px;
+        height: 300px;
+        position: relative;
+    }
+    .screenmate-dashboard-native-collage > div {
+        position: absolute;
+    }
+    .screenmate-dashboard-native-collage-background {
+        width: 100%;
+        height: 252px;
+        bottom: 0;
+        z-index: 1;
+        border-radius: 32px 32px 56px 56px;
+        background: url({{ 'screenmate_dashboard_native_background.png' | asset_url }}) lightgray 1259.911px 918.049px / -728.923% -557.877% no-repeat;
+        box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.10);
+        background-size: cover;
+        background-position: center;
+    }
+    .screenmate-dashboard-native-collage-image {
+        width: 368px;
+        height: 276px;
+        top: 0;
+        z-index: 2;
+        border-radius: 40px;
+        background: url({{ 'screenmate_dashboard_native_image.png' | asset_url }}) lightgray -532.503px -288px / 272.182% 204.348% no-repeat, url(<path-to-image>) lightgray 50% / cover no-repeat;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.30);
+        background-size: cover;
+        background-position: center;
+    }
 </style>
 
 {% assign controls = blogs['screenmate-controls'].articles | sort: 'title' %}
@@ -313,8 +343,10 @@
                     </div>
                 </div>            
             </div>
-            <div class="screenmate-dashboard-native-collage"></div>
-
+            <div class="screenmate-dashboard-native-collage">
+                <div class="screenmate-dashboard-collage-background"></div>
+                <div class="screenmate-dashboard-collage-image"></div>
+            </div>
         </div>
     </div>
 </div>
