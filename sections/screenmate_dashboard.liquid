@@ -29,7 +29,7 @@
         bottom: 0;
         z-index: 1;
         border-radius: 64px 64px 40px 40px;
-        background: url({{ 'screenmate_dashboard_background.png' | asset_url }}) lightgray 3743.703px 3056.701px / -881.461% -763.56% no-repeat, #F6F6F6;
+        background: url({{ 'screenmate_dashboard_background.png' | asset_url }}) lightgray 3743.703px 3056.701px / -881.461% -763.56% no-repeat;
         background-size: cover;
         background-position: center;
     }
@@ -53,6 +53,34 @@
         box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
         box-sizing: border-box;
     }
+    .screenmate-dashboard-collage-main-info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+    .screenmate-dashboard-collage-main-info-title {
+        color: #000;
+        font-family: Manrope;
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 64px;
+    }
+    .screenmate-dashboard-collage-main-info-text {
+        color: #666;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    .screenmate-dashboard-collage-main-image {
+        width: 454px;
+        height: 341px;
+    }
+    .screenmate-dashboard-collage-main-image img {
+        width: 100%;
+    }
 </style>
 
 <div class="screenmate-dashboard">
@@ -61,10 +89,34 @@
             <div class="screenmate-dashboard-collage-background"></div>
             <div class="screenmate-dashboard-collage-main">
                 <div class="screenmate-dashboard-collage-main-left">
-                    <img src="{{ 'screenmate_dashboard_image_1.png' | asset_url }}" alt="">
+                    <div class="screenmate-dashboard-collage-main-info">
+                        <div class="screenmate-dashboard-collage-main-info-title">Dashboard</div>
+                        <div class="screenmate-dashboard-collage-main-info-text">
+                            Keep your instrument panel with all vital car <br>
+                            information in view on top of your apps. Track <br>
+                            current speed, speed limit, blindspots warnings, <br>
+                            battery charge, and more. You can also easily <br>
+                            minimize or move it aside for a clearer view. 
+                        </div>                    
+                    </div>
+                    <div class="screenmate-dashboard-collage-main-image">
+                        <img src="{{ 'screenmate_dashboard_image_1.png' | asset_url }}" alt="">
+                    </div>
                 </div>
                 <div class="screenmate-dashboard-collage-main-right">
-                    <img src="{{ 'screenmate_dashboard_image_2.png' | asset_url }}" alt="">
+                    <div class="screenmate-dashboard-collage-main-info">
+                        <div class="screenmate-dashboard-collage-main-info-title">Control Panel</div>
+                        <div class="screenmate-dashboard-collage-main-info-text">
+                            Access all essential commands with just one touch. <br>
+                            A compact Control Panel offers a wide range of <br>
+                            functions, making it easy to dim mirrors or adjust <br>
+                            the passenger seat—everything you need is just a <br>
+                            tap away.
+                        </div>                    
+                    </div>
+                    <div class="screenmate-dashboard-collage-main-image">
+                        <img src="{{ 'screenmate_dashboard_image_2.png' | asset_url }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
