@@ -123,7 +123,7 @@
                     {% assign title_array = article.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = article.title | replace: number, '' %}
-                    <div class="screenmate-apps-feature">
+                    <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
                         <div class="screenmate-apps-feature-title">{{ article.title }}</div>
                         <div class="screenmate-apps-feature-description">{{ article.content }}</div>
                         <img src="{{ article.image }}" alt="{{ article.title }}">
