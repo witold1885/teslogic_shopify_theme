@@ -186,7 +186,7 @@
                     {% assign title_array = control.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = control.title | replace: number, '' %}
-                    {% assing title_parts = title | split: ' ' %}
+                    {% assign title_parts = title | split: ' ' %}
                     <div class="screenmate-dashboard-controls-item screenmate-dashboard-controls-item-{{ number }}">
                         <img src="{{ control.image | img_url }}" alt="{{ title }}">
                         <div class="screenmate-dashboard-controls-item-text">
