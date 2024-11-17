@@ -68,7 +68,7 @@
         align-items: center;
         column-gap: 8px;
     }
-    .screenmate-connect-collage-main-info-icons {
+    .screenmate-connect-collage-main-info-icons img {
         width: 40px;
         height: 40px;
     }
@@ -87,6 +87,31 @@
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
+    }
+    .screenmate-connect-consoles {
+        width: 1076px;
+        height: 526px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .screenmate-connect-consoles-info-icons {
+        display: flex;
+        align-items: center;
+    }
+    .screenmate-connect-consoles-info-icons img {
+        width: 48px;
+        height: 48px;
+    }
+    .screenmate-connect-consoles-info-icons img:not(:first-child) {
+        margin-left: -24px;
+    }
+    .screenmate-connect-consoles-image {
+        width: 526px;
+        height: 526px;
+    }
+    .screenmate-connect-consoles-image img {
+        width: 100%;
     }
 </style>
 
@@ -114,7 +139,18 @@
                         support, and this feature now makes that possible.
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="screenmate-connect-consoles">
+            <div class="screenmate-connect-consoles-info">
+                <div class="screenmate-connect-consoles-info-icons">
+                    <img src="{{ 'screenmate_connect_icon_ps.svg' | asset_url }}" alt="">
+                    <img src="{{ 'screenmate_connect_icon_xbox.svg' | asset_url }}" alt="">
+                    <img src="{{ 'screenmate_connect_icon_steam.svg' | asset_url }}" alt="">
+                </div>
+            </div>
+            <div class="screenmate-connect-consoles-image">
+                <img src="{{ 'screenmate_connect_image_2.png' | asset_url }}" alt="">
             </div>
         </div>
     </div>
