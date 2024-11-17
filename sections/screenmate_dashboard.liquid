@@ -82,7 +82,10 @@
     .screenmate-dashboard-collage-main-image img {
         width: 100%;
     }
-    .screenmate-dashboard-controls-title {
+    .screenmate-dashboard-controls, .screenmate-dashboard-commands {
+        margin-bottom: 136px;
+    }
+    .screenmate-dashboard-controls-title, .screenmate-dashboard-commands-title {
         color: var(--Black, #0F0F0F);
         font-family: Manrope;
         font-size: 52px;
@@ -91,7 +94,7 @@
         line-height: 64px;
         margin-bottom: 16px;
     }
-    .screenmate-dashboard-controls-text {
+    .screenmate-dashboard-controls-text, .screenmate-dashboard-commands-text {
         color: #666;
         font-family: Manrope;
         font-size: 18px;
@@ -203,7 +206,17 @@
                     </div>
 	    	    {% endfor %}
             </div>
-            
+        </div>
+        <div class="screenmate-dashboard-commands">
+            <div class="screenmate-dashboard-commands-title">
+                Advanced Screenmate Commands
+            </div>
+            <div class="screenmate-dashboard-commands-text">
+                We also plan to offer a software environment where you can create your own smart <br>
+                functions and automation scripts in Python. Here you can find examples of these scripts.
+            </div>
+            <div class="screenmate-dashboard-commands-items">
+            </div>
         </div>
     </div>
 </div>
