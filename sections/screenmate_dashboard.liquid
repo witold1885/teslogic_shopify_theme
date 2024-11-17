@@ -205,6 +205,9 @@
         width: 416px;
         height: 300px;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .screenmate-dashboard-native-collage > div {
         position: absolute;
@@ -226,7 +229,7 @@
         top: 0;
         z-index: 2;
         border-radius: 40px;
-        background: url({{ 'screenmate_dashboard_native_image.png' | asset_url }}) lightgray -532.503px -288px / 272.182% 204.348% no-repeat, url(<path-to-image>) lightgray 50% / cover no-repeat;
+        background: url({{ 'screenmate_dashboard_native_image.png' | asset_url }}) lightgray -532.503px -288px / 272.182% 204.348% no-repeat;
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.30);
         background-size: cover;
         background-position: center;
