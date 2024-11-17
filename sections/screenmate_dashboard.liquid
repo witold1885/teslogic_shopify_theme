@@ -91,7 +91,7 @@
         line-height: 64px;
         margin-bottom: 16px;
     }
-    .screenmate-dashboard-controls-title {
+    .screenmate-dashboard-controls-text {
         color: #666;
         font-family: Manrope;
         font-size: 18px;
@@ -100,7 +100,26 @@
         line-height: 24px;
         margin-bottom: 32px;
     }
+    .screenmate-dashboard-controls-items {
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+    }
+    .screenmate-dashboard-controls-item {
+        width: 159px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 12px;
+        border-radius: 40px;
+        background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(180deg, #222 0%, #090909 100%);
+        box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
+    }
 </style>
+
+{% assign controls = blogs['screenmate-controls'].articles | sort: 'title' %}
 
 <div class="screenmate-dashboard">
     <div class="screenmate-dashboard-wrap">
@@ -147,7 +166,16 @@
                 We’ve added extra control functions for you, like activating battery heating <br>
                 for faster charging, opening any door or charge port with a single click.
             </div>
-            <div class="screenmate-dashboard-controls-items"></div>
+            <div class="screenmate-dashboard-controls-items">
+		        {% for control in controls %}
+                    {% assign title_array = control.title | split: ' ' %}
+                    {% assign number = title_array.first %}
+                    {% assign title = control.title | replace: number, '' %}
+                    <div class="screenmate-dashboard-controls-item screenmate-dashboard-controls-item-{{ number }}">
+
+                    </div>
+	    	    {% endfor %}
+            </div>
             
         </div>
     </div>
