@@ -86,6 +86,7 @@
         display: flex;
         flex-direction: column;
         row-gap: 12px;
+        overflow: hidden;
     }
     .screenmate-apps-feature-title {
         color: #000;
@@ -178,27 +179,3 @@
         </div>
     </div>
 </div>
-
-{% comment %} <script type="text/javascript">
-    $(document).ready(function() {
-        let featuresHtml = ''
-        fetch('{{ "screenmate_apps_features.json" | asset_url }}')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(item => {
-                    console.log(item)
-                    console.log("{{ 'assets/' + item.image | asset_url }}")
-                    featuresHtml += `
-                        <div class="screenmate-apps-feature">
-                            <div class="screenmate-apps-feature-title">${item.title}</div>
-                            <div class="screenmate-apps-feature-description">${item.description}</div>
-                            <img src="{{ 'assets/' + item.image | asset_url }}" alt="${item.title}">
-                        </div>
-                    `
-                })
-
-                $('.screenmate-apps-features').html(featuresHtml)
-            })
-            .catch(error => console.error('Error loading JSON:', error))
-    })
-</script> {% endcomment %}
