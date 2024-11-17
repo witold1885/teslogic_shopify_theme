@@ -249,11 +249,14 @@
                     {% assign number = title_array.first %}
                     {% assign title = command.title | replace: number, '' %}
                     <div class="screenmate-dashboard-commands-item screenmate-dashboard-commands-item-{{ number }}">
-                        <img src="{{ control.image | img_url }}" alt="{{ title }}">
+                        <img src="{{ command.image | img_url }}" alt="{{ title }}">
                         <div class="screenmate-dashboard-commands-item-text">{{ title }}</div>
                     </div>
 	    	    {% endfor %}
             </div>
+        </div>
+        <div class="screenmate-dashboard-native">
+
         </div>
     </div>
 </div>
