@@ -30,7 +30,7 @@
         bottom: 0;
         z-index: 1;
         border-radius: 40px 40px 64px 64px;
-        background: url({{ 'screenmate_apps_background.png' | asset_url }}) lightgray -2406.935px -436.273px / 436.885% 354.49% no-repeat;
+        background: url({{ 'screenmate_connect_background.png' | asset_url }}) lightgray -2406.935px -436.273px / 436.885% 354.49% no-repeat;
         box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
         background-size: cover;
         background-position: center;
@@ -45,6 +45,15 @@
         border: 2px solid #FFF;
         background: linear-gradient(180deg, #F7F7F7 0%, #FFF 100%);
         box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+        display: flex;
+        column-gap: 40px;
+    }
+    .screenmate-connect-collage-main-image {
+        width: 454px;
+        height: 322px;
+    }
+    .screenmate-connect-collage-main-image img {
+        width: 100%;
     }
 </style>
 
@@ -53,6 +62,11 @@
         <div class="screenmate-connect-collage">
             <div class="screenmate-connect-collage-background"></div>
             <div class="screenmate-connect-collage-main">
+                <div class="screenmate-connect-collage-main-image">
+                    <img src="{{ 'screenmate_connect_image_1.png' | asset_url }}" alt="">
+                </div>
+                <div class="screenmate-connect-collage-main-info"></div>
+
             </div>
         </div>
     </div>
