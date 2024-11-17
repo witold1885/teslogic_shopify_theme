@@ -14,12 +14,18 @@
       "type": "screenmate_connect",
       "settings": {
       }
+    },
+    "screenmate_dashboard": {
+      "type": "screenmate_dashboard",
+      "settings": {
+      }
     }
   },
   "order": [
     "screenmate_meet",
     "screenmate_apps",
-    "screenmate_connect"
+    "screenmate_connect",
+    "screenmate_dashboard"
   ]
 }
   
