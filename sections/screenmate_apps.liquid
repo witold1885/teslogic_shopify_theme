@@ -149,6 +149,97 @@
         top: 32px;
         right: 41px;
     }
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+        .screenmate-apps {
+            padding: calc(180 * 100vw / 1440) 0 calc(212 * 100vw / 1440);
+        }
+        .screenmate-apps-wrap {
+            width: calc(1076 * 100vw / 1440);
+            row-gap: calc(40 * 100vw / 1440);
+        }
+        .screenmate-apps-title {
+            column-gap: calc(24 * 100vw / 1440);
+        }
+        .screenmate-apps-title div {
+            font-size: calc(52 * 100vw / 1440);
+            line-height: calc(64 * 100vw / 1440);
+        }
+        .screenmate-apps-title img {
+            width: calc(48 * 100vw / 1440);
+            height: calc(52 * 100vw / 1440);
+        }
+        .screenmate-apps-body {
+            row-gap: calc(24 * 100vw / 1440);
+        }
+        .screenmate-apps-collage {
+            height: calc(581 * 100vw / 1440);
+        }
+        .screenmate-apps-collage-background {
+            height: calc(517 * 100vw / 1440);
+            border-radius: calc(40 * 100vw / 1440) calc(40 * 100vw / 1440) calc(64 * 100vw / 1440) calc(64 * 100vw / 1440);
+        }
+        .screenmate-apps-collage-image {
+            width: calc(1028 * 100vw / 1440);
+            height: calc(557 * 100vw / 1440);
+            border-radius: calc(40 * 100vw / 1440);
+        }
+        .screenmate-apps-features {
+            gap: calc(24 * 100vw / 1440);
+        }
+        .screenmate-apps-feature {
+            width: calc(526 * 100vw / 1440);
+            height: calc(226 * 100vw / 1440);
+            padding: calc(28 * 100vw / 1440) calc(32 * 100vw / 1440);
+            border-radius: calc(24 * 100vw / 1440);
+            row-gap: calc(12 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-title {
+            font-size: calc(24 * 100vw / 1440);
+            line-height: calc(32 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-description {
+            font-size: calc(18 * 100vw / 1440);
+            line-height: calc(24 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-01 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-02 .screenmate-apps-feature-description {
+            width: calc(238 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-03 .screenmate-apps-feature-description {
+            width: calc(273 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-04 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-05 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-06 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-02 img {
+            top: calc(3 * 100vw / 1440);
+            right: calc(37 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-03 img {
+            top: calc(44 * 100vw / 1440);
+            right: calc(35 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-04 img {
+            top: calc(44 * 100vw / 1440);
+            right: calc(37 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-05 img {
+            top: calc(44 * 100vw / 1440);
+            right: calc(39 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-06 img {
+            top: calc(32 * 100vw / 1440);
+            right: calc(41 * 100vw / 1440);
+        }
+    }
 </style>
 
 {% assign features = blogs['screenmate-apps'].articles | sort: 'title' %}
