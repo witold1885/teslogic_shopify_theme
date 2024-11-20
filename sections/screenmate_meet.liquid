@@ -54,6 +54,10 @@
     .screenmate-meet-video-data {
         display: none;
     }
+    .screenmate-meet-video-data iframe {
+        width: 1076px;
+        height: 605px;
+    }
     .screenmate-meet-kickstarter {
         display: flex;
         align-items: center;
@@ -101,6 +105,10 @@
             width: calc(192 * 100vw / 1440);
             height: calc(192 * 100vw / 1440);
         }
+        .screenmate-meet-video-data iframe {
+            width: calc(1076 * 100vw / 1440);
+            height: calc(605 * 100vw / 1440);
+        }
         .screenmate-meet-kickstarter {
             column-gap: calc(6 * 100vw / 1440);
         }
@@ -138,8 +146,6 @@
                 <div class="screenmate-meet-video-data">
                     <iframe
                         id="youtube-video"
-                        width="1076"
-                        height="605"
                         src=""
                         title="Teslogic Screenmate: the Ultimate Extra Computer for your Tesla"
                         frameborder="0"
