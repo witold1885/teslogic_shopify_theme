@@ -31,7 +31,7 @@
         {% elsif link.title != 'Community' %}
           <div
             class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
-            {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+            {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
           >
             <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
@@ -60,8 +60,8 @@
           </div>
         {% endif %}
         {% endfor %}
-        <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div>
-        <!-- <div 
+        <!-- <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div> -->
+        <div 
           class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
         >
@@ -72,7 +72,7 @@
             </div>
             <span>Cart</span>
           </a>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
