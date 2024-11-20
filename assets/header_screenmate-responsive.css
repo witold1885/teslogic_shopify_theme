@@ -19,8 +19,8 @@
 		margin-left: calc(10 * 100vw / 1440);
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
-	.banner-desktop-wrap, .screenmate-shadow {
-/*	  	min-height: calc(810 * 100vw / 1440);*/
+	.banner-desktop-wrap {
+		height: calc(922 * 100vw / 1440);
 	}
 	.banner-desktop-ellipse {
 		width: calc(1663.117 * 100vw / 1440);
