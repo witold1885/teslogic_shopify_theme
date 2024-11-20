@@ -431,6 +431,66 @@
         font-weight: 500;
         line-height: 64px;
     }
+    .screenmate-specifications-box-body {
+        display: flex;
+        align-items: flex-end;
+        padding: 0 48px 64px;
+    }
+    .screenmate-specifications-box-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .screenmate-specifications-box-item-big {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        row-gap: 15px;
+    }
+    .screenmate-specifications-box-item-big-image {
+        width: 307px;
+        height: 223px;
+    }
+    .screenmate-specifications-box-item-big-image img {
+        width: 100%;
+    }
+    .screenmate-specifications-box-item-big-caption {
+        color: #000;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+    }
+    .screenmate-specifications-box-items-small {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        column-gap: 24px;
+    }
+    .screenmate-specifications-box-item-small {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        row-gap: 24px;
+    }
+    .screenmate-specifications-box-item-small-image {
+        width: 196px;
+        height: 196px;
+    }
+    .screenmate-specifications-box-item-small-image img {
+        width: 100%;
+    }
+    .screenmate-specifications-box-item-small-caption {
+        color: #000;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+    }
 </style>
 
 <div class="screenmate-specifications">
@@ -687,6 +747,44 @@
             <div class="screenmate-specifications-box-top">
                 <div class="screenmate-specifications-box-title">
                     What’s in the Box
+                </div>
+            </div>
+            <div class="screenmate-specifications-box-body">
+                <div class="screenmate-specifications-box-items">
+                    <div class="screenmate-specifications-box-item-big">
+                        <div class="screenmate-specifications-box-item-big-image">
+                            <img src="{{ 'screenmate_box_1.png' | asset_url }}" alt="">
+                        </div>
+                        <div class="screenmate-specifications-box-item-big-caption">
+                            Screenmate Device
+                        </div>
+                    </div>
+                    <div class="screenmate-specifications-box-items-small">
+                        <div class="screenmate-specifications-box-item-small">
+                            <div class="screenmate-specifications-box-item-small-image">
+                                <img src="{{ 'screenmate_box_2.png' | asset_url }}" alt="">
+                            </div>
+                            <div class="screenmate-specifications-box-item-small-caption">
+                                Phone Holder
+                            </div>
+                        </div>
+                        <div class="screenmate-specifications-box-item-small">
+                            <div class="screenmate-specifications-box-item-small-image">
+                                <img src="{{ 'screenmate_box_3.png' | asset_url }}" alt="">
+                            </div>
+                            <div class="screenmate-specifications-box-item-small-caption">
+                                Video Interface Wirings
+                            </div>
+                        </div>
+                        <div class="screenmate-specifications-box-item-small">
+                            <div class="screenmate-specifications-box-item-small-image">
+                                <img src="{{ 'screenmate_box_4.png' | asset_url }}" alt="">
+                            </div>
+                            <div class="screenmate-specifications-box-item-small-caption">
+                                CAN BUS Wiring
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
