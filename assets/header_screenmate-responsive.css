@@ -1,18 +1,13 @@
-/* @media screen and (min-width: 1920px) {
-	.banner-desktop-wrap {
-		min-height: 1080px;
-	}
-} */
  @media screen and (min-width: 1701px) {
-	.banner-desktop {
+	/* .banner-desktop {
 		width: 1440px;
 		margin: 0 auto;
-	}
+	} */
 	.banner-desktop-body {
-		/* left: calc((100vw - 1440px) / 2); */
-		/* right: calc((100vw - 1440px) / 2); */
-		left: 72px;
-		right: 72px;
+		left: calc((100vw - 1440px - 72px) / 2);
+		right: calc((100vw - 1440px - 72px) / 2);
+		/* left: 72px; */
+		/* right: 72px; */
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
