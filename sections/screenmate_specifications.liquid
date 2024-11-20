@@ -323,8 +323,14 @@
         display: flex;
         align-items: center;
         column-gap: 40px;
+        position: relative;
+    }
+    .screenmate-specifications-installation-body > div {
+        position: absolute;
+        top: 0;
     }
     .screenmate-specifications-installation-body-left {
+        left: 0;
         width: 636px;
         padding: 24px;
         display: flex;
@@ -358,8 +364,11 @@
         line-height: 24px;
     }
     .screenmate-specifications-installation-body-right {
+        right: -50px;
+        width: 450px;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         row-gap: 24px;
     }
     .screenmate-specifications-installation-body-info {
