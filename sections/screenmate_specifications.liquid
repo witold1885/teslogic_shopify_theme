@@ -186,14 +186,12 @@
         height: 81px;
         position: relative;
     }
-    .screenmate-specifications-collage-main-sketch-right-3 {
-        width: 305px !important;
-    }
     .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right {
         width: 88px;
         height: 78px;
         right: -24px;
-        bottom: 0;
+        bottom: 1.5px;
+        z-index: -1;
     }
     .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right .border-dashed {
         top: 0;
@@ -202,6 +200,15 @@
         width: 2px;
         background: url({{ 'screenmate_border_note_left.png' | asset_url }});
         background-size: contain;
+    }
+    .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right .note-text {
+        left: -44px;
+        bottom: 61px;
+        transform: rotate(90deg);
+        transform-origin: top left;
+    }
+    .screenmate-specifications-collage-main-sketch-right-3 {
+        width: 305px !important;
     }
 </style>
 
