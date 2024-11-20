@@ -211,14 +211,17 @@
     }
     .screenmate-specifications-collage-main-grid {
         display: grid;
-        grid-template-columns: 2fr repeat(4, 1fr);
-        column-gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
         row-gap: 40px;
     }
     .screenmate-specifications-collage-main-block {
         display: flex;
         flex-direction: column;
         row-gap: 24px;
+    }
+    .screenmate-specifications-collage-main-block:first-child {
+        grid-column: 1 / -1;
     }
     .screenmate-specifications-collage-main-block-title {
         color: #FFF;
