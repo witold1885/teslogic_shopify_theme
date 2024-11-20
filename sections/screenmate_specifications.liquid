@@ -306,6 +306,57 @@
         text-decoration: none;
         color: #0465FD;
     }
+    .screenmate-specifications-installation {
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+    .screenmate-specifications-installation-title {
+        color: #FFF;
+        font-family: Manrope;
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 64px;
+    }
+    .screenmate-specifications-installation-body {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 40px;
+    }
+    .screenmate-specifications-installation-body-left {
+        width: 636px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        border-radius: 40px;
+        border: 2px solid #0A0A0A;
+        background: linear-gradient(180deg, #0A0A0A 0%, #171717 100%);
+        box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+    }
+    .screenmate-specifications-installation-body-left > div {
+        width: 282px;
+        height: 282px;
+        position: relative;
+        border-radius: 24px;
+        display: flex;
+        justify-content: center;
+    }
+    .screenmate-specifications-installation-body-left img {
+        width: 100%;
+    }
+    .screenmate-specifications-installation-body-left > div span {
+        position: absolute;
+        bottom: 23px;
+        color: #FFF;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
 </style>
 
 <div class="screenmate-specifications">
@@ -527,7 +578,19 @@
             <div class="screenmate-specifications-installation-title">
                 Effortless Installation
             </div>
-            <div class="screenmate-specifications-installation-body"></div>
+            <div class="screenmate-specifications-installation-body">
+                <div class="screenmate-specifications-installation-body-left">
+                    <div>
+                        <img src="{{ 'screenmate_installation_image_1.png' | asset_url }}" alt="">
+                    </div>
+                    <div>
+                        <img src="{{ 'screenmate_installation_image_2.png' | asset_url }}" alt="">
+                        <span>Connection Diagram</span>
+                    </div>
+                </div>
+                <div class="screenmate-specifications-installation-body-right"></div>
+            
+            </div>
 
         </div>
     </div>
