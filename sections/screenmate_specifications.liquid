@@ -286,12 +286,13 @@
         width: 20px;
         height: 20px;
     }
-    .screenmate-specifications-collage-main-block-bottom {
+    .screenmate-specifications-collage-main-bottom {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
     }
-    .screenmate-specifications-collage-main-block-bottom-info {
+    .screenmate-specifications-collage-main-bottom-info {
         width: 396px;
         margin-right: 20px;
         color: #A0A0A0;
@@ -301,7 +302,7 @@
         font-weight: 400;
         line-height: 20px;
     }
-    .screenmate-specifications-collage-main-block-bottom-info a {
+    .screenmate-specifications-collage-main-bottom-info a {
         text-decoration: none;
         color: #0465FD;
     }
@@ -508,17 +509,17 @@
                         </div>
                     </div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
-                    <div class="screenmate-specifications-collage-main-grid">
-                        <div class="screenmate-specifications-collage-main-block-bottom">
+                    {% comment %} <div class="screenmate-specifications-collage-main-grid"> {% endcomment %}
+                        <div class="screenmate-specifications-collage-main-bottom">
                             <div class="screenmate-specifications-collage-main-block-title">
                                 Any questions left?
                             </div>
-                            <div class="screenmate-specifications-collage-main-block-bottom-info">
+                            <div class="screenmate-specifications-collage-main-bottom-info">
                                 Explore our <a href="/faq">FAQ page</a> to find answers to your most <br>
                                 pressing questions about Teslogic Screenmate.
                             </div>
                         </div>
-                    </div>
+                    {% comment %} </div> {% endcomment %}
                 </div>
             </div>
         </div>
