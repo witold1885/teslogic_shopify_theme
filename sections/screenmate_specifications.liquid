@@ -6,7 +6,6 @@
         padding: 180px 0 180px;
         display: flex;
         justify-content: center;
-        align-items: center;
         position: relative;
     }
     .screenmate-specifications-grid {
@@ -38,14 +37,25 @@
         position: absolute;
     }
     .screenmate-specifications-collage-background {
-        width: 100%;
+        width: 1124px;
         height: 1668px;
+        left: -24px;
+        right: -24px;
         bottom: 0;
         z-index: 1;
         border-radius: 40px 40px 64px 64px;
         background: url({{ 'screenmate_specifications_background.png' | asset_url }}) no-repeat;
         background-size: cover;
         background-position: center;
+    }
+    .screenmate-specifications-collage-main {
+        width: 1076px;
+        height: 1708px;
+        top: 0;
+        z-index: 2;
+        border-radius: 40px;
+        border: 2px solid #3C3C3C;
+        background: #121212;
     }
 </style>
 
@@ -54,6 +64,7 @@
     <div class="screenmate-specifications-wrap">
         <div class="screenmate-specifications-collage">
             <div class="screenmate-specifications-collage-background"></div>
+            <div class="screenmate-specifications-collage-main"></div>
         </div>
     </div>
 </div>
