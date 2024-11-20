@@ -210,8 +210,8 @@
         width: 305px !important;
     }
     .screenmate-specifications-collage-main-grid {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 2fr repeat(4, 1fr);
         column-gap: 24px;
         row-gap: 40px;
     }
@@ -227,6 +227,15 @@
         font-style: normal;
         font-weight: 500;
         line-height: 32px;
+    }
+    .screenmate-specifications-collage-main-block-row {
+        display: flex;
+        column-gap: 24px;
+    }
+    .screenmate-specifications-collage-main-block-column {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
     }
 </style>
 
@@ -282,10 +291,20 @@
                             <div class="screenmate-specifications-collage-main-block-title">
                                 Android System on Module
                             </div>
+                            <div class="screenmate-specifications-collage-main-block-row">
+                                <div class="screenmate-specifications-collage-main-block-column">
+
+                                </div>
+                            </div>
                         </div>
                         <div class="screenmate-specifications-collage-main-block">
                             <div class="screenmate-specifications-collage-main-block-title">
                                 Microcontrollers
+                            </div>
+                        </div>
+                        <div class="screenmate-specifications-collage-main-block">
+                            <div class="screenmate-specifications-collage-main-block-title">
+                                Internet
                             </div>
                         </div>
 
