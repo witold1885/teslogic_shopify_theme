@@ -327,9 +327,9 @@
     }
     .screenmate-specifications-installation-body > div {
         position: absolute;
-        top: 0;
     }
     .screenmate-specifications-installation-body-left {
+        top: 0;
         left: 0;
         width: 636px;
         padding: 24px;
@@ -364,6 +364,7 @@
         line-height: 24px;
     }
     .screenmate-specifications-installation-body-right {
+        top: 24px;
         right: -50px;
         width: 450px;
         display: flex;
@@ -381,6 +382,18 @@
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
+    }
+    .screenmate-specifications-installation-body-link {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        color: #0465FD;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        cursor: pointer;
     }
 </style>
 
@@ -627,7 +640,10 @@
                             plenty of room to position the unit comfortably.
                         </div>
                     </div>
-                    <div class="screenmate-specifications-installation-body-link"></div>
+                    <div class="screenmate-specifications-installation-body-link">
+                        <div>Read Manual</div>
+                        <img src="{{ 'screenmate_installation_chevron_blue.svg'}}" alt="">
+                    </div>
                 
                 </div>
             
