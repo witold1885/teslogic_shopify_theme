@@ -1,5 +1,6 @@
 <style type="text/css">
     .screenmate-specifications {
+        height: 3300px;
         background: linear-gradient(180deg, #1C1C1C 0%, #101010 50%, #1C1C1C 100%);
         margin: 0 auto;
         padding: 180px 0 180px;
@@ -9,8 +10,14 @@
         position: relative;
     }
     .screenmate-specifications-grid {
+        width: 100vw;
+        height: 100%;
         position: absolute;
+        top: 0;
+        bottom: 0;
         background: url({{ 'screenmate_specifications_grid.png' | asset_url }});
+        background-size: cover;
+        background-position: center;
     }
     .screenmate-specifications-wrap {
         width: 1076px;
