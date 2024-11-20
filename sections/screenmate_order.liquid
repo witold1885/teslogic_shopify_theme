@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {% style %}	
+    .store_block {
+        padding-top: 180px;
+        padding-bottom: 180px;
+    }
     .store_block-product {
         width: 1076px;
     }
@@ -15,6 +19,10 @@
 		color: #000;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
+        .store_block {
+            padding-top: calc(180 * 100vw / 1440);
+            padding-bottom: calc(180 * 100vw / 1440);
+        }
         .store_block-product {
             width: calc(1076 * 100vw / 1440);
         }
