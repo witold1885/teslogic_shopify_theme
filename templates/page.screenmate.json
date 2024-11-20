@@ -24,6 +24,11 @@
       "type": "screenmate_specifications",
       "settings": {
       }
+    },
+    "screenmate_order": {
+      "type": "screenmate_order",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -31,7 +36,8 @@
     "screenmate_apps",
     "screenmate_connect",
     "screenmate_dashboard",
-    "screenmate_specifications"
+    "screenmate_specifications",
+    "screenmate_order"
   ]
 }
   
