@@ -22,6 +22,48 @@
 	.banner-desktop-wrap, .screenmate-shadow {
 /*	  	min-height: calc(810 * 100vw / 1440);*/
 	}
+	.banner-desktop-ellipse {
+		width: calc(1663.117 * 100vw / 1440);
+		height: calc(1139.96 * 100vw / 1440);
+		left: calc(-1 * 562.62 * 100vw / 1440);
+		bottom: calc(-1 * 389.35 * 100vw / 1440);
+		border-radius: calc(1663.117 * 100vw / 1440);
+	}
+	.banner-desktop-body {
+		left: calc(72 * 100vw / 1440);
+		right: calc(72 * 100vw / 1440);
+		bottom: calc(156 * 100vw / 1440);
+		row-gap: calc(32 * 100vw / 1440);
+	}
+	.banner-desktop-body-device {
+		width: calc(445 * 100vw / 1440);
+		height: calc(329.715 * 100vw / 1440);
+		margin-left: calc(-1 * 15 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-left {
+		row-gap: calc(16 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-main {
+		column-gap: calc(24 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-main img {
+		width: calc(566.813 * 100vw / 1440);
+		height: calc(52 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-main button {
+		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+		border-radius: calc(54 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-subtitle {
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-kickstarter {
+		width: calc(196 * 100vw / 1440);
+		height: calc(196 * 100vw / 1440);
+	}
 }
 
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
