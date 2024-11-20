@@ -104,6 +104,9 @@
     .screenmate-specifications-collage-main-sketch-note > div {
         position: relative;
     }
+    .screenmate-specifications-collage-main-sketch-note > div > div {
+        position: absolute;
+    }
     .screenmate-specifications-collage-main-sketch-note-top {
         
         border-left: 1px solid #666;
@@ -111,12 +114,12 @@
     }
     .screenmate-specifications-collage-main-sketch-note-left {
         border-top: 1px solid #666;
-        border-left: 1px dashed #666;
+        
         border-bottom: 1px solid #666;
     }
     .screenmate-specifications-collage-main-sketch-note-right {
         border-top: 1px solid #666;
-        border-right: 1px dashed #666;
+        
         border-bottom: 1px solid #666;
     }
     .screenmate-specifications-collage-main-sketch-left {
@@ -129,7 +132,7 @@
         top: -20px;
         left: 0;
     }
-    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-top > div::before {
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-top .border-dashed {
         position: absolute;
         top:0;
         left: 0;
@@ -144,7 +147,10 @@
         left: -24px;
         bottom: 0;
     }
-    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left > div::before {
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left > div {
+
+    }
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left .border-dashed {
         position: absolute;
         top:0;
         left: 0;
@@ -172,10 +178,12 @@
                             <img src="{{ 'screenmate_sketch_left.png' | asset_url }}" alt="">
                             <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-top">
                                 <div>
+                                    <div class="border-dashed"></div>
                                 </div>
                             </div>
                             <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-left">
                                 <div>
+                                    <div class="border-dashed"></div>
                                 </div>
                             </div>
                         </div>
