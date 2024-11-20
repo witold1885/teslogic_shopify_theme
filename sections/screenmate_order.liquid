@@ -1,0 +1,386 @@
+<link rel="stylesheet" href="{{ 'store.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{% style %}	
+	.store_block-add-wireless-charger-checkbox:checked:after {
+		content: url({{ 'ok.svg' | asset_url }});
+		position: absolute;
+		width: 10px;
+		height: 6.667px; 
+		top: 3.33px;
+		left: 5px;
+		color: #000;
+	}
+	@media screen and (min-width: 576px) and (max-width: 1440px) {
+		.store_block-add-wireless-charger-checkbox:checked:after {
+			width: calc(10 * 100vw / 1440);
+			height: calc(6.667 * 100vw / 1440);
+			top: calc(3.33 * 100vw / 1440);
+			left: calc(5 * 100vw / 1440);
+		}
+	}
+	@media screen and (max-width: 575px) {
+		.store_block-add-wireless-charger-checkbox:checked:after {
+			width: calc(10 * 100vw / 375);
+			height: calc(6.667 * 100vw / 375);
+			top: calc(3.33 * 100vw / 375);
+			left: calc(5 * 100vw / 375);
+		}
+	}
+{% endstyle %}
+
+{% assign product = all_products['teslogic-transmitter-kit-v2'] %}
+{% assign charger = all_products['teslogic-wireless-charger'] %}
+
+<div class="store_block">
+	<div class="store_block-product" id="shop-now">
+		<div class="store_block-product-gallery">
+			<div class="store_block-product-gallery-items">
+				{% assign thumb = "-thumb" %}
+				{% assign counter = 0 %}  
+				{% for image in product.images %}
+                    {% assign parts = image | split: thumb %}
+                    {% if parts.size > 1 %}
+    					<div class="store_block-product-gallery-item {% if counter == 0 %}active{% endif %}" data-imgnum="{{ counter }}">
+    						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
+    					</div>
+    					{% assign counter = counter | plus: 1 %}
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="store_block-product-gallery-main">
+				{% assign full = "-full" %}
+				{% assign counter = 0 %}  
+				{% for image in product.images %}
+                    {% assign parts = image | split: full %}
+                    {% if parts.size > 1 %}
+						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+    					{% assign counter = counter | plus: 1 %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="store_block-product-info">
+			<div class="store_block-product-info-main">
+				<div class="store_block-product-price">  
+					<div class="store_block-product-price-new">$219</div>
+					<div class="store_block-product-price-old"></div>
+				</div>
+				<div class="store_block-product-title">{{ product.title }}</div>
+			</div>
+			<div class="store_block-product-gallery-mobile">
+				<div class="store_block-product-gallery-mobile-nav" data-direction="prev"></div>
+				<div class="store_block-product-gallery-main">
+					{% assign full = "-full" %}
+					{% assign counter = 0 %}  
+					{% for image in product.images %}
+	                    {% assign parts = image | split: full %}
+	                    {% if parts.size > 1 %}
+							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+	    					{% assign counter = counter | plus: 1 %}
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="store_block-product-gallery-mobile-nav" data-direction="next"></div>
+				<div class="store_block-product-gallery-mobile-dots">
+					{% for i in (0..5) %}
+						<div data-imgnum="{{ i }}" class="store_block-product-gallery-mobile-dot">
+							<img class="store_block-product-gallery-mobile-dot-active" src="{{ 'store-gallery-dot-active.svg' | asset_url }}">
+							<img class="store_block-product-gallery-mobile-dot-inactive" src="{{ 'store-gallery-dot-inactive.svg' | asset_url }}">
+						</div>
+					{% endfor %}					
+				</div>
+			</div>
+			<div>
+				<div class="store_block-product-select">
+					<div class="store_block-product-select-dropdown-select store_block-product-selected">
+						<span class="store_block-product-select-value">Select your Tesla model and year</span>
+						<div class="store_block-product-select-arrow">
+							<img src="{{ 'select_arrow_down.svg' | asset_url }}">
+						</div>
+					</div>
+					<div class="store_block-product-select-dropdown">
+						<div class="store_block-product-select-dropdown-select">
+							<span class="store_block-product-select-value">Select your Tesla model and year</span>
+							<div class="store_block-product-select-arrow">
+								<img src="{{ 'select_arrow_up.svg' | asset_url }}">
+							</div>
+						</div>
+						{%- for model in product.variants -%}
+							<div 
+								class="store_block-product-select-dropdown-item" 
+								data-model_id="{{ model.id }}"
+								data-sku="{{ model.sku }}" 
+								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
+								data-stock="{{ model.inventory_quantity }}"
+							>
+								<span>{{ model.title }}</span>
+								<img src="{{ 'store_model_selected.svg' | asset_url }}">
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				<div class="store_block-add-wireless-charger">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
+					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
+					<span class="store_block-add-wireless-charger-price">+ $40</span>
+				</div>
+				<div class="store_block-product-order">
+					<button class="store_block-product-add">Order now</button>
+					<button class="store_block-product-add-mobile">
+						<div class="store_block-product-add-mobile-text">Order now</div>
+						<div class="store_block-product-add-mobile-total">$ 259</div>
+					</button>
+					<div class="store_block-product-order-features">
+						<div class="store_block-product-order-feature">
+							<div class="store_block-product-order-feature-icon">
+								<img src="{{ 'feature_free_shipping.svg' | asset_url }}">
+							</div>
+							<div class="store_block-product-order-feature-text">
+								<span class="store_block-product-order-feature-text-main">Free shipping</span> in all domestic orders
+							</div>
+						</div>
+						<div class="store_block-product-order-feature">
+							<div class="store_block-product-order-feature-icon">
+								<img src="{{ 'feature_no_import.svg' | asset_url }}">
+							</div>
+							<div class="store_block-product-order-feature-text">
+								<span class="store_block-product-order-feature-text-main">No import tax</span> for international orders
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
+	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var imgnum = 0
+		setGalleryImage()
+		
+		var galleryWrap = document.querySelector('.store_block-product-gallery-mobile')
+
+		var startX, startY, deltaX, deltaY, listing = false
+
+		function handleMouseDown(event) {
+			event.preventDefault()
+			startX = event.touches ? event.touches[0].clientX : event.clientX
+			startY = event.touches ? event.touches[0].clientY : event.clientY
+			deltaX = 0
+			deltaY = 0
+			listing = true
+		}
+
+		function handleMouseMove(event) {
+		  	// if (listing) {
+		  		const clientX = event.touches ? event.touches[0].clientX : event.clientX
+		  		const clientY = event.touches ? event.touches[0].clientY : event.clientY
+			    deltaX = clientX - startX
+			    deltaY = clientY - startY
+			    startX = clientX
+			    startY = clientY
+			    if (Math.abs(deltaX / deltaY) < 1) {
+			    	listing = false
+	                const scrollTop = $('body').scrollTop()
+	                $('body').scrollTop(scrollTop - deltaY)
+				}
+			// }
+		}
+
+		function handleMouseUp() {
+		    if (deltaX != 0 && listing) {
+				let direction = deltaX > 0 ? 'prev' : 'next'
+				handleDirection(direction)
+			}
+			listing = false
+		}
+
+		galleryWrap.addEventListener('mousedown', handleMouseDown)
+		galleryWrap.addEventListener('mousemove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('mouseup', handleMouseUp/*, { once: true }*/)
+
+		galleryWrap.addEventListener('touchstart', handleMouseDown)
+		galleryWrap.addEventListener('touchmove', handleMouseMove/*, { once: true }*/)
+		galleryWrap.addEventListener('touchend', handleMouseUp/*, { once: true }*/)
+
+		$('.store_block-product-gallery-item').on('click', function() {
+			imgnum = $(this).data('imgnum')
+			$('.store_block-product-gallery-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(this).addClass('active')
+			setGalleryImage()
+		})
+
+		$('.store_block-product-gallery-mobile-dot').on('click', function() {
+			imgnum = $(this).data('imgnum')
+			setGalleryImage()
+		})
+
+		/*$('.store_block-product-gallery-mobile-nav').on('click', function() {
+			let direction = $(this).data('direction')
+		})*/
+
+		function handleDirection(direction) {
+			console.log(direction)
+			if (direction == 'prev') {
+				imgnum = imgnum -= 1
+				if (imgnum < 0) imgnum = 5
+			}
+			if (direction == 'next') {
+				imgnum = imgnum += 1
+				if (imgnum > 5) imgnum = 0
+			}
+			setGalleryImage()
+		}
+
+		function setGalleryImage() {
+			$('.store_block-product-gallery-main').find('img').each(function() {
+				if ($(this).data('imgnum') == imgnum) $(this).show()
+				else $(this).hide()
+			})
+			$('.store_block-product-gallery-mobile-dot').each(function() {
+				if ($(this).data('imgnum') == imgnum) {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').show()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').hide()
+				}
+				else {
+					$(this).find('.store_block-product-gallery-mobile-dot-active').hide()
+					$(this).find('.store_block-product-gallery-mobile-dot-inactive').show()
+				}
+			})
+		}
+
+		var model_id = null
+		// selectModel('TT22')
+		$('.store_block-product-select-dropdown-select').on('click', function() {
+			let dropdown = $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+			// $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
+		})
+		$('.store_block-product-select-dropdown-item').on('click', function() {
+			let sku = $(this).data('sku')
+			selectModel(sku)
+		})
+		$(document).click(function(event) { 
+			var $target = $(event.target)
+			if (!$target.closest('.store_block-product-select').length && 
+				!$target.closest('.store_block-product-select-dropdown').length && 
+				$('.store_block-product-select-dropdown').is(":visible")) {
+				$('.store_block-product-select-dropdown').hide()
+			}        
+		})
+		var price = null, charger_selected = true
+		function selectModel(sku) {
+			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
+			model_id = model.data('model_id')
+			$('.store_block-product-select-dropdown-item').each(function() {
+				if ($(this).data('sku') == sku) $(this).addClass('store_block-product-select-dropdown-item-selected')
+					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
+			})
+			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
+			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+			price = model.data('price') / 100
+			setTotalPrice(price, charger_selected)
+			if (model.data('compare_at_price')) {
+				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+			}
+			if (model.data('stock') <= 0) {
+				$('.store_block-add-wireless-charger-time').show()
+			}
+			else {
+				$('.store_block-add-wireless-charger-time').hide()
+			}
+			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
+		}
+		$('#select-charger').on('change', function() {
+			charger_selected = $(this).prop('checked')
+			setTotalPrice(price, charger_selected)
+		})
+		function setTotalPrice(price, charger_selected) {
+			if (price) {
+				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
+				$('.store_block-product-add-mobile-total').text('$ ' + totalPrice)
+			}
+			else {
+				$('.store_block-product-add-mobile-total').text('')
+			}
+		}
+		var cart_qty = Number({{ cart.item_count }})
+		$('.store_block-product-add, .store_block-product-add-mobile').on('click', function() {
+			console.log('click to add')
+			if (model_id) {
+				let items = [{
+					'id': model_id,
+					'quantity': 1
+				}]
+				let add_items_count = 1
+				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+					let charger_variant_id = $('#charger-variant-id').val()
+					console.log(Number(charger_variant_id))
+					items.push({
+						'id': Number(charger_variant_id),
+						'quantity': 1
+					})
+					add_items_count++
+				}
+				console.log(items)
+				let formData = {
+				 	'items': items
+				}
+				fetch(window.Shopify.routes.root + 'cart/add.js', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				})
+				.then(response => {
+					/*cart_qty = cart_qty + add_items_count
+					$('.cart-qty').text(cart_qty)
+					$('.cart-link').fadeIn()
+					var f = $('.store_block-product-gallery-image')
+					var cart_total = $("#cart-animate");
+					var clone = $('<div class="cart"></div>').append(f.clone());
+					clone.appendTo('body');
+					clone.css({
+						'z-index': 100500,
+						background: '#fff',
+						top: f.offset().top,
+						left: f.offset().left,
+						width: f.width() + 'px',
+						height: f.height() + 'px',
+						position: 'absolute',
+						overflow: 'hidden'
+					}).animate({
+						top: cart_total.offset().top,
+						left: cart_total.offset().left,
+						width: cart_total.width() + 'px',
+						height: cart_total.height() + 'px',
+						// opacity: 0.7
+					}, 2000, function () {
+						$(this).remove();
+					});
+					$('.menu__item-button').hide();
+					$('.menu__item-cart').show();*/
+					// console.log(response)
+				  	// return response.json()
+				  	window.location.href = '/cart'
+				})
+				.catch((error) => {
+				  	console.error('Error:', error)
+				});
+			}
+		})
+	})
+</script>
