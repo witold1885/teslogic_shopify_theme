@@ -250,11 +250,11 @@
     .screenmate-specifications-collage-main-block-column.small {
         width: 196px;
     }
-    .screenmate-specifications-collage-main-block-item.complex {
+    .screenmate-specifications-collage-main-block-item-column {
         display: flex;
         flex-direction: column;
     }
-    .screenmate-specifications-collage-main-block-item.complex > div:first-child {
+    .screenmate-specifications-collage-main-block-item-column > div:first-child {
         color: #595959;
         font-family: Manrope;
         font-size: 14px;
@@ -263,14 +263,18 @@
         line-height: 20px;
         text-transform: uppercase;
     }
-    .screenmate-specifications-collage-main-block-item.complex > div:last-child,
-    .screenmate-specifications-collage-main-block-item.simple {
+    .screenmate-specifications-collage-main-block-item-column > div:last-child,
+    .screenmate-specifications-collage-main-block-item-simple {
         color: #A0A0A0;
         font-family: Manrope;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
         line-height: 20px;
+    }
+    .screenmate-specifications-collage-main-block-item-row {
+        display: flex;
+        column-gap: 8px;
     }
 </style>
 
@@ -328,24 +332,24 @@
                             </div>
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column big">
-                                    <div class="screenmate-specifications-collage-main-block-item complex">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>Chipset</div>
                                         <div>
                                             Qualcomm SM6225, Quad-core ARMs Cortex™-A73, <br>
                                             2.4GHz+Quad-core ARM Cortex™-A53,1.9GHz
                                         </div>
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item complex">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>GPU</div>
                                         <div>Adreno 610</div>
                                     </div>
                                 </div>
                                 <div class="screenmate-specifications-collage-main-block-column big">
-                                    <div class="screenmate-specifications-collage-main-block-item complex">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>MEMORY</div>
                                         <div>4(or 8) GB LPDDR4X RAM; <br>64(or 128) GB UFS</div>
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item complex">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>OS</div>
                                         <div>Android 14</div>
                                     </div>
@@ -358,11 +362,11 @@
                             </div>
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column big">
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         Nordic NRF52840 Bluetooth Low Energy, <br>
                                         ARM Cortex-M4, 64 MHz, 1 MB flash, 256 KB SRAM
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         2xSTM32G, ARM Cortex-M4 170 <br>
                                         MHz, 512 KB flash,
                                     </div>
@@ -375,7 +379,7 @@
                             </div>
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column big">
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         LTE FDD/TDD, WCDMA, <br>
                                         up to 150Mbps
                                     </div>
@@ -388,30 +392,30 @@
                             </div>
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column small">
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         USB Type-C DisplayPort <br>Alt Mode Input
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         Micro HDMI input
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         mini-SIM card slot
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         USB 3.1 data
                                     </div>
                                 </div>
                                 <div class="screenmate-specifications-collage-main-block-column small">
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         USB PowerDelivery <br>Charger Input
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         3xCAN Bus Automotive
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         2xFPD Video
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         8xGPIO
                                     </div>
                                 </div>
@@ -423,13 +427,13 @@
                             </div>
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column big">
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         Bluetooth 5.0 BR/EDR/BLE <br>(Android SoM)
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         Bluetooth 5.4 (Teslogic Dash output)
                                     </div>
-                                    <div class="screenmate-specifications-collage-main-block-item simple">
+                                    <div class="screenmate-specifications-collage-main-block-item-simple">
                                         WiFi 802.11 a/b/g/n/ac 
                                     </div>
                                 </div>
@@ -437,6 +441,20 @@
                         </div>
                     </div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
+                    <div class="screenmate-specifications-collage-main-grid">
+                        <div class="screenmate-specifications-collage-main-block">
+                            <div class="screenmate-specifications-collage-main-block-title">
+                                Compatibility Models
+                            </div>
+                            <div class="screenmate-specifications-collage-main-block-row">
+                                <div class="screenmate-specifications-collage-main-block-column small">
+                                    <div class="screenmate-specifications-collage-main-block-item-row">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
 
                 </div>
