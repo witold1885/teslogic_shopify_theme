@@ -189,6 +189,20 @@
     .screenmate-specifications-collage-main-sketch-right-3 {
         width: 305px !important;
     }
+    .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right {
+        width: 88px;
+        height: 78px;
+        right: -24px;
+        bottom: 0;
+    }
+    .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right .border-dashed {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2px;
+        background: url({{ 'screenmate_border_note_left.png' | asset_url }});
+        background-size: contain;
+    }
 </style>
 
 <div class="screenmate-specifications">
@@ -222,6 +236,12 @@
                         <div class="screenmate-specifications-collage-main-sketch-right">
                             <div class="screenmate-specifications-collage-main-sketch-right-1">
                                 <img src="{{ 'screenmate_sketch_right_1.png' | asset_url }}" alt="">
+                                <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-right">
+                                    <div>
+                                        <div class="border-dashed"></div>
+                                        <div class="note-text">1 in (2,5 cm)</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="screenmate-specifications-collage-main-sketch-right-2">
                                 <img src="{{ 'screenmate_sketch_right_2.png' | asset_url }}" alt="">
