@@ -109,6 +109,14 @@
     .screenmate-specifications-collage-main-sketch-note > div > div {
         position: absolute;
     }
+    .screenmate-specifications-collage-main-sketch-note .note-text {
+        color: #FFF;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
     .screenmate-specifications-collage-main-sketch-note-top {
         
         border-left: 1px solid #666;
@@ -143,14 +151,8 @@
         background-size: contain;
     }
     .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-top .note-text {
-        top: -20px;
+        top: -44px;
         left: 152px;
-        color: #FFF;
-        font-family: Manrope;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px;
     }
     .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left {
         width: 88px;
@@ -165,6 +167,11 @@
         width: 2px;
         background: url({{ 'screenmate_border_note_left.png' | asset_url }});
         background-size: contain;
+    }
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left .note-text {
+        top: -44px;
+        left: 152px;
+        transform: rotate(-90deg);
     }
 </style>
 
