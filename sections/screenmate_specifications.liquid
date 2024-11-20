@@ -395,6 +395,10 @@
         line-height: 24px;
         cursor: pointer;
     }
+    .screenmate-specifications-installation-body-link img {
+        width: 16px;
+        height: 24px;
+    }
 </style>
 
 <div class="screenmate-specifications">
@@ -642,13 +646,10 @@
                     </div>
                     <div class="screenmate-specifications-installation-body-link">
                         <div>Read Manual</div>
-                        <img src="{{ 'screenmate_installation_chevron_blue.svg'}}" alt="">
-                    </div>
-                
-                </div>
-            
+                        <img src="{{ 'screenmate_installation_chevron_blue.svg' | asset_url }}" alt="">
+                    </div>                
+                </div>            
             </div>
-
         </div>
     </div>
 </div>
