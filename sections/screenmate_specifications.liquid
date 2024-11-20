@@ -85,6 +85,25 @@
         background: linear-gradient(90deg, #272727 0%, #666 50%, #272727 100%);
         box-sizing: border-box;
     }
+    .screenmate-specifications-collage-main-sketch {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 91px 0 56px;
+    }
+    .screenmate-specifications-collage-main-sketch > div {
+        position: relative;
+    }
+    .screenmate-specifications-collage-main-sketch > div img {
+        width: 100%;
+    }
+    .screenmate-specifications-collage-main-sketch-note {
+        position: absolute;
+    }
+    .screenmate-specifications-collage-main-sketch-left {
+        width: 416px;
+        height: 328px;
+    }
 </style>
 
 <div class="screenmate-specifications">
@@ -99,6 +118,13 @@
                     </div>
                 </div>
                 <div class="screenmate-specifications-collage-main-body">
+                    <div class="screenmate-specifications-collage-main-sketch">
+                        <div class="screenmate-specifications-collage-main-sketch-left">
+                            <img src="{{ 'screenmate_sketch_left.png' | asset_url }}" alt="">
+                        </div>
+                        <div class="screenmate-specifications-collage-main-sketch-right">
+                        </div>
+                    </div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
                     <div class="screenmate-specifications-collage-main-body-delimiter"></div>
