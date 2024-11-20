@@ -275,6 +275,16 @@
     .screenmate-specifications-collage-main-block-item-row {
         display: flex;
         column-gap: 8px;
+        color: #A0A0A0;
+        font-family: Manrope;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+    }
+    .screenmate-specifications-collage-main-block-item-row img {
+        width: 20px;
+        height: 20px;
     }
 </style>
 
@@ -449,7 +459,12 @@
                             <div class="screenmate-specifications-collage-main-block-row">
                                 <div class="screenmate-specifications-collage-main-block-column small">
                                     <div class="screenmate-specifications-collage-main-block-item-row">
-
+                                        <img src="{{ 'screenmate_compatibility_checkbox.svg' | asset_url }}" alt="">
+                                        <div>Model 3 (‘17-23)</div>
+                                    </div>
+                                    <div class="screenmate-specifications-collage-main-block-item-row">
+                                        <img src="{{ 'screenmate_compatibility_checkbox.svg' | asset_url }}" alt="">
+                                        <div>Model 3 Refresh 24</div>
                                     </div>
                                 </div>
                             </div>
