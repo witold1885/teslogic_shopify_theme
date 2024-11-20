@@ -125,7 +125,18 @@
         height: 95px;
         top: -20px;
         left: 0;
-        border-image-source: url({{ 'screenmate_border_note_top.png' | asset_url }});
+    }
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-top > div {
+        position: relative;
+    }
+    .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-top > div:before {
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: url({{ 'screenmate_border_note_top.png' | asset_url }});
+        background-size: contain;
     }
     .screenmate-specifications-collage-main-sketch-left .screenmate-specifications-collage-main-sketch-note-left {
         width: 88px;
@@ -150,7 +161,10 @@
                     <div class="screenmate-specifications-collage-main-sketch">
                         <div class="screenmate-specifications-collage-main-sketch-left">
                             <img src="{{ 'screenmate_sketch_left.png' | asset_url }}" alt="">
-                            <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-top"></div>
+                            <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-top">
+                                <div>
+                                </div>
+                            </div>
                             <div class="screenmate-specifications-collage-main-sketch-note screenmate-specifications-collage-main-sketch-note-left"></div>
 
                         </div>
