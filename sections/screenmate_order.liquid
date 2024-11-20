@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {% style %}	
+    .store_block-product {
+        width: 1076px;
+    }
 	.store_block-add-wireless-charger-checkbox:checked:after {
 		content: url({{ 'ok.svg' | asset_url }});
 		position: absolute;
@@ -12,6 +15,9 @@
 		color: #000;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
+        .store_block-product {
+            width: calc(1076 * 100vw / 1440);
+        }
 		.store_block-add-wireless-charger-checkbox:checked:after {
 			width: calc(10 * 100vw / 1440);
 			height: calc(6.667 * 100vw / 1440);
@@ -33,7 +39,7 @@
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div class="store_block">
-	<div class="store_block-product" id="shop-now" style="width: 1076px;">
+	<div class="store_block-product" id="shop-now">
 		<div class="store_block-product-gallery">
 			{% comment %} <div class="store_block-product-gallery-items">
 				{% assign counter = 0 %}  
