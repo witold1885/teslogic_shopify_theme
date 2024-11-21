@@ -199,7 +199,7 @@
       {% elsif link.title != 'Community' %}
         <div
           class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
-          {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
+          {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
