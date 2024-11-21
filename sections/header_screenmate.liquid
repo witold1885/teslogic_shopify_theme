@@ -3,16 +3,16 @@
 
 {%- style -%}
     .banner-desktop-wrap {
-        background: url({{ 'bg_screenmate.png' | asset_url }});
-        background-size: cover;
-        background-position: center;
+      background: url({{ 'bg_screenmate.png' | asset_url }});
+      background-size: cover;
+      background-position: center;
     }
 
     .banner {
-    background: url({{ 'screenmate_bg_mobile.png' | asset_url}});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+      background: url({{ 'bg_screenmate_mobile.png' | asset_url}});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 {%- endstyle -%}
 
@@ -226,7 +226,7 @@
       {% elsif link.title != 'Community' %}
         <div
           class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
-          {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
+          {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
@@ -262,13 +262,13 @@
       {% endif %}
       {% endfor %}   
     </div>
-      <div class="banner-buttons">
+      {% comment %} <div class="banner-buttons">
         <a class="banner-button-subscribe">Subscribe</a>
-      </div>
+      </div> {% endcomment %}
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
-      <div class="screenmate-logo-shadow"></div>
+      {% comment %} <div class="screenmate-logo-shadow"></div>
       <div class="screenmate-logo">
         <img src="{{ 'screenmate-logo-mobile.svg' | asset_url }}">
       </div>
@@ -289,6 +289,6 @@
           <img class="screenmate-info-link-kickstarter" src="{{ 'kickstarter.svg' | asset_url }}">
           <img class="screenmate-info-link-chevron" src="{{ 'screenmate-chevron.svg' | asset_url }}">
         </button>
-      </div>
+      </div> {% endcomment %}
   </div>
 </header>
