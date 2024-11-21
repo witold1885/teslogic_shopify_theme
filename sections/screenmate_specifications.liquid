@@ -858,18 +858,22 @@
             width: calc(2 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-sketch-right-1 .screenmate-specifications-collage-main-sketch-note-right .note-text {
-            right: calc(-1 * 44 * 100vw / 375);
-            bottom: calc(-1 * 24 * 100vw / 375);
+            right: calc(-1 * 24 * 100vw / 375);
+            bottom: calc(-1 * 33.4 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-sketch-right-3 {
             width: calc(187.7 * 100vw / 375) !important;
         }
         .screenmate-specifications-collage-main-grid {
-            column-gap: calc(24 * 100vw / 375);
+            display: flex;
+            flex-direction: column;
             row-gap: calc(40 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block {
             row-gap: calc(24 * 100vw / 375);
+        }
+        .screenmate-specifications-collage-main-block:first-child {
+            grid-column: unset;
         }
         .screenmate-specifications-collage-main-block-title {
             font-size: calc(24 * 100vw / 375);
