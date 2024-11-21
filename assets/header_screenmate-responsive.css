@@ -139,11 +139,9 @@
 	}
 	#header_mobile {
 		width: 100%;
-		height: 100dvh;
-		min-height: 810px;
-/*		height: calc(2210 * 100vw / 375);*/
-/*		height: 810px;*/
-/*		height: 812px;*/
+		/* height: 100dvh; */
+		/* min-height: 812px; */
+		/* height: 812px;*/
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -331,6 +329,13 @@
 		justify-content: space-between;
 		align-items: center;
 		position: relative;
+	}
+	.banner-kickstarter {
+		width: 120px;
+		height: 120px;
+	}
+	.banner-kickstarter img {
+		width: 100%;
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
