@@ -60,7 +60,6 @@
           </div>
         {% endif %}
         {% endfor %}
-        <!-- <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div> -->
         <div 
           class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -171,7 +170,6 @@
           </div>
         {% endif %}
         {% endfor %}
-        {% comment %} <div class="menu__item menu__item-button menu__item-subscribe">Subscribe</div> {% endcomment %}
         <div 
           id="cart-animate"
           class="menu__item menu__item-cart"
@@ -262,15 +260,23 @@
       {% endif %}
       {% endfor %}   
     </div>
-      {% comment %} <div class="banner-buttons">
-        <a class="banner-button-subscribe">Subscribe</a>
-      </div> {% endcomment %}
+    <div class="banner-buttons">
+      <a class="banner-button-preorder">Preorder now</a>
+    </div>
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
-    <div class="banner-kickstarter">
-      <img src="{{ 'screenmate_banner_kickstarter.png' | asset_url }}">
-    </div>
+      <div class="banner-body">
+        <div class="banner-kickstarter">
+          <img src="{{ 'screenmate_banner_kickstarter.png' | asset_url }}">
+        </div>
+        <div class="banner-caption">
+
+        </div>
+        <div class="banner-button">
+
+        </div>
+      </div>
   </div>
 </header>
   
