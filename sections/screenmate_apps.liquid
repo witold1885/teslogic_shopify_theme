@@ -69,10 +69,13 @@
         background-size: cover;
         background-position: center;
     }
-    .screenmate-apps-features {
+    .screenmate-apps-features-desktop {
         display: flex;
         flex-wrap: wrap;
         gap: 24px;
+    }
+    .screenmate-apps-features-mobile {
+        display: none;
     }
     .screenmate-apps-feature {
         position: relative;
@@ -121,9 +124,6 @@
     }
     .screenmate-apps-feature-06 .screenmate-apps-feature-description {
         width: 262px;
-    }
-    .screenmate-apps-feature-image-mobile-container {
-        display: none;
     }
     .screenmate-apps-feature img {
         position: absolute;
@@ -198,7 +198,7 @@
             height: calc(557 * 100vw / 1440);
             border-radius: calc(40 * 100vw / 1440);
         }
-        .screenmate-apps-features {
+        .screenmate-apps-features-desktop {
             gap: calc(24 * 100vw / 1440);
         }
         .screenmate-apps-feature {
@@ -303,8 +303,13 @@
             height: calc(214 * 100vw / 375);
             border-radius: calc(24 * 100vw / 375);
         }
-        .screenmate-apps-features {
-            gap: calc(12 * 100vw / 375);
+        .screenmate-apps-features-desktop {
+            display: none;
+        }
+        .screenmate-apps-features-mobile {
+            display: flex;
+            flex-direction: column;
+            row-gap: calc(12 * 100vw / 375);
         }
         .screenmate-apps-feature {
             width: calc(335 * 100vw / 375);
@@ -340,12 +345,6 @@
         .screenmate-apps-feature-06 .screenmate-apps-feature-description {
             width: calc(262 * 100vw / 375);
         }*/
-        .screenmate-apps-feature-image-desktop {
-            display: none;
-        }
-        .screenmate-apps-feature-image-mobile-container {
-            display: flex;
-        }
         .screenmate-apps-feature-01 img {
             width: calc(201 * 100vw / 375);
             height: calc(226 * 100vw / 375);
@@ -383,7 +382,8 @@
     }
 </style>
 
-{% assign features = blogs['screenmate-apps'].articles | sort: 'title' %}
+{% assign features_desktop = blogs['screenmate-apps'].articles | sort: 'title' %}
+{% assign features_mobile = blogs['screenmate-apps-mobile'].articles | sort: 'title' %}
 
 <div class="screenmate-apps">
     <div class="screenmate-apps-wrap">
@@ -396,17 +396,27 @@
                 <div class="screenmate-apps-collage-background"></div>
                 <div class="screenmate-apps-collage-image"></div>
             </div>
-            <div class="screenmate-apps-features">
-		        {% for feature in features %}
+            <div class="screenmate-apps-features-desktop">
+		        {% for feature in features_desktop %}
                     {% assign title_array = feature.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = feature.title | replace: number, '' %}
                     <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
                         <div class="screenmate-apps-feature-title">{{ title }}</div>
                         <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
-                        <img class="screenmate-apps-feature-image-desktop" src="{{ feature.image | img_url }}" alt="{{ title }}">
-                        <div class="screenmate-apps-feature-image-mobile-container">
-                        </div>
+                        <img src="{{ feature.image | img_url }}" alt="{{ title }}">
+                    </div>
+	    	    {% endfor %}
+            </div>
+            <div class="screenmate-apps-features-mobile">
+		        {% for feature in features_mobile %}
+                    {% assign title_array = feature.title | split: ' ' %}
+                    {% assign number = title_array.first %}
+                    {% assign title = feature.title | replace: number, '' %}
+                    <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
+                        <div class="screenmate-apps-feature-title">{{ title }}</div>
+                        <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
+                        <img src="{{ feature.image | img_url }}" alt="{{ title }}">
                     </div>
 	    	    {% endfor %}
             </div>
