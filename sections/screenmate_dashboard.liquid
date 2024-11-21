@@ -565,6 +565,7 @@
         .screenmate-dashboard-native-collage-background {
             height: calc(215 * 100vw / 375);
             border-radius: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(36 * 100vw / 375) calc(36 * 100vw / 375);
+            background: url({{ 'screenmate_dashboard_native_background_mobile.png' | asset_url }}) no-repeat;
             box-shadow: 0 calc(4 * 100vw / 375) calc(48 * 100vw / 375) 0 rgba(0, 0, 0, 0.10);
         }
         .screenmate-dashboard-native-collage-image {
@@ -582,7 +583,7 @@
         }
         .screenmate-dashboard-addons-items {
             flex-direction: column;
-            row-gap: calc(16 * 100vw / 375);
+            row-gap: calc(24 * 100vw / 375);
         }
         .screenmate-dashboard-addons-item-title {
             height: calc(64 * 100vw / 375);
@@ -593,7 +594,7 @@
         .screenmate-dashboard-addons-item-image {
             width: calc(336 * 100vw / 375);
             height: calc(189 * 100vw / 375);
-            margin-bottom: calc(11 * 100vw / 375);
+            margin-bottom: calc(16 * 100vw / 375);
         }
         .screenmate-dashboard-addons-item-text {
             font-size: calc(14 * 100vw / 375);
