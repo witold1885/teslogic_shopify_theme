@@ -892,6 +892,8 @@
         .screenmate-specifications-collage-main-block-row-first-mobile {
             display: flex;
             flex-wrap: wrap;
+            column-gap: calc(8 * 100vw / 375);
+            row-gap: calc(16 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block-column {
             row-gap: calc(16 * 100vw / 375);
@@ -926,9 +928,13 @@
             width: calc(20 * 100vw / 375);
             height: calc(20 * 100vw / 375);
         }
+        .screenmate-specifications-collage-main-bottom {
+            flex-direction: column;
+            row-gap: calc(20 * 100vw / 375);
+        }
         .screenmate-specifications-collage-main-bottom-info {
-            width: calc(396 * 100vw / 375);
-            margin-right: calc(20 * 100vw / 375);
+            width: calc(296 * 100vw / 375);
+            margin-right: 0;
             font-size: calc(16 * 100vw / 375);
             line-height: calc(20 * 100vw / 375);
         }
