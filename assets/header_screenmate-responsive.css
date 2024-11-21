@@ -331,11 +331,13 @@
 		position: relative;
 	}
 	.banner-body {
-		width: 100%;
+		width: 335px;
+		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		align-items: flex-start;
+		/* align-items: flex-start; */
+		row-gap: 20px;
 	}
 	.banner-kickstarter {
 		width: 120px;
@@ -343,6 +345,22 @@
 	}
 	.banner-kickstarter img {
 		width: 100%;
+	}
+	.banner-caption {
+		display: flex;
+		flex-direction: column;
+		row-gap: 12px;
+	}
+	.banner-caption img {
+		width: 100%;
+	}
+	.banner-caption-subtitle {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 48px;
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
