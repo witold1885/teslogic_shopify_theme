@@ -331,17 +331,17 @@
 		position: relative;
 	}
 	.banner-body {
-		width: 335px;
+		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
 		/* align-items: flex-start; */
-		row-gap: 20px;
+		row-gap: calc(20 * 100vw / 375);
 	}
 	.banner-kickstarter {
-		width: 120px;
-		height: 120px;
+		width: calc(120 * 100vw / 375);
+		height: calc(120 * 100vw / 375);
 	}
 	.banner-kickstarter img {
 		width: 100%;
@@ -349,7 +349,7 @@
 	.banner-caption {
 		display: flex;
 		flex-direction: column;
-		row-gap: 12px;
+		row-gap: calc(12 * 100vw / 375);
 	}
 	.banner-caption img {
 		width: 100%;
@@ -357,10 +357,10 @@
 	.banner-caption-subtitle {
 		color: #FFF;
 		font-family: Manrope;
-		font-size: 40px;
+		font-size: calc(40 * 100vw / 375);
 		font-style: normal;
 		font-weight: 600;
-		line-height: 48px;
+		line-height: calc(48 * 100vw / 375);
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
@@ -407,5 +407,12 @@
 	}
 	.burger-menu-wrap .banner-button-preorder:hover {
 		padding: calc(14 * 100vw / 375) calc(38 * 100vw / 375);
+	}
+	.banner-expand {
+		width: calc(64 * 100vw / 375);
+		height: calc(64 * 100vw / 375);
+	}
+	.banner-expand img {
+		width: 100%;
 	}
 }
