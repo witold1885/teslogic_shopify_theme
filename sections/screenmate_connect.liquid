@@ -53,6 +53,9 @@
         width: 454px;
         height: 322px;
     }
+    .screenmate-connect-collage-main-image-mobile {
+        display: none;
+    }
     .screenmate-connect-collage-main-image img {
         width: 100%;
     }
@@ -242,6 +245,12 @@
             width: calc(280 * 100vw / 375);
             height: calc(212 * 100vw / 375);
         }
+        .screenmate-connect-collage-main-image-desktop {
+            display: none;
+        }
+        .screenmate-connect-collage-main-image-mobile {
+            display: block;
+        }
         .screenmate-connect-collage-main-info {
             row-gap: calc(8 * 100vw / 375);
         }
@@ -300,8 +309,11 @@
         <div class="screenmate-connect-collage">
             <div class="screenmate-connect-collage-background"></div>
             <div class="screenmate-connect-collage-main">
-                <div class="screenmate-connect-collage-main-image">
+                <div class="screenmate-connect-collage-main-image screenmate-connect-collage-main-image-desktop">
                     <img src="{{ 'screenmate_connect_image_1.png' | asset_url }}" alt="">
+                </div>
+                <div class="screenmate-connect-collage-main-image screenmate-connect-collage-main-image-mobile">
+                    <img src="{{ 'screenmate_connect_image_mobile_1.png' | asset_url }}" alt="">
                 </div>
                 <div class="screenmate-connect-collage-main-info">
                     <div class="screenmate-connect-collage-main-info-icons">
