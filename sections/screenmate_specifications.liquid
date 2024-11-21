@@ -890,18 +890,22 @@
         }
         .screenmate-specifications-collage-main-block-row-first-mobile {
             display: flex;
+            flex-wrap: wrap;
         }
         .screenmate-specifications-collage-main-block-column {
             row-gap: calc(16 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block:first-child .screenmate-specifications-collage-main-block-column {
-            row-gap: calc(20 * 100vw / 375);
+            row-gap: calc(16 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block-column.big {
-            width: calc(416 * 100vw / 375);
+            width: calc(296 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block-column.small {
-            width: calc(196 * 100vw / 375);
+            width: calc(296 * 100vw / 375);
+        }
+        .screenmate-specifications-collage-main-block-column.xs {
+            width: calc(145 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block-item-column > div:first-child {
             font-size: calc(14 * 100vw / 375);
