@@ -122,6 +122,9 @@
     .screenmate-apps-feature-06 .screenmate-apps-feature-description {
         width: 262px;
     }
+    .screenmate-apps-feature-image-mobile-container {
+        display: none;
+    }
     .screenmate-apps-feature img {
         position: absolute;
     }
@@ -315,10 +318,11 @@
             line-height: calc(32 * 100vw / 375);
         }
         .screenmate-apps-feature-description {
+            width: calc(288 * 100vw / 375);
             font-size: calc(16 * 100vw / 375);
             line-height: calc(20 * 100vw / 375);
         }
-        .screenmate-apps-feature-01 .screenmate-apps-feature-description {
+        /*.screenmate-apps-feature-01 .screenmate-apps-feature-description {
             width: calc(262 * 100vw / 375);
         }
         .screenmate-apps-feature-02 .screenmate-apps-feature-description {
@@ -335,6 +339,12 @@
         }
         .screenmate-apps-feature-06 .screenmate-apps-feature-description {
             width: calc(262 * 100vw / 375);
+        }*/
+        .screenmate-apps-feature-image-desktop {
+            display: none;
+        }
+        .screenmate-apps-feature-image-mobile-container {
+            display: flex;
         }
         .screenmate-apps-feature-01 img {
             width: calc(201 * 100vw / 375);
@@ -394,7 +404,9 @@
                     <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
                         <div class="screenmate-apps-feature-title">{{ title }}</div>
                         <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
-                        <img src="{{ feature.image | img_url }}" alt="{{ title }}">
+                        <img class="screenmate-apps-feature-image-desktop" src="{{ feature.image | img_url }}" alt="{{ title }}">
+                        <div class="screenmate-apps-feature-image-mobile-container">
+                        </div>
                     </div>
 	    	    {% endfor %}
             </div>
