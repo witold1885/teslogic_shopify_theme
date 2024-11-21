@@ -893,7 +893,6 @@
         .screenmate-specifications-collage-main-block-row-first-mobile {
             display: flex;
             flex-wrap: wrap;
-            column-gap: calc(8 * 100vw / 375);
             row-gap: calc(16 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block-column {
@@ -946,7 +945,7 @@
             display: none;
         }
         .screenmate-specifications-installation {
-            row-gap: calc(40 * 100vw / 375);
+            row-gap: calc(22 * 100vw / 375);
         }
         .screenmate-specifications-installation-title {
             font-size: calc(52 * 100vw / 375);
@@ -955,6 +954,9 @@
         .screenmate-specifications-installation-body {
             height: calc(330 * 100vw / 375);
             column-gap: calc(40 * 100vw / 375);
+        }
+        .screenmate-specifications-installation-body > div {
+            position: static;
         }
         .screenmate-specifications-installation-body-left {
             top: 0;
