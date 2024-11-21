@@ -238,6 +238,9 @@
         display: flex;
         column-gap: 24px;
     }
+    .screenmate-specifications-collage-main-block-row-first-mobile {
+        display: none;
+    }
     .screenmate-specifications-collage-main-block-column {
         display: flex;
         flex-direction: column;
@@ -870,7 +873,7 @@
             row-gap: calc(40 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block {
-            row-gap: calc(24 * 100vw / 375);
+            row-gap: calc(20 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-block:first-child {
             grid-column: unset;
@@ -881,6 +884,12 @@
         }
         .screenmate-specifications-collage-main-block-row {
             column-gap: calc(24 * 100vw / 375);
+        }
+        .screenmate-specifications-collage-main-block-row-first-desktop {
+            display: none;
+        }
+        .screenmate-specifications-collage-main-block-row-first-mobile {
+            display: flex;
         }
         .screenmate-specifications-collage-main-block-column {
             row-gap: calc(16 * 100vw / 375);
@@ -1069,7 +1078,7 @@
                             <div class="screenmate-specifications-collage-main-block-title">
                                 Android System on Module
                             </div>
-                            <div class="screenmate-specifications-collage-main-block-row">
+                            <div class="screenmate-specifications-collage-main-block-row screenmate-specifications-collage-main-block-row-first-desktop">
                                 <div class="screenmate-specifications-collage-main-block-column big">
                                     <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>Chipset</div>
@@ -1088,6 +1097,35 @@
                                         <div>MEMORY</div>
                                         <div>4(or 8) GB LPDDR4X RAM; <br>64(or 128) GB UFS</div>
                                     </div>
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
+                                        <div>OS</div>
+                                        <div>Android 14</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenmate-specifications-collage-main-block-row-first-mobile">
+                                <div class="screenmate-specifications-collage-main-block-column small">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
+                                        <div>Chipset</div>
+                                        <div>
+                                            Qualcomm SM6225, Quad-core ARMs Cortex™-A73, <br>
+                                            2.4GHz+Quad-core ARM Cortex™-A53,1.9GHz
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="screenmate-specifications-collage-main-block-column small">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
+                                        <div>MEMORY</div>
+                                        <div>4(or 8) GB LPDDR4X RAM; <br>64(or 128) GB UFS</div>
+                                    </div>
+                                </div>
+                                <div class="screenmate-specifications-collage-main-block-column xs">
+                                    <div class="screenmate-specifications-collage-main-block-item-column">
+                                        <div>GPU</div>
+                                        <div>Adreno 610</div>
+                                    </div>
+                                </div>
+                                <div class="screenmate-specifications-collage-main-block-column xs">
                                     <div class="screenmate-specifications-collage-main-block-item-column">
                                         <div>OS</div>
                                         <div>Android 14</div>
