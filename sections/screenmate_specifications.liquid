@@ -798,7 +798,8 @@
             border-radius: calc(4 * 100vw / 375);
         }
         .screenmate-specifications-collage-main-sketch {
-            padding: calc(61 * 100vw / 375) calc(20 * 100vw / 375) calc(-1 * 10 * 100vw / 375);
+            padding: calc(61 * 100vw / 375) calc(20 * 100vw / 375) 0;
+            margin-bottom: calc(-1 * 10 * 100vw / 375);
             flex-direction: column;
             row-gap: calc(12 * 100vw / 375);
         }
@@ -937,6 +938,9 @@
             margin-right: 0;
             font-size: calc(16 * 100vw / 375);
             line-height: calc(20 * 100vw / 375);
+        }
+        .screenmate-specifications-collage-main-bottom-info br {
+            display: none;
         }
         .screenmate-specifications-installation {
             row-gap: calc(40 * 100vw / 375);
