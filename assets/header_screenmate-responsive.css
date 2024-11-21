@@ -330,6 +330,12 @@
 		align-items: center;
 		position: relative;
 	}
+	.banner-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+	}
 	.banner-kickstarter {
 		width: 120px;
 		height: 120px;
@@ -343,47 +349,12 @@
 		top: 0;
 		margin: 0 auto;
 	}
-	.banner-top {
-		width: calc(335 * 100vw / 375);
-		margin-top: calc(68 * 100vw / 375);
-		display: flex;
-		flex-direction: column;
-		grid-row-gap: calc(8 * 100vw / 375);
-		z-index: 2;
-	}
-	.banner__title {
-		color: #FFF;
-		font-family: Manrope;
-		font-size: calc(40 * 100vw / 375);
-		font-style: normal;
-		font-weight: 600;
-		line-height: calc(48 * 100vw / 375);
-		text-align: left;
-	}
-	.banner__subtitle {
-		color: #FFF;
-		font-family: Manrope;
-		font-size: calc(18 * 100vw / 375);
-		font-style: normal;
-		font-weight: 500;
-		line-height: calc(24 * 100vw / 375);
-		text-align: left;
-	}
-	.banner-bottom {
-		width: calc(335 * 100vw / 375);
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		align-items: flex-start;
-		grid-row-gap: calc(16 * 100vw / 375);
-		z-index: 2;
-	}
 	.burger-menu-wrap .banner-buttons {
 		width: calc(335 * 100vw / 375);
   		margin: 0 auto;
   		padding-bottom: calc(64 * 100vw / 375);
 	}
-	.banner-button-subscribe {
+	.banner-button-preorder {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -400,22 +371,22 @@
 		text-decoration: none;
 		box-sizing: border-box;
 	}
-	.banner-menu-closed .banner-button-subscribe {
+	.banner-menu-closed .banner-button-preorder {
 		padding: calc(16 * 100vw / 375) calc(40 * 100vw / 375);
 		border: none;
 		color: #FFF;
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.12);
 	}
-	.banner-menu-closed .banner-button-subscribe:hover {
+	.banner-menu-closed .banner-button-preorder:hover {
 		padding: calc(16 * 100vw / 375) calc(40 * 100vw / 375);
 	}
-	.burger-menu-wrap .banner-button-subscribe {
+	.burger-menu-wrap .banner-button-preorder {
 		padding: calc(14 * 100vw / 375) calc(38 * 100vw / 375);
 		border: 2px solid #0068FD;
 		color: #1657FC;
 		background: rgba(255, 255, 255, 0.04);		
 	}
-	.burger-menu-wrap .banner-button-subscribe:hover {
+	.burger-menu-wrap .banner-button-preorder:hover {
 		padding: calc(14 * 100vw / 375) calc(38 * 100vw / 375);
 	}
 }
