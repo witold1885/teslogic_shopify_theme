@@ -326,11 +326,12 @@
 		height: 812px;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: flex-end;
 		align-items: center;
 		position: relative;
 	}
 	.banner-body {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
