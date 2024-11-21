@@ -266,6 +266,111 @@
             height: calc(163 * 100vw / 1440);
         }
     }
+    @media screen and (max-width: 575px) {
+        .screenmate-apps {
+            padding: calc(96 * 100vw / 375) 0 calc(96 * 100vw / 375);
+        }
+        .screenmate-apps-wrap {
+            width: calc(335 * 100vw / 375);
+            row-gap: calc(24 * 100vw / 375);
+        }
+        .screenmate-apps-title {
+            column-gap: calc(24 * 100vw / 375);
+        }
+        .screenmate-apps-title div {
+            font-size: calc(32 * 100vw / 375);
+            line-height: calc(40 * 100vw / 375);
+        }
+        .screenmate-apps-title img {
+            width: calc(48 * 100vw / 375);
+            height: calc(52 * 100vw / 375);
+        }
+        .screenmate-apps-body {
+            row-gap: calc(12 * 100vw / 375);
+        }
+        .screenmate-apps-collage {
+            height: calc(222 * 100vw / 375);
+        }
+        .screenmate-apps-collage-background {
+            height: calc(206 * 100vw / 375);
+            border-radius: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375) calc(32 * 100vw / 375);
+        }
+        .screenmate-apps-collage-image {
+            width: calc(320 * 100vw / 375);
+            height: calc(214 * 100vw / 375);
+            border-radius: calc(24 * 100vw / 375);
+        }
+        .screenmate-apps-features {
+            gap: calc(12 * 100vw / 375);
+        }
+        .screenmate-apps-feature {
+            width: calc(335 * 100vw / 375);
+            height: calc(335 * 100vw / 375);
+            padding: calc(20 * 100vw / 375) calc(24 * 100vw / 375) 0;
+            border-radius: calc(24 * 100vw / 375);
+            row-gap: calc(12 * 100vw / 375);
+        }
+        .screenmate-apps-feature-title {
+            font-size: calc(24 * 100vw / 375);
+            line-height: calc(32 * 100vw / 375);
+        }
+        .screenmate-apps-feature-description {
+            font-size: calc(16 * 100vw / 375);
+            line-height: calc(20 * 100vw / 375);
+        }
+        .screenmate-apps-feature-01 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 375);
+        }
+        .screenmate-apps-feature-02 .screenmate-apps-feature-description {
+            width: calc(238 * 100vw / 375);
+        }
+        .screenmate-apps-feature-03 .screenmate-apps-feature-description {
+            width: calc(273 * 100vw / 375);
+        }
+        .screenmate-apps-feature-04 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 375);
+        }
+        .screenmate-apps-feature-05 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 375);
+        }
+        .screenmate-apps-feature-06 .screenmate-apps-feature-description {
+            width: calc(262 * 100vw / 375);
+        }
+        .screenmate-apps-feature-01 img {
+            width: calc(201 * 100vw / 375);
+            height: calc(226 * 100vw / 375);
+        }
+        .screenmate-apps-feature-02 img {
+            top: calc(3 * 100vw / 375);
+            right: calc(37 * 100vw / 375);
+            width: calc(220 * 100vw / 375);
+            height: calc(220 * 100vw / 375);
+        }
+        .screenmate-apps-feature-03 img {
+            top: calc(44 * 100vw / 375);
+            right: calc(35 * 100vw / 375);
+            width: calc(162 * 100vw / 375);
+            height: calc(132 * 100vw / 375);
+        }
+        .screenmate-apps-feature-04 img {
+            top: calc(44 * 100vw / 375);
+            right: calc(37 * 100vw / 375);
+            width: calc(148 * 100vw / 375);
+            height: calc(130 * 100vw / 375);
+        }
+        .screenmate-apps-feature-05 img {
+            top: calc(44 * 100vw / 375);
+            right: calc(39 * 100vw / 375);
+            width: calc(149 * 100vw / 375);
+            height: calc(151 * 100vw / 375);
+        }
+        .screenmate-apps-feature-06 img {
+            top: calc(32 * 100vw / 375);
+            right: calc(41 * 100vw / 375);
+            width: calc(175 * 100vw / 375);
+            height: calc(163 * 100vw / 375);
+        }
+    }
 </style>
 
 {% assign features = blogs['screenmate-apps'].articles | sort: 'title' %}
