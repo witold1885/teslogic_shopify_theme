@@ -164,6 +164,14 @@
         width: 175px;
         height: 163px;
     }
+    .screenmate-apps-feature-navigation-icons {
+        position: absolute;
+        left: 32px;
+        bottom: 28px;
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+    }
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
         .screenmate-apps {
             padding: calc(180 * 100vw / 1440) 0 calc(212 * 100vw / 1440);
@@ -267,6 +275,11 @@
             right: calc(41 * 100vw / 1440);
             width: calc(175 * 100vw / 1440);
             height: calc(163 * 100vw / 1440);
+        }
+        .screenmate-apps-feature-navigation-icons {
+            left: calc(32 * 100vw / 1440);
+            bottom: calc(28 * 100vw / 1440);
+            column-gap: calc(12 * 100vw / 1440);
         }
     }
     @media screen and (max-width: 575px) {
@@ -392,6 +405,13 @@
                         <div class="screenmate-apps-feature-title">{{ title }}</div>
                         <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
                         <img src="{{ feature.image | img_url }}" alt="{{ title }}">
+                        {% if number == '02' %}
+                            <div class="screenmate-apps-feature-navigation-icons">
+                                <img src="{{ 'screenmate_apps_navigation_icon_1.svg' | asset_url }}" alr="">
+                                <img src="{{ 'screenmate_apps_navigation_icon_2.svg' | asset_url }}" alr="">
+                                <img src="{{ 'screenmate_apps_navigation_icon_2.svg' | asset_url }}" alr="">
+                            </div>
+	    	            {% endif %}
                     </div>
 	    	    {% endfor %}
             </div>
