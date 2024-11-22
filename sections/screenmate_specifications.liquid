@@ -1057,6 +1057,7 @@
             position: static;
         }
         .screenmate-specifications-installation-body-left {
+            position: relative;
             top: unset;
             left: unset;
             width: calc(335 * 100vw / 375);
@@ -1068,6 +1069,15 @@
         }
         .screenmate-specifications-installation-body-left-border {
             display: none;
+        }
+        .screenmate-specifications-installation-body-left:before {
+            position: absolute;
+            z-index: -1;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(to bottom, #0A0A0A, #323232);
         }
         .screenmate-specifications-installation-body-left > div {
             width: calc(150 * 100vw / 375);
