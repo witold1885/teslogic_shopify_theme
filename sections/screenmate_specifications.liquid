@@ -343,21 +343,28 @@
         position: absolute;
     }
     .screenmate-specifications-installation-body-left {
-        top: 0;
-        left: 0;
-        width: 636px;
-        height: 330px;
+        top: 2px;
+        left: 2px;
+        width: 632px;
+        height: 326px;
         padding: 24px;
         display: flex;
         align-items: center;
         gap: 24px;
         border-radius: 40px;
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to bottom, #0A0A0A, #323232);
+        border: 2px solid #0A0A0A;
         background: linear-gradient(180deg, #0A0A0A 0%, #171717 100%);
         box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
         box-sizing: border-box;
+    }
+    .screenmate-specifications-installation-body-left-border {
+        top: 0;
+        left: 0;
+        width: 636px;
+        height: 330px;
+        z-index: -1;
+        border-radius: 40px;
+        background: linear-gradient(to bottom, #0A0A0A, #323232);
     }
     .screenmate-specifications-installation-body-left > div {
         width: 282px;
@@ -717,14 +724,21 @@
             column-gap: calc(40 * 100vw / 1440);
         }
         .screenmate-specifications-installation-body-left {
-            top: 0;
-            left: 0;
-            width: calc(636 * 100vw / 1440);
-            height: calc(330 * 100vw / 1440);
+            top: calc(2 * 100vw / 1440);
+            left: calc(2 * 100vw / 1440);
+            width: calc(632 * 100vw / 1440);
+            height: calc(326 * 100vw / 1440);
             padding: calc(24 * 100vw / 1440);
             gap: calc(24 * 100vw / 1440);
             border-radius: calc(40 * 100vw / 1440);
             box-shadow: 0 calc(4 * 100vw / 1440) calc(32 * 100vw / 1440) 0 rgba(0, 0, 0, 0.08);
+        }
+        .screenmate-specifications-installation-body-left-border {
+            top: 0;
+            left: 0;
+            width: calc(636 * 100vw / 1440);
+            height: calc(330 * 100vw / 1440);
+            border-radius: calc(40 * 100vw / 1440);
         }
         .screenmate-specifications-installation-body-left > div {
             width: calc(282 * 100vw / 1440);
@@ -1393,6 +1407,7 @@
                 Effortless Installation
             </div>
             <div class="screenmate-specifications-installation-body">
+                <div class="screenmate-specifications-installation-body-left-border"></div>
                 <div class="screenmate-specifications-installation-body-left">
                     <div>
                         <img src="{{ 'screenmate_installation_image_1.gif' | asset_url }}" alt="">
