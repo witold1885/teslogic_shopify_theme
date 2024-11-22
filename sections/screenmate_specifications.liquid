@@ -1057,7 +1057,6 @@
             position: static;
         }
         .screenmate-specifications-installation-body-left {
-            position: relative !important;
             top: unset;
             left: unset;
             width: calc(335 * 100vw / 375);
@@ -1068,6 +1067,9 @@
             box-shadow: 0 calc(4 * 100vw / 375) calc(32 * 100vw / 375) 0 rgba(0, 0, 0, 0.08);
         }
         .screenmate-specifications-installation-body-left-border {
+            position: absolute !important;
+        }
+        /*.screenmate-specifications-installation-body-left-border {
             display: none;
         }
         .screenmate-specifications-installation-body-left::before {
@@ -1078,7 +1080,7 @@
             right: -2px;
             bottom: -2px;
             background: linear-gradient(to bottom, #0A0A0A, #323232);
-        }
+        }*/
         .screenmate-specifications-installation-body-left > div {
             width: calc(150 * 100vw / 375);
             height: calc(150 * 100vw / 375);
