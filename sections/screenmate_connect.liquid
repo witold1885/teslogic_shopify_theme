@@ -105,8 +105,8 @@
     }
     .screenmate-connect-consoles-info-icons {
         display: flex;
-        flex-direction: row-reverse;
         align-items: center;
+        height: 48px;
         margin-bottom: 24px;
         position: relative;
     }
@@ -114,6 +114,7 @@
         width: 48px;
         height: 48px;
         position: absolute;
+        top: 0;
     }
     /*.screenmate-connect-consoles-info-icons img:not(:last-child) {
         margin-left: -24px;
@@ -205,6 +206,7 @@
             height: calc(526 * 100vw / 1440);
         }
         .screenmate-connect-consoles-info-icons {
+            height: calc(48 * 100vw / 1440);
             margin-bottom: calc(24 * 100vw / 1440);
         }
         .screenmate-connect-consoles-info-icons img {
@@ -214,6 +216,15 @@
         /*.screenmate-connect-consoles-info-icons img:not(:last-child) {
             margin-left: calc(-1 * 24 * 100vw / 1440);
         }*/
+        .screenmate-connect-consoles-info-icons img:nth-child(1) {
+            left: 0;
+        }
+        .screenmate-connect-consoles-info-icons img:nth-child(2) {
+            left: calc(24 * 100vw / 1440);
+        }
+        .screenmate-connect-consoles-info-icons img:nth-child(3) {
+            left: calc(48 * 100vw / 1440);
+        }
         .screenmate-connect-consoles-image {
             width: calc(526 * 100vw / 1440);
             height: calc(526 * 100vw / 1440);
@@ -296,14 +307,24 @@
             row-gap: calc(24 * 100vw / 375);
         }
         .screenmate-connect-consoles-info-icons {
+            height: calc(48 * 100vw / 375);
             margin-bottom: calc(24 * 100vw / 375);
         }
         .screenmate-connect-consoles-info-icons img {
             width: calc(48 * 100vw / 375);
             height: calc(48 * 100vw / 375);
         }
-        .screenmate-connect-consoles-info-icons img:not(:last-child) {
+        /*.screenmate-connect-consoles-info-icons img:not(:last-child) {
             margin-left: calc(-1 * 24 * 100vw / 375);
+        }*/
+        .screenmate-connect-consoles-info-icons img:nth-child(1) {
+            left: 0;
+        }
+        .screenmate-connect-consoles-info-icons img:nth-child(2) {
+            left: calc(24 * 100vw / 375);
+        }
+        .screenmate-connect-consoles-info-icons img:nth-child(3) {
+            left: calc(48 * 100vw / 375);
         }
         .screenmate-connect-consoles-image {
             width: calc(335 * 100vw / 375);
@@ -353,9 +374,9 @@
         <div class="screenmate-connect-consoles">
             <div class="screenmate-connect-consoles-info">
                 <div class="screenmate-connect-consoles-info-icons">
-                    <img src="{{ 'screenmate_connect_icon_steam.svg' | asset_url }}" alt="">
-                    <img src="{{ 'screenmate_connect_icon_xbox.svg' | asset_url }}" alt="">
                     <img src="{{ 'screenmate_connect_icon_ps.svg' | asset_url }}" alt="">
+                    <img src="{{ 'screenmate_connect_icon_xbox.svg' | asset_url }}" alt="">
+                    <img src="{{ 'screenmate_connect_icon_steam.svg' | asset_url }}" alt="">
                 </div>
                 <div class="screenmate-connect-consoles-info-title">
                     Console and <br>HDMI devices <br>connection
