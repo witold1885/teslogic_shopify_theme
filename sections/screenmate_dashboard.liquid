@@ -746,7 +746,7 @@
                             {% endif %}
                         </div>
                         <div class="screenmate-dashboard-addons-item-image">
-                            <img src="{{ addon.image | img_url }}" alt="{{ title }}">
+                            <img src="{{ addon.image | img_url: '1004x1004' }}" alt="{{ title }}">
                         </div>
                         <div class="screenmate-dashboard-addons-item-text">{{ addon.content }}</div>
                     </div>
