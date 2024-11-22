@@ -84,7 +84,7 @@
 		width: calc(10 * 100vw / 1440);
 		height: calc(6.667 * 100vw / 1440); 
 		top: calc(3.33 * 100vw / 1440);
-		left: calc(5 * 100vw / 1440);
+		left: calc(4 * 100vw / 1440);
 	}
 	.store_block-add-wireless-charger-title {
 		font-size: calc(16 * 100vw / 1440);
