@@ -9,7 +9,7 @@
   }
 
   .banner {
-    background: url({{ 'bg_screenmate_mobile.png' | asset_url}});
+    background: url({{ 'bg_screenmate_mobile.png' | asset_url }});
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -78,7 +78,7 @@
   <div class="header_main-fix"></div>
   <div class="banner-desktop-wrap">
     <div class="banner-desktop">
-        <div class="banner-desktop-ellipse"></div>
+        {% comment %} <div class="banner-desktop-ellipse"></div> {% endcomment %}
         <div class="banner-desktop-body">
             <div class="banner-desktop-body-device">
                 <img src="{{ 'sreenmate_banner_device.png' | asset_url }}">
