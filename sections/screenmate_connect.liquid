@@ -108,13 +108,27 @@
         flex-direction: row-reverse;
         align-items: center;
         margin-bottom: 24px;
+        position: relative;
     }
     .screenmate-connect-consoles-info-icons img {
         width: 48px;
         height: 48px;
+        position: absolute;
     }
-    .screenmate-connect-consoles-info-icons img:not(:last-child) {
+    /*.screenmate-connect-consoles-info-icons img:not(:last-child) {
         margin-left: -24px;
+    }*/
+    .screenmate-connect-consoles-info-icons img:nth-child(1) {
+        left: 0;
+        z-index: 3;
+    }
+    .screenmate-connect-consoles-info-icons img:nth-child(2) {
+        left: 24px;
+        z-index: 2;
+    }
+    .screenmate-connect-consoles-info-icons img:nth-child(3) {
+        left: 48px;
+        z-index: 1;
     }
     .screenmate-connect-consoles-image {
         width: 526px;
@@ -197,9 +211,9 @@
             width: calc(48 * 100vw / 1440);
             height: calc(48 * 100vw / 1440);
         }
-        .screenmate-connect-consoles-info-icons img:not(:last-child) {
+        /*.screenmate-connect-consoles-info-icons img:not(:last-child) {
             margin-left: calc(-1 * 24 * 100vw / 1440);
-        }
+        }*/
         .screenmate-connect-consoles-image {
             width: calc(526 * 100vw / 1440);
             height: calc(526 * 100vw / 1440);
