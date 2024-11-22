@@ -498,27 +498,30 @@
         width: 100%;
         height: 100%;
     }
-    .screenmate-specifications-box-item-small-image img:last-child {
+    .screenmate-specifications-box-item-small-image .screenmate-specifications-box-item-small-image-main {
         position: absolute;
     }
-    .screenmate-specifications-box-item-small:nth-child(1) .screenmate-specifications-box-item-small-image img:last-child {
+    .screenmate-specifications-box-item-small:nth-child(1) .screenmate-specifications-box-item-small-image .screenmate-specifications-box-item-small-image-main {
         top: 28.78px;
         left: 52px;
         width: 97.752px;
         height: 137.944px;
     }
-    .screenmate-specifications-box-item-small:nth-child(2) .screenmate-specifications-box-item-small-image img:last-child {
+    .screenmate-specifications-box-item-small:nth-child(2) .screenmate-specifications-box-item-small-image .screenmate-specifications-box-item-small-image-main {
         top: 36px;
         left: 30px;
         width: 136px;
         height: 138px;
     }
-    .screenmate-specifications-box-item-small:nth-child(3) .screenmate-specifications-box-item-small-image img:last-child {
+    .screenmate-specifications-box-item-small:nth-child(3) .screenmate-specifications-box-item-small-image .screenmate-specifications-box-item-small-image-main {
         top: 17px;
         left: 17px;
         width: 128.527px;
         height: 132.999px;
-        transform: rotate(-105deg);
+        transform: rotate(105deg);
+    }
+    .screenmate-specifications-box-item-small-image-main img {
+        width: 100%;
     }
     .screenmate-specifications-box-item-small-caption {
         color: #000;
@@ -1388,7 +1391,9 @@
                         <div class="screenmate-specifications-box-item-small">
                             <div class="screenmate-specifications-box-item-small-image">
                                 <img src="{{ 'screenmate_box_image_bg.svg' | asset_url }}" alt="">
-                                <img src="{{ 'screenmate_box_2.png' | asset_url }}" alt="">
+                                <div class="screenmate-specifications-box-item-small-image-main">
+                                    <img src="{{ 'screenmate_box_2.png' | asset_url }}" alt="">
+                                </div>
                             </div>
                             <div class="screenmate-specifications-box-item-small-caption">
                                 Phone Holder
@@ -1397,7 +1402,9 @@
                         <div class="screenmate-specifications-box-item-small">
                             <div class="screenmate-specifications-box-item-small-image">
                                 <img src="{{ 'screenmate_box_image_bg.svg' | asset_url }}" alt="">
-                                <img src="{{ 'screenmate_box_3.png' | asset_url }}" alt="">
+                                <div class="screenmate-specifications-box-item-small-image-main">
+                                    <img src="{{ 'screenmate_box_3.png' | asset_url }}" alt="">
+                                </div>
                             </div>
                             <div class="screenmate-specifications-box-item-small-caption">
                                 Video Interface Wirings
@@ -1406,7 +1413,9 @@
                         <div class="screenmate-specifications-box-item-small">
                             <div class="screenmate-specifications-box-item-small-image">
                                 <img src="{{ 'screenmate_box_image_bg.svg' | asset_url }}" alt="">
-                                <img src="{{ 'screenmate_box_4.png' | asset_url }}" alt="">
+                                <div class="screenmate-specifications-box-item-small-image-main">
+                                    <img src="{{ 'screenmate_box_4.png' | asset_url }}" alt="">
+                                </div>
                             </div>
                             <div class="screenmate-specifications-box-item-small-caption">
                                 CAN BUS Wiring
