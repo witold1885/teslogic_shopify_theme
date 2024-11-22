@@ -414,6 +414,12 @@
         font-weight: 400;
         line-height: 24px;
     }
+    .screenmate-specifications-installation-body-info .desktop-version {
+        display: block;
+    }
+    .screenmate-specifications-installation-body-info .mobile-version {
+        display: none;
+    }
     .screenmate-specifications-installation-body-link {
         display: flex;
         align-items: center;
@@ -1099,8 +1105,11 @@
             font-size: calc(16 * 100vw / 375);
             line-height: calc(20 * 100vw / 375);
         }
-        .screenmate-specifications-installation-body-info br {
+        .screenmate-specifications-installation-body-info .desktop-version {
             display: none;
+        }
+        .screenmate-specifications-installation-body-info .mobile-version {
+            display: block;
         }
         .screenmate-specifications-installation-body-link {
             column-gap: calc(8 * 100vw / 375);
@@ -1446,18 +1455,34 @@
                 </div>
                 <div class="screenmate-specifications-installation-body-right">
                     <div class="screenmate-specifications-installation-body-info">
-                        <div>
+                        <div class="desktop-version">
                             No need for complicated setups or special skills. <br>
                             The Screenmate installation is simple, non-<br>
                             invasive, and takes just about 10 minutes.
                         </div>
-                        <div>
+                        <div class="desktop-version">
                             The Screenmate unit is installed in the compartment <br>
                             under the central console. Access is simple—just <br>
                             unclip the fabric-covered panel on the side of the <br>
                             central console near the passenger’s feet, similar to <br>
                             how you replace cabin filters in the Model 3/Y. There’s <br>
                             plenty of room to position the unit comfortably.
+                        </div>
+                        <div class="mobile-version">
+                            No need for complicated setups <br>
+                            or special skills. The Screenmate <br>
+                            installation is simple, non-invasive, <br>
+                            and takes just about 10 minutes.
+                        </div>
+                        <div class="mobile-version">
+                            The Screenmate unit is installed in the <br>
+                            compartment under the central console. <br>
+                            Access is simple—just unclip the fabric-<br>
+                            covered panel on the side of the central <br>
+                            console near the passenger’s feet, similar to <br>
+                            how you replace cabin filters in the Model 3/Y. <br>
+                            There’s plenty of room to position the unit <br>
+                            comfortably.
                         </div>
                     </div>
                     <div class="screenmate-specifications-installation-body-link">
