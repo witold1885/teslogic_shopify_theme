@@ -328,6 +328,35 @@
         display: flex;
         flex-direction: column;
         row-gap: 40px;
+        position: relative;
+    }
+    .screenmate-specifications-installation-shadow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.66);
+    }
+    .screenmate-specifications-installation-schema {
+        width: 636px;
+        height: 636px;
+        position: relative;
+    }
+    .screenmate-specifications-installation-schema img {
+        width: 100%;
+        height: 100%;
+    }
+    .screenmate-specifications-installation-schema-close {
+        position: absolute;
+        top: 0;
+        right: -48px;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
     }
     .screenmate-specifications-installation-title {
         color: #FFF;
@@ -1439,6 +1468,14 @@
             </div>
         </div>
         <div class="screenmate-specifications-installation">
+            <div class="screenmate-specifications-installation-shadow">
+                <div class="screenmate-specifications-installation-schema">
+                    <img src="{{ 'screenmate_installation_image_2_big.png' | asset_url }" alt="">
+                    <div class="screenmate-specifications-installation-schema-close">
+                        <img src="{{ 'screenmate_schema_close.svg' | asset_url }}" alt="">
+                    </div>
+                </div>
+            </div>
             <div class="screenmate-specifications-installation-title">
                 Effortless Installation
             </div>
@@ -1448,7 +1485,7 @@
                     <div>
                         <img src="{{ 'screenmate_installation_image_1.gif' | asset_url }}" alt="">
                     </div>
-                    <div>
+                    <div class="screenmate-specifications-installation-schema-open">
                         <img src="{{ 'screenmate_installation_image_2.png' | asset_url }}" alt="">
                         <span>Connection Diagram</span>
                     </div>
@@ -1549,3 +1586,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.screenmate-specifications-installation-schema-open').on('click', function() {
+            $('.screenmate-specifications-installation-schema-shadow').show()
+        })
+    })
+</script>
