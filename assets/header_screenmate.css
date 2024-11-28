@@ -1,6 +1,6 @@
 #header_main {
 	width: 100%;
-    height: 922px;
+    height: 810px;
 	position: relative;
 }
 #header_mobile {
@@ -213,8 +213,8 @@
 	top: 0;
 	width: 100vw;
 	/* height: 100vh; */
-  	/* min-height: 922px; */
-    height: 922px;
+  	/* min-height: 810px; */
+    height: 810px;
 }
 .banner-desktop {
 	width: 100%;
