@@ -83,7 +83,7 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 36px;
-	text-decoration-line: strikethrough;
+	text-decoration: line-through;
 }
 .store_block-product-title {
 	width: 486px; 
