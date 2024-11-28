@@ -237,10 +237,10 @@
     position: absolute;
     left: 72px;
     right: 72px;
-    bottom: 156px;
+    bottom: 96.13px;
 	display: flex;
 	flex-direction: column;
-    row-gap: 32px;
+    row-gap: 60px;
 	justify-content: flex-end;
 }
 .banner-desktop-body-device {
@@ -303,8 +303,8 @@
 	line-height: 52px;
 }
 .banner-desktop-body-caption-kickstarter {
-    width: 196px;
-    height: 196px;
+    width: 170px;
+    height: 170px;
     border-radius: 100%;
     overflow: hidden;
 }
