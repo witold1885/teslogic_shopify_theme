@@ -42,8 +42,8 @@
 	.banner-desktop-body {
 		left: calc(72 * 100vw / 1440);
 		right: calc(72 * 100vw / 1440);
-		bottom: calc(156 * 100vw / 1440);
-		row-gap: calc(32 * 100vw / 1440);
+		bottom: calc(96.13 * 100vw / 1440);
+		row-gap: calc(60 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
 		width: calc(445 * 100vw / 1440);
@@ -74,8 +74,8 @@
 		line-height: calc(52 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-kickstarter {
-		width: calc(196 * 100vw / 1440);
-		height: calc(196 * 100vw / 1440);
+		width: calc(170 * 100vw / 1440);
+		height: calc(170 * 100vw / 1440);
 	}
 }
 
