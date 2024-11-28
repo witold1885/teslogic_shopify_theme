@@ -54,11 +54,11 @@
 		row-gap: calc(16 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main {
-		column-gap: calc(24 * 100vw / 1440);
+		column-gap: calc(32 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main img {
-		width: calc(566.813 * 100vw / 1440);
-		height: calc(52 * 100vw / 1440);
+		width: calc(523.212 * 100vw / 1440);
+		height: calc(48 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main button {
 		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
@@ -70,8 +70,8 @@
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-subtitle {
-		font-size: calc(52 * 100vw / 1440);
-		line-height: calc(64 * 100vw / 1440);
+		font-size: calc(44 * 100vw / 1440);
+		line-height: calc(52 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-kickstarter {
 		width: calc(196 * 100vw / 1440);
