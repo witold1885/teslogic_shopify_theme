@@ -18,6 +18,19 @@
 		left: 4px;
 		color: #000;
 	}
+	.store_block-product-preorder-delivery {
+		margin-top: 16px;
+		color: #000;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.store_block-product-preorder-delivery span {
+		color: #1657FC;
+	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
         .store_block {
             padding-top: calc(180 * 100vw / 1440);
@@ -31,6 +44,11 @@
 			height: calc(6.667 * 100vw / 1440);
 			top: calc(3.33 * 100vw / 1440);
 			left: calc(4 * 100vw / 1440);
+		}
+		.store_block-product-preorder-delivery {
+			margin-top: calc(16 * 100vw / 1440);
+			font-size: calc(16 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -159,6 +177,9 @@
 							</div>
 						</div>						
 					</div>
+				</div>
+				<div class="store_block-product-preorder-delivery">
+					Delivery: <span>May 2025</span>
 				</div>
 			</div>
 		</div>
