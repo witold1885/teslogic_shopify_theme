@@ -12,7 +12,7 @@
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	#header_main {
-		height: calc(922 * 100vw / 1440);
+		height: calc(810 * 100vw / 1440);
 	}
 	.top {
 		width: calc(1440 * 100vw / 1440);
@@ -30,7 +30,7 @@
 		grid-column-gap: calc(10 * 100vw / 1440);
 	}
 	.banner-desktop-wrap {
-		height: calc(922 * 100vw / 1440);
+		height: calc(810 * 100vw / 1440);
 	}
 	.banner-desktop-ellipse {
 		width: calc(1663.117 * 100vw / 1440);
