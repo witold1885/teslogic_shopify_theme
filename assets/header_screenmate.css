@@ -265,11 +265,11 @@
 .banner-desktop-body-caption-main {
     display: flex;
     align-items: center;
-    column-gap: 24px;
+    column-gap: 32px;
 }
 .banner-desktop-body-caption-main img {
-    width: 566.813px;
-    height: 52px;
+    width: 523.212px;
+	height: 48px;
 }
 .banner-desktop-body-caption-main button {
     display: flex;
@@ -296,11 +296,11 @@
 }
 .banner-desktop-body-caption-subtitle {
     color: #FFF;
-    font-family: Manrope;
-    font-size: 52px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 64px;
+	font-family: Manrope;
+	font-size: 44px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 52px;
 }
 .banner-desktop-body-caption-kickstarter {
     width: 196px;
