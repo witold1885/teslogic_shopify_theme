@@ -81,8 +81,8 @@
 
 @media screen and (min-width: 1441px) and (min-height: 811px) {
 	.banner-desktop-body {
-		bottom: calc(96.13 * 100vh / 1440);
-		row-gap: calc(60 * 100vh / 1440);
+		bottom: calc(96.13 * 100vh / 810);
+		row-gap: calc(60 * 100vh / 810);
 	}
 	.banner-desktop-body-device {
 		width: calc(445 * 100vh / 810);
