@@ -79,6 +79,45 @@
 	}
 }
 
+@media screen and (min-width: 1441px) and (min-height: 811px) {
+	.banner-desktop-body {
+		bottom: calc(96.13 * 100vh / 1440);
+		row-gap: calc(60 * 100vh / 1440);
+	}
+	.banner-desktop-body-device {
+		width: calc(445 * 100vh / 810);
+		height: calc(329.715 * 100vh / 810);
+		margin-left: calc(-1 * 15 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-left {
+		row-gap: calc(16 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-main {
+		column-gap: calc(32 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-main img {
+		width: calc(523.212 * 100vh / 810);
+		height: calc(48 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-main button {
+		padding: calc(20 * 100vh / 810) calc(40 * 100vh / 810);
+		border-radius: calc(54 * 100vh / 810);
+		font-size: calc(24 * 100vh / 810);
+		line-height: calc(32 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-main button:hover {
+		padding: calc(23 * 100vh / 810) calc(43 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-subtitle {
+		font-size: calc(44 * 100vh / 810);
+		line-height: calc(52 * 100vh / 810);
+	}
+	.banner-desktop-body-caption-kickstarter {
+		width: calc(170 * 100vh / 810);
+		height: calc(170 * 100vh / 810);
+	}
+}
+
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
 	.top {
 		width: calc(1440 * 100vw / 1440);
