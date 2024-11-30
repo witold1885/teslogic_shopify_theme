@@ -83,6 +83,9 @@
 	grid-row-gap: 56px;
 	padding: 56px 40px 48px 40px;
 }
+.screenmate-faq .faq__chapter-questions {
+	display: flex;
+}
 .faq__chapter-question {
 	display: flex;
 	flex-direction: column;
