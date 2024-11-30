@@ -23,16 +23,12 @@
       </a>
       <div class="menu">
         {% for link in linklists.main-menu.links %}
-        {% if link.title == 'Screenmate' %}
-          <div class="menu__item menu__item-pro">
-              <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
-          </div>
-        {% elsif link.title != 'Community' %}
+        {% if link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
           >
-            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
               {% if page.handle == 'pro-manuals' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
@@ -113,18 +109,14 @@
   <div class="burger-menu-wrap">
     <div class="burger-menu">
       {% for link in linklists.main-menu.links %}
-      {% if link.title == 'Screenmate' %}
-        <div class="menu__item menu__item-pro">
-            <a href="{{ link.url }}">{{ link.title }} <span>NEW</span></a>
-        </div>
-      {% elsif link.title != 'Community' %}
+      {% if link.title != 'Community' %}
         <div
-          class="menu__item {% if link.title == 'Teslogic Pro' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          class="menu__item {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
           {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
-              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' %}<span>NEW</span>{% endif %}</a>
+              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' %}<span>NEW</span>{% endif %}</a>
               {% if page.handle == 'pro-manuals' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               {% else %}
