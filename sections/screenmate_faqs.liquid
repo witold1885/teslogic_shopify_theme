@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="{{ 'faq.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'faq-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div class="faq" id="faq">
+	<div class="faq__title">Frequently Asked Questions</div>
+	<div class="faq__chapters">
+		{% comment %} {% for block in section.blocks %}
+			{% if block.type == "chapter" %}
+				<div class="faq__chapter">
+					<div class="faq__chapter-top">
+						<div class="faq__chapter-title" mobile_hidden="1">
+							<div class="faq__chapter-title-sign">
+								<img src="{{ block.settings.chapter_icon }}">
+							</div>
+							<div class="faq__chapter-title-text">{{ block.settings.chapter }}</div>
+						</div>
+						<div class="faq__chapter-chevron">
+							<img src="{{ 'chevron-down-faq.svg' | asset_url }}">
+						</div>
+					</div> {% endcomment %}
+					<div class="faq__chapter-questions">
+						{% for subblock in section.blocks %}
+							{% if subblock.type == "question" %}
+								{% comment %} {% if subblock.settings.chapter_id == block.settings.chapter_id %} {% endcomment %}
+									<div class="faq__chapter-question">
+										<div class="faq__chapter-question-text">
+											<span class="faq__chapter-question-badge">Q:</span>
+											<span>{{ subblock.settings.question }}</span>
+										</div>
+										<div class="faq__chapter-question-answer">
+											<span class="faq__chapter-question-badge">A:</span>
+											<span>{{ subblock.settings.answer }}</span>
+										</div>
+									</div>
+								{% comment %} {% endif %} {% endcomment %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% comment %} </div>
+			{% endif %}
+		{% endfor %} {% endcomment %}
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		window.is_mobile = window.innerWidth < 1000
+		function checkMobile() {
+			window.is_mobile = window.innerWidth < 1000
+			if (!window.is_mobile) {
+				$('.faq__chapter-question').show()
+				$('.faq__chapter-title').css('margin-bottom', '36px')
+			}
+			else {
+				$('.faq__chapter-question').hide()
+				$('.faq__chapter-title').css('margin-bottom', '0')
+			}
+		}
+		$('.faq__chapter-top').on('click', function() {
+			let questions = $(this).parent('.faq__chapter').find('.faq__chapter-questions')
+			console.log($(questions).is(':visible'))
+			if ($(questions).is(':visible')) {
+				$(this).parent('.faq__chapter').find('.faq__chapter-questions').hide()
+				$(this).parent('.faq__chapter').removeClass('faq__chapter-opened')
+				$(this).find('.faq__chapter-chevron').removeClass('faq__chapter-chevron-reverted')
+			}
+			else {
+				$('.faq__chapters').find('.faq__chapter-questions').each(function() {
+					$(this).hide()
+				})
+				$('.faq__chapters').find('.faq__chapter-chevron').each(function() {
+					$(this).removeClass('faq__chapter-chevron-reverted')
+				})
+				$(this).parent('.faq__chapter').find('.faq__chapter-questions').css('display', 'flex')
+				$(this).parent('.faq__chapter').addClass('faq__chapter-opened')
+				$(this).find('.faq__chapter-chevron').addClass('faq__chapter-chevron-reverted')
+			}			
+		})
+	})
+</script>
+
+{% comment %} {% schema %}
+{
+	"name": "FAQ",
+	"class": "index-section index-section-featured-sider",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "chapter",
+			"name": "Chapter",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Edit Chapter"
+				},
+				{
+					"type": "text",
+					"id": "chapter_id",
+					"label": "Chapter ID"
+				},
+				{
+					"type": "text",
+					"id": "chapter",
+					"label": "Chapter Name"
+				},
+				{
+					"type": "text",
+					"id": "chapter_icon",
+					"label": "Chapter Icon"
+				}
+			]
+		},
+		{
+			"type": "question",
+			"name": "Question",
+			"settings": [
+				{
+					"type": "header",
+					"content": "Edit Question"
+				},
+				{
+					"type": "text",
+					"id": "chapter_id",
+					"label": "Chapter ID"
+				},
+				{
+					"type": "textarea",
+					"id": "question",
+					"label": "Question"
+				},
+				{
+					"type": "textarea",
+					"id": "answer",
+					"label": "Answer"
+				}
+			]
+		}
+	]
+}
+{% endschema %} {% endcomment %}
