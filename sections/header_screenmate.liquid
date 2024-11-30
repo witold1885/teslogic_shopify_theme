@@ -369,7 +369,8 @@
       })
     }
     else {
-      $('.menu__item').on('click', function() {
+      $('.menu__item').on('click', function(e) {
+        e.preventDefault()
         let dropdown = $(this).find('.menu__item-dropdown')
         let chevron_down = $(this).find('.menu__item-chevron-down')
         let chevron_up = $(this).find('.menu__item-chevron-up')
