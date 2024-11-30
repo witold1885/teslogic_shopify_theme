@@ -257,11 +257,11 @@
       })
     }
     else {
-      $('.menu__item').on('click', function() {
+      $('.menu__item-title').on('click', function(e) {
         e.preventDefault()
-        let dropdown = $(this).find('.menu__item-dropdown')
-        let chevron_down = $(this).find('.menu__item-chevron-down')
-        let chevron_up = $(this).find('.menu__item-chevron-up')
+        let dropdown = $(this).parent('.menu__item').find('.menu__item-dropdown')
+        let chevron_down = $(this).parent('.menu__item').find('.menu__item-chevron-down')
+        let chevron_up = $(this).parent('.menu__item').find('.menu__item-chevron-up')
         if ($(dropdown).is(':visible')) {
           $(dropdown).css('display', 'none')
           $(chevron_down).show()
