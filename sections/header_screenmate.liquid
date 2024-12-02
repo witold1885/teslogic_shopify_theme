@@ -367,7 +367,7 @@
           $(chevron_up).hide()
           $(this).removeClass('menu__item-opened')
       })
-      $('.menu__item').on('click', function(e) {
+      $('.menu__item > a').on('click', function(e) {
         e.preventDefault()
       })
     }
