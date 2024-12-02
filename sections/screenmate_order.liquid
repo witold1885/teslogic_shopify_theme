@@ -94,8 +94,8 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">$890</div>
-					<div class="store_block-product-price-old">$1190</div>
+					<div class="store_block-product-price-new">${{ product.price | divided_by: 100 }}</div>
+					<div class="store_block-product-price-old">${{ product.compare_at_price | divided_by: 100 }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
@@ -157,7 +157,7 @@
 					<button class="store_block-product-add">Preorder now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Preorder now</div>
-						<div class="store_block-product-add-mobile-total">$ 259</div>
+						<div class="store_block-product-add-mobile-total">$ {{ product.price | divided_by: 100 }}</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
