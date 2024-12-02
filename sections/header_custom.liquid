@@ -255,6 +255,9 @@
           $(chevron_up).hide()
           $(this).removeClass('menu__item-opened')
       })
+      $('.menu__item > a').on('click', function(e) {
+        e.preventDefault()
+      })
     }
     else {
       $('.menu__item-title').on('click', function(e) {
