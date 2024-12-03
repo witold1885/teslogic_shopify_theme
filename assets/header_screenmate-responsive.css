@@ -60,13 +60,13 @@
 		width: calc(523.212 * 100vw / 1440);
 		height: calc(48 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-main button {
+	.banner-desktop-body-caption-main a {
 		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
 		border-radius: calc(54 * 100vw / 1440);
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-main button:hover {
+	.banner-desktop-body-caption-main a:hover {
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-subtitle {
@@ -99,13 +99,13 @@
 		width: calc(523.212 * 100vh / 810);
 		height: calc(48 * 100vh / 810);
 	}
-	.banner-desktop-body-caption-main button {
+	.banner-desktop-body-caption-main a {
 		padding: calc(20 * 100vh / 810) calc(40 * 100vh / 810);
 		border-radius: calc(54 * 100vh / 810);
 		font-size: calc(24 * 100vh / 810);
 		line-height: calc(32 * 100vh / 810);
 	}
-	.banner-desktop-body-caption-main button:hover {
+	.banner-desktop-body-caption-main a:hover {
 		padding: calc(23 * 100vh / 810) calc(43 * 100vh / 810);
 	}
 	.banner-desktop-body-caption-subtitle {
