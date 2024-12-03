@@ -365,7 +365,8 @@
 	}
 	.banner {
 		width: 100%;
-		height: calc(812 * 100vw / 375);
+		/* height: calc(812 * 100vw / 375); */
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
