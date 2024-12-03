@@ -400,10 +400,10 @@
 	.banner-caption-subtitle {
 		color: #FFF;
 		font-family: Manrope;
-		font-size: calc(32 * 100vw / 375);
+		font-size: calc(24 * 100vw / 375);
 		font-style: normal;
 		font-weight: 600;
-		line-height: calc(40 * 100vw / 375);
+		line-height: calc(32 * 100vw / 375);
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
