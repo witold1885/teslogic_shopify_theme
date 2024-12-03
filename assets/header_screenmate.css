@@ -273,7 +273,7 @@
     width: 523.212px;
 	height: 48px;
 }
-.banner-desktop-body-caption-main button {
+.banner-desktop-body-caption-main a {
     display: flex;
     padding: 20px 40px;
     justify-content: center;
@@ -289,6 +289,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 32px;
+	text-decoration: none;
     cursor: pointer;
 }
 .banner-desktop-body-caption-main button:hover {
