@@ -62,7 +62,7 @@
 	font-weight: 600;
 	line-height: 20px; 
 	color: #FFFFFF;
-	cursor: pointer;
+	cursor: pointer !important;
 	padding: 8px 10px;
 	box-sizing: border-box;
 	display: flex;
