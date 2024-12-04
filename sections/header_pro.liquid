@@ -288,7 +288,8 @@
         >
           <a href="/cart">
             <div class="cart-icon-wrap">
-              <img src="{{ 'cart-black.svg' | asset_url }}">
+              <img class="cart-white" src="{{ 'cart-white.svg' | asset_url }}">
+              <img class="cart-black" src="{{ 'cart-black.svg' | asset_url }}">
               <div class="cart-qty">{{ cart.item_count }}</div>
             </div>
           </a>
@@ -520,6 +521,8 @@
       $(this).parents('.top').removeClass('top-menu-closed').addClass('top-menu-opened')
       $(this).parents('.top').find('.logo-white').hide()
       $(this).parents('.top').find('.logo-black').show()
+      $(this).parents('.top').find('.cart-white').hide()
+      $(this).parents('.top').find('.cart-black').show()
       $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-closed').addClass('banner-menu-opened')
     })
     $('.button-close').on('click', function() {
@@ -529,6 +532,8 @@
       $(this).parents('.top').removeClass('top-menu-opened').addClass('top-menu-closed')
       $(this).parents('.top').find('.logo-black').hide()
       $(this).parents('.top').find('.logo-white').show()
+      $(this).parents('.top').find('.cart-black').hide()
+      $(this).parents('.top').find('.cart-white').show()
       $(this).parents('#header_mobile').find('.banner').removeClass('banner-menu-opened').addClass('banner-menu-closed')
     })
 

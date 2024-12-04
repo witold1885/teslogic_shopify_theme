@@ -340,6 +340,12 @@
 	.logo-black {
 		display: none;
 	}
+	.cart-white {
+		display: block;
+	}
+	.cart-black {
+		display: none;
+	}
 	.top .buttons {
 		display: flex;
 		justify-content: flex-end;
