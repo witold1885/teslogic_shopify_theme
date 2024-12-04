@@ -256,7 +256,9 @@
           $(this).removeClass('menu__item-opened')
       })
       $('.menu__item > a').on('click', function(e) {
-        e.preventDefault()
+        if (!$(this).parent('.menu__item').hasClass('menu__item-cart')) {
+          e.preventDefault()
+        }
       })
     }
     else {
