@@ -76,10 +76,12 @@
 		grid-row-gap: calc(24 * 100vw / 375);
 	}
 	.where__item {
-		height: calc(821 * 100vw / 375);
+		/* height: calc(821 * 100vw / 375); */
+		height: auto;
 		padding: calc(20 * 100vw / 375);
 		border-radius: calc(28 * 100vw / 375);
 		flex-direction: column;
+		row-gap: calc(40 * 100vw / 375);
 	}
 	.where__item-left {
 		width: calc(295 * 100vw / 375);
