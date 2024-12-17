@@ -1,8 +1,7 @@
 #header_custom {
 	width: 100%;
 	height: 64px;
-	/* position: fixed; */
-	position: sticky;
+	position: fixed;
 	background: #FEFEFE;
 	z-index: 10;
 }
