@@ -103,7 +103,8 @@
 	.top-wrap {
 		width: 100%;
 /*		height: calc(52 * 100vw / 375);*/
-		position: fixed;
+		/* position: fixed; */
+		position: sticky;
 		z-index: 10;
 		background: linear-gradient(180deg, #FEFEFE 53.75%, rgba(254, 254, 254, 0) 100%);
 	}
