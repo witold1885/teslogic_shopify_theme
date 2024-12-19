@@ -41,7 +41,7 @@
     font-family: Manrope;
     font-style: normal;
 }
-.promo-info {
+.promo-info, .promo-code-info, .promo-code-placeholder-text {
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
@@ -51,11 +51,6 @@
     justify-content: center;
     align-items: center;
     column-gap: 12px;
-}
-.promo-code-info {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
 }
 .promo-code-placeholder {
     width: 169px;
@@ -75,11 +70,6 @@
 }
 .promo-code-placeholder-copied {
     column-gap: 8px;
-}
-.promo-code-placeholder-text {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
 }
 .promo-code-placeholder-icon {
     display: flex;
@@ -108,13 +98,15 @@
     align-items: flex-start;
     column-gap: 2px;
 }
-.promo-counter-item-value {
-    width: 40px;
+.promo-counter-item-value, .promo-counter-delimiter {
     height: 40px;
     text-align: center;
     font-size: 32px;
     font-weight: 600;
     line-height: 40px;
+}
+.promo-counter-item-value {
+    width: 40px;
 }
 .promo-counter-item-caption {
     width: 40px;
@@ -127,9 +119,4 @@
 }
 .promo-counter-delimiter {
     width: 8px;
-    height: 40px;
-    text-align: center;
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 40px;
 }
