@@ -30,8 +30,6 @@
     width: 100%;
 }
 .promo {
-    /* width: 754px; */
-    /* height: 52px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,4 +117,70 @@
 }
 .promo-counter-delimiter {
     width: 8px;
+}
+
+@media screen and (min-width: 576px) and (max-width: 1440px) {
+    .promo-bg {
+        height: calc(64 * 100vw / 1440);
+    }
+    .promo-wrap {
+        width: calc(1296 * 100vw / 1440);
+    }
+    .promo-close {
+        top: calc(20 * 100vw / 1440);
+        width: calc(24 * 100vw / 1440);
+        height: calc(24 * 100vw / 1440);
+    }
+    .promo {
+        column-gap: calc(64 * 100vw / 1440);
+    }
+    .promo-info, .promo-code-info, .promo-code-placeholder-text {
+        font-size: calc(24 * 100vw / 1440);
+        line-height: calc(32 * 100vw / 1440);
+    }
+    .promo-code {
+        column-gap: calc(12 * 100vw / 1440);
+    }
+    .promo-code-placeholder {
+        width: calc(169 * 100vw / 1440);
+        column-gap: calc(4 * 100vw / 1440);
+        padding: calc(6 * 100vw / 1440) calc(12 * 100vw / 1440);
+        border-radius: calc(8 * 100vw / 1440);
+    }
+    .promo-code-placeholder-copied {
+        column-gap: calc(8 * 100vw / 1440);
+    }
+    .promo-code-placeholder-icon-copy {
+        width: calc(26 * 100vw / 1440);
+        height: calc(26 * 100vw / 1440);
+    }
+    .promo-code-placeholder-icon-copy img {
+        width: calc(16 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+    }
+    .promo-code-placeholder-icon-copied {
+        width: calc(24 * 100vw / 1440);
+        height: calc(24 * 100vw / 1440);
+    }
+    .promo-counter {
+        column-gap: calc(2 * 100vw / 1440);
+    }
+    .promo-counter-item-value, .promo-counter-delimiter {
+        height: calc(40 * 100vw / 1440);
+        font-size: calc(32 * 100vw / 1440);
+        line-height: calc(40 * 100vw / 1440);
+    }
+    .promo-counter-item-value {
+        width: calc(40 * 100vw / 1440);
+    }
+    .promo-counter-item-caption {
+        width: calc(40 * 100vw / 1440);
+        height: calc(16 * 100vw / 1440);
+        margin-top: calc(-1 * 4 * 100vw / 1440);
+        font-size: calc(12 * 100vw / 1440);
+        line-height: calc(16 * 100vw / 1440);
+    }
+    .promo-counter-delimiter {
+        width: calc(8 * 100vw / 1440);
+    }
 }
