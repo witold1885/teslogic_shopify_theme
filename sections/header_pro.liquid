@@ -1,7 +1,16 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_pro.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'header_pro-responsive.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'promo.css' | asset_url }}">
 
 {%- style -%}
+  .promo-bg {
+    background-image: url({{ 'bg_new_year_promo.png' | asset_url }});
+  }
+  @media screen and (max-width: 575px) {
+    .promo-bg {
+      background-image: url({{ 'bg_new_year_promo_mobile.png' | asset_url }});
+    }
+  }
   header#header_main {
 /*    height: 100vh;*/
     background: black;
@@ -63,6 +72,49 @@
 {%- endstyle -%}
 
 <header id="header_main">
+  <div class="promo-bg">
+    <div class="promo-wrap">
+      <div class="promo-close">
+        <img src="{{ 'promo_close.svg' | asset_url }}">
+      </div>
+      <div class="promo">
+        <div class="promo-info">GET 15% OFF</div>
+        <div class="promo-code">
+          <div class="promo-code-info">Use code</div>
+          <div class="promo-code-placeholder promo-code-placeholder-copied">
+            <div class="promo-code-placeholder-text">TSLGIFT15</div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copy">
+              <img src="{{ 'promo_copy.svg' | asset_url }}">
+            </div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copied">
+              <img src="{{ 'promo_copied.svg' | asset_url }}">
+            </div>
+          </div>
+        </div>
+        <div class="promo-counter">
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_days">--</div>
+            <div class="promo-counter-item-caption">days</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_hours">--</div>
+            <div class="promo-counter-item-caption">hrs</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_minutes">--</div>
+            <div class="promo-counter-item-caption">mins</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_seconds">--</div>
+            <div class="promo-counter-item-caption">secs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="top-wrap">
     <div class="top">
       <a href="/" class="logo">
@@ -215,7 +267,50 @@
     </div>
   </div>
 </header>
-<header id="header_sticky">
+<header id="header_sticky" class="header_sticky_promo">
+  <div class="promo-bg">
+    <div class="promo-wrap">
+      <div class="promo-close">
+        <img src="{{ 'promo_close.svg' | asset_url }}">
+      </div>
+      <div class="promo">
+        <div class="promo-info">GET 15% OFF</div>
+        <div class="promo-code">
+          <div class="promo-code-info">Use code</div>
+          <div class="promo-code-placeholder promo-code-placeholder-copied">
+            <div class="promo-code-placeholder-text">TSLGIFT15</div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copy">
+              <img src="{{ 'promo_copy.svg' | asset_url }}">
+            </div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copied">
+              <img src="{{ 'promo_copied.svg' | asset_url }}">
+            </div>
+          </div>
+        </div>
+        <div class="promo-counter">
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_days">--</div>
+            <div class="promo-counter-item-caption">days</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_hours">--</div>
+            <div class="promo-counter-item-caption">hrs</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_minutes">--</div>
+            <div class="promo-counter-item-caption">mins</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_seconds">--</div>
+            <div class="promo-counter-item-caption">secs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="top-wrap">
     <div class="top">
       <a href="/" class="logo">
@@ -274,7 +369,50 @@
 </header>
 
 <header id="header_mobile">
-  <div class="top-wrap">
+  <div class="promo-bg">
+    <div class="promo-wrap">
+      <div class="promo-close">
+        <img src="{{ 'promo_close.svg' | asset_url }}">
+      </div>
+      <div class="promo">
+        <div class="promo-info">GET 15% OFF</div>
+        <div class="promo-code">
+          <div class="promo-code-info">Use code</div>
+          <div class="promo-code-placeholder promo-code-placeholder-copied">
+            <div class="promo-code-placeholder-text">TSLGIFT15</div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copy">
+              <img src="{{ 'promo_copy.svg' | asset_url }}">
+            </div>
+            <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copied">
+              <img src="{{ 'promo_copied.svg' | asset_url }}">
+            </div>
+          </div>
+        </div>
+        <div class="promo-counter">
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_days">--</div>
+            <div class="promo-counter-item-caption">days</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_hours">--</div>
+            <div class="promo-counter-item-caption">hrs</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_minutes">--</div>
+            <div class="promo-counter-item-caption">mins</div>
+          </div>
+          <div class="promo-counter-delimiter">:</div>
+          <div class="promo-counter-item">
+            <div class="promo-counter-item-value promo_seconds">--</div>
+            <div class="promo-counter-item-caption">secs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top-wrap top-wrap-promo">
     <div class="top top-menu-closed">
       <a href="/" class="logo">
         <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
@@ -463,6 +601,63 @@
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
+    /* promo script */
+    const endTime = 1734940800 // 23.12.2024 08:00 UTC
+
+    function addLeadingZero(value) {
+      return value < 10 ? '0' + value : value
+    }
+
+    function updateCountdown() {
+      const currentTime = Math.floor(Date.now() / 1000)
+      const timeLeft = endTime - currentTime
+
+      if (timeLeft >= 0) {
+        const days = Math.floor(timeLeft / (24 * 60 * 60))
+        const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60))
+        const minutes = Math.floor((timeLeft % (60 * 60)) / 60)
+        const seconds = timeLeft % 60
+
+        $('.promo_days').text(addLeadingZero(days))
+        $('.promo_hours').text(addLeadingZero(hours))
+        $('.promo_minutes').text(addLeadingZero(minutes))
+        $('.promo_seconds').text(addLeadingZero(seconds))
+      } else {
+        $('.promo-bg').hide()
+        $('#header_sticky').removeClass('header_sticky_promo')
+        $('.top-wrap').removeClass('top-wrap-promo')
+        $('.banner-top').removeClass('banner-top-promo')
+        clearInterval(timerInterval)
+      }
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000)
+    updateCountdown()
+
+    $('.promo-code-placeholder').on('click', function () {
+      const code = $(this).find('.promo-code-placeholder-text').text()
+
+      const tempInput = $('<textarea>')
+      tempInput.val(code)
+      $('body').append(tempInput)
+      tempInput.select()
+      document.execCommand('copy')
+      tempInput.remove()
+
+      $('.promo-code-placeholder-text').text('Copied')
+      $('.promo-code-placeholder-icon-copy').hide()
+      $('.promo-code-placeholder-icon-copied').css('display', 'flex')
+      $(this).addClass('promo-code-placeholder-copied')
+    })
+
+    $('.promo-close').on('click', function () {
+      $('.promo-bg').hide()
+      $('#header_sticky').removeClass('header_sticky_promo')
+      $('.top-wrap').removeClass('top-wrap-promo')
+      $('.banner-top').removeClass('banner-top-promo')
+    })
+    /* promo script */
+
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
