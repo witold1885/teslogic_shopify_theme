@@ -312,7 +312,7 @@ with access to advanced Tesla features</div>
       </div>
     </div>
   </div>
-  <div class="top-wrap promo">
+  <div class="top-wrap top-wrap-promo">
     <div class="top top-menu-closed">
       <a href="/" class="logo">
         <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
@@ -387,7 +387,7 @@ with access to advanced Tesla features</div>
   </div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
-    <div class="banner-top">
+    <div class="banner-top banner-top-promo">
       <div class="banner__title">Meet Teslogic v2</div>
       <div class="banner__subtitle">Powerful Dashboard for Model 3/Y<br>
 with access to advanced Tesla features</div>
@@ -440,7 +440,8 @@ with access to advanced Tesla features</div>
       } else {
         $('.promo-bg').hide()
         $('#header_sticky').removeClass('header_sticky_promo')
-        $('.top-wrap').removeClass('promo')
+        $('.top-wrap').removeClass('top-wrap-promo')
+        $('.banner-top').removeClass('banner-top-promo')
         clearInterval(timerInterval)
       }
     }
@@ -467,7 +468,8 @@ with access to advanced Tesla features</div>
     $('.promo-close').on('click', function () {
       $('.promo-bg').hide()
       $('#header_sticky').removeClass('header_sticky_promo')
-      $('.top-wrap').removeClass('promo')
+      $('.top-wrap').removeClass('top-wrap-promo')
+      $('.banner-top').removeClass('banner-top-promo')
     })
     /* promo script */
 
