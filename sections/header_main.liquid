@@ -62,22 +62,22 @@
       </div>
       <div class="promo-counter">
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value">18</div>
+          <div class="promo-counter-item-value" id="promo_days">18</div>
           <div class="promo-counter-item-caption">days</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value">11</div>
+          <div class="promo-counter-item-value" id="promo_hours">11</div>
           <div class="promo-counter-item-caption">hrs</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value">12</div>
+          <div class="promo-counter-item-value" id="promo_minutes">12</div>
           <div class="promo-counter-item-caption">mins</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value">59</div>
+          <div class="promo-counter-item-value" id="promo_seconds">59</div>
           <div class="promo-counter-item-caption">secs</div>
         </div>
       </div>
@@ -309,10 +309,10 @@ with access to advanced Tesla features</div>
 </header>
   
 <script type="text/javascript">
-  console.log('userAgent')
-  console.log(window.navigator.userAgent)
-  console.log(window.innerWidth)
-  console.log(window.innerHeight)
+  // console.log('userAgent')
+  // console.log(window.navigator.userAgent)
+  // console.log(window.innerWidth)
+  // console.log(window.innerHeight)
   var logo_white_url = "{{ 'logo.svg' | asset_url }}"
   // var logo_black_url = "{{ 'logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
@@ -320,6 +320,32 @@ with access to advanced Tesla features</div>
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
+    /* promo script */
+    const endTime = 1734940800 // 23.12.2024 08:00 UTC
+    function updateCountdown() {
+      const currentTime = Math.floor(Date.now() / 1000)
+      const timeLeft = endTime - currentTime
+
+      if (timeLeft >= 0) {
+        const days = Math.floor(timeLeft / (24 * 60 * 60))
+        const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60))
+        const minutes = Math.floor((timeLeft % (60 * 60)) / 60)
+        const seconds = timeLeft % 60
+
+        $('#promo_days').text(days)
+        $('#promo_hours').text(hours)
+        $('#promo_minutes').text(minutes)
+        $('#promo_seconds').text(seconds)
+      } else {
+        $('.promo-wrap').hide()
+        clearInterval(timerInterval)
+      }
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000)
+    updateCountdown()
+    /* promo script */
+
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
