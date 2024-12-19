@@ -1,4 +1,4 @@
-.promo-wrap {
+.promo-bg {
     width: 100%;
     height: 64px;
     position: sticky;
@@ -8,6 +8,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.promo-wrap {
+    width: 1296px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.promo-close {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.promo-close img {
+    width: 100%;
 }
 .promo {
     /* width: 754px; */
