@@ -16,12 +16,13 @@
     justify-content: center;
     align-items: center;
     column-gap: 64px;
-}
-.promo-info {
+
     color: #FFF;
     font-family: Manrope;
-    font-size: 24px;
     font-style: normal;
+}
+.promo-info {
+    font-size: 24px;
     font-weight: 600;
     line-height: 32px;
 }
@@ -34,33 +35,25 @@
 .promo-counter-item-value {
     width: 40px;
     height: 40px;
-    color: #FFF;
     text-align: center;
-    font-family: Manrope;
     font-size: 32px;
-    font-style: normal;
     font-weight: 600;
     line-height: 40px;
 }
 .promo-counter-item-caption {
     width: 40px;
     height: 16px;
-    color: #FFF;
+    margin-top: -4px;
     text-align: center;
-    font-family: Manrope;
     font-size: 12px;
-    font-style: normal;
     font-weight: 400;
     line-height: 16px;
 }
 .promo-counter-delimiter {
     width: 8px;
     height: 40px;
-    color: #FFF;
     text-align: center;
-    font-family: Manrope;
     font-size: 32px;
-    font-style: normal;
     font-weight: 600;
     line-height: 40px;
 }
