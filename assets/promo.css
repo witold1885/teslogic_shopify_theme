@@ -37,6 +37,17 @@
     font-weight: 600;
     line-height: 32px;
 }
+.promo-code-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px dashed #FFF;
+    background: #4340F2;
+    box-sizing: border-box;
+}
 .promo-counter {
     display: flex;
     justify-content: flex-end;
