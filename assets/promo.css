@@ -199,6 +199,8 @@
         top: calc(116 * 100vw / 375);
     }
     .promo-bg {
+        position: fixed;
+        top: 0;
         height: calc(116 * 100vw / 375);
     }
     .promo-wrap {
