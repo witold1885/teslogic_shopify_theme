@@ -53,8 +53,18 @@
     font-weight: 600;
     line-height: 32px;
 }
-.promo-code-placeholder-icon {
-    
+.promo-code-placeholder-icon-copy {
+    width: 14px;
+    height: 18px;
+    padding: 3px 5px;
+}
+.promo-code-placeholder-icon-copied {
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+.promo-code-placeholder-icon img {
+    width: 100%;
 }
 .promo-counter {
     display: flex;
