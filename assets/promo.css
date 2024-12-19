@@ -201,6 +201,9 @@
     .banner-top.banner-top-promo {
         margin-top: calc(176 * 100vw / 375);
     }
+    .burger-menu.burger-menu-promo {
+        padding-top: calc(182 * 100vw / 375);
+    }
     .promo-bg {
         position: fixed;
         top: 0;
