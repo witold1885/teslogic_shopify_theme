@@ -47,6 +47,7 @@
     border: 1px dashed #FFF;
     background: #4340F2;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .promo-code-placeholder-text {
     font-size: 24px;
