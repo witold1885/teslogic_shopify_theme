@@ -195,6 +195,9 @@
 }
 
 @media screen and (max-width: 575px) {
+    .top-wrap.promo {
+        top: calc(116 * 100vw / 375);
+    }
     .promo-bg {
         height: calc(116 * 100vw / 375);
     }
