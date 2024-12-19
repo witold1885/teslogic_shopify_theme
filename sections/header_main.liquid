@@ -158,7 +158,7 @@ with access to advanced Tesla features</div>
     </div>
   </div>
 </header>
-<header id="header_sticky">
+<header id="header_sticky" class="header_sticky_promo">
   <div class="promo-bg">
     <div class="promo-wrap">
       <div class="promo-close">
@@ -416,6 +416,7 @@ with access to advanced Tesla features</div>
 
     $('.promo-close').on('click', function () {
       $('.promo-bg').hide()
+      ${'#header_sticky'}.removeClass('header_sticky_promo')
     })
     /* promo script */
 
