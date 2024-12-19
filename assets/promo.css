@@ -61,17 +61,25 @@
     font-weight: 600;
     line-height: 32px;
 }
+.promo-code-placeholder-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .promo-code-placeholder-icon-copy {
-    width: 14px;
-    height: 18px;
-    padding: 3px 5px;
+    width: 26px;
+    height: 26px;
+}
+.promo-code-placeholder-icon-copy img {
+    width: 16px;
+    height: 20px;
 }
 .promo-code-placeholder-icon-copied {
     display: none;
     width: 24px;
     height: 24px;
 }
-.promo-code-placeholder-icon img {
+.promo-code-placeholder-icon-copied img {
     width: 100%;
 }
 .promo-counter {
