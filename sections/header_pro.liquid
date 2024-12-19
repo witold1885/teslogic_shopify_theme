@@ -439,7 +439,7 @@
     </div>
   </div>
   <div class="burger-menu-wrap">
-    <div class="burger-menu">
+    <div class="burger-menu burger-menu-promo">
       {% for link in linklists.main-menu.links %}
       {% if link.title != 'Community' %}
         <div
@@ -627,6 +627,7 @@
         $('#header_sticky').removeClass('header_sticky_promo')
         $('.top-wrap').removeClass('top-wrap-promo')
         $('.banner-top').removeClass('banner-top-promo')
+        $('.burger-menu').removeClass('burger-menu-promo')
         clearInterval(timerInterval)
       }
     }
@@ -655,6 +656,7 @@
       $('#header_sticky').removeClass('header_sticky_promo')
       $('.top-wrap').removeClass('top-wrap-promo')
       $('.banner-top').removeClass('banner-top-promo')
+      $('.burger-menu').removeClass('burger-menu-promo')
     })
     /* promo script */
 
