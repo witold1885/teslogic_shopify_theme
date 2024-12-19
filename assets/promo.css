@@ -1,4 +1,8 @@
 .promo-wrap {
     width: 100%;
     height: 64px;
+    position: sticky;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
 }
