@@ -70,11 +70,11 @@
     column-gap: 8px;
 }
 .promo-code-placeholder-icon {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 .promo-code-placeholder-icon-copy {
+    display: flex;
     width: 26px;
     height: 26px;
 }
