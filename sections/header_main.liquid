@@ -339,7 +339,7 @@ with access to advanced Tesla features</div>
     </div>
   </div>
   <div class="burger-menu-wrap">
-    <div class="burger-menu">
+    <div class="burger-menu burger-menu-promo">
       {% for link in linklists.main-menu.links %}
       {% if link.title != 'Community' %}
         <div
@@ -442,6 +442,7 @@ with access to advanced Tesla features</div>
         $('#header_sticky').removeClass('header_sticky_promo')
         $('.top-wrap').removeClass('top-wrap-promo')
         $('.banner-top').removeClass('banner-top-promo')
+        $('.burger-menu').removeClass('burger-menu-promo')
         clearInterval(timerInterval)
       }
     }
@@ -470,6 +471,7 @@ with access to advanced Tesla features</div>
       $('#header_sticky').removeClass('header_sticky_promo')
       $('.top-wrap').removeClass('top-wrap-promo')
       $('.banner-top').removeClass('banner-top-promo')
+      $('.burger-menu').removeClass('burger-menu-promo')
     })
     /* promo script */
 
