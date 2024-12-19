@@ -347,7 +347,7 @@ with access to advanced Tesla features</div>
         $('.promo_minutes').text(addLeadingZero(minutes))
         $('.promo_seconds').text(addLeadingZero(seconds))
       } else {
-        $('.promo-wrap').hide()
+        $('.promo-bg').hide()
         clearInterval(timerInterval)
       }
     }
@@ -369,6 +369,10 @@ with access to advanced Tesla features</div>
       $('.promo-code-placeholder-icon-copy').hide()
       $('.promo-code-placeholder-icon-copied').show()
       $(this).addClass('promo-code-placeholder-copied')
+    })
+
+    $('.promo-close').on('click', function () {
+      $('.promo-bg').hide()
     })
     /* promo script */
 
