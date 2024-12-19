@@ -196,98 +196,70 @@
 
 @media screen and (max-width: 575px) {
     .promo-bg {
-        height: 116px;
+        height: calc(116 * 100vw / 375);
     }
     .promo-wrap {
-        width: 351px;
+        width: calc(351 * 100vw / 375);
     }
     .promo-close {
-        top: 22px;
-        width: 24px;
-        height: 24px;
+        top: calc(22 * 100vw / 375);
+        width: calc(24 * 100vw / 375);
+        height: calc(24 * 100vw / 375);
     }
     .promo {
-        width: 278px;
+        width: calc(278 * 100vw / 375);
         flex-wrap: wrap;
-        column-gap: 6px;
-        row-gap: 12px;
+        column-gap: calc(6 * 100vw / 375);
+        row-gap: calc(12 * 100vw / 375);
     }
     .promo-info, .promo-code-info, .promo-code-placeholder-text {
-        font-size: 18px;
-        line-height: 24px;
+        font-size: calc(18 * 100vw / 375);
+        line-height: calc(24 * 100vw / 375);
     }
     .promo-code {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 12px;
+        column-gap: calc(12 * 100vw / 375);
+        order: 3;
     }
     .promo-code-placeholder {
-        width: 169px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 4px;
-        padding: 6px 12px;
-        border-radius: 8px;
-        border: 1px dashed #FFF;
-        background: #4340F2;
-        box-sizing: border-box;
-        cursor: pointer;
-    }
-    .promo-code-placeholder:hover {
-        background: #2C28F0;
+        width: calc(140 * 100vw / 375);
+        column-gap: calc(4 * 100vw / 375);
+        padding: calc(6 * 100vw / 375) calc(12 * 100vw / 375);
+        border-radius: calc(6 * 100vw / 375);
     }
     .promo-code-placeholder-copied {
-        column-gap: 8px;
-    }
-    .promo-code-placeholder-icon {
-        justify-content: center;
-        align-items: center;
+        column-gap: calc(8 * 100vw / 375);
     }
     .promo-code-placeholder-icon-copy {
-        display: flex;
-        width: 26px;
-        height: 26px;
+        width: calc(26 * 100vw / 375);
+        height: calc(26 * 100vw / 375);
     }
     .promo-code-placeholder-icon-copy img {
-        width: 16px;
-        height: 20px;
+        width: calc(16 * 100vw / 375);
+        height: calc(20 * 100vw / 375);
     }
     .promo-code-placeholder-icon-copied {
-        display: none;
-        width: 24px;
-        height: 24px;
-    }
-    .promo-code-placeholder-icon-copied img {
-        width: 100%;
+        width: calc(24 * 100vw / 375);
+        height: calc(24 * 100vw / 375);
     }
     .promo-counter {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-        column-gap: 2px;
+        column-gap: calc(2 * 100vw / 375);
     }
     .promo-counter-item-value, .promo-counter-delimiter {
-        height: 40px;
-        text-align: center;
-        font-size: 32px;
-        font-weight: 600;
-        line-height: 40px;
+        height: calc(32 * 100vw / 375);
+        font-size: calc(24 * 100vw / 375);
+        line-height: calc(32 * 100vw / 375);
     }
     .promo-counter-item-value {
-        width: 40px;
+        width: calc(32 * 100vw / 375);
     }
     .promo-counter-item-caption {
-        width: 40px;
-        height: 16px;
-        margin-top: -4px;
-        text-align: center;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 16px;
+        width: calc(32 * 100vw / 375);
+        height: calc(16 * 100vw / 375);
+        margin-top: calc(-1 * 4 * 100vw / 375);
+        font-size: calc(12 * 100vw / 375);
+        line-height: calc(16 * 100vw / 375);
     }
     .promo-counter-delimiter {
-        width: 8px;
+        width: calc(8 * 100vw / 375);
     }
 }
