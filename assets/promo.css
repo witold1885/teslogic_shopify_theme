@@ -193,3 +193,101 @@
         width: calc(8 * 100vw / 1440);
     }
 }
+
+@media screen and (max-width: 575px) {
+    .promo-bg {
+        height: 116px;
+    }
+    .promo-wrap {
+        width: 351px;
+    }
+    .promo-close {
+        top: 22px;
+        width: 24px;
+        height: 24px;
+    }
+    .promo {
+        width: 278px;
+        flex-wrap: wrap;
+        column-gap: 6px;
+        row-gap: 12px;
+    }
+    .promo-info, .promo-code-info, .promo-code-placeholder-text {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .promo-code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 12px;
+    }
+    .promo-code-placeholder {
+        width: 169px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 4px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: 1px dashed #FFF;
+        background: #4340F2;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .promo-code-placeholder:hover {
+        background: #2C28F0;
+    }
+    .promo-code-placeholder-copied {
+        column-gap: 8px;
+    }
+    .promo-code-placeholder-icon {
+        justify-content: center;
+        align-items: center;
+    }
+    .promo-code-placeholder-icon-copy {
+        display: flex;
+        width: 26px;
+        height: 26px;
+    }
+    .promo-code-placeholder-icon-copy img {
+        width: 16px;
+        height: 20px;
+    }
+    .promo-code-placeholder-icon-copied {
+        display: none;
+        width: 24px;
+        height: 24px;
+    }
+    .promo-code-placeholder-icon-copied img {
+        width: 100%;
+    }
+    .promo-counter {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        column-gap: 2px;
+    }
+    .promo-counter-item-value, .promo-counter-delimiter {
+        height: 40px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 40px;
+    }
+    .promo-counter-item-value {
+        width: 40px;
+    }
+    .promo-counter-item-caption {
+        width: 40px;
+        height: 16px;
+        margin-top: -4px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+    .promo-counter-delimiter {
+        width: 8px;
+    }
+}
