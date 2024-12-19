@@ -38,6 +38,7 @@
     line-height: 32px;
 }
 .promo-code-placeholder {
+    width: 169px;
     display: flex;
     justify-content: center;
     align-items: center;
