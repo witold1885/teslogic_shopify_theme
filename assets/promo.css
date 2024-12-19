@@ -1,5 +1,5 @@
 .header_sticky_promo {
-    height: 128px;
+    height: 128px !important;
 }
 .promo-bg {
     width: 100%;
@@ -127,7 +127,7 @@
 
 @media screen and (min-width: 576px) and (max-width: 1440px) {
     .header_sticky_promo {
-        height: calc(128 * 100vw / 1440);
+        height: calc(128 * 100vw / 1440) !important;
     }
     .promo-bg {
         height: calc(64 * 100vw / 1440);
