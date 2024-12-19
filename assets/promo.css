@@ -5,4 +5,23 @@
     z-index: 2;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.promo {
+    /* width: 754px; */
+    /* height: 52px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 64px;
+}
+.promo-info {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
 }
