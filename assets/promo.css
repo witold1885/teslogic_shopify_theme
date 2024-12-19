@@ -48,6 +48,14 @@
     background: #4340F2;
     box-sizing: border-box;
 }
+.promo-code-placeholder-text {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+}
+.promo-code-placeholder-icon {
+    
+}
 .promo-counter {
     display: flex;
     justify-content: flex-end;
