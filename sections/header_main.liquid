@@ -50,7 +50,7 @@
       <div class="promo-info">GET 15% OFF</div>
       <div class="promo-code">
         <div class="promo-code-info">Use code</div>
-        <div class="promo-code-placeholder">
+        <div class="promo-code-placeholder promo-code-placeholder-copied">
           <div class="promo-code-placeholder-text">TSLGIFT15</div>
           <div class="promo-code-placeholder-icon promo-code-placeholder-icon-copy">
             <img src="{{ 'promo_copy.svg' | asset_url }}">
@@ -62,22 +62,22 @@
       </div>
       <div class="promo-counter">
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_days">--</div>
+          <div class="promo-counter-item-value promo_days">--</div>
           <div class="promo-counter-item-caption">days</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_hours">--</div>
+          <div class="promo-counter-item-value promo_hours">--</div>
           <div class="promo-counter-item-caption">hrs</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_minutes">--</div>
+          <div class="promo-counter-item-value promo_minutes">--</div>
           <div class="promo-counter-item-caption">mins</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_seconds">--</div>
+          <div class="promo-counter-item-value promo_seconds">--</div>
           <div class="promo-counter-item-caption">secs</div>
         </div>
       </div>
@@ -337,10 +337,10 @@ with access to advanced Tesla features</div>
         const minutes = Math.floor((timeLeft % (60 * 60)) / 60)
         const seconds = timeLeft % 60
 
-        $('#promo_days').text(addLeadingZero(days))
-        $('#promo_hours').text(addLeadingZero(hours))
-        $('#promo_minutes').text(addLeadingZero(minutes))
-        $('#promo_seconds').text(addLeadingZero(seconds))
+        $('.promo_days').text(addLeadingZero(days))
+        $('.promo_hours').text(addLeadingZero(hours))
+        $('.promo_minutes').text(addLeadingZero(minutes))
+        $('.promo_seconds').text(addLeadingZero(seconds))
       } else {
         $('.promo-wrap').hide()
         clearInterval(timerInterval)
@@ -349,6 +349,22 @@ with access to advanced Tesla features</div>
 
     const timerInterval = setInterval(updateCountdown, 1000)
     updateCountdown()
+
+    $('.promo-code-placeholder').on('click', function () {
+      const code = $(this).find('.promo-code-placeholder-text').text()
+
+      const tempInput = $('<textarea>')
+      tempInput.val(code)
+      $('body').append(tempInput)
+      tempInput.select()
+      document.execCommand('copy')
+      tempInput.remove()
+
+      $('.promo-code-placeholder-text').text('Copied')
+      $('.promo-code-placeholder-icon-copy').hide()
+      $('.promo-code-placeholder-icon-copied').show()
+      $(this).addClass('promo-code-placeholder-copied')
+    })
     /* promo script */
 
     // window.addEventListener('scroll', setStickyHeader)
