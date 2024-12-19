@@ -62,22 +62,22 @@
       </div>
       <div class="promo-counter">
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_days">18</div>
+          <div class="promo-counter-item-value" id="promo_days">--</div>
           <div class="promo-counter-item-caption">days</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_hours">11</div>
+          <div class="promo-counter-item-value" id="promo_hours">--</div>
           <div class="promo-counter-item-caption">hrs</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_minutes">12</div>
+          <div class="promo-counter-item-value" id="promo_minutes">--</div>
           <div class="promo-counter-item-caption">mins</div>
         </div>
         <div class="promo-counter-delimiter">:</div>
         <div class="promo-counter-item">
-          <div class="promo-counter-item-value" id="promo_seconds">59</div>
+          <div class="promo-counter-item-value" id="promo_seconds">--</div>
           <div class="promo-counter-item-caption">secs</div>
         </div>
       </div>
@@ -322,6 +322,11 @@ with access to advanced Tesla features</div>
   $(document).ready(function() {
     /* promo script */
     const endTime = 1734940800 // 23.12.2024 08:00 UTC
+
+    function addLeadingZero(value) {
+      return value < 10 ? '0' + value : value
+    }
+
     function updateCountdown() {
       const currentTime = Math.floor(Date.now() / 1000)
       const timeLeft = endTime - currentTime
@@ -332,10 +337,10 @@ with access to advanced Tesla features</div>
         const minutes = Math.floor((timeLeft % (60 * 60)) / 60)
         const seconds = timeLeft % 60
 
-        $('#promo_days').text(days)
-        $('#promo_hours').text(hours)
-        $('#promo_minutes').text(minutes)
-        $('#promo_seconds').text(seconds)
+        $('#promo_days').text(addLeadingZero(days))
+        $('#promo_hours').text(addLeadingZero(hours))
+        $('#promo_minutes').text(addLeadingZero(minutes))
+        $('#promo_seconds').text(addLeadingZero(seconds))
       } else {
         $('.promo-wrap').hide()
         clearInterval(timerInterval)
