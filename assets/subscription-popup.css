@@ -118,4 +118,5 @@
     border: 1px solid #D9D9D9;
     outline: none;
     box-shadow: none;
+    box-sizing: border-box;
 }
