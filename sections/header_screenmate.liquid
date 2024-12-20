@@ -45,12 +45,12 @@
           <div class="subscription-popup-field">
             <label>Name:</label>
             <input type="text" placeholder="Enter your name">
-            <span class="subscription-popup-field-error-message"></div>
+            <span class="subscription-popup-field-error-message"></span>
           </div>
           <div class="subscription-popup-field">
             <label>E-mail:</label>
             <input type="text" placeholder="John.smith@example.com">
-            <span class="subscription-popup-field-error-message"></div>
+            <span class="subscription-popup-field-error-message"></span>
           </div>
         </div>
         <div class="subscription-popup-buttons">
@@ -310,6 +310,12 @@
   // console.log(logo_white_url)
   // console.log(logo_black_url)
   $(document).ready(function() {
+    /* subscription popup script */
+    $('.subscription-popup-close').on('click', function() {
+      $('#subscription-popup').hide()
+    })
+    /* subscription popup script */
+
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
