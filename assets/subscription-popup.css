@@ -1,5 +1,4 @@
 .subscription-popup-shadow {
-    display: none;
     position: fixed;
     z-index: 100;
     width: 100vw;
@@ -45,9 +44,18 @@
     height: 100%;
     box-sizing: border-box;
 }
+.subscription-popup-left {
+    overflow: hidden;
+}
 .subscription-popup-left img {
     width: 100%;
     height: 100%;
+}
+.subscription-popup-left img.image-desktop {
+    display: block;
+}
+.subscription-popup-left img.image-mobile {
+    display: none;
 }
 .subscription-popup-right {
     display: flex;
