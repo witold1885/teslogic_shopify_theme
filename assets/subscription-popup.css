@@ -306,7 +306,6 @@
     }
     .success-popup-close {
         top: calc(16 * 100vw / 375);
-        bottom: unset;
     }
     .subscription-popup-side {
         width: 100%;
