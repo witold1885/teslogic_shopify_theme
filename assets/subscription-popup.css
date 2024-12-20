@@ -127,6 +127,9 @@
     align-items: center;
     row-gap: 16px;
 }
+.subscription-popup-buttons > * {
+    cursor: pointer;
+}
 .subscription-popup-submit {
     width: 100%;
     padding: 14px 28px;
@@ -143,6 +146,9 @@
     outline: none;
     box-shadow: none;
     box-sizing: border-box;
+}
+.subscription-popup-submit:hover {
+    background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
 }
 .subscription-popup-cancel {
     color: #666;
