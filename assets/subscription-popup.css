@@ -79,7 +79,9 @@
     line-height: 40px;
 }
 .subscription-popup-title span {
-    color: linear-gradient(#0E71F0, #1D3BFC, #3F3CF6);
+    background: linear-gradient(#0E71F0, #1D3BFC, #3F3CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .subscription-popup-subtitle {
     font-size: 18px;
