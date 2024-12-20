@@ -322,6 +322,11 @@
     }
 
     $('.subscription-popup-submit').on('click', async function () {
+      $('.subscription-popup-field').each(function() {
+        $(this).removeClass('subscription-popup-field-error')
+        $(this).find('.subscription-popup-field-error-message').text('')
+      })
+      
       const name = $('.subscription-popup-name').val()
       const email = $('.subscription-popup-email').val()
 
