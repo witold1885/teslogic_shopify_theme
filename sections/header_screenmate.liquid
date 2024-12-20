@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'screenmate-promo-popup.css' | asset_url }}">
 
 {%- style -%}
   .banner-desktop-wrap {
@@ -60,6 +61,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="promo-popup" class="promo-popup-shadow">
+  <div class="promo-popup">
+    <div class="promo-popup-close">
+      <img src="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
+    </div>
+    <div class="promo-popup-side promo-popup-left">
+      <img src="{{ 'screenmate_promo_popup_image.png' | asset_url }}" alt="">
+    </div>
+    <div class="promo-popup-side promo-popup-right">
     </div>
   </div>
 </div>
@@ -316,6 +330,8 @@
     const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
     const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
     const errors = {
       emptyField: 'Fill in the field',
       emailNotValid: 'Email not valid'
@@ -326,7 +342,7 @@
         $(this).removeClass('subscription-popup-field-error')
         $(this).find('.subscription-popup-field-error-message').text('')
       })
-      
+
       const name = $('.subscription-popup-name').val()
       const email = $('.subscription-popup-email').val()
 
