@@ -81,6 +81,7 @@
 }
 .promo-popup-code {
     display: flex;
+    align-items: center;
     column-gap: 8px;
 }
 .promo-popup-code > div {
@@ -106,6 +107,12 @@
 }
 .promo-popup-code-placeholder-copied {
     column-gap: 8px;
+}
+.promo-popup-code-placeholder-text {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
 }
 .promo-popup-code-placeholder-icon {
     justify-content: center;
