@@ -102,6 +102,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 8px;
+    position: relative;
 }
 .subscription-popup-field label {
     font-size: 16px;
@@ -119,6 +120,17 @@
     outline: none;
     box-shadow: none;
     box-sizing: border-box;
+}
+.subscription-popup-field-error input {
+    border: 1px solid #FC3E30;
+}
+.subscription-popup-field-error-message {
+    position: absolute;
+    bottom: -22px;
+    color: #FC3E30;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
 .subscription-popup-buttons {
     display: flex;
