@@ -102,6 +102,9 @@
     font-weight: 600;
     line-height: 40px;
 }
+.success-popup .subscription-popup-title {
+    width: 229px;
+}
 .subscription-popup-title span {
     background: linear-gradient(#0E71F0, #1D3BFC, #3F3CF6);
     -webkit-background-clip: text;
@@ -200,7 +203,13 @@
         height: calc(584 * 100vw / 1440);
         border-radius: calc(24 * 100vw / 1440);
     }
-    .subscription-popup-close {
+    .success-popup {
+        width: calc(428 * 100vw / 1440);
+        height: calc(248 * 100vw / 1440);
+        padding: calc(36 * 100vw / 1440);
+        border-radius: calc(24 * 100vw / 1440);
+    }
+    .subscription-popup-close, .success-popup-close {
         width: calc(20 * 100vw / 1440);
         height: calc(20 * 100vw / 1440);
         top: calc(16 * 100vw / 1440);
@@ -226,6 +235,9 @@
     .subscription-popup-title {
         font-size: calc(32 * 100vw / 1440);
         line-height: calc(40 * 100vw / 1440);
+    }
+    .success-popup .subscription-popup-title {
+        width: calc(229 * 100vw / 1440);
     }
     .subscription-popup-subtitle {
         font-size: calc(18 * 100vw / 1440);
