@@ -128,3 +128,12 @@
 .promo-popup-code-placeholder-icon-copied img {
     width: 100%;
 }
+.promo-popup-buttons > * {
+    cursor: pointer;
+}
+.promo-popup-cancel {
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
