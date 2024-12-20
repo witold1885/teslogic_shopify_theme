@@ -178,3 +178,167 @@
     font-weight: 400;
     line-height: 20px;
 }
+
+@media screen and (min-width: 576px) and (max-width: 1440px) {
+    .subscription-popup {
+        width: calc(856 * 100vw / 1440);
+        height: calc(584 * 100vw / 1440);
+        border-radius: calc(24 * 100vw / 1440);
+    }
+    .subscription-popup-close {
+        width: calc(20 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+        top: calc(16 * 100vw / 1440);
+        right: calc(16 * 100vw / 1440);
+    }
+    .subscription-popup-side {
+        width: calc(428 * 100vw / 1440);
+    }
+    .subscription-popup-right {
+        row-gap: calc(28 * 100vw / 1440);
+        padding: calc(36 * 100vw / 1440);
+    }
+    .subscription-popup-head {
+        row-gap: calc(24 * 100vw / 1440);
+    }
+    .subscription-popup-logo {
+        width: calc(146 * 100vw / 1440);
+        height: calc(12 * 100vw / 1440);
+    }
+    .subscription-popup-info {
+        row-gap: calc(12 * 100vw / 1440);
+    }
+    .subscription-popup-title {
+        font-size: calc(32 * 100vw / 1440);
+        line-height: calc(40 * 100vw / 1440);
+    }
+    .subscription-popup-subtitle {
+        font-size: calc(18 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440); 
+    }
+    .subscription-popup-form {
+        row-gap: calc(36 * 100vw / 1440);
+    }
+    .subscription-popup-fields {
+        row-gap: calc(24 * 100vw / 1440);
+    }
+    .subscription-popup-field {
+        row-gap: calc(8 * 100vw / 1440);
+    }
+    .subscription-popup-field label {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440); 
+    }
+    .subscription-popup-field input {
+        padding: calc(16 * 100vw / 1440);
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+        border-radius: calc(6 * 100vw / 1440);
+    }
+    .subscription-popup-field-error-message {
+        bottom: calc(-1 * 22 * 100vw / 1440);
+        font-size: calc(14 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+    }
+    .subscription-popup-buttons {
+        row-gap: calc(16 * 100vw / 1440);
+    }
+    .subscription-popup-submit {
+        padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
+        border-radius: calc(54 * 100vw / 1440);
+        font-size: calc(18 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+    }
+    .subscription-popup-cancel {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .subscription-popup {
+        width: calc(336 * 100vw / 375);
+        height: calc(764 * 100vw / 375);
+        border-radius: calc(24 * 100vw / 375);
+        flex-direction: column;
+    }
+    .subscription-popup-close {
+        width: calc(20 * 100vw / 375);
+        height: calc(20 * 100vw / 375);
+        top: unset;
+        bottom: calc(476 * 100vw / 375);
+        right: calc(16 * 100vw / 375);
+    }
+    .subscription-popup-side {
+        width: 100%;
+    }
+    .subscription-popup-left {
+        height: calc(252 * 100vw / 375);
+    }
+    .subscription-popup-left img.image-desktop {
+        display: none;
+    }
+    .subscription-popup-left img.image-mobile {
+        display: block;
+    }
+    .subscription-popup-right {
+        height: calc(512 * 100vw / 375);
+        row-gap: calc(20 * 100vw / 375);
+        padding: calc(24 * 100vw / 375);
+    }
+    .subscription-popup-head {
+        row-gap: calc(20 * 100vw / 375);
+    }
+    .subscription-popup-logo {
+        width: calc(146 * 100vw / 375);
+        height: calc(12 * 100vw / 375);
+    }
+    .subscription-popup-info {
+        row-gap: calc(12 * 100vw / 375);
+    }
+    .subscription-popup-title {
+        font-size: calc(24 * 100vw / 375);
+        line-height: calc(32 * 100vw / 375);
+    }
+    .subscription-popup-subtitle {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); 
+    }
+    .subscription-popup-form {
+        row-gap: calc(24 * 100vw / 375);
+    }
+    .subscription-popup-fields {
+        row-gap: calc(24 * 100vw / 375);
+    }
+    .subscription-popup-field {
+        row-gap: calc(8 * 100vw / 375);
+    }
+    .subscription-popup-field label {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); 
+    }
+    .subscription-popup-field input {
+        padding: calc(16 * 100vw / 375);
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
+        border-radius: calc(6 * 100vw / 375);
+    }
+    .subscription-popup-field-error-message {
+        bottom: calc(-1 * 22 * 100vw / 375);
+        font-size: calc(14 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
+    }
+    .subscription-popup-buttons {
+        row-gap: calc(16 * 100vw / 375);
+    }
+    .subscription-popup-submit {
+        padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
+        border-radius: calc(54 * 100vw / 375);
+        font-size: calc(18 * 100vw / 375);
+        line-height: calc(24 * 100vw / 375);
+    }
+    .subscription-popup-cancel {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
+    }
+}
