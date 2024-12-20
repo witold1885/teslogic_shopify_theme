@@ -301,10 +301,12 @@
         right: calc(16 * 100vw / 375);
     }
     .subscription-popup-close {
+        top: unset;
         bottom: calc(476 * 100vw / 375);
     }
     .success-popup-close {
         top: calc(16 * 100vw / 375);
+        bottom: unset;
     }
     .subscription-popup-side {
         width: 100%;
