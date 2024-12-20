@@ -298,9 +298,13 @@
     .subscription-popup-close, .success-popup-close {
         width: calc(20 * 100vw / 375);
         height: calc(20 * 100vw / 375);
-        top: unset;
-        bottom: calc(476 * 100vw / 375);
         right: calc(16 * 100vw / 375);
+    }
+    .subscription-popup-close {
+        bottom: calc(476 * 100vw / 375);
+    }
+    .success-popup-close {
+        top: calc(16 * 100vw / 375);
     }
     .subscription-popup-side {
         width: 100%;
