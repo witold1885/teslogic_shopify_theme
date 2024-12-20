@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'header_screenmate-responsive.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
 {%- style -%}
   .banner-desktop-wrap {
@@ -15,6 +16,15 @@
     background-size: cover;
   }
 {%- endstyle -%}
+
+<div id="subscription-popup" class="subscription-popup-shadow">
+  <div class="subscription-popup">
+    <div class="subscription-popup-close">
+      <img drc="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
+    </div>
+
+  </div>
+</div>
 
 <header id="header_main" class="header-screenmate">
   <div class="top-wrap">
