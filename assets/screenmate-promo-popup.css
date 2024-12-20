@@ -1,5 +1,4 @@
 .promo-popup-shadow {
-    display: none;
     position: fixed;
     z-index: 100;
     width: 100vw;
@@ -144,4 +143,73 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
+}
+
+@media screen and (min-width: 576px) and (max-width: 1440px) {
+    .promo-popup {
+        width: calc(856 * 100vw / 1440);
+        height: calc(336 * 100vw / 1440);
+        border-radius: calc(24 * 100vw / 1440);
+    }
+    .promo-popup-close {
+        width: calc(20 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+        top: calc(16 * 100vw / 1440);
+        right: calc(16 * 100vw / 1440);
+    }
+    .promo-popup-side {
+        width: calc(428 * 100vw / 1440);
+    }
+    .promo-popup-right {
+        row-gap: calc(28 * 100vw / 1440);
+        padding: calc(36 * 100vw / 1440);
+    }
+    .promo-popup-main {
+        row-gap: calc(24 * 100vw / 1440);
+    }
+    .promo-popup-logo {
+        width: calc(146 * 100vw / 1440);
+        height: calc(12 * 100vw / 1440);
+    }
+    .promo-popup-info {
+        font-size: calc(32 * 100vw / 1440);
+        line-height: calc(40 * 100vw / 1440);
+    }
+    .promo-popup-code {
+        column-gap: calc(8 * 100vw / 1440);
+    }
+    .promo-popup-code > div {
+        font-size: calc(18 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder {
+        width: calc(127 * 100vw / 1440);
+        height: calc(36 * 100vw / 1440);
+        column-gap: calc(4 * 100vw / 1440);
+        padding: calc(6 * 100vw / 1440) calc(12 * 100vw / 1440);
+        border-radius: calc(8 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder-copied {
+        column-gap: calc(8 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder-text {
+        font-size: calc(18 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder-icon-copy {
+        width: calc(26 * 100vw / 1440);
+        height: calc(26 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder-icon-copy img {
+        width: calc(16 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+    }
+    .promo-popup-code-placeholder-icon-copied {
+        width: calc(24 * 100vw / 1440);
+        height: calc(24 * 100vw / 1440);
+    }
+    .promo-popup-cancel {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+    }
 }
