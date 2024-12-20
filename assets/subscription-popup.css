@@ -36,3 +36,16 @@
     width: 100%;
     height: 100%;
 }
+.subscription-popup-side {
+    width: 428px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.subscription-popup-left img {
+    width: 100%;
+    height: 100%;
+}
+.subscription-popup-right {
+    padding: 36px;
+
+}
