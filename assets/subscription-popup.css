@@ -289,7 +289,13 @@
         border-radius: calc(24 * 100vw / 375);
         flex-direction: column;
     }
-    .subscription-popup-close {
+    .success-popup {
+        width: calc(336 * 100vw / 375);
+        height: calc(196 * 100vw / 375);
+        padding: calc(24 * 100vw / 375);
+        border-radius: calc(24 * 100vw / 375);
+    }
+    .subscription-popup-close, .success-popup-close {
         width: calc(20 * 100vw / 375);
         height: calc(20 * 100vw / 375);
         top: unset;
@@ -326,6 +332,9 @@
     .subscription-popup-title {
         font-size: calc(24 * 100vw / 375);
         line-height: calc(32 * 100vw / 375);
+    }
+    .success-popup .subscription-popup-title {
+        width: calc(172 * 100vw / 375);
     }
     .subscription-popup-subtitle {
         font-size: calc(16 * 100vw / 375);
