@@ -394,6 +394,24 @@
     })
     /* subscription popup script */
 
+    /* promo popup script */
+    $('.promo-popup-code-placeholder').on('click', function () {
+      const code = $(this).find('.promo-popup-code-placeholder-text').text()
+
+      const tempInput = $('<textarea>')
+      tempInput.val(code)
+      $('body').append(tempInput)
+      tempInput.select()
+      document.execCommand('copy')
+      tempInput.remove()
+
+      $('.promo-popup-code-placeholder-text').text('Copied')
+      $('.promo-popup-code-placeholder-icon-copy').hide()
+      $('.promo-popup-code-placeholder-icon-copied').css('display', 'flex')
+      $(this).addClass('promo-popup-code-placeholder-copied')
+    })
+    /* promo popup script */
+
     // window.addEventListener('scroll', setStickyHeader)
     $(document.body).on('touchmove', setStickyHeader)
     $(document.body).on('scroll', setStickyHeader)
