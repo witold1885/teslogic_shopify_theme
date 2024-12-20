@@ -49,3 +49,11 @@
     padding: 36px;
 
 }
+.subscription-popup-logo {
+    width: 146px;
+    height: 12px;
+}
+.subscription-popup-logo img {
+    width: 100%;
+    height: 100%;
+}
