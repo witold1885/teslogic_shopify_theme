@@ -79,3 +79,52 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.promo-popup-code {
+    display: flex;
+    column-gap: 8px;
+}
+.promo-popup-code > div {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.promo-popup-code-placeholder {
+    width: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px dashed #FFF;
+    background: #5B58F4;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.promo-popup-code-placeholder:hover {
+    background: #2C28F0;
+}
+.promo-popup-code-placeholder-copied {
+    column-gap: 8px;
+}
+.promo-popup-code-placeholder-icon {
+    justify-content: center;
+    align-items: center;
+}
+.promo-popup-code-placeholder-icon-copy {
+    display: flex;
+    width: 26px;
+    height: 26px;
+}
+.promo-popup-code-placeholder-icon-copy img {
+    width: 16px;
+    height: 20px;
+}
+.promo-popup-code-placeholder-icon-copied {
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+.promo-popup-code-placeholder-icon-copied img {
+    width: 100%;
+}
