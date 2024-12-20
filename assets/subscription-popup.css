@@ -24,6 +24,19 @@
     font-family: Manrope;
     font-style: normal;
 }
+.success-popup {
+    width: 428px;
+    padding: 36px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    color: #000;
+    font-family: Manrope;
+    font-style: normal;
+    box-sizing: border-box;
+}
 .subscription-popup-close, .success-popup-close {
     width: 20px;
     height: 20px;
@@ -177,16 +190,6 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-}
-
-.success-popup {
-    width: 428px;
-    padding: 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    box-sizing: border-box;
 }
 
 @media screen and (min-width: 576px) and (max-width: 1440px) {
