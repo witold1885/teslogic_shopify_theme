@@ -265,7 +265,7 @@
         font-size: calc(24 * 100vw / 375);
         line-height: calc(32 * 100vw / 375);
     }
-    .promo-popup-info br:first-child {
+    .promo-popup-info br {
         display: none;
     }
     .promo-popup-code {
