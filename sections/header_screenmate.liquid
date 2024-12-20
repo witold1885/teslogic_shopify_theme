@@ -396,6 +396,10 @@
     /* subscription popup script */
 
     /* promo popup script */
+    $('.promo-popup-close').on('click', function() {
+      $('#promo-popup').hide()
+    })
+
     $('.promo-popup-code-placeholder').on('click', function () {
       const code = $(this).find('.promo-popup-code-placeholder-text').text()
 
