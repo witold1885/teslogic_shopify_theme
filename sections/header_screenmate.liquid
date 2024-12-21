@@ -446,7 +446,11 @@
     /* subscription popup script */
 
     /* promo popup script */
-    $('.promo-popup-close').on('click', function() {
+    setTimeout(() => {
+      $('#promo-popup').css('display', 'flex')
+    }, 20000)
+    
+    $('.promo-popup-close, .promo-popup-cancel').on('click', function() {
       $('#promo-popup').hide()
     })
 
