@@ -12,6 +12,9 @@
     justify-content: center;
     align-items: center;
 }
+#success-popup {
+    display: none;
+}
 .subscription-popup {
     width: 856px;
     height: 584px;
