@@ -381,10 +381,13 @@
     const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
 
     const errors = {
       emptyField: 'Fill in the field',
-      emailNotValid: 'Email not valid'
+      emailNotValid: 'Email not valid',
+      emailRegistered: 'This email is already registered',
+      serverError: 'An error occurred try again'
     }
 
     $('.subscription-popup-submit').on('click', async function () {
@@ -412,6 +415,28 @@
         $(emailField).addClass('subscription-popup-field-error')
         $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
         return
+      }
+
+      const response = await fetch(sendMailUrl, {
+          method: 'post',
+          body: JSON.stringify({ name, email }),
+          headers: {'Content-Type': 'application/json'}
+      })
+      const data = await response.json()
+      
+      console.log(data)
+      if (response.status == 200) {
+        if (data.success) {
+          $('#subscription-popup').css('display', 'none')
+          $('#success-popup').css('display', 'flex')
+        } else {
+          $(emailField).addClass('subscription-popup-field-error')
+          if (data.message == 'email_exists') {
+            $(emailField).find('.subscription-popup-field-error-message').text(errors.emailRegistered)
+          } else {
+            $(emailField).find('.subscription-popup-field-error-message').text(errors.serverError)
+          }
+        }
       }
     })
 
