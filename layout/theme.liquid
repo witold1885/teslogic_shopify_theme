@@ -320,6 +320,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               $('#subscription-popup').hide()
             })
 
+            $('.subscription-popup-cancel').on('click', function() {
+              setSubscriptionCookie(0)
+              $('#subscription-popup').hide()
+            })
+
             const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
             const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
 
@@ -385,11 +390,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             })
 
             $('.success-popup-close').on('click', function() {
-              $('#success-popup').hide()
-            })
-
-            $('.subscription-popup-cancel').on('click', function() {
-              setSubscriptionCookie(0)
               $('#success-popup').hide()
             })
             /* subscription popup script */
