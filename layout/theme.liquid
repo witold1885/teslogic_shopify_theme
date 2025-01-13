@@ -223,6 +223,180 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="gradient">
     <div {% if template == 'index' %}style="overflow: hidden;"{% endif %}>
+      {% if template == 'index' or page.handle == 'pro' or page.handle == 'screenmate' %}
+        <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
+
+        <div id="subscription-popup" class="subscription-popup-shadow">
+          <div class="subscription-popup">
+            <div class="subscription-popup-close">
+              <img src="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
+            </div>
+            <div class="subscription-popup-side subscription-popup-left">
+              <img class="image-desktop" src="{{ 'subscription_popup_image.png' | asset_url }}" alt="">
+              <img class="image-mobile" src="{{ 'subscription_popup_image_mobile.png' | asset_url }}" alt="">
+            </div>
+            <div class="subscription-popup-side subscription-popup-right">
+              <div class="subscription-popup-head">
+                <div class="subscription-popup-logo">
+                  <img src="{{ 'subscription_popup_logo.svg' | asset_url }}" alt="">
+                </div>
+                <div class="subscription-popup-info">
+                  <div class="subscription-popup-title">
+                    Your first <span>10%</span><br><span>discount</span> Is on Us!
+                  </div>
+                  <div class="subscription-popup-subtitle">
+                    Join Teslogic Community and get best <br>
+                    deals and exclusive updates.
+                  </div>
+                </div>
+              </div>
+              <div class="subscription-popup-form">
+                <div class="subscription-popup-fields">
+                  <div class="subscription-popup-field">
+                    <label>Name:</label>
+                    <input class="subscription-popup-name" type="text" placeholder="Enter your name">
+                    <span class="subscription-popup-field-error-message"></span>
+                  </div>
+                  <div class="subscription-popup-field">
+                    <label>E-mail:</label>
+                    <input class="subscription-popup-email" type="email" placeholder="John.smith@example.com">
+                    <span class="subscription-popup-field-error-message"></span>
+                  </div>
+                </div>
+                <div class="subscription-popup-buttons">
+                  <button class="subscription-popup-submit">Unlock my discount</button>
+                  <div class="subscription-popup-cancel">
+                    No, I want to pay full price.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="success-popup" class="subscription-popup-shadow">
+          <div class="success-popup">
+            <div class="success-popup-close">
+              <img src="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
+            </div>
+            <div class="subscription-popup-logo">
+              <img src="{{ 'subscription_popup_logo.svg' | asset_url }}" alt="">
+            </div>
+            <div class="subscription-popup-info">
+              <div class="subscription-popup-title">
+                <span>Thank you</span> for subscribing
+              </div>
+              <div class="subscription-popup-subtitle">
+                The discount is waiting <br>
+                for you already in the e-mail.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          $(document).ready(function() {
+            /* subscription popup script */
+            function checkSubscriptionCookie() {
+              const cookies = document.cookie.split('; ')
+              return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
+            }
+
+            function setSubscriptionCookie(value) {
+              const date = new Date()
+              date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
+              const expires = `expires=${date.toUTCString()}`
+              document.cookie = `discount_subscription=${value}; ${expires}; path=/`
+            }
+
+            setTimeout(() => {
+              const cookieExists = checkSubscriptionCookie()
+              if (!cookieExists) {
+                $('#subscription-popup').css('display', 'flex')
+              }
+            }, 10000)
+            
+            $('.subscription-popup-close').on('click', function() {
+              $('#subscription-popup').hide()
+            })
+
+            const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
+            const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
+
+            const errors = {
+              emptyField: 'Fill in the field',
+              emailNotValid: 'Email not valid',
+              emailRegistered: 'This email is already registered',
+              serverError: 'An error occurred try again'
+            }
+
+            $('.subscription-popup-submit').on('click', async function () {
+              $('.subscription-popup-field').each(function() {
+                $(this).removeClass('subscription-popup-field-error')
+                $(this).find('.subscription-popup-field-error-message').text('')
+              })
+
+              const name = $('.subscription-popup-name').val()
+              const email = $('.subscription-popup-email').val()
+
+              if (!name) {
+                $(nameField).addClass('subscription-popup-field-error')
+                $(nameField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+                return
+              }
+
+              if (!email) {
+                $(emailField).addClass('subscription-popup-field-error')
+                $(emailField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+                return
+              }
+
+              if (!emailRegex.test(email)) {
+                $(emailField).addClass('subscription-popup-field-error')
+                $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
+                return
+              }
+
+              const response = await fetch(sendMailUrl, {
+                  method: 'post',
+                  body: JSON.stringify({ name, email }),
+                  headers: {'Content-Type': 'application/json'}
+              })
+              const data = await response.json()
+              
+              console.log(data)
+              if (response.status == 200) {
+                if (data.success) {
+                  setSubscriptionCookie(1)
+                  $('#subscription-popup').css('display', 'none')
+                  $('#success-popup').css('display', 'flex')
+                } else {
+                  $(emailField).addClass('subscription-popup-field-error')
+                  if (data.message == 'email_exists') {
+                    $(emailField).find('.subscription-popup-field-error-message').text(errors.emailRegistered)
+                  } else {
+                    $(emailField).find('.subscription-popup-field-error-message').text(errors.serverError)
+                  }
+                }
+              }
+            })
+
+            $('.success-popup-close').on('click', function() {
+              $('#success-popup').hide()
+            })
+
+            $('.subscription-popup-cancel').on('click', function() {
+              setSubscriptionCookie(0)
+              $('#success-popup').hide()
+            })
+            /* subscription popup script */
+          })
+        </script>
+      {% endif %}
+
       {% if template == 'index' %}
         {% section 'header_main' %}
       {% elsif page.handle == 'pro' %}
