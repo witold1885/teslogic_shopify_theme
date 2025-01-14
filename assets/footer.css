@@ -46,7 +46,10 @@ footer {
 	font-family: Manrope;
 	font-style: normal;
 }
-.footer__form-fields input {
+.footer__form-field {
+	position: relative;
+}
+.footer__form-field input {
 	width: 416px;
 	height: 52px;
 	padding: 16px;
@@ -58,6 +61,17 @@ footer {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 20px;
+}
+.footer__form-field-error input {
+	border: 1px solid #FC3E30;
+}
+.footer__form-field-error-message {
+    position: absolute;
+    bottom: -22px;
+    color: #FC3E30;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;	
 }
 .footer__form-fields button {
 	width: 195px;
