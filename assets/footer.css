@@ -79,6 +79,7 @@ footer {
 }
 .footer__delimiter {
 	width: 1296px;
+	margin: 0 auto;
 	height: 1px;
 	background: #808080;
 }
