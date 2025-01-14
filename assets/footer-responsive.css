@@ -34,7 +34,7 @@
 		line-height: calc(24 * 100vw / 1440);
 	}
 	.footer__form-fields button:hover {
-		padding: calc(13 * 100vw / 1440) calc(31 * 100vw / 1440);
+		padding: calc(17 * 100vw / 1440) calc(31 * 100vw / 1440);
 	}
 	.footer__delimiter {
 		width: calc(1296 * 100vw / 1440);
