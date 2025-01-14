@@ -40,7 +40,7 @@ footer {
 	align-items: center;
 	column-gap: 24px;
 }
-.footer__form-fields > * {
+.footer__form-fields input, .footer__form-fields button {
 	background: transparent;
 	box-sizing: border-box;
 	font-family: Manrope;
