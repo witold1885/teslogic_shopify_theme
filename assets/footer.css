@@ -68,7 +68,8 @@ footer {
 	text-align: center;
 	font-size: 18px;
 	font-weight: 600;
-	line-height: 24px; 
+	line-height: 24px;
+	cursor: pointer;
 }
 .footer__form-fields button:hover {
 	padding: 13px 31px;
