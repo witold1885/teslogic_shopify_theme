@@ -38,6 +38,7 @@ footer {
 	column-gap: 24px;
 }
 .footer__form-fields > * {
+	background: transparent;
 	box-sizing: border-box;
 	font-family: Manrope;
 	font-style: normal;
