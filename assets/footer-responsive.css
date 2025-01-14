@@ -111,6 +111,7 @@
 		padding-top: calc(40 * 100vw / 375);
 		padding-bottom: calc(40 * 100vw / 375);
 		flex-direction: column;
+		row-gap: calc(32 * 100vw / 375);
 	}
 	.footer__form-texts {
 		row-gap: calc(8 * 100vw / 375);
@@ -122,6 +123,9 @@
 	.footer__form-subtitle {
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
+	}
+	.footer__form-subtitle br {
+		display: block;
 	}
 	.footer__form-fields {
 		flex-direction: column;
