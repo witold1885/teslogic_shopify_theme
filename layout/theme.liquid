@@ -314,12 +314,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 $('#subscription-popup').css('display', 'flex')
               }
             }, 10000)
-            
-            $('.subscription-popup-close').on('click', function() {
-              $('#subscription-popup').hide()
-            })
 
-            $('.subscription-popup-cancel').on('click', function() {
+            $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
               setSubscriptionCookie(0)
               $('#subscription-popup').hide()
             })
