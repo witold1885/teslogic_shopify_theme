@@ -106,15 +106,53 @@
 
 @media screen and (max-width: 575px) {
 	.footer__form {
-		display: none;
+		width: calc(335 * 100vw / 375);
+		margin: 0 auto;
+		padding-top: calc(40 * 100vw / 375);
+		padding-bottom: calc(40 * 100vw / 375);
+		flex-direction: column;
+	}
+	.footer__form-texts {
+		row-gap: calc(8 * 100vw / 375);
+	}
+	.footer__form-title {
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
+	.footer__form-subtitle {
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
+	.footer__form-fields {
+		flex-direction: column;
+		row-gap: calc(24 * 100vw / 375);
+	}
+	.footer__form-fields input {
+		width: calc(335 * 100vw / 375);
+		height: calc(52 * 100vw / 375);
+		padding: calc(16 * 100vw / 375);
+		border-radius: calc(6 * 100vw / 375);
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
+	.footer__form-fields button {
+		width: calc(335 * 100vw / 375);
+		padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
+		border-radius: calc(26 * 100vw / 375);
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
+	.footer__form-fields button:hover {
+		padding: calc(17 * 100vw / 375) calc(31 * 100vw / 375);
 	}
 	.footer__delimiter {
-		display: none;
+		width: calc(335 * 100vw / 375);
+		margin: 0 auto;
 	}
 	.footer__wrap {
 		width: calc(335 * 100vw / 375);
 		margin: 0 auto;
-		padding-top: calc(72 * 100vw / 375);
+		padding-top: calc(40 * 100vw / 375);
 		padding-bottom: calc(72 * 100vw / 375);
 	}
 	.footer-top {
