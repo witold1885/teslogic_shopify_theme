@@ -28,6 +28,11 @@
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
+	.footer__form-field-error-message {
+		bottom: calc(-22 * 100vw / 1440);
+		font-size: calc(14 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 	.footer__form-fields button {
 		width: calc(195 * 100vw / 1440);
 		padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
@@ -141,6 +146,11 @@
 		padding: calc(16 * 100vw / 375);
 		border-radius: calc(6 * 100vw / 375);
 		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
+	.footer__form-field-error-message {
+		bottom: calc(-22 * 100vw / 375);
+		font-size: calc(14 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
 	}
 	.footer__form-fields button {
