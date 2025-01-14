@@ -18,9 +18,11 @@
 	.footer__form-fields {
 		column-gap: calc(24 * 100vw / 1440);
 	}
-	.footer__form-fields input {
+	.footer__form-field {
 		width: calc(416 * 100vw / 1440);
 		height: calc(52 * 100vw / 1440);
+	}
+	.footer__form-field input {
 		padding: calc(16 * 100vw / 1440);
 		border-radius: calc(6 * 100vw / 1440);
 		font-size: calc(16 * 100vw / 1440);
@@ -131,9 +133,11 @@
 		flex-direction: column;
 		row-gap: calc(24 * 100vw / 375);
 	}
-	.footer__form-fields input {
+	.footer__form-field {
 		width: calc(335 * 100vw / 375);
 		height: calc(52 * 100vw / 375);
+	}
+	.footer__form-field input {
 		padding: calc(16 * 100vw / 375);
 		border-radius: calc(6 * 100vw / 375);
 		font-size: calc(16 * 100vw / 375);
