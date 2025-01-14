@@ -12,8 +12,11 @@
       <div class="footer__form-subtitle">Stay informed about sales, updates <br>and new products launches.</div>
     </div>
     <div class="footer__form-fields">
-      <input type="email" placeholder="Enter your e-mail adress">
-      <button>Subscribe</button>
+      <div class="footer__form-field">
+        <input class="footer__form-email" type="email" placeholder="Enter your e-mail adress">
+        <span class="footer__form-field-error-message"></span>
+      </div>
+      <button class="footer__form-submit">Subscribe</button>
     </div>
   </div>
   <div class="footer__delimiter"></div>
@@ -200,3 +203,66 @@
       </div>
     {% endif %}
 </footer>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    const emailField = $('.footer__form-email').parent('.footer__form-field')
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const sendMailUrl = 'https://api.teslogic.co/mail/custom-subscribe'
+
+    const errors = {
+      emptyField: 'Fill in the field',
+      emailNotValid: 'Email not valid',
+      emailRegistered: 'This email is already registered',
+      serverError: 'An error occurred try again'
+    }
+
+    $('.footer__form-submit').on('click', async function () {
+      $('.footer__form-field').each(function() {
+        $(this).removeClass('footer__form-field-error')
+        $(this).find('.footer__form-field-error-message').text('')
+      })
+
+      const email = $('.footer__form-email').val()
+
+      if (!email) {
+        $(emailField).addClass('footer__form-field-error')
+        $(emailField).find('.footer__form-field-error-message').text(errors.emptyField)
+        return
+      }
+
+      if (!emailRegex.test(email)) {
+        $(emailField).addClass('footer__form-field-error')
+        $(emailField).find('.footer__form-field-error-message').text(errors.emailNotValid)
+        return
+      }
+
+      const response = await fetch(sendMailUrl, {
+          method: 'post',
+          body: JSON.stringify({ name, email }),
+          headers: {'Content-Type': 'application/json'}
+      })
+      const data = await response.json()
+      
+      console.log(data)
+      if (response.status == 200) {
+        if (data.success) {
+          // $('#subscription-popup').css('display', 'none')
+          // $('#success-popup').css('display', 'flex')
+        } else {
+          $(emailField).addClass('footer__form-field-error')
+          if (data.message == 'email_exists') {
+            $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
+          } else {
+            $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
+          }
+        }
+      }
+    })
+
+    // $('.success-popup-close').on('click', function() {
+    //   $('#success-popup').hide()
+    // })
+  })
+</script>
