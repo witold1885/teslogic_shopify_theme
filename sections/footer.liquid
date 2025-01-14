@@ -258,6 +258,8 @@
             $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
           }
         }
+      } else {
+        $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
       }
     })
 
