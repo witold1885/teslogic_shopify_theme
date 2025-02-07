@@ -1,33 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "favicon": "shopify:\/\/shop_images\/TL_icon_10.png",
-    "checkout_logo_image": "shopify:\/\/shop_images\/logo_black.webp",
+    "favicon": "shopify://shop_images/TL_icon_10.png",
+    "checkout_logo_image": "shopify://shop_images/logo_black.webp",
     "sections": {
       "header_main": {
         "type": "header_main",
-        "settings": {
-        }
+        "settings": {}
       },
       "header_custom": {
         "type": "header_custom",
-        "settings": {
-        }
+        "settings": {}
       },
       "footer": {
         "type": "footer",
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
@@ -36,18 +44,15 @@
       "sections": {
         "header_main": {
           "type": "header_main",
-          "settings": {
-          }
+          "settings": {}
         },
         "header_custom": {
           "type": "header_custom",
-          "settings": {
-          }
+          "settings": {}
         },
         "footer": {
           "type": "footer",
-          "settings": {
-          }
+          "settings": {}
         }
       }
     }
