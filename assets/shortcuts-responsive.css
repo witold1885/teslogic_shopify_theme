@@ -299,6 +299,27 @@
 	.shortcuts-features-block-3 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title span {
 		width: calc(107 * 100vw / 375);
 	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title span {
+		width: calc(147 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title span {
+		width: calc(141 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-3 .shortcuts-features-block-item-title span {
+		width: calc(169 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-4 .shortcuts-features-block-item-title span {
+		width: calc(139 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-5 .shortcuts-features-block-item-title span {
+		width: calc(156 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title span {
+		width: calc(149 * 100vw / 375);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title span {
+		width: calc(168 * 100vw / 375);
+	}
 	.shortcuts-features-block-item-title img {
 		display: block;
 		width: calc(12 * 100vw / 375);
