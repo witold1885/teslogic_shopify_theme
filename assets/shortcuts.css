@@ -175,8 +175,11 @@
 	display: grid;
 	gap: 12px;
 }
-.shortcuts-features-block-items-1 {
+.shortcuts-features-block-1 .shortcuts-features-block-items {
 	grid-template-columns: repeat(3, 1fr);
+}
+.shortcuts-features-block-2 .shortcuts-features-block-items {
+	grid-template-columns: repeat(2, 1fr);
 }
 .shortcuts-features-block-item {
 	display: flex;
