@@ -158,7 +158,6 @@
 	border-radius: 28px;
 }
 .shortcuts-features-block {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	row-gap: 20px;
@@ -188,7 +187,9 @@
 	grid-template-columns: repeat(2, 1fr);
 }
 .shortcuts-features-block-4 .shortcuts-features-block-items {
-	grid-template-columns: repeat(2, 500px) repeat(3, 329.3333px) repeat(2, 500px);
+	/* grid-template-columns: repeat(2, 500px) repeat(3, 329.3333px) repeat(2, 500px); */
+	display: flex;
+	flex-wrap: wrap;
 }
 .shortcuts-features-block-item {
 	display: flex;
@@ -200,6 +201,17 @@
 	border: 2px solid #E7EDFE;
 	background: #FFF;
 	box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-1, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-2, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-6, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-7 {
+	width: 500px;
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-3, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-4, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-5 {
+	width: 329.3333px;
 }
 .shortcuts-features-block-item-top {
 	display: flex;
