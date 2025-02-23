@@ -326,13 +326,13 @@
 		width: calc(12 * 100vw / 375);
 		height: calc(40 * 100vw / 375);
 	}
+	.shortcuts-features-block-item.opened .shortcuts-features-block-item-title img {
+		transform: rotate(180deg);
+		transform-origin: center;
+	}
 	.shortcuts-features-block-item-icon {
 		width: calc(40 * 100vw / 375);
 		height: calc(40 * 100vw / 375);
-	}
-	.shortcuts-features-block-item.opened .shortcuts-features-block-item-icon {
-		transform: rotate(180deg);
-		transform-origin: center;
 	}
 	.shortcuts-features-block-item-content {
 		display: none;
