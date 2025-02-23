@@ -236,6 +236,9 @@
 .shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
 	width: 312px;
 }
+.shortcuts-features-block-item-title img {
+	display: none;
+}
 .shortcuts-features-block-item-icon {
 	width: 48px;
 	height: 48px;
