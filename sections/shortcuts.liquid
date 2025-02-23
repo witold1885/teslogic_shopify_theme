@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="{{ 'shortcuts.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
+<style>
+.shortcuts-features {
+	background: url({{ 'shortcuts_features_bg' | asset_url }});
+	background-size: cover;
+	background-position: center;
+}
+</style>
+
 <div class="shortcuts">
 	<div class="shortcuts-wrap">
 		<div class="shortcuts-title">
@@ -46,7 +54,7 @@
 				</div>				
 			</div>
 		</div>
-		<div class="shortcuts-features">			
+		{% comment %} <div class="shortcuts-features">			
 		    {% assign articles = blogs['teslogic-shortcuts-2024'].articles | sort: 'title' %}
 		    {% for article in articles %}
 		    	<div class="shortcuts-features-item">
@@ -158,6 +166,31 @@
 			<div class="shortcuts-more-layer shortcuts-more-layer-2"></div>
 			<div class="shortcuts-more-layer shortcuts-more-layer-1"></div>
 			
+		</div> {% endcomment %}
+		{% assign blocks = ['performance-driv-ing-modes', 'safety-stability-features', 'convenien-ce-comfort', 'autopilot-tweaks-beta'] %}
+		<div class="shortcuts-features">
+			{% for block in blocks %}
+				{% assign items = blogs[block].articles | sort: 'title' %}
+				<div class="shortcuts-features-block shortcuts-features-block-{{ loop.index }}">
+					<div class="shortcuts-features-block-title">{{ blogs[block].title }}</div>
+					<div class="shortcuts-features-block-items">
+						{% for item in items %}
+							{% assign title_array = item.title | split: ' ' %}
+							{% assign number = title_array.first %}
+							{% assign title = item.title | replace: number, '' %}
+							<div class="shortcuts-features-block-item">
+								<div class="shortcuts-features-block-item-top">
+									<div class="shortcuts-features-block-item-title">{{ title }}</div>
+									<div class="shortcuts-features-block-item-icon">
+										<img src="{{ item.image }}" alt="">
+									</div>
+								</div>
+								<div class="shortcuts-features-block-item-content">{{ item.content }}</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
