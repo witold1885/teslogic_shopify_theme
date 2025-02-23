@@ -285,6 +285,15 @@
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
 		width: auto !important;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		column-gap: calc(8 * 100vw / 375);
+	}
+	.shortcuts-features-block-item-title img {
+		display: block;
+		width: calc(12 * 100vw / 375);
+		height: calc(40 * 100vw / 375);
 	}
 	.shortcuts-features-block-item-icon {
 		width: calc(40 * 100vw / 375);
