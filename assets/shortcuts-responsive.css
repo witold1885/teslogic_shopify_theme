@@ -290,6 +290,15 @@
 		align-items: center;
 		column-gap: calc(8 * 100vw / 375);
 	}
+	.shortcuts-features-block-2 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title span {
+		width: calc(113 * 100vw / 375);
+	}
+	.shortcuts-features-block-2 .shortcuts-features-block-item-3 .shortcuts-features-block-item-title span {
+		width: calc(90 * 100vw / 375);
+	}
+	.shortcuts-features-block-3 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title span {
+		width: calc(107 * 100vw / 375);
+	}
 	.shortcuts-features-block-item-title img {
 		display: block;
 		width: calc(12 * 100vw / 375);
