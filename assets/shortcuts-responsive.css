@@ -275,7 +275,8 @@
 	}
 	.shortcuts-features-block-item {
 		width: calc(288 * 100vw / 375) !important;
-		height: calc(80 * 100vw / 375);
+		/* height: calc(80 * 100vw / 375); */
+		height: auto !important;
 		padding: calc(20 * 100vw / 375);
 		border-radius: calc(24 * 100vw / 375);
 		/* row-gap: calc(20 * 100vw / 375); */
