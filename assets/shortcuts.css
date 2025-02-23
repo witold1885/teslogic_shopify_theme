@@ -156,12 +156,14 @@
 	margin-top: 24px;
 	margin-bottom: 84px;
 	border-radius: 28px;
+	box-sizing: border-box;
 }
 .shortcuts-features-block {
 	display: flex;
 	flex-direction: column;
 	row-gap: 20px;
 	padding: 20px 24px;
+	box-sizing: border-box;
 }
 .shortcuts-features-block-title {
 	color: #FFF;
@@ -201,6 +203,7 @@
 	border: 2px solid #E7EDFE;
 	background: #FFF;
 	box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
+	box-sizing: border-box;
 }
 .shortcuts-features-block-4 .shortcuts-features-block-item-1, 
 .shortcuts-features-block-4 .shortcuts-features-block-item-2, 
