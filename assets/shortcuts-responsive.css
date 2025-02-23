@@ -278,8 +278,8 @@
 		height: calc(80 * 100vw / 375);
 		padding: calc(20 * 100vw / 375);
 		border-radius: calc(24 * 100vw / 375);
-		row-gap: calc(20 * 100vw / 375);
-		overflow: hidden;
+		/* row-gap: calc(20 * 100vw / 375); */
+		/* overflow: hidden; */
 	}
 	.shortcuts-features-block-item-title {
 		font-size: calc(16 * 100vw / 375);
@@ -330,6 +330,7 @@
 		height: calc(40 * 100vw / 375);
 	}
 	.shortcuts-features-block-item-content {
+		display: none;
 		font-size: calc(12 * 100vw / 375);
 		line-height: calc(18 * 100vw / 375);
 	}
