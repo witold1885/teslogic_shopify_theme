@@ -94,6 +94,13 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-
+	$('.shortcuts-features-block-item-title').on('click', function() {
+		const item = $(this).parents('.shortcuts-features-block-item')
+		if ($(item).hasClass('opened')) {
+			$(item).removeClass('opened')
+		} else {
+			$(item).addClass('opened')
+		}
+	})
   })
 </script>
