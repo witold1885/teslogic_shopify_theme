@@ -65,7 +65,7 @@
 							{% assign title_array = item.title | split: ' ' %}
 							{% assign number = title_array.first %}
 							{% assign title = item.title | replace: number, '' %}
-							<div class="shortcuts-features-block-item">
+							<div class="shortcuts-features-block-item shortcuts-features-block-item-{{ forloop.index }}">
 								<div class="shortcuts-features-block-item-top">
 									<div class="shortcuts-features-block-item-title">{{ title }}</div>
 									<div class="shortcuts-features-block-item-icon">
