@@ -69,7 +69,7 @@
 								<div class="shortcuts-features-block-item-top">
 									<div class="shortcuts-features-block-item-title">{{ title }}</div>
 									<div class="shortcuts-features-block-item-icon">
-										<img src="{{ item.image }}" alt="">
+										<img src="{{ item.image | img_url: '48x48' }}" alt="">
 									</div>
 								</div>
 								<div class="shortcuts-features-block-item-content">{{ item.content }}</div>
