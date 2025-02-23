@@ -179,7 +179,13 @@
 	grid-template-columns: repeat(3, 1fr);
 }
 .shortcuts-features-block-2 .shortcuts-features-block-items {
+	grid-template-columns: repeat(3, 1fr);
+}
+.shortcuts-features-block-3 .shortcuts-features-block-items {
 	grid-template-columns: repeat(2, 1fr);
+}
+.shortcuts-features-block-4 .shortcuts-features-block-items {
+	grid-template-columns: repeat(2, 1fr) repeat(3, 1fr) repeat(2, 1fr);
 }
 .shortcuts-features-block-item {
 	display: flex;
