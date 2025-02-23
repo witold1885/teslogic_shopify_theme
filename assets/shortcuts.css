@@ -189,7 +189,6 @@
 	grid-template-columns: repeat(2, 1fr);
 }
 .shortcuts-features-block-4 .shortcuts-features-block-items {
-	/* grid-template-columns: repeat(2, 500px) repeat(3, 329.3333px) repeat(2, 500px); */
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -228,6 +227,14 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 24px;
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title {
+	width: 274px;
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
+	width: 312px;
 }
 .shortcuts-features-block-item-icon {
 	width: 48px;
