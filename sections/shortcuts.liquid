@@ -74,7 +74,10 @@
 							{% assign title = item.title | replace: number, '' %}
 							<div class="shortcuts-features-block-item shortcuts-features-block-item-{{ forloop.index }}">
 								<div class="shortcuts-features-block-item-top">
-									<div class="shortcuts-features-block-item-title">{{ title }}</div>
+									<div class="shortcuts-features-block-item-title">
+										<span>{{ title }}</span>
+										<img src="{{ 'shortcuts_mobile_chevron.svg' | asset_url }}" alt="">
+									</div>
 									<div class="shortcuts-features-block-item-icon">
 										<img src="{{ item.image | img_url: '48x48' }}" alt="">
 									</div>
@@ -91,6 +94,6 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-	
+
   })
 </script>
