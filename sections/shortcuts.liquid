@@ -58,7 +58,7 @@
 		<div class="shortcuts-features">
 			{% for block in blocks %}
 				{% assign items = blogs[block].articles | sort: 'title' %}
-				<div class="shortcuts-features-block shortcuts-features-block-{{ loop.index }}">
+				<div class="shortcuts-features-block shortcuts-features-block-{{ forloop.index }}">
 					<div class="shortcuts-features-block-title">{{ blogs[block].title }}</div>
 					<div class="shortcuts-features-block-items">
 						{% for item in items %}
