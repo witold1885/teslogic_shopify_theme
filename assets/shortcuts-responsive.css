@@ -133,7 +133,7 @@
 	.shortcuts-wrap {
 		width: calc(335 * 100vw / 375);
 		padding-top: calc(96 * 100vw / 375);
-		padding-bottom: calc(108 * 100vw / 375);
+		padding-bottom: calc(96 * 100vw / 375);
 	}
 	.shortcuts-title {
 		margin-bottom: 0;
@@ -254,178 +254,82 @@
 		width: calc(287 * 100vw / 375);
 	}
 	.shortcuts-features {
-		display: none;
+		width: calc(335 * 100vw / 375);
+		padding: calc(4 * 100vw / 375) 0 calc(12 * 100vw / 375);
+		margin-top: calc(48 * 100vw / 375);
+		margin-bottom: 0;
+		border-radius: calc(24 * 100vw / 375);
 	}
-	.shortcuts-features-mobile {
-		width: 100vw;
-		margin-left: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
-		margin-right: calc(-1 * (100vw - calc(335 * 100vw / 375)) / 2);
+	.shortcuts-features-block {
+		row-gap: calc(20 * 100vw / 375);
+		padding: calc(20 * 100vw / 375) calc(24 * 100vw / 375);
+	}
+	.shortcuts-features-block-title {
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
+	.shortcuts-features-block-items {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: calc(12 * 100vw / 375);
+	}
+	.shortcuts-features-block-item {
 		display: flex;
 		flex-direction: column;
-		grid-row-gap: calc(40 * 100vw / 375);
-		overflow-x: visible;
-		user-select: none;
-		margin-top: calc(32 * 100vw / 375);
-	}
-	.shortcuts-features-scroller {
-		overflow-x: scroll;
-		display: flex;
-		grid-column-gap: calc(20 * 100vw / 375);
-		padding-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
-		padding-right: calc((100vw - calc(335 * 100vw / 375)) / 2);
-		cursor: grab;
-		scrollbar-color: transparent transparent;
-	}
-	.shortcuts-features-scrollbar {
-		position: relative;
-		margin-left: calc((100vw - calc(335 * 100vw / 375)) / 2);
-		width: calc(335 * 100vw / 375);
-		height: 4px;
-		border-radius: 2px;
-		background-color: #E3E3E3;
-		cursor: pointer;
-	}
-	.shortcuts-features-scrollbar-thumb {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 56px;
-		height: 100%;
-		border-radius: 2px;
-		background-color: #1657FC;
-	}
-	.shortcuts-features-item-mobile {
-		width: calc(306 * 100vw / 375);
-		height: calc(306 * 100vw / 375);
-	}
-	.shortcuts-features-item-mobile-wrap {
-		width: calc(306 * 100vw / 375);
-		height: 100%;
-		position: relative;
-		border-top-left-radius: calc(24 * 100vw / 375);
-		border-top-right-radius: calc(24 * 100vw / 375);
-		overflow: hidden;
-	}
-	.shortcuts-features-item-image {
-		border-bottom-left-radius: calc(40 * 100vw / 375);
-		border-bottom-right-radius: calc(40 * 100vw / 375);
-		overflow: hidden;
-	}
-	.shortcuts-features-item-description {
-		display: none;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		background: #090909;
-		padding: calc(24 * 100vw / 375);
-		color: #F4F4F4;
-		font-family: Manrope;
-		font-size: calc(12 * 100vw / 375);
-		font-style: normal;
-		font-weight: 400;
-		line-height: calc(18 * 100vw / 375);
+		justify-content: space-between;
+		height: 256px;
+		padding: 20px 24px;
+		border-radius: 24px;
+		border: 2px solid #E7EDFE;
+		background: #FFF;
+		box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
 		box-sizing: border-box;
-		border-bottom-left-radius: calc(28 * 100vw / 375);
-		border-bottom-right-radius: calc(28 * 100vw / 375);
 	}
-	.shortcuts-features-item-title {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 3;
-		padding: calc(24 * 100vw / 375);
+	.shortcuts-features-block-4 .shortcuts-features-block-item-1, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-2, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-6, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-7 {
+		width: 500px;
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-3, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-4, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-5 {
+		width: 329.3333px;
+	}
+	.shortcuts-features-block-item-top {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		grid-column-gap: calc(8 * 100vw / 375);
-		box-sizing: border-box;
-		border-top-left-radius: calc(24 * 100vw / 375);
-		border-top-right-radius: calc(24 * 100vw / 375);
-		border-bottom-left-radius: calc(24 * 100vw / 375);
-		border-bottom-right-radius: calc(24 * 100vw / 375);
-		background: #FFF; 
 	}
-	.shortcuts-features-item-title-icon {
-		width: calc(36 * 100vw / 375);
-		height: calc(40 * 100vw / 375);
+	.shortcuts-features-block-item-title {
+		color: #111;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 24px;
 	}
-	.shortcuts-features-item-title-icon img {
+	.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title {
+		width: 274px;
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
+		width: 312px;
+	}
+	.shortcuts-features-block-item-icon {
+		width: 48px;
+		height: 48px;
+	}
+	.shortcuts-features-block-item-icon img {
 		width: 100%;
 	}
-	.shortcuts-features-item-title-icon-blue {
-		display: block;
-	}
-	.shortcuts-features-item-title-icon-black {
-		display: none;
-	}
-	.shortcuts-features-item-title-text {
-		color: #000;
+	.shortcuts-features-block-item-content {
+		color: #666;
 		font-family: Manrope;
-		font-size: calc(16 * 100vw / 375);
+		font-size: 14px;
 		font-style: normal;
 		font-weight: 500;
-		line-height: calc(20 * 100vw / 375);
-		flex: 1;
+		line-height: 20px;
 	}
-	.shortcuts-features-item-title-chevron {
-		width: calc(10 * 100vw / 375);
-		height: calc(40 * 100vw / 375);
-		cursor: pointer;
-	}
-	.shortcuts-features-item-title-chevron img {
-		width: 100%;
-	}
-	.shortcuts-features-item-title-chevron-up {
-		display: none;
-	}
-	.shortcuts-features-item-speedicons {
-		top: calc(24 * 100vw / 375);
-		top: calc(24 * 100vw / 375);
-		grid-column-gap: calc(20 * 100vw / 375);
-	}
-	.shortcuts-more {
-		height: auto;
-		margin-top: calc(56 * 100vw / 375);
-		background: transparent;
-	}
-	.shortcuts-more-gradient, 
-	.shortcuts-more-layer-2, 
-	.shortcuts-more-layer-1 {
-		display: none;
-	}
-	.shortcuts-more-layer-3 {
-		height: auto;
-		justify-content: space-between;
-		grid-column-gap: unset;
-		position: unset;
-		background: transparent;
-		box-shadow: unset;
-	}
-	.shortcuts-more-text {
-		font-size: calc(18 * 100vw / 375);
-		line-height: calc(24 * 100vw / 375);
-	}
-	.shortcuts-more-button {
-		padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
-		border: 2px solid #0068FD;
-		font-size: calc(16 * 100vw / 375);
-		line-height: calc(20 * 100vw / 375);
-	}
-	.shortcuts-more-button:hover {
-		padding: calc(16 * 100vw / 375) calc(30 * 100vw / 375);
-	}
-	.shortcuts-more-button-desktop {
-		display: none;
-	}
-	.shortcuts-more-button-mobile {
-		display: block;
-	}
-
-
-
-
 }
