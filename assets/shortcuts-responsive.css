@@ -70,84 +70,58 @@
 		width: calc(421 * 100vw / 1440);
 	}
 	.shortcuts-features {
-		grid-column-gap: calc(24 * 100vw / 1440);
-		grid-row-gap: calc(24 * 100vw / 1440);
+		width: calc(1076 * 100vw / 1440);
+		padding: calc(12 * 100vw / 1440) calc(8 * 100vw / 1440);
 		margin-top: calc(24 * 100vw / 1440);
-		margin-bottom: calc(24 * 100vw / 1440);
-	}
-	.shortcuts-features-item {
-		width: calc(526 * 100vw / 1440);
-		height: calc(544 * 100vw / 1440);
+		margin-bottom: calc(84 * 100vw / 1440);
 		border-radius: calc(28 * 100vw / 1440);
 	}
-	.shortcuts-features-item-speedicons {
-		top: calc(32 * 100vw / 1440);
-		left: calc(32 * 100vw / 1440);
-		grid-column-gap: calc(20 * 100vw / 1440);
+	.shortcuts-features-block {
+		row-gap: calc(20 * 100vw / 1440);
+		padding: calc(20 * 100vw / 1440) calc(24 * 100vw / 1440);
 	}
-	.shortcuts-features-item-speedicon {
-		width: calc(60 * 100vw / 1440);
+	.shortcuts-features-block-title {
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
 	}
-	.shortcuts-features-item-info {
-		height: calc(272 * 100vw / 1440); 
-		border-radius: calc(28 * 100vw / 1440);
-		padding: calc(28 * 100vw / 1440) calc(28 * 100vw / 1440) calc(28 * 100vw / 1440) calc(32 * 100vw / 1440);
+	.shortcuts-features-block-items {
+		gap: calc(12 * 100vw / 1440);
 	}
-	.shortcuts-features-item-info-title {
-		margin-bottom: calc(8 * 100vw / 1440);
+	.shortcuts-features-block-item {
+		height: calc(256 * 100vw / 1440);
+		padding: calc(20 * 100vw / 1440) calc(24 * 100vw / 1440);
+		border-radius: calc(24 * 100vw / 1440);
 	}
-	.shortcuts-features-item-info-title-text {
-		font-size: calc(32 * 100vw / 1440);
-		line-height: calc(40 * 100vw / 1440);
+	.shortcuts-features-block-4 .shortcuts-features-block-item-1, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-2, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-6, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-7 {
+		width: calc(500 * 100vw / 1440);
 	}
-
-	.shortcuts-features-item-info-description {
+	.shortcuts-features-block-4 .shortcuts-features-block-item-3, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-4, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-5 {
+		width: calc(329.3333 * 100vw / 1440);
+	}
+	.shortcuts-features-block-item-title {
+		font-size: calc(18 * 100vw / 1440);
+		line-height: calc(24 * 100vw / 1440);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title, 
+	.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title {
+		width: calc(274 * 100vw / 1440);
+	}
+	.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
+		width: calc(312 * 100vw / 1440);
+	}
+	.shortcuts-features-block-item-icon {
+		width: calc(48 * 100vw / 1440);
+		height: calc(48 * 100vw / 1440);
+	}
+	.shortcuts-features-block-item-content {
 		font-size: calc(14 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
-	}
-	.shortcuts-features .shortcuts-features-item:nth-child(1) .shortcuts-features-item-info-description, 
-	.shortcuts-features .shortcuts-features-item:nth-child(2) .shortcuts-features-item-info-description, 
-	.shortcuts-features .shortcuts-features-item:nth-child(4) .shortcuts-features-item-info-description {
-		width: calc(384 * 100vw / 1440);
-	}
-	.shortcuts-features .shortcuts-features-item:nth-child(3) .shortcuts-features-item-info-description, 
-	.shortcuts-features .shortcuts-features-item:nth-child(5) .shortcuts-features-item-info-description, 
-	.shortcuts-features .shortcuts-features-item:nth-child(6) .shortcuts-features-item-info-description {
-		width: calc(340 * 100vw / 1440);
-	}
-	.shortcuts-more {
-		height: calc(256 * 100vw / 1440); 
-		border-radius: calc(24 * 100vw / 1440);
-	}
-	.shortcuts-more-text {
-		font-size: calc(32 * 100vw / 1440);
-		line-height: calc(40 * 100vw / 1440);
-	}
-	.shortcuts-more-button {
-		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
-		border-radius: calc(54 * 100vw / 1440);
-		font-size: calc(24 * 100vw / 1440);
-		line-height: calc(32 * 100vw / 1440);
-	}
-	.shortcuts-more-button:hover {
-		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
-	}
-	.shortcuts-more-layer {
-		height: calc(256 * 100vw / 1440);
-		border-radius: calc(24 * 100vw / 1440);
-	}
-	.shortcuts-more-layer-3 {
-		grid-column-gap: calc(185 * 100vw / 1440);
-	}
-	.shortcuts-more-layer-2 {
-		width: calc(1012 * 100vw / 1440);
-		bottom: calc(-1 * 24 * 100vw / 1440);
-		left: calc(32 * 100vw / 1440);
-	}
-	.shortcuts-more-layer-1 {
-		width: calc(948 * 100vw / 1440);
-		bottom: calc(-1 * 44 * 100vw / 1440);
-		left: calc(64 * 100vw / 1440);
 	}
 }
 
