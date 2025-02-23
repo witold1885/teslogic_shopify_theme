@@ -1,14 +1,6 @@
 <link rel="stylesheet" href="{{ 'shortcuts.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'shortcuts-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<style>
-.shortcuts-features {
-	background: url({{ 'shortcuts_features_bg' | asset_url }});
-	background-size: cover;
-	background-position: center;
-}
-</style>
-
 <div class="shortcuts">
 	<div class="shortcuts-wrap">
 		<div class="shortcuts-title">
@@ -54,7 +46,7 @@
 				</div>				
 			</div>
 		</div>
-		{% assign blocks = ['performance-driv-ing-modes', 'safety-stability-features', 'convenien-ce-comfort', 'autopilot-tweaks-beta'] %}
+        {% assign blocks = "performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
 		<div class="shortcuts-features">
 			{% for block in blocks %}
 				{% assign items = blogs[block].articles | sort: 'title' %}
