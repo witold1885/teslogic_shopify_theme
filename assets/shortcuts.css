@@ -202,7 +202,8 @@
 	background: #FFF;
 	box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
 	box-sizing: border-box;
-
+}
+.houdini-supported .shortcuts-features-block-item {
 	--smooth-radius: 40;
 	border-radius: 0;
 	paint-order: stroke;
