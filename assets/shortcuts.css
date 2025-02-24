@@ -206,11 +206,10 @@
 .houdini-supported .shortcuts-features-block-item {
 	--smooth-radius: 40;
 	border-radius: 0;
-	paint-order: stroke;
 	-webkit-mask-image: paint(smoothCorners);
 	mask-image: paint(smoothCorners);
 }
-@supports not (paint-order: stroke) {
+@supports not (paint(smoothCorners)) {
 	.shortcuts-features-block-item {
 	  	border-radius: 24px;
 	}
