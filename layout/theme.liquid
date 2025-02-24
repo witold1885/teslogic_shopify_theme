@@ -422,6 +422,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {% section 'footer' %}
     {% endif %}
     </div>
+    
+    <script>
+      if ('paintWorklet' in CSS) {
+        CSS.paintWorklet.add('{{ "smooth-corners.js" | asset_url }}');
+      }
+    </script>
 
     <script>
       window.shopUrl = '{{ shop.url }}';

@@ -277,7 +277,11 @@
 		width: calc(288 * 100vw / 375) !important;
 		height: auto !important;
 		padding: calc(20 * 100vw / 375);
-		border-radius: calc(24 * 100vw / 375);
+	}
+	@supports not (paint-order: stroke) {
+		.shortcuts-features-block-item {
+			border-radius: calc(24 * 100vw / 375);
+		}
 	}
 	.shortcuts-features-block-item.opened {
 		height: calc(256 * 100vw / 375) !important

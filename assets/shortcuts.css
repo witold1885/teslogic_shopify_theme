@@ -198,11 +198,21 @@
 	justify-content: space-between;
 	height: 256px;
 	padding: 20px 24px;
-	border-radius: 24px;
 	border: 2px solid #E7EDFE;
 	background: #FFF;
 	box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
 	box-sizing: border-box;
+
+	--smooth-radius: 40;
+	border-radius: 0;
+	paint-order: stroke;
+	-webkit-mask-image: paint(smoothCorners);
+	mask-image: paint(smoothCorners);
+}
+@supports not (paint-order: stroke) {
+	.shortcuts-features-block-item {
+	  	border-radius: 24px;
+	}
 }
 .shortcuts-features-block-4 .shortcuts-features-block-item-1, 
 .shortcuts-features-block-4 .shortcuts-features-block-item-2, 
