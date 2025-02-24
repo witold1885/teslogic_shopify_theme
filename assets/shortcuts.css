@@ -204,7 +204,7 @@
 	box-sizing: border-box;
 }
 .houdini-supported .shortcuts-features-block-item {
-	--smooth-radius: 40;
+	--smooth-radius: 80;
 	border-radius: 0;
 	-webkit-mask-image: paint(smoothCorners);
 	mask-image: paint(smoothCorners);
