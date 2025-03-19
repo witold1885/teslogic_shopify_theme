@@ -2,6 +2,7 @@
     height: 128px;
 }
 .promo-bg {
+    display: none;
     width: 100%;
     height: 64px;
     position: sticky;
