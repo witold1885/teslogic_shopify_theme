@@ -115,27 +115,27 @@
 		display: block;
 	}
 	.using__row-image-mobile-1 {
-		width: calc(187 * 100vw / 375);
-		height: calc(198.473 * 100vw / 375); 
-		top: calc(38 * 100vw / 375);
-		left: calc(76 * 100vw / 375);
+		width: calc(136 * 100vw / 375);
+		height: calc(173 * 100vw / 375); 
+		top: calc(42 * 100vw / 375);
+		left: calc(100 * 100vw / 375);
 	}
 	.using__row-image-mobile-2 {
-		width: calc(299 * 100vw / 375);
-		height: calc(154.392 * 100vw / 375); 
-		top: calc(45 * 100vw / 375);
-		left: calc(19 * 100vw / 375);
+		width: calc(275.306 * 100vw / 375);
+		height: calc(141.007 * 100vw / 375);
+		top: calc(49.11 * 100vw / 375);
+		left: calc(29.99 * 100vw / 375);
 	}
 	.using__row-image-mobile-3 {
-		width: calc(245 * 100vw / 375);
-		height: calc(199.548 * 100vw / 375); 
-		top: calc(31 * 100vw / 375);
-		left: calc(76 * 100vw / 375);
+		width: calc(150.999 * 100vw / 375);
+		height: calc(201 * 100vw / 375);
+		top: calc(24 * 100vw / 375);
+		left: calc(109 * 100vw / 375);
 	}
 	.using__row-image-mobile-4 {
-		width: calc(293 * 100vw / 375);
-		height: calc(173.186 * 100vw / 375); 
-		top: calc(37 * 100vw / 375);
-		left: calc(22 * 100vw / 375);
+		width: calc(256 * 100vw / 375);
+		height: calc(160.001 * 100vw / 375);
+		top: calc(40 * 100vw / 375);
+		left: calc(40 * 100vw / 375);
 	}
 }
