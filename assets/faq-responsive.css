@@ -43,6 +43,11 @@
 		grid-row-gap: calc(32 * 100vw / 1440);
 		padding: calc(24 * 100vw / 1440) calc(32 * 100vw / 1440) calc(32 * 100vw / 1440);
 	}
+	.faq__list-questions {
+		grid-row-gap: calc(32 * 100vw / 1440);
+		padding: calc(32 * 100vw / 1440);
+		border-radius: calc(24 * 100vw / 1440);
+	}
 	.faq__chapter-question {
 		grid-row-gap: calc(8 * 100vw / 1440);
 	}
