@@ -102,6 +102,10 @@
 	padding: 0;
 	list-style: inside;
 }
+.faq__list-questions a {
+	color: #1657FC;
+	text-decoration: none;
+}
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
 }
@@ -126,9 +130,9 @@
 }
 .faq__chapter-question-text {
 	color: #000;
-	font-weight: 500;
+	font-weight: 600;
 }
 .faq__chapter-question-answer {
 	color: #4C4C4C;
-	font-weight: 400;
+	font-weight: 500;
 }
