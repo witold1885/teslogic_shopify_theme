@@ -92,6 +92,13 @@
 	border-radius: 24px;
 	background: #F6F6F6;
 }
+.faq__list-questions p, .faq__list-questions ul {
+	margin: 0;
+	padding: 0;
+}
+.faq__list-questions p:empty {
+	display: none;
+}
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
 }
