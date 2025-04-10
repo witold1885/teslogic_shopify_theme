@@ -21,19 +21,19 @@
 	width: 856px;
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 32px;
+	grid-row-gap: 24px;
 }
 .faq__chapter {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	border: 2px solid #F6F6F6;
-	border-radius: 12px;
+	border: 4px solid #F6F6F6;
+	border-radius: 24px;
 	box-sizing: border-box;
 }
 .faq__chapter-opened {
-	border-bottom-left-radius: 12px;
-	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
 }
 .faq__chapter-top {
 	display: flex;
@@ -41,7 +41,7 @@
 	align-items: center;
 	cursor: pointer;
 	background: #F6F6F6;
-	border-radius: 12px;
+	border-radius: 24px;
 	padding: 32px;
 }
 .faq__chapter-title {
@@ -62,10 +62,10 @@
 .faq__chapter-title-text {
 	color: #000;
 	font-family: Manrope;
-	font-size: 32px;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 40px;
+	line-height: 32px;
 }
 .faq__chapter-chevron {
 	width: 32px;
@@ -80,8 +80,8 @@
 .faq__chapter-questions {
 	display: none;
 	flex-direction: column;
-	grid-row-gap: 56px;
-	padding: 56px 40px 48px 40px;
+	grid-row-gap: 32px;
+	padding: 24px 32px 32px;
 }
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
@@ -89,7 +89,7 @@
 .faq__chapter-question {
 	display: flex;
 	flex-direction: column;
-	grid-row-gap: 12px;
+	grid-row-gap: 8px;
 }
 .faq__chapter-question > div {
 	display: flex;
@@ -97,9 +97,9 @@
 	align-items: flex-start;
 	grid-column-gap: 8px;
 	font-family: Manrope;
-	font-size: 24px;
+	font-size: 18px;
 	font-style: normal;
-	line-height: 32px;
+	line-height: 24px;
 }
 .faq__chapter-question-badge {
 	color: #1657FC;
