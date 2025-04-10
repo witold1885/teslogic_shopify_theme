@@ -8,17 +8,14 @@
  * ------------------------------------------------------------
  */
 {
-    "sections":
-    {
-        "main":
-        {
-            "type": "main-page",
-            "settings":
-            {
-                "padding_top": 28,
-                "padding_bottom": 28
-            }
+    "sections": {
+      "pro_faq": {
+        "type": "pro_faq",
+        "settings": {
         }
+      }
     },
-    "order": ["main"]
+    "order": [
+      "pro_faq"
+    ]
 }
