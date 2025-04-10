@@ -103,6 +103,7 @@
 	padding: 32px;
 	border-radius: 24px;
 	background: #F6F6F6;
+	box-sizing: border-box;
 }
 .pro-faq .faq__list-questions {
 	background: #171717;
