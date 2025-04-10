@@ -63,7 +63,7 @@
 	.faq {
 		padding-top: calc(32 * 100vw / 375);
 		padding-bottom: calc(180 * 100vw / 375);
-		grid-row-gap: calc(60 * 100vw / 375);
+		grid-row-gap: calc(24 * 100vw / 375);
 	}
 	.faq__title {
 		width: calc(335 * 100vw / 375);
