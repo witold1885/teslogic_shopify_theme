@@ -94,10 +94,13 @@
 }
 .faq__list-questions p, .faq__list-questions ul {
 	margin: 0;
-	padding: 0;
 }
 .faq__list-questions p:empty {
 	display: none;
+}
+.faq__list-questions ul {
+	padding: 0;
+	list-style: inside;
 }
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
