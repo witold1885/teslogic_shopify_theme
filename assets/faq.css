@@ -83,6 +83,14 @@
 	grid-row-gap: 32px;
 	padding: 24px 32px 32px;
 }
+.faq__list-questions {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 32px;
+	padding: 32px;
+	border-radius: 24px;
+	background: #F6F6F6;
+}
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
 }
