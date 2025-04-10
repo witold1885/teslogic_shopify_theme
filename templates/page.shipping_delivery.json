@@ -8,17 +8,14 @@
  * ------------------------------------------------------------
  */
 {
-    "sections":
-    {
-        "main":
-        {
-            "type": "main-page",
-            "settings":
-            {
-                "padding_top": 28,
-                "padding_bottom": 28
-            }
+    "sections": {
+      "shipping_delivery": {
+        "type": "shipping_delivery",
+        "settings": {
         }
+      }
     },
-    "order": ["main"]
-}
+    "order": [
+      "shipping_delivery"
+    ]
+}  
