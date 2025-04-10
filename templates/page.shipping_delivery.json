@@ -1,0 +1,13 @@
+{
+    "sections": {
+      "pro_using": {
+        "type": "shipping_delivery",
+        "settings": {
+        }
+      }
+    },
+    "order": [
+      "shipping_delivery"
+    ]
+}  
+  
