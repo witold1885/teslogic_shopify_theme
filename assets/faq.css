@@ -7,6 +7,9 @@
 	align-items: center;
 	grid-row-gap: 40px;
 }
+.pro-faq {
+	background-color: #101010;
+}
 .faq__title {
 	width: 856px;
 	color: #000;
@@ -91,6 +94,9 @@
 	padding: 32px;
 	border-radius: 24px;
 	background: #F6F6F6;
+}
+.pro-faq .faq__list-questions {
+	background: #171717;
 }
 .faq__list-questions p, .faq__list-questions ul {
 	margin: 0;
