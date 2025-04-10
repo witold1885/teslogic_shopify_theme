@@ -84,6 +84,7 @@
 	padding: 24px 32px 32px;
 }
 .faq__list-questions {
+	width: 856px;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 32px;
