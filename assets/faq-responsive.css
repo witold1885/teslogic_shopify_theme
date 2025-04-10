@@ -100,6 +100,12 @@
 		width: calc(24 * 100vw / 375);
 		height: calc(24 * 100vw / 375);
 	}
+	.faq__chapter-title-text-desktop {
+		display: none;
+	}
+	.faq__chapter-title-text-mobile {
+		display: block;
+	}
 	.faq__chapter-questions {
 		grid-row-gap: calc(24 * 100vw / 375);
 		padding: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375);
