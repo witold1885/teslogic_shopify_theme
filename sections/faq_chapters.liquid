@@ -12,7 +12,19 @@
 							<div class="faq__chapter-title-sign">
 								<img src="{{ block.settings.chapter_icon }}">
 							</div>
-							<div class="faq__chapter-title-text">{{ block.settings.chapter }}</div>
+							{% assign title_array = block.settings.chapter | split: ' ' %}							
+							{% assign word_count = title_array | size %}
+							<div class="faq__chapter-title-text faq__chapter-title-text-desktop">
+								{{ block.settings.chapter }}
+							</div>
+							<div class="faq__chapter-title-text faq__chapter-title-text-mobile">
+								{% if word_count > 2 %}
+									{{ title_array | slice: 0, 2 | join: ' ' }}<br>
+									{{ title_array | slice: 2, word_count | join: ' ' }}
+								{% else %}
+									{{ block.settings.chapter }}
+								{% endif %}
+							</div>
 						</div>
 						<div class="faq__chapter-chevron">
 							<img src="{{ 'chevron-down-faq.svg' | asset_url }}">
