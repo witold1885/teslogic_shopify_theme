@@ -44,6 +44,7 @@
 		padding: calc(24 * 100vw / 1440) calc(32 * 100vw / 1440) calc(32 * 100vw / 1440);
 	}
 	.faq__list-questions {
+		width: calc(856 * 100vw / 1440);
 		grid-row-gap: calc(32 * 100vw / 1440);
 		padding: calc(32 * 100vw / 1440);
 		border-radius: calc(24 * 100vw / 1440);
