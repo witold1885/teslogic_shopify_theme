@@ -73,6 +73,12 @@
 	font-weight: 500;
 	line-height: 32px;
 }
+.faq__chapter-title-text-desktop {
+	display: block;
+}
+.faq__chapter-title-text-mobile {
+	display: none;
+}
 .faq__chapter-chevron {
 	width: 32px;
 	height: 32px; 
