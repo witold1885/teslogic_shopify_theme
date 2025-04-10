@@ -3,6 +3,22 @@
 
 <div class="faq" id="faq">
 	<div class="faq__title">Shipping & Delivery</div>
+    {% assign items = blogs['shipping-delivery'].articles | sort: 'title' %}
 	<div class="faq__list-questions">
+        {% for item in items %}
+            {% assign title_array = item.title | split: ' ' %}
+            {% assign number = title_array.first %}
+            {% assign title = item.title | replace: number, '' %}
+            <div class="faq__chapter-question">
+                <div class="faq__chapter-question-text">
+                    <span class="faq__chapter-question-badge">Q:</span>
+                    <span>{{ title }}</span>
+                </div>
+                <div class="faq__chapter-question-answer">
+                    <span class="faq__chapter-question-badge">A:</span>
+                    <span>{{ item.content }}</span>
+                </div>
+            </div>
+		{% endfor %}
     </div>
 </div>
