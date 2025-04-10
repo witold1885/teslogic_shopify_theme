@@ -20,6 +20,9 @@
 	font-weight: 500;
 	line-height: 64px;
 }
+.pro-faq .faq__title {
+	color: #FFF;
+}
 .faq__chapters {
 	width: 856px;
 	display: flex;
@@ -141,4 +144,10 @@
 .faq__chapter-question-answer {
 	color: #4C4C4C;
 	font-weight: 500;
+}
+.pro-faq .faq__chapter-question-text {
+	color: #FFF;
+}
+.pro-faq .faq__chapter-question-answer {
+	color: #888;
 }
