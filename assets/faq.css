@@ -48,9 +48,11 @@
 	align-items: center;
 	cursor: pointer;
 	background: #F6F6F6;
+	padding: 32px;
+}
+.faq__chapter-opened .faq__chapter-top {
 	border-bottom-left-radius: 24px;
 	border-bottom-right-radius: 24px;
-	padding: 32px;
 }
 .faq__chapter-title {
 	display: flex;
