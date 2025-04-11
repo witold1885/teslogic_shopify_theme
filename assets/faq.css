@@ -36,6 +36,7 @@
 	border: 4px solid #F6F6F6;
 	border-radius: 24px;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 .faq__chapter-opened {
 	border-bottom-left-radius: 24px;
@@ -47,7 +48,8 @@
 	align-items: center;
 	cursor: pointer;
 	background: #F6F6F6;
-	border-radius: 24px;
+	border-bottom-left-radius: 24px;
+	border-bottom-right-radius: 24px;
 	padding: 32px;
 }
 .faq__chapter-title {
