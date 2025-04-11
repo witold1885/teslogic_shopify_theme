@@ -25,6 +25,10 @@
 		border-bottom-right-radius: calc(24 * 100vw / 1440);
 		padding: calc(32 * 100vw / 1440);
 	}
+	.faq__chapter-opened .faq__chapter-top {
+		border-bottom-left-radius: calc(24 * 100vw / 1440);
+		border-bottom-right-radius: calc(24 * 100vw / 1440);
+	}
 	.faq__chapter-title {
 		grid-column-gap: calc(12 * 100vw / 1440);
 	}
