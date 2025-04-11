@@ -52,6 +52,9 @@
 		padding: calc(32 * 100vw / 1440);
 		border-radius: calc(24 * 100vw / 1440);
 	}
+	.faq__list-questions ul {
+		padding-left: calc(10 * 100vw / 1440);
+	}
 	.faq__chapter-question {
 		grid-row-gap: calc(8 * 100vw / 1440);
 	}
@@ -119,6 +122,12 @@
 		grid-row-gap: calc(24 * 100vw / 375);
 		padding: calc(24 * 100vw / 375) calc(24 * 100vw / 375) calc(32 * 100vw / 375);
 		border-radius: calc(12 * 100vw / 375);
+	}
+	.faq__list-questions ul {
+		padding-left: calc(10 * 100vw / 375);
+	}
+	.faq__list-questions ul li {
+		padding-left: calc(10 * 100vw / 375);
 	}
 	.faq__chapter-question {
 		grid-row-gap: calc(6 * 100vw / 375);
