@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "faq_chapters": {
@@ -17,7 +17,7 @@
           "settings": {
             "chapter_id": "1",
             "chapter": "Installation, connection",
-            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438.svg?v=1696429385"
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Frame_438_30e36d5c-347e-4165-9dd1-6003914d2b30.svg?v=1744360396"
           }
         },
         "ed64ad88-6dc4-4875-ad76-61abd5464169": {
@@ -73,7 +73,7 @@
           "settings": {
             "chapter_id": "2",
             "chapter": "Warranty, Safety and Return Policy",
-            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Warranty_1.svg?v=1696429384"
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Warranty_1.svg?v=1696429384"
           }
         },
         "7398a68d-5d4b-444f-b6ec-24a83207f7e8": {
@@ -129,7 +129,7 @@
           "settings": {
             "chapter_id": "3",
             "chapter": "Measurements and Indicators",
-            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438-1.svg?v=1696429384"
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Frame_438-1.svg?v=1696429384"
           }
         },
         "413e2f73-82cb-485e-889e-39e78aa8f6e7": {
@@ -209,7 +209,7 @@
           "settings": {
             "chapter_id": "4",
             "chapter": "Usage",
-            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_437.svg?v=1696429384"
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Frame_437.svg?v=1696429384"
           }
         },
         "d8d58d03-cb3c-44b5-901d-50472753a6d9": {
@@ -257,15 +257,15 @@
           "settings": {
             "chapter_id": "5",
             "chapter": "Compatibility",
-            "chapter_icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0611\/8041\/2118\/files\/Frame_438-2.svg?v=1696429384"
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Frame_438_1.svg?v=1744360396"
           }
         },
         "607d0c5c-e1a8-4873-be59-e4c596186b15": {
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "Does Teslogic fit all Model 3\/Y or are there any exceptions?",
-            "answer": "Teslogic is compatible with all Model 3\/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
+            "question": "Does Teslogic fit all Model 3/Y or are there any exceptions?",
+            "answer": "Teslogic is compatible with all Model 3/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
           }
         },
         "df090883-f0b7-447e-9ae4-f993a2b25557": {
@@ -288,7 +288,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "What versions of iOS\/Android is the transmitter compatible with?",
+            "question": "What versions of iOS/Android is the transmitter compatible with?",
             "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher. Using older devices, may cause a noticeable decrease in the data exchange rate."
           }
         },
@@ -296,7 +296,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "Is Teslogic app compatible with an Android tablet\/iPad?",
+            "question": "Is Teslogic app compatible with an Android tablet/iPad?",
             "answer": "Yes, the app is compatible with Android tablets and iPads."
           }
         },
@@ -349,14 +349,12 @@
         "f2084917-d299-4cda-9192-dfd8a74f10a2",
         "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "back_products": {
       "type": "back_products",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
