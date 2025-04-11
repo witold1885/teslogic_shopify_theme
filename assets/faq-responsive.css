@@ -55,6 +55,9 @@
 	.faq__list-questions ul {
 		padding-left: calc(10 * 100vw / 1440);
 	}
+	.faq__list-questions ul li::marker {
+		padding-right: calc(10 * 100vw / 1440);
+	}
 	.faq__chapter-question {
 		grid-row-gap: calc(8 * 100vw / 1440);
 	}
@@ -88,9 +91,11 @@
 		border-bottom-right-radius: calc(12 * 100vw / 375);
 	}
 	.faq__chapter-top {
+		padding: calc(20 * 100vw / 375);
+	}
+	.faq__chapter-opened .faq__chapter-top {
 		border-bottom-left-radius: calc(12 * 100vw / 375);
 		border-bottom-right-radius: calc(12 * 100vw / 375);
-		padding: calc(20 * 100vw / 375);
 	}
 	.faq__chapter-title {
 		grid-column-gap: calc(8 * 100vw / 375);
@@ -136,5 +141,8 @@
 		grid-column-gap: calc(8 * 100vw / 375);
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
+	}
+	.faq__chapter-question-answer br {
+		display: none;
 	}
 }
