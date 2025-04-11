@@ -21,7 +21,8 @@
 		border-bottom-right-radius: calc(24 * 100vw / 1440);
 	}
 	.faq__chapter-top {
-		border-radius: calc(24 * 100vw / 1440);
+		border-bottom-left-radius: calc(24 * 100vw / 1440);
+		border-bottom-right-radius: calc(24 * 100vw / 1440);
 		padding: calc(32 * 100vw / 1440);
 	}
 	.faq__chapter-title {
@@ -82,7 +83,8 @@
 		border-bottom-right-radius: calc(12 * 100vw / 375);
 	}
 	.faq__chapter-top {
-		border-radius: calc(12 * 100vw / 375);
+		border-bottom-left-radius: calc(12 * 100vw / 375);
+		border-bottom-right-radius: calc(12 * 100vw / 375);
 		padding: calc(20 * 100vw / 375);
 	}
 	.faq__chapter-title {
