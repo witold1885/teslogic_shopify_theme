@@ -180,12 +180,16 @@
 <div class="header-fix"></div>
   
 <script type="text/javascript">
+  var logo_black = "{{ 'logo_black.svg' | asset_url }}"
+  var logo_white = "{{ 'logo.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
    var chevron_back = chevron_white
+   var logo_back = logo_white
   {% else %}
    var chevron_back = chevron_black
+   var logo_back = logo_black
   {% endif %}
   $(document).ready(function() {
     $(document.body).on('touchmove', setStickyHeader)
@@ -198,18 +202,22 @@
         if (window.pageYOffset >= header_custom_height) {
           $('#header_custom').addClass('sticky')
           $('.menu__item-chevron-down').attr('src', chevron_white)
+          $('.logo img').attr('src', logo_white)
         }
         else {
           $('#header_custom').removeClass('sticky')
           $('.menu__item-chevron-down').attr('src', chevron_back)
+          $('.logo img').attr('src', logo_back)
         }
       }
       else {
         if ($('body').scrollTop() >= header_custom_height) {
           $('.top-wrap').addClass('top-wrap-scrolled')
+          $('.logo img').attr('src', logo_white)
         }
         else {
           $('.top-wrap').removeClass('top-wrap-scrolled')
+          $('.logo img').attr('src', logo_back)
         }
       }
     }
