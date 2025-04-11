@@ -123,8 +123,8 @@
 	padding-left: 10px;
 	list-style: inside;
 }
-.faq__list-questions ul li {
-	padding-left: 10px;
+.faq__list-questions ul li::marker {
+	padding-right: 10px;
 }
 .faq__list-questions a {
 	color: #1657FC;
