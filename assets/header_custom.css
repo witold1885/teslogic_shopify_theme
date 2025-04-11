@@ -9,7 +9,7 @@
 	background: #101010!important;
 }
 #header_custom.sticky {
-	background: rgba(0, 0, 0, 0.32);
+	background: rgba(0, 0, 0, 0.32)!important;
 	backdrop-filter: blur(32px); 
 }
 .header-fix {
