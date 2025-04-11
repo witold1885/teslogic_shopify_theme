@@ -126,8 +126,8 @@
 	.faq__list-questions ul {
 		padding-left: calc(10 * 100vw / 375);
 	}
-	.faq__list-questions ul li {
-		padding-left: calc(10 * 100vw / 375);
+	.faq__list-questions ul li::marker {
+		padding-right: calc(10 * 100vw / 375);
 	}
 	.faq__chapter-question {
 		grid-row-gap: calc(6 * 100vw / 375);
