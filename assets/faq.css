@@ -114,17 +114,24 @@
 }
 .faq__list-questions p, .faq__list-questions ul {
 	margin: 0;
+	padding: 0;
 }
 .faq__list-questions p:empty {
 	display: none;
 }
 .faq__list-questions ul {
-	padding: 0;
+	padding-left: 10px;
 	list-style: inside;
+}
+.faq__list-questions ul li {
+	padding-left: 10px;
 }
 .faq__list-questions a {
 	color: #1657FC;
 	text-decoration: none;
+}
+.faq__list-questions a:hover {
+	color: #0345ED;
 }
 .screenmate-faq .faq__chapter-questions {
 	display: flex;
