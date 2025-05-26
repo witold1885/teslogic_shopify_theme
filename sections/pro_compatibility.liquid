@@ -557,6 +557,13 @@
 		.compatibility-check-dialog-button:hover, .compatibility-success-dialog-button:hover {
 			padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 		}
+		.compatibility-check-dialog-button .loading {
+			grid-column-gap: calc(10 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-button .loader {
+			width: calc(16 * 100vw / 1440);
+			height: calc(16 * 100vw / 1440);
+		}
 		.compatibility-warning-dialog-button {
 			width: calc(190 * 100vw / 1440);
 			font-size: calc(18 * 100vw / 1440);
@@ -735,7 +742,14 @@
 			line-height: calc(20 * 100vw / 375);
 			margin-top: calc(-1 * 4 * 100vw / 375);
 		}
-		.compatibility-check-dialog-button, .compatibility-success-dialog-button {
+		.
+		.compatibility-check-dialog-button .loading {
+			grid-column-gap: calc(10 * 100vw / 1440);
+		}
+		.compatibility-check-dialog-button .loader {
+			width: calc(16 * 100vw / 1440);
+			height: calc(16 * 100vw / 1440);
+		}, .compatibility-success-dialog-button {
 			padding: calc(14 * 100vw / 375) calc(40 * 100vw / 375);
 			border-radius: calc(24 * 100vw / 375);
 			border: 3px solid #0E54FD;
@@ -744,6 +758,13 @@
 		}
 		.compatibility-check-dialog-button:hover, .compatibility-success-dialog-button:hover {
 			padding: calc(17 * 100vw / 375) calc(43 * 100vw / 375);
+		}
+		.compatibility-check-dialog-button .loading {
+			grid-column-gap: calc(10 * 100vw / 375);
+		}
+		.compatibility-check-dialog-button .loader {
+			width: calc(16 * 100vw / 375);
+			height: calc(16 * 100vw / 375);
 		}
 		.compatibility-warning-dialog-buttons {
 			flex-direction: column;
@@ -981,6 +1002,7 @@
 
 			$(this).find('.ready').hide()
 			$(this).find('.loading').css('display', 'flex')
+			$(this).prop('disabled', true)
 
 	        const response = await fetch(sendMailUrl, {
 	            method: 'post',
@@ -1013,6 +1035,7 @@
 
 			$(this).find('.loading').hide()
 			$(this).find('.ready').css('display', 'flex')
+			$(this).prop('disabled', false)
 		})
 	})
 </script>
