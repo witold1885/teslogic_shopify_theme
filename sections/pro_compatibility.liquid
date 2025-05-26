@@ -335,11 +335,11 @@
 		border: none;
 		padding: 23px 43px;
 	}
-	.compatibility-check-dialog-button {
-		grid-column-gap: 10px;
-	}
 	.compatibility-check-dialog-button .loading {
 		display: none;
+		justify-content: center;
+		align-items: center;
+		grid-column-gap: 10px;
 	}
 	.compatibility-check-dialog-button .loader {
 		display: inline-block;
@@ -958,9 +958,6 @@
 		const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
 
 		$('.compatibility-check-dialog-button').on('click', async function () {
-			$(this).find('.ready').hide()
-			$(this).find('.loading').show()
-
 			const vin = $('#compatibility-vin').val()
 			const email = $('#compatibility-email').val()
 			const isAgree = $('#check-agree').prop('checked')
@@ -981,6 +978,9 @@
 				$('#compatibility-email').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
 				return
 			}
+
+			$(this).find('.ready').hide()
+			$(this).find('.loading').css('display', 'flex')
 
 	        const response = await fetch(sendMailUrl, {
 	            method: 'post',
@@ -1010,6 +1010,9 @@
 				console.log({ status: response.status })
 				$('.compatibility-check-dialog-unavailable').show()
 			}
+
+			$(this).find('.loading').hide()
+			$(this).find('.ready').css('display', 'flex')
 		})
 	})
 </script>
