@@ -335,6 +335,26 @@
 		border: none;
 		padding: 23px 43px;
 	}
+	.compatibility-check-dialog-button {
+		grid-column-gap: 10px;
+	}
+	.compatibility-check-dialog-button .loading {
+		display: none;
+	}
+	.compatibility-check-dialog-button .loader {
+		display: inline-block;
+  		animation: spin 1s linear infinite;
+		width: 16px;
+		height: 16px;
+	}
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
 	.compatibility-warning-dialog-buttons {
 		display: flex;
 		justify-content: space-between;
@@ -856,7 +876,13 @@
   		</div>  		
   	</div>
   	<div class="compatibility-check-dialog-submit">
-  		<button type="button" class="compatibility-check-dialog-button">Send Request</button>
+  		<button type="button" class="compatibility-check-dialog-button">
+			<span class="ready">Send Request</span>
+			<span class="loading">
+				<span>Loading</span>
+				<div class="loader"><img src="{{ 'blue-loader.svg' | asset_url }}"></div>
+			</span>
+		</button>
   		<div class="compatibility-check-dialog-agree">
 			<div class="compatibility-check-dialog-agree-checkbox-wrap">
 				<input type="checkbox" id="check-agree" class="compatibility-check-dialog-agree-checkbox" checked>
@@ -932,6 +958,9 @@
 		const sendMailUrl = 'https://api.teslogic.co/mail/check-compatibility'
 
 		$('.compatibility-check-dialog-button').on('click', async function () {
+			$(this).find('.ready').hide()
+			$(this).find('.loading').show()
+
 			const vin = $('#compatibility-vin').val()
 			const email = $('#compatibility-email').val()
 			const isAgree = $('#check-agree').prop('checked')
@@ -978,6 +1007,7 @@
 					$('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
         		}
 	        } else {
+				console.log({ status: response.status })
 				$('.compatibility-check-dialog-unavailable').show()
 			}
 		})
