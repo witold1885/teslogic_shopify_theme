@@ -832,6 +832,9 @@
   <div class="compatibility-dialog compatibility-check-dialog">
   	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	<div class="compatibility-dialog-title">Check Compatibility</div>
+	<div class="compatibility-check-dialog-unavailable compatibility-check-dialog-field-error">
+		Service temporary unavailable
+	</div>
   	<div class="compatibility-check-dialog-fields">
   		<div class="compatibility-check-dialog-field">
   			<label for="compatibility-vin">VIN: (can be copied from your Tesla app)</label>
@@ -903,6 +906,7 @@
 		$('.compatibility-check-dialog-field input').on('keydown', function () {			
 			$(this).css('border-color', '#FFF')
 			$(this).parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').hide()
+			$('.compatibility-check-dialog-unavailable').hide()
 		})
 
 		$('#check-agree').on('change', function () {
@@ -965,7 +969,9 @@
 					$('#compatibility-vin').css('border-color', '#FC3E30')
 					$('#compatibility-vin').parent('.compatibility-check-dialog-field').find('.compatibility-check-dialog-field-error').show()
         		}
-	        }
+	        } else {
+				$('.compatibility-check-dialog-unavailable').show()
+			}
 		})
 	})
 </script>
