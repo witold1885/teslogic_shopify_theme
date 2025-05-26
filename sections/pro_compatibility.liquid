@@ -240,7 +240,7 @@
 		line-height: 20px;
 	}
 	.compatibility-check-dialog-unavailable {
-		bottom: unset !important;
+		bottom: 0 !important;
 		width: 100%;
 		white-space: nowrap;
 		text-align: center;
@@ -838,7 +838,7 @@
   <div class="compatibility-dialog compatibility-check-dialog">
   	<img class="compatibility-dialog-close" src="{{ 'pro-dialog-close.svg' | asset_url }}">
   	<div class="compatibility-dialog-title">Check Compatibility</div>
-	<div style="position:relative">
+	<div style="width:100%;position:relative">
 		<div class="compatibility-check-dialog-unavailable compatibility-check-dialog-field-error">
 			Service temporary unavailable
 		</div>
