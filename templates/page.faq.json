@@ -329,7 +329,7 @@
           "settings": {
             "chapter_id": "6",
             "question": "Is expedited delivery available?",
-            "answer": "Yes, we can arrange expedited shipping upon request. Please contact us at info@teslogic.co, and we’ll calculate the cost for you."
+            "answer": "Yes, we can arrange expedited shipping upon request. Please contact us at <a href='mailto:info@teslogic.co'>info@teslogic.co</a>, and we’ll calculate the cost for you."
           }
         },
         "question_qLgeYE": {
@@ -369,7 +369,7 @@
           "settings": {
             "chapter_id": "6",
             "question": "My tracking information isn’t updating. Is my package lost?",
-            "answer": "Delays in tracking updates can happen. A package is only considered lost if there are no updates for: <ul><li>15 days for U.S. orders</li><li>20 days for international orders</li></ul>If you're concerned, please reach out to us at info@teslogic.co."
+            "answer": "Delays in tracking updates can happen. A package is only considered lost if there are no updates for: <ul><li>15 days for U.S. orders</li><li>20 days for international orders</li></ul>If you're concerned, please reach out to us at <a href='mailto:info@teslogic.co'>info@teslogic.co</a>."
           }
         },
         "question_Lnnp4H": {
