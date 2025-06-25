@@ -163,6 +163,10 @@
 	color: #4C4C4C;
 	font-weight: 500;
 }
+.faq__chapter-question-answer a {
+	color: #1657FC;
+	text-decoration: none;
+}
 .pro-faq .faq__chapter-question-text {
 	color: #FFF;
 	font-weight: 600;
