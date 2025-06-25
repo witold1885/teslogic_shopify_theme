@@ -302,11 +302,34 @@
         },
         "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6": {
           "type": "chapter",
-          "disabled": true,
+          "settings": {
+            "chapter_id": "6",
+            "chapter": "Shipping & Delivery",
+            "chapter_icon": "https://cdn.shopify.com/s/files/1/0611/8041/2118/files/Delivery_Icon_7a8c9d60-4032-46ea-8a74-d3acaff2b361.svg?v=1750846455"
+          }
+        },
+        "question_9FjXnh": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "6",
+            "question": "How much does domestic delivery cost?",
+            "answer": "Domestic delivery within the U.S. is completely free."
+          }
+        },
+        "question_w7YcC6": {
+          "type": "question",
           "settings": {
             "chapter_id": "",
-            "chapter": "",
-            "chapter_icon": ""
+            "question": "",
+            "answer": ""
+          }
+        },
+        "question_ik7qKn": {
+          "type": "question",
+          "settings": {
+            "chapter_id": "",
+            "question": "",
+            "answer": ""
           }
         }
       },
@@ -347,7 +370,10 @@
         "366cec18-ea9e-4fa6-bcd5-229bd8236ffc",
         "a0405dcf-1763-44c2-aee2-79e8c182d253",
         "f2084917-d299-4cda-9192-dfd8a74f10a2",
-        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6"
+        "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6",
+        "question_9FjXnh",
+        "question_w7YcC6",
+        "question_ik7qKn"
       ],
       "settings": {}
     },
