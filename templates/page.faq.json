@@ -319,73 +319,73 @@
         "question_w7YcC6": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "How long does domestic delivery take?",
+            "answer": "Orders are shipped from our California warehouse and typically arrive within 5 business days. Delivery to more remote states may take slightly longer."
           }
         },
         "question_ik7qKn": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "Is expedited delivery available?",
+            "answer": "Yes, we can arrange expedited shipping upon request. Please contact us at info@teslogic.co, and we’ll calculate the cost for you."
           }
         },
         "question_qLgeYE": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "Do you ship orders immediately after they’re placed?",
+            "answer": "Not immediately. Orders are first processed by our team and then scheduled for delivery. Please note that processing occurs only on business days."
           }
         },
         "question_kVXXjb": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "Do you offer international shipping?",
+            "answer": "Yes, we offer international delivery worldwide."
           }
         },
         "question_JREh7j": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "How long does international delivery take?",
+            "answer": "International orders usually take 14–21 days to arrive, depending on your location."
           }
         },
         "question_g6bnkL": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "Are there additional taxes or customs fees for international orders?",
+            "answer": "No, we cover all taxes and customs fees. You only pay a flat international shipping rate of $45."
           }
         },
         "question_VhF8UP": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "My tracking information isn’t updating. Is my package lost?",
+            "answer": "Delays in tracking updates can happen. A package is only considered lost if there are no updates for: <ul><li>15 days for U.S. orders</li><li>20 days for international orders</li></ul>If you're concerned, please reach out to us at info@teslogic.co."
           }
         },
         "question_Lnnp4H": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "What if my address uses non-Latin characters?",
+            "answer": "Most international carriers require addresses to be written in Latin characters. Please enter your full address using the Latin alphabet to avoid delivery issues."
           }
         },
         "question_n46ttn": {
           "type": "question",
           "settings": {
-            "chapter_id": "",
-            "question": "",
-            "answer": ""
+            "chapter_id": "6",
+            "question": "What kind of delivery service do you offer?",
+            "answer": "We provide door-to-door delivery. Couriers will leave the package at your doorstep—no signature or personal handover required."
           }
         }
       },
