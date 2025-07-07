@@ -97,8 +97,8 @@
 		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
-		width: calc(196 * 100vw / 1440);
-		height: calc(36 * 100vw / 1440);
+		width: calc(175 * 100vw / 1440);
+		height: calc(16 * 100vw / 1440);
 	}
 	
 	#header_main {
