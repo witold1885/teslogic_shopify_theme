@@ -16,9 +16,9 @@
     <div class="top">
       <a href="/" class="logo">
         {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
-          <img class="logo-white" src="{{ 'logo.svg' | asset_url }}">
+          <img class="logo-white" src="{{ 'screenmate_logo_white.svg' | asset_url }}">
         {% else %}
-          <img src="{{ 'logo_black.svg' | asset_url }}">
+          <img src="{{ 'screenmate_logo_black.svg' | asset_url }}">
         {% endif %}
       </a>
       <div class="menu">
@@ -180,8 +180,8 @@
 <div class="header-fix"></div>
   
 <script type="text/javascript">
-  var logo_black = "{{ 'logo_black.svg' | asset_url }}"
-  var logo_white = "{{ 'logo.svg' | asset_url }}"
+  var logo_black = "{{ 'scrennmate_logo_black.svg' | asset_url }}"
+  var logo_white = "{{ 'screenmate_logo_white.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
   {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
