@@ -27,6 +27,8 @@
 	align-items: center;
 }
 .screens__top-title {
+	display: flex;
+	flex-direction: column;
 	font-family: Manrope;
 	font-size: 52px;
 	font-style: normal;
