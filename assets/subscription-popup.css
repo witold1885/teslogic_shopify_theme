@@ -88,7 +88,7 @@
     row-gap: 24px;
 }
 .subscription-popup-logo {
-    width: 146px;
+    width: 131px;
     height: 12px;
 }
 .subscription-popup-logo img {
@@ -229,7 +229,7 @@
         row-gap: calc(24 * 100vw / 1440);
     }
     .subscription-popup-logo {
-        width: calc(146 * 100vw / 1440);
+        width: calc(131 * 100vw / 1440);
         height: calc(12 * 100vw / 1440);
     }
     .subscription-popup-info {
@@ -331,7 +331,7 @@
         row-gap: calc(20 * 100vw / 375);
     }
     .subscription-popup-logo {
-        width: calc(146 * 100vw / 375);
+        width: calc(131 * 100vw / 375);
         height: calc(12 * 100vw / 375);
     }
     .subscription-popup-info {
