@@ -244,6 +244,7 @@
 }
 .subtitle {
 	color: #FFF;
+	opacity: 0.6;
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
@@ -263,6 +264,7 @@
 	font-style: normal;
 }
 .addtext-sup {
+	opacity: 0.6;
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 32px;
