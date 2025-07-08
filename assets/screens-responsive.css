@@ -1,6 +1,6 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	.screens {
-		height: calc(1174 * 100vw / 1440);
+		height: calc(1240 * 100vw / 1440);
 	}
 	.screens__wrap {
 		width: calc(1076 * 100vw / 1440);
