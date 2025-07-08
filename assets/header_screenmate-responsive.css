@@ -57,7 +57,7 @@
 		column-gap: calc(32 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main img {
-		width: calc(523.212 * 100vw / 1440);
+		width: calc(665 * 100vw / 1440);
 		height: calc(48 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main a {
@@ -96,7 +96,7 @@
 		column-gap: calc(32 * 100vh / 810);
 	}
 	.banner-desktop-body-caption-main img {
-		width: calc(523.212 * 100vh / 810);
+		width: calc(665 * 100vh / 810);
 		height: calc(48 * 100vh / 810);
 	}
 	.banner-desktop-body-caption-main a {
