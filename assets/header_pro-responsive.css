@@ -537,6 +537,10 @@
 		line-height: calc(48 * 100vw / 375);
 		text-align: left;
 	}
+	.banner__title img {
+		width: calc(288 * 100vw / 375);
+		height: calc(20 * 100vw / 375);
+	}
 	.banner__subtitle {
 		color: #FFF;
 		font-family: Manrope;
