@@ -105,15 +105,15 @@
 		if (pathname.includes('pro')) {
 			product_id = '8482954674390'
 			getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
-			$('.reviews-bottom-text').text('Already own Teslogic Pro?')
+			$('.reviews-bottom-text').text('Already own Powermate?')
 		} else if (pathname.includes('screenmate')) {
 			product_id = '8793097208022'
 			getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
-			$('.reviews-bottom-text').text('Already own Screenmate?')
+			$('.reviews-bottom-text').text('Already own Screenmate One?')
 		} else {
 			product_id = '8143253733590'
 			getReviewsUrl = 'https://api.teslogic.co/get-reviews'
-			$('.reviews-bottom-text').text('Already own Teslogic?')
+			$('.reviews-bottom-text').text('Already own Screenmate Dash?')
 		}
 
 		// const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
