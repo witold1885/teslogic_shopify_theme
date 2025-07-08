@@ -242,6 +242,10 @@
 	top: 136px;
 	left: 72px;
 }
+.title img {
+	width: 499px;
+	height: 36px;
+}
 .subtitle {
 	color: #FFF;
 	opacity: 0.6;
