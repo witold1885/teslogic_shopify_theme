@@ -77,7 +77,7 @@
 		margin: calc(96 * 100vw / 375) auto;
 	}
 	.using__title {
-		height: calc(40 * 100vw / 375);
+		height: auto;
 		font-size: calc(32 * 100vw / 375);
 		line-height: calc(40 * 100vw / 375); 
 	}
