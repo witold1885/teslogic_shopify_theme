@@ -17,6 +17,10 @@
 		top: calc(136 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
+	.title img {
+		width: calc(499 * 100vw / 1920);
+		height: calc(36 * 100vw / 1920);
+	}
 	.subtitle {
 /*		font-size: calc(48 * 100vw / 1920);*/
 /*		line-height: calc(64 * 100vw / 1920);*/
@@ -46,6 +50,10 @@
 	}
 	.title {
 		left: calc(72 * 100vw / 1440);
+	}
+	.title img {
+		width: calc(499 * 100vw / 1440);
+		height: calc(36 * 100vw / 1440);
 	}
 	.subtitle {
 		left: calc(72 * 100vw / 1440);
