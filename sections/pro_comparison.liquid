@@ -69,7 +69,7 @@
 		padding-left: 40px;
 		border-left: none;
 	}
-	.th-performance-mobile {
+	.th-boost-mobile, .th-performance-mobile {
 		display: none;
 	}
 	.comparison-table tbody td {
@@ -464,10 +464,10 @@
 		.comparison-table thead th:first-child {
 			padding-left: calc(20 * 100vw / 375);
 		}
-		.th-performance-desktop {
+		.th-boost-desktop, .th-performance-desktop {
 			display: none;
 		}
-		.th-performance-mobile {
+		.th-boost-mobile, .th-performance-mobile {
 			display: table-cell;
 		}
 		.comparison-table thead th:nth-child(2), .comparison-table tbody td:nth-child(2) {
@@ -614,9 +614,10 @@
 					<tr>
 						<th>Features</th>
 						<th>DASH</th>
-						<th><img src="{{ 'powermate-logo-small.svg' | asset_url }}"><br>Boost</th>
+						<th class="th-boost-desktop"><img src="{{ 'powermate-logo-small.svg' | asset_url }}"><br>Boost</th>
+						<th class="th-boost-mobile">Boost</th>
 						<th class="th-performance-desktop"><img src="{{ 'powermate-logo-small.svg' | asset_url }}"><br>Performance</th>
-						<th class="th-performance-mobile"><img src="{{ 'powermate-logo-small.svg' | asset_url }}"><br>Perfor...</th>
+						<th class="th-performance-mobile">Performance</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
