@@ -32,7 +32,7 @@
 	}
 	.box_block-item-big {
 		width: calc(234 * 100vw / 1440);
-		height: calc(282 * 100vw / 1440);
+		height: calc(314 * 100vw / 1440);
 		grid-row-gap: calc(16 * 100vw / 1440);
 	}
 	.box_block-item-top {
@@ -166,7 +166,7 @@
 	}
 	.box_block-item-big {
 		width: calc(234 * 100vw / 375);
-		height: calc(282 * 100vw / 375);
+		height: calc(314 * 100vw / 375);
 	}
 	.box_block-item-top {
 		width: calc(148 * 100vw / 375);
