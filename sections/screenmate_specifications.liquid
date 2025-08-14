@@ -249,7 +249,8 @@
     }
     .screenmate-specifications-collage-main-block-row {
         display: flex;
-        column-gap: 24px;
+        justify-content: space-between;
+        /* column-gap: 24px; */
     }
     .screenmate-specifications-collage-main-block-row-first-mobile {
         display: none;
@@ -266,7 +267,7 @@
         width: 416px;
     }
     .screenmate-specifications-collage-main-block-column.small {
-        width: 196px;
+        width: auto;
     }
     .screenmate-specifications-collage-main-block-item-column {
         display: flex;
@@ -723,7 +724,7 @@
             line-height: calc(32 * 100vw / 1440);
         }
         .screenmate-specifications-collage-main-block-row {
-            column-gap: calc(24 * 100vw / 1440);
+            /* column-gap: calc(24 * 100vw / 1440); */
         }
         .screenmate-specifications-collage-main-block-column {
             row-gap: calc(16 * 100vw / 1440);
@@ -735,7 +736,7 @@
             width: calc(416 * 100vw / 1440);
         }
         .screenmate-specifications-collage-main-block-column.small {
-            width: calc(196 * 100vw / 1440);
+            /* width: calc(196 * 100vw / 1440); */
         }
         .screenmate-specifications-collage-main-block-item-column > div:first-child {
             font-size: calc(14 * 100vw / 1440);
