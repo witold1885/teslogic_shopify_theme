@@ -1,216 +1,224 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-      "screenmate_faqs": {
-        "type": "screenmate_faqs",
-        "blocks": {
-          "q1": {
-            "type": "question",
-            "settings": {
-              "question": "Which Tesla models are compatible with Teslogic Screenmate?",
-              "answer": "Teslogic Screenmate is compatible with all Tesla models, except Model X and S built before 2021. Please note that production timelines vary by model—check the Compatibility or Timeline section on our main page for more details."
-            }
-          },
-          "q2": {
-            "type": "question",
-            "settings": {
-              "question": "What about the MCU?",
-              "answer": "Screenmate supports both Intel Atom and AMD Ryzen processors."
-            }
-          },
-          "q3": {
-            "type": "question",
-            "settings": {
-              "question": "Does Screenmate supports RHD cars?",
-              "answer": "Yes, Screenmate is fully compatible with RHD vehicles."
-            }
-          },
-          "q4": {
-            "type": "question",
-            "settings": {
-              "question": "How easy is it to install Teslogic Screenmate?",
-              "answer": "Installation is simple, non-invasive, and take about 10 minutes. Teslogic Screenmate integrates seamlessly with your Tesla’s existing dashboard. No technical expertise is required, and it won’t interfere with your car’s original functionality."
-            }
-          },
-          "q5": {
-            "type": "question",
-            "settings": {
-              "question": "What apps and services does Teslogic Screenmate support?",
-              "answer": "Teslogic Screenmate allows you to run any Android app on your Tesla screen."
-            }
-          },
-          "q6": {
-            "type": "question",
-            "settings": {
-              "question": "Does Screenmate replace the Tesla MCU?",
-              "answer": "No, you can switch between Tesla's screen and Screenmate with a four-finger touch."
-            }
-          },
-          "q7": {
-            "type": "question",
-            "settings": {
-              "question": "Is a remote needed to control Screenmate?",
-              "answer": "No, the Tesla touchscreen controls it directly."
-            }
-          },
-          "q8": {
-            "type": "question",
-            "settings": {
-              "question": "Where does Screenmate get its power?",
-              "answer": "In Model 3 (2021+) and Model Y cars, Screenmate is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate connects directly to the MCU."
-            }
-          },
-          "q9": {
-            "type": "question",
-            "settings": {
-              "question": "How is audio connected?",
-              "answer": "Audio connects via Bluetooth."
-            }
-          },
-          "q10": {
-            "type": "question",
-            "settings": {
-              "question": "Will Bluetooth audio have a delay?",
-              "answer": "No, it has delay compensation for streaming and a low-latency mode for games and video calls."
-            }
-          },
-          "q11": {
-            "type": "question",
-            "settings": {
-              "question": "Do I need the Internet to use Screenmate?",
-              "answer": "Screenmate can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
-            }
-          },
-          "q12": {
-            "type": "question",
-            "settings": {
-              "question": "How does Screenmate connect to the internet?",
-              "answer": "Screenmate supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
-            }
-          },
-          "q13": {
-            "type": "question",
-            "settings": {
-              "question": "Can I use a hotspot from Screenmate or connect to other hotspots?",
-              "answer": "Yes, you can share the internet from Screenmate or connect to a hotspot or other types of Wi-Fi."
-            }
-          },
-          "q14": {
-            "type": "question",
-            "settings": {
-              "question": "How does Screenmate behave when the car is waking up?",
-              "answer": "When Screenmate is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed.          Booting the Screenmate from a “powered off state” (when the car is in deep sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the Screenmate to enter sleep mode alongside the vehicle, rather than shutting down completely."
-            }
-          },
-          "q15": {
-            "type": "question",
-            "settings": {
-              "question": "Can using a Screenmate harm my car?",
-              "answer": "No, Teslogic Screenmate is designed to be safe for your vehicle and does not pose any harm."
-            }
-          },
-          "q16": {
-            "type": "question",
-            "settings": {
-              "question": "Is there a manufacturer's warranty for the Teslogic Screenmate?",
-              "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@teslogic.co, and we'll provide assistance."
-            }
-          },
-          "q17": {
-            "type": "question",
-            "settings": {
-              "question": "Can Screenmate compromise my Tesla warranty?",
-              "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Teslogic, doesn't void the overall warranty. However, as a precaution, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
-            }
-          },
-          "q18": {
-            "type": "question",
-            "settings": {
-              "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate?",
-              "answer": "No, you can continue using any other third-part devices."
-            }
-          },
-          "q19": {
-            "type": "question",
-            "settings": {
-              "question": "Where can I choose my Tesla model?",
-              "answer": "We’ll be sending out a backer survey soon, where you can select your Tesla model. Before delivery, we’ll also reach out to confirm your model. If anything changes in the meantime, feel free to let us know."
-            }
-          },
-          "q20": {
-            "type": "question",
-            "settings": {
-              "question": "Is content playback possible while driving?",
-              "answer": "Yes, passengers can watch content while the car is in motion. There are no specific regulations regarding the use of the center screen, and we’ve taken steps to comply with existing guidelines. When a passenger is watching content, they simply press the \"I’m a passenger\" button on the screen. However, it’s always a good idea to double-check local laws to ensure compliance."
-            }
-          },
-          "q21": {
-            "type": "question",
-            "settings": {
-              "question": "Is there a way to easily bypass the Screenmate device?",
-              "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect Screenmate, just reconnect the monitor cable to Tesla’s computer."
-            }
-          },
-          "q22": {
-            "type": "question",
-            "settings": {
-              "question": "Can Tesla block Screenmate?",
-              "answer": "No, Tesla cannot block Screenmate. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
-            }
-          },
-          "q23": {
-            "type": "question",
-            "settings": {
-              "question": "If I change my car while waiting for Screenmate, how can I let you know?",
-              "answer": "We’ll contact all backers before shipment to confirm the required Screenmate version."
-            }
-          },
-          "q24": {
-            "type": "question",
-            "settings": {
-              "question": "How much is the shipping cost?",
-              "answer": "We offer free domestic shipping and a $45 flat fee for international shipping—customs costs included."
-            }
-          },
-          "q25": {
-            "type": "question",
-            "settings": {
-              "question": "Can I return this if it's not for me?",
-              "answer": "Due to the nature of Kickstarter, we cannot offer refunds to backers once the project ends. However, we do provide a comprehensive 3-year warranty and are always ready to help you with any issues you might have."
-            }
+  "sections": {
+    "screenmate_faqs": {
+      "type": "screenmate_faqs",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Which Tesla models are compatible with Teslogic Screenmate?",
+            "answer": "Teslogic Screenmate is compatible with all Tesla models, except Model X and S built before 2021, and Cybertruck. Please note that production timelines vary by model—check the Compatibility or Timeline section on our main page for more details."
           }
         },
-        "block_order": [
-          "q1",
-          "q2",
-          "q3",
-          "q4",
-          "q5",
-          "q6",
-          "q7",
-          "q8",
-          "q9",
-          "q10",
-          "q11",
-          "q12",
-          "q13",
-          "q14",
-          "q15",
-          "q16",
-          "q17",
-          "q18",
-          "q19",
-          "q20",
-          "q21",
-          "q22",
-          "q23",
-          "q24",
-          "q25"
-        ],
-        "settings": {}
-      }
-    },
-    "order": [
-      "screenmate_faqs"
-    ]
-  }
-  
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "What about the MCU?",
+            "answer": "Screenmate supports both Intel Atom and AMD Ryzen processors."
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Does Screenmate supports RHD cars?",
+            "answer": "Yes, Screenmate is fully compatible with RHD vehicles."
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How easy is it to install Teslogic Screenmate?",
+            "answer": "Installation is simple, non-invasive, and take about 10 minutes. Teslogic Screenmate integrates seamlessly with your Tesla’s existing dashboard. No technical expertise is required, and it won’t interfere with your car’s original functionality."
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What apps and services does Teslogic Screenmate support?",
+            "answer": "Teslogic Screenmate allows you to run any Android app on your Tesla screen."
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Does Screenmate replace the Tesla MCU?",
+            "answer": "No, you can switch between Tesla's screen and Screenmate with a four-finger touch."
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "Is a remote needed to control Screenmate?",
+            "answer": "No, the Tesla touchscreen controls it directly."
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "Where does Screenmate get its power?",
+            "answer": "In Model 3 (2021+) and Model Y cars, Screenmate is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate connects directly to the MCU."
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "question": "How is audio connected?",
+            "answer": "Audio connects via Bluetooth."
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "question": "Will Bluetooth audio have a delay?",
+            "answer": "No, it has delay compensation for streaming and a low-latency mode for games and video calls."
+          }
+        },
+        "q11": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need the Internet to use Screenmate?",
+            "answer": "Screenmate can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
+          }
+        },
+        "q12": {
+          "type": "question",
+          "settings": {
+            "question": "How does Screenmate connect to the internet?",
+            "answer": "Screenmate supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
+          }
+        },
+        "q13": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use a hotspot from Screenmate or connect to other hotspots?",
+            "answer": "Yes, you can share the internet from Screenmate or connect to a hotspot or other types of Wi-Fi."
+          }
+        },
+        "q14": {
+          "type": "question",
+          "settings": {
+            "question": "How does Screenmate behave when the car is waking up?",
+            "answer": "When Screenmate is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed.          Booting the Screenmate from a “powered off state” (when the car is in deep sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the Screenmate to enter sleep mode alongside the vehicle, rather than shutting down completely."
+          }
+        },
+        "q15": {
+          "type": "question",
+          "settings": {
+            "question": "Can using a Screenmate harm my car?",
+            "answer": "No, Teslogic Screenmate is designed to be safe for your vehicle and does not pose any harm."
+          }
+        },
+        "q16": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a manufacturer's warranty for the Teslogic Screenmate?",
+            "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@teslogic.co, and we'll provide assistance."
+          }
+        },
+        "q17": {
+          "type": "question",
+          "settings": {
+            "question": "Can Screenmate compromise my Tesla warranty?",
+            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Teslogic, doesn't void the overall warranty. However, as a precaution, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
+          }
+        },
+        "q18": {
+          "type": "question",
+          "settings": {
+            "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate?",
+            "answer": "No, you can continue using any other third-part devices."
+          }
+        },
+        "q19": {
+          "type": "question",
+          "settings": {
+            "question": "Where can I choose my Tesla model?",
+            "answer": "We’ll be sending out a backer survey soon, where you can select your Tesla model. Before delivery, we’ll also reach out to confirm your model. If anything changes in the meantime, feel free to let us know."
+          }
+        },
+        "q20": {
+          "type": "question",
+          "settings": {
+            "question": "Is content playback possible while driving?",
+            "answer": "Yes, passengers can watch content while the car is in motion. There are no specific regulations regarding the use of the center screen, and we’ve taken steps to comply with existing guidelines. When a passenger is watching content, they simply press the \"I’m a passenger\" button on the screen. However, it’s always a good idea to double-check local laws to ensure compliance."
+          }
+        },
+        "q21": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a way to easily bypass the Screenmate device?",
+            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect Screenmate, just reconnect the monitor cable to Tesla’s computer."
+          }
+        },
+        "q22": {
+          "type": "question",
+          "settings": {
+            "question": "Can Tesla block Screenmate?",
+            "answer": "No, Tesla cannot block Screenmate. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
+          }
+        },
+        "q23": {
+          "type": "question",
+          "settings": {
+            "question": "If I change my car while waiting for Screenmate, how can I let you know?",
+            "answer": "We’ll contact all backers before shipment to confirm the required Screenmate version."
+          }
+        },
+        "q24": {
+          "type": "question",
+          "settings": {
+            "question": "How much is the shipping cost?",
+            "answer": "We offer free domestic shipping and a $45 flat fee for international shipping—customs costs included."
+          }
+        },
+        "q25": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return this if it's not for me?",
+            "answer": "Due to the nature of Kickstarter, we cannot offer refunds to backers once the project ends. However, we do provide a comprehensive 3-year warranty and are always ready to help you with any issues you might have."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "screenmate_faqs"
+  ]
+}
