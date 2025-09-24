@@ -179,13 +179,6 @@
             "question": "How much is the shipping cost?",
             "answer": "We offer free domestic shipping and a $45 flat fee for international shipping—customs costs included."
           }
-        },
-        "q25": {
-          "type": "question",
-          "settings": {
-            "question": "Can I return this if it's not for me?",
-            "answer": "Due to the nature of Kickstarter, we cannot offer refunds to backers once the project ends. However, we do provide a comprehensive 3-year warranty and are always ready to help you with any issues you might have."
-          }
         }
       },
       "block_order": [
@@ -212,8 +205,7 @@
         "q21",
         "q22",
         "q23",
-        "q24",
-        "q25"
+        "q24"
       ],
       "settings": {}
     }
