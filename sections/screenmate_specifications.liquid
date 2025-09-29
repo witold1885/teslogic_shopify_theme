@@ -249,7 +249,8 @@
     }
     .screenmate-specifications-collage-main-block-row {
         display: flex;
-        column-gap: 24px;
+        justify-content: space-between;
+        /* column-gap: 24px; */
     }
     .screenmate-specifications-collage-main-block-row-first-mobile {
         display: none;
@@ -266,7 +267,7 @@
         width: 416px;
     }
     .screenmate-specifications-collage-main-block-column.small {
-        width: 196px;
+        width: auto;
     }
     .screenmate-specifications-collage-main-block-item-column {
         display: flex;
@@ -303,6 +304,9 @@
     .screenmate-specifications-collage-main-block-item-row img {
         width: 20px;
         height: 20px;
+    }
+    .screenmate-specifications-collage-main-block-item-row div {
+        white-space: nowrap;
     }
     .screenmate-specifications-collage-main-bottom {
         width: 100%;
@@ -720,7 +724,7 @@
             line-height: calc(32 * 100vw / 1440);
         }
         .screenmate-specifications-collage-main-block-row {
-            column-gap: calc(24 * 100vw / 1440);
+            /* column-gap: calc(24 * 100vw / 1440); */
         }
         .screenmate-specifications-collage-main-block-column {
             row-gap: calc(16 * 100vw / 1440);
@@ -732,7 +736,7 @@
             width: calc(416 * 100vw / 1440);
         }
         .screenmate-specifications-collage-main-block-column.small {
-            width: calc(196 * 100vw / 1440);
+            /* width: calc(196 * 100vw / 1440); */
         }
         .screenmate-specifications-collage-main-block-item-column > div:first-child {
             font-size: calc(14 * 100vw / 1440);
@@ -1433,13 +1437,17 @@
                                     </div>
                                     <div class="screenmate-specifications-collage-main-block-item-row">
                                         <img src="{{ 'screenmate_compatibility_checkbox.svg' | asset_url }}" alt="">
-                                        <div>Model 3 Refresh 24</div>
+                                        <div>Model 3 Refresh (‘24+)</div>
                                     </div>
                                 </div>
                                 <div class="screenmate-specifications-collage-main-block-column small">
                                     <div class="screenmate-specifications-collage-main-block-item-row">
                                         <img src="{{ 'screenmate_compatibility_checkbox.svg' | asset_url }}" alt="">
                                         <div>Model Y (All)</div>
+                                    </div>
+                                    <div class="screenmate-specifications-collage-main-block-item-row">
+                                        <img src="{{ 'screenmate_compatibility_checkbox.svg' | asset_url }}" alt="">
+                                        <div>Model Y Juniper</div>
                                     </div>
                                 </div>
                                 <div class="screenmate-specifications-collage-main-block-column small">
