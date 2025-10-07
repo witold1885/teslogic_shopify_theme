@@ -673,7 +673,7 @@
         </div>
         <div class="screenmate-dashboard-controls">
             <div class="screenmate-dashboard-controls-title">
-                Controls Beyond Tesla’s Standard Set
+                Controls That Tesla Doesn’t Have
             </div>
             <div class="screenmate-dashboard-controls-text">
                 We’ve added extra control functions for you, like activating battery heating <br>
@@ -715,7 +715,11 @@
                     {% assign title_array = command.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = command.title | replace: number, '' %}
-                    {% assign size = forloop.index >= 3 ? 'small' : 'big' %}
+                    {% if forloop.index >= 3 %}
+                        {% assign size = 'small' %}
+                    {% else %}
+                        {% assign size = 'big' %}
+                    {% endif %}
                     <div class="screenmate-dashboard-commands-item screenmate-dashboard-commands-item-{{ size }} screenmate-dashboard-commands-item-{{ number }}">
                         <img src="{{ command.image | img_url }}" alt="{{ title }}">
                         <div class="screenmate-dashboard-commands-item-text">{{ title }}</div>
