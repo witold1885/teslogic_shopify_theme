@@ -65,28 +65,30 @@
 		<div class="shortcuts-features">
 			{% for block in blocks %}
 				{% assign items = blogs[block].articles | sort: 'title' %}
-				<div class="shortcuts-features-block shortcuts-features-block-{{ forloop.index }}">
-					<div class="shortcuts-features-block-title">{{ blogs[block].title }}</div>
-					<div class="shortcuts-features-block-items">
-						{% for item in items %}
-							{% assign title_array = item.title | split: ' ' %}
-							{% assign number = title_array.first %}
-							{% assign title = item.title | replace: number, '' %}
-							<div class="shortcuts-features-block-item shortcuts-features-block-item-{{ forloop.index }}">
-								<div class="shortcuts-features-block-item-top">
-									<div class="shortcuts-features-block-item-title">
-										<span>{{ title }}</span>
-										<img src="{{ 'shortcuts_mobile_chevron.svg' | asset_url }}" alt="">
+				{% if items.size > 0 %}
+					<div class="shortcuts-features-block shortcuts-features-block-{{ forloop.index }}">
+						<div class="shortcuts-features-block-title">{{ blogs[block].title }}</div>
+						<div class="shortcuts-features-block-items">
+							{% for item in items %}
+								{% assign title_array = item.title | split: ' ' %}
+								{% assign number = title_array.first %}
+								{% assign title = item.title | replace: number, '' %}
+								<div class="shortcuts-features-block-item shortcuts-features-block-item-{{ forloop.index }}">
+									<div class="shortcuts-features-block-item-top">
+										<div class="shortcuts-features-block-item-title">
+											<span>{{ title }}</span>
+											<img src="{{ 'shortcuts_mobile_chevron.svg' | asset_url }}" alt="">
+										</div>
+										<div class="shortcuts-features-block-item-icon">
+											<img src="{{ item.image | img_url: '48x48' }}" alt="">
+										</div>
 									</div>
-									<div class="shortcuts-features-block-item-icon">
-										<img src="{{ item.image | img_url: '48x48' }}" alt="">
-									</div>
+									<div class="shortcuts-features-block-item-content">{{ item.content }}</div>
 								</div>
-								<div class="shortcuts-features-block-item-content">{{ item.content }}</div>
-							</div>
-						{% endfor %}
+							{% endfor %}
+						</div>
 					</div>
-				</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
