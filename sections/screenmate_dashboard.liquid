@@ -143,7 +143,6 @@
         gap: 24px;
     }
     .screenmate-dashboard-commands-item {
-        width: 251px;
         padding: 16px 12px 16px 16px;
         display: flex;
         align-items: center;
@@ -152,6 +151,12 @@
         background: #FFF;
         box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.08);
         box-sizing: border-box;
+    }
+    .screenmate-dashboard-commands-item-big {
+        width: 343px;
+    }
+    .screenmate-dashboard-commands-item-small {
+        width: 251px;
     }
     .screenmate-dashboard-commands-item img {
         width: 32px;
@@ -361,11 +366,16 @@
             gap: calc(24 * 100vw / 1440);
         }
         .screenmate-dashboard-commands-item {
-            width: calc(251 * 100vw / 1440);
             padding: calc(16 * 100vw / 1440) calc(12 * 100vw / 1440) calc(16 * 100vw / 1440) calc(16 * 100vw / 1440);
             column-gap: calc(10 * 100vw / 1440);
             border-radius: calc(16 * 100vw / 1440);
             box-shadow: 0 calc(4 * 100vw / 1440) calc(32 * 100vw / 1440) 0 rgba(0, 0, 0, 0.08);
+        }
+        .screenmate-dashboard-commands-item-big {
+            width: calc(343 * 100vw / 1440);
+        }
+        .screenmate-dashboard-commands-item-small {
+            width: calc(251 * 100vw / 1440);
         }
         .screenmate-dashboard-commands-item img {
             width: calc(32 * 100vw / 1440);
@@ -705,7 +715,8 @@
                     {% assign title_array = command.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = command.title | replace: number, '' %}
-                    <div class="screenmate-dashboard-commands-item screenmate-dashboard-commands-item-{{ number }}">
+                    {% assign size = forloop.index >= 3 ? 'small' : 'big' %}
+                    <div class="screenmate-dashboard-commands-item screenmate-dashboard-commands-item-{{ size }} screenmate-dashboard-commands-item-{{ number }}">
                         <img src="{{ command.image | img_url }}" alt="{{ title }}">
                         <div class="screenmate-dashboard-commands-item-text">{{ title }}</div>
                     </div>
