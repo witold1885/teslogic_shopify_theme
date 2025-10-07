@@ -1,7 +1,7 @@
 [ 
     {
         "title": "Entertainment", 
-        "description": "Access your favorite streaming services directly from your Tesla's screen. Watch movies, TV shows, and more with smooth, high-quality playback.", 
+        "description": "Stream your favorite services right from your Tesla’s display. Watch movies, TV shows, and more in smooth, high-quality playback.", 
         "image": "screenmate_apps_feature_1.svg"
     },
     {
@@ -16,17 +16,17 @@
     },
     {
         "title": "Music", 
-        "description": "Seamless access to your favorite music apps. Enjoy high-quality streaming from popular services, bringing your playlists to life on your Tesla.", 
+        "description": "Seamless access to your favorite music apps. Enjoy high-quality streaming from popular services, bringing your playlists to life on your car.", 
         "image": "screenmate_apps_feature_4.svg"
     },
     {
         "title": "Mobile Gaming", 
-        "description": "Experience the thrill of mobile gaming directly on your Tesla. Access a variety of exciting games available through Google Play Games.", 
+        "description": "Enjoy mobile gaming directly on your Tesla vehicle’s screen, with a wide selection of titles available through Google Play Games.", 
         "image": "screenmate_apps_feature_5.svg"
     },
     {
         "title": "Anything Else", 
-        "description": "Transform your Tesla into a versatile hub with Teslogic Screenmate, giving you effortless access to a wide range of applications.", 
+        "description": "Transform your car into a versatile hub with Teslogic Screenmate, giving you effortless access to a wide range of applications.", 
         "image": "screenmate_apps_feature_6.svg"
     }
 ]
