@@ -715,7 +715,7 @@
                     {% assign title_array = command.title | split: ' ' %}
                     {% assign number = title_array.first %}
                     {% assign title = command.title | replace: number, '' %}
-                    {% if forloop.index >= 3 %}
+                    {% if forloop.index > 3 %}
                         {% assign size = 'small' %}
                     {% else %}
                         {% assign size = 'big' %}
