@@ -436,7 +436,7 @@
                     <div class="screenmate-apps-feature screenmate-apps-feature-{{ number }}">
                         <div class="screenmate-apps-feature-title">{{ title }}</div>
                         <div class="screenmate-apps-feature-description">{{ feature.content }}</div>
-                        <img src="{{ feature.image | img_url }}" alt="{{ title }}">
+                        <img src="{{ feature.image | img_url: '300x300' }}" alt="{{ title }}">
                     </div>
 	    	    {% endfor %}
             </div>
