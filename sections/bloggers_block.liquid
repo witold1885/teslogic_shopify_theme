@@ -67,6 +67,7 @@ $(document).ready(async function() {
 	async function getVideoInfos(videoIds) {
 		let response = await fetch(`${API_ENDPOINT}videos?key=${API_KEY}&id=${videoIds.join(',')}&part=snippet,contentDetails`)
 		let data = await response.json()
+		console.log({ data })
 		return data
 	}
 
