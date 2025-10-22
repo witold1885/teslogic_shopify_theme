@@ -6,8 +6,8 @@
         "q1": {
           "type": "question",
           "settings": {
-            "question": "Which Tesla models are compatible with Teslogic Screenmate?",
-            "answer": "Teslogic Screenmate is compatible with all Tesla models, except Model X and S built before 2021, and Cybertruck. Please note that production timelines vary by model—check the Compatibility or Timeline section on our main page for more details."
+            "question": "Which Tesla models are compatible with Screenmate One?",
+            "answer": "Screenmate One is compatible with all Tesla models, except Model X and S built before 2021, and Cybertruck. Please note that production timelines vary by model—check the Compatibility or Timeline section on our main page for more details."
           }
         },
         "q2": {
@@ -27,15 +27,15 @@
         "q4": {
           "type": "question",
           "settings": {
-            "question": "How easy is it to install Teslogic Screenmate?",
-            "answer": "Installation is simple, non-invasive, and take about 10 minutes. Teslogic Screenmate integrates seamlessly with your Tesla’s existing dashboard. No technical expertise is required, and it won’t interfere with your car’s original functionality."
+            "question": "How easy is it to install Screenmate One?",
+            "answer": "Installation is simple, non-invasive, and take about 10 minutes. Screenmate One integrates seamlessly with your Tesla’s existing dashboard. No technical expertise is required, and it won’t interfere with your car’s original functionality."
           }
         },
         "q5": {
           "type": "question",
           "settings": {
-            "question": "What apps and services does Teslogic Screenmate support?",
-            "answer": "Teslogic Screenmate allows you to run any Android app on your Tesla screen."
+            "question": "What apps and services does Screenmate One support?",
+            "answer": "Screenmate One allows you to run any Android app on your Tesla screen."
           }
         },
         "q6": {
@@ -105,13 +105,13 @@
           "type": "question",
           "settings": {
             "question": "Can using a Screenmate harm my car?",
-            "answer": "No, Teslogic Screenmate is designed to be safe for your vehicle and does not pose any harm."
+            "answer": "No, Screenmate One is designed to be safe for your vehicle and does not pose any harm."
           }
         },
         "q16": {
           "type": "question",
           "settings": {
-            "question": "Is there a manufacturer's warranty for the Teslogic Screenmate?",
+            "question": "Is there a manufacturer's warranty for the Screenmate One?",
             "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@teslogic.co, and we'll provide assistance."
           }
         },
