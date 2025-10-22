@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "faq_chapters": {
@@ -24,7 +15,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Can I install the Teslogic device myself, or should I contact the service center?",
+            "question": "Can I install the Screenmate Dash device myself, or should I contact the service center?",
             "answer": "Installation process is very simple, it will take you no more than 10 minutes. You can find the detailed video manuals in the Manuals section."
           }
         },
@@ -48,15 +39,15 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "What type of connection does Teslogic use?",
-            "answer": "Teslogic is connected via Bluetooth Low Energy protocol."
+            "question": "What type of connection does Screenmate Dash use?",
+            "answer": "Screenmate Dash is connected via Bluetooth Low Energy protocol."
           }
         },
         "b2b23f7a-ed0d-4344-9c99-b6702744992b": {
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Does Teslogic require an internet connection or cell service to work?",
+            "question": "Does Screenmate Dash require an internet connection or cell service to work?",
             "answer": "No, it doesn't. An internet connection is only required to use the Navigation Map screen."
           }
         },
@@ -64,7 +55,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "1",
-            "question": "Does Teslogic App transmit any user data to remote server?",
+            "question": "Does Screenmate Dash App transmit any user data to remote server?",
             "answer": "The App transmits only depersonalized data for the purpose of statistics, the privacy of your data is of the highest priority for us."
           }
         },
@@ -80,16 +71,16 @@
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Does connecting Teslogic affect the car warranty?",
-            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Teslogic, doesn't void the overall warranty."
+            "question": "Does connecting Screenmate Dash affect the car warranty?",
+            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Screenmate Dash, doesn't void the overall warranty."
           }
         },
         "c3401778-1354-4503-b197-f8b5d9a622a9": {
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Is there a manufacturer's warranty for the Teslogic transmitter?",
-            "answer": "The Teslogic transmitter comes with a comprehensive 3-year warranty. If you encounter any issues or if the transmitter malfunctions, please get in touch with us, and we'll provide assistance."
+            "question": "Is there a manufacturer's warranty for the Screenmate Dash transmitter?",
+            "answer": "The Screenmate Dash transmitter comes with a comprehensive 3-year warranty. If you encounter any issues or if the transmitter malfunctions, please get in touch with us, and we'll provide assistance."
           }
         },
         "97e4f599-0a93-4af5-a281-4a14ec235abc": {
@@ -104,8 +95,8 @@
           "type": "question",
           "settings": {
             "chapter_id": "2",
-            "question": "Do I need to remove Teslogic before visiting service center?",
-            "answer": "As a precautionary measure, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
+            "question": "Do I need to remove Screenmate Dash before visiting service center?",
+            "answer": "As a precautionary measure, we recommend removing Screenmate Dash from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
         "e02e68a5-fa29-4f4c-8fcc-ba7f28877884": {
@@ -113,7 +104,7 @@
           "settings": {
             "chapter_id": "2",
             "question": "Can using a transmitter harm my car?",
-            "answer": "Teslogic is designed to be safe for your vehicle and does not pose any harm."
+            "answer": "Screenmate Dash is designed to be safe for your vehicle and does not pose any harm."
           }
         },
         "2bc0ffb7-6aac-4a62-87ac-a9596b14afc5": {
@@ -121,7 +112,7 @@
           "settings": {
             "chapter_id": "2",
             "question": "Does the blind spot warning feature alert about all objects in the blind spot?",
-            "answer": "No, the sensors of the vehicle may not detect all objects situated within the blind spot and there may be no alerts displayed via Teslogic app. It is the driver's responsibility to maintain alertness while changing lanes, by conducting mandatory shoulder checks."
+            "answer": "No, the sensors of the vehicle may not detect all objects situated within the blind spot and there may be no alerts displayed via Screenmate Dash app. It is the driver's responsibility to maintain alertness while changing lanes, by conducting mandatory shoulder checks."
           }
         },
         "d4ebb7fb-5941-40e3-9573-318a4b7df89a": {
@@ -136,8 +127,8 @@
           "type": "question",
           "settings": {
             "chapter_id": "3",
-            "question": "What system of measurement is used in Teslogic?",
-            "answer": "Teslogic works in two systems of measurements – imperial and SI. The application switches to the system used in Tesla's main interface."
+            "question": "What system of measurement is used in Screenmate Dash?",
+            "answer": "Screenmate Dash works in two systems of measurements – imperial and SI. The application switches to the system used in Tesla's main interface."
           }
         },
         "faf361c7-ec88-4ccd-86fb-a43079c4295c": {
@@ -153,15 +144,15 @@
           "settings": {
             "chapter_id": "3",
             "question": "What do Range indicators \"City\", \"Highway\" mean?",
-            "answer": "Based on the statistics of your driving, Teslogic estimates driving range without charging in the city and on the highway. Highway speed should not exceed 70mph. Weather and terrain can affect this estimate."
+            "answer": "Based on the statistics of your driving, Screenmate Dash estimates driving range without charging in the city and on the highway. Highway speed should not exceed 70mph. Weather and terrain can affect this estimate."
           }
         },
         "4203c377-d7b6-46b7-b02d-1c7d85a1314a": {
           "type": "question",
           "settings": {
             "chapter_id": "3",
-            "question": "Why does Teslogic's range calculation differ from Tesla's range calculation?",
-            "answer": "Teslogic estimates range based on your driving statistics. Factors such as weather, terrain, and your driving style can influence this calculation. However, you have the option to revert to Tesla data. To do this, navigate to the Preferences menu and choose your desired calculation under the Range section."
+            "question": "Why does Screenmate Dash's range calculation differ from Tesla's range calculation?",
+            "answer": "Screenmate Dash estimates range based on your driving statistics. Factors such as weather, terrain, and your driving style can influence this calculation. However, you have the option to revert to Tesla data. To do this, navigate to the Preferences menu and choose your desired calculation under the Range section."
           }
         },
         "88cd5123-305a-4e1d-b213-f49c7071940d": {
@@ -169,7 +160,7 @@
           "settings": {
             "chapter_id": "3",
             "question": "What is \"Saved Miles\"?",
-            "answer": "Teslogic calculates how much energy you have saved by regenerative engine braking and how long this energy will last. The less you use the brake pedal, the more energy you can save. On the highway this figure is usually much lower than in the city."
+            "answer": "Screenmate Dash calculates how much energy you have saved by regenerative engine braking and how long this energy will last. The less you use the brake pedal, the more energy you can save. On the highway this figure is usually much lower than in the city."
           }
         },
         "f29bcefa-fb81-4859-8a88-5b71ce3a6c84": {
@@ -193,7 +184,7 @@
           "settings": {
             "chapter_id": "4",
             "question": "How to create a route for the navigator?",
-            "answer": "Share your destination point with Teslogic App via Google Maps App."
+            "answer": "Share your destination point with Screenmate Dash App via Google Maps App."
           }
         },
         "question_krFwPT": {
@@ -216,7 +207,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "4",
-            "question": "How can Teslogic transmitter be updated?",
+            "question": "How can Screenmate Dash transmitter be updated?",
             "answer": "The transmitter updates automatically over the air."
           }
         },
@@ -224,8 +215,8 @@
           "type": "question",
           "settings": {
             "chapter_id": "4",
-            "question": "How does Teslogic impact my Tesla’s battery?",
-            "answer": "When not connected to a phone, Teslogic is in a low power mode. And it doesn't consume battery power if the car is sleeping."
+            "question": "How does Screenmate Dash impact my Tesla’s battery?",
+            "answer": "When not connected to a phone, Screenmate Dash is in a low power mode. And it doesn't consume battery power if the car is sleeping."
           }
         },
         "4dec977d-3de4-4711-b9d5-b70310232b6c": {
@@ -233,7 +224,7 @@
           "settings": {
             "chapter_id": "4",
             "question": "How can I switch the app screens?",
-            "answer": "If the autopilot mode is off, the application screen can be changed by simply toggling the right selector on the steering left or right.\nWhen the autopilot is on, the Teslogic screen switching mode changes: you need to toggle the selector in the direction you need and return it back. It won't change the follow distance and the app screen will be switched."
+            "answer": "If the autopilot mode is off, the application screen can be changed by simply toggling the right selector on the steering left or right.\nWhen the autopilot is on, the Screenmate Dash screen switching mode changes: you need to toggle the selector in the direction you need and return it back. It won't change the follow distance and the app screen will be switched."
           }
         },
         "25445080-e1b7-4db6-a324-67fb127dca1d": {
@@ -248,7 +239,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "4",
-            "question": "Is it possible for a second driver to use Teslogic app on their own phone?",
+            "question": "Is it possible for a second driver to use Screenmate Dash app on their own phone?",
             "answer": "Yes, a second driver can run the app. You can easily connect 2+ cross platform devices simultaneously."
           }
         },
@@ -264,8 +255,8 @@
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "Does Teslogic fit all Model 3/Y or are there any exceptions?",
-            "answer": "Teslogic is compatible with all Model 3/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
+            "question": "Does Screenmate Dash fit all Model 3/Y or are there any exceptions?",
+            "answer": "Screenmate Dash is compatible with all Model 3/Y with no exceptions. Please make sure to correctly list your Tesla model in the order form as the wiring differs depending on the model and year of the vehicle."
           }
         },
         "df090883-f0b7-447e-9ae4-f993a2b25557": {
@@ -280,7 +271,7 @@
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "Is there a version of Teslogic for Model S or X?",
+            "question": "Is there a version of Screenmate Dash for Model S or X?",
             "answer": "Currently, there are no such versions available. Although we don't have an exact timeline, we plan to develop them in the future."
           }
         },
@@ -289,14 +280,14 @@
           "settings": {
             "chapter_id": "5",
             "question": "What versions of iOS/Android is the transmitter compatible with?",
-            "answer": "Teslogic transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher. Using older devices, may cause a noticeable decrease in the data exchange rate."
+            "answer": "Screenmate Dash transmitter is compatible with all Apple mobile devices with iOS 12.2 or higher and all Android devices with version 5.0 or higher. Using older devices, may cause a noticeable decrease in the data exchange rate."
           }
         },
         "f2084917-d299-4cda-9192-dfd8a74f10a2": {
           "type": "question",
           "settings": {
             "chapter_id": "5",
-            "question": "Is Teslogic app compatible with an Android tablet/iPad?",
+            "question": "Is Screenmate Dash app compatible with an Android tablet/iPad?",
             "answer": "Yes, the app is compatible with Android tablets and iPads."
           }
         },
