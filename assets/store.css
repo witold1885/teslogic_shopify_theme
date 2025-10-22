@@ -31,6 +31,7 @@
 	/* border-radius: 16px; */
 	border-radius: 100%;
 	border: 1px solid #E6E6E6;
+	overflow: hidden;
 }
 .store_block-product-gallery-item.active {
 	border: 1px solid #1657FC;
