@@ -38,11 +38,6 @@
       "type": "screenmate_order",
       "settings": {
       }
-    },
-    "reviews": {
-      "type": "reviews",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -51,8 +46,7 @@
     "screenmate_connect",
     "screenmate_dashboard",
     "screenmate_specifications",
-    "screenmate_order",
-    "reviews"
+    "screenmate_order"
   ]
 }
   
