@@ -148,13 +148,14 @@
         left: calc(50% - calc(335 * 100vw / 375) / 2);
     }
     #shopify-pc__prefs__dialog header {
-        flex-direction: column;
+        flex-direction: column !important;
         gap: calc(12 * 100vw / 375) !important;
         padding: calc(20 * 100vw / 375) !important;
     }
     #shopify-pc__prefs__header-title {
         font-size: calc(18 * 100vw / 375) !important;
         line-height: calc(24 * 100vw / 375) !important; /* 133.333% */
+        padding: 0 !important;
     }
     .shopify-pc__prefs__header-actions {
         gap: calc(8 * 100vw / 375) !important;
