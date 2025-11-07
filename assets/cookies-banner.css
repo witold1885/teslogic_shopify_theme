@@ -7,6 +7,8 @@
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
     left: calc(50% - 526px / 2);
     bottom: 32px;
+    font-family: Manrope !important;
+    font-style: normal !important;
 }
 .shopify-pc__banner__wrapper {
     display: flex;
@@ -16,8 +18,6 @@
     gap: 20px;
 }
 .shopify-pc__banner__body {
-    font-family: Manrope !important;
-    font-style: normal !important;
     color: #2B343B !important;
     font-feature-settings: 'liga' off, 'clig' off;
 }
@@ -49,9 +49,7 @@
 .shopify-pc__banner__btns button, 
 .shopify-pc__prefs__header-actions button {
     color: #1657FC !important;
-    font-family: Manrope !important;
     font-size: 14px !important;
-    font-style: normal !important;
     font-weight: 500 !important;
     line-height: 20px !important; /* 142.857% */
     margin: 0 !important;
@@ -81,6 +79,10 @@
     border-radius: 24px !important;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
+    color: #2B343B !important;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Manrope !important;
+    font-style: normal !important;
 }
 #shopify-pc__prefs__dialog * {
     box-sizing: border-box;
@@ -95,11 +97,7 @@
     border-bottom: 1px solid #E6E6E6;
 }
 #shopify-pc__prefs__header-title {
-    color: #2B343B !important;
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-family: Manrope !important;
     font-size: 18px !important;
-    font-style: normal !important;
     font-weight: 600 !important;
     line-height: 24px !important; /* 133.333% */
     margin: 0;
@@ -138,10 +136,6 @@
     display: flex;
     padding: 22px 24px 24px 24px !important;
     flex-direction: column;
-    color: #2B343B !important;
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-family: Manrope !important;
-    font-style: normal !important;
 }
 .shopify-pc__prefs__intro-main h3, 
 .shopify-pc__prefs__options label {
@@ -196,6 +190,10 @@
 }
 .shopify-pc__prefs__options > div span[aria-hidden="true"] > svg[data-icon-type="unchecked"] {
     background-color: #E0E0E0 !important;
+}
+.shopify-pc__prefs__options > div input[aria-readonly="true"] ~ span[aria-hidden="true"] svg {
+    opacity: 1 !important;
+    background-color: #989898 !important;
 }
 .shopify-pc__prefs__options > div span[aria-hidden="true"] > svg path {
     fill: #E0E0E0 !important;
