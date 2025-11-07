@@ -155,6 +155,7 @@
     }
     #shopify-pc__prefs__dialog header {
         flex-direction: column !important;
+        align-items: flex-start !important;
         gap: calc(12 * 100vw / 375) !important;
         padding: calc(20 * 100vw / 375) !important;
     }
@@ -165,12 +166,13 @@
         padding: 0 !important;
     }
     .shopify-pc__prefs__header-actions {
+        width: 100% !important;
         flex-direction: row !important;
         gap: calc(8 * 100vw / 375) !important;
         margin-right: 0 !important;
     }
     .shopify-pc__prefs__header-actions button {
-        width: auto;
+        width: auto !important;
     }
     #shopify-pc__prefs__header-close {
         order: 2;
