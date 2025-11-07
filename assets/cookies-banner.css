@@ -82,6 +82,7 @@
 #shopify-pc__prefs__dialog header {
     width: 100%;
     display: flex;
+    flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
     padding: 20px 24px;
@@ -102,7 +103,10 @@
     align-items: center;
     gap: 12px;
 }
+.shopify-pc__prefs__header-actions button {
+    width: 182px;
+}
 #shopify-pc__prefs__header-close {
-    position: static;
+    /* position: static; */
     order: 3;
 }
