@@ -97,6 +97,12 @@
     }
 }
 
+@media screen and (max-width: 750px) {
+    .shopify-pc__prefs__header-actions {
+        flex-direction: row !important;
+    }
+}
+
 @media screen and (max-width: 575px) {
     #shopify-pc__banner {
         width: calc(335 * 100vw / 375);
@@ -231,7 +237,7 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .shopify-pc__banner__btns {
         flex-direction: row !important;
     }
