@@ -152,6 +152,7 @@
         border-radius: calc(20 * 100vw / 375) !important;
         top: calc(32 * 100vw / 375) !important;
         left: calc(50% - calc(335 * 100vw / 375) / 2);
+        bottom: calc(32 * 100vw / 375) !important;
     }
     #shopify-pc__prefs__dialog header {
         flex-direction: column !important;
