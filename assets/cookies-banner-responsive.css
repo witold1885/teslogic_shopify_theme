@@ -35,9 +35,10 @@
 
     #shopify-pc__prefs__dialog {
         width: calc(991 * 100vw / 1440);
+        height: calc(468 * 100vw / 1440);
         border-radius: calc(24 * 100vw / 1440) !important;
+        top: calc(100vh - calc((468 + 171) * 100vw / 1440));
         left: calc(50% - calc(991 * 100vw / 1440) / 2);
-        bottom: calc(171 * 100vw / 1440);
     }
     #shopify-pc__prefs__dialog header {
         padding: calc(20 * 100vw / 1440) calc(24 * 100vw / 1440);
