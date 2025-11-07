@@ -1,7 +1,7 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
     #shopify-pc__banner {
         width: calc(526 * 100vw / 1440);
-        padding: calc(22 * 100vw / 1440) calc(24 * 100vw / 1440) calc(24 * 100vw / 1440) calc(24 * 100vw / 1440);
+        padding: calc(22 * 100vw / 1440) calc(24 * 100vw / 1440) calc(24 * 100vw / 1440);
         border-radius: calc(24 * 100vw / 1440);
         left: calc(50% - calc(526 * 100vw / 1440) / 2);
         bottom: calc(32 * 100vw / 1440);
@@ -97,4 +97,37 @@
 }
 
 @media screen and (max-width: 575px) {
+    #shopify-pc__banner {
+        width: calc(335 * 100vw / 375);
+        padding: calc(22 * 100vw / 375) calc(24 * 100vw / 375) calc(24 * 100vw / 375);
+        border-radius: calc(20 * 100vw / 375);
+        left: calc(50% - calc(335 * 100vw / 375) / 2);
+        bottom: calc(20 * 100vw / 375);
+    }
+    .shopify-pc__banner__wrapper {
+        gap: calc(20 * 100vw / 375);
+    }
+    .shopify-pc__banner__body h2 {
+        font-size: calc(18 * 100vw / 375) !important;
+        line-height: calc(24 * 100vw / 375) !important; /* 133.333% */
+        margin-bottom: calc(8 * 100vw / 375) !important;
+    }
+    .shopify-pc__banner__body p, 
+    .shopify-pc__prefs__scrollable p {
+        font-size: calc(14 * 100vw / 375) !important;
+        line-height: calc(20 * 100vw / 375) !important; /* 142.857% */
+    }
+    .shopify-pc__banner__btns {
+        gap: calc(12 * 100vw / 375);
+    }
+    .shopify-pc__banner__btns button, 
+    .shopify-pc__prefs__header-actions button {
+        font-size: calc(14 * 100vw / 375) !important;
+        line-height: calc(20 * 100vw / 375) !important; /* 142.857% */
+        padding: calc(12 * 100vw / 375) 0 !important;
+    }
+    .shopify-pc__banner__btns button:not(:first-child), 
+    .shopify-pc__prefs__header-actions button {
+        border-radius: calc(33 * 100vw / 375);
+    }
 }
