@@ -176,11 +176,14 @@
         width: calc(93.3333 * 100vw / 375);
     }
     .shopify-pc__prefs__header-actions button:last-child {
-        text-indent: -99999px;
-        overflow: hidden;
+        color: transparent !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
     }
     .shopify-pc__prefs__header-actions button:last-child::after {
         content: 'Save';
+        font-size: calc(14 * 100vw / 375) !important;
+        line-height: calc(20 * 100vw / 375) !important; /* 142.857% */
     }
     #shopify-pc__prefs__header-close {
         order: 2;
