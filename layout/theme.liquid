@@ -13,10 +13,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    
-    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
-
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,6 +223,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="gradient">
     <div {% if template == 'index' %}style="overflow: hidden;"{% endif %}>
+      <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
+      <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
       {% if template == 'index' or page.handle == 'pro' or page.handle == 'screenmate' %}
         <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
