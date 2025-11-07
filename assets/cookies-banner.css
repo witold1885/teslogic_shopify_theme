@@ -168,11 +168,13 @@
     flex-direction: column;
     gap: 20px !important;
     margin-top: 18px !important;
-    padding-top: 20px !important;
+    padding: 20px 0 0 !important;
+    border-top: 1px solid #E6E6E6 !important;
 }
 .shopify-pc__prefs__options > div {
     margin: 0 !important;
     padding: 0 !important;
+    border: none !important;
 }
 .shopify-pc__prefs__options > div span[aria-hidden="true"] {
     width: 20px !important;
