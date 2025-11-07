@@ -86,6 +86,7 @@
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
     top: calc(100vh - (468px + 171px));
     left: calc(50% - 991px / 2);
+    transform: unset;
     box-sizing: border-box;
     color: #2B343B !important;
     font-feature-settings: 'liga' off, 'clig' off;
