@@ -183,6 +183,10 @@
 .shopify-pc__prefs__options > div span[aria-hidden="true"] {
     width: 20px !important;
     height: 20px !important;
+    border-radius: 4px !important;
+}
+.shopify-pc__prefs__options > div input + span[aria-hidden="true"] > svg {
+    fill: #E0E0E0;
 }
 .shopify-pc__prefs__options > div p {
     padding-left: 32px !important;
