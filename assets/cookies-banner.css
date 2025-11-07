@@ -68,7 +68,7 @@
 }
 .shopify-pc__banner__btns button:not(:first-child), 
 .shopify-pc__prefs__header-actions button {
-    border-radius: 33px;
+    border-radius: 33px !important;
     background: #E3EAFE !important;
 }
 
@@ -82,10 +82,9 @@
 #shopify-pc__prefs__dialog header {
     width: 100%;
     display: flex;
-    padding: 20px 24px;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 24px;
 }
 #shopify-pc__prefs__header-title {
     color: #2B343B !important;
@@ -105,5 +104,5 @@
 }
 #shopify-pc__prefs__header-close {
     position: static;
-    order: -1;
+    order: 3;
 }
