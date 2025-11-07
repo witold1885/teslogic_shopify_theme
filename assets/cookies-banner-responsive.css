@@ -132,10 +132,7 @@
         line-height: 0;
     }
     .shopify-pc__banner__btns button:first-child span {
-        visibility: hidden;
-        font-size: 0;
-        padding: 0;
-        margin: 0;
+        display: none !important;
     }
     .shopify-pc__banner__btns button:first-child::after {
         content: 'Manage';
@@ -143,7 +140,6 @@
         display: block;
         font-size: calc(14 * 100vw / 375) !important;
         line-height: calc(20 * 100vw / 375) !important; /* 142.857% */
-        padding: calc(12 * 100vw / 375) 0 !important;
     }
     .shopify-pc__banner__btns button:not(:first-child), 
     .shopify-pc__prefs__header-actions button {
