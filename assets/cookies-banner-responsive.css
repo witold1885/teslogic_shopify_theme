@@ -230,3 +230,12 @@
         padding-left: calc(32 * 100vw / 375) !important;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .shopify-pc__banner__btns {
+        flex-direction: row !important;
+    }
+    .shopify-pc__banner__btns button {
+        order: unset !important;
+    }
+}
