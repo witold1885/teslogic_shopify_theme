@@ -172,7 +172,10 @@
         margin-right: 0 !important;
     }
     .shopify-pc__prefs__header-actions button {
-        width: auto !important;
+        width: calc(93.3333 * 100vw / 375);
+    }
+    .shopify-pc__prefs__header-actions button:last-child::after {
+        content: 'Save';
     }
     #shopify-pc__prefs__header-close {
         order: 2;
