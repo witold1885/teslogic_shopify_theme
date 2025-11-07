@@ -102,7 +102,7 @@
     flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
+    padding: 20px 24px !important;
     border-bottom: 1px solid #E6E6E6;
 }
 #shopify-pc__prefs__header-title {
@@ -118,6 +118,7 @@
     align-items: center;
     gap: 12px !important;
     margin-right: 56px !important;
+    padding: 0 !important;
 }
 .shopify-pc__prefs__header-actions button {
     width: 182px;
