@@ -41,3 +41,31 @@
     text-underline-offset: auto;
     text-underline-position: from-font;
 }
+.shopify-pc__banner__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.shopify-pc__banner__btns button {
+    margin: 0;
+    color: #1657FC !important;
+    font-family: Manrope !important;
+    font-size: 14px;
+    font-style: normal !important;
+    font-weight: 500;
+    line-height: 20px !important; /* 142.857% */
+}
+.shopify-pc__banner__btns button:first-child {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+.shopify-pc__banner__btns button:not(:first-child) {
+    padding: 12px 16px;
+    border-radius: 33px;
+    background: #E3EAFE;
+}
