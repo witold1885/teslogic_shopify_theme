@@ -175,6 +175,10 @@
     .shopify-pc__prefs__header-actions button {
         width: calc(93.3333 * 100vw / 375);
     }
+    .shopify-pc__prefs__header-actions button:last-child {
+        text-indent: -99999px;
+        overflow: hidden;
+    }
     .shopify-pc__prefs__header-actions button:last-child::after {
         content: 'Save';
     }
