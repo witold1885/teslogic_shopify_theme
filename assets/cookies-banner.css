@@ -187,14 +187,18 @@
 }
 .shopify-pc__prefs__options > div span[aria-hidden="true"] > svg {
     border-radius: 4px !important;
+    background-color: #E0E0E0 !important;
+}
+.shopify-pc__prefs__options > div span[aria-hidden="true"] > svg[data-icon-type="unchecked"] path {
+    fill: #E0E0E0 !important;
 }
 .shopify-pc__prefs__options > div input:active,
 .shopify-pc__prefs__options > div input:focus {
     outline: none !important;
 }
-.shopify-pc__prefs__options > div input + span[aria-hidden="true"] > svg {
+/* .shopify-pc__prefs__options > div input + span[aria-hidden="true"] > svg {
     background-color: #E0E0E0 !important;
-}
+} */
 .shopify-pc__prefs__options > div p {
     padding-left: 32px !important;
 }
