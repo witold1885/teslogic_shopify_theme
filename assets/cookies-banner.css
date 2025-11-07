@@ -57,6 +57,7 @@
     margin: 0 !important;
     padding: 12px 0 !important;
     border: none !important;
+    outline: none !important;
 }
 .shopify-pc__banner__btns button:first-child {
     text-decoration-line: underline;
@@ -106,8 +107,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 12px;
-    margin-right: 56px;
+    gap: 12px !important;
+    margin-right: 56px !important;
 }
 .shopify-pc__prefs__header-actions button {
     width: 182px;
@@ -124,6 +125,8 @@
     order: 3;
     border-radius: 100%;
     background: #E3EAFE;
+    border: none !important;
+    outline: none !important;
 }
 #shopify-pc__prefs__header-close svg {
     width: 16px;
