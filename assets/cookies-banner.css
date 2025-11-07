@@ -113,7 +113,8 @@
     width: 182px;
 }
 #shopify-pc__prefs__header-close {
-    /* position: static; */
+    top: 20px;
+    right: 24px;
     display: flex;
     width: 44px;
     height: 44px;
