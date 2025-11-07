@@ -80,6 +80,7 @@
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
 }
 #shopify-pc__prefs__dialog header {
+    width: 100%;
     display: flex;
     padding: 20px 24px;
     flex-direction: column;
@@ -87,17 +88,22 @@
     align-items: center;
 }
 #shopify-pc__prefs__header-title {
-    color: #2B343B;
+    color: #2B343B !important;
     font-feature-settings: 'liga' off, 'clig' off;
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 133.333% */
+    font-family: Manrope !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 24px !important; /* 133.333% */
+    margin: 0;
 }
 .shopify-pc__prefs__header-actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 12px;
+}
+#shopify-pc__prefs__header-close {
+    position: static;
+    order: -1;
 }
