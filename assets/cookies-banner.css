@@ -179,6 +179,7 @@
 }
 .shopify-pc__prefs__options > div label {
     gap: 12px !important;
+    margin-bottom: 8px !important;
 }
 .shopify-pc__prefs__options > div span[aria-hidden="true"] {
     width: 20px !important;
@@ -189,7 +190,7 @@
     border-radius: 4px !important;
     background-color: #E0E0E0 !important;
 }
-.shopify-pc__prefs__options > div span[aria-hidden="true"] > svg[data-icon-type="unchecked"] path {
+.shopify-pc__prefs__options > div span[aria-hidden="true"] > svg path {
     fill: #E0E0E0 !important;
 }
 .shopify-pc__prefs__options > div input:active,
