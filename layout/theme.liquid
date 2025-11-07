@@ -13,6 +13,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    
+    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
+
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,8 +200,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
 
-    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
     <link rel="stylesheet" type="text/css" href="{{ 'ellipses.css' | asset_url }}">
     <link rel="stylesheet" type="text/css" href="{{ 'ellipses-responsive.css' | asset_url }}">
 
