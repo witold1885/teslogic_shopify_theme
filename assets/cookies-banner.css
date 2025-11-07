@@ -1,13 +1,26 @@
 #shopify-pc__banner {
-    display: flex;
     width: 526px;
     padding: 22px 24px 24px 24px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
     border-radius: 24px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     background: #FFF;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+    left: calc(50% - 526px / 2);
+    bottom: 32px;
+}
+.shopify-pc__banner__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+.shopify-pc__banner__body-title {
+    color: #2B343B;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 133.333% */
 }
