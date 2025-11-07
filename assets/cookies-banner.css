@@ -47,13 +47,13 @@
     gap: 12px;
 }
 .shopify-pc__banner__btns button {
-    margin: 0;
     color: #1657FC !important;
     font-family: Manrope !important;
     font-size: 14px !important;
     font-style: normal !important;
     font-weight: 500 !important;
     line-height: 20px !important; /* 142.857% */
+    margin: 0 !important;
     padding: 12px 0 !important;
     border: none !important;
 }
