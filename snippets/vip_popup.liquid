@@ -269,7 +269,7 @@
             serverError: 'An error occurred try again'
         }
 
-        $('#join-submit').on('click', function() {
+        $('#join-submit').on('click', async function() {
             $(form).removeClass('join-popup-form-error')
             $(form).find('.join-popup-form-error-message').text('')
 
@@ -292,9 +292,25 @@
                 body: JSON.stringify({ email }),
                 headers: { 'Content-Type': 'application/json' }
             })
+
             const data = await response.json()
             
             console.log(data)
+            
+            if (response.status == 200) {
+                if (data.success) {
+                    // setSubscriptionCookie(1)
+                    $('#join-popup').css('display', 'none')
+                    $('#join-vip-success-popup').css('display', 'flex')
+                } else {
+                    $(form).addClass('join-popup-form-error')
+                    if (data.message == 'email_exists') {
+                        $(form).find('.join-popup-form-error-message').text(errors.emailRegistered)
+                    } else {
+                        $(form).find('.join-popup-form-error-message').text(errors.serverError)
+                    }
+                }
+            }
         })
         /* vip popup script */
     })
