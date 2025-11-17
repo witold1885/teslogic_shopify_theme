@@ -149,6 +149,18 @@
         border: 1px solid #D9D9D9;
         outline: none;
         box-shadow: none;
+        background: transparent;
+    }
+    .join-popup-form-error input {
+        border: 1px solid #FC3E30;
+    }
+    .join-popup-form-error-message {
+        position: absolute;
+        bottom: -22px;
+        color: #FC3E30;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
     }
     .join-popup-buttons {
         width: 100%;
@@ -205,7 +217,8 @@
             <div>24 hours. Our best prices. Starts Nov 27.</div>
         </div>
         <div class="join-popup-form">
-            <input type="email" id="email" placeholder="John.smith@example.com">
+            <input type="email" id="join-email" placeholder="John.smith@example.com">
+            <span class="join-popup-form-error-message"></span>
         </div>
         <div class="join-popup-buttons">
             <button id="join-submit">Unlock VIP Prices</button>
@@ -235,6 +248,37 @@
 
         $('#join-popup-close, #join-cancel').on('click', function() {
             $('#join-popup').hide()
+        })
+
+        const form = $('.join-popup-form')
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
+
+        const errors = {
+            emptyField: 'Fill in the field',
+            emailNotValid: 'Email not valid',
+            emailRegistered: 'This email is already registered',
+            serverError: 'An error occurred try again'
+        }
+
+        $('#join-submit').on('click', function() {
+            $(form).removeClass('join-popup-form-error')
+            $(form).find('.join-popup-form-error-message').text('')
+
+            const email = $('#join-email').val()
+
+            if (!email) {
+                $(form).addClass('join-popup-form-error')
+                $(form).find('.join-popup-form-error-message').text(errors.emptyField)
+                return
+            }
+
+            if (!emailRegex.test(email)) {
+                $(form).addClass('join-popup-form-error')
+                $(form).find('.join-popup-form-error-message').text(errors.emailNotValid)
+                return
+            }
         })
         /* vip popup script */
     })
