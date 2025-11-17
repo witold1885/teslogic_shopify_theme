@@ -1,0 +1,66 @@
+<style>
+    .vip-popup {
+        position: fixed;
+        bottom: 40px;
+        width: 634px;
+        height: 106px;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        color: #FFF;        
+        font-family: Manrope;
+        font-style: normal;
+    }
+    .vip-popup-close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .vip-popup-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .vip-popup-info > div:first-child {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px; /* 133.333% */
+    }
+    .vip-popup-info > div:last-child {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+    }
+    .vip-popup-buttons > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 28px;
+        border-radius: 26px;
+        background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+    }
+    .vip-popup-buttons > button:hover {
+        background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+    }
+</style>
+
+<div id="vip-popup" class="vip-popup">
+    <div class="vip-popup-close">
+        <img src="{{ 'vip_popup_close.svg' | asset_url }}" alt="">
+    </div>
+    <div class="vip-popup-info">
+        <div>Hey — want the best Black Friday deals?</div>
+        <div>Join VIP and get early access to our biggest sale of the year.</div>
+    </div>
+    <div class="vip-popup-buttons">
+        <button>Join VIP</button>
+    </div>
+</div>
