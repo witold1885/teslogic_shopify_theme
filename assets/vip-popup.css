@@ -77,6 +77,8 @@
     font-weight: 600;
     line-height: 24px; /* 133.333% */
     cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
 }
 .vip-popup-buttons > #vip-join {
     background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
