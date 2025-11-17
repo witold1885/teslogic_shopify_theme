@@ -7,7 +7,7 @@
         left: calc((100vw - 634px) / 2);
         bottom: 40px;
         padding: 20px 24px;
-        display: flex;
+        display: none;
         justify-content: space-between;
         align-items: center;
 
@@ -88,3 +88,22 @@
         <button>Join VIP</button>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    setTimeout(() => {
+        // const cookieExists = checkSubscriptionCookie()
+        // if (!cookieExists) {
+            $('#vip-popup').css('display', 'flex')
+        // }
+    }, 1000)
+
+    $(document).ready(function() {
+        /* vip popup script */
+
+        $('.vip-popup-close').on('click', function() {
+            $('#vip-popup').hide()
+        })
+        /* vip popup script */
+    })
+</script>
