@@ -363,7 +363,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               const response = await fetch(sendMailUrl, {
                   method: 'post',
                   body: JSON.stringify({ name, email }),
-                  headers: {'Content-Type': 'application/json'}
+                  headers: { 'Content-Type': 'application/json' }
               })
               const data = await response.json()
               
