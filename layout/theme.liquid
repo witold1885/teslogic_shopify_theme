@@ -301,6 +301,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
             }
 
+            function checkIsVipCookieDeclined() {
+              const cookies = document.cookie.split('; ')
+              const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+              return vipCookie ? vipCookie.replace('vip_subscription=', '') == '0' : false
+            }
+
             function setSubscriptionCookie(value) {
               const date = new Date()
               date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
@@ -310,7 +316,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             setTimeout(() => {
               const cookieExists = checkSubscriptionCookie()
-              if (!cookieExists) {
+              const vipCookieDeclined = checkIsVipCookieDeclined()
+              if (!cookieExists && vipCookieDeclined) {
                 $('#subscription-popup').css('display', 'flex')
               }
             }, 10000)
