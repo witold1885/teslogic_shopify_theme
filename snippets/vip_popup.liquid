@@ -1,15 +1,22 @@
 <style>
     .vip-popup {
         position: fixed;
-        bottom: 40px;
         width: 634px;
         height: 106px;
+        left: calc(100vw - 634px / 2);
+        bottom: 40px;
         padding: 20px 24px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        color: #FFF;        
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.10);
+        background: radial-gradient(381.31% 59.92% at 4.6% 354.55%, rgba(22, 87, 252, 0.80) 0%, rgba(22, 87, 252, 0.00) 100%), radial-gradient(1460.37% 375.48% at 11.43% 241.41%, rgba(34, 74, 251, 0.30) 0%, rgba(34, 74, 251, 0.00) 100%), rgba(0, 0, 0, 0.40);
+        box-shadow: 0 8px 24px 0 rgba(2, 41, 151, 0.40);
+        backdrop-filter: blur(12px);
+
+        color: #FFF;
         font-family: Manrope;
         font-style: normal;
     }
