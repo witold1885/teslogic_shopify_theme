@@ -369,6 +369,7 @@
         display: none;
     }
     .vip-popup-info {
+        width: 100%;
         gap: calc(8 * 100vw / 375);
     }
     .vip-popup-info > div:first-child {
