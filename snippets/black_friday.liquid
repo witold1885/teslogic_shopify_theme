@@ -7,6 +7,12 @@
         bottom: 0;
         height: 100vh;
     }
+    @font-face {
+        font-family: 'Neue Haas Grotesk Display Pro';
+        src: url({{ 'fonts/NeueHaasDisplayMediu.ttf' | asset_url }}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
     .black-friday {
         background: url({{ 'black_friday_gradient.png.png' | asset_url }});
         background-size: cover;
@@ -23,6 +29,7 @@
         flex-direction: column;
         align-items: center;
         gap: 32px;
+        margin-top: 106px;
     }
     .black-friday-info {
         display: flex;
