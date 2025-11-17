@@ -65,7 +65,7 @@
     align-items: center;
     padding: 14px 28px;
     border-radius: 26px;
-    background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+
     border: none;
     outline: none;
 
@@ -78,8 +78,16 @@
     line-height: 24px; /* 133.333% */
     cursor: pointer;
 }
-.vip-popup-buttons > button:hover {
+.vip-popup-buttons > #vip-join {
+    background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+}
+.vip-popup-buttons > #vip-join:hover {
     background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+}
+.vip-popup-buttons > #vip-cancel {
+    display: none;
+    background: transparent;
+    border: 1.5px solid #FFF;
 }
 .join-popup {
     position: relative;
@@ -377,6 +385,9 @@
         border-radius: calc(26 * 100vw / 375);
         font-size: calc(18 * 100vw / 375);
         line-height: calc(24 * 100vw / 375); /* 133.333% */
+    }
+    .vip-popup-buttons > #vip-cancel {
+        display: flex;
     }
     .join-popup {
         width: calc(350 * 100vw / 375);
