@@ -10,6 +10,7 @@
     </div>
     <div class="vip-popup-buttons">
         <button id="vip-join">Join VIP</button>
+        <button id="vip-cancel">No, thanks</button>
     </div>
 </div>
 
@@ -78,7 +79,7 @@
             }
         }, 1000)
 
-        $('#vip-popup-close').on('click', function() {
+        $('#vip-popup-close, #vip-cancel').on('click', function() {
             $('#vip-popup').hide()
         })
 
