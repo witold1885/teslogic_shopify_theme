@@ -55,6 +55,10 @@
     font-weight: 500;
     line-height: 20px; /* 125% */
 }
+.vip-popup-buttons {
+    display: flex;
+    align-items: center;
+}
 .vip-popup-buttons > button {
     display: flex;
     justify-content: center;
@@ -336,5 +340,102 @@
     .join-vip-success-popup-icon {
         width: calc(96 * 100vw / 1440);
         height: calc(96 * 100vw / 1440);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .vip-popup {
+        width: calc(350 * 100vw / 375);
+        height: calc(230 * 100vw / 375);
+        left: calc((100vw - calc(350 * 100vw / 375)) / 2);
+        bottom: calc(48 * 100vw / 375);
+        padding: calc(20 * 100vw / 375);
+        flex-direction: column;
+    }
+    .vip-popup-close {
+        display: none;
+    }
+    .vip-popup-info {
+        gap: calc(8 * 100vw / 375);
+    }
+    .vip-popup-info > div:first-child {
+        font-size: calc(24 * 100vw / 375);
+        line-height: calc(32 * 100vw / 375); /* 133.333% */
+    }
+    .vip-popup-info > div:last-child {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); /* 125% */
+    }
+    .vip-popup-buttons {
+        width: 100%;
+        justify-content: space-between;
+        gap: calc(12 * 100vw / 375);
+    }
+    .vip-popup-buttons > button {
+        width: calc(149 * 100vw / 375);
+        padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
+        border-radius: calc(26 * 100vw / 375);
+        font-size: calc(18 * 100vw / 375);
+        line-height: calc(24 * 100vw / 375); /* 133.333% */
+    }
+    .join-popup {
+        width: calc(350 * 100vw / 375);
+        height: calc(292 * 100vw / 375);
+        padding: calc(20 * 100vw / 375);
+        gap: calc(24 * 100vw / 375);
+    }
+    .join-popup-info {
+        gap: calc(12 * 100vw / 375);
+    }
+    .join-popup-info > div:first-child {
+        font-size: calc(24 * 100vw / 375);
+        line-height: calc(32 * 100vw / 375); /* 133.333% */
+    }
+    .join-popup-info > div:last-child {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); /* 125% */
+    }
+    .join-popup-form input {
+        padding: calc(16 * 100vw / 375);
+        border-radius: calc(6 * 100vw / 375);
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); /* 125% */
+    }
+    .join-popup-form-error-message {
+        bottom: calc(-1 * 22 * 100vw / 375);
+        font-size: calc(14 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
+    }
+    .join-popup-buttons {
+        gap: calc(16 * 100vw / 375);
+    }
+    .join-popup-buttons > button {
+        gap: calc(10 * 100vw / 375);
+    }
+    .join-popup-buttons > #join-submit, 
+    .join-popup-buttons > #join-completed {
+        padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
+        border-radius: calc(54 * 100vw / 375);
+        font-size: calc(18 * 100vw / 375);
+        line-height: calc(24 * 100vw / 375); /* 133.333% */
+    }
+    .join-popup-buttons > #join-submit .loader {
+        width: calc(24 * 100vw / 375);
+        height: calc(24 * 100vw / 375);
+    }
+    .join-popup-buttons > #join-cancel {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375); /* 125% */
+    }
+    .join-vip-success-popup {
+        width: calc(350 * 100vw / 375);
+        height: calc(348 * 100vw / 375);
+        padding: calc(40 * 100vw / 375) calc(36 * 100vw / 375) calc(36 * 100vw / 375) calc(36 * 100vw / 375);
+        gap: calc(24 * 100vw / 375);
+        border-radius: calc(24 * 100vw / 375);
+    }
+    .join-vip-success-popup-icon {
+        width: calc(96 * 100vw / 375);
+        height: calc(96 * 100vw / 375);
     }
 }
