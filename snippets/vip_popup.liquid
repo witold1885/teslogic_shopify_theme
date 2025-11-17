@@ -190,6 +190,9 @@
         outline: none;
         cursor: pointer;
     }
+    .join-popup-buttons > button:disabled {
+        cursor: not-allowed;
+    }    
     .join-popup-buttons > #join-submit, 
     .join-popup-buttons > #join-completed {
         padding: 14px 28px;
@@ -201,7 +204,7 @@
         font-weight: 600;
         line-height: 24px; /* 133.333% */
     }
-    .join-popup-buttons > #join-submit:hover, 
+    .join-popup-buttons > #join-submit:not(:disabled):hover, 
     .join-popup-buttons > #join-completed:hover {
         background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
     }
@@ -356,12 +359,14 @@
             if (!email) {
                 $(form).addClass('join-popup-form-error')
                 $(form).find('.join-popup-form-error-message').text(errors.emptyField)
+                $(this).prop('disabled', false)
                 return
             }
 
             if (!emailRegex.test(email)) {
                 $(form).addClass('join-popup-form-error')
                 $(form).find('.join-popup-form-error-message').text(errors.emailNotValid)
+                $(this).prop('disabled', false)
                 return
             }
 
