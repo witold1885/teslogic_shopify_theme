@@ -313,12 +313,23 @@
 <script type="text/javascript">
     $(document).ready(function() {
         /* vip popup script */
+        function checkVipCookie() {
+            const cookies = document.cookie.split('; ')
+            return cookies.some(cookie => cookie.startsWith(`vip_subscription=`))
+        }
+
+        function setVipCookie(value) {
+            const date = new Date()
+            date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
+            const expires = `expires=${date.toUTCString()}`
+            document.cookie = `vip_subscription=${value}; ${expires}; path=/`
+        }
 
         setTimeout(() => {
-            // const cookieExists = checkSubscriptionCookie()
-            // if (!cookieExists) {
+            const cookieExists = checkVipCookie()
+            if (!cookieExists) {
                 $('#vip-popup').css('display', 'flex')
-            // }
+            }
         }, 1000)
 
         $('#vip-popup-close').on('click', function() {
@@ -384,7 +395,7 @@
 
             if (response.status == 200) {
                 if (data.success) {
-                    // setSubscriptionCookie(1)
+                    // setVipCookie(1)
                     $('#vip-popup').hide()
                     $('#join-popup').hide()
                     $('#join-vip-success-popup').css('display', 'flex')
