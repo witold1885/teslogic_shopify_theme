@@ -1,6 +1,7 @@
 <style>
     .vip-popup {
         position: fixed;
+        z-index: 20;
         width: 634px;
         height: 106px;
         left: calc((100vw - 634px) / 2);
@@ -15,10 +16,6 @@
         background: radial-gradient(381.31% 59.92% at 4.6% 354.55%, rgba(22, 87, 252, 0.80) 0%, rgba(22, 87, 252, 0.00) 100%), radial-gradient(1460.37% 375.48% at 11.43% 241.41%, rgba(34, 74, 251, 0.30) 0%, rgba(34, 74, 251, 0.00) 100%), rgba(0, 0, 0, 0.40);
         box-shadow: 0 8px 24px 0 rgba(2, 41, 151, 0.40);
         backdrop-filter: blur(12px);
-
-        color: #FFF;
-        font-family: Manrope;
-        font-style: normal;
     }
     .vip-popup-close {
         width: 20px;
@@ -35,6 +32,10 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
+
+        color: #FFF;
+        font-family: Manrope;
+        font-style: normal;
     }
     .vip-popup-info > div:first-child {
         font-size: 24px;
@@ -55,6 +56,15 @@
         background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
         border: none;
         outline: none;
+
+        color: #FFF;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 133.333% */
+        cursor: pointer;
     }
     .vip-popup-buttons > button:hover {
         background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
