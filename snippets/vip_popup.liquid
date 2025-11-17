@@ -346,6 +346,8 @@
             $(form).removeClass('join-popup-form-error')
             $(form).find('.join-popup-form-error-message').text('')
 
+            $(this).prop('disabled', true)
+
             const loader = $(this).find('.loader')
             $(loader).css('display', 'inline-block')
 
@@ -388,6 +390,7 @@
                     } else {
                         $(form).find('.join-popup-form-error-message').text(errors.serverError)
                     }
+                    $(this).prop('disabled', false)
                 }
             }
         })
