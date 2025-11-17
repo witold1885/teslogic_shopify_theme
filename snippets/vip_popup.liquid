@@ -189,7 +189,8 @@
         outline: none;
         cursor: pointer;
     }
-    .join-popup-buttons > #join-submit {
+    .join-popup-buttons > #join-submit, 
+    .join-popup-buttons > #join-completed {
         padding: 14px 28px;
 
         border-radius: 54px;
@@ -199,9 +200,20 @@
         font-weight: 600;
         line-height: 24px; /* 133.333% */
     }
-    .join-popup-buttons > #join-submit:hover {
+    .join-popup-buttons > #join-submit:hover, 
+    .join-popup-buttons > #join-completed:hover {
         background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
     }
+	.join-popup-buttons > #join-submit .loader {
+		display: none;
+  		animation: spin 1s linear infinite;
+		width: 16px;
+		height: 16px;
+	}
+	@keyframes spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
     .join-popup-buttons > #join-cancel {
         padding: 0;
 
@@ -228,8 +240,64 @@
             <span class="join-popup-form-error-message"></span>
         </div>
         <div class="join-popup-buttons">
-            <button id="join-submit">Unlock VIP Prices</button>
-            <button id="join-cancel">No, thanks.</button>
+            <button id="join-submit">
+                <span>Unlock VIP Prices</span>
+                <div class="loader">
+                    <img src="{{ 'blue-loader.svg' | asset_url }}">
+                </div>    
+            </button>
+            <button id="join-cancel">No, thanks</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .join-vip-success-popup {
+        position: relative;
+        width: 415px;
+        height: 348px;
+        padding: 40px 36px 36px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.10);
+        background: radial-gradient(381.31% 59.92% at 4.6% 354.55%, rgba(30, 215, 96, 0.80) 0%, rgba(30, 215, 96, 0.00) 100%), radial-gradient(1460.37% 375.48% at 11.43% 241.41%, rgba(34, 74, 251, 0.15) 0%, rgba(34, 74, 251, 0.00) 100%), rgba(0, 0, 0, 0.40);
+        backdrop-filter: blur(12px);
+
+        box-sizing: border-box;
+    }
+    .join-vip-success-popup * {
+        box-sizing: border-box;
+    }
+    .join-vip-success-popup-icon {
+        width: 96px;
+        height: 96px;
+    }
+    .join-vip-success-popup-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+<div id="join-vip-success-popup" class="subscription-popup-shadow">
+    <div class="join-vip-success-popup">
+        <div id="join-vip-success-popup-close" class="vip-popup-close">
+            <img src="{{ 'vip_popup_close.svg' | asset_url }}" alt="">
+        </div>
+        <div class="join-vip-success-popup-icon">
+            <img src="{{ "vip-join-success.svg" | asset_url }}" alt="">
+        </div>
+        <div class="join-popup-info">
+            <div>You’re in!</div>
+            <div>We’ll send your secret link before launch.</div>
+        </div>
+        <div class="join-popup-buttons">
+            <button id="join-completed">Ok, thanks</button>
         </div>
     </div>
 </div>
@@ -273,6 +341,9 @@
             $(form).removeClass('join-popup-form-error')
             $(form).find('.join-popup-form-error-message').text('')
 
+            const loader = $(this).find('.loader')
+            $(loader).css('display', 'inline-block')
+
             const email = $('#join-email').val()
 
             if (!email) {
@@ -296,11 +367,14 @@
             const data = await response.json()
             
             console.log(data)
-            
+
+            $(loader).hide()
+
             if (response.status == 200) {
                 if (data.success) {
                     // setSubscriptionCookie(1)
-                    $('#join-popup').css('display', 'none')
+                    $('#vip-popup').hide()
+                    $('#join-popup').hide()
                     $('#join-vip-success-popup').css('display', 'flex')
                 } else {
                     $(form).addClass('join-popup-form-error')
@@ -311,6 +385,10 @@
                     }
                 }
             }
+        })
+
+        $('#join-vip-success-popup-close, #join-completed').on('click', function() {
+            $('#join-vip-success-popup').hide()
         })
         /* vip popup script */
     })
