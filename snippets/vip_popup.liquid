@@ -60,6 +60,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         /* vip popup script */
+        let hash = window.location.hash || null
+        console.log({ hash })
+        
         function checkVipCookie() {
             const cookies = document.cookie.split('; ')
             return cookies.some(cookie => cookie.startsWith(`vip_subscription=`))
