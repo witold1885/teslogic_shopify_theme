@@ -80,6 +80,7 @@
         }, 1000)
 
         $('#vip-popup-close, #vip-cancel').on('click', function() {
+            setVipCookie(0)
             $('#vip-popup').hide()
         })
 
