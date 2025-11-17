@@ -260,7 +260,7 @@
         const form = $('.join-popup-form')
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
+        const sendMailUrl = 'https://api.teslogic.co/mail/vip-subscribe'
 
         const errors = {
             emptyField: 'Fill in the field',
@@ -286,6 +286,15 @@
                 $(form).find('.join-popup-form-error-message').text(errors.emailNotValid)
                 return
             }
+
+            const response = await fetch(sendMailUrl, {
+                method: 'post',
+                body: JSON.stringify({ email }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            const data = await response.json()
+            
+            console.log(data)
         })
         /* vip popup script */
     })
