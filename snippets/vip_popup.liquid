@@ -85,24 +85,84 @@
         <div>Join VIP and get early access to our biggest sale of the year.</div>
     </div>
     <div class="vip-popup-buttons">
-        <button>Join VIP</button>
+        <button id="vip-join">Join VIP</button>
+    </div>
+</div>
+
+<style>
+    .join-popup {
+        position: relative;
+        width: 484px;
+        height: 316px;
+        padding: 28px 36px 24px 36px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.10);
+        background: radial-gradient(381.31% 59.92% at 4.6% 354.55%, rgba(22, 87, 252, 0.80) 0%, rgba(22, 87, 252, 0.00) 100%), radial-gradient(1460.37% 375.48% at 11.43% 241.41%, rgba(34, 74, 251, 0.15) 0%, rgba(34, 74, 251, 0.00) 100%), rgba(0, 0, 0, 0.40);
+        backdrop-filter: blur(12px);
+
+        box-sizing: border-box;
+    }
+    .join-popup * {
+        box-sizing: border-box;
+    }
+    .join-popup-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+
+        color: #FFF;
+        font-family: Manrope;
+        font-style: normal;
+    }
+    .join-popup-info > div:first-child {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 40px; /* 125% */
+    }
+    .join-popup-info > div:last-child {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px; /* 133.333% */
+    }
+</style>
+
+<div id="join-popup" class="subscription-popup-shadow">
+    <div class="join-popup">
+        <div class="vip-popup-close">
+            <img src="{{ 'vip_popup_close.svg' | asset_url }}" alt="">
+        </div>
+        <div class="join-popup-info">
+            <div>Early Access to Black Friday</div>
+            <div>24 hours. Our best prices. Starts Nov 27.</div>
+        </div>
+        <div></div>
+        <div></div>
     </div>
 </div>
 
 <script type="text/javascript">
-
-    setTimeout(() => {
-        // const cookieExists = checkSubscriptionCookie()
-        // if (!cookieExists) {
-            $('#vip-popup').css('display', 'flex')
-        // }
-    }, 1000)
-
     $(document).ready(function() {
         /* vip popup script */
 
+        setTimeout(() => {
+            // const cookieExists = checkSubscriptionCookie()
+            // if (!cookieExists) {
+                $('#vip-popup').css('display', 'flex')
+            // }
+        }, 1000)
+
         $('.vip-popup-close').on('click', function() {
             $('#vip-popup').hide()
+        })
+
+        $('#vip-join').on('click', function() {
+
         })
         /* vip popup script */
     })
