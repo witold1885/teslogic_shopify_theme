@@ -77,7 +77,7 @@
 </style>
 
 <div id="vip-popup" class="vip-popup">
-    <div class="vip-popup-close">
+    <div id="vip-popup-close" class="vip-popup-close">
         <img src="{{ 'vip_popup_close.svg' | asset_url }}" alt="">
     </div>
     <div class="vip-popup-info">
@@ -121,6 +121,10 @@
         font-family: Manrope;
         font-style: normal;
     }
+    .join-popup-info > div {
+        text-align: center;
+        white-space: nowrap;
+    }
     .join-popup-info > div:first-child {
         font-size: 32px;
         font-weight: 600;
@@ -135,7 +139,7 @@
 
 <div id="join-popup" class="subscription-popup-shadow">
     <div class="join-popup">
-        <div class="vip-popup-close">
+        <div id="join-popup-close" class="vip-popup-close">
             <img src="{{ 'vip_popup_close.svg' | asset_url }}" alt="">
         </div>
         <div class="join-popup-info">
@@ -158,12 +162,16 @@
             // }
         }, 1000)
 
-        $('.vip-popup-close').on('click', function() {
+        $('#vip-popup-close').on('click', function() {
             $('#vip-popup').hide()
         })
 
         $('#vip-join').on('click', function() {
             $('#join-popup').css('display', 'flex')
+        })
+
+        $('#join-popup-close').on('click', function() {
+            $('#join-popup').hide()
         })
         /* vip popup script */
     })
