@@ -55,6 +55,9 @@
     font-weight: 500;
     line-height: 20px; /* 125% */
 }
+.vip-popup-info > div br {
+    display: none;
+}
 .vip-popup-buttons {
     display: flex;
     align-items: center;
@@ -375,6 +378,9 @@
     .vip-popup-info > div:last-child {
         font-size: calc(16 * 100vw / 375);
         line-height: calc(20 * 100vw / 375); /* 125% */
+    }
+    .vip-popup-info > div br {
+        display: block;
     }
     .vip-popup-buttons {
         width: 100%;
