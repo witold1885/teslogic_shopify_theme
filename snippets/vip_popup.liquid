@@ -135,6 +135,57 @@
         font-weight: 500;
         line-height: 24px; /* 133.333% */
     }
+    .join-popup-form input {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        border-radius: 6px;
+        border: 1px solid #D9D9D9;
+        outline: none;
+        box-shadow: none;
+    }
+    .join-popup-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .join-popup-buttons > button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+        text-align: center;
+        font-family: Manrope;
+        font-style: normal;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    .join-popup-buttons > #join-submit {
+        padding: 14px 28px;
+
+        border-radius: 54px;
+        background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px; /* 133.333% */
+    }
+    .join-popup-buttons > #join-submit:hover {
+        background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+    }
+    .join-popup-buttons > #join-cancel {
+        padding: 0;
+        
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px; /* 125% */
+        opacity: 0.5;
+    }
 </style>
 
 <div id="join-popup" class="subscription-popup-shadow">
@@ -146,8 +197,13 @@
             <div>Early Access to Black Friday</div>
             <div>24 hours. Our best prices. Starts Nov 27.</div>
         </div>
-        <div></div>
-        <div></div>
+        <div class="join-popup-form">
+            <input type="email" id="email" placeholder="John.smith@example.com">
+        </div>
+        <div class="join-popup-buttons">
+            <button id="join-submit">Unlock VIP Prices</button>
+            <button id="join-cancel">No, thanks.</button>
+        </div>
     </div>
 </div>
 
@@ -170,7 +226,7 @@
             $('#join-popup').css('display', 'flex')
         })
 
-        $('#join-popup-close').on('click', function() {
+        $('#join-popup-close, #join-cancel').on('click', function() {
             $('#join-popup').hide()
         })
         /* vip popup script */
