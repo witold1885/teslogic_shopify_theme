@@ -181,6 +181,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 10px;
         color: #FFF;
         text-align: center;
         font-family: Manrope;
@@ -207,8 +208,8 @@
 	.join-popup-buttons > #join-submit .loader {
 		display: none;
   		animation: spin 1s linear infinite;
-		width: 16px;
-		height: 16px;
+		width: 24px;
+		height: 24px;
 	}
 	@keyframes spin {
 		from { transform: rotate(0deg); }
@@ -241,10 +242,10 @@
         </div>
         <div class="join-popup-buttons">
             <button id="join-submit">
-                <span>Unlock VIP Prices</span>
                 <div class="loader">
-                    <img src="{{ 'blue-loader.svg' | asset_url }}">
-                </div>    
+                    <img src="{{ 'white-loader.svg' | asset_url }}">
+                </div>
+                <span>Unlock VIP Prices</span>
             </button>
             <button id="join-cancel">No, thanks</button>
         </div>
