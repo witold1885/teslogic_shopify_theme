@@ -2,6 +2,11 @@
     header#header_main {
         height: 200vh;
     }
+    .banner-desktop-wrap {
+        top: unset;
+        bottom: 0;
+        height: 100vh;
+    }
     .black-friday {
         background: url({{ 'black_friday_gradient.png.png' | asset_url }});
         background-size: cover;
@@ -13,14 +18,46 @@
         width: 100%;
         height: 100vh;
     }
-    .banner-desktop-wrap {
-        top: unset;
-        bottom: 0;
-        height: 100vh;
+    .black-friday-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .black-friday-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        color: #FFFFFF;
+        text-align: center;
+        font-style: normal;
+    }
+    .black-friday-info-title {
+        font-family: "Neue Haas Grotesk Display Pro";
+        font-size: 96px;
+        font-weight: 900;
+        line-height: 112px; /* 116.667% */
+        letter-spacing: 1.92px;
+    }
+    .black-friday-info-subtitle {
+        font-family: Manrope;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 40px; /* 133.333% */
+        letter-spacing: 0.54px;
     }
 </style>
 
 <div class="black-friday">
+    <div class="black-friday-wrap">
+        <div class="black-friday-info">
+            <div class="black-friday-info-title">Black Friday</div>
+            <div class="black-friday-info-subtitle">But better — 3 days of our biggest deals</div>
+            <div class="black-friday-info-counter"></div>
+        </div>
+        <div class="black-friday-items"></div>
 
+    </div>
 </div>
 
