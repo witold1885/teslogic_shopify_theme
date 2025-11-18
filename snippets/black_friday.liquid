@@ -119,6 +119,25 @@
         line-height: 24px; /* 150% */
         text-transform: uppercase;
     }
+
+    .black-friday-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .black-friday-item {
+        width: 306px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        border-radius: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 -4px 12px 0 rgba(255, 255, 255, 0.16) inset;
+        backdrop-filter: blur(12px);
+    }
 </style>
 
 <div class="black-friday">
@@ -145,8 +164,21 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="black-friday-items"></div>
+        
+        {% assign product_handles = "teslogic-transmitter-kit-v2,teslogic-pro-boost-transmitter-kit,teslogic-pro-performace-transmitter-kit,teslogic-screenmate" | split: "," %}
+        <div class="black-friday-items">
+            {% for handle in product_handles %}
+                {% assign product = all_products[handle] %}
 
+                <div class="black-friday-item">
+                    <div class="black-friday-item-image">
+                        <img src="{{ 'black-friday-' | append: handle | asset_url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="black-friday-item-title">{{ product.title }}</div>
+                    <div class="black-friday-item-price">{{ product.price | money }}</div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 
