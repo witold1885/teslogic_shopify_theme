@@ -204,6 +204,9 @@
         opacity: .5;
         text-decoration: line-through;
     }
+    .expand {
+        position: absolute;
+    }
 </style>
 
 <div class="black-friday">
@@ -230,15 +233,10 @@
                 {% endfor %}
             </div>
         </div>
-        {% assign products_data = "
-            teslogic-transmitter-kit-v2|10|Teslogic v2|#shop-now,
-            teslogic-pro-boost-transmitter-kit|15|Teslogic Pro Boost|pro#shop-now,
-            teslogic-pro-performace-transmitter-kit|15|Teslogic Pro Performance|pro#shop-now,
-            teslogic-screenmate|33|Screenmate|screenmate#shop-now
-        " | split: "," %}
+        {% assign products_data = "teslogic-transmitter-kit-v2|10|Teslogic v2|#shop-now,teslogic-pro-boost-transmitter-kit|15|Teslogic Pro Boost|pro#shop-now,teslogic-pro-performace-transmitter-kit|15|Teslogic Pro Performance|pro#shop-now,teslogic-screenmate|33|Screenmate|screenmate#shop-now" | split: "," %}
         <div class="black-friday-items">
             {% for row in products_data %}
-                {% assign row = row | strip_newlines | strip %}
+                {% assign row = row | strip %}
                 {% assign fields = row | split: "|" %}
 
                 {% assign handle = fields[0] %}
