@@ -76,7 +76,9 @@
 
         setTimeout(() => {
             const cookieExists = checkVipCookie()
-            if (!cookieExists || (hash && hash.includes('#popup-vip'))) {
+            if (hash && hash.includes('#popup-vip')) {
+                $('#join-popup').css('display', 'flex')
+            } else if (!cookieExists) {
                 $('#vip-popup').css('display', 'flex')
             }
         }, 1000)
