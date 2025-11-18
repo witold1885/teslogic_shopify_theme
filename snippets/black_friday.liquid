@@ -77,6 +77,10 @@
         justify-content: center;
         align-items: center;
 
+        &-label {
+            text-transform: uppercase;
+        }
+
         .number-grp {
             width: auto;
             display: block;
@@ -118,7 +122,7 @@
             <div class="black-friday-info-title">Black Friday</div>
             <div class="black-friday-info-subtitle">But better — 3 days of our biggest deals</div>
             <div class="black-friday-info-counter timer--clock">
-                {% assign groups = 'days,hours,minutes,seconds' | split: ',' %}
+                {% assign groups = 'days,hrs,mins,secs' | split: ',' %}
                 {% assign digits = 'first,second' | split: ',' %}
                 {% for group in groups %}
                     <div class="{{ group }}-group clock-display-grp">
@@ -131,6 +135,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        <div class="clock-display-grp-label">{{ group }}</div>
                     </div>
                 {% endfor %}
             </div>
@@ -175,16 +180,16 @@
                 second: timerEl.querySelector('.days-group .second'),
             },
             hours: {
-                first: timerEl.querySelector('.hours-group .first'),
-                second: timerEl.querySelector('.hours-group .second'),
+                first: timerEl.querySelector('.hrs-group .first'),
+                second: timerEl.querySelector('.hrs-group .second'),
             },
             minutes: {
-                first: timerEl.querySelector('.minutes-group .first'),
-                second: timerEl.querySelector('.minutes-group .second'),
+                first: timerEl.querySelector('.mins-group .first'),
+                second: timerEl.querySelector('.mins-group .second'),
             },
             seconds: {
-                first: timerEl.querySelector('.seconds-group .first'),
-                second: timerEl.querySelector('.seconds-group .second'),
+                first: timerEl.querySelector('.secs-group .first'),
+                second: timerEl.querySelector('.secs-group .second'),
             }
         };
 
