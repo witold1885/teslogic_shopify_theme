@@ -204,10 +204,17 @@
             </div>
         </div>
         
-        {% assign product_handles = "teslogic-transmitter-kit-v2,teslogic-pro-boost-transmitter-kit,teslogic-pro-performace-transmitter-kit,teslogic-screenmate" | split: "," %}
+        {% assign products_data = "teslogic-transmitter-kit-v2|10,teslogic-pro-boost-transmitter-kit|15,teslogic-pro-performace-transmitter-kit|15,teslogic-screenmate|33" | split: "," %}
         <div class="black-friday-items">
-            {% for handle in product_handles %}
+            {% for row in products_data %}
+                {% assign row = row | strip %}
+                {% assign fields = row | split: "|" %}
+
+                {% assign handle = fields[0] %}
+                {% assign discount = fields[1] %}
+
                 {% assign product = all_products[handle] %}
+
                 <div class="black-friday-item">
                     <div class="black-friday-item-image">
                         <img
@@ -216,7 +223,10 @@
                         >
                     </div>
                     <div class="black-friday-item-title">{{ product.title }}</div>
-                    <div class="black-friday-item-price">Buy for $ 586 <span>{{ product.price | money }}</span></div>
+                    <div class="black-friday-item-price">
+                        Buy for {{ product.price | times: (100-discount) | divided_by: 100 | money }}&nbsp;
+                        <span>{{ product.price | money }}</span>
+                    </div>
                 </div>
             {% endfor %}
         </div>
