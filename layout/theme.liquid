@@ -296,6 +296,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script type="text/javascript">
           $(document).ready(function() {
             /* subscription popup script */
+            const hash = window.location.hash || null
+
             function checkSubscriptionCookie() {
               const cookies = document.cookie.split('; ')
               return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
@@ -317,7 +319,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             setTimeout(() => {
               const cookieExists = checkSubscriptionCookie()
               const vipCookieDeclined = checkIsVipCookieDeclined()
-              if (!cookieExists && vipCookieDeclined) {
+              const hasVipHash = hash && hash.includes('#popup-vip')
+              if (!cookieExists && vipCookieDeclined && !hasVipHash) {
                 $('#subscription-popup').css('display', 'flex')
               }
             }, 10000)
