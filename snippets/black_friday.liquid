@@ -67,6 +67,47 @@
         padding: 0;
     }
 
+    .clock-display-grp {
+        width: 96px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .number-grp {
+        width: auto;
+        display: block;
+        height: 85px;
+        overflow: hidden;
+    }
+    .number-grp-wrp {
+        width: 100%;
+        position: relative;
+    }
+    .num {
+        width: 100%;
+        position: relative;
+        height: 85px;
+    }
+    .num p {
+        width: 100%;
+        color: #E0E0E0;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 82px; /* 128.125% */
+        letter-spacing: 1.28px;
+        text-transform: uppercase;
+    }
+    .number-grp.first .num p {
+        text-align: right;
+    }
+    .number-grp.second .num p {
+        text-align: left;
+    }
     .clock-display-grp-label {
         width: 100px;
         color: #FFF;
@@ -77,51 +118,6 @@
         font-weight: 500;
         line-height: 24px; /* 150% */
         text-transform: uppercase;
-    }
-    
-</style>
-
-<style lang="scss">
-    .clock-display-grp {
-        width: 96px;
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-
-        .number-grp {
-            width: auto;
-            display: block;
-            height: 85px;
-            overflow: hidden;
-
-            .number-grp-wrp {
-               width: 100%;
-               position: relative;
-
-                .num {
-                    width: 100%;
-                    position: relative;
-                    height: 156px;
-
-                    p {
-                        width: auto;
-                        display: table;
-
-                        color: #E0E0E0;
-                        text-align: center;
-                        font-family: Manrope;
-                        font-size: 64px;
-                        font-style: normal;
-                        font-weight: 800;
-                        line-height: 82px; /* 128.125% */
-                        letter-spacing: 1.28px;
-                        text-transform: uppercase;
-                    }
-                }
-            }
-        }
     }
 </style>
 
