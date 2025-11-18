@@ -128,7 +128,7 @@
                             </div>
                         {% endfor %}
                     </div>
-                    {% if not forloop.last %}
+                    {% if forloop.last == false %}
                         <div class="clock-separator"><p>:</p></div>
                     {% endif %}
                 {% endfor %}
