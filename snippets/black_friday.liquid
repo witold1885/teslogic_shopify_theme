@@ -59,6 +59,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 12px;
         overflow: hidden;
     }
     .black-friday-info-counter * {
@@ -76,7 +77,7 @@
         justify-content: center;
         align-items: center;
 
-         .number-grp {
+        .number-grp {
             width: auto;
             display: block;
             height: 156px;
@@ -86,40 +87,29 @@
                width: 100%;
                position: relative;
 
-               .num {
-                  width: 100%;
-                  position: relative;
-                  height: 156px;
+                .num {
+                    width: 100%;
+                    position: relative;
+                    height: 156px;
 
-                  p {
-                     width: auto;
-                     display: table;
-                     font-size: 205px;
-                     line-height: 150px; //180
-                     font-weight: bold;
-                  }
+                    p {
+                        width: auto;
+                        display: table;
 
-               }
-
+                        color: #E0E0E0;
+                        text-align: center;
+                        font-family: Manrope;
+                        font-size: 64px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 82px; /* 128.125% */
+                        letter-spacing: 1.28px;
+                        text-transform: uppercase;
+                    }
+                }
             }
-
-         }
-      }
-    .clock-separator {
-         width: auto;
-         float: left;
-         display: block;
-         height: 156px;
-
-         p {
-            width: auto;
-            display: table;
-            font-size: 205px;
-            line-height: 150px; //180
-            font-weight: bold;
-         }
-
-      }
+        }
+    }
 </style>
 
 <div class="black-friday">
@@ -142,9 +132,6 @@
                             </div>
                         {% endfor %}
                     </div>
-                    {% if forloop.last == false %}
-                        <div class="clock-separator"><p>:</p></div>
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -160,7 +147,7 @@
 
     initTimer("2025-11-30T23:59:59");
 
-    function getTimeLeft(targetDate) {
+    function getTimeLeft (targetDate) {
         const now = new Date();
         const target = new Date(targetDate);
         let diff = Math.max(0, target - now);
@@ -180,7 +167,6 @@
     }
 
     function initTimer (targetDate) {
-
         const timerEl = document.querySelector('.timer');
 
         const groups = {
@@ -217,20 +203,20 @@
             const m = String(t.minutes).padStart(2, "0");
             const s = String(t.seconds).padStart(2, "0");
 
-            animateDigit(groups.days.first,   d[0]);
-            animateDigit(groups.days.second,  d[1]);
+            animateDigit(groups.days.first,     d[0]);
+            animateDigit(groups.days.second,    d[1]);
 
-            animateDigit(groups.hours.first,  h[0]);
-            animateDigit(groups.hours.second, h[1]);
+            animateDigit(groups.hours.first,    h[0]);
+            animateDigit(groups.hours.second,   h[1]);
 
-            animateDigit(groups.minutes.first, m[0]);
-            animateDigit(groups.minutes.second,m[1]);
+            animateDigit(groups.minutes.first,  m[0]);
+            animateDigit(groups.minutes.second, m[1]);
 
-            animateDigit(groups.seconds.first, s[0]);
-            animateDigit(groups.seconds.second,s[1]);
+            animateDigit(groups.seconds.first,  s[0]);
+            animateDigit(groups.seconds.second, s[1]);
 
             if (t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0) {
-                return; // кінець, зупиняємо
+                return;
             }
 
             setTimeout(update, 1000);
