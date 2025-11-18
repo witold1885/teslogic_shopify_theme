@@ -137,6 +137,29 @@
         background: rgba(255, 255, 255, 0.25);
         box-shadow: 0 -4px 12px 0 rgba(255, 255, 255, 0.16) inset;
         backdrop-filter: blur(12px);
+
+        color: #FFF;
+        text-align: center;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px; /* 155.556% */
+    }
+    .black-friday-item-price {
+        width: 100%;
+        display: flex;
+        height: 52px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 26px;
+        border: 3px solid #0068FD;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+    }
+    .black-friday-item-price span {
+        opacity: .5;
+        text-decoration: line-through;
     }
 </style>
 
@@ -169,13 +192,15 @@
         <div class="black-friday-items">
             {% for handle in product_handles %}
                 {% assign product = all_products[handle] %}
-
                 <div class="black-friday-item">
                     <div class="black-friday-item-image">
-                        <img src="{{ 'black-friday-' | append: handle | asset_url }}" alt="{{ product.title }}">
+                        <img
+                            src="{{ 'black-friday-' | append: handle |  append: '.png' | asset_url }}"
+                            alt="{{ product.title }}"
+                        >
                     </div>
                     <div class="black-friday-item-title">{{ product.title }}</div>
-                    <div class="black-friday-item-price">{{ product.price | money }}</div>
+                    <div class="black-friday-item-price">Buy for $ 586 <span>{{ product.price | money }}</span></div>
                 </div>
             {% endfor %}
         </div>
