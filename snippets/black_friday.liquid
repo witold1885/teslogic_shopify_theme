@@ -28,6 +28,7 @@
         box-sizing: border-box;
     }
     .black-friday-wrap {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -206,6 +207,11 @@
     }
     .expand {
         position: absolute;
+        width: 92px;
+        height: 92px;
+        flex-shrink: 0;
+        opacity: 0.3;
+        bottom: -18px;
     }
 </style>
 
@@ -267,7 +273,7 @@
             {% endfor %}
         </div>
         <a class="expand" href="#header_main">
-            <img src="{{ 'expand.svg' | asset_url }}">
+            <img src="{{ 'black-friday-expand.svg' | asset_url }}">
         </a>
     </div>
 </div>
