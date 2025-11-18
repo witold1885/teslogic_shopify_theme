@@ -235,6 +235,7 @@
                 {% assign discount = fields[1] %}
 
                 {% assign product = all_products[handle] %}
+                {% assign discount_value = 100 | minus: discount %}
 
                 <div class="black-friday-item">
                     <div class="black-friday-item-discount">
@@ -249,7 +250,7 @@
                     </div>
                     <div class="black-friday-item-title">{{ product.title }}</div>
                     <div class="black-friday-item-price">
-                        Buy for {{ product.price | times: (100-discount) | divided_by: 100 | money }}&nbsp;
+                        Buy for {{ product.price | times: discount_value | divided_by: 100 | money }}&nbsp;
                         <span>{{ product.price | money }}</span>
                     </div>
                 </div>
