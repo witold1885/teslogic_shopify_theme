@@ -130,6 +130,7 @@
         gap: 24px;
     }
     .black-friday-item {
+        position: relative;
         width: 306px;
         padding: 12px;
         display: flex;
@@ -149,6 +150,26 @@
         font-style: normal;
         font-weight: 700;
         line-height: 28px; /* 155.556% */
+    }
+    .black-friday-item-discount {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        transform: rotate(5deg);
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+        background: url({{ 'black-friday-discount-star.png' | asset_url }}) center center no-repeat;
+    }
+    .black-friday-item-discount > div {
+        color: #1553EE;
+        text-align: center;
+        font-family: "Neue Haas Grotesk Display Pro";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px; /* 100% */
     }
     .black-friday-item-image {
         width: 100%;
@@ -216,6 +237,10 @@
                 {% assign product = all_products[handle] %}
 
                 <div class="black-friday-item">
+                    <div class="black-friday-item-discount">
+                        <div>{{ discount }} %</div>
+                        <div>OFF</div>
+                    </div>
                     <div class="black-friday-item-image">
                         <img
                             src="{{ 'black-friday-' | append: handle |  append: '.png' | asset_url }}"
