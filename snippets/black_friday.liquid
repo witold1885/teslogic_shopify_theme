@@ -136,9 +136,9 @@
 <script type="text/javascript">
     TweenLite.defaultEase = Expo.easeOut;
 
-    initTimer("00:11"); // other ways --> "0:15" "03:5" "5:2"
+    initTimer("12:35"); // other ways --> "0:15" "03:5" "5:2"
 
-    var reloadBtn = document.querySelector('.reload');
+    // var reloadBtn = document.querySelector('.reload');
     var timerEl = document.querySelector('.timer');
 
     function initTimer (t) {
@@ -223,15 +223,15 @@
         }, 1000);
     }
 
-    reloadBtn.addEventListener('click', function () {
-        TweenMax.to(this, 0.5, { opacity: 0, onComplete:
-            function () { 
-                reloadBtn.style.display= "none";
-            } 
-        });
-        TweenMax.to(timerEl, 1, { opacity: 1 });
-        initTimer("12:35");
-    });
+    // reloadBtn.addEventListener('click', function () {
+    //     TweenMax.to(this, 0.5, { opacity: 0, onComplete:
+    //         function () { 
+    //             reloadBtn.style.display= "none";
+    //         } 
+    //     });
+    //     TweenMax.to(timerEl, 1, { opacity: 1 });
+    //     initTimer("12:35");
+    // });
 </script>
 
 
