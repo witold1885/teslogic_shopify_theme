@@ -159,102 +159,84 @@
 <script type="text/javascript">
     TweenLite.defaultEase = Expo.easeOut;
 
-    initTimer("12:35"); // other ways --> "0:15" "03:5" "5:2"
+    initTimer("2025-11-30T23:59:59");
 
-    // var reloadBtn = document.querySelector('.reload');
-    var timerEl = document.querySelector('.timer');
+    function getTimeLeft(targetDate) {
+        const now = new Date();
+        const target = new Date(targetDate);
+        let diff = Math.max(0, target - now);
 
-    function initTimer (t) {
-    
-        var self = this,
-            timerEl = document.querySelector('.timer'),
-            minutesGroupEl = timerEl.querySelector('.minutes-group'),
-            secondsGroupEl = timerEl.querySelector('.seconds-group'),
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * 1000 * 60 * 60 * 24;
 
-        minutesGroup = {
-            firstNum: minutesGroupEl.querySelector('.first'),
-            secondNum: minutesGroupEl.querySelector('.second')
-        },
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * 1000 * 60 * 60;
 
-        secondsGroup = {
-            firstNum: secondsGroupEl.querySelector('.first'),
-            secondNum: secondsGroupEl.querySelector('.second')
-        };
+        const minutes = Math.floor(diff / (1000 * 60));
+        diff -= minutes * 1000 * 60;
 
-        var time = {
-            min: t.split(':')[0],
-            sec: t.split(':')[1]
-        };
+        const seconds = Math.floor(diff / 1000);
 
-        var timeNumbers;
-
-        function updateTimer() {
-
-            var timestr;
-            var date = new Date();
-
-            date.setHours(0);
-            date.setMinutes(time.min);
-            date.setSeconds(time.sec);
-
-            var newDate = new Date(date.valueOf() - 1000);
-            var temp = newDate.toTimeString().split(" ");
-            var tempsplit = temp[0].split(':');
-
-            time.min = tempsplit[1];
-            time.sec = tempsplit[2];
-
-            timestr = time.min + time.sec;
-            timeNumbers = timestr.split('');
-            updateTimerDisplay(timeNumbers);
-
-            if(timestr === '0000')
-                countdownFinished();
-
-            if(timestr != '0000')
-                setTimeout(updateTimer, 1000);
-
-        }
-
-        function updateTimerDisplay(arr) {
-
-            animateNum(minutesGroup.firstNum, arr[0]);
-            animateNum(minutesGroup.secondNum, arr[1]);
-            animateNum(secondsGroup.firstNum, arr[2]);
-            animateNum(secondsGroup.secondNum, arr[3]);
-
-        }
-
-        function animateNum (group, arrayValue) {
-
-            TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
-            TweenMax.to(group.querySelector('.number-grp-wrp'), 1, {
-                y: - group.querySelector('.num-' + arrayValue).offsetTop
-            });
-
-        }
-    
-        setTimeout(updateTimer, 1000);
-
-        }
-
-        function countdownFinished() {
-        setTimeout(function () {
-            TweenMax.set(reloadBtn, { scale: 0.8, display: 'block' });
-            TweenMax.to(timerEl, 1, { opacity: 0.2 });
-            TweenMax.to(reloadBtn, 0.5, { scale: 1, opacity: 1 }); 
-        }, 1000);
+        return { days, hours, minutes, seconds };
     }
 
-    // reloadBtn.addEventListener('click', function () {
-    //     TweenMax.to(this, 0.5, { opacity: 0, onComplete:
-    //         function () { 
-    //             reloadBtn.style.display= "none";
-    //         } 
-    //     });
-    //     TweenMax.to(timerEl, 1, { opacity: 1 });
-    //     initTimer("12:35");
-    // });
+    function initTimer (targetDate) {
+
+        const timerEl = document.querySelector('.timer');
+
+        const groups = {
+            days: {
+                first: timerEl.querySelector('.days-group .first'),
+                second: timerEl.querySelector('.days-group .second'),
+            },
+            hours: {
+                first: timerEl.querySelector('.hours-group .first'),
+                second: timerEl.querySelector('.hours-group .second'),
+            },
+            minutes: {
+                first: timerEl.querySelector('.minutes-group .first'),
+                second: timerEl.querySelector('.minutes-group .second'),
+            },
+            seconds: {
+                first: timerEl.querySelector('.seconds-group .first'),
+                second: timerEl.querySelector('.seconds-group .second'),
+            }
+        };
+
+        function animateDigit(el, val) {
+            TweenMax.killTweensOf(el.querySelector('.number-grp-wrp'));
+            TweenMax.to(el.querySelector('.number-grp-wrp'), 1, {
+                y: -el.querySelector('.num-' + val).offsetTop
+            });
+        }
+
+        function update() {
+            const t = getTimeLeft(targetDate);
+
+            const d = String(t.days).padStart(2, "0");
+            const h = String(t.hours).padStart(2, "0");
+            const m = String(t.minutes).padStart(2, "0");
+            const s = String(t.seconds).padStart(2, "0");
+
+            animateDigit(groups.days.first,   d[0]);
+            animateDigit(groups.days.second,  d[1]);
+
+            animateDigit(groups.hours.first,  h[0]);
+            animateDigit(groups.hours.second, h[1]);
+
+            animateDigit(groups.minutes.first, m[0]);
+            animateDigit(groups.minutes.second,m[1]);
+
+            animateDigit(groups.seconds.first, s[0]);
+            animateDigit(groups.seconds.second,s[1]);
+
+            if (t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0) {
+                return; // кінець, зупиняємо
+            }
+
+            setTimeout(update, 1000);
+        }
+
+        update();
+    }
 </script>
-
-
