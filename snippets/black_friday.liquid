@@ -128,8 +128,7 @@
             <div class="black-friday-info-title">Black Friday</div>
             <div class="black-friday-info-subtitle">But better — 3 days of our biggest deals</div>
             <div class="black-friday-info-counter timer--clock">
-                {% comment %} {% assign groups = 'days,hours,minutes,seconds' | split: ',' %} {% endcomment %}
-                {% assign groups = 'minutes,seconds' | split: ',' %}
+                {% assign groups = 'days,hours,minutes,seconds' | split: ',' %}
                 {% assign digits = 'first,second' | split: ',' %}
                 {% for group in groups %}
                     <div class="{{ group }}-group clock-display-grp">
