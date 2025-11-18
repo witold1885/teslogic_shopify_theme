@@ -29,11 +29,12 @@
     }
     .black-friday-wrap {
         position: relative;
+        height: 100%;
+        padding-top: 106px;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 32px;
-        margin-top: 106px;
     }
     .black-friday-info {
         display: flex;
@@ -272,7 +273,7 @@
                 </div>
             {% endfor %}
         </div>
-        <a class="black-friday-expand" href="#header_main">
+        <a class="black-friday-expand">
             <img src="{{ 'black-friday-expand.svg' | asset_url }}">
         </a>
     </div>
@@ -362,4 +363,12 @@
 
         update();
     }
+
+    $(document).ready(function () {
+        $('.black-friday-expand').on('click', function () {
+            $('html, body').animate({
+                scrollTop: $('#header_main').offset().top
+            }, 1000);
+        })
+    })
 </script>
