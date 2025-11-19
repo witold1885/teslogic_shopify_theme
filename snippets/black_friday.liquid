@@ -364,7 +364,7 @@
     }
 
     $(document).ready(function () {
-        $('.black-friday-expand').on('click', function () {
+        $('.black-friday-expand').on('click', function (e) {
             if ($(this).attr('href') != '#') {
                 e.preventDefault()
                 $('.burger-menu-wrap').hide()
