@@ -166,7 +166,7 @@
         transform: rotate(5deg);
         flex-shrink: 0;
         aspect-ratio: 1/1;
-        background: url({{ 'black-friday-discount-star.png' | asset_url }}) center center no-repeat;
+        background: url({{ 'black-friday-discount-star.png' | asset_url }}) center/cover no-repeat;
     }
     .black-friday-item-discount > div {
         color: #1553EE;
@@ -371,9 +371,7 @@
             border-radius: calc(26 * 100vw / 375);
         }
         .black-friday-expand {
-            width: calc(92 * 100vw / 375);
-            height: calc(92 * 100vw / 375);
-            bottom: calc(-1 * 18 * 100vw / 375);
+            display: none;
         }
     }
 </style>
