@@ -272,7 +272,7 @@
                 </div>
             {% endfor %}
         </div>
-        <a class="black-friday-expand">
+        <a class="black-friday-expand" href="#header_main">
             <img src="{{ 'black-friday-expand.svg' | asset_url }}">
         </a>
     </div>
@@ -365,9 +365,14 @@
 
     $(document).ready(function () {
         $('.black-friday-expand').on('click', function () {
-            $('html, body').animate({
-                scrollTop: $('#header_main').offset().top
-            }, 1000);
+            if ($(this).attr('href') != '#') {
+                e.preventDefault()
+                $('.burger-menu-wrap').hide()
+                $('.button-close').hide()
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500)
+            }
         })
     })
 </script>
