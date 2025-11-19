@@ -409,103 +409,103 @@ Unlock advanced capabilities of your Tesla.</div>
 <!-- Black Friday Timer Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script type="text/javascript">
-    let endDatetime = '2025-11-30T23:59:59';
-    TweenLite.defaultEase = Expo.easeOut;
+  let endDatetime = '2025-11-30T23:59:59';
+  TweenLite.defaultEase = Expo.easeOut;
 
-    initTimer(endDatetime);
-    $(window).on('resize', () => initTimer(endDatetime));
+  initTimer(endDatetime);
+  $(window).on('resize', () => initTimer(endDatetime));
 
-    function getTimeLeft (targetDate) {
-        const now = new Date();
-        const target = new Date(targetDate);
-        let diff = Math.max(0, target - now);
+  function getTimeLeft (targetDate) {
+    const now = new Date();
+    const target = new Date(targetDate);
+    let diff = Math.max(0, target - now);
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        diff -= days * 1000 * 60 * 60 * 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * 1000 * 60 * 60 * 24;
 
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        diff -= hours * 1000 * 60 * 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * 1000 * 60 * 60;
 
-        const minutes = Math.floor(diff / (1000 * 60));
-        diff -= minutes * 1000 * 60;
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * 1000 * 60;
 
-        const seconds = Math.floor(diff / 1000);
+    const seconds = Math.floor(diff / 1000);
 
-        return { days, hours, minutes, seconds };
+    return { days, hours, minutes, seconds };
+  }
+
+  function initTimer (targetDate) {
+    const position = window.innerWidth >= 575 ? 'desktop' : 'mobile';
+    const timerEl = document.querySelector(`.timer-${position}`);
+
+    const groups = {
+      days: {
+        first: timerEl.querySelector('.days-group .first'),
+        second: timerEl.querySelector('.days-group .second'),
+      },
+      hours: {
+        first: timerEl.querySelector('.hrs-group .first'),
+        second: timerEl.querySelector('.hrs-group .second'),
+      },
+      minutes: {
+        first: timerEl.querySelector('.mins-group .first'),
+        second: timerEl.querySelector('.mins-group .second'),
+      },
+      seconds: {
+        first: timerEl.querySelector('.secs-group .first'),
+        second: timerEl.querySelector('.secs-group .second'),
+      }
+    };
+
+    function animateDigit(el, val) {
+      TweenMax.killTweensOf(el.querySelector('.number-grp-wrp'));
+      TweenMax.to(el.querySelector('.number-grp-wrp'), 1, {
+        y: -el.querySelector('.num-' + val).offsetTop
+      });
     }
 
-    function initTimer (targetDate) {
-        const position = window.innerWidth >= 575 ? 'desktop' : 'mobile';
-        const timerEl = document.querySelector(`.timer-${position}`);
+    function update() {
+      const t = getTimeLeft(targetDate);
 
-        const groups = {
-            days: {
-                first: timerEl.querySelector('.days-group .first'),
-                second: timerEl.querySelector('.days-group .second'),
-            },
-            hours: {
-                first: timerEl.querySelector('.hrs-group .first'),
-                second: timerEl.querySelector('.hrs-group .second'),
-            },
-            minutes: {
-                first: timerEl.querySelector('.mins-group .first'),
-                second: timerEl.querySelector('.mins-group .second'),
-            },
-            seconds: {
-                first: timerEl.querySelector('.secs-group .first'),
-                second: timerEl.querySelector('.secs-group .second'),
-            }
-        };
+      const d = String(t.days).padStart(2, "0");
+      const h = String(t.hours).padStart(2, "0");
+      const m = String(t.minutes).padStart(2, "0");
+      const s = String(t.seconds).padStart(2, "0");
 
-        function animateDigit(el, val) {
-            TweenMax.killTweensOf(el.querySelector('.number-grp-wrp'));
-            TweenMax.to(el.querySelector('.number-grp-wrp'), 1, {
-                y: -el.querySelector('.num-' + val).offsetTop
-            });
-        }
+      animateDigit(groups.days.first,     d[0]);
+      animateDigit(groups.days.second,    d[1]);
 
-        function update() {
-            const t = getTimeLeft(targetDate);
+      animateDigit(groups.hours.first,    h[0]);
+      animateDigit(groups.hours.second,   h[1]);
 
-            const d = String(t.days).padStart(2, "0");
-            const h = String(t.hours).padStart(2, "0");
-            const m = String(t.minutes).padStart(2, "0");
-            const s = String(t.seconds).padStart(2, "0");
+      animateDigit(groups.minutes.first,  m[0]);
+      animateDigit(groups.minutes.second, m[1]);
 
-            animateDigit(groups.days.first,     d[0]);
-            animateDigit(groups.days.second,    d[1]);
+      animateDigit(groups.seconds.first,  s[0]);
+      animateDigit(groups.seconds.second, s[1]);
 
-            animateDigit(groups.hours.first,    h[0]);
-            animateDigit(groups.hours.second,   h[1]);
+      if (t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0) {
+        return;
+      }
 
-            animateDigit(groups.minutes.first,  m[0]);
-            animateDigit(groups.minutes.second, m[1]);
-
-            animateDigit(groups.seconds.first,  s[0]);
-            animateDigit(groups.seconds.second, s[1]);
-
-            if (t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0) {
-                return;
-            }
-
-            setTimeout(update, 1000);
-        }
-
-        update();
+      setTimeout(update, 1000);
     }
 
-    $(document).ready(function () {
-        $('.black-friday-expand').on('click', function (e) {
-            if ($(this).attr('href') != '#') {
-                e.preventDefault()
-                $('.burger-menu-wrap').hide()
-                $('.button-close').hide()
-                $('html, body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top
-                }, 500)
-            }
-        })
+    update();
+  }
+
+  $(document).ready(function () {
+    $('.black-friday-expand').on('click', function (e) {
+      if ($(this).attr('href') != '#') {
+        e.preventDefault()
+        $('.burger-menu-wrap').hide()
+        $('.button-close').hide()
+        $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top
+        }, 500)
+      }
     })
+  })
 </script>
 <!-- Black Friday Timer Script -->
   
