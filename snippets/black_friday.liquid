@@ -445,9 +445,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 
 <script type="text/javascript">
+    const endDatetime = '2025-11-30T23:59:59';
     TweenLite.defaultEase = Expo.easeOut;
 
-    initTimer("2025-11-30T23:59:59");
+    initTimer(endDatetime);
+    $(window).on('resize', () => initTimer(endDatetime));
 
     function getTimeLeft (targetDate) {
         const now = new Date();
@@ -469,7 +471,8 @@
     }
 
     function initTimer (targetDate) {
-        const timerEl = document.querySelector('.timer');
+        const position = window.innerWidth >= 575 ? 'desktop' : 'mobile';
+        const timerEl = document.querySelector(`.timer-${position}`);
 
         const groups = {
             days: {
