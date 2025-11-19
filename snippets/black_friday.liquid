@@ -114,7 +114,7 @@
         text-align: left;
     }
     .clock-display-grp-label {
-        width: 100px;
+        width: 100%;
         color: #FFF;
         text-align: center;
         font-family: Manrope;
@@ -212,6 +212,84 @@
         height: 92px;
         flex-shrink: 0;
         bottom: -18px;
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 1440px) {
+        header#header_main {
+            height: calc(1620 * 100vw / 1440);
+        }
+        .banner-desktop-wrap {
+            height: calc(810 * 100vw / 1440);
+        }
+        .black-friday {
+            height: calc(810 * 100vw / 1440);
+        }
+        .black-friday-wrap {
+            padding-top: calc(106 * 100vw / 1440);
+            gap: calc(32 * 100vw / 1440);
+        }
+        .black-friday-info {
+            gap: calc(12 * 100vw / 1440);
+        }
+        .black-friday-info-title {
+            font-size: calc(96 * 100vw / 1440);
+            line-height: calc(112 * 100vw / 1440); /* 116.667% */
+        }
+        .black-friday-info-subtitle {
+            font-size: calc(30 * 100vw / 1440);
+            line-height: calc(40 * 100vw / 1440); /* 133.333% */
+        }
+        .black-friday-info-counter {
+            gap: calc(12 * 100vw / 1440);
+        }
+
+        .clock-display-grp {
+            width: calc(96 * 100vw / 1440);
+        }
+        .number-grp, .num {
+            height: calc(85 * 100vw / 1440);
+        }
+        .num p {
+            font-size: calc(64 * 100vw / 1440);
+            line-height: calc(82 * 100vw / 1440); /* 128.125% */
+        }
+        .clock-display-grp-label {
+            font-size: calc(16 * 100vw / 1440);
+            line-height: calc(24 * 100vw / 1440); /* 150% */
+        }
+
+        .black-friday-items {
+            gap: calc(24 * 100vw / 1440);
+        }
+        .black-friday-item {
+            width: calc(306 * 100vw / 1440);
+            padding: calc(12 * 100vw / 1440);
+            gap: calc(8 * 100vw / 1440);
+            border-radius: calc(38 * 100vw / 1440);
+            font-size: calc(18 * 100vw / 1440);
+            line-height: calc(28 * 100vw / 1440); /* 155.556% */
+        }
+        .black-friday-item-discount {
+            width: calc(80 * 100vw / 1440);
+            height: calc(80 * 100vw / 1440);
+        }
+        .black-friday-item-discount > div {
+            font-size: calc(22 * 100vw / 1440);
+            line-height: calc(22 * 100vw / 1440); /* 100% */
+        }
+        .black-friday-item-image {
+            height: calc(185 * 100vw / 1440);
+            border-radius: calc(26 * 100vw / 1440);
+        }
+        .black-friday-item-price {
+            height: calc(52 * 100vw / 1440);
+            border-radius: calc(26 * 100vw / 1440);
+        }
+        .black-friday-expand {
+            width: calc(92 * 100vw / 1440);
+            height: calc(92 * 100vw / 1440);
+            bottom: calc(-1 * 18 * 100vw / 1440);
+        }
     }
 </style>
 
