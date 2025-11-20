@@ -112,7 +112,12 @@
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
 			<div class="store_block-product-gallery-mobile">
-				<div class="black-friday-item-discount black-friday-item-discount-v2">
+				<div
+					class="black-friday-item-discount black-friday-item-discount-v2"
+					data-price="{{ product.price }}"
+					data-discount="{{ discount }}"
+					data-vip-discount="{{ vip_discount }}"
+				>
 					<div>{{ discount }} %</div>
 					<div>OFF</div>
 				</div>
