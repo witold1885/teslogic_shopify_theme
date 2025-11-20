@@ -466,29 +466,3 @@
         </a>
     </div>
 </div>
-
-<script type="text/javascript">
-    function checkVipCookie() {
-        const cookies = document.cookie.split('; ')
-        return cookies.some(cookie => cookie.startsWith(`vip_subscription=`))
-    }
-
-    const isVip = checkVipCookie()
-    
-    if (isVip) {
-        const items = document.querySelectorAll('.black-friday-item')
-        items.forEach(item => {
-            const price = Number(item.dataset.price)
-            const vip_discount = Number(item.dataset.vip_discount)
-
-            const vipPrice = Math.round(price * (100 - vip_discount) / 10000)
-            const originalPrice = Math.round(price / 100)
-
-            const discountBlock = item.querySelector('.black-friday-item-discount')
-            const priceBlock = item.querySelector('.black-friday-item-price')
-
-            discountBlock.innerHTML = `<div>${vip_discount} %</div><div>OFF</div>`
-            priceBlock.innerHTML = `Buy for $ ${vipPrice}&nbsp;<span>$ ${originalPrice}</span>`
-        })
-    }
-</script>
