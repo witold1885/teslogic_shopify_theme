@@ -66,7 +66,38 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		position: relative;
 	}
+    @font-face {
+        font-family: 'Neue Haas Grotesk Display Pro';
+        src: url({{ 'https://cdn.shopify.com/s/files/1/0611/8041/2118/files/NeueHaasDisplayMediu.ttf?v=1763466988' }}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+	.black-friday-item-discount {
+        position: absolute;
+		top: 20px;
+		right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+		width: 96px;
+		height: 96px;
+        transform: rotate(5deg);
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+        background: url({{ 'black-friday-discount-star.png' | asset_url }}) center/cover no-repeat;
+	}
+    .black-friday-item-discount > div {
+        color: #1553EE;
+        text-align: center;
+        font-family: "Neue Haas Grotesk Display Pro";
+        font-size: 26.4px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 26.4px; /* 100% */
+    }
 	.order-product-1 {
 /*		background: url({{ 'pro_order_product_1_bg.png' | asset_url }}), linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.60);*/
 /*		background: url({{ 'pro_order_product_1_bg.png' | asset_url }});*/
@@ -379,6 +410,16 @@
 			height: calc(596 * 100vw / 1440);
 			border-radius: calc(40 * 100vw / 1440);
 		}
+		.black-friday-item-discount {
+			top: calc(20 * 100vw / 1440);
+			right: calc(20 * 100vw / 1440);
+			width: calc(96 * 100vw / 1440);
+			height: calc(96 * 100vw / 1440);
+		}
+		.black-friday-item-discount > div {
+			font-size: calc(26.4 * 100vw / 1440);
+			line-height: calc(26.4 * 100vw / 1440); /* 100% */
+		}
 		.order-product-image {
 			border-radius: calc(40 * 100vw / 1440);
 		}
@@ -547,6 +588,16 @@
 			height: calc(557 * 100vw / 375);
 			border-radius: calc(24 * 100vw / 375);
 		}
+		.black-friday-item-discount {
+			top: calc(20 * 100vw / 375);
+			right: calc(20 * 100vw / 375);
+			width: calc(96 * 100vw / 375);
+			height: calc(96 * 100vw / 375);
+		}
+		.black-friday-item-discount > div {
+			font-size: calc(26.4 * 100vw / 375);
+			line-height: calc(26.4 * 100vw / 375); /* 100% */
+		}
 		.order-product-image {
 			border-radius: calc(24 * 100vw / 375);
 		}
@@ -687,6 +738,8 @@
 
 {% assign product1 = all_products['teslogic-pro-boost-transmitter-kit'] %}
 {% assign product2 = all_products['teslogic-pro-performace-transmitter-kit'] %}
+{% assign discount = 15 %}
+{% assign discount_value = 100 | minus: discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div id="shop-now" class="order-container">
@@ -699,6 +752,10 @@
 			<div class="order-body">
 				<div class="order-products">
 					<div class="order-product order-product-1">
+						<div class="black-friday-item-discount">
+							<div>{{ discount }} %</div>
+							<div>OFF</div>
+						</div>
 						<div class="order-product-image">
 							<img src="{{ product1.featured_image | img_url: '2104x2104' }}">
 						</div>
@@ -741,6 +798,10 @@
 						<input type="hidden" id="product-1-variant-id" value="{{ product1.variants[0].id }}">
 					</div>
 					<div class="order-product order-product-2">
+						<div class="black-friday-item-discount">
+							<div>{{ discount }} %</div>
+							<div>OFF</div>
+						</div>
 						<div class="order-product-image">
 							<img src="{{ product2.featured_image | img_url: '2104x2104' }}">
 						</div>
