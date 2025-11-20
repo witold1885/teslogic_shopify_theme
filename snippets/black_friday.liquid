@@ -466,3 +466,13 @@
         </a>
     </div>
 </div>
+
+<script type="text/javascript">
+    function checkVipCookie() {
+        const cookies = document.cookie.split('; ')
+        return cookies.some(cookie => cookie.startsWith(`vip_subscription=`))
+    }
+
+    const isVip = checkVipCookie()
+    console.log({ isVip })
+</script>
