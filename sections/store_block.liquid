@@ -354,7 +354,7 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		var price = basePrice || null, charger_selected = true
+		var price = basePrice ? Math.round(basePrice / 100) : null, charger_selected = true
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
