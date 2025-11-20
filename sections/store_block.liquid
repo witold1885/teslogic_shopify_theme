@@ -72,6 +72,7 @@
 			<div
 				class="black-friday-item-discount black-friday-item-discount-v2"
 				data-price="{{ product.price }}"
+				data-discount="{{ discount }}"
 				data-vip-discount="{{ vip_discount }}"
 			>
 				<div>{{ discount }} %</div>
@@ -216,17 +217,21 @@
 		}
 
 		const isVip = checkVipCookie() || true
+		const discountBlock = $('.black-friday-item-discount-v2')
+		const priceBlock = $('.store_block-product-price-new')
+
+		const price = discountBlock.data('price')
 
 		if (isVip) {
-			const discountBlock = $('.black-friday-item-discount-v2')
-			const priceBlock = $('.store_block-product-price-new')
-
-			const price = discountBlock.data('price')
 			const vipDiscount = discountBlock.data('vip-discount')
 			const vipPrice = Math.round(price * (100 - vipDiscount) / 10000)
 
 			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
 			priceBlock.text(`$ ${vipPrice}`)
+			setTotalPrice(vipPrice, true)
+		} else {
+			const discount = discountBlock.data('discount')
+			setTotalPrice(Math.round(price * (100 - discount) / 10000), true)
 		}
 
 		var imgnum = 0
@@ -360,7 +365,7 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			
 			if (model.data('discount') || model.data('vip-discount')) {
-				const discount = isVip ? model.data('vip-discount') ? model.data('discount')
+				const discount = isVip ? model.data('vip-discount') : model.data('discount')
 				price = Math.round(model.data('price') * (100 - discount) / 10000)
 				$('.store_block-product-price-new').text('$ ' + price)
 				$('.store_block-product-price-old').text('$ ' + Math.floor(model.data('price') / 100))
