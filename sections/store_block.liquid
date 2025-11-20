@@ -43,6 +43,10 @@
 <div class="store_block">
 	<div class="store_block-product" id="shop-now">
 		<div class="store_block-product-gallery">
+			<div class="black-friday-item-discount">
+				<div>{{ discount }} %</div>
+				<div>OFF</div>
+			</div>
 			<div class="store_block-product-gallery-items">
 				{% assign thumb = "-thumb" %}
 				{% assign counter = 0 %}  
@@ -57,10 +61,6 @@
 				{% endfor %}
 			</div>
 			<div class="store_block-product-gallery-main">
-				<div class="black-friday-item-discount">
-					<div>{{ discount }} %</div>
-					<div>OFF</div>
-				</div>
 				{% assign full = "-full" %}
 				{% assign counter = 0 %}  
 				{% for image in product.images %}
