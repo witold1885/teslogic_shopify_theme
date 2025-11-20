@@ -517,17 +517,16 @@ Unlock advanced capabilities of your Tesla.</div>
   if (isVip) {
     const items = document.querySelectorAll('.black-friday-item')
     items.forEach(item => {
-      console.log({ item, dataset: item.dataset })
       const price = Number(item.dataset.price)
-      const vip_discount = Number(item.dataset.vip_discount)
+      const vipDiscount = Number(item.dataset.vipDiscount)
 
-      const vipPrice = Math.round(price * (100 - vip_discount) / 10000)
+      const vipPrice = Math.round(price * (100 - vipDiscount) / 10000)
       const originalPrice = Math.round(price / 100)
 
       const discountBlock = item.querySelector('.black-friday-item-discount')
       const priceBlock = item.querySelector('.black-friday-item-price')
 
-      discountBlock.innerHTML = `<div>${vip_discount} %</div><div>OFF</div>`
+      discountBlock.innerHTML = `<div>${vipDiscount} %</div><div>OFF</div>`
       priceBlock.innerHTML = `Buy for $ ${vipPrice}&nbsp;<span>$ ${originalPrice}</span>`
     })
   }
