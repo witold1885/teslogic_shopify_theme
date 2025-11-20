@@ -221,6 +221,7 @@
 		const priceBlock = $('.store_block-product-price-new')
 
 		const basePrice = discountBlock.data('price')
+		let currentPrice = basePrice
 
 		if (isVip) {
 			const vipDiscount = discountBlock.data('vip-discount')
@@ -228,11 +229,12 @@
 
 			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
 			priceBlock.text(`$ ${vipPrice}`)
-			setTotalPrice(vipPrice, true)
+			currentPrice = vipPrice
 		} else {
 			const discount = discountBlock.data('discount')
-			setTotalPrice(Math.round(basePrice * (100 - discount) / 10000), true)
+			currentPrice = Math.round(basePrice * (100 - discount) / 10000)
 		}
+		setTotalPrice(currentPrice, true)
 
 		var imgnum = 0
 		setGalleryImage()
@@ -354,7 +356,7 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		var price = basePrice || null, charger_selected = true
+		var price = currentPrice || null, charger_selected = true
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
