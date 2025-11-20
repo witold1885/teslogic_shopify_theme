@@ -61,13 +61,15 @@
 
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
 {% assign discount = 10 %}
+{% assign vip_discount = 15 %}
 {% assign discount_value = 100 | minus: discount %}
+{% assign vip_discount_value = 100 | minus: vip_discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div class="store_block">
 	<div class="store_block-product" id="shop-now">
 		<div class="store_block-product-gallery">
-			<div class="black-friday-item-discount black-friday-item-discount-v2">
+			<div class="black-friday-item-discount black-friday-item-discount-v2" data-vip-discount="{{ vip_discount }}">
 				<div>{{ discount }} %</div>
 				<div>OFF</div>
 			</div>
@@ -200,6 +202,20 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		function checkVipCookie() {
+			const cookies = document.cookie.split('; ')
+			const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+		}
+
+		const isVip = checkVipCookie()
+
+		if (isVip) {
+			const discountBlock = $('.black-friday-item-discount-v2')
+			const vipDiscount = discountBlock.data('vip-discount')
+			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+		}
+
 		var imgnum = 0
 		setGalleryImage()
 		
