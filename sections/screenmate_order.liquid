@@ -31,6 +31,16 @@
 	.store_block-product-preorder-delivery span {
 		color: #1657FC;
 	}
+	.black-friday-item-discount {
+		top: 32px;
+		right: 32px;
+		width: 120px;
+		height: 120px;
+	}
+    .black-friday-item-discount > div {
+        font-size: 33px;
+        line-height: 33px; /* 100% */
+    }
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
         .store_block {
             padding-top: calc(180 * 100vw / 1440);
@@ -50,6 +60,16 @@
 			font-size: calc(16 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
 		}
+		.black-friday-item-discount {
+			top: calc(32 * 100vw / 1440);
+			right: calc(32 * 100vw / 1440);
+			width: calc(120 * 100vw / 1440);
+			height: calc(120 * 100vw / 1440);
+		}
+		.black-friday-item-discount > div {
+			font-size: calc(33 * 100vw / 1440);
+			line-height: calc(33 * 100vw / 1440); /* 100% */
+		}
 	}
 	@media screen and (max-width: 575px) {
 		.store_block {
@@ -65,15 +85,31 @@
 			top: calc(3.33 * 100vw / 375);
 			left: calc(4 * 100vw / 375);
 		}
+		.black-friday-item-discount {
+			top: calc(32 * 100vw / 375);
+			right: calc(32 * 100vw / 375);
+			width: calc(120 * 100vw / 375);
+			height: calc(120 * 100vw / 375);
+		}
+		.black-friday-item-discount > div {
+			font-size: calc(33 * 100vw / 375);
+			line-height: calc(33 * 100vw / 375); /* 100% */
+		}
 	}
 {% endstyle %}
 
 {% assign product = all_products['teslogic-screenmate'] %}
+{% assign discount = 33 %}
+{% assign discount_value = 100 | minus: discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div class="store_block" id="shop-now">
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
+			<div class="black-friday-item-discount">
+				<div>{{ discount }} %</div>
+				<div>OFF</div>
+			</div>
 			{% comment %} <div class="store_block-product-gallery-items">
 				{% assign counter = 0 %}  
 				{% for image in product.images %}
@@ -93,9 +129,9 @@
 		</div>
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
-				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">${{ product.price | divided_by: 100 }}</div>
-					<div class="store_block-product-price-old">${{ product.compare_at_price | divided_by: 100 }}</div>
+				<div class="store_block-product-price">
+					<div class="store_block-product-price-new">$ {{ product.price | times: discount_value | divided_by: 10000 | round }}</div>
+					<div class="store_block-product-price-old">$ {{ product.price | divided_by: 100 | round }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
