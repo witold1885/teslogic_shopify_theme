@@ -158,8 +158,6 @@
 								class="store_block-product-select-dropdown-item" 
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}"
-								{% comment %} data-price="{{ model.price | times: discount_value | divided_by: 100 | round }}"
-								data-compare_at_price="{{ model.price }}" {% endcomment %}
 								data-price="{{ model.price }}"
 								data-discount="{{ discount }}"
 								data-vip-discount="{{ vip_discount }}"
@@ -362,7 +360,7 @@
 			model_id = model.data('model_id')
 			$('.store_block-product-select-dropdown-item').each(function() {
 				if ($(this).data('sku') == sku) $(this).addClass('store_block-product-select-dropdown-item-selected')
-					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
+				else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			
