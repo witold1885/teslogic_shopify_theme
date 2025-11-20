@@ -120,13 +120,20 @@
 
 {% assign product = all_products['teslogic-screenmate'] %}
 {% assign discount = 33 %}
+{% assign vip_discount = 35 %}
 {% assign discount_value = 100 | minus: discount %}
+{% assign vip_discount_value = 100 | minus: vip_discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div class="store_block" id="shop-now">
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
-			<div class="black-friday-item-discount">
+			<div
+				class="black-friday-item-discount black-friday-item-discount-screenmate"
+				data-price="{{ product.price }}"
+				data-discount="{{ discount }}"
+				data-vip-discount="{{ vip_discount }}"
+			>
 				<div>{{ discount }} %</div>
 				<div>OFF</div>
 			</div>
@@ -198,8 +205,9 @@
 								class="store_block-product-select-dropdown-item" 
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}"
-								data-price="{{ model.price | times: discount_value | divided_by: 100 | round }}"
-								data-compare_at_price="{{ model.price }}"
+								data-price="{{ model.price }}"
+								data-discount="{{ discount }}"
+								data-vip-discount="{{ vip_discount }}"
 								data-stock="{{ model.inventory_quantity }}"
 							>
 								<span>{{ model.title }}</span>
@@ -250,6 +258,32 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		function checkVipCookie() {
+			const cookies = document.cookie.split('; ')
+			const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+		}
+
+		const isVip = checkVipCookie() || true
+		const discountBlock = $('.black-friday-item-discount-screenmate')
+		const priceBlock = $('.store_block-product-price-new')
+
+		const basePrice = discountBlock.data('price')
+		let currentPrice = basePrice
+
+		if (isVip) {
+			const vipDiscount = discountBlock.data('vip-discount')
+			const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
+
+			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+			priceBlock.text(`$ ${vipPrice}`)
+			currentPrice = vipPrice
+		} else {
+			const discount = discountBlock.data('discount')
+			currentPrice = Math.round(basePrice * (100 - discount) / 10000)
+		}
+		setTotalPrice(currentPrice, true)
+
 		var imgnum = 0
 		setGalleryImage()
 		
@@ -370,21 +404,27 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		var price = null, charger_selected = true
+		var price = currentPrice || null, charger_selected = true
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
 			$('.store_block-product-select-dropdown-item').each(function() {
 				if ($(this).data('sku') == sku) $(this).addClass('store_block-product-select-dropdown-item-selected')
-					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
+				else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			price = Math.floor(model.data('price') / 100)
-			$('.store_block-product-price-new').text('$' + price)
-			setTotalPrice(price, charger_selected)
-			if (model.data('compare_at_price')) {
-				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+			
+			if (model.data('discount') || model.data('vip-discount')) {
+				const discount = isVip ? model.data('vip-discount') : model.data('discount')
+				price = Math.round(model.data('price') * (100 - discount) / 10000)
+				$('.store_block-product-price-new').text('$ ' + price)
+				$('.store_block-product-price-old').text('$ ' + Math.floor(model.data('price') / 100))
+			} else {
+				price = Math.floor(model.data('price') / 100)
+				$('.store_block-product-price-new').text('$ ' + price)
 			}
+			setTotalPrice(price, charger_selected)
+
 			if (model.data('stock') <= 0) {
 				$('.store_block-add-wireless-charger-time').show()
 			}
