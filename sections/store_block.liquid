@@ -360,7 +360,7 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			
 			if (model.data('discount') || model.data('vip-discount')) {
-				const discount = isVip ? model.data('vip-discount') ? model.data('discount')
+				const discount = isVip ? model.data('vip-discount') : model.data('discount')
 				price = Math.round(model.data('price') * (100 - discount) / 10000)
 				$('.store_block-product-price-new').text('$ ' + price)
 				$('.store_block-product-price-old').text('$ ' + Math.floor(model.data('price') / 100))
