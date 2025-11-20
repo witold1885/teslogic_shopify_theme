@@ -31,14 +31,34 @@
 	.store_block-product-preorder-delivery span {
 		color: #1657FC;
 	}
+    @font-face {
+        font-family: 'Neue Haas Grotesk Display Pro';
+        src: url({{ 'https://cdn.shopify.com/s/files/1/0611/8041/2118/files/NeueHaasDisplayMediu.ttf?v=1763466988' }}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
 	.black-friday-item-discount {
+        position: absolute;
 		top: 32px;
 		right: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 		width: 120px;
 		height: 120px;
+        transform: rotate(5deg);
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+        background: url({{ 'black-friday-discount-star.png' | asset_url }}) center/cover no-repeat;
 	}
     .black-friday-item-discount > div {
+        color: #1553EE;
+        text-align: center;
+        font-family: "Neue Haas Grotesk Display Pro";
         font-size: 33px;
+        font-style: normal;
+        font-weight: 700;
         line-height: 33px; /* 100% */
     }
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
