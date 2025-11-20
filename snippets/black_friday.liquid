@@ -422,15 +422,9 @@
                 {% endfor %}
             </div>
         </div>
-        {% comment %} {% assign products_data = "teslogic-transmitter-kit-v2|10|Teslogic v2|#shop-now,teslogic-pro-boost-transmitter-kit|15|Teslogic Pro Boost|pro#shop-now,teslogic-pro-performace-transmitter-kit|15|Teslogic Pro Performance|pro#shop-now,teslogic-screenmate|33|Screenmate|screenmate#shop-now" | split: "," %} {% endcomment %}
-        {% assign products_json = '[
-            { "handle": "teslogic-transmitter-kit-v2", "discount": 10, "title": "Teslogic v2", "slug": "#shop-now", "vip_discount": 15 },
-            { "handle": "teslogic-pro-boost-transmitter-kit", "discount": 15, "title": "Teslogic Pro Boost", "slug": "pro#shop-now", "vip_discount": 20 },
-            { "handle": "teslogic-pro-performace-transmitter-kit", "discount": 15, "title": "Teslogic Pro Performance", "slug": "pro#shop-now", "vip_discount": 20 },
-            { "handle": "teslogic-screenmate", "discount": 33, "title": "Screenmate", "slug": "screenmate#shop-now", "vip_discount": 35 }
-        ]' | json | parse %}
+        {% assign products_data = "teslogic-transmitter-kit-v2|10|Teslogic v2|#shop-now|15,teslogic-pro-boost-transmitter-kit|15|Teslogic Pro Boost|pro#shop-now|20,teslogic-pro-performace-transmitter-kit|15|Teslogic Pro Performance|pro#shop-now|20,teslogic-screenmate|33|Screenmate|screenmate#shop-now|35" | split: "," %}
         <div class="black-friday-items">
-            {% comment %} {% for row in products_data %}
+            {% for row in products_data %}
                 {% assign row = row | strip %}
                 {% assign fields = row | split: "|" %}
 
@@ -438,11 +432,17 @@
                 {% assign discount = fields[1] %}
                 {% assign title = fields[2] %}
                 {% assign slug = fields[3] %}
+                {% assign vip_discount = fields[4] %}
 
                 {% assign product = all_products[handle] %}
                 {% assign discount_value = 100 | minus: discount %}
 
-                <div class="black-friday-item">
+                <div class="black-friday-item"
+                    data-handle="{{ handle }}"
+                    data-discount="{{ discount }}"
+                    data-vip-discount="{{ vip_discount }}"
+                    data-price="{{ product.price }}"
+                >
                     <div class="black-friday-item-discount">
                         <div>{{ discount }} %</div>
                         <div>OFF</div>
@@ -456,33 +456,6 @@
                     <div class="black-friday-item-title">{{ title }}</div>
                     <a class="black-friday-item-price" href="/{{ slug }}">
                         Buy for $ {{ product.price | times: discount_value | divided_by: 10000 | round }}&nbsp;
-                        <span>$ {{ product.price | divided_by: 100 | round }}</span>
-                    </a>
-                </div>
-            {% endfor %} {% endcomment %}
-            {% for item in products_json %}
-                {% assign product = all_products[item.handle] %}
-                {% assign discount_value = 100 | minus: item.discount %}
-
-                <div class="black-friday-item"
-                    data-handle="{{ item.handle }}"
-                    data-discount="{{ item.discount }}"
-                    data-vip-discount="{{ item.vip_discount }}"
-                    data-price="{{ product.price }}"
-                >
-                    <div class="black-friday-item-discount">
-                        <div>{{ item.discount }} %</div>
-                        <div>OFF</div>
-                    </div>
-                    <div class="black-friday-item-image">
-                        <img
-                            src="{{ 'black-friday-' | append: item.handle |  append: '.png' | asset_url }}"
-                            alt="{{ item.title }}"
-                        >
-                    </div>
-                    <div class="black-friday-item-title">{{ item.title }}</div>
-                    <a class="black-friday-item-price" href="/{{ item.slug }}">
-                        Buy for $ {{ product.price | times: discount_value | divided_by: 10000 | round }}
                         <span>$ {{ product.price | divided_by: 100 | round }}</span>
                     </a>
                 </div>
