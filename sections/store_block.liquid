@@ -24,6 +24,12 @@
 			top: calc(3.33 * 100vw / 1440);
 			left: calc(4 * 100vw / 1440);
 		}
+		.black-friday-item-discount {
+			top: calc(32 * 100vw / 1440);
+			right: calc(32 * 100vw / 1440);
+			width: calc(120 * 100vw / 1440);
+			height: calc(120 * 100vw / 1440);
+		}
 	}
 	@media screen and (max-width: 575px) {
 		.store_block-add-wireless-charger-checkbox:checked:after {
@@ -31,6 +37,12 @@
 			height: calc(6.667 * 100vw / 375);
 			top: calc(3.33 * 100vw / 375);
 			left: calc(4 * 100vw / 375);
+		}
+		.black-friday-item-discount {
+			top: calc(32 * 100vw / 375);
+			right: calc(32 * 100vw / 375);
+			width: calc(120 * 100vw / 375);
+			height: calc(120 * 100vw / 375);
 		}
 	}
 {% endstyle %}
@@ -74,9 +86,9 @@
 		</div>
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
-				<div class="store_block-product-price">  
-					<div class="store_block-product-price-old">{{ product.price | money }}</div>
+				<div class="store_block-product-price">
 					<div class="store_block-product-price-new">{{ product.price | times: discount_value | divided_by: 100 | money }}</div>
+					<div class="store_block-product-price-old">{{ product.price | money }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
