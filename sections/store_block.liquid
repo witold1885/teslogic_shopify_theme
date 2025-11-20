@@ -11,20 +11,11 @@
 		left: 4px;
 		color: #000;
 	}
-	.black-friday-discount {
-		position: absolute;
+	.black-friday-item-discount {
 		top: 32px;
 		right: 32px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		width: 120px;
 		height: 120px;
-		transform: rotate(5deg);
-		flex-shrink: 0;
-		aspect-ratio: 1/1;
-		background: url({{ 'black-friday-discount-star.png' | asset_url }}) center/cover no-repeat;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.store_block-add-wireless-charger-checkbox:checked:after {
@@ -66,7 +57,7 @@
 				{% endfor %}
 			</div>
 			<div class="store_block-product-gallery-main">
-				<div class="black-friday-discount">
+				<div class="black-friday-item-discount">
 					<div>{{ discount }} %</div>
 					<div>OFF</div>
 				</div>
