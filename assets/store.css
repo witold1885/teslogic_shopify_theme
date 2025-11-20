@@ -46,6 +46,7 @@
 	background: lightgray 9645092305.627px 19216960579.022px / -5810110298.921% -4458015880.035% no-repeat;
 	border-radius: 40px;
 	border: 1px solid #E6E6E6;
+	position: relative;
 }
 .store_block-product-gallery-main img {
 	max-width: 100%;
