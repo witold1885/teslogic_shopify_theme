@@ -449,8 +449,8 @@
                     </div>
                     <div class="black-friday-item-title">{{ title }}</div>
                     <a class="black-friday-item-price" href="/{{ slug }}">
-                        Buy for {{ product.price | times: discount_value | divided_by: 100 | money }}&nbsp;
-                        <span>{{ product.price | money }}</span>
+                        Buy for $ {{ product.price | times: discount_value | divided_by: 10000 | round }}&nbsp;
+                        <span>$ {{ product.price | divided_by: 100 | round }}</span>
                     </a>
                 </div>
             {% endfor %}
