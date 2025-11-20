@@ -99,8 +99,8 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">
-					<div class="store_block-product-price-new">{{ product.price | times: discount_value | divided_by: 100 | money }}</div>
-					<div class="store_block-product-price-old">{{ product.price | money }}</div>
+					<div class="store_block-product-price-new">{{ product.price | times: discount_value | divided_by: 100 | round | money }}</div>
+					<div class="store_block-product-price-old">{{ product.price | round | money }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
