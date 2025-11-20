@@ -45,6 +45,8 @@
 {% endstyle %}
 
 {% assign product = all_products['teslogic-transmitter-kit-v2'] %}
+{% assign discount = 10 %}
+{% assign discount_value = 100 | minus: discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div class="store_block">
@@ -65,7 +67,7 @@
 			</div>
 			<div class="store_block-product-gallery-main">
 				<div class="black-friday-discount">
-					<div>10 %</div>
+					<div>{{ discount }} %</div>
 					<div>OFF</div>
 				</div>
 				{% assign full = "-full" %}
@@ -82,8 +84,8 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">$219</div>
-					<div class="store_block-product-price-old"></div>
+					<div class="store_block-product-price-new">{{ product.price | money }}</div>
+					<div class="store_block-product-price-old">{{ product.price | times: discount_value | divided_by: 100 | money }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
