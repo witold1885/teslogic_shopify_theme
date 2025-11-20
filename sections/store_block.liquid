@@ -224,7 +224,7 @@
 
 		if (isVip) {
 			const vipDiscount = discountBlock.data('vip-discount')
-			const vipPrice = Math.round(price * (100 - vipDiscount) / 10000)
+			const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
 
 			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
 			priceBlock.text(`$ ${vipPrice}`)
