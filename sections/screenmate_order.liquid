@@ -198,7 +198,7 @@
 								class="store_block-product-select-dropdown-item" 
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}"
-								data-price="{{ model.price | times: discount_value | divided_by: 100 }}"
+								data-price="{{ model.price | times: discount_value | divided_by: 100 | round }}"
 								data-compare_at_price="{{ model.price }}"
 								data-stock="{{ model.inventory_quantity }}"
 							>
