@@ -509,7 +509,8 @@ Unlock advanced capabilities of your Tesla.</div>
 
   function checkVipCookie() {
     const cookies = document.cookie.split('; ')
-    return cookies.some(cookie => cookie.startsWith(`vip_subscription=`))
+    const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+    return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
   }
 
   const isVip = checkVipCookie()
