@@ -428,7 +428,7 @@
             { "handle": "teslogic-pro-boost-transmitter-kit", "discount": 15, "title": "Teslogic Pro Boost", "slug": "pro#shop-now", "vip_discount": 20 },
             { "handle": "teslogic-pro-performace-transmitter-kit", "discount": 15, "title": "Teslogic Pro Performance", "slug": "pro#shop-now", "vip_discount": 20 },
             { "handle": "teslogic-screenmate", "discount": 33, "title": "Screenmate", "slug": "screenmate#shop-now", "vip_discount": 35 }
-        ]' | json_parse %}
+        ]' | json | parse %}
         <div class="black-friday-items">
             {% comment %} {% for row in products_data %}
                 {% assign row = row | strip %}
