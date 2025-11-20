@@ -379,8 +379,8 @@
 					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
-			price = model.data('price') / 100
+			price = Math.floor(model.data('price') / 100)
+			$('.store_block-product-price-new').text('$' + price)
 			setTotalPrice(price, charger_selected)
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
