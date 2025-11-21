@@ -902,7 +902,7 @@
 			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
 		}
 
-		const isVip = checkVipCookie() || true
+		const isVip = checkVipCookie()
 
 		if (isVip) {
 			$('.black-friday-item-discount-pro').each(function () {
