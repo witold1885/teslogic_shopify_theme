@@ -56,10 +56,16 @@
         color: #1553EE;
         text-align: center;
         font-family: "Neue Haas Grotesk Display Pro";
-        font-size: 33px;
         font-style: normal;
         font-weight: 700;
+    }
+    .black-friday-item-discount > div:first-child {
+        font-size: 33px;
         line-height: 33px; /* 100% */
+    }
+    .black-friday-item-discount > div:last-child {
+        font-size: 24px;
+        line-height: 30px; /* 100% */
     }
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
         .store_block {
@@ -86,9 +92,13 @@
 			width: calc(120 * 100vw / 1440);
 			height: calc(120 * 100vw / 1440);
 		}
-		.black-friday-item-discount > div {
+		.black-friday-item-discount > div:first-child {
 			font-size: calc(33 * 100vw / 1440);
 			line-height: calc(33 * 100vw / 1440); /* 100% */
+		}
+		.black-friday-item-discount > div:last-child {
+			font-size: calc(24 * 100vw / 1440);
+			line-height: calc(30 * 100vw / 1440); /* 100% */
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -111,9 +121,13 @@
 			width: calc(120 * 100vw / 375);
 			height: calc(120 * 100vw / 375);
 		}
-		.black-friday-item-discount > div {
+		.black-friday-item-discount > div:first-child {
 			font-size: calc(33 * 100vw / 375);
 			line-height: calc(33 * 100vw / 375); /* 100% */
+		}
+		.black-friday-item-discount > div:last-child {
+			font-size: calc(24 * 100vw / 375);
+			line-height: calc(30 * 100vw / 375); /* 100% */
 		}
 	}
 {% endstyle %}
