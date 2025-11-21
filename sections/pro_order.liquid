@@ -739,7 +739,9 @@
 {% assign product1 = all_products['teslogic-pro-boost-transmitter-kit'] %}
 {% assign product2 = all_products['teslogic-pro-performace-transmitter-kit'] %}
 {% assign discount = 15 %}
+{% assign vip_discount = 20 %}
 {% assign discount_value = 100 | minus: discount %}
+{% assign vip_discount_value = 100 | minus: vip_discount %}
 {% assign charger = all_products['teslogic-wireless-charger'] %}
 
 <div id="shop-now" class="order-container">
@@ -752,7 +754,12 @@
 			<div class="order-body">
 				<div class="order-products">
 					<div class="order-product order-product-1">
-						<div class="black-friday-item-discount">
+						<div
+							class="black-friday-item-discount black-friday-item-discount-pro"
+							data-price="{{ product.price }}"
+							data-discount="{{ discount }}"
+							data-vip-discount="{{ vip_discount }}"
+						>
 							<div>{{ discount }} %</div>
 							<div>OFF</div>
 						</div>
@@ -798,7 +805,12 @@
 						<input type="hidden" id="product-1-variant-id" value="{{ product1.variants[0].id }}">
 					</div>
 					<div class="order-product order-product-2">
-						<div class="black-friday-item-discount">
+						<div
+							class="black-friday-item-discount black-friday-item-discount-pro"
+							data-price="{{ product.price }}"
+							data-discount="{{ discount }}"
+							data-vip-discount="{{ vip_discount }}"
+						>
 							<div>{{ discount }} %</div>
 							<div>OFF</div>
 						</div>
@@ -870,6 +882,21 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
+		function checkVipCookie() {
+			const cookies = document.cookie.split('; ')
+			const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+		}
+
+		const isVip = checkVipCookie() || true
+
+		if (isVip) {
+			$('.black-friday-item-discount-pro').each(function () {
+				const vipDiscount = $(this).data('vip-discount')
+				$(this).html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+			})
+		}
+
 		var num
 		$('.order-product-data-preorder-button.preorder-performance').on('click', function () {
 			num = $(this).data('num')
