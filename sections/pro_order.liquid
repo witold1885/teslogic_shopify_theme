@@ -892,8 +892,11 @@
 
 		if (isVip) {
 			$('.black-friday-item-discount-pro').each(function () {
+				const basePrice = $(this).data('price')
 				const vipDiscount = $(this).data('vip-discount')
+				const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
 				$(this).html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+				$(this).parent('.order-product').find('.order-product-data-info-price-main').text(`$ ${vipPrice}`)
 			})
 		}
 
