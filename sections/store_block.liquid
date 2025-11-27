@@ -17,9 +17,13 @@
 		width: 120px;
 		height: 120px;
 	}
-    .black-friday-item-discount-v2 > div {
+    .black-friday-item-discount-v2 > div:first-child {
         font-size: 33px;
         line-height: 33px; /* 100% */
+    }
+    .black-friday-item-discount-v2 > div:last-child {
+        font-size: 24px;
+        line-height: 30px; /* 100% */
     }
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.store_block-add-wireless-charger-checkbox:checked:after {
@@ -34,9 +38,13 @@
 			width: calc(120 * 100vw / 1440);
 			height: calc(120 * 100vw / 1440);
 		}
-		.black-friday-item-discount-v2 > div {
+		.black-friday-item-discount-v2 > div:first-child {
 			font-size: calc(33 * 100vw / 1440);
 			line-height: calc(33 * 100vw / 1440); /* 100% */
+		}
+		.black-friday-item-discount-v2 > div:last-child {
+			font-size: calc(24 * 100vw / 1440);
+			line-height: calc(30 * 100vw / 1440); /* 100% */
 		}
 	}
 	@media screen and (max-width: 575px) {
@@ -52,9 +60,13 @@
 			width: calc(120 * 100vw / 375);
 			height: calc(120 * 100vw / 375);
 		}
-		.black-friday-item-discount-v2 > div {
+		.black-friday-item-discount-v2 > div:first-child {
 			font-size: calc(33 * 100vw / 375);
 			line-height: calc(33 * 100vw / 375); /* 100% */
+		}
+		.black-friday-item-discount-v2 > div:last-child {
+			font-size: calc(24 * 100vw / 375);
+			line-height: calc(30 * 100vw / 375); /* 100% */
 		}
 	}
 {% endstyle %}
