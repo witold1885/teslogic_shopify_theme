@@ -467,6 +467,7 @@
                     data-discount="{{ discount }}"
                     data-vip-discount="{{ vip_discount }}"
                     data-price="{{ product.price }}"
+                    data-compare_at_price="{{ product.compare_at_price }}"
                 >
                     <div class="black-friday-item-discount">
                         <div>{{ discount }} %</div>
@@ -480,8 +481,8 @@
                     </div>
                     <div class="black-friday-item-title">{{ title }}</div>
                     <a class="black-friday-item-price" href="/{{ slug }}">
-                        Buy for $ {{ product.price | times: discount_value | divided_by: 10000 | round }}&nbsp;
-                        <span>$ {{ product.price | divided_by: 100 | round }}</span>
+                        Buy for $ {{ product.price | divided_by: 100 | round }}&nbsp;
+                        <span>$ {{ product.compare_at_price | divided_by: 100 | round }}</span>
                     </a>
                 </div>
             {% endfor %}
