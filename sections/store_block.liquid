@@ -166,6 +166,7 @@
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}"
 								data-price="{{ model.price }}"
+								data-compare_at_price="{{ model.compare_at_price }}"
 								data-discount="{{ discount }}"
 								data-vip-discount="{{ vip_discount }}"
 								data-stock="{{ model.inventory_quantity }}"
@@ -223,23 +224,23 @@
 
 		const isVip = checkVipCookie()
 		const discountBlock = $('.black-friday-item-discount-v2')
-		const priceBlock = $('.store_block-product-price-new')
+		// const priceBlock = $('.store_block-product-price-new')
 
-		const basePrice = discountBlock.data('price')
-		let currentPrice = basePrice
+		// const basePrice = discountBlock.data('price')
+		// let currentPrice = basePrice
 
 		if (isVip) {
 			const vipDiscount = discountBlock.data('vip-discount')
-			const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
+			// const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
 
 			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
-			priceBlock.text(`$ ${vipPrice}`)
-			currentPrice = vipPrice
+			// priceBlock.text(`$ ${vipPrice}`)
+			// currentPrice = vipPrice
 		} else {
-			const discount = discountBlock.data('discount')
-			currentPrice = Math.round(basePrice * (100 - discount) / 10000)
+			// const discount = discountBlock.data('discount')
+			// currentPrice = Math.round(basePrice * (100 - discount) / 10000)
 		}
-		setTotalPrice(currentPrice, true)
+		// setTotalPrice(currentPrice, true)
 
 		var imgnum = 0
 		setGalleryImage()
@@ -371,15 +372,18 @@
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			
-			if (model.data('discount') || model.data('vip-discount')) {
-				const discount = isVip ? model.data('vip-discount') : model.data('discount')
-				price = Math.round(model.data('price') * (100 - discount) / 10000)
-				$('.store_block-product-price-new').text('$ ' + price)
-				$('.store_block-product-price-old').text('$ ' + Math.floor(model.data('price') / 100))
-			} else {
+			// if (model.data('discount') || model.data('vip-discount')) {
+			// 	const discount = isVip ? model.data('vip-discount') : model.data('discount')
+			// 	price = Math.round(model.data('price') * (100 - discount) / 10000)
+			// 	$('.store_block-product-price-new').text('$ ' + price)
+			// 	$('.store_block-product-price-old').text('$ ' + Math.floor(model.data('price') / 100))
+			// } else {
 				price = Math.floor(model.data('price') / 100)
 				$('.store_block-product-price-new').text('$ ' + price)
-			}
+				if (model.data('compare_at_price')) {
+					$('.store_block-product-price-old').text('$ ' + (model.data('compare_at_price') / 100))
+				}
+			// }
 			setTotalPrice(price, charger_selected)
 
 			if (model.data('stock') <= 0) {
