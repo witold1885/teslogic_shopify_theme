@@ -112,7 +112,7 @@
 								data-model_id="{{ model.id }}"
 								data-sku="{{ model.sku }}" 
 								data-price="{{ model.price }}"
-								data-compare_at_price="{{ model.compare_at_price }}"
+								{% comment %} data-compare_at_price="{{ model.compare_at_price }}" {% endcomment %}
 								data-stock="{{ model.inventory_quantity }}"
 							>
 								<span>{{ model.title }}</span>
