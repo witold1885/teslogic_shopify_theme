@@ -227,8 +227,8 @@
 		const discountBlock = $('.black-friday-item-discount-v2')
 		// const priceBlock = $('.store_block-product-price-new')
 
-		// const basePrice = discountBlock.data('price')
-		// let currentPrice = basePrice
+		const basePrice = discountBlock.data('price')
+		let currentPrice = basePrice
 
 		if (isVip) {
 			const vipDiscount = discountBlock.data('vip-discount')
@@ -241,7 +241,7 @@
 			// const discount = discountBlock.data('discount')
 			// currentPrice = Math.round(basePrice * (100 - discount) / 10000)
 		}
-		// setTotalPrice(currentPrice, true)
+		setTotalPrice(currentPrice, true)
 
 		var imgnum = 0
 		setGalleryImage()
