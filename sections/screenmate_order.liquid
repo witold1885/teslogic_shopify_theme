@@ -281,30 +281,30 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		function checkVipCookie() {
-			const cookies = document.cookie.split('; ')
-			const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
-			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
-		}
+		// function checkVipCookie() {
+		// 	const cookies = document.cookie.split('; ')
+		// 	const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+		// 	return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+		// }
 
-		const isVip = checkVipCookie()
+		// const isVip = checkVipCookie()
 		const discountBlock = $('.black-friday-item-discount-screenmate')
 		// const priceBlock = $('.store_block-product-price-new')
 
 		const basePrice = discountBlock.data('price')
 		let currentPrice = basePrice
 
-		if (isVip) {
-			const vipDiscount = discountBlock.data('vip-discount')
+		// if (isVip) {
+			// const vipDiscount = discountBlock.data('vip-discount')
 			// const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
 
-			discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+			// discountBlock.html(`<div>${vipDiscount} %</div><div>OFF</div>`)
 			// priceBlock.text(`$ ${vipPrice}`)
 			// currentPrice = vipPrice
-		} else {
+		// } else {
 			// const discount = discountBlock.data('discount')
 			// currentPrice = Math.round(basePrice * (100 - discount) / 10000)
-		}
+		// }
 		setTotalPrice(currentPrice, true)
 
 		var imgnum = 0

@@ -507,30 +507,30 @@ Unlock advanced capabilities of your Tesla.</div>
     })
   })
 
-  function checkVipCookie() {
-    const cookies = document.cookie.split('; ')
-    const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
-    return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
-  }
+  // function checkVipCookie() {
+  //   const cookies = document.cookie.split('; ')
+  //   const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+  //   return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+  // }
 
-  const isVip = checkVipCookie()
+  // const isVip = checkVipCookie()
   
-  if (isVip) {
-    const items = document.querySelectorAll('.black-friday-item')
-    items.forEach(item => {
-      const price = Number(item.dataset.price)
-      const vipDiscount = Number(item.dataset.vipDiscount)
+  // if (isVip) {
+  //   const items = document.querySelectorAll('.black-friday-item')
+  //   items.forEach(item => {
+  //     const price = Number(item.dataset.price)
+  //     const vipDiscount = Number(item.dataset.vipDiscount)
 
-      const vipPrice = Math.round(price * (100 - vipDiscount) / 10000)
-      const originalPrice = Math.round(price / 100)
+  //     const vipPrice = Math.round(price * (100 - vipDiscount) / 10000)
+  //     const originalPrice = Math.round(price / 100)
 
-      const discountBlock = item.querySelector('.black-friday-item-discount')
-      const priceBlock = item.querySelector('.black-friday-item-price')
+  //     const discountBlock = item.querySelector('.black-friday-item-discount')
+  //     const priceBlock = item.querySelector('.black-friday-item-price')
 
-      discountBlock.innerHTML = `<div>${vipDiscount} %</div><div>OFF</div>`
-      priceBlock.innerHTML = `Buy for $ ${vipPrice}&nbsp;<span>$ ${originalPrice}</span>`
-    })
-  }
+  //     discountBlock.innerHTML = `<div>${vipDiscount} %</div><div>OFF</div>`
+  //     priceBlock.innerHTML = `Buy for $ ${vipPrice}&nbsp;<span>$ ${originalPrice}</span>`
+  //   })
+  // }
 </script>
 <!-- Black Friday Timer Script -->
   

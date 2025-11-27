@@ -900,23 +900,23 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		function checkVipCookie() {
-			const cookies = document.cookie.split('; ')
-			const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
-			return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
-		}
+		// function checkVipCookie() {
+		// 	const cookies = document.cookie.split('; ')
+		// 	const vipCookie = cookies.find(cookie => cookie.startsWith(`vip_subscription=`))
+		// 	return vipCookie ? vipCookie.replace('vip_subscription=', '') == '1' : false
+		// }
 
-		const isVip = checkVipCookie()
+		// const isVip = checkVipCookie()
 
-		if (isVip) {
-			$('.black-friday-item-discount-pro').each(function () {
-				const basePrice = $(this).data('price')
-				const vipDiscount = $(this).data('vip-discount')
+		// if (isVip) {
+			// $('.black-friday-item-discount-pro').each(function () {
+				// const basePrice = $(this).data('price')
+				// const vipDiscount = $(this).data('vip-discount')
 				// const vipPrice = Math.round(basePrice * (100 - vipDiscount) / 10000)
-				$(this).html(`<div>${vipDiscount} %</div><div>OFF</div>`)
+				// $(this).html(`<div>${vipDiscount} %</div><div>OFF</div>`)
 				// $(this).parent('.order-product').find('.order-product-data-info-price-main').text(`$ ${vipPrice}`)
-			})
-		}
+			// })
+		// }
 
 		var num
 		$('.order-product-data-preorder-button.preorder-performance').on('click', function () {
