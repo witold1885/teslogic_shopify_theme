@@ -106,8 +106,10 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">
-					<div class="store_block-product-price-new">$ {{ product.price | times: discount_value | divided_by: 10000 | round }}</div>
-					<div class="store_block-product-price-old">$ {{ product.price | divided_by: 100 | round }}</div>
+					{% comment %} <div class="store_block-product-price-new">$ {{ product.price | times: discount_value | divided_by: 10000 | round }}</div> {% endcomment %}
+					{% comment %} <div class="store_block-product-price-old">$ {{ product.price | divided_by: 100 | round }}</div> {% endcomment %}
+					<div class="store_block-product-price-new">$ {{ product.price | divided_by: 100 | round }}</div>
+					<div class="store_block-product-price-old">$ {{ product.compare_at_price | divided_by: 100 | round }}</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
