@@ -1,5 +1,6 @@
 <style>
   .static-content {
+    position: relative;
     max-width: 856px !important;
     margin: 0 auto;
     padding: 116px 0 150px;
@@ -18,8 +19,9 @@
     text-transform: capitalize;
     margin-bottom: 12px;
   }
-  .static-content p,
-  .static-content ol {
+  .static-content > p,
+  .static-content > ol,
+  .static-content > ul {
     background: #F6F6F6;
     padding: 0 32px;
   }
@@ -32,15 +34,47 @@
     padding: 0;
     background: transparent;
   }
-  .static-content ol {
-    list-style-position: inside;
-    padding-bottom: 20px;
+  .static-content h2 + p em {
+    font-style: normal;
   }
-  .static-content ol h3 {
+  .static-content > ol, .static-content > ul {
+    list-style-position: inside;
+  }
+  .static-content > ol:first-of-type {
+    padding-top: 32px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+  .static-content > ol:not(:first-of-type) {
+    padding-top: 80px;
+  }
+  .static-content > ol h3, .static-content > ul p {
     display: inline;
   }
-  .static-content > ol:first-child {
+  .static-content > p, .static-content > ul {
+    padding-top: 16px;
+  }
+  .static-content > p:has(+ ol:first-of-type) {
+    display: none;
+  }
+  .static-content > ul:has(+ ol:not(:first-of-type)),
+  .static-content > p:has(+ ol:not(:first-of-type)) {
     padding-top: 40px;
+    border-bottom: 2px solid #D9D9D9;
+    position: absolute;
+    left: 32px;
+    right: 32px;
+  }
+  .static-content > ol + p, .static-content > ol + ul {
+    padding-top: 20px;
+  }
+  .static-content > br {
+    display: none;
+  }
+  .static-content > *:last-child {
+    padding-bottom: 32px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
   }
 </style>
 
