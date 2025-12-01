@@ -62,7 +62,7 @@
   .static-content > p, .static-content > ul {
     padding-top: 16px;
   }
-  .static-content > p:has(+ ol:first-of-type) {
+  .static-content > p:has(+ ol:not([start])) {
     display: none;
   }
   .static-content > ul:has(+ ol[start]),
