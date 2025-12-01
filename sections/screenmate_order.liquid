@@ -151,13 +151,13 @@
 				<div class="store_block-add-wireless-charger">
 					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
 					<label for="select-charger" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
-					<span class="store_block-add-wireless-charger-price">+ USD 40</span>
+					<span class="store_block-add-wireless-charger-price">+ 40 USD</span>
 				</div>
 				<div class="store_block-product-order">
 					<button class="store_block-product-add">Preorder now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Preorder now</div>
-						<div class="store_block-product-add-mobile-total">USD {{ product.price | divided_by: 100 }}</div>
+						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 }} USD</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
@@ -340,7 +340,7 @@
 		function setTotalPrice(price, charger_selected) {
 			if (price) {
 				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
-				$('.store_block-product-add-mobile-total').text('USD ' + totalPrice)
+				$('.store_block-product-add-mobile-total').text(totalPrice + ' USD')
 			}
 			else {
 				$('.store_block-product-add-mobile-total').text('')
