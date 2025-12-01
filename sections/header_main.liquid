@@ -16,7 +16,6 @@
     height: 1210px;
   }
   .banner-desktop-wrap {
-    background: url({{ 'bg_2x.png' | asset_url }});
     background: url({{ 'newbrand_bg.png' | asset_url }});
     background-size: cover;
     background-position-x: center;
@@ -25,20 +24,6 @@
   }
   .banner-desktop {
     height: 100%;
-  }
-  @media screen and (min-width: 1701px) { 
-    .banner-desktop-wrap {
-      background: url({{ 'bg_2x.png' | asset_url }});
-      background-size: cover;
-      /*background-position: right 20% center;*/
-      background-position: right center;
-      background-repeat: no-repeat; 
-    }
-  }
-  @media screen and (min-width: 1251px) and (max-width: 1366px) {  
-    .banner-desktop-wrap {
-/*      background-size: 1366px 768px;*/
-    }      
   }
   .banner {
 /*    background: url({{ 'bg_mobile_2x.png' | asset_url }});*/
