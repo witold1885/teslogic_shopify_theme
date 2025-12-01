@@ -251,6 +251,18 @@
 	line-height: 40px; /* 125% */
 	opacity: 0.6;
 }
+.suptitle {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px; /* 133.333% */
+	opacity: 0.6;
+	position: absolute;
+	top: 695px;
+	left: 72px;
+}
 .title {
 	color: #FFF;
 	font-family: Manrope;
