@@ -229,6 +229,7 @@
 .banner-newbrand {
 	position: absolute;
 	top: 150px;
+	left: 72px;
 	display: flex;
 	flex-direction: column;
 	grid-row-gap: 20px;
