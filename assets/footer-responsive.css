@@ -193,6 +193,7 @@
 	}
 	.footer-menu__list {
 		width: calc(164 * 100vw / 375);
+		margin: 0 !important;
 	}
 	.footer-menu__list-title {
 		font-size: calc(18 * 100vw / 375);
