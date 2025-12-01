@@ -36,10 +36,15 @@
 		line-height: calc(36 * 100vw / 1440);
 	}
 	.store_block-product-title {
-		width: calc(486 * 100vw / 1440);
-		margin-bottom: calc(20 * 100vw / 1440);
+		/* width: calc(486 * 100vw / 1440); */
+		margin-bottom: calc(8 * 100vw / 1440);
 		font-size: calc(52 * 100vw / 1440);
 		line-height: calc(64 * 100vw / 1440);
+	}
+	.store_block-product-subtitle {
+		margin-bottom: calc(24 * 100vw / 1440);
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
 	}
 	.store_block-product-description {
 		margin-bottom: calc(20 * 100vw / 1440);

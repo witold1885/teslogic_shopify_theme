@@ -88,14 +88,23 @@
 	text-decoration: line-through;
 }
 .store_block-product-title {
-	width: 486px; 
-	margin-bottom: 20px;
+	/* width: 486px;  */
+	margin-bottom: 8px;
 	color: #000;
 	font-family: Manrope;
 	font-size: 52px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 64px;
+}
+.store_block-product-subtitle {
+	margin-bottom: 24px;
+	color: #000;
+	font-family: Manrope;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px; /* 133.333% */
 }
 .store_block-product-description {
 	margin-bottom: 20px;
