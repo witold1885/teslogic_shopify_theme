@@ -26,19 +26,16 @@
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
+	header#header_main {
+		height: calc(1210 * 100vw / 1440);
+	}
 	.top .logo {	
 		margin-left: calc(72 * 100vw / 1440);
 	}
 	.menu {
 		margin-right: calc(72 * 100vw / 1440);
 	}
-	.title {
-		left: calc(72 * 100vw / 1440);
-	}
-	.subtitle {
-		left: calc(72 * 100vw / 1440);
-	}
-	.banner-buttons {
+	.title, .suptitle, .subtitle, .banner-buttons {
 		left: calc(72 * 100vw / 1440);
 	}
 	.menu__item-cart {
@@ -49,27 +46,6 @@
 	}
 }
 
-/*@media screen and (min-width: 1367px) and (max-width: 1440px) {
-	.title {
-		left: calc((100vw - 1366px + 160px) / 2);
-	}
-	.subtitle {
-		left: calc((100vw - 1366px + 160px) / 2);
-	}
-}*/
-
-@media screen and (min-width: 576px) and (max-width: 1440px) {
-	.top {
-		width: calc(1440 * 100vw / 1440);
-	}
-}
-
-/*@media screen and (min-width: 1367px) and (max-width: 1440px) {
-	.top {
-		width: 1366px;
-	}
-}*/
-
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
 	.top {
 		width: calc(1440 * 100vw / 1440);
@@ -78,7 +54,7 @@
 
 @media screen and (min-width: 576px) and (max-width: 1700px) {
 	.top {
-/*		width: calc(1440 * 100vw / 1440);*/
+		width: calc(1440 * 100vw / 1440);
 		height: calc(96 * 100vw / 1440);
 	}
 	.top .logo {
