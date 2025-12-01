@@ -157,7 +157,7 @@
 					<button class="store_block-product-add">Preorder now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Preorder now</div>
-						<div class="store_block-product-add-mobile-total">$ {{ product.price | divided_by: 100 }}</div>
+						<div class="store_block-product-add-mobile-total">USD {{ product.price | divided_by: 100 }}</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
@@ -340,7 +340,7 @@
 		function setTotalPrice(price, charger_selected) {
 			if (price) {
 				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
-				$('.store_block-product-add-mobile-total').text('$ ' + totalPrice)
+				$('.store_block-product-add-mobile-total').text('USD ' + totalPrice)
 			}
 			else {
 				$('.store_block-product-add-mobile-total').text('')

@@ -130,7 +130,7 @@
 					<button class="store_block-product-add">Order now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">$ 259</div>
+						<div class="store_block-product-add-mobile-total">USD 259</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
@@ -310,7 +310,7 @@
 		function setTotalPrice(price, charger_selected) {
 			if (price) {
 				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
-				$('.store_block-product-add-mobile-total').text('$ ' + totalPrice)
+				$('.store_block-product-add-mobile-total').text('USD ' + totalPrice)
 			}
 			else {
 				$('.store_block-product-add-mobile-total').text('')
