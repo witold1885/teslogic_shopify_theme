@@ -169,8 +169,8 @@
 	}
 	#header_mobile {
 		width: 100%;
-		height: 100dvh;
-/*		height: 812px;*/
+		/* height: 100dvh; */
+		height: calc(1112 * 100vw / 375);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -390,6 +390,7 @@
 	}
 	.banner-newbrand {
 		position: static;
+		width: calc(335 * 100vw / 375);
 		margin-top: calc(96 * 100vw / 375);
 		grid-row-gap: calc(12 * 100vw / 375);
 	}
@@ -407,6 +408,16 @@
 		display: flex;
 		flex-direction: column;
 		grid-row-gap: calc(8 * 100vw / 375);
+	}
+	.banner__suptitle {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: calc(18 * 100vw / 375);
+		font-style: normal;
+		font-weight: 500;
+		line-height: calc(24 * 100vw / 375);
+		text-align: left;
+		opacity: 0.6;
 	}
 	.banner__title {
 		color: #FFF;
