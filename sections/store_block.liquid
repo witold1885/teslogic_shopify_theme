@@ -63,7 +63,7 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">219 USD</div>
+					<div class="store_block-product-price-new">{{ product.price | divided_by: 100 }} USD</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
@@ -130,7 +130,7 @@
 					<button class="store_block-product-add">Order now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">259 USD</div>
+						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 | plus: 40 }} USD</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
