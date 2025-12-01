@@ -65,6 +65,9 @@
   .static-content > p:has(+ ol:not([start])) {
     display: none;
   }
+  .static-content > ul + p:has(+ ul) {
+    display: none;
+  }
   .static-content > ul:has(+ ol[start]),
   .static-content > p:has(+ ol[start]) {
     height: 0;
