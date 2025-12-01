@@ -167,6 +167,7 @@
 	}
 	.order-product-data-preorder-features-item {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		grid-column-gap: 8px;
 	}
@@ -186,6 +187,18 @@
 	.order-product-data-preorder-features-item-text span {
 		color: #1657FC;
 		font-weight: 500;
+	}
+	.order-product-data-preorder-features-item-subtext {
+		color: #666;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: Manrope;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+	}
+	.order-product-data-preorder-features-item-subtext span {
+		color: #D9D9D9;
 	}
 	.order-product-data-add {
 		display: flex;
@@ -429,6 +442,10 @@
 			font-size: calc(14 * 100vw / 1440);
 			line-height: calc(20 * 100vw / 1440);
 		}
+		.order-product-data-preorder-features-item-subtext {
+			font-size: calc(12 * 100vw / 1440);
+			line-height: calc(20 * 100vw / 1440);
+		}
 		.order-product-data-add {
 			grid-column-gap: calc(8 * 100vw / 1440);
 		}
@@ -605,6 +622,10 @@
 			font-size: calc(14 * 100vw / 375);
 			line-height: calc(20 * 100vw / 375);
 		}
+		.order-product-data-preorder-features-item-subtext {
+			font-size: calc(12 * 100vw / 375);
+			line-height: calc(20 * 100vw / 375);
+		}
 		.order-product-data-add {
 			grid-column-gap: calc(8 * 100vw / 375);
 		}
@@ -715,11 +736,14 @@
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> in all domestic orders</div>
+										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
 									</div>
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>No import tax</span> for international orders</div>
+										<div class="order-product-data-preorder-features-item-text"><span>Duties and taxes</span> included in most countries*</div>
+										<div class="order-product-data-preorder-features-item-subtext">
+											*See <span>Shipping page</span> for details. 
+										</div>
 									</div>									
 								</div>
 							</div>
@@ -730,11 +754,14 @@
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> in all domestic orders</div>
+									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
 								</div>
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>No import tax</span> for international orders</div>
+									<div class="order-product-data-preorder-features-item-text"><span>Duties and taxes</span> included in most countries*</div>
+									<div class="order-product-data-preorder-features-item-subtext">
+										*See <span>Shipping page</span> for details. 
+									</div>
 								</div>									
 							</div>
 						</div>
@@ -757,11 +784,14 @@
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> in all domestic orders</div>
+										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
 									</div>
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>No import tax</span> for international orders</div>
+										<div class="order-product-data-preorder-features-item-text"><span>Duties and taxes</span> included in most countries*</div>
+										<div class="order-product-data-preorder-features-item-subtext">
+											*See <span>Shipping page</span> for details. 
+										</div>
 									</div>									
 								</div>
 							</div>
@@ -772,11 +802,14 @@
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> in all domestic orders</div>
+									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
 								</div>
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>No import tax</span> for international orders</div>
+									<div class="order-product-data-preorder-features-item-text"><span>Duties and taxes</span> included in most countries*</div>
+									<div class="order-product-data-preorder-features-item-subtext">
+										*See <span>Shipping page</span> for details. 
+									</div>
 								</div>									
 							</div>
 						</div>
