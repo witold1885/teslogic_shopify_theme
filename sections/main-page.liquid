@@ -166,6 +166,64 @@
       line-height: calc(24 * 100vw / 1440);
     }
   }
+  @media screen and (max-width: 575px) {
+    .static-content {
+      max-width: calc(335 * 100vw / 375) !important;
+      padding: calc(16 * 100vw / 375) 0 calc(96 * 100vw / 375);
+    }
+    .static-content h2 {
+      font-size: calc(32 * 100vw / 375);
+      line-height: calc(40 * 100vw / 375);
+      margin-bottom: calc(12 * 100vw / 375);
+    }
+    .static-content h2:not(:first-of-type) {
+      margin-top: calc(80 * 100vw / 375);
+    }
+    .static-content > p,
+    .static-content > ol,
+    .static-content > ul {
+      padding: 0 calc(16 * 100vw / 375);
+    }
+    .static-content h2 + p {
+      font-size: calc(18 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
+      margin-bottom: calc(40 * 100vw / 375);
+    }
+    .static-content > ol {
+      padding-top: calc(16 * 100vw / 375);
+      border-top-left-radius: calc(16 * 100vw / 375);
+      border-top-right-radius: calc(16 * 100vw / 375);
+    }
+    .static-content > ol[start] {
+      padding-top: calc(48 * 100vw / 375);
+    }
+    .static-content > p, .static-content > ul {
+      padding-top: calc(16 * 100vw / 375);
+    }
+    .static-content > ul:has(+ ol[start]),
+    .static-content > p:has(+ ol[start]) {
+      padding-top: calc(24 * 100vw / 375);
+      left: calc(16 * 100vw / 375);
+      right: calc(16 * 100vw / 375);
+    }
+    .static-content > ol + p, .static-content > ol + ul {
+      padding-top: calc(16 * 100vw / 375);
+    }
+    .static-content > p:has(+ h2),
+    .static-content > *:last-child {
+      padding-bottom: calc(16 * 100vw / 375);
+      border-bottom-left-radius: calc(16 * 100vw / 375);
+      border-bottom-right-radius: calc(16 * 100vw / 375);
+    }
+    .static-content ol li {
+      font-size: calc(18 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
+    }
+    .static-content p, .static-content ul li {
+      font-size: calc(16 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
+    }
+  }
 </style>
 
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
