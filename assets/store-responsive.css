@@ -145,7 +145,8 @@
 	.store_block-product-info-main {
 		display: flex;
 		flex-direction: row-reverse;
-		justify-content: space-between;
+		flex-wrap: wrap;
+  		justify-content: flex-end;
 		align-items: flex-start;
 	}
 	.store_block-product-title {
