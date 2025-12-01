@@ -88,7 +88,7 @@
                   {% for product in collections['all'].products %}
                     {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'screenmate-dash-kit' and product.handle != 'powermate-boost-kit' and product.handle != 'powermate-performace-kit' and product.handle != 'teslogic-screenmate' %}
                       <li class="menu__item-dropdown-link">
-                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                        <a href="/products/{{ product.handle }}">{{ product.title | replace: "Screenmate", "" | strip }}</a>
                       </li>
                     {% endif %}
                   {% endfor %}
@@ -179,7 +179,7 @@
                   {% for product in collections['all'].products %}
                     {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'screenmate-dash-kit' and product.handle != 'powermate-boost-kit' and product.handle != 'powermate-performace-kit' and product.handle != 'teslogic-screenmate' %}
                       <li class="menu__item-dropdown-link">
-                        <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                        <a href="/products/{{ product.handle }}">{{ product.title | replace: "Screenmate", "" | strip }}</a>
                       </li>
                     {% endif %}
                   {% endfor %}
@@ -266,7 +266,7 @@
                 {% for product in collections['all'].products %}
                   {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'screenmate-dash-kit' and product.handle != 'powermate-boost-kit' and product.handle != 'powermate-performace-kit' and product.handle != 'teslogic-screenmate' %}
                     <li class="menu__item-dropdown-link">
-                      <a href="/products/{{ product.handle }}">{{ product.title }}</a>
+                      <a href="/products/{{ product.handle }}">{{ product.title | replace: "Screenmate", "" | strip }}</a>
                     </li>
                   {% endif %}
                 {% endfor %}
