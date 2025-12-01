@@ -38,7 +38,7 @@
       <div class="footer-menu">
         {% for link in linklists.main-menu.links %}
           {% if link.title != 'Accessories' and link.title != 'For customers' and link.title != 'Buy Now' %}
-            <div class="footer-menu__list footer-menu__list-main-{{ forloop.index | plus: 1 }}">
+            <div class="footer-menu__list footer-menu__list-main-{{ forloop.index }}">
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
@@ -55,7 +55,7 @@
 
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'Accessories' %}
-            <div class="footer-menu__list footer-menu__list-big">
+            <div class="footer-menu__list footer-menu__list-last">
               <div class="footer-menu__list-title">
                 Accessories
               </div>
@@ -86,7 +86,7 @@
         </div>
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'For customers' %}
-            <div class="footer-menu__list">
+            <div class="footer-menu__list footer-menu__list-customers">
               <div class="footer-menu__list-title">
                 For customer
               </div>
@@ -119,7 +119,7 @@
             </li>
           </ul>
         </div>
-        <div class="footer-menu__list footer-menu__list-big footer-menu__list-legal">
+        <div class="footer-menu__list footer-menu__list-last footer-menu__list-legal">
           <div class="footer-menu__list-title">
             Legal
           </div>

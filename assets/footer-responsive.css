@@ -60,14 +60,19 @@
 		height: calc(40 * 100vw / 1440);
 	}
 	.footer-menu {
-		grid-column-gap: calc(24 * 100vw / 1440);
 		grid-row-gap: calc(52 * 100vw / 1440);
 	}
 	.footer-menu__list {
 		width: calc(196 * 100vw / 1440);
+		margin-right: calc(24 * 100vw / 1440);
 	}
-	.footer-menu__list-big {
-		width: calc(306 * 100vw / 1440);
+	.footer-menu__list-main-1, .footer-menu__list-contacts {
+		width: calc(223 * 100vw / 1440);
+		margin-right: calc(60 * 100vw / 1440);
+	}
+	.footer-menu__list-main-2, .footer-menu__list-customers {
+		width: calc(213 * 100vw / 1440);
+		margin-right: calc(55 * 100vw / 1440);
 	}
 	.footer-menu__list-title {
 		font-size: calc(24 * 100vw / 1440);
