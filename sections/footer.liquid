@@ -38,7 +38,7 @@
       <div class="footer-menu">
         {% for link in linklists.main-menu.links %}
           {% if link.title != 'Accessories' and link.title != 'For customers' and link.title != 'Buy Now' %}
-            <div class="footer-menu__list">
+            <div class="footer-menu__list footer-menu__list-main-{{ forloop.index | plus: 1 }}">
               <div class="footer-menu__list-title">
                 {{ link.title }}
               </div>
