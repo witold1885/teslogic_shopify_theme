@@ -280,9 +280,12 @@
 	.store_block-product-add-mobile-total {
 		width: calc(102 * 100vw / 375);
 		height: 100%;
-		padding: calc(16 * 100vw / 375) 0 calc(16 * 100vw / 375) calc(24 * 100vw / 375);
+		/* padding: calc(16 * 100vw / 375) 0 calc(16 * 100vw / 375) calc(24 * 100vw / 375); */
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.16) 100%), linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
 		text-align: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.store_block-product-add-mobile.store_block-product-add-add {
 		justify-content: center;
