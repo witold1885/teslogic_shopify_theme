@@ -65,8 +65,8 @@
   .static-content > p:has(+ ol:first-of-type) {
     display: none;
   }
-  .static-content > ul:has(+ ol:not(:first-of-type)),
-  .static-content > p:has(+ ol:not(:first-of-type)) {
+  .static-content > ul:has(+ ol:not([start])),
+  .static-content > p:has(+ ol:not([start])) {
     height: 0;
     padding-top: 40px;
     border-bottom: 2px solid #D9D9D9;
