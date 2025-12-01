@@ -115,6 +115,7 @@
 	}
 	.store_block-product-order-feature {
 		grid-column-gap: calc(8 * 100vw / 1440);
+		grid-row-gap: calc(4 * 100vw / 1440);
 	}
 	.store_block-product-order-feature-icon {
 		width: calc(20 * 100vw / 1440);
