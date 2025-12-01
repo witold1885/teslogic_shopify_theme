@@ -8,18 +8,18 @@
 		font-size: calc(64 * 100vw / 1920);
 		line-height: calc(72 * 100vw / 1920);
 /*		width: calc(541 * 100vw / 1920);*/
-		top: calc(329 * 100vw / 1920);
+		/* top: calc(329 * 100vw / 1920); */
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 	.subtitle {
 /*		font-size: calc(48 * 100vw / 1920);*/
 /*		line-height: calc(64 * 100vw / 1920);*/
 /*		width: calc(541 * 100vw / 1920);*/
-		top: calc(413 * 100vw / 1920);
+		/* top: calc(413 * 100vw / 1920); */
 		/*left: calc(128 * 100vw / 1920);*/
 	}
 	.banner-buttons {
-		top: calc(505 * 100vw / 1920);
+		/* top: calc(505 * 100vw / 1920); */
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
