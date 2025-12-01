@@ -37,22 +37,24 @@
       </div>
       <div class="footer-menu">
         {% for link in linklists.main-menu.links %}
-          <div class="footer-menu__list">
-            <div class="footer-menu__list-title">
-              {{ link.title }}
+          {% if link.title != 'Accessories' and link.title != 'For customers' and link.title != 'Buy Now' %}
+            <div class="footer-menu__list">
+              <div class="footer-menu__list-title">
+                {{ link.title }}
+              </div>
+              {% if link.links.size > 0 %}
+                <ul class="footer-menu__list-items">
+                  {% for child_link in link.links %}
+                    <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </div>
-            {% if link.links.size > 0 %}
-              <ul class="footer-menu__list-items">
-                {% for child_link in link.links %}
-                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
+          {% endif %}
         {% endfor %}
 
         {% for link in linklists.main-menu.links %}
-          {% if link.title == 'Other Products' or link.title == 'Accessories' %}
+          {% if link.title == 'Accessories' %}
             <div class="footer-menu__list footer-menu__list-big">
               <div class="footer-menu__list-title">
                 Accessories
@@ -83,7 +85,7 @@
           </ul>
         </div>
         {% for link in linklists.main-menu.links %}
-          {% if link.title == 'Contacts' or link.title == 'For customer' %}
+          {% if link.title == 'For customers' %}
             <div class="footer-menu__list">
               <div class="footer-menu__list-title">
                 For customer
