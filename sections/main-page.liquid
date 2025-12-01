@@ -62,9 +62,7 @@
   .static-content > p, .static-content > ul {
     padding-top: 16px;
   }
-  .static-content > p:has(+ ol:not([start])) {
-    display: none;
-  }
+  .static-content > p:has(+ ol:not([start])),
   .static-content > ul + p:has(+ ul) {
     display: none;
   }
@@ -109,6 +107,64 @@
   .static-content a {
     color: #1657FC;
     text-decoration: none;
+  }
+  @media screen and (min-width: 576px) and (max-width: 1440px) {
+    .static-content {
+      max-width: calc(856 * 100vw / 1440) !important;
+      padding: calc(116 * 100vw / 1440) 0 calc(150 * 100vw / 1440);
+    }
+    .static-content h2 {
+      font-size: calc(52 * 100vw / 1440);
+      line-height: calc(64 * 100vw / 1440);
+      margin-bottom: calc(12 * 100vw / 1440);
+    }
+    .static-content h2:not(:first-of-type) {
+      margin-top: calc(80 * 100vw / 1440);
+    }
+    .static-content > p,
+    .static-content > ol,
+    .static-content > ul {
+      padding: 0 calc(32 * 100vw / 1440);
+    }
+    .static-content h2 + p {
+      font-size: calc(24 * 100vw / 1440);
+      line-height: calc(32 * 100vw / 1440);
+      margin-bottom: calc(40 * 100vw / 1440);
+    }
+    .static-content > ol {
+      padding-top: calc(32 * 100vw / 1440);
+      border-top-left-radius: calc(24 * 100vw / 1440);
+      border-top-right-radius: calc(24 * 100vw / 1440);
+    }
+    .static-content > ol[start] {
+      padding-top: calc(80 * 100vw / 1440);
+    }
+    .static-content > p, .static-content > ul {
+      padding-top: calc(16 * 100vw / 1440);
+    }
+    .static-content > ul:has(+ ol[start]),
+    .static-content > p:has(+ ol[start]) {
+      padding-top: calc(40 * 100vw / 1440);
+      left: calc(32 * 100vw / 1440);
+      right: calc(32 * 100vw / 1440);
+    }
+    .static-content > ol + p, .static-content > ol + ul {
+      padding-top: calc(20 * 100vw / 1440);
+    }
+    .static-content > p:has(+ h2),
+    .static-content > *:last-child {
+      padding-bottom: calc(32 * 100vw / 1440);
+      border-bottom-left-radius: calc(24 * 100vw / 1440);
+      border-bottom-right-radius: calc(24 * 100vw / 1440);
+    }
+    .static-content ol li {
+      font-size: calc(32 * 100vw / 1440);
+      line-height: calc(40 * 100vw / 1440);
+    }
+    .static-content p, .static-content ul li {
+      font-size: calc(16 * 100vw / 1440);
+      line-height: calc(24 * 100vw / 1440);
+    }
   }
 </style>
 
