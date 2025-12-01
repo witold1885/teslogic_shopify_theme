@@ -46,13 +46,15 @@
   .static-content > ol, .static-content > ul {
     list-style-position: inside;
   }
-  .static-content > ol:first-of-type {
+  .static-content > ol {
     padding-top: 32px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
   }
-  .static-content > ol:not(:first-of-type) {
+  .static-content > ol[start] {
     padding-top: 80px;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
   }
   .static-content > ol h3, .static-content > ul p {
     display: inline;
