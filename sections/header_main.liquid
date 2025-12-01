@@ -16,9 +16,10 @@
   }
   .banner-desktop-newbrand {
     height: 700px;
-    background: linear-gradient(180deg, #000 80.31%, rgba(0, 0, 0, 0.00) 100%);
-    background-position: center;
-    background-size: cover;
+    /* background: linear-gradient(180deg, #000 80.31%, rgba(0, 0, 0, 0.00) 100%); */
+    background-image: url({{ 'newbrand_top_bg_black.png' | asset_url }});
+    background-position-x: center;
+    background-size: auto 100%;
   }
   .banner-desktop-newbrand-top {
     width: 100%;
@@ -28,8 +29,8 @@
     left: 0;
     right: 0;
     background-image: url({{ 'newbrand_top_bg.png' | asset_url }});
-    background-position: center;
-    background-size: cover;
+    background-position-x: center;
+    background-size: auto 100%;
   }
   .banner-desktop-wrap {
     background: url({{ 'bg_2x.png' | asset_url }});
