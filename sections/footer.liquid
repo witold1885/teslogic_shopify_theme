@@ -63,7 +63,7 @@
                 {% for product in collections['all'].products %}
                   {% if product.handle != 'teslogic-transmitter-kit' and product.handle != 'screenmate-dash-kit' and product.handle != 'powermate-boost-kit' and product.handle != 'powermate-performace-kit' and product.handle != 'teslogic-screenmate' %}
                     <li>
-                      <a href="/products/{{ product.handle }}">{{ product.title | replace: "Screenmate", "" | strip }}</a>
+                      <a href="/products/{{ product.handle }}">{{ product.title | replace: "Screenmate", "" | replace: "Dash", "" | strip }}</a>
                     </li>
                   {% endif %}
                 {% endfor %}
