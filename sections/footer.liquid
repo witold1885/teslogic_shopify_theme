@@ -37,6 +37,21 @@
       </div>
       <div class="footer-menu">
         {% for link in linklists.main-menu.links %}
+          <div class="footer-menu__list">
+            <div class="footer-menu__list-title">
+              {{ link.title }}
+            </div>
+            {% if link.links.size > 0 %}
+              <ul class="footer-menu__list-items">
+                {% for child_link in link.links %}
+                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        {% comment %} {% for link in linklists.main-menu.links %}
           {% if link.title == 'Screenmate' %}
             <div class="footer-menu__list">
               <div class="footer-menu__list-title">
@@ -97,7 +112,7 @@
               </ul>
             </div>
           {% endif %}
-        {% endfor %}
+        {% endfor %} {% endcomment %}
         <div class="footer-menu__list footer-menu__list-contacts">
           <div class="footer-menu__list-title">
             Contacts
