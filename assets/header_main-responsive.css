@@ -388,6 +388,19 @@
 		justify-content: space-between;
 		align-items: center;
 	}
+	.banner-newbrand {
+		position: static;
+		margin-top: calc(96 * 100vw / 375);
+		grid-row-gap: calc(12 * 100vw / 375);
+	}
+	.banner-newbrand-title {
+		font-size: calc(40 * 100vw / 375);
+		line-height: calc(48 * 100vw / 375);
+	}
+	.banner-newbrand-subtitle {
+		font-size: calc(18 * 100vw / 375);
+		line-height: calc(24 * 100vw / 375);
+	}
 	.banner-top {
 		width: calc(335 * 100vw / 375);
 		margin-top: calc(128 * 100vw / 375);
