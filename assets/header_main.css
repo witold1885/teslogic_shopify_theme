@@ -219,13 +219,36 @@
 }
 .banner-desktop {
 	width: 1440px;
-	/* height: 810px; */
 	margin: 0 auto;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: center;
+}
+.banner-newbrand {
+	position: absolute;
+	top: 150px;
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
+.banner-newbrand-title {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 64px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 72px; /* 112.5% */
+}
+.banner-newbrand-subtitle {
+	color: #FFF;
+	font-family: Manrope;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 40px; /* 125% */
+	opacity: 0.6;
 }
 .title {
 	color: #FFF;
@@ -235,7 +258,7 @@
 	font-weight: 600;
 	line-height: 72px;
 	position: absolute;
-	top: 329px;
+	top: 729px;
 	left: 72px;
 }
 .subtitle {
@@ -246,12 +269,12 @@
 	font-weight: 300;
 	line-height: 32px;
 	position: absolute;
-	top: 413px;
+	top: 813px;
 	left: 72px;
 }
 .banner-buttons {
 	position: absolute;
-	top: 505px;
+	top: 905px;
 	left: 72px;
 	display: flex;
 	align-items: center;
