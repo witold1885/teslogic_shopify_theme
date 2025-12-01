@@ -124,6 +124,10 @@
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
+	.store_block-product-order-feature-subtext {
+		font-size: calc(12 * 100vw / 1440);
+		line-height: calc(20 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) {

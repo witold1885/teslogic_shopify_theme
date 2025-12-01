@@ -304,3 +304,15 @@
 	color: #1657FC;
 	font-weight: 500;
 }
+.store_block-product-order-feature-subtext {
+	color: #666;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-family: Manrope;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px; /* 166.667% */
+}
+.store_block-product-order-feature-subtext span {
+	color: #1A1A1A;
+}
