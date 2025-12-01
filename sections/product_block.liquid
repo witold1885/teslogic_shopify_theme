@@ -56,7 +56,7 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
 					<div class="store_block-product-price-new">
-						${{ product.price | divided_by: 100 }}
+						{{ product.price | divided_by: 100 }} USD
 					</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
@@ -387,13 +387,13 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())			
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
-				$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
 				$('.store_block-product-price-current').hide()
 				$('.store_block-product-price-old').show()
 				$('.store_block-product-price-new').show()
 			}
 			else {
-				$('.store_block-product-price-current').text('$' + (model.data('price') / 100))
+				$('.store_block-product-price-current').text((model.data('price') / 100) + ' USD')
 				$('.store_block-product-price-old').hide()
 				$('.store_block-product-price-new').hide()
 				$('.store_block-product-price-current').show()

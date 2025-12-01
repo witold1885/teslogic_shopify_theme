@@ -94,8 +94,8 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">${{ product.price | divided_by: 100 }}</div>
-					<div class="store_block-product-price-old">${{ product.compare_at_price | divided_by: 100 }}</div>
+					<div class="store_block-product-price-new">{{ product.price | divided_by: 100 }} USD</div>
+					<div class="store_block-product-price-old">{{ product.compare_at_price | divided_by: 100 }} USD</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
@@ -319,11 +319,11 @@
 					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price-new').text('$' + (model.data('price') / 100))
+			$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
 			price = model.data('price') / 100
 			setTotalPrice(price, charger_selected)
 			if (model.data('compare_at_price')) {
-				$('.store_block-product-price-old').text('$' + (model.data('compare_at_price') / 100))
+				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
 			}
 			if (model.data('stock') <= 0) {
 				$('.store_block-add-wireless-charger-time').show()
