@@ -66,6 +66,9 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
+	.faq__chapter-question-answer > span:last-child {
+		grid-column-gap: calc(24 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) { 
@@ -144,5 +147,8 @@
 	}
 	.faq__chapter-question-answer br {
 		display: none;
+	}
+	.faq__chapter-question-answer > span:last-child {
+		grid-column-gap: calc(24 * 100vw / 375);
 	}
 }
