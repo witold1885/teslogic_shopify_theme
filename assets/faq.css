@@ -167,6 +167,11 @@
 	color: #1657FC;
 	text-decoration: none;
 }
+.faq__chapter-question-answer > span:last-child {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 24px;
+}
 .pro-faq .faq__chapter-question-text {
 	color: #FFF;
 	font-weight: 600;
