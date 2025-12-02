@@ -149,6 +149,6 @@
 		display: none;
 	}
 	.faq__chapter-question-answer > span:last-child {
-		grid-column-gap: calc(24 * 100vw / 375);
+		grid-column-gap: calc(20 * 100vw / 375);
 	}
 }
