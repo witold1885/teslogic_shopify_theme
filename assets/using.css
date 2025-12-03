@@ -61,6 +61,7 @@
 	right: 20px;
 	width: 20px;
 	height: 20px;
+	cursor: pointer;
 }
 .using__video-popup-close img {
 	width: 100%;
