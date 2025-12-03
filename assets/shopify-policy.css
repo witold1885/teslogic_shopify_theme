@@ -19,6 +19,7 @@
     font-weight: 500;
     line-height: 64px;
     text-transform: capitalize;
+    text-align: left;
 }
 .shopify-policy__body > .rte > div > p:first-child {
     font-size: 24px;
@@ -34,6 +35,13 @@
 .shopify-policy__body > .rte > div > ul {
     background: #F6F6F6;
     padding: 0 32px;
+}
+.shopify-policy__body > .rte > div > ul {
+    list-style-position: inside;
+}
+.shopify-policy__body > .rte > div > p,
+.shopify-policy__body > .rte > div > ul {
+    padding-top: 16px;
 }
 .shopify-policy__body > .rte > div > p:nth-child(2) {
     padding-top: 32px;
