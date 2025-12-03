@@ -340,12 +340,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               document.cookie = `discount_subscription=${value}; ${expires}; path=/`
             }
 
-            setTimeout(() => {
-              const cookieExists = checkSubscriptionCookie()
-              if (!cookieExists) {
-                $('#subscription-popup').css('display', 'flex')
-              }
-            }, 10000)
+            // setTimeout(() => {
+            //   const cookieExists = checkSubscriptionCookie()
+            //   if (!cookieExists) {
+            //     $('#subscription-popup').css('display', 'flex')
+            //   }
+            // }, 10000)
 
             $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
               setSubscriptionCookie(0)
