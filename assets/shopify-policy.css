@@ -57,6 +57,9 @@
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
 }
+.shopify-policy__body > .rte > div > p:nth-child(3) {
+    padding-top: 232px;
+}
 .shopify-policy__body > .rte > div > ul:has(+ h2),
 .shopify-policy__body > .rte > div > p:has(+ h2) {
     padding-bottom: 40px;
