@@ -1,0 +1,29 @@
+.shopify-policy__container {
+    position: relative;
+    max-width: 856px !important;
+    margin: 0 auto;
+    padding: 116px 0 150px;
+    color: #000;
+    font-family: Manrope;
+    font-style: normal;
+}
+.shopify-policy__container * {
+    margin: 0;
+    padding: 0;
+}
+.shopify-policy__title {
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 64px;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+}
+.shopify-policy__body > .rte > div > p:first-child {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    opacity: 0.6;
+    margin-bottom: 40px;
+    padding: 0;
+    background: transparent;
+}
