@@ -21,10 +21,12 @@
     }
   }
   .banner-desktop-wrap {
-    background: url({{ 'newbrand_bg.png' | asset_url }});
-    background-size: cover;
-    background-position-x: center;
-    background-repeat: no-repeat; 
+    background: url({{ 'newbrand_bg_gradient.png' | asset_url }})
+                url({{ 'newbrand_bg_black.png' | asset_url }})
+                url({{ 'newbrand_bg_image.png' | asset_url }});
+    background-position: top center, top center, bottom center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, cover, cover;
     height: 100%;
   }
   .banner-desktop {
