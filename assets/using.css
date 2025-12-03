@@ -1,6 +1,9 @@
+#using {
+	margin-bottom: 150px;
+}
 .using {
 	width: 1296px;
-	margin: 150px auto 180px;
+	margin: 0 auto 180px;
 /*	margin-bottom: 180px;*/
 	display: flex;
 	flex-direction: column;
