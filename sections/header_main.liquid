@@ -90,10 +90,10 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
           >
-            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -209,10 +209,10 @@ Unlock advanced capabilities of your Tesla.</div>
         {% for link in linklists.main-menu.links %}
         {% if link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
           >
-            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
+            <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
@@ -336,12 +336,12 @@ Unlock advanced capabilities of your Tesla.</div>
       {% for link in linklists.main-menu.links %}
       {% if link.title != 'Community' %}
         <div
-          class="menu__item {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+          class="menu__item {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
           {% if link.title == 'Buy Now' %} style="display: none;" {% endif %}
         >
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
-              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Teslogic Pro' or link.title == 'Screenmate' or link.title == 'Powermate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
+              <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
               <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
               <img class="menu__item-chevron menu__item-chevron-up" src="{{ 'chevron-up-grey.svg' | asset_url }}">
             </div>
