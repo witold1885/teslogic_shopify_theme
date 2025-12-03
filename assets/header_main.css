@@ -245,10 +245,10 @@
 .banner-newbrand-subtitle {
 	color: #FFF;
 	font-family: Manrope;
-	font-size: 32px;
+	font-size: 24px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 40px; /* 125% */
+	line-height: 32px; /* 125% */
 	opacity: 0.6;
 }
 .suptitle {
