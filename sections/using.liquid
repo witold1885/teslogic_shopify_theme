@@ -10,6 +10,9 @@
 		<a class="using__video-show">Watch Video<img src="{{ 'chevron-right-blue.svg' | asset_url }}"></a>
 	</div>
 	<div class="using__video-popup">
+		<div class="using__video-popup-close">
+			<img src="{{ 'close-white.svg' | asset_url }}">
+		</div>
 		<div class="using__video manuals__video">
 			<iframe title="Screenmate Dash Installation Guide | Tesla Model 3 (2021+)" src="https://www.youtube.com/embed/iCKNAsNVlRk" height="720" width="1280" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
 		</div>
@@ -75,6 +78,11 @@ $(document).ready(function() {
 	        $('.using__video-popup').hide()
 	        videoShow = false
 	    }
+	})
+
+	$('.using__video-popup-close').on('click', function (e) {
+		$('.using__video-popup').hide()
+		videoShow = false
 	})
 })
 </script>

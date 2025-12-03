@@ -22,6 +22,12 @@
 	.using__subtitle a {
 		margin-top: calc(6 * 100vw / 1440);
 	}
+	.using__video-popup-close {
+		top: calc(20 * 100vw / 1440);
+		right: calc(20 * 100vw / 1440);
+		width: calc(20 * 100vw / 1440);
+		height: calc(20 * 100vw / 1440);
+	}
 	.using__content {
 		grid-column-gap: calc(24 * 100vw / 1440);
 		margin-top: calc(34 * 100vw / 1440);
