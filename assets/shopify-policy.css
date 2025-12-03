@@ -18,7 +18,7 @@
     font-size: 52px;
     font-weight: 500;
     line-height: 64px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     text-align: left;
 }
 .shopify-policy__body > .rte > div > p:first-child {
@@ -47,6 +47,14 @@
     padding-top: 32px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+}
+.shopify-policy__body > .rte > div > ul:has(+ h2),
+.shopify-policy__body > .rte > div > p:has(+ h2) {
+    padding-bottom: 40px;
+    border-bottom: 2px solid #D9D9D9;
+}
+.shopify-policy__body > .rte > div > h2:not(:first-child) {
+    padding-top: 40px;
 }
 .shopify-policy__body > .rte > div > p:last-child {
     padding-bottom: 32px;
