@@ -24,6 +24,8 @@
 .shopify-policy__body > .rte > div {
     background: #f6f6f6;
     padding: 0 32px 32px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 .shopify-policy__body > .rte > div > p:first-child {
     background: #FEFEFE;
@@ -58,9 +60,4 @@
 }
 .shopify-policy__body > .rte > div > h2:not(:first-child) {
     padding-top: 40px;
-}
-.shopify-policy__body > .rte > div > p:last-child {
-    padding-bottom: 32px;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
 }
