@@ -41,8 +41,8 @@
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: none;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.25px;
     text-underline-position: from-font;
 }
 .shopify-pc__banner__btns {
