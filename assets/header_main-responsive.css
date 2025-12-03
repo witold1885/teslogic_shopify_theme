@@ -163,7 +163,7 @@
 
 @media screen and (min-height: 700px) {	
 	.banner-newbrand {
-		top: calc((150 / 1440 * 100vw) + (100vh - 700px) / 2);
+		top: calc((150 / 1440 * 100vw) + (100vh - (700 * 100vw / 1440)) / 2);
 	}
 }
 
