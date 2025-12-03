@@ -49,6 +49,13 @@
     padding-top: 16px;
 }
 .shopify-policy__body > .rte > div > p:nth-child(2) {
+    position: absolute;
+    z-index: 2;
+    margin-left: -32px;
+    padding-left: 32px;
+    margin-right: -32px;
+    padding-right: 32px;
+    margin-top: -32px;
     padding-top: 32px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
