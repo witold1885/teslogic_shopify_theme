@@ -12,11 +12,13 @@
     padding: 0;
 }
 .shopify-policy__title {
+    margin-bottom: 12px;
+}
+.shopify-policy__title h1 {
     font-size: 52px;
     font-weight: 500;
     line-height: 64px;
     text-transform: capitalize;
-    margin-bottom: 12px;
 }
 .shopify-policy__body > .rte > div > p:first-child {
     font-size: 24px;
@@ -26,4 +28,20 @@
     margin-bottom: 40px;
     padding: 0;
     background: transparent;
+}
+.shopify-policy__body > .rte > div > p,
+.shopify-policy__body > .rte > div > h2,
+.shopify-policy__body > .rte > div > ul {
+    background: #F6F6F6;
+    padding: 0 32px;
+}
+.shopify-policy__body > .rte > div > p:nth-child(2) {
+    padding-top: 32px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.shopify-policy__body > .rte > div > p:last-child {
+    padding-bottom: 32px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
