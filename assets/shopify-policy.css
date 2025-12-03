@@ -12,7 +12,7 @@
     padding: 0;
 }
 .shopify-policy__title {
-    margin-bottom: 12px;
+    margin-bottom: 84px;
 }
 .shopify-policy__title h1 {
     font-size: 52px;
@@ -22,16 +22,18 @@
     text-align: left;
 }
 .shopify-policy__body > .rte > div {
+    position: relative;
     background: #f6f6f6;
     padding: 32px;
     border-radius: 24px;
 }
 .shopify-policy__body > .rte > div > p:first-child {
-    /* background: #FEFEFE;
-    margin: 0 -32px;
-    padding: 0 0 72px; */
-
     position: absolute;
+    top: -72px;
+    left: 0;
+    padding: 0;
+    background: unset;
+
     font-size: 24px;
     font-weight: 500;
     line-height: 32px;
