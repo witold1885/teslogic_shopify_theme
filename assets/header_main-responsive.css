@@ -117,8 +117,8 @@
 		line-height: calc(72 * 100vw / 1440); /* 112.5% */
 	}
 	.banner-newbrand-subtitle {
-		font-size: calc(32 * 100vw / 1440);
-		line-height: calc(40 * 100vw / 1440); /* 125% */
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440); /* 125% */
 	}
 	.suptitle {
 		font-size: calc(24 * 100vw / 1440);
