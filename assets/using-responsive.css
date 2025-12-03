@@ -1,6 +1,6 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
 	#using {
-		margin-bottom: calc(150 * 100vw / 1440);
+		padding-bottom: calc(150 * 100vw / 1440);
 	}
 	.using {
 		width: calc(1296 * 100vw / 1440);
