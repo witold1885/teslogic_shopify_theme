@@ -51,6 +51,9 @@
 .shopify-policy__body > .rte > div > ul {
     padding-top: 16px;
 }
+.shopify-policy__body > .rte > div > p:nth-child(2) {
+    padding-top: 0;
+}
 .shopify-policy__body > .rte > div > ul:has(+ h2),
 .shopify-policy__body > .rte > div > p:has(+ h2) {
     padding-bottom: 40px;
@@ -58,4 +61,8 @@
 }
 .shopify-policy__body > .rte > div > h2:not(:first-child) {
     padding-top: 40px;
+}
+.shopify-policy__body a {
+    color: #1657FC;
+    text-decoration: none;
 }
