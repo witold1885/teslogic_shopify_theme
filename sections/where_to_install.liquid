@@ -23,21 +23,17 @@
 								{% if line != "" %}
 									{% assign parts = line | split:":" %}
 									{% assign key = parts[0] | remove: "<p>" | strip %}
-									{% if key != 'address' %}
+									{% if key != 'address' and key != 'latlng' %}
 										{% assign value = parts[1] | remove: "<p>" | strip %}
 										<div class="where__item-data-item">
-											{% if key == 'latlng' %}
-												{% assign latlng = value %}
-											{% else %}
-												<div class="where__item-data-item-key">{{ key }}:</div>
-												<div class="where__item-data-item-value">
-													{% if key == 'site' %}
-														<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
-													{% else %}
-														{{ value }}
-													{% endif %}
-												</div>
-											{% endif %}
+											<div class="where__item-data-item-key">{{ key }}:</div>
+											<div class="where__item-data-item-value">
+												{% if key == 'site' %}
+													<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
+												{% else %}
+													{{ value }}
+												{% endif %}
+											</div>
 										</div>
 									{% endif %}
 								{% endif %}
@@ -69,15 +65,27 @@
 							{% endfor %}
 						</div>
 					</div>
-					<div class="where__item-map">
-						<iframe
-						  width="392"
-						  height="288"
-						  style="border:0"
-						  loading="lazy"
-						  allowfullscreen
-						  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&q={{ latlng }}&zoom=15">
-						</iframe>
+					<div class="where__item-maps">
+						{% for line in blog_lines %}
+							{% assign line = line | remove:"<p>" | strip %}
+							{% if line != "" %}
+								{% assign parts = line | split:":" %}
+								{% assign key = parts[0] | remove: "<p>" | strip %}
+								{% if key == 'latlng' %}
+									{% assign value = parts[1] | remove: "<p>" | strip %}
+									<div class="where__item-map">
+										<iframe
+											width="281"
+											height="76"
+											style="border:0"
+											loading="lazy"
+											allowfullscreen
+											src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&q={{ value }}&zoom=15">
+										</iframe>
+									</div>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>				
 			</div>
