@@ -264,3 +264,6 @@
 	font-weight: 500;
 	line-height: 20px;
 }
+.shortcuts-features-block-item-content p {
+	margin: 0;
+}
