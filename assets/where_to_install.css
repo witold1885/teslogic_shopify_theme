@@ -48,6 +48,7 @@
 .where__item-left {
 	width: 558px;
 	display: flex;
+	justify-content: space-between;
 }
 .where__item-title {
 	color: #000;
@@ -87,9 +88,10 @@
 	width: 300px;
 }
 .where__item-right {
+	width: 621px;
 	display: flex;
 	justify-content: flex-end;
-	grid-column-gap: 24px;
+	grid-column-gap: 40px;
 }
 .where__item-image {
 	width: 250px;
