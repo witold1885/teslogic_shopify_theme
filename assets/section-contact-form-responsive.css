@@ -34,6 +34,11 @@
     height: calc(132 * 100vw / 1440);
     padding: calc(16 * 100vw / 1440) calc(16 * 100vw / 1440);
   }
+  .contact__field-error {
+    bottom: calc(-1 * 22 * 100vw / 1440);
+    font-size: calc(14 * 100vw / 1440);
+    line-height: calc(20 * 100vw / 1440);
+  }
   .contact__button {
     height: calc(52 * 100vw / 1440);
     border-radius: calc(54 * 100vw / 1440);
@@ -111,6 +116,11 @@
   .contact__field-textarea {
     height: calc(132 * 100vw / 375);
     padding: calc(16 * 100vw / 375);
+  }
+  .contact__field-error {
+    bottom: calc(-1 * 22 * 100vw / 375);
+    font-size: calc(14 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
   }
   .contact__button {
     height: calc(52 * 100vw / 375);
