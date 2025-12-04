@@ -28,6 +28,9 @@
 	.where__item-left {
 		width: calc(558 * 100vw / 1440);
 	}
+	.where__item-info {
+		grid-row-gap: calc(24 * 100vw / 1440);
+	}
 	.where__item-title {
 		font-size: calc(24 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
