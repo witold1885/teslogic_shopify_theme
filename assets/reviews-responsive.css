@@ -93,7 +93,6 @@
 		line-height: calc(24 * 100vw / 1440);
 	}
 	.reviews-list-item-author {
-		width: calc(125 * 100vw / 1440);
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
@@ -338,7 +337,6 @@
   		overflow: hidden;
 	}
 	.reviews-list-item-author {
-		width: auto;
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
 	}
