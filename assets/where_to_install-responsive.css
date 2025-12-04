@@ -53,6 +53,9 @@
 		width: calc(250 * 100vw / 1440);
 		height: calc(184 * 100vw / 1440);
 	}
+	.where__item-maps {
+		grid-row-gap: calc(20 * 100vw / 1440);
+	}
 	.where__item-map {
 		width: calc(281 * 100vw / 1440);
 		height: calc(76 * 100vw / 1440);
