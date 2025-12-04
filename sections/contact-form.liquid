@@ -115,10 +115,12 @@
 <script type="text/javascript">
   $(document).ready(function() {
     const form = $('#ContactForm')
+    console.log({ form })
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
     $('.contact__button').on('click', function() {
+      console.log('submit form')
       let isValid = true
 
       $('.contact__field').each(function() {
@@ -142,6 +144,7 @@
           `)
           isValid = false
         }
+        console.log({ param, value, error, isValid })
       })
 
       if (isValid) {
