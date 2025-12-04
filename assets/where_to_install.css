@@ -95,6 +95,11 @@
 	width: 250px;
 	height: 184px;
 }
+.where__item-maps {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 20px;
+}
 .where__item-map {
 	width: 281px;
 	height: 76px;
