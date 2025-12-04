@@ -149,8 +149,6 @@
     $('.contact__button').on('click', function(e) {
       e.preventDefault()
 
-      console.log('check form')
-
       const data = {}
 
       $('.contact__field').each(function() {
@@ -176,7 +174,6 @@
           }
         }
       } else {
-        console.log('submit form')
         form.submit()
       }
     })
