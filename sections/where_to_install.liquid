@@ -60,7 +60,7 @@
 									{% if key == 'address' %}
 										{% assign num = num | plus: 1 %}
 										{% assign value = parts[1] | remove: "<p>" | strip %}
-										<div class="where__item-data-item">
+										<div class="where__item-data-item where__item-data-item-address">
 											<div class="where__item-data-item-key">{{ key }} №{{ num }}:</div>
 											<div class="where__item-data-item-value">{{ value }}</div>
 										</div>
