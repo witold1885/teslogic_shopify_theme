@@ -154,11 +154,13 @@
         data[param] = field.val().trim()
       })
 
-      const isValid = validate(data)
+      const errors = validate(data)
 
-      console.log({ isValid })
+      console.log({ errors })
 
-      if (isValid) {
+      if (errors) {
+        
+      } else {
         console.log('submit form')
         form.submit()
       }
