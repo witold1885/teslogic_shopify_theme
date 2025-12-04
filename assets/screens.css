@@ -5,6 +5,8 @@
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+
+	transition: background 0.5s ease-in-out;
 }
 .screens__bg {
 	position: absolute;
