@@ -36,7 +36,9 @@
         </div>
       </div>
       <div class="footer-menu">
+        {% assign powermate = false %}
         {% for link in linklists.main-menu.links %}
+          {% if link.title == 'Powermate' %} {% set powermate = true %} {% endif %}
           {% if link.title != 'Accessories' and link.title != 'For customers' and link.title != 'Buy Now' %}
             <div class="footer-menu__list footer-menu__list-main-{{ forloop.index }}">
               <div class="footer-menu__list-title">
@@ -55,7 +57,7 @@
 
         {% for link in linklists.main-menu.links %}
           {% if link.title == 'Accessories' %}
-            <div class="footer-menu__list footer-menu__list-last">
+            <div class="footer-menu__list {% if powermate %} footer-menu__list-last {% else %} footer-menu__list-main-3 {% endif %}">
               <div class="footer-menu__list-title">
                 Accessories
               </div>
@@ -71,6 +73,11 @@
             </div>
           {% endif %}
         {% endfor %}
+
+        {% if not powermate %}
+          <div class="footer-menu__list footer-menu__list-last"></div>
+        {% endif %}
+
         <div class="footer-menu__list footer-menu__list-contacts">
           <div class="footer-menu__list-title">
             Contacts
