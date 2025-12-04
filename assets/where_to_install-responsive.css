@@ -21,13 +21,12 @@
 		grid-row-gap: calc(24 * 100vw / 1440);
 	}
 	.where__item {
-		height: calc(336 * 100vw / 1440);
+		height: calc(232 * 100vw / 1440);
 		padding: calc(24 * 100vw / 1440);
 		border-radius: calc(28 * 100vw / 1440);
 	}
 	.where__item-left {
-		width: calc(392 * 100vw / 1440);
-		grid-row-gap: calc(24 * 100vw / 1440);
+		width: calc(558 * 100vw / 1440);
 	}
 	.where__item-title {
 		font-size: calc(24 * 100vw / 1440);
