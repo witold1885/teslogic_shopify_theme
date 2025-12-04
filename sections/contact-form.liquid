@@ -157,11 +157,10 @@
         const param = $(this).data('param')
         const field = $(this).find('input, textarea').first()
         data[param] = field.val().trim()
+        $(this).find('.contact__field-error').remove()
       })
 
       const errors = validate(data)
-
-      console.log({ errors })
 
       if (errors) {
         for (const param in errors) {
