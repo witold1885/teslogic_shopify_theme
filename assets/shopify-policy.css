@@ -39,22 +39,17 @@
     line-height: 32px;
     opacity: 0.6;
 }
-.shopify-policy__body > .rte > div > p,
-.shopify-policy__body > .rte > div > h2,
-.shopify-policy__body > .rte > div > ul {
-    background: #F6F6F6;
-}
-.shopify-policy__body > .rte > div > ul {
+.shopify-policy__body > .rte > div ul {
     list-style-position: inside;
 }
 .shopify-policy__body > .rte > div > p,
-.shopify-policy__body > .rte > div > ul {
+.shopify-policy__body > .rte > div ul {
     padding-top: 16px;
 }
 .shopify-policy__body > .rte > div > p:nth-child(2) {
     padding-top: 0;
 }
-.shopify-policy__body > .rte > div > ul:has(+ h2),
+.shopify-policy__body > .rte > div ul:has(+ h2),
 .shopify-policy__body > .rte > div > p:has(+ h2) {
     padding-bottom: 40px;
     border-bottom: 2px solid #D9D9D9;
@@ -103,10 +98,10 @@
         line-height: calc(32 * 100vw / 1440);
     }
     .shopify-policy__body > .rte > div > p,
-    .shopify-policy__body > .rte > div > ul {
+    .shopify-policy__body > .rte > div ul {
         padding-top: calc(16 * 100vw / 1440);
     }
-    .shopify-policy__body > .rte > div > ul:has(+ h2),
+    .shopify-policy__body > .rte > div ul:has(+ h2),
     .shopify-policy__body > .rte > div > p:has(+ h2) {
         padding-bottom: calc(40 * 100vw / 1440);
     }
