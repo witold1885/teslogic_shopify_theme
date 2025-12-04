@@ -119,6 +119,11 @@
     comment: { required: true },
   }
 
+  const ucFirst = (str) => {
+    if (!str) return str
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
   const validate = (data) => {
     const errors = {}
 
@@ -128,9 +133,9 @@
         if (required && !data[param]) {
           errors[param] = 'Fill in the field'
         } else if (requiredIfEmpty && !data[param] && !data[requiredIfEmpty]) {
-          errors[param] = `${param.toUpperCase()} or ${requiredIfEmpty.toUpperCase()} is required`
+          errors[param] = `${ucFirst(param)} or ${ucFirst(requiredIfEmpty)} is required`
         } else if (regex && !regex.test(data[param])) {
-          errors[param] = `${param.toUpperCase()} is invalid`
+          errors[param] = `${ucFirst(param)} is invalid`
         }
       }
     }
@@ -159,7 +164,17 @@
       console.log({ errors })
 
       if (errors) {
-        
+        for (const param in errors) {
+          const field = $(`.contact__field[data-param=${param}]`).find('input, textarea').first()
+          if (field) {
+            field.prop('aria-invalid', true)
+            field.after(`
+              <small class="contact__field-error" id="ContactForm-${param}-error">
+                <span class="form__message">${errors[param]}</span>
+              </small>
+            `)
+          }
+        }
       } else {
         console.log('submit form')
         form.submit()
