@@ -62,6 +62,12 @@
 .shopify-policy__body > .rte > div > h2:not(:first-child) {
     padding-top: 40px;
 }
+.shopify-policy__body h2 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    text-transform: capitalize;
+}
 .shopify-policy__body p, .shopify-policy__body ul li {
     color: #404040;
     font-size: 16px;
