@@ -316,6 +316,7 @@
 	font-weight: 500;
 	line-height: 20px; /* 166.667% */
 }
-.store_block-product-order-feature-subtext span {
+.store_block-product-order-feature-subtext a {
 	color: #1A1A1A;
+	text-decoration: none;
 }
