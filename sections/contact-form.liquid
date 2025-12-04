@@ -113,45 +113,48 @@
 </div>
 
 <script type="text/javascript">
+  const rules = {
+    email: { requiredIfEmpty: 'phone', regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+    phone: { requiredIfEmpty: 'email' },
+    comment: { required: true },
+  }
+
+  const validate = (data) => {
+    const errors = {}
+
+    for (const param in data) {
+      if (rules[param]) {
+        const { required, requiredIfEmpty, regex } = rules[param]
+        if (required && !data[param]) {
+          errors[param] = 'Fill in the field'
+        } else if (requiredIfEmpty && !data[param] && !data[requiredIfEmpty]) {
+          errors[param] = `${param.toUpperCase()} or ${requiredIfEmpty.toUpperCase()} is required`
+        } else if (regex && !regex.test(data[param])) {
+          errors[param] = `${param.toUpperCase()} is invalid`
+        }
+      }
+    }
+
+    return Object.keys(errors).length !== 0 ? errors : null
+  }
+  
   $(document).ready(function() {
     const form = $('#ContactForm')
-    console.log({ form })
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-    function findInputField(container) {
-      return container.find('input, textarea').first()
-    }
 
     $('.contact__button').on('click', function(e) {
       e.preventDefault()
 
       console.log('check form')
-      let isValid = true
+
+      const data = {}
 
       $('.contact__field').each(function() {
         const param = $(this).data('param')
-        const field = findInputField($(this))
-        const value = field.val().trim()
-        let error = null
-
-        if (!value) {
-          error = 'Fill in the field'
-        } else if (param === 'email' && !emailRegex.test(value)) {
-          error = 'Email not valid'
-        }
-
-        if (error) {
-          field.prop('aria-invalid', true)
-          field.after(`
-            <small class="contact__field-error" id="ContactForm-${param}-error">
-              <span class="form__message">${error}</span>
-            </small>
-          `)
-          isValid = false
-        }
-        console.log({ param, field, value, error, isValid })
+        const field = $(this).find('input, textarea').first()
+        data[param] = field.val().trim()
       })
+
+      const isValid = validate(data)
 
       console.log({ isValid })
 
