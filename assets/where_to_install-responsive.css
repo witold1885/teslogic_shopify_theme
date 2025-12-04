@@ -21,7 +21,6 @@
 		grid-row-gap: calc(24 * 100vw / 1440);
 	}
 	.where__item {
-		height: calc(232 * 100vw / 1440);
 		padding: calc(24 * 100vw / 1440);
 		border-radius: calc(28 * 100vw / 1440);
 	}
