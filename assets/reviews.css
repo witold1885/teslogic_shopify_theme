@@ -132,11 +132,9 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 }
 .reviews-list-item-top-left {
 	display: flex;
-	align-items: center;
 	grid-column-gap: 13px;
 }
 .reviews-list-item-date {
