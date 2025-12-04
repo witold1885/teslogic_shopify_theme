@@ -119,16 +119,20 @@
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+    function findInputField(container) {
+      return container.find('input, textarea').first()
+    }
+
     $('.contact__button').on('click', function(e) {
       e.preventDefault()
-      
+
       console.log('submit form')
       let isValid = true
 
       $('.contact__field').each(function() {
         const param = $(this).data('param')
-        const field = $(this).find('input') || $(this).find('textarea')
-        const value = field.val()
+        const field = findInputField($(this))
+        const value = field.val().trim()
         let error = null
 
         if (!value) {
@@ -146,8 +150,10 @@
           `)
           isValid = false
         }
-        console.log({ param, value, error, isValid })
+        console.log({ param, field, value, error, isValid })
       })
+
+      console.log({ isValid })
 
       if (isValid) {
         form.submit()
