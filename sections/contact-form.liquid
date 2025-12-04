@@ -57,11 +57,11 @@
           </div>
         {%- else -%}
           <div class="contact__fields">
-            <div class="contact__field" data-param="email">
+            <div class="contact__field" data-param="name">
               <label class="contact__field-label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
               <input class="contact__field-input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Enter your name">
             </div>
-            <div class="contact__field field--with-error" data-param="name">
+            <div class="contact__field field--with-error" data-param="email">
               <label class="contact__field-label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }}</label>
               <input
                 autocomplete="email"
