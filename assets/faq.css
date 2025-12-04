@@ -152,6 +152,7 @@
 	line-height: 24px;
 }
 .faq__chapter-question-badge {
+	width: 18px;
 	color: #1657FC;
 	font-weight: 500;
 }
