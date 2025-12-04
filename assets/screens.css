@@ -5,8 +5,12 @@
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-
-	transition: background 0.5s ease-in-out;
+}
+.screens,
+.screens *,
+.screens *::before,
+.screens *::after {
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 .screens__bg {
 	position: absolute;
