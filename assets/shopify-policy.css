@@ -81,3 +81,44 @@
     color: #1657FC;
     text-decoration: none;
 }
+@media screen and (min-width: 576px) and (max-width: 1440px) {
+    .shopify-policy__container {
+        max-width: calc(856 * 100vw / 1440) !important;
+        padding: calc(116 * 100vw / 1440) 0 calc(150 * 100vw / 1440);
+    }
+    .shopify-policy__title {
+        margin-bottom: calc(84 * 100vw / 1440);
+    }
+    .shopify-policy__title h1 {
+        font-size: calc(52 * 100vw / 1440);
+        line-height: calc(64 * 100vw / 1440);
+    }
+    .shopify-policy__body > .rte > div {
+        padding: calc(32 * 100vw / 1440);
+        border-radius: calc(24 * 100vw / 1440);
+    }
+    .shopify-policy__body > .rte > div > p:first-child {
+        top: calc(-1 * 72 * 100vw / 1440);
+        font-size: calc(24 * 100vw / 1440);
+        line-height: calc(32 * 100vw / 1440);
+    }
+    .shopify-policy__body > .rte > div > p,
+    .shopify-policy__body > .rte > div > ul {
+        padding-top: calc(16 * 100vw / 1440);
+    }
+    .shopify-policy__body > .rte > div > ul:has(+ h2),
+    .shopify-policy__body > .rte > div > p:has(+ h2) {
+        padding-bottom: calc(40 * 100vw / 1440);
+    }
+    .shopify-policy__body > .rte > div > h2:not(:first-child) {
+        padding-top: calc(40 * 100vw / 1440);
+    }
+    .shopify-policy__body h2 {
+        font-size: calc(32 * 100vw / 1440);
+        line-height: calc(40 * 100vw / 1440);
+    }
+    .shopify-policy__body p, .shopify-policy__body ul li {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+    }
+}
