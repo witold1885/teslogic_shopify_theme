@@ -131,6 +131,9 @@
 	padding-right: 20px;
 	box-sizing: border-box;
 }
+.store_block-product-select-error {
+	border: 1px solid var(--Red, #FC3E30);
+}
 .store_block-product-select-dropdown-select {
 	width: 100%;
 	display: flex;
