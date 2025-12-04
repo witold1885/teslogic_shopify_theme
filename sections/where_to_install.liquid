@@ -58,7 +58,7 @@
 									{% assign parts = line | split:":" %}
 									{% assign key = parts[0] | remove: "<p>" | strip %}
 									{% if key == 'address' %}
-										{% increment num %}
+										{% assign num = num | plus: 1 %}
 										{% assign value = parts[1] | remove: "<p>" | strip %}
 										<div class="where__item-data-item">
 											<div class="where__item-data-item-key">{{ key }} №{{ num }}:</div>
