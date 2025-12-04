@@ -88,10 +88,17 @@
 	justify-content: flex-end;
 	grid-column-gap: 24px;
 }
+.where__item-image {
+	width: 250px;
+	height: 184px;
+}
+.where__item-map {
+	width: 281px;
+	height: 76px;
+}
 .where__item-image, .where__item-map {
-	width: 392px;
-	height: 288px;
-	border-radius: 24px;
+	border-radius: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.05);
 	overflow: hidden;
 }
 .where__item-image img, .where__item-map iframe {
