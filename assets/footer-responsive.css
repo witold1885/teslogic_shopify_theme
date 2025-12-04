@@ -36,7 +36,7 @@
 	.footer__form-fields button {
 		width: calc(195 * 100vw / 1440);
 		padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
-		border-radius: calc(26 * 100vw / 1440);
+		border-radius: calc(28 * 100vw / 1440);
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
