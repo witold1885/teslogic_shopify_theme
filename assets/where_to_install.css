@@ -50,6 +50,11 @@
 	display: flex;
 	justify-content: space-between;
 }
+.where__item-info {
+	display: flex;
+	flex-direction: column;
+	grid-row-gap: 24px;
+}
 .where__item-title {
 	color: #000;
 	font-family: Manrope;
