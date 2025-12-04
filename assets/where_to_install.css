@@ -83,6 +83,9 @@
 	color: #1657FC;
 	text-decoration: none;
 }
+.where__item-data-item-address {
+	width: 300px;
+}
 .where__item-right {
 	display: flex;
 	justify-content: flex-end;
