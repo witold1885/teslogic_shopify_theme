@@ -66,6 +66,9 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
+	.faq__chapter-question-badge {
+		width: calc(18 * 100vw / 1440);
+	}
 	.faq__chapter-question-answer > span:last-child {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
@@ -144,6 +147,9 @@
 		grid-column-gap: calc(8 * 100vw / 375);
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
+	}
+	.faq__chapter-question-badge {
+		width: calc(16 * 100vw / 375);
 	}
 	.faq__chapter-question-answer br {
 		display: none;
