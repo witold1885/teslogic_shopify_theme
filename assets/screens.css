@@ -10,7 +10,7 @@
 .screens *,
 .screens *::before,
 .screens *::after {
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out, background-image 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 .screens__bg {
 	position: absolute;
