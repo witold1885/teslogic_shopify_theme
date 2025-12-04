@@ -33,8 +33,7 @@
 		line-height: calc(32 * 100vw / 1440);
 	}
 	.where__item-data {
-		grid-column-gap: calc(40 * 100vw / 1440);
-		grid-row-gap: calc(24 * 100vw / 1440);
+		grid-row-gap: calc(20 * 100vw / 1440);
 	}
 	.where__item-data-item {
 		grid-row-gap: calc(4 * 100vw / 1440);
