@@ -112,6 +112,9 @@
   padding: 16px 16px; 
 }
 .contact__field-error {
+  position: absolute;
+	left: 0;
+  bottom: -22px;
   color: #FC3E30;
 	font-family: Manrope;
 	font-style: normal;
