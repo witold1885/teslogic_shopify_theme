@@ -183,6 +183,7 @@ footer {
 	font-weight: 400;
 	line-height: 20px;
 	cursor: pointer;
+	white-space: nowrap;
 }
 .footer-menu__list-contacts .footer-menu__list-items li {
 	cursor: default;
