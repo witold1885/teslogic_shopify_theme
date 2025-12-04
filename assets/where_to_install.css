@@ -60,9 +60,8 @@
 }
 .where__item-data {
 	display: flex;
-	flex-wrap: wrap;
-	grid-column-gap: 40px;
-	grid-row-gap: 24px;
+	flex-direction: column;
+	grid-row-gap: 20px;
 }
 .where__item-data-item {
 	display: flex;
