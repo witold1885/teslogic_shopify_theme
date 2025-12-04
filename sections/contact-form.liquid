@@ -134,7 +134,7 @@
           errors[param] = 'Fill in the field'
         } else if (requiredIfEmpty && !data[param] && !data[requiredIfEmpty]) {
           errors[param] = `${ucFirst(param)} or ${ucFirst(requiredIfEmpty)} is required`
-        } else if (regex && !regex.test(data[param])) {
+        } else if (regex && data[param] && !regex.test(data[param])) {
           errors[param] = `${ucFirst(param)} is invalid`
         }
       }
@@ -157,6 +157,7 @@
         const param = $(this).data('param')
         const field = $(this).find('input, textarea').first()
         data[param] = field.val().trim()
+        field.prop('aria-invalid', false)
         $(this).find('.contact__field-error').remove()
       })
 
