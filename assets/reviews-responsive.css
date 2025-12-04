@@ -119,6 +119,7 @@
 		line-height: calc(32 * 100vw / 1440);
 	}
 	#showForm:hover {
+		border: calc(3 * 100vw / 1440) solid #FFF;
 		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
 	}
 	.reviews-form-wrap {
@@ -372,7 +373,7 @@
 	}
 	#showForm:hover {
 		padding: calc(14 * 100vw / 375) calc(30 * 100vw / 375);
-		border: 2px solid #FFF;
+		border: calc(2 * 100vw / 375) solid #FFF;
 	}
 	.reviews-form-wrap {
 		width: calc(336 * 100vw / 375);
