@@ -218,8 +218,7 @@
       console.log(data)
       if (response.status == 200) {
         if (data.success) {
-          // $('#subscription-popup').css('display', 'none')
-          // $('#success-popup').css('display', 'flex')
+          $('#success-popup').css('display', 'flex')
         } else {
           $(emailField).addClass('footer__form-field-error')
           if (data.message == 'email_exists') {
@@ -232,9 +231,5 @@
         $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
       }
     })
-
-    // $('.success-popup-close').on('click', function() {
-    //   $('#success-popup').hide()
-    // })
   })
 </script>
