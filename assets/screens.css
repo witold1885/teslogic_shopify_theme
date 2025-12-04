@@ -81,11 +81,14 @@
 .screens.light .screens__top-switcher-item {
 	color: #000;
 }
+.screens.light .screens__top-switcher-item[data-mode="dark"] {
+	color: #808080;
+}
 .screens.dark .screens__top-switcher-item {
 	color: #808080;
 }
 .screens.light .screens__top-switcher-item.active {
-	background: #FFF; 
+	background: #FFF;
 }
 .screens.dark .screens__top-switcher-item.active {
 	background: #3E3E3E; 
