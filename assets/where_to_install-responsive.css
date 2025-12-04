@@ -43,6 +43,9 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
+	.where__item-data-item-address {
+		width: calc(300 * 100vw / 1440);
+	}
 	.where__item-right {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
