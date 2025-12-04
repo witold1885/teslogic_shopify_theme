@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "faq_chapters": {
@@ -293,6 +302,7 @@
         },
         "8d37bbb1-9a12-4614-93f7-3cc8c1bc27b6": {
           "type": "chapter",
+          "disabled": true,
           "settings": {
             "chapter_id": "6",
             "chapter": "Shipping & Delivery",
@@ -320,7 +330,7 @@
           "settings": {
             "chapter_id": "6",
             "question": "Is expedited delivery available?",
-            "answer": "Yes, we can arrange expedited shipping upon request. Please contact us at <a href='mailto:info@teslogic.co'>info@teslogic.co</a>, and we’ll calculate the cost for you."
+            "answer": "Yes, we can arrange expedited shipping upon request. Please contact us at <a href=\"mailto:info@teslogic.co\">info@teslogic.co</a>, and we’ll calculate the cost for you."
           }
         },
         "question_qLgeYE": {
@@ -360,7 +370,7 @@
           "settings": {
             "chapter_id": "6",
             "question": "My tracking information isn’t updating. Is my package lost?",
-            "answer": "Delays in tracking updates can happen. A package is only considered lost if there are no updates for: <ul><li>15 days for U.S. orders</li><li>20 days for international orders</li></ul>If you're concerned, please reach out to us at <a href='mailto:info@teslogic.co'>info@teslogic.co</a>."
+            "answer": "Delays in tracking updates can happen. A package is only considered lost if there are no updates for: <ul>\n<li>15 days for U.S. orders</li>\n<li>20 days for international orders</li>\n</ul>If you're concerned, please reach out to us at <a href=\"mailto:info@teslogic.co\">info@teslogic.co</a>."
           }
         },
         "question_Lnnp4H": {
