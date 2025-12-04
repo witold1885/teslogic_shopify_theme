@@ -126,7 +126,7 @@
     $('.contact__button').on('click', function(e) {
       e.preventDefault()
 
-      console.log('submit form')
+      console.log('check form')
       let isValid = true
 
       $('.contact__field').each(function() {
@@ -143,7 +143,7 @@
 
         if (error) {
           field.prop('aria-invalid', true)
-          field.append(`
+          field.after(`
             <small class="contact__field-error" id="ContactForm-${param}-error">
               <span class="form__message">${error}</span>
             </small>
@@ -156,6 +156,7 @@
       console.log({ isValid })
 
       if (isValid) {
+        console.log('submit form')
         form.submit()
       }
     })
