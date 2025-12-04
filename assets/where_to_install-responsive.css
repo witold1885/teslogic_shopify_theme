@@ -47,7 +47,8 @@
 		width: calc(300 * 100vw / 1440);
 	}
 	.where__item-right {
-		grid-column-gap: calc(24 * 100vw / 1440);
+		width: calc(621 * 100vw / 1440);
+		grid-column-gap: calc(40 * 100vw / 1440);
 	}
 	.where__item-image {
 		width: calc(250 * 100vw / 1440);
