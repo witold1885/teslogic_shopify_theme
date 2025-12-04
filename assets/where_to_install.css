@@ -56,6 +56,7 @@
 	grid-row-gap: 24px;
 }
 .where__item-title {
+	max-width: 278px;
 	color: #000;
 	font-family: Manrope;
 	font-size: 24px;
