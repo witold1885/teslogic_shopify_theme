@@ -180,7 +180,7 @@
 	display: none;
 }
 .reviews-list-item-author {
-	width: 125px;
+	width: min-content;
 	color: #000;
 	font-family: Manrope;
 	font-size: 18px;
