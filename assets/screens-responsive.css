@@ -18,7 +18,6 @@
 		padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
-		border-radius: calc(6 * 100vw / 1440);
 	}
 	.screens__features-image-wrap {
 		width: calc(636 * 100vw / 1440);
@@ -95,7 +94,6 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: calc(18 * 100vw / 375);
-		border-radius: calc(4 * 100vw / 375); 
 	}
 	.screens__features-block {
 		width: 335px;
