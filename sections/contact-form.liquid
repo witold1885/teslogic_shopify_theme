@@ -57,11 +57,11 @@
           </div>
         {%- else -%}
           <div class="contact__fields">
-            <div class="contact__field">
+            <div class="contact__field" data-param="email">
               <label class="contact__field-label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
               <input class="contact__field-input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="Enter your name">
             </div>
-            <div class="contact__field field--with-error">
+            <div class="contact__field field--with-error" data-param="name">
               <label class="contact__field-label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }}</label>
               <input
                 autocomplete="email"
@@ -86,11 +86,11 @@
                 </small>
               {%- endif -%}
             </div>
-            <div class="contact__field">
+            <div class="contact__field" data-param="phone">
               <label class="contact__field-label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
               <input type="tel" id="ContactForm-phone" class="contact__field-input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="+[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="+1">
             </div>
-            <div class="contact__field">
+            <div class="contact__field" data-param="comment">
               <label class="contact__field-label" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
               <textarea
                 rows="10"
@@ -103,7 +103,7 @@
               </textarea>
             </div>
           </div>
-          <button type="submit" class="contact__button">
+          <button type="button" class="contact__button">
             {{ 'templates.contact.form.send' | t }}
           </button>
         {%- endif -%}
@@ -111,6 +111,45 @@
     </div>
   {%- endform -%}
 </div>
+
+<script>
+  $(document).ready(function() {
+    const form = $('#ContactForm')
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    $('.contact__button').on('click', function() {
+      let isValid = true
+
+      $('.contact__field').each(function() {
+        const param = $(this).data('param')
+        const field = $(this).find('input') || $(this).find('textarea')
+        const value = field.val()
+        let error = null
+
+        if (!value) {
+          error = 'Fill in the field'
+        } else if (param === 'email' && !emailRegex.test(value)) {
+          error = 'Email not valid'
+        }
+
+        if (error) {
+          field.prop('aria-invalid', true)
+          field.append(`
+            <small class="contact__field-error" id="ContactForm-${param}-error">
+              <span class="form__message">${error}</span>
+            </small>
+          `)
+          isValid = false
+        }
+      })
+
+      if (isValid) {
+        form.submit()
+      }
+    })
+  })
+</script>
 
 {% schema %}
 {
