@@ -15,35 +15,67 @@
 			{% assign latlng = '' %}
 			<div class="where__item">
 				<div class="where__item-left">
-					<div class="where__item-title">{{ article.title }}</div>
-					<div class="where__item-data">
-					  {% for line in blog_lines %}
-					    {% assign line = line | remove:"<p>" | strip %}
-					    {% if line != "" %}
-					      {% assign parts = line | split:":" %}
-					      <div class="where__item-data-item">
-					      	{% assign key = parts[0] | remove: "<p>" | strip %}
-					      	{% assign value = parts[1] | remove: "<p>" | strip %}
-					      	{% if key == 'latlng' %}
-					      		{% assign latlng = value %}
-					      	{% else %}
-						      	<div class="where__item-data-item-key">{{ key }}:</div>
-						      	<div class="where__item-data-item-value">
-					      			{% if key == 'site' %}
-						      			<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
-							      	{% else %}
-								      	{{ value }}
-							    	{% endif %}
-						      	</div>
-					    	{% endif %}
-					      </div>
-					    {% endif %}
-					  {% endfor %}
-					</div>					
-				</div>
-				<div class="where__item-right">
+					<div class="where__item-info">
+						<div class="where__item-title">{{ article.title }}</div>
+						<div class="where__item-data">
+							{% for line in blog_lines %}
+								{% assign line = line | remove:"<p>" | strip %}
+								{% if line != "" %}
+									{% assign parts = line | split:":" %}
+									{% assign key = parts[0] | remove: "<p>" | strip %}
+									{% if key != 'address' %}
+										{% assign value = parts[1] | remove: "<p>" | strip %}
+										<div class="where__item-data-item">
+											{% if key == 'latlng' %}
+												{% assign latlng = value %}
+											{% else %}
+												<div class="where__item-data-item-key">{{ key }}:</div>
+												<div class="where__item-data-item-value">
+													{% if key == 'site' %}
+														<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
+													{% else %}
+														{{ value }}
+													{% endif %}
+												</div>
+											{% endif %}
+										</div>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
 					<div class="where__item-image">
 						<img draggable="false" src="{{ article.image | img_url: '392x392' }}">
+					</div>
+				</div>
+				<div class="where__item-right">
+					<div class="where__item-info">
+						<div class="where__item-data">
+							{% for line in blog_lines %}
+								{% assign line = line | remove:"<p>" | strip %}
+								{% if line != "" %}
+									{% assign parts = line | split:":" %}
+									{% assign key = parts[0] | remove: "<p>" | strip %}
+									{% if key == 'address' %}
+										{% assign value = parts[1] | remove: "<p>" | strip %}
+										<div class="where__item-data-item">
+											{% if key == 'latlng' %}
+												{% assign latlng = value %}
+											{% else %}
+												<div class="where__item-data-item-key">{{ key }}:</div>
+												<div class="where__item-data-item-value">
+													{% if key == 'site' %}
+														<a href="https://{{ value }}/" target="_blank">{{ value }}</a>
+													{% else %}
+														{{ value }}
+													{% endif %}
+												</div>
+											{% endif %}
+										</div>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
 					<div class="where__item-map">
 						<iframe
