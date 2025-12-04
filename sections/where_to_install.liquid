@@ -6,11 +6,12 @@
 <div class="where">
 	<div class="where__top">
 		<div class="where__title">Where to install</div>
-		<div class="where__subtitle">While Screenmate devices are easy to install, you can always contact our partners who can handle the installation for you.</div>
+		<div class="where__subtitle">
+			While Screenmate devices are easy to install, you can always contact our partners who can handle the installation for you.
+		</div>
 	</div>
 	<div class="where__body">
 	    {% for article in articles %}
-	    	{% assign blog_content = article.content | append: "<p></p>" %}
 			{% assign blog_lines = article.content | split: "</p>" %}
 			{% assign latlng = '' %}
 			<div class="where__item">
@@ -19,7 +20,7 @@
 						<div class="where__item-title">{{ article.title }}</div>
 						<div class="where__item-data">
 							{% for line in blog_lines %}
-								{% assign line = line | remove:"<p>" | strip %}
+								{% assign line = line | remove: "<p>" | strip %}
 								{% if line != "" %}
 									{% assign parts = line | split:":" %}
 									{% assign key = parts[0] | remove: "<p>" | strip %}
@@ -41,7 +42,7 @@
 						</div>
 					</div>
 					<div class="where__item-image">
-						<img draggable="false" src="{{ article.image | img_url: '392x392' }}">
+						<img draggable="false" src="{{ article.image | img_url: '250x250' }}">
 					</div>
 				</div>
 				<div class="where__item-right">
@@ -49,7 +50,7 @@
 						<div class="where__item-data">
 							{% assign num = 0 %}
 							{% for line in blog_lines %}
-								{% assign line = line | remove:"<p>" | strip %}
+								{% assign line = line | remove: "<p>" | strip %}
 								{% if line != "" %}
 									{% assign parts = line | split:":" %}
 									{% assign key = parts[0] | remove: "<p>" | strip %}
@@ -67,7 +68,7 @@
 					</div>
 					<div class="where__item-maps">
 						{% for line in blog_lines %}
-							{% assign line = line | remove:"<p>" | strip %}
+							{% assign line = line | remove: "<p>" | strip %}
 							{% if line != "" %}
 								{% assign parts = line | split:":" %}
 								{% assign key = parts[0] | remove: "<p>" | strip %}
