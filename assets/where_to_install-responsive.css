@@ -46,10 +46,18 @@
 	.where__item-right {
 		grid-column-gap: calc(24 * 100vw / 1440);
 	}
+	.where__item-image {
+		width: calc(250 * 100vw / 1440);
+		height: calc(184 * 100vw / 1440);
+	}
+	.where__item-map {
+		width: calc(281 * 100vw / 1440);
+		height: calc(76 * 100vw / 1440);
+	}
 	.where__item-image, .where__item-map {
-		width: calc(392 * 100vw / 1440);
-		height: calc(288 * 100vw / 1440);
-		border-radius: calc(24 * 100vw / 1440);
+		border-radius: calc(20 * 100vw / 1440);
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		overflow: hidden;
 	}
 }
 @media screen and (max-width: 575px) {
