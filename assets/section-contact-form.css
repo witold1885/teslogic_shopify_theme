@@ -79,6 +79,7 @@
   display: flex;
   flex-direction: column;
   grid-row-gap: 8px;
+  position: relative;
 }
 .contact__field-label {
   color: #FFF;
