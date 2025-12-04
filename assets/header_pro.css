@@ -104,10 +104,11 @@
 	justify-content: center;
 	align-items: center;
 	grid-column-gap: 10px;
-	font-size: 18px;
+	font-size: 16px;
 	font-family: Manrope;
-	font-weight: 400;
-	line-height: 32px; 
+	font-weight: 600;
+	line-height: 32px;
+	letter-spacing: normal;
 }
 .menu__item-sticky {
 /*	color: #000000;*/
@@ -197,7 +198,7 @@
 	left: 14px;
 	width: 13.27px;
 	height: 13.27px;
-	background: #80BA75;
+	background: #1658FC;
 	font-family: 'Gotham';
 	font-style: normal;
 	font-weight: 400;

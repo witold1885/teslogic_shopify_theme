@@ -37,7 +37,7 @@
 	}
 	.menu__item-cart a {
 		grid-column-gap: calc(10 * 100vw / 1440);
-		font-size: calc(18 * 100vw / 1440);
+		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(32 * 100vw / 1440);
 	}
 	.menu__item-chevron {
