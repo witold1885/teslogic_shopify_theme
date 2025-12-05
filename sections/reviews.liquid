@@ -418,7 +418,11 @@
 		})
 
 		$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
-			window.newReviewRating = $(this).data('value')
+			const value = $(this).data('value')
+			window.newReviewRating = value
+			for (const i = 1; i <= value; i++) {
+				$(`.spr-form-review-rating a.spr-icon-star[data-value="${i}"]`).removeClass('spr-icon-star-empty')
+			}
 		})
 
 		$(document).on('keydown', '.spr-form-input', function(e) {
