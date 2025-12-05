@@ -17,6 +17,10 @@
 .spr-form-review-rating .spr-icon-star-hover::before {
 	content: url({{ 'star-form-blue.svg' | asset_url }});
 }
+.spr-form-review-rating .spr-icon:hover::before,
+.spr-form-review-rating .spr-icon:hover ~ .spr-form-review-rating .spr-icon::before {
+	content: url({{ 'star-form-blue.svg' | asset_url }});
+}
 {% endstyle %}
 
 <!-- <div id="multipleReviews"></div> -->
