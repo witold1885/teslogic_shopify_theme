@@ -239,7 +239,9 @@
   $(document).ready(function() {
     $('.static-content > p').each(function() {
       const text = $(this).text().trim()
-      console.log(text)
+      if (text && /^\d+\.\d+\s/.test(text)) {
+        $(this).addClass('subchapter')
+      }
     })
   })
 </script>
