@@ -56,7 +56,8 @@
 		width: calc(250 * 100vw / 1440);
 		height: calc(184 * 100vw / 1440);
 	}
-	.where__item-maps {
+	.where__item-locations {
+		grid-column-gap: calc(40 * 100vw / 1440);
 		grid-row-gap: calc(20 * 100vw / 1440);
 	}
 	.where__item-map {
@@ -92,12 +93,10 @@
 		grid-row-gap: calc(24 * 100vw / 375);
 	}
 	.where__item {
-		/* height: calc(821 * 100vw / 375); */
-		height: auto;
 		padding: calc(20 * 100vw / 375);
 		border-radius: calc(28 * 100vw / 375);
 		flex-direction: column;
-		row-gap: calc(40 * 100vw / 375);
+		grid-row-gap: calc(20 * 100vw / 375);
 	}
 	.where__item-left {
 		width: calc(295 * 100vw / 375);
@@ -122,6 +121,11 @@
 	.where__item-right {
 		flex-direction: column;
 		grid-row-gap: calc(16 * 100vw / 375);
+	}
+	.where__item-locations {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: calc(20 * 100vw / 375);
 	}
 	.where__item-image, .where__item-map {
 		width: calc(295 * 100vw / 375);
