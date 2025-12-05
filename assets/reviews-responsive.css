@@ -168,6 +168,7 @@
 	.spr-form-review-rating {
 		height: calc(40 * 100vw / 1440);
 		margin-bottom: calc(3 * 100vw / 1440);
+		grid-column-gap: calc(8 * 100vw / 1440);
 	}
 	.spr-form-review-rating-title {
 		font-size: calc(16 * 100vw / 1440);
@@ -410,6 +411,7 @@
 	}
 	.spr-form-review-rating {
 		margin-bottom: 0;
+		grid-column-gap: calc(8 * 100vw / 375);
 	}
 	.reviews-form-actions {
 		margin-top: calc(24 * 100vw / 375);
