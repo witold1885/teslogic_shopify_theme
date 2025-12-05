@@ -43,7 +43,7 @@
   .static-content h2 + p em {
     font-style: normal;
   }
-  .static-content > ol, .static-content > ul {
+  .static-content > ol {
     list-style-position: inside;
   }
   .static-content > ol {
@@ -114,9 +114,25 @@
     line-height: 32px;
     text-transform: capitalize;
   }
-  .static-content p.list_item {
+  .static-content > ul {
+    list-style: none;
+  }
+  .static-content > p.list_item {
     display: list-item;
-    list-style: inside;
+    list-style: none;
+  }
+  .static-content > ul li, .static-content > p.list_item {
+    position: relative;
+    padding-left: 20px;
+  }
+  .static-content > ul li::before,
+  .static-content > p.list_item::before {
+    content: "•";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
   }
   .static-content a {
     color: #1657FC;
@@ -183,6 +199,14 @@
       font-size: calc(24 * 100vw / 1440);
       line-height: calc(32 * 100vw / 1440);
     }
+    .static-content > ul li, .static-content > p.list_item {
+		  padding-left: calc(20 * 100vw / 1440);
+    }
+    .static-content > ul li::before,
+    .static-content > p.list_item::before {
+      left: calc(5 * 100vw / 1440);
+      font-size: calc(12 * 100vw / 1440);
+    }
   }
   @media screen and (max-width: 575px) {
     .static-content {
@@ -242,8 +266,16 @@
       line-height: calc(24 * 100vw / 375);
     }
     .static-content p.subchapter strong {
-      font-size: calc(18 * 100vw / 1440);
-      line-height: calc(24 * 100vw / 1440);
+      font-size: calc(18 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
+    }
+    .static-content > ul li, .static-content > p.list_item {
+		  padding-left: calc(20 * 100vw / 375);
+    }
+    .static-content > ul li::before,
+    .static-content > p.list_item::before {
+      left: calc(5 * 100vw / 375);
+      font-size: calc(12 * 100vw / 375);
     }
   }
 </style>
