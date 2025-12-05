@@ -114,6 +114,9 @@
     line-height: 32px;
     text-transform: capitalize;
   }
+  .static-content p.list_item {
+    display: list-item;
+  }
   .static-content a {
     color: #1657FC;
     text-decoration: none;
@@ -255,7 +258,7 @@
     subchapter: /^\d+\.\d+\s/,
     list_item: /^(\p{Lu}+)\s/u
   }
-  
+
   $(document).ready(function() {
     $('.static-content > p').each(function() {
       const text = $(this).text().trim()
