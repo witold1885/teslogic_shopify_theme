@@ -57,6 +57,7 @@
 		height: calc(184 * 100vw / 1440);
 	}
 	.where__item-locations {
+  		grid-template-columns: 1fr calc(281 * 100vw / 1440);
 		grid-column-gap: calc(40 * 100vw / 1440);
 		grid-row-gap: calc(20 * 100vw / 1440);
 	}
