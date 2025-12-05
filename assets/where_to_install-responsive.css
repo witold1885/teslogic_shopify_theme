@@ -144,6 +144,7 @@
 		grid-row-gap: calc(20 * 100vw / 375);
 	}
 	.where__item-data-item-address {
+		width: calc(295 * 100vw / 375);
 		max-width: calc(295 * 100vw / 375);
 	}
 	.where__item-image, .where__item-map {
