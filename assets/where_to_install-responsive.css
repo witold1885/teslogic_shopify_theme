@@ -104,11 +104,17 @@
 		flex-direction: column;
 		grid-row-gap: calc(20 * 100vw / 375);
 	}
+	.where__item-info {
+		grid-row-gap: calc(16 * 100vw / 375);
+	}
 	.where__item-title {
 		font-size: calc(24 * 100vw / 375);
 		line-height: calc(32 * 100vw / 375);
 	}
 	.where__item-data {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
 		grid-column-gap: calc(20 * 100vw / 375);
 		grid-row-gap: calc(20 * 100vw / 375);
 	}
@@ -130,7 +136,13 @@
 	}
 	.where__item-image, .where__item-map {
 		width: calc(295 * 100vw / 375);
-		height: calc(217 * 100vw / 375);
 		border-radius: calc(24 * 100vw / 375);
+	}
+	.where__item-image {
+		height: calc(217 * 100vw / 375);
+	}
+	.where__item-map {
+		height: calc(108 * 100vw / 375);
+		margin-top: calc(-1 * 8 * 100vw / 375);
 	}
 }
