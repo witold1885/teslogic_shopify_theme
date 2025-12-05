@@ -318,7 +318,7 @@
 	grid-column-gap: 24px;
 	grid-row-gap: 28px;
 }
-.reviews-form-field > * {
+.reviews-form-field input, .reviews-form-field textarea {
 	box-sizing: border-box;
 }
 .reviews-form-field:not(.spr-form-review-rating) {
@@ -370,6 +370,7 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea):
 .spr-form-review-rating {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	height: 40px;
 	margin: 0;
 	overflow: visible;
