@@ -107,6 +107,13 @@
   .static-content p strong {
     color: #111;
   }
+  .static-content p.subchapter strong {
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    text-transform: capitalize;
+  }
   .static-content a {
     color: #1657FC;
     text-decoration: none;
@@ -168,6 +175,10 @@
       font-size: calc(16 * 100vw / 1440);
       line-height: calc(24 * 100vw / 1440);
     }
+    .static-content p.subchapter strong {
+      font-size: calc(24 * 100vw / 1440);
+      line-height: calc(32 * 100vw / 1440);
+    }
   }
   @media screen and (max-width: 575px) {
     .static-content {
@@ -225,6 +236,10 @@
     .static-content p, .static-content ul li {
       font-size: calc(16 * 100vw / 375);
       line-height: calc(24 * 100vw / 375);
+    }
+    .static-content p.subchapter strong {
+      font-size: calc(18 * 100vw / 1440);
+      line-height: calc(24 * 100vw / 1440);
     }
   }
 </style>
