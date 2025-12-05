@@ -123,8 +123,15 @@
 	padding-left: 5px;
 	list-style: none;
 }
+.faq__list-questions ul li {
+	position: relative;
+}
 .faq__list-questions ul li::before {
   	content: "•";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	padding-right: 10px;
 	font-size: 12px;
 }
