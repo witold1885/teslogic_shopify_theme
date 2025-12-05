@@ -102,9 +102,9 @@
 	width: 250px;
 	height: 184px;
 }
-.where__item-maps {
-	display: flex;
-	flex-direction: column;
+.where__item-locations {
+	display: grid;
+	grid-column-gap: 40px;
 	grid-row-gap: 20px;
 }
 .where__item-map {
