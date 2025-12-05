@@ -7,42 +7,21 @@
 
 <div class="faq screenmate-faq" id="faq">
 	<div class="faq__title">Screenmate One FAQ</div>
-	<div class="faq__chapters">
-		{% comment %} {% for block in section.blocks %}
-			{% if block.type == "chapter" %}
-				<div class="faq__chapter">
-					<div class="faq__chapter-top">
-						<div class="faq__chapter-title" mobile_hidden="1">
-							<div class="faq__chapter-title-sign">
-								<img src="{{ block.settings.chapter_icon }}">
-							</div>
-							<div class="faq__chapter-title-text">{{ block.settings.chapter }}</div>
-						</div>
-						<div class="faq__chapter-chevron">
-							<img src="{{ 'chevron-down-faq.svg' | asset_url }}">
-						</div>
-					</div> {% endcomment %}
-					<div class="faq__chapter-questions">
-						{% for subblock in section.blocks %}
-							{% if subblock.type == "question" %}
-								{% comment %} {% if subblock.settings.chapter_id == block.settings.chapter_id %} {% endcomment %}
-									<div class="faq__chapter-question">
-										<div class="faq__chapter-question-text">
-											<span class="faq__chapter-question-badge">Q:</span>
-											<span>{{ subblock.settings.question }}</span>
-										</div>
-										<div class="faq__chapter-question-answer">
-											<span class="faq__chapter-question-badge">A:</span>
-											<span>{{ subblock.settings.answer }}</span>
-										</div>
-									</div>
-								{% comment %} {% endif %} {% endcomment %}
-							{% endif %}
-						{% endfor %}
+	<div class="faq__list-questions">
+		{% for subblock in section.blocks %}
+			{% if subblock.type == "question" %}
+				<div class="faq__chapter-question">
+					<div class="faq__chapter-question-text">
+						<span class="faq__chapter-question-badge">Q:</span>
+						<span>{{ subblock.settings.question }}</span>
 					</div>
-				{% comment %} </div>
+					<div class="faq__chapter-question-answer">
+						<span class="faq__chapter-question-badge">A:</span>
+						<span>{{ subblock.settings.answer }}</span>
+					</div>
+				</div>
 			{% endif %}
-		{% endfor %} {% endcomment %}
+		{% endfor %}
 	</div>
 </div>
 
