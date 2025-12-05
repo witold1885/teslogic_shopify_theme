@@ -130,6 +130,7 @@
 		white-space: nowrap;
 	}
 	.where__item-data-item-value-site {
+		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
