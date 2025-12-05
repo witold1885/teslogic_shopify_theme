@@ -55,7 +55,7 @@
 	.faq__list-questions ul {
 		padding-left: calc(5 * 100vw / 1440);
 	}
-	.faq__list-questions ul li::marker {
+	.faq__list-questions ul li::before {
 		padding-right: calc(5 * 100vw / 1440);
 		font-size: calc(12 * 100vw / 1440);
 	}
@@ -138,7 +138,7 @@
 	.faq__list-questions ul {
 		padding-left: calc(5 * 100vw / 375);
 	}
-	.faq__list-questions ul li::marker {
+	.faq__list-questions ul li::before {
 		padding-right: calc(5 * 100vw / 375);
 		font-size: calc(12 * 100vw / 375);
 	}
