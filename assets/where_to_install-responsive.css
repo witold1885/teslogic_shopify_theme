@@ -125,9 +125,9 @@
 	.where__item-data-item-key, .where__item-data-item-value {
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
-	}
-	.where__item-data-item-value {
 		white-space: nowrap;
+	}
+	.where__item-data-item-value-site {
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
