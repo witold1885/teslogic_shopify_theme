@@ -318,6 +318,9 @@
 	grid-column-gap: 24px;
 	grid-row-gap: 28px;
 }
+.reviews-form-field > * {
+	box-sizing: border-box;
+}
 .reviews-form-field:not(.spr-form-review-rating) {
 	display: flex;
 	flex-direction: column;
