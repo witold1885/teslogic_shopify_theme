@@ -126,6 +126,10 @@
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
 	}
+	.where__item-data-item-value {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 	.where__item-right {
 		flex-direction: column;
 		grid-row-gap: calc(16 * 100vw / 375);
