@@ -120,11 +120,12 @@
 	display: none;
 }
 .faq__list-questions ul {
-	padding-left: 5px;
+	padding-left: 0;
 	list-style: none;
 }
 .faq__list-questions ul li {
 	position: relative;
+	padding-left: 25px;
 }
 .faq__list-questions ul li::before {
   	content: "•";
