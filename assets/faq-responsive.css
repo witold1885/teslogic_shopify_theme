@@ -70,7 +70,7 @@
 		width: calc(18 * 100vw / 1440);
 	}
 	.faq__chapter-question-answer > span:last-child {
-		grid-column-gap: calc(24 * 100vw / 1440);
+		grid-column-gap: calc(16 * 100vw / 1440);
 	}
 }
 
@@ -155,6 +155,6 @@
 		display: none;
 	}
 	.faq__chapter-question-answer > span:last-child {
-		grid-column-gap: calc(20 * 100vw / 375);
+		grid-column-gap: calc(16 * 100vw / 375);
 	}
 }
