@@ -125,12 +125,12 @@
 }
 .faq__list-questions ul li {
 	position: relative;
-	padding-left: 25px;
+	padding-left: 20px;
 }
 .faq__list-questions ul li::before {
   	content: "•";
 	position: absolute;
-	left: 10px;
+	left: 5px;
 	top: 50%;
 	transform: translateY(-50%);
 	padding-right: 10px;
