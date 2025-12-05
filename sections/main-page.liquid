@@ -251,11 +251,20 @@
 </div>
 
 <script type="text/javascript">
+  const rules = {
+    subchapter: /^\d+\.\d+\s/,
+    list_item: /^(\p{Lu}+)\s/u
+  }
+  
   $(document).ready(function() {
     $('.static-content > p').each(function() {
       const text = $(this).text().trim()
-      if (text && /^\d+\.\d+\s/.test(text)) {
-        $(this).addClass('subchapter')
+      if (text) {
+        for (const rule in rules) {
+          if (rules[rule].test(text)) {
+            $(this).addClass(rule)
+          }
+        }
       }
     })
   })
