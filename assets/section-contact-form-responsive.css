@@ -34,6 +34,12 @@
     height: calc(132 * 100vw / 1440);
     padding: calc(16 * 100vw / 1440) calc(16 * 100vw / 1440);
   }
+  .contact__field-input:active,
+  .contact__field-input:focus,
+  .contact__field-textarea:active,
+  .contact__field-textarea:focus {
+      border: 1px solid #CCC;
+  }
   .contact__field-error {
     bottom: calc(-1 * 22 * 100vw / 1440);
     font-size: calc(14 * 100vw / 1440);
