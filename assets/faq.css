@@ -173,6 +173,9 @@
 	flex-direction: column;
 	grid-row-gap: 24px;
 }
+.faq__chapter-question-answer ul {
+	padding: 0;
+}
 .pro-faq .faq__chapter-question-text {
 	color: #FFF;
 	font-weight: 600;
