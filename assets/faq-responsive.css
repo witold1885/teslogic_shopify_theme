@@ -53,10 +53,10 @@
 		border-radius: calc(24 * 100vw / 1440);
 	}
 	.faq__list-questions ul li {
-		padding-left: calc(25 * 100vw / 1440);
+		padding-left: calc(20 * 100vw / 1440);
 	}
 	.faq__list-questions ul li::before {
-		left: calc(10 * 100vw / 1440);
+		left: calc(5 * 100vw / 1440);
 		font-size: calc(12 * 100vw / 1440);
 	}
 	.faq__chapter-question {
@@ -136,10 +136,10 @@
 		border-radius: calc(12 * 100vw / 375);
 	}
 	.faq__list-questions ul li {
-		padding-left: calc(25 * 100vw / 375);
+		padding-left: calc(20 * 100vw / 375);
 	}
 	.faq__list-questions ul li::before {
-		left: calc(10 * 100vw / 375);
+		left: calc(5 * 100vw / 375);
 		font-size: calc(12 * 100vw / 375);
 	}
 	.faq__chapter-question {
