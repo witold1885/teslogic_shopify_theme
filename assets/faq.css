@@ -121,9 +121,10 @@
 }
 .faq__list-questions ul {
 	padding-left: 5px;
-	list-style: inside;
+	list-style: none;
 }
-.faq__list-questions ul li::marker {
+.faq__list-questions ul li::before {
+  	content: "•";
 	padding-right: 10px;
 	font-size: 12px;
 }
