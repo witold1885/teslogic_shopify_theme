@@ -114,9 +114,10 @@
     -webkit-text-fill-color: transparent;
 }
 .subscription-popup-subtitle {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
-    line-height: 24px; 
+    line-height: 24px;
+    white-space: nowrap;
 }
 .subscription-popup-form {
     display: flex;
@@ -244,7 +245,7 @@
         width: calc(229 * 100vw / 1440);
     }
     .subscription-popup-subtitle {
-        font-size: calc(18 * 100vw / 1440);
+        font-size: calc(17 * 100vw / 1440);
         line-height: calc(24 * 100vw / 1440); 
     }
     .subscription-popup-form {
