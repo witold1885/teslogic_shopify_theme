@@ -152,6 +152,10 @@
     box-shadow: none;
     box-sizing: border-box;
 }
+.subscription-popup-field input:active,
+.subscription-popup-field input:focus {
+    border: 1px solid #CCC;
+}
 .subscription-popup-field-error input {
     border: 1px solid #FC3E30;
 }
