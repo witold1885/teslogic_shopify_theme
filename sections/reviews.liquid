@@ -364,7 +364,7 @@
 
 		        <div class="reviews-form-top">
 		    		<h3 class="spr-form-title">Write a review</h3>
-		    		<div class="reviews-form-field spr-form-review-rating">
+		    		<div class="reviews-form-field spr-form-review-rating" id="review_rating_${product_id}">
 		    			<div class="spr-form-review-rating-title">Rate:</div>
 						<div class="star-rating-area">
 							<input type="radio" id="star-5" name="review[rating]" value="5" aria-label="5 of 5 stars" />
@@ -389,14 +389,14 @@
 		        <div class="reviews-form-body">
 		        	<div class="reviews-form-field spr-form-contact-name">	        		
           				<label class="spr-form-label" for="review_author_${product_id}">Name</label>
-          				<input class="spr-form-input spr-form-input-text " id="review_author_${product_id}" type="text" name="review[author]" value="" placeholder="Enter your name">
+          				<input class="spr-form-input spr-form-input-text" id="review_author_${product_id}" type="text" name="review[author]" value="" placeholder="Enter your name">
         
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
 	        		</div>
 
 	        		<div class="reviews-form-field spr-form-contact-email">        			
           				<label class="spr-form-label" for="review_email_${product_id}">Email</label>
-          				<input class="spr-form-input spr-form-input-email " id="review_email_${product_id}" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
+          				<input class="spr-form-input spr-form-input-email" id="review_email_${product_id}" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
         
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
 	        		</div>
@@ -404,7 +404,7 @@
 	        		<div class="reviews-form-field spr-form-review-body">	        		
         				<label class="spr-form-label" for="review_body_${product_id}">Review</label>
 				        <div class="spr-form-input">
-				          	<textarea class="spr-form-input spr-form-input-textarea " id="review_body_${product_id}" data-product-id="${product_id}" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
+				          	<textarea class="spr-form-input spr-form-input-textarea" id="review_body_${product_id}" data-product-id="${product_id}" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>
 				        </div>
       
 	        			<div class="reviews-form-field-error">Please, fill in the field</div>
@@ -426,6 +426,10 @@
 			$('.reviews-form-shadow').css('display', 'none')
 		})
 
+		$(document).on('change', 'input[name="review[rating]"]', function(e) {
+			$(this).parents('.spr-form-review-rating').find('.reviews-form-field-error').hide()
+		})
+
 		$(document).on('keydown', '.spr-form-input', function(e) {
 			$(this).parents('.reviews-form-field').find('.reviews-form-field-error').hide()
 		})
@@ -436,7 +440,7 @@
 			const form = $('#reviewsFormWrap').find('form')
 			const product_id = $(form).find('input[name="product_id"]').val()
 
-			const rating = $('input[name="review[rating]"]:checked').val()
+			const rating = $(`#review_rating_${product_id}`).find('input[name="review[rating]"]:checked').val()
 			if (!rating) {
 				$(form).find('.spr-form-review-rating').find('.reviews-form-field-error').show()
 				return
