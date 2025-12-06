@@ -35,23 +35,13 @@
     background-position-x: center;
     background-repeat: no-repeat; 
   }
-  .banner-desktop {
-/*    height: 100%;*/
-  }
   @media screen and (min-width: 1701px) { 
     .banner-desktop-wrap {
-/*      background: url({{ 'bg_2x.png' | asset_url}});*/
       background: black;
       background-size: cover;
-      /*background-position: right 20% center;*/
       background-position: right center;
       background-repeat: no-repeat; 
     }
-  }
-  @media screen and (min-width: 1251px) and (max-width: 1366px) {  
-    .banner-desktop-wrap {
-/*      background-size: 1366px 768px;*/
-    }      
   }
   .banner {
     background: url({{ 'bg_powermate_mobile.png' | asset_url}});
@@ -178,7 +168,6 @@
       </div>
       <div class="banner-buttons">
         <a href="#shop-now" class="banner-button-buy">Buy now</a>
-        <!-- <a href="#using" class="banner-button-learn">Learn more</a> -->
       </div>
     </div>
   </div>
@@ -335,7 +324,6 @@
         <img class="logo-black" src="{{ 'screenmate_logo_black.svg' | asset_url }}">
       </a>
       <div class="buttons">
-        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
           class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -347,8 +335,7 @@
               <div class="cart-qty">{{ cart.item_count }}</div>
             </div>
           </a>
-        </div>      
-        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        </div>
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
       </div>
@@ -401,7 +388,6 @@
         <a href="#using" class="banner-button-learn">Learn more</a>
       </div>
   </div>
-  <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
     <div class="banner-top banner-top-promo">
       <div class="banner__subtitle">Formerly Teslogic Pro</div>
@@ -427,86 +413,14 @@
       </div>
     </div>
   </div>
-  {% comment %} <div class="experience-block-wrap">
-    <div class="experience-block">
-      <div class="experience-block-title">
-        Experience the thrill<br>
-        of Powermate<br>
-        featuring two: Boost<br>
-        and Performance
-      </div>
-      <div class="experience-block-options">
-        <div class="experience-block-options-left">
-          <div class="experience-block-options-item experience-block-options-both">
-            <div class="experience-block-options-both-title">
-              Both of them offer<br>
-              All Screenmate Dash<br>
-              Dashboard features +
-            </div>
-            <div class="experience-block-options-both-image">
-              <img src="{{ 'pro-experience-both-image.png' | asset_url}}" srcset="{{ 'pro-experience-both-image-desktop.png' | asset_url }} 2x" loading="lazy">
-            </div>
-            <div class="experience-block-options-both-icons">
-              <img src="{{ 'pro-experience-block-icon-1.svg' | asset_url}}">
-              <img src="{{ 'pro-experience-block-icon-2.svg' | asset_url}}">
-              <img src="{{ 'pro-experience-block-icon-3.svg' | asset_url}}">
-              <img src="{{ 'pro-experience-block-icon-4.svg' | asset_url}}">
-              <img src="{{ 'pro-experience-block-icon-5.svg' | asset_url}}">
-              <img src="{{ 'pro-experience-block-icon-6.svg' | asset_url}}">
-            </div>            
-          </div>          
-        </div>
-        <div class="experience-block-options-right">
-          <div class="experience-block-options-right-top">
-            <div class="experience-block-options-item experience-block-options-one">
-              <div class="experience-block-options-item experience-block-options-one-title">Powermate Boost</div>
-              <div class="experience-block-options-item experience-block-options-one-caption">power increase</div>
-              <div class="experience-block-options-item experience-block-options-one-value">+50 HP</div>
-            </div>
-            <div class="experience-block-options-item experience-block-options-one">
-              <div class="experience-block-options-item experience-block-options-one-title">Powermate Performance</div>
-              <div class="experience-block-options-item experience-block-options-one-caption">power increase</div>
-              <div class="experience-block-options-item experience-block-options-one-value">+150 HP</div>
-              <div class="experience-block-options-item experience-block-options-one-plus">
-                <img class="experience-block-options-one-plus-icon" src="{{ 'pro-flag.svg' | asset_url}}">
-                <div class="experience-block-options-one-plus-text">Plus Track Mode</div>
-              </div>
-            </div>            
-          </div>
-          <div class="experience-block-options-right-bottom">
-            <div class="experience-block-options-item experience-block-options-add">
-              <div class="experience-block-options-add-text">
-                Also, with Powermate,<br>you can activate the following<br>additional functionality:
-              </div>
-              <div class="experience-block-options-add-features">
-                <div class="experience-block-options-add-features-item">
-                  <img class="experience-block-options-add-features-item-icon" src="{{ 'pro-experience-add-icon-1.svg' | asset_url}}">
-                  <div class="experience-block-options-add-features-item-text">Adaptive<br>Matrix<br>Headlights</div>
-                </div>
-                <div class="experience-block-options-add-features-item">
-                  <img class="experience-block-options-add-features-item-icon" src="{{ 'pro-experience-add-icon-2.svg' | asset_url}}">
-                  <div class="experience-block-options-add-features-item-text">Amber<br>Taillights<br>Retrofit</div>
-                </div>
-              </div>
-            </div>
-          </div>          
-        </div>        
-      </div>
-    </div>
-  </div> {% endcomment %}
 </header>
   
 <script type="text/javascript">
-  // console.log('userAgent')
-  // console.log(window.navigator.userAgent)
-  // console.log(window.innerWidth)
-  // console.log(window.innerHeight)
   var logo_white_url = "{{ 'screenmate_logo_white.svg' | asset_url }}"
   // var logo_black_url = "{{ 'screenmate_logo_black.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   // var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
-  // console.log(logo_white_url)
-  // console.log(logo_black_url)
+  
   $(document).ready(function() {
     /* promo script */
     const endTime = 1734940800 // 23.12.2024 08:00 UTC

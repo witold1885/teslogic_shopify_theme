@@ -596,7 +596,13 @@
 	}
 	.banner-button-learn {
 		display: none;
-	}	
+	}
+	.experience-block br.desktop {
+		display: none;
+	}
+	.experience-block br.mobile {
+		display: block;
+	}
 	.experience-block-wrap {
 		position: unset;
 		padding-bottom: calc(96 * 100vw / 375);

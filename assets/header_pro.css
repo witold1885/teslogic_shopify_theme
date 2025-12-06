@@ -345,6 +345,9 @@
 	flex-direction: column;
 	grid-row-gap: 32px;
 }
+.experience-block br.mobile {
+	display: none;
+}
 .experience-block-title {
 	color: #FFF;
 	font-family: Manrope;
