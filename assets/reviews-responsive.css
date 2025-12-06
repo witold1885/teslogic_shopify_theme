@@ -171,6 +171,9 @@
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
+	.star-rating-area {
+		grid-column-gap: calc(4 * 100vw / 1440);
+	}
 	.spr-form-review-rating .spr-icon {
 		width: calc(24 * 100vw / 1440);
 		height: calc(24 * 100vw / 1440);
@@ -405,6 +408,9 @@
 	}
 	.spr-form-review-rating {
 		margin-bottom: 0;
+		grid-column-gap: calc(8 * 100vw / 375);
+	}
+	.star-rating-area {
 		grid-column-gap: calc(8 * 100vw / 375);
 	}
 	.reviews-form-actions {
