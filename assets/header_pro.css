@@ -464,6 +464,7 @@
 	height: 196px;
 	padding: 32px;
 	display: flex;
+	align-items: center;
 	grid-column-gap: 24px;
 }
 .experience-block-options-add-text {
