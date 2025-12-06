@@ -3,49 +3,35 @@
 
 {% style %}	
 .reviews {
-/*	background: url({{ 'reviews_bg.png' | asset_url }}), -666.816px -1673.512px / 296.268% 182.468% no-repeat, linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);*/
 	background: url({{ 'reviews_bg_x2.png' | asset_url }}), linear-gradient(180deg, #403CF7 -7.9%, #403CF7 129.81%);
 	background-size: cover;
 	background-position: center;
 }
-/*.spr-form-review-rating .spr-icon-star::before {
-	content: url({{ 'star-form-blue.svg' | asset_url }});
-}
-.spr-form-review-rating .spr-icon-star-empty::before {
-	content: url({{ 'star-form-grey.svg' | asset_url }});
-}
-.spr-form-review-rating .spr-icon-star-hover::before {
-	content: url({{ 'star-form-blue.svg' | asset_url }});
-}
-.spr-form-review-rating .spr-icon:hover::before,
-.spr-form-review-rating .spr-icon:hover ~ .spr-form-review-rating .spr-icon::before {
-	content: url({{ 'star-form-blue.svg' | asset_url }});
-}*/
 
 .star-rating-area input[type="radio"] {
     display: none;
 }
-
 .star-rating-area label {
     cursor: pointer;
     float: right;
-    background: url({{ 'star-form-grey.svg' | asset_url }});
+    background: url({{ 'star-form-grey.svg' | asset_url }}) center no-repeat;
     transition: color 0.2s;
 }
 .star-rating-area label:hover,
 .star-rating-area label:hover ~ label {
-	background: url({{ 'star-form-blue.svg' | asset_url }});
+	background-image: url({{ 'star-form-blue.svg' | asset_url }});
 }
 .star-rating-area input[type="radio"]:checked ~ label {
-	background: url({{ 'star-form-blue.svg' | asset_url }});
+	background-image: url({{ 'star-form-blue.svg' | asset_url }});
 }
 .star-rating-area:not(:hover) input[type="radio"]:checked ~ label:hover,
 .star-rating-area:not(:hover) input[type="radio"]:checked ~ label:hover ~ label {
-	background: url({{ 'star-form-blue.svg' | asset_url }});
+	background-image: url({{ 'star-form-blue.svg' | asset_url }});
 }
 .star-rating-area {
     direction: rtl;
-    display: inline-block;
+    display: inline-flex;
+	grid-column-gap: 4px;
 }
 .star-rating-area > label {
     direction: ltr;
