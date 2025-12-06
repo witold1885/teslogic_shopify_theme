@@ -132,8 +132,9 @@
 		grid-column-gap: 12px;
 	}
 	.order-product-data-preorder-button {
+		width: 160px;
 		display: flex;
-		padding: 20px 40px;
+		padding: 20px 0;
 		justify-content: center;
 		align-items: center;
 		border-radius: 54px;
@@ -161,6 +162,7 @@
 	}
 	.order-product-data-preorder-features-desktop {
 		display: flex;
+		width: 302px;
 	}
 	.order-product-data-preorder-features-mobile {
 		display: none;
@@ -423,13 +425,17 @@
 			grid-column-gap: calc(12 * 100vw / 1440);
 		}
 		.order-product-data-preorder-button {
-			padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
+			width: calc(160 * 100vw / 1440);
+			padding: calc(20 * 100vw / 1440) 0;
 			border-radius: calc(54 * 100vw / 1440);
 			font-size: calc(18 * 100vw / 1440);
 			line-height: calc(24 * 100vw / 1440);
 		}
 		.order-product-data-preorder-features {
 			grid-row-gap: calc(8 * 100vw / 1440);
+		}
+		.order-product-data-preorder-features-desktop {
+			width: calc(302 * 100vw / 1440);
 		}
 		.order-product-data-preorder-features-item {
 			grid-column-gap: calc(8 * 100vw / 1440);
