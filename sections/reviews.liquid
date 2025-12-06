@@ -382,6 +382,7 @@
 							<input type="radio" id="star-1" name="review[rating]" value="1" aria-label="1 of 5 stars" required />
 							<label for="star-1" class="spr-icon spr-icon-star" title="1 star"></label>
 						</div>
+						<div class="reviews-form-field-error">Please, choose the rate</div>
 		        	</div>
 		        </div>
 
@@ -435,6 +436,12 @@
 			const form = $('#reviewsFormWrap').find('form')
 			const product_id = $(form).find('input[name="product_id"]').val()
 
+			const rating = $('input[name="review[rating]"]:checked').val()
+			if (!rating) {
+				$(form).find('.spr-form-review-rating').find('.reviews-form-field-error').show()
+				return
+			}
+
 			const name = $(`#review_author_${product_id}`).val()
 			if (!name) {
 				$(form).find('.spr-form-contact-name').find('.reviews-form-field-error').show()
@@ -453,15 +460,7 @@
 				return
 			}
 
-			const rating = $('input[name="review[rating]"]:checked').val()
-			if (!rating) {
-				return
-			}
-
 			const sendBody = { id: product_id, name, email, rating, body }
-
-			console.log({ sendBody })
-			return
 
 	        const response = await fetch(sendReviewUrl, {
 	            method: 'post',
