@@ -604,9 +604,7 @@
 		display: block;
 	}
 	.experience-block-wrap {
-		position: unset;
-		padding-bottom: calc(96 * 100vw / 375);
-		z-index: 2;
+		padding: calc(96 * 100vw / 375) 0;
 	}
 	.experience-block {
 		width: calc(335 * 100vw / 375);
@@ -703,9 +701,9 @@
 		line-height:  calc(24 * 100vw / 375);
 	}
 	.experience-block-options-add-features {
-		grid-column-gap: calc(24 * 100vw / 375);
-		grid-row-gap: calc(30 * 100vw / 375);
+		flex-direction: column;
 		width: calc(335 * 100vw / 375);
+		grid-row-gap: calc(30 * 100vw / 375);
 	}
 	.experience-block-options-add-features-item {
 		grid-column-gap: calc(8 * 100vw / 375);
