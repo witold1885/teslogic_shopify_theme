@@ -85,9 +85,6 @@
 		width: calc(24 * 100vw / 1440);
 		height: calc(24 * 100vw / 1440);
 	}
-	.reviews-list-item-stars .spr-icon::before {
-		font-size: calc(24 * 100vw / 1440);
-	}
 	.reviews-list-item-text {
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
@@ -177,9 +174,6 @@
 	.spr-form-review-rating .spr-icon {
 		width: calc(24 * 100vw / 1440);
 		height: calc(24 * 100vw / 1440);
-	}
-	.spr-form-review-rating .spr-icon::before {
-		font-size: calc(24 * 100vw / 1440);
 	}
 	.spr-form-input-textarea {
 		height: calc(161 * 100vw / 1440);
