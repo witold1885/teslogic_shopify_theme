@@ -40,9 +40,9 @@
 		border-radius: calc(1663.117 * 100vw / 1440);
 	}
 	.banner-desktop-body {
+		top: calc(156 * 100vw / 1440);
 		left: calc(72 * 100vw / 1440);
 		right: calc(72 * 100vw / 1440);
-		bottom: calc(96.13 * 100vw / 1440);
 		row-gap: calc(60 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
