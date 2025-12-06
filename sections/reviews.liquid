@@ -453,7 +453,7 @@
 				return
 			}
 
-			const rating = $('input[name="review[rating]"]').val()
+			const rating = $('input[name="review[rating]"]:checked').val()
 			if (!rating) {
 				return
 			}
