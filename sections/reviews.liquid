@@ -70,8 +70,8 @@
 					<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
 					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
 				</div>
-				<div class="reviews-rating-overall-data-star" style="--fill-percentage: 84.8%;"></div>
-			</div>			
+				<div class="reviews-rating-overall-data-star"></div>
+			</div>
 		</div>
 		<div class="reviews-list-wrap">
 			<div class="reviews-list" id="multipleReviews">
@@ -142,11 +142,12 @@
         const response = await fetch(getReviewsUrl)
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
-		// console.log('reviews', reviews)
+		const maxRating = 5
 		const filteredReviews = reviews.filter(item => item.product_external_id == Number(product_id))
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
+		$('.reviews-rating-overall-data-star').css('--fill-percentage', `${Number(avgRating) * 100 / maxRating}%`)
 
 		if (reviews.length == 0) $('.reviews-list-scrollbar').hide()
 
