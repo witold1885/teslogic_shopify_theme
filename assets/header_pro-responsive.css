@@ -36,9 +36,6 @@
 	.banner-buttons {
 		top: calc(620 * 100vw / 1920);
 	}
-	.experience-block-wrap {
-		bottom: calc(180 * 100vw / 1920);
-	}
 	/*.experience-block {
 		width: calc(1077 * 100vw / 1920);
 	}*/
@@ -195,9 +192,6 @@
 	}
 	.banner-button-buy:hover {
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
-	}
-	.experience-block-wrap {
-		bottom: calc(180 * 100vw / 1440);
 	}
 	.experience-block {
 		width: calc(1077 * 100vw / 1440);
