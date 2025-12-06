@@ -373,8 +373,7 @@
 				.addClass('new-review-form')
 				.attr('id', `new-review-form_${product_id}`)
 
-			let formHtml = `						
-		        <input type="hidden" name="review[rating]">
+			let formHtml = `
 		        <input type="hidden" name="product_id" value="${product_id}">
 		        <input id="review_title_${product_id}" class="review-form-title" type="hidden" name="review[title]" value="">
 
@@ -383,19 +382,19 @@
 		    		<div class="reviews-form-field spr-form-review-rating">
 		    			<div class="spr-form-review-rating-title">Rate:</div>
 						<div class="star-rating-area">
-							<input type="radio" id="star-5" name="rating" value="5" aria-label="5 of 5 stars" />
+							<input type="radio" id="star-5" name="review[rating]" value="5" aria-label="5 of 5 stars" />
 							<label for="star-5" class="spr-icon spr-icon-star" title="5 stars"></label>
 							
-							<input type="radio" id="star-4" name="rating" value="4" aria-label="4 of 5 stars" />
+							<input type="radio" id="star-4" name="review[rating]" value="4" aria-label="4 of 5 stars" />
 							<label for="star-4" class="spr-icon spr-icon-star" title="4 stars"></label>
 							
-							<input type="radio" id="star-3" name="rating" value="3" aria-label="3 of 5 stars" />
+							<input type="radio" id="star-3" name="review[rating]" value="3" aria-label="3 of 5 stars" />
 							<label for="star-3" class="spr-icon spr-icon-star" title="3 stars"></label>
 							
-							<input type="radio" id="star-2" name="rating" value="2" aria-label="2 of 5 stars" />
+							<input type="radio" id="star-2" name="review[rating]" value="2" aria-label="2 of 5 stars" />
 							<label for="star-2" class="spr-icon spr-icon-star" title="2 stars"></label>
 							
-							<input type="radio" id="star-1" name="rating" value="1" aria-label="1 of 5 stars" required />
+							<input type="radio" id="star-1" name="review[rating]" value="1" aria-label="1 of 5 stars" required />
 							<label for="star-1" class="spr-icon spr-icon-star" title="1 star"></label>
 						</div>
 		        	</div>
@@ -441,14 +440,6 @@
 			$('.reviews-form-shadow').css('display', 'none')
 		})
 
-		$(document).on('click', '.spr-form-review-rating a.spr-icon-star', function(e) {
-			const value = $(this).data('value')
-			window.newReviewRating = value
-			for (const i = 1; i <= value; i++) {
-				$(`.spr-form-review-rating a.spr-icon-star[data-value="${i}"]`).removeClass('spr-icon-star-empty')
-			}
-		})
-
 		$(document).on('keydown', '.spr-form-input', function(e) {
 			$(this).parents('.reviews-form-field').find('.reviews-form-field-error').hide()
 		})
@@ -477,12 +468,15 @@
 				return
 			}
 
-			const rating = window.newReviewRating
+			const rating = $('input[name="review[rating]"]').val()
 			if (!rating) {
 				return
 			}
 
 			const sendBody = { id: product_id, name, email, rating, body }
+
+			console.log({ sendBody })
+			return
 
 	        const response = await fetch(sendReviewUrl, {
 	            method: 'post',
