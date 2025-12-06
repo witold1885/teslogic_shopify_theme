@@ -8,6 +8,24 @@
 	background-position: center;
 }
 
+.reviews-rating-overall-data-star {
+	--fill-color: #FFFFFF;
+    --empty-color: #CADAFC;
+
+	background: linear-gradient(
+        to right,
+        var(--fill-color) 0%,
+        var(--fill-color) var(--fill-percentage),
+        var(--empty-color) var(--fill-percentage),
+        var(--empty-color) 100%
+    );
+
+	mask-image: url({{ 'star.svg' | asset_url }});
+	mask-size: cover;
+    -webkit-mask-image: url({{ 'star.svg' | asset_url }});
+    -webkit-mask-size: cover;
+}
+
 .star-rating-area label, .spr-icon-star-empty {
     background: url({{ 'star-form-grey.svg' | asset_url }}) center no-repeat;
 }
@@ -52,9 +70,7 @@
 					<div id="totalRatingValue" class="reviews-rating-overall-data-value"></div>
 					<div id="totalReviewsCount" class="reviews-rating-stats-total"></div>
 				</div>
-				<div class="reviews-rating-overall-data-star">
-					<img src="{{ 'star.svg' | asset_url }}" />
-				</div>
+				<div class="reviews-rating-overall-data-star" style="--fill-percentage: 84.8%;"></div>
 			</div>			
 		</div>
 		<div class="reviews-list-wrap">
