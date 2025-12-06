@@ -8,33 +8,18 @@
 	background-position: center;
 }
 
-.star-rating-area input[type="radio"] {
-    display: none;
-}
-.star-rating-area label {
-    cursor: pointer;
-    float: right;
+.star-rating-area label, .spr-icon-star-empty {
     background: url({{ 'star-form-grey.svg' | asset_url }}) center no-repeat;
-    transition: color 0.2s;
+}
+.spr-icon-star-checked {
+    background: url({{ 'star-form-blue.svg' | asset_url }}) center no-repeat;
 }
 .star-rating-area label:hover,
-.star-rating-area label:hover ~ label {
-	background-image: url({{ 'star-form-blue.svg' | asset_url }});
-}
-.star-rating-area input[type="radio"]:checked ~ label {
-	background-image: url({{ 'star-form-blue.svg' | asset_url }});
-}
+.star-rating-area label:hover ~ label,
+.star-rating-area input[type="radio"]:checked ~ label,
 .star-rating-area:not(:hover) input[type="radio"]:checked ~ label:hover,
 .star-rating-area:not(:hover) input[type="radio"]:checked ~ label:hover ~ label {
 	background-image: url({{ 'star-form-blue.svg' | asset_url }});
-}
-.star-rating-area {
-    direction: rtl;
-    display: inline-flex;
-	grid-column-gap: 4px;
-}
-.star-rating-area > label {
-    direction: ltr;
 }
 {% endstyle %}
 
@@ -158,8 +143,8 @@
 			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 			let starsHtml = ''
 			for (let s = 1; s <= 5; s++) {
-				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star" aria-hidden="true"></i>'
-				else starsHtml += '<i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>'
+				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star spr-icon-star-checked" aria-hidden="true"></i>'
+				else starsHtml += '<i class="spr-icon spr-icon-star spr-icon-star-empty" aria-hidden="true"></i>'
 			}
 	        const reviewHtml = `
 	        	<div class="reviews-list-item product-review" id="review-${i}" data-id="${review.id}">
