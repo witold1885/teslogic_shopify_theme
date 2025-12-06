@@ -12,7 +12,7 @@
     }
   }
   header#header_main {
-/*    height: 100vh;*/
+    height: 100vh;
     background: black;
   }
   .pro-shadow {
@@ -30,12 +30,10 @@
     background: rgba(0, 0, 0, 0.66);
   }
   .banner-desktop-wrap {
-/*    background: url({{ 'bg_2x.png' | asset_url}});*/
-    background: black;
+    background: url({{ 'bg_powermate.png' | asset_url}});
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat; 
-/*    height: 100%;*/
   }
   .banner-desktop {
 /*    height: 100%;*/
@@ -172,7 +170,6 @@
   <div class="header_main-fix"></div>
   <div class="banner-desktop-wrap">
     <div class="banner-desktop">
-      <img class="banner-desktop-image" src="{{ 'pro_banner.png' | asset_url}}" srcset="{{ 'pro_banner_2.png' | asset_url }} 2x" loading="lazy">
       <div class="suptitle">Formerly Teslogic Pro</div>
       <div class="title">
         <img src="{{ 'powermate-logo.svg' | asset_url }}"><br>
