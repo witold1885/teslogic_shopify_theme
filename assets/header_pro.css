@@ -214,7 +214,7 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
-/*	z-index: -1;*/
+	height: 100%;
 }
 .banner-desktop {
 	width: 1440px;
@@ -335,6 +335,8 @@
 }
 .experience-block-wrap {
 	width: 100%;
+	background: #0A0A0A;
+	padding: 150px 0 180px;
 }
 .experience-block {
 	width: 1077px;
