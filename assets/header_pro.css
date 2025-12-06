@@ -265,7 +265,7 @@
 	font-family: Manrope;
 	font-size: 24px;
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 500;
 	line-height: 32px;
 	position: absolute;
 	top: 404px;
@@ -467,7 +467,7 @@
 	grid-column-gap: 24px;
 }
 .experience-block-options-add-text {
-	width: 180px;
+	width: 192px;
 	color: #FFF;
 	font-family: Manrope;
 	font-size: 18px;
@@ -478,9 +478,7 @@
 .experience-block-options-add-features {
 	display: flex;
 	align-items: center;
-	flex-wrap: wrap;
 	grid-column-gap: 24px;
-	grid-row-gap: 36px;
 	width: 366px;
 }
 .experience-block-options-add-features-item {
