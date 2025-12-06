@@ -701,8 +701,9 @@
 		line-height:  calc(24 * 100vw / 375);
 	}
 	.experience-block-options-add-features {
+		width: 100%;
 		flex-direction: column;
-		width: calc(335 * 100vw / 375);
+		align-items: flex-start;
 		grid-row-gap: calc(30 * 100vw / 375);
 	}
 	.experience-block-options-add-features-item {
