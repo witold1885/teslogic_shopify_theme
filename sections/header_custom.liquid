@@ -25,7 +25,7 @@
         {% for link in linklists.main-menu.links %}
         {% if link.title != 'Community' %}
           <div
-            class="menu__item {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
+            class="menu__item {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}menu__item-pro{% endif %} {% if link.title == 'For customers' %}menu__item-customer{% endif %} {% if link.title == 'Buy Now' %}menu__item-button{% endif %}"
             {% if link.title == 'Buy Now' and cart.item_count != 0 %} style="display: none;" {% endif %}
           >
             <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
