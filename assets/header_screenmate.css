@@ -243,8 +243,7 @@
     right: 182px;
 	display: flex;
 	flex-direction: column;
-    row-gap: 60px;
-	justify-content: flex-end;
+    row-gap: 32px;
 }
 .banner-desktop-body-device {
 	width: 306px;
@@ -254,24 +253,28 @@
     width: 100%;
 }
 .banner-desktop-body-caption {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+	flex-direction: column;
+	row-gap: 28px;
 }
-.banner-desktop-body-caption-left {
+.banner-desktop-body-caption-info {
     display: flex;
-    flex-direction: column;
-    row-gap: 16px;
+	flex-direction: column;
+	row-gap: 12px;
+	color: #FFF;
+	font-family: Manrope;
+	font-style: normal;
 }
-.banner-desktop-body-caption-main {
-    display: flex;
-    align-items: center;
-    column-gap: 32px;
+.banner-desktop-body-caption-title {
+	font-size: 52px;
+	font-weight: 600;
+	line-height: 64px; /* 123.077% */
 }
-.banner-desktop-body-caption-main img {
-    width: 665px;
-	height: 48px;
+.banner-desktop-body-caption-subtitle {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 32px; /* 133.333% */
+	opacity: 0.6;
 }
 .banner-desktop-body-caption-main a {
     display: flex;
