@@ -413,9 +413,10 @@
 		line-height: calc(48 * 100vw / 375);
 	}
 	.banner-caption-subtitle {
-		font-size: calc(24 * 100vw / 375);
-		font-weight: 600;
-		line-height: calc(32 * 100vw / 375);
+		font-size: calc(18 * 100vw / 375);
+		font-weight: 500;
+		line-height: calc(24 * 100vw / 375);
+		opacity: 0.6;
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
