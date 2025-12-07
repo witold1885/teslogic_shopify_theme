@@ -409,75 +409,40 @@
 					'id': model_id,
 					'quantity': 1
 				}]
+			} else {				
+				$('.store_block-product-select').addClass('store_block-product-select-error')
 			}
-			else if (product_id) {
-				items = [{
-					'id': product_id,
+			let add_items_count = 1
+			if ($('.product_block-add-wireless-charger-checkbox').prop('checked') === true) {
+				let charger_variant_id = $('#charger-variant-id').val()
+				console.log(Number(charger_variant_id))
+				items.push({
+					'id': Number(charger_variant_id),
 					'quantity': 1
-				}]
+				})
+				add_items_count++
 			}
-				let add_items_count = 1
-				if ($('.product_block-add-wireless-charger-checkbox').prop('checked') === true) {
-					let charger_variant_id = $('#charger-variant-id').val()
-					console.log(Number(charger_variant_id))
-					items.push({
-						'id': Number(charger_variant_id),
-						'quantity': 1
-					})
-					add_items_count++
+			console.log(items)
+			let formData = {
+				'items': items
+			}
+			fetch(window.Shopify.routes.root + 'cart/add.js', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			})
+			.then(response => {
+				if (isRedirect) {
+					window.location.href = '/cart'
+				} else {
+					window.location.reload(true)
 				}
-				console.log(items)
-				let formData = {
-				 	'items': items
-				}
-				fetch(window.Shopify.routes.root + 'cart/add.js', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(formData)
-				})
-				.then(response => {
-					/*cart_qty = cart_qty + add_items_count
-					$('.cart-qty').text(cart_qty)
-					$('.cart-link').fadeIn()
-					var f = $('.product_block-product-gallery-image')
-					var cart_total = $("#cart-animate");
-					var clone = $('<div class="cart"></div>').append(f.clone());
-					clone.appendTo('body');
-					clone.css({
-						'z-index': 100500,
-						background: '#fff',
-						top: f.offset().top,
-						left: f.offset().left,
-						width: f.width() + 'px',
-						height: f.height() + 'px',
-						position: 'absolute',
-						overflow: 'hidden'
-					}).animate({
-						top: cart_total.offset().top,
-						left: cart_total.offset().left,
-						width: cart_total.width() + 'px',
-						height: cart_total.height() + 'px',
-						// opacity: 0.7
-					}, 2000, function () {
-						$(this).remove();
-					});
-					$('.menu__item-cart').show();*/
-					// console.log(response)
-				  	// return response.json()
-
-				  	if (isRedirect) {
-				  		window.location.href = '/cart'
-				  	}
-				  	else {
-				  		window.location.reload(true)
-				  	}
-				})
-				.catch((error) => {
-				  	console.error('Error:', error)
-				});
-			// }
+			})
+			.catch((error) => {
+				console.error('Error:', error)
+			})
 		})
 	})
 </script>
