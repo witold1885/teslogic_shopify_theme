@@ -46,9 +46,8 @@
 		row-gap: calc(60 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
-		width: calc(445 * 100vw / 1440);
-		height: calc(329.715 * 100vw / 1440);
-		margin-left: calc(-1 * 15 * 100vw / 1440);
+		width: calc(306 * 100vw / 1440);
+		height: calc(227 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-left {
 		row-gap: calc(16 * 100vw / 1440);
