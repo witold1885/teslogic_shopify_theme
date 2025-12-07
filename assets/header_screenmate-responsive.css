@@ -78,9 +78,11 @@
 	.banner-desktop-body-caption-buttons a:first-child:hover {
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-kickstarter {
-		width: calc(170 * 100vw / 1440);
-		height: calc(170 * 100vw / 1440);
+	.banner-desktop-kickstarter {
+		top: calc(157.12 * 100vw / 1440);
+		left: calc(151.44 * 100vw / 1440);
+		width: calc(102.08 * 100vw / 1440);
+		height: calc(102.4 * 100vw / 1440);
 	}
 }
 
