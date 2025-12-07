@@ -469,6 +469,7 @@
 		width: calc(64 * 100vw / 375);
 		height: calc(64 * 100vw / 375);
 		margin-bottom: calc(20 * 100vw / 375);
+		cursor: pointer;
 	}
 	.banner-expand img {
 		width: 100%;
