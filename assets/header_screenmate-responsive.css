@@ -403,18 +403,23 @@
 	.banner-caption {
 		display: flex;
 		flex-direction: column;
-		row-gap: calc(12 * 100vw / 375);
-	}
-	.banner-caption img {
-		width: 100%;
-	}
-	.banner-caption-subtitle {
+		row-gap: calc(24 * 100vw / 375);
 		color: #FFF;
 		font-family: Manrope;
-		font-size: calc(24 * 100vw / 375);
 		font-style: normal;
+	}
+	.banner-caption-title {
+		font-size: calc(40 * 100vw / 375);
+		font-weight: 600;
+		line-height: calc(48 * 100vw / 375);
+	}
+	.banner-caption-subtitle {
+		font-size: calc(24 * 100vw / 375);
 		font-weight: 600;
 		line-height: calc(32 * 100vw / 375);
+	}
+	.banner-caption-buttons {
+		width: 100%;
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
