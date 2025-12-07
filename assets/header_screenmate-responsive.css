@@ -43,21 +43,25 @@
 		top: calc(156 * 100vw / 1440);
 		left: calc(182 * 100vw / 1440);
 		right: calc(182 * 100vw / 1440);
-		row-gap: calc(60 * 100vw / 1440);
+		row-gap: calc(32 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
 		width: calc(306 * 100vw / 1440);
 		height: calc(227 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-left {
-		row-gap: calc(16 * 100vw / 1440);
+	.banner-desktop-body-caption {
+		row-gap: calc(28 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-main {
-		column-gap: calc(32 * 100vw / 1440);
+	.banner-desktop-body-caption-info {
+		row-gap: calc(12 * 100vw / 1440);
 	}
-	.banner-desktop-body-caption-main img {
-		width: calc(665 * 100vw / 1440);
-		height: calc(48 * 100vw / 1440);
+	.banner-desktop-body-caption-title {
+		font-size: calc(52 * 100vw / 1440);
+		line-height: calc(64 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-subtitle {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-main a {
 		padding: calc(20 * 100vw / 1440) calc(40 * 100vw / 1440);
