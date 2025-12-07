@@ -386,40 +386,13 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
-					/*cart_qty = cart_qty + add_items_count
-					$('.cart-qty').text(cart_qty)
-					$('.cart-link').fadeIn()
-					var f = $('.store_block-product-gallery-image')
-					var cart_total = $("#cart-animate");
-					var clone = $('<div class="cart"></div>').append(f.clone());
-					clone.appendTo('body');
-					clone.css({
-						'z-index': 100500,
-						background: '#fff',
-						top: f.offset().top,
-						left: f.offset().left,
-						width: f.width() + 'px',
-						height: f.height() + 'px',
-						position: 'absolute',
-						overflow: 'hidden'
-					}).animate({
-						top: cart_total.offset().top,
-						left: cart_total.offset().left,
-						width: cart_total.width() + 'px',
-						height: cart_total.height() + 'px',
-						// opacity: 0.7
-					}, 2000, function () {
-						$(this).remove();
-					});
-					$('.menu__item-button').hide();
-					$('.menu__item-cart').show();*/
-					// console.log(response)
-				  	// return response.json()
 				  	window.location.href = '/cart'
 				})
 				.catch((error) => {
 				  	console.error('Error:', error)
 				});
+			} else {
+				$('.store_block-product-select').addClass('store_block-product-select-error')
 			}
 		})
 	})
