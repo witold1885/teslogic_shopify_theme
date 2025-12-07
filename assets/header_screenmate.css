@@ -247,9 +247,8 @@
 	justify-content: flex-end;
 }
 .banner-desktop-body-device {
-    width: 445px;
-    height: 329.715px;
-    margin-left: -15px;
+	width: 306px;
+	height: 227px;
 }
 .banner-desktop-body-device img {
     width: 100%;
