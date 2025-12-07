@@ -158,6 +158,10 @@
 	background: #FFF;
 	box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
+.menu__item:last-child .menu__item-dropdown {
+	left: unset;
+	right: 0;
+}
 .menu__item-dropdown-link {
 	color: #000;
 	font-family: Manrope;
