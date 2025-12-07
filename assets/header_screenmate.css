@@ -239,8 +239,8 @@
 .banner-desktop-body {
     position: absolute;
     top: 156px;
-    left: 72px;
-    right: 72px;
+    left: 182px;
+    right: 182px;
 	display: flex;
 	flex-direction: column;
     row-gap: 60px;
