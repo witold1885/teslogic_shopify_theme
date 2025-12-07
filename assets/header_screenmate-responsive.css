@@ -390,8 +390,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		/* align-items: flex-start; */
-		row-gap: calc(20 * 100vw / 375);
+		row-gap: calc(24 * 100vw / 375);
 	}
 	.banner-kickstarter {
 		width: calc(120 * 100vw / 375);
@@ -403,7 +402,7 @@
 	.banner-caption {
 		display: flex;
 		flex-direction: column;
-		row-gap: calc(24 * 100vw / 375);
+		row-gap: calc(8 * 100vw / 375);
 		color: #FFF;
 		font-family: Manrope;
 		font-style: normal;
@@ -417,9 +416,6 @@
 		font-size: calc(24 * 100vw / 375);
 		font-weight: 600;
 		line-height: calc(32 * 100vw / 375);
-	}
-	.banner-caption-buttons {
-		width: 100%;
 	}
 	.banner-mobile-image {
 		width: calc(375 * 100vw / 375);
