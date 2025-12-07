@@ -305,6 +305,7 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 20px;
+	white-space: nowrap;
 }
 .store_block-product-order-feature-text-main {
 	color: #1657FC;
