@@ -154,12 +154,12 @@
 						Add Wireless Charger <span class="store_block-add-wireless-price">+ 40 USD</span>
 					</label>					
 				</div>
-				<div class="store_block-add-wireless">
-					<input type="checkbox" id="select-charger" class="store_block-add-wireless-checkbox" checked>
+				{% comment %} <div class="store_block-add-wireless">
+					<input type="checkbox" id="select-camera" class="store_block-add-wireless-checkbox" checked>
 					<label for="select-camera" class="store_block-add-wireless-title">
 						Add Wireless Front Bumper Camera <span class="store_block-add-wireless-price">+ 50 USD</span>
 					</label>					
-				</div>
+				</div> {% endcomment %}
 				<div class="store_block-product-order">
 					<button class="store_block-product-add">Preorder now</button>
 					<button class="store_block-product-add-mobile">
@@ -196,6 +196,7 @@
 	</div>
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
+	{% comment %} <input type="hidden" id="camera-variant-id" value="{{ charger.variants[0].id }}">				 {% endcomment %}
 </div>
 
 <script type="text/javascript">
@@ -374,6 +375,15 @@
 					})
 					add_items_count++
 				}
+				// if ($('#select-camera').prop('checked') === true) {
+				// 	let camera_variant_id = $('#camera-variant-id').val()
+				// 	console.log(Number(camera_variant_id))
+				// 	items.push({
+				// 		'id': Number(camera_variant_id),
+				// 		'quantity': 1
+				// 	})
+				// 	add_items_count++
+				// }
 				console.log(items)
 				let formData = {
 				 	'items': items
