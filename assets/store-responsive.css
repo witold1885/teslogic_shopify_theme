@@ -75,27 +75,27 @@
 		width: calc(12 * 100vw / 1440);
 		height: calc(32 * 100vw / 1440);
 	}
-	.store_block-add-wireless-charger {
+	.store_block-add-wireless-price {
 		margin-top: calc(8 * 100vw / 1440);
 		grid-column-gap: calc(8 * 100vw / 1440);
 	}
-	.store_block-add-wireless-charger-checkbox {
+	.store_block-add-wireless-checkbox {
 		width: calc(20 * 100vw / 1440);
 		height: calc(20 * 100vw / 1440);
 		padding: calc(6.67 * 100vw / 1440) calc(5 * 100vw / 1440);
 		border-radius: calc(4 * 100vw / 1440);
 	}
-	.store_block-add-wireless-charger-checkbox:checked:after {
+	.store_block-add-wireless-checkbox:checked:after {
 		width: calc(10 * 100vw / 1440);
 		height: calc(6.667 * 100vw / 1440); 
 		top: calc(3.33 * 100vw / 1440);
 		left: calc(4 * 100vw / 1440);
 	}
-	.store_block-add-wireless-charger-title {
+	.store_block-add-wireless-title {
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
-	.store_block-add-wireless-charger-price {
+	.store_block-add-wireless-price {
 		font-size: calc(16 * 100vw / 1440);
 		line-height: calc(20 * 100vw / 1440);
 	}
@@ -248,7 +248,7 @@
 	.store_block-product-select-dropdown-item-selected img {
 		display: none;
 	}
-	.store_block-add-wireless-charger {
+	.store_block-add-wireless {
 		margin-top: calc(12 * 100vw / 375);
 	}
 	.store_block-product-order {

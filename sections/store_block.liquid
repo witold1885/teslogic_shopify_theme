@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ 'store-responsive.css' | asset_url }}" media="print" onload="this.media='all'">
 
 {% style %}	
-	.store_block-add-wireless-charger-checkbox:checked:after {
+	.store_block-add-wireless-checkbox:checked:after {
 		content: url({{ 'ok.svg' | asset_url }});
 		position: absolute;
 		width: 10px;
@@ -12,7 +12,7 @@
 		color: #000;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
-		.store_block-add-wireless-charger-checkbox:checked:after {
+		.store_block-add-wireless-checkbox:checked:after {
 			width: calc(10 * 100vw / 1440);
 			height: calc(6.667 * 100vw / 1440);
 			top: calc(3.33 * 100vw / 1440);
@@ -20,7 +20,7 @@
 		}
 	}
 	@media screen and (max-width: 575px) {
-		.store_block-add-wireless-charger-checkbox:checked:after {
+		.store_block-add-wireless-checkbox:checked:after {
 			width: calc(10 * 100vw / 375);
 			height: calc(6.667 * 100vw / 375);
 			top: calc(3.33 * 100vw / 375);
@@ -122,10 +122,10 @@
 						{%- endfor -%}
 					</div>
 				</div>
-				<div class="store_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="store_block-add-wireless-charger-title">
-						With Additional Wireless Charger <span class="store_block-add-wireless-charger-price">+ 40 USD</span>
+				<div class="store_block-add-wireless">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-checkbox" checked>
+					<label for="select-charger" class="store_block-add-wireless-title">
+						With Additional Wireless Charger <span class="store_block-add-wireless-price">+ 40 USD</span>
 					</label>					
 				</div>
 				<div class="store_block-product-order">
@@ -301,12 +301,6 @@
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
 			}
-			if (model.data('stock') <= 0) {
-				$('.store_block-add-wireless-charger-time').show()
-			}
-			else {
-				$('.store_block-add-wireless-charger-time').hide()
-			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('#select-charger').on('change', function() {
@@ -330,7 +324,7 @@
 					'quantity': 1
 				}]
 				let add_items_count = 1
-				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+				if ($('#select-charger').prop('checked') === true) {
 					let charger_variant_id = $('#charger-variant-id').val()
 					console.log(Number(charger_variant_id))
 					items.push({

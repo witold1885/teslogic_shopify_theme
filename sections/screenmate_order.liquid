@@ -9,7 +9,7 @@
     .store_block-product {
         width: 1076px;
     }
-	.store_block-add-wireless-charger-checkbox:checked:after {
+	.store_block-add-wireless-checkbox:checked:after {
 		content: url({{ 'ok.svg' | asset_url }});
 		position: absolute;
 		width: 10px;
@@ -39,7 +39,7 @@
         .store_block-product {
             width: calc(1076 * 100vw / 1440);
         }
-		.store_block-add-wireless-charger-checkbox:checked:after {
+		.store_block-add-wireless-checkbox:checked:after {
 			width: calc(10 * 100vw / 1440);
 			height: calc(6.667 * 100vw / 1440);
 			top: calc(3.33 * 100vw / 1440);
@@ -59,7 +59,7 @@
 		.store_block-product {
 			width: calc(375 * 100vw / 375);
 		}
-		.store_block-add-wireless-charger-checkbox:checked:after {
+		.store_block-add-wireless-checkbox:checked:after {
 			width: calc(10 * 100vw / 375);
 			height: calc(6.667 * 100vw / 375);
 			top: calc(3.33 * 100vw / 375);
@@ -148,10 +148,17 @@
 						{%- endfor -%}
 					</div>
 				</div>
-				<div class="store_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="store_block-add-wireless-charger-title">Add Wireless Charger</label>
-					<span class="store_block-add-wireless-charger-price">+ 40 USD</span>
+				<div class="store_block-add-wireless">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-checkbox" checked>
+					<label for="select-charger" class="store_block-add-wireless-title">
+						Add Wireless Charger <span class="store_block-add-wireless-price">+ 40 USD</span>
+					</label>					
+				</div>
+				<div class="store_block-add-wireless">
+					<input type="checkbox" id="select-charger" class="store_block-add-wireless-checkbox" checked>
+					<label for="select-camera" class="store_block-add-wireless-title">
+						Add Wireless Front Bumper Camera <span class="store_block-add-wireless-price">+ 50 USD</span>
+					</label>					
 				</div>
 				<div class="store_block-product-order">
 					<button class="store_block-product-add">Preorder now</button>
@@ -313,7 +320,7 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		var price = null, charger_selected = true
+		var price = null, charger_selected = true, camera_selected = true
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
@@ -324,25 +331,25 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
 			$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
 			price = model.data('price') / 100
-			setTotalPrice(price, charger_selected)
+			setTotalPrice(price, charger_selected, camera_selected)
 			if (model.data('compare_at_price')) {
 				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
-			}
-			if (model.data('stock') <= 0) {
-				$('.store_block-add-wireless-charger-time').show()
-			}
-			else {
-				$('.store_block-add-wireless-charger-time').hide()
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('#select-charger').on('change', function() {
 			charger_selected = $(this).prop('checked')
-			setTotalPrice(price, charger_selected)
+			setTotalPrice(price, charger_selected, camera_selected)
 		})
-		function setTotalPrice(price, charger_selected) {
+		$('#select-camera').on('change', function() {
+			camera_selected = $(this).prop('checked')
+			setTotalPrice(price, charger_selected, camera_selected)
+		})
+		function setTotalPrice(price, charger_selected, camera_selected) {
 			if (price) {
-				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
+				let totalPrice = Number(price)
+				if (charger_selected) totalPrice += 40
+				if (camera_selected) totalPrice += 50
 				$('.store_block-product-add-mobile-total').text(totalPrice + ' USD')
 			}
 			else {
@@ -358,7 +365,7 @@
 					'quantity': 1
 				}]
 				let add_items_count = 1
-				if ($('.store_block-add-wireless-charger-checkbox').prop('checked') === true) {
+				if ($('#select-charger').prop('checked') === true) {
 					let charger_variant_id = $('#charger-variant-id').val()
 					console.log(Number(charger_variant_id))
 					items.push({
