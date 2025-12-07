@@ -403,7 +403,8 @@
 		var cart_qty = Number({{ cart.item_count }})
 		$('.product_block-product-add').on('click', function() {
 			const isRedirect = Boolean($(this).data('redirect'))
-			let items
+			let items = []
+
 			if (model_id) {
 				items = [{
 					'id': model_id,
@@ -412,7 +413,7 @@
 			} else {				
 				$('.store_block-product-select').addClass('store_block-product-select-error')
 			}
-			let add_items_count = 1
+
 			if ($('.product_block-add-wireless-charger-checkbox').prop('checked') === true) {
 				let charger_variant_id = $('#charger-variant-id').val()
 				console.log(Number(charger_variant_id))
@@ -420,29 +421,25 @@
 					'id': Number(charger_variant_id),
 					'quantity': 1
 				})
-				add_items_count++
 			}
-			console.log(items)
-			let formData = {
-				'items': items
+
+			if (items.length !== 0) {
+				fetch(window.Shopify.routes.root + 'cart/add.js', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ items })
+				}).then(response => {
+					if (isRedirect) {
+						window.location.href = '/cart'
+					} else {
+						window.location.reload(true)
+					}
+				}).catch((error) => {
+					console.error('Error:', error)
+				})
 			}
-			fetch(window.Shopify.routes.root + 'cart/add.js', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(formData)
-			})
-			.then(response => {
-				if (isRedirect) {
-					window.location.href = '/cart'
-				} else {
-					window.location.reload(true)
-				}
-			})
-			.catch((error) => {
-				console.error('Error:', error)
-			})
 		})
 	})
 </script>
