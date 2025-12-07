@@ -41,8 +41,8 @@
 	}
 	.banner-desktop-body {
 		top: calc(156 * 100vw / 1440);
-		left: calc(72 * 100vw / 1440);
-		right: calc(72 * 100vw / 1440);
+		left: calc(182 * 100vw / 1440);
+		right: calc(182 * 100vw / 1440);
 		row-gap: calc(60 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
@@ -79,7 +79,7 @@
 	}
 }
 
-@media screen and (min-width: 1441px) and (min-height: 811px) {
+/* @media screen and (min-width: 1441px) and (min-height: 811px) {
 	.banner-desktop-body {
 		bottom: calc(96.13 * 100vh / 810);
 		row-gap: calc(60 * 100vh / 810);
@@ -116,7 +116,7 @@
 		width: calc(170 * 100vh / 810);
 		height: calc(170 * 100vh / 810);
 	}
-}
+} */
 
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
 	.top {
