@@ -14,15 +14,17 @@
 		top: calc(144 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
 	}
+	.powermate {
+		top: calc(200 * 100vw / 1920);
+		/*left: calc(128 * 100vw / 1920);*/
+		width: calc(499 * 100vw / 1920);
+		height: calc(36 * 100vw / 1920);
+	}
 	.title {
 		font-size: calc(64 * 100vw / 1920);
 		line-height: calc(72 * 100vw / 1920);
-		top: calc(172 * 100vw / 1920);
+		top: calc(260 * 100vw / 1920);
 		/*left: calc(128 * 100vw / 1920);*/
-	}
-	.title img {
-		width: calc(499 * 100vw / 1920);
-		height: calc(36 * 100vw / 1920);
 	}
 	.subtitle {
 /*		font-size: calc(48 * 100vw / 1920);*/
@@ -47,7 +49,7 @@
 	.menu {
 		margin-right: calc(72 * 100vw / 1440);
 	}
-	.title, .suptitle, .subtitle, .addtext, .banner-buttons {
+	.powermate, .title, .suptitle, .subtitle, .addtext, .banner-buttons {
 		left: calc(72 * 100vw / 1440);
 	}
 	.title img {
@@ -156,10 +158,15 @@
 		line-height: calc(32 * 100vw / 1440);
 		top: calc(144 * 100vw / 1440);
 	}
+	.powermate {
+		top: calc(200 * 100vw / 1440);
+		width: calc(499 * 100vw / 1440);
+		height: calc(36 * 100vw / 1440);
+	}
 	.title {
 		font-size: calc(64 * 100vw / 1440);
 		line-height: calc(72 * 100vw / 1440);
-		top: calc(172 * 100vw / 1440);
+		top: calc(260 * 100vw / 1440);
 	}
 	.subtitle {
 		font-size: calc(24 * 100vw / 1440);
