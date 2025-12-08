@@ -33,6 +33,7 @@
 	font-weight: 400;
 	line-height: 20px;
 	position: absolute;
+	white-space: nowrap;
 }
 .screens.light .pointer-legend {
 	color: #666;
