@@ -119,6 +119,9 @@
     line-height: 24px;
     white-space: nowrap;
 }
+#success-popup .subscription-popup-subtitle br {
+    display: none;
+}
 .subscription-popup-form {
     display: flex;
     flex-direction: column;
@@ -353,6 +356,9 @@
     .subscription-popup-subtitle {
         font-size: calc(16 * 100vw / 375);
         line-height: calc(20 * 100vw / 375); 
+    }
+    #success-popup .subscription-popup-subtitle br {
+        display: block;
     }
     .subscription-popup-form {
         row-gap: calc(24 * 100vw / 375);
