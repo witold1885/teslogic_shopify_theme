@@ -80,9 +80,12 @@
 }
 
 @media screen and (max-width: 575px) {
+	#using {
+		padding-bottom: calc(96 * 100vw / 375);
+	}
 	.using {
 		width: calc(335 * 100vw / 375);
-		margin: calc(96 * 100vw / 375) auto;
+		margin: 0 auto calc(96 * 100vw / 375);
 	}
 	.using__title {
 		height: auto;
