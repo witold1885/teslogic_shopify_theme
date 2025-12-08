@@ -59,6 +59,7 @@
 		padding-bottom: calc(96 * 100vw / 375);
 	}
 	.screens__top-title {
+		display: inline;
 		font-size: calc(32 * 100vw / 375);
 		line-height: calc(40 * 100vw / 375);
 	}
