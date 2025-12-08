@@ -98,6 +98,7 @@
   }
   .contact__form {
     width: 100%;
+    padding: calc(28 * 100vw / 375) calc(24 * 100vw / 375);
     grid-row-gap: calc(32 * 100vw / 375);
     align-items: center;
   }
