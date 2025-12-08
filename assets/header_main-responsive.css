@@ -463,6 +463,7 @@
 	}
 	.banner-button-buy {
 		width: 100%;
+		height: auto;
 		border-radius: calc(54 * 100vw / 375);
 		backdrop-filter: blur(8px);
 		text-align: center;
