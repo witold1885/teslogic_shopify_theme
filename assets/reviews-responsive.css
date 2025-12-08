@@ -363,12 +363,13 @@
 		line-height: calc(40 * 100vw / 375);
 	}
 	#showForm {
-		padding: calc(16 * 100vw / 375) calc(32 * 100vw / 375);
+		height: calc(56 * 100vw / 375);
+		padding: 0 calc(32 * 100vw / 375);
 		font-size: calc(18 * 100vw / 375);
 		line-height: calc(24 * 100vw / 375);
 	}
 	#showForm:hover {
-		padding: calc(14 * 100vw / 375) calc(30 * 100vw / 375);
+		padding: 0 calc(30 * 100vw / 375);
 		border: calc(2 * 100vw / 375) solid #FFF;
 	}
 	.reviews-form-wrap {
