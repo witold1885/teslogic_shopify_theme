@@ -294,8 +294,11 @@
     line-height: 32px;
 	text-decoration: none;
     cursor: pointer;
+	white-space: nowrap;
+	box-sizing: border-box;
 }
 .banner-desktop-body-caption-buttons a:first-child {
+	width: 231px;
 	height: 72px;
     padding: 20px 40px;
     border-radius: 54px;
