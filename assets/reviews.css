@@ -225,6 +225,7 @@
 	line-height: 64px;
 }
 #showForm {
+	height: 72px;
 	padding: 23px 43px;
 	text-align: center;
 	border-radius: 54px;
