@@ -33,6 +33,16 @@
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
 {%- endif -%}
 
+{% if template == 'index' %}
+  <meta property="og:image" content="{{ 'og_image_screenmate_dash.png' | asset_url }}">
+{% elsif page.handle == 'pro' %}
+  <meta property="og:image" content="{{ 'og_image_powermate.png' | asset_url }}">
+{% elsif page.handle == 'screenmate' %}
+  <meta property="og:image" content="{{ 'og_image_screenmate_one.png' | asset_url }}">
+{% else %}
+  <meta property="og:image" content="{{ 'og_image_other_pages.png' | asset_url }}">
+{%- endif -%}
+
 {%- if settings.social_twitter_link != blank -%}
   <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
 {%- endif -%}
