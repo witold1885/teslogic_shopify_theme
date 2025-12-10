@@ -1,28 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product_block": {
       "type": "product_block",
-      "settings": {
-      }
+      "settings": {}
     },
     "16868394313756278c": {
       "type": "apps",
+      "settings": {}
+    },
+    "1765363709970282ff": {
+      "type": "apps",
       "blocks": {
-        "3d0c2965-c6bc-43d8-9697-a54d948aa432": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+        "judge_me_reviews_review_widget_aH6kjd": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
       "block_order": [
-        "3d0c2965-c6bc-43d8-9697-a54d948aa432"
+        "judge_me_reviews_review_widget_aH6kjd"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
     "product_block",
-    "16868394313756278c"
+    "16868394313756278c",
+    "1765363709970282ff"
   ]
 }
