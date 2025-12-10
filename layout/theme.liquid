@@ -426,7 +426,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="text/javascript">
       const { protocol, host, pathname } = window.location
       if (host === 'teslogic.co') {
-        if (!pathname.includes('/orders/')) {
+        if (!pathname.includes('/orders/') && !pathname.includes('pages/privacy') && !pathname.includes('pages/terms')) {
           window.location.href = `${protocol}//screenmate.co${pathname}`
         }
       }
