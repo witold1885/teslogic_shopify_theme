@@ -483,7 +483,7 @@
 				return
 			}
 
-			const sendBody = { shop_url: '{{ shop.url }}', id: product_id, name, email, rating, body }
+			const sendBody = { shop_url: window.location.host, id: product_id, name, email, rating, body }
 
 	        const response = await fetch(sendReviewUrl, {
 	            method: 'post',
