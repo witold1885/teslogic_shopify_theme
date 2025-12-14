@@ -119,22 +119,22 @@
 		    {% endif %}
 	  	{% endfor %}
 		let product_id = null
-		let getReviewsUrl
+		let getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 
 		const pathname = window.location.pathname
+		
 		if (pathname.includes('pro')) {
-			product_id = '8482954674390'
-			getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
+			product_id = '9016908808411'
 			$('.reviews-bottom-text').text('Already own Powermate?')
 		} else if (pathname.includes('screenmate')) {
-			product_id = '8793097208022'
-			getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
+			product_id = '9016908742875'
 			$('.reviews-bottom-text').text('Already own Screenmate One?')
 		} else {
-			product_id = '8143253733590'
-			getReviewsUrl = 'https://api.teslogic.co/get-reviews'
+			product_id = '9016908906715'
 			$('.reviews-bottom-text').text('Already own Screenmate Dash?')
 		}
+
+		if (product_id) getReviewsUrl = `https://api.teslogic.co/get-reviews?product_id=${product_id}`
 
 		// const getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 		const sendReviewUrl = 'https://api.teslogic.co/send-review'
