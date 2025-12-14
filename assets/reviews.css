@@ -450,4 +450,18 @@ input.spr-form-input:not(.spr-form-review-rating):not(.spr-form-input-textarea):
 
 #reviews-popup {
 	display: none;
+	height: auto;
+}
+#reviews-popup .success-popup {
+	justify-content: flex-start;
+	row-gap: 24px;
+}
+#reviews-popup .subscription-popup-error {
+    color: #FC3E30 !important;
+    background: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+#reviews-popup .subscription-popup-subtitle {
+	white-space: nowrap;
 }

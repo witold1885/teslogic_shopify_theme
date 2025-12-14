@@ -195,6 +195,9 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
+	#reviews-popup .success-popup {
+		row-gap: calc(24 * 100vw / 1440);
+	}
 }
 
 @media screen and (max-width: 575px) {
