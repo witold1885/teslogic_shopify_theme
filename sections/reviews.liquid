@@ -155,8 +155,7 @@
 		for (const review of reviews) {
 			if (!review.published) continue
 			if (diabledReviews.includes(review.id)) continue
-			const reviewDate = new Date(review.created_at)
-			const formattedDate = reviewDate.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+			const formattedDate = new Date(review.created_datetime).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 			let starsHtml = ''
 			for (let s = 1; s <= 5; s++) {
 				if (s <= review.rating) starsHtml += '<i class="spr-icon spr-icon-star spr-icon-star-checked" aria-hidden="true"></i>'
