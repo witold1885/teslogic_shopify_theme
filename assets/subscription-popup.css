@@ -208,6 +208,9 @@
     font-weight: 400;
     line-height: 20px;
 }
+.subscription-popup-error {
+    color: #FC3E30;
+}
 
 @media screen and (min-width: 576px) and (max-width: 1440px) {
     .subscription-popup {

@@ -102,6 +102,21 @@
 	</div>
 </div>
 
+<div id="reviews-popup" class="subscription-popup-shadow">
+	<div class="success-popup">
+		<div class="success-popup-close">
+			<img src="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
+		</div>
+		<div class="subscription-popup-logo">
+			<img src="{{ 'subscription_popup_logo.svg' | asset_url }}" alt="">
+		</div>
+		<div class="subscription-popup-info">
+			<div class="subscription-popup-title"></div>
+			<div class="subscription-popup-subtitle"></div>
+		</div>
+	</div>
+</div>
+
 {% assign miscData = blogs['misc-data'].articles %}
 
 <script type="text/javascript">
@@ -488,14 +503,22 @@
 	            body: JSON.stringify(sendBody),
 	            headers: {'Content-Type': 'application/json'}
 	        })
+
 	        const data = await response.json()
+			const popup = $('#reviews-popup')
+
 	        if (response.status == 200) {
 	        	$('.reviews-form-shadow').css('display', 'none')
-	        	window.location.reload(true)
+				popup.find('.subscription-popup-title').html('<span>Thank you</span> for feedback!')
+				popup.find('.subscription-popup-subtitle').html('We really appreciate your attention <br>to our products and will carefully <br>consider your opinion.')
+	        	// window.location.reload(true)
 	        }
 	        else {
 	        	console.log(data)
+				popup.find('.subscription-popup-title').html('<span class="subscription-popup-error">Error</span>')
+				popup.find('.subscription-popup-subtitle').text(data.message)
 	        }
+			popup.show()
 		})
 	})
 </script>
