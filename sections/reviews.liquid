@@ -122,7 +122,7 @@
 		let getReviewsUrl = 'https://api.teslogic.co/get-reviews'
 
 		const pathname = window.location.pathname
-		
+
 		if (pathname.includes('pro')) {
 			product_id = '9016908808411'
 			$('.reviews-bottom-text').text('Already own Powermate?')
@@ -143,7 +143,6 @@
         const data = await response.json()
         const { totalCount, avgRating, reviews } = data
 		const maxRating = 5
-		const filteredReviews = reviews.filter(item => item.product_external_id == Number(product_id))
 
 		document.getElementById('totalRatingValue').innerText = Number(avgRating).toFixed(2)
 		document.getElementById('totalReviewsCount').innerText = `${totalCount} reviews`
@@ -153,7 +152,7 @@
 
 		let i = 1
 		let reviewsHtml = []
-		for (const review of filteredReviews) {
+		for (const review of reviews) {
 			if (!review.published) continue
 			if (diabledReviews.includes(review.id)) continue
 			const reviewDate = new Date(review.created_at)
