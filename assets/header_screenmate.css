@@ -268,9 +268,13 @@
 	font-style: normal;
 }
 .banner-desktop-body-caption-title {
-	font-size: 52px;
+	font-size: 64px;
 	font-weight: 600;
-	line-height: 64px; /* 123.077% */
+	line-height: 72px; /* 123.077% */
+}
+.banner-desktop-body-caption-more {
+	display: flex;
+	column-gap: 16px;
 }
 .banner-desktop-body-caption-subtitle {
 	font-size: 24px;
