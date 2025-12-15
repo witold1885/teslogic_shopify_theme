@@ -238,19 +238,21 @@
 }
 .banner-desktop-body {
     position: absolute;
-    top: 156px;
-    left: 182px;
-    right: 182px;
+    top: 142px;
+    left: 72px;
+    right: 72px;
 	display: flex;
 	flex-direction: column;
     row-gap: 32px;
 }
 .banner-desktop-body-device {
-	width: 306px;
-	height: 227px;
+	width: 415px;
+	height: 330px;
+	aspect-ratio: 83/66;
 }
 .banner-desktop-body-device img {
     width: 100%;
+    height: 100%;
 }
 .banner-desktop-body-caption {
     display: flex;
