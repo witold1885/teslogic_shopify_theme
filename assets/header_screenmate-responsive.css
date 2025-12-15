@@ -43,7 +43,7 @@
 		top: calc(142 * 100vw / 1440);
 		left: calc(72 * 100vw / 1440);
 		right: calc(72 * 100vw / 1440);
-		row-gap: calc(32 * 100vw / 1440);
+		row-gap: calc(48 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
 		width: calc(415 * 100vw / 1440);
@@ -81,10 +81,10 @@
 		padding: calc(23 * 100vw / 1440) calc(43 * 100vw / 1440);
 	}
 	.banner-desktop-kickstarter {
-		top: calc(157.12 * 100vw / 1440);
-		left: calc(151.44 * 100vw / 1440);
-		width: calc(102.08 * 100vw / 1440);
-		height: calc(102.4 * 100vw / 1440);
+		top: calc(609.5 * 100vw / 1440);
+		right: calc(129.5 * 100vw / 1440);
+		width: calc(159.5 * 100vw / 1440);
+		height: calc(160 * 100vw / 1440);
 	}
 }
 
