@@ -1,13 +1,10 @@
  @media screen and (min-width: 1701px) {
-	/* .banner-desktop {
-		width: 1440px;
-		margin: 0 auto;
-	} */
 	.banner-desktop-body {
 		left: calc((100vw - 1440px) / 2 + 72px);
 		right: calc((100vw - 1440px) / 2 + 72px);
-		/* left: 72px; */
-		/* right: 72px; */
+	}
+	.banner-desktop-kickstarter {
+		right: calc((100vw - 1440px) / 2 + 129.5px);
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 1440px) {
