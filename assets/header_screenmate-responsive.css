@@ -40,14 +40,14 @@
 		border-radius: calc(1663.117 * 100vw / 1440);
 	}
 	.banner-desktop-body {
-		top: calc(156 * 100vw / 1440);
-		left: calc(182 * 100vw / 1440);
-		right: calc(182 * 100vw / 1440);
+		top: calc(142 * 100vw / 1440);
+		left: calc(72 * 100vw / 1440);
+		right: calc(72 * 100vw / 1440);
 		row-gap: calc(32 * 100vw / 1440);
 	}
 	.banner-desktop-body-device {
-		width: calc(306 * 100vw / 1440);
-		height: calc(227 * 100vw / 1440);
+		width: calc(415 * 100vw / 1440);
+		height: calc(330 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption {
 		row-gap: calc(28 * 100vw / 1440);
