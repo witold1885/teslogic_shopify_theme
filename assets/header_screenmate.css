@@ -243,7 +243,7 @@
     right: 72px;
 	display: flex;
 	flex-direction: column;
-    row-gap: 32px;
+    row-gap: 48px;
 }
 .banner-desktop-body-device {
 	width: 415px;
@@ -315,10 +315,10 @@
 }
 .banner-desktop-kickstarter {
 	position: absolute;
-	top: 157.12px;
-	left: 151.44px;
-    width: 102.08px;
-	height: 102.4px;
+	top: 609.5px;
+	right: 129.5px;
+	width: 159.5px;
+	height: 160px;
     border-radius: 100%;
     overflow: hidden;
 }
