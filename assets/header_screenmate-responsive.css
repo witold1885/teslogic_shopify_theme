@@ -56,8 +56,11 @@
 		row-gap: calc(12 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-title {
-		font-size: calc(52 * 100vw / 1440);
-		line-height: calc(64 * 100vw / 1440);
+		font-size: calc(64 * 100vw / 1440);
+		line-height: calc(72 * 100vw / 1440);
+	}
+	.banner-desktop-body-caption-more {
+		column-gap: calc(16 * 100vw / 1440);
 	}
 	.banner-desktop-body-caption-subtitle {
 		font-size: calc(24 * 100vw / 1440);
