@@ -3,28 +3,29 @@
 
 {% style %}	
 	.store_block-add-wireless-checkbox:checked:after {
-		content: url({{ 'ok.svg' | asset_url }});
+		content: "";
 		position: absolute;
-		width: 10px;
-		height: 6.667px; 
-		top: 3.33px;
-		left: 4px;
+		width: 12px;
+		height: 10px; 
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		color: #000;
+		background-image: url({{ 'ok.svg' | asset_url }});
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 	@media screen and (min-width: 576px) and (max-width: 1440px) {
 		.store_block-add-wireless-checkbox:checked:after {
-			width: calc(10 * 100vw / 1440);
-			height: calc(6.667 * 100vw / 1440);
-			top: calc(3.33 * 100vw / 1440);
-			left: calc(4 * 100vw / 1440);
+			width: calc(12 * 100vw / 1440);
+			height: calc(10 * 100vw / 1440);
 		}
 	}
 	@media screen and (max-width: 575px) {
 		.store_block-add-wireless-checkbox:checked:after {
-			width: calc(10 * 100vw / 375);
-			height: calc(6.667 * 100vw / 375);
-			top: calc(3.33 * 100vw / 375);
-			left: calc(4 * 100vw / 375);
+			width: calc(12 * 100vw / 375);
+			height: calc(10 * 100vw / 375);
 		}
 	}
 {% endstyle %}
