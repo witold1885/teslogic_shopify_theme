@@ -12,12 +12,12 @@
 	.store_block-add-wireless-checkbox:checked:after {
 		content: "";
 		position: absolute;
-		width: 10px;
-		height: 6.667px; 
-		top: 3.33px;
-		left: 4px;
+		width: 12px;
+		height: 10px; 
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		color: #000;
-
 		background-image: url({{ 'ok.svg' | asset_url }});
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -45,10 +45,8 @@
             width: calc(1076 * 100vw / 1440);
         }
 		.store_block-add-wireless-checkbox:checked:after {
-			width: calc(10 * 100vw / 1440);
-			height: calc(6.667 * 100vw / 1440);
-			top: calc(3.33 * 100vw / 1440);
-			left: calc(4 * 100vw / 1440);
+			width: calc(12 * 100vw / 1440);
+			height: calc(10 * 100vw / 1440);
 		}
 		.store_block-product-preorder-delivery {
 			margin-top: calc(16 * 100vw / 1440);
@@ -65,10 +63,8 @@
 			width: calc(375 * 100vw / 375);
 		}
 		.store_block-add-wireless-checkbox:checked:after {
-			width: calc(10 * 100vw / 375);
-			height: calc(6.667 * 100vw / 375);
-			top: calc(3.33 * 100vw / 375);
-			left: calc(4 * 100vw / 375);
+			width: calc(12 * 100vw / 375);
+			height: calc(10 * 100vw / 375);
 		}
 	}
 {% endstyle %}
