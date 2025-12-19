@@ -170,6 +170,8 @@
 }
 .reviews-list-item-expand {
 	display: none;
+	justify-content: center;
+	align-items: center;
 	width: 12px;
 	height: 6px;
 }
