@@ -93,6 +93,10 @@
 		font-size: calc(18 * 100vw / 1440);
 		line-height: calc(24 * 100vw / 1440);
 	}
+	.reviews-list-item-expand {
+		width: calc(12 * 100vw / 1440);
+		height: calc(6 * 100vw / 1440);
+	}
 	.reviews-pagination {
 		margin: calc(64 * 100vw / 1440) auto calc(76 * 100vw / 1440);
 		grid-column-gap: calc(8 * 100vw / 1440);
@@ -341,12 +345,8 @@
 		line-height: calc(20 * 100vw / 375);
 	}
 	.reviews-list-item-expand {
-		display: block;
-		width: 100%;
-		height: calc(8 * 100vw / 375);
-	}
-	.reviews-list-item-expand img {
-		width: 100%;
+		width: calc(12 * 100vw / 375);
+		height: calc(6 * 100vw / 375);
 	}
 	.reviews-pagination {
 		display: none;
