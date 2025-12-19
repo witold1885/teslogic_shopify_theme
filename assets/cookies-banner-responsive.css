@@ -16,7 +16,7 @@
     }
     .shopify-pc__banner__body p, 
     .shopify-pc__prefs__scrollable p {
-        font-size: calc(14 * 100vw / 1440) !important;
+        font-size: calc(13 * 100vw / 1440) !important;
         line-height: calc(20 * 100vw / 1440) !important; /* 142.857% */
     }
     .shopify-pc__banner__btns {
