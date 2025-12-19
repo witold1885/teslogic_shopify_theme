@@ -158,6 +158,7 @@
 	display: none;
 }
 .reviews-list-item-text {
+	width: 100%;
 	color: #666;
 	font-family: Manrope;
 	font-size: 18px;
