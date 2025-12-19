@@ -86,10 +86,8 @@
 		border-radius: calc(4 * 100vw / 1440);
 	}
 	.store_block-add-wireless-checkbox:checked:after {
-		width: calc(10 * 100vw / 1440);
-		height: calc(6.667 * 100vw / 1440); 
-		top: calc(3.33 * 100vw / 1440);
-		left: calc(4 * 100vw / 1440);
+		width: calc(12 * 100vw / 1440);
+		height: calc(10 * 100vw / 1440);
 	}
 	.store_block-add-wireless-title {
 		font-size: calc(16 * 100vw / 1440);
