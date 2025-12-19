@@ -348,21 +348,21 @@
 		const isDesktop = window.innerWidth >= 576 && window.innerWidth <= 1440;
 		const isLargeDesktop = window.innerWidth > 1440;
 
+		const maxItemHeight = isMobile ? maxMobileItemHeight : (isDesktop ? maxDesktopItemHeight : maxLargeDesktopItemHeight);
+			
 		reviewItems.forEach(function(item, index) {
 		  	const itemHeight = item.offsetHeight;
 			const isCollapsible = (isMobile && itemHeight >= maxMobileItemHeight) || 
 								  (isDesktop && itemHeight >= maxDesktopItemHeight) || 
 								  (isLargeDesktop && itemHeight >= maxLargeDesktopItemHeight);
 
-			const maxHeight = isMobile ? maxMobileItemHeight : (isDesktop ? maxDesktopItemHeight : maxLargeDesktopItemHeight);
-			
 			if (isCollapsible) {
 				let itemText = item.querySelector('.reviews-list-item-text');
 					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
 					itemText.style.backgroundClip = 'text';
 					itemText.style.webkitBackgroundClip = 'text';
 					itemText.style.webkitTextFillColor = 'transparent';
-					item.style.maxHeight = maxHeight + 'px';
+					item.style.maxHeight = maxItemHeight + 'px';
 					item.setAttribute('data-collapsed', 'true');
 					item.querySelector('.reviews-list-item-expand').style.display = 'block';
 			}
@@ -381,15 +381,13 @@
 				$(itemText).css('-webkit-text-fill-color', 'unset');
 				$(this).css('max-height', 'unset');
 				$(this).data('collapsed', false);
-				return;
 			} else {
 				$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
 				$(itemText).css('-webkit-text-fill-color', 'transparent');
-				$(this).css('max-height', 'calc(172 * 100vw / 375)');
+				$(this).css('max-height', `${maxItemHeight}px`);
 				$(this).data('collapsed', true);
-				return;
 			}
 		})
 
