@@ -336,29 +336,37 @@
       	var reviewsContainer = document.querySelector('.reviews-list-container-mobile');
 		var reviewItems = document.querySelectorAll('.reviews-list-item');
 
-		var column1Height = 0;
-		var column2Height = 0;
-		var rowGap = 24;
-		var paddingBottom = 76;
-		var maxMobileItemHeight = 172 * window.innerWidth / 375;
+		const column1Height = 0;
+		const column2Height = 0;
+		const rowGap = 24;
+		const paddingBottom = 76;
+		const maxMobileItemHeight = 172 * window.innerWidth / 375;
+		const maxDesktopItemHeight = 240 * window.innerWidth / 1440;
+		const maxLargeDesktopItemHeight = 240;
+
+		const isMobile = window.innerWidth < 576;
+		const isDesktop = window.innerWidth >= 576 && window.innerWidth <= 1440;
+		const isLargeDesktop = window.innerWidth > 1440;
 
 		reviewItems.forEach(function(item, index) {
-		  	var itemHeight = item.offsetHeight;
-		  	if (window.innerWidth < 575) {
-			  	if (itemHeight >= maxMobileItemHeight) {
-				  	let itemText = item.querySelector('.reviews-list-item-text');
-						itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
-						itemText.style.backgroundClip = 'text';
-						itemText.style.webkitBackgroundClip = 'text';
-						itemText.style.webkitTextFillColor = 'transparent';
-						item.style.maxHeight = maxMobileItemHeight + 'px';
-						item.setAttribute('data-collapsed', 'true');
-						item.querySelector('.reviews-list-item-expand').style.display = 'block';
-			  	}
-			  	else {
-					item.querySelector('.reviews-list-item-expand').style.display = 'none';
-			  	}
-		  	}
+		  	const itemHeight = item.offsetHeight;
+			const isCollapsible = (isMobile && itemHeight >= maxMobileItemHeight) || 
+								  (isDesktop && itemHeight >= maxDesktopItemHeight) || 
+								  (isLargeDesktop && itemHeight >= maxLargeDesktopItemHeight)
+			
+			if (isCollapsible) {
+				let itemText = item.querySelector('.reviews-list-item-text');
+					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
+					itemText.style.backgroundClip = 'text';
+					itemText.style.webkitBackgroundClip = 'text';
+					itemText.style.webkitTextFillColor = 'transparent';
+					item.style.maxHeight = maxMobileItemHeight + 'px';
+					item.setAttribute('data-collapsed', 'true');
+					item.querySelector('.reviews-list-item-expand').style.display = 'block';
+			}
+			else {
+				item.querySelector('.reviews-list-item-expand').style.display = 'none';
+			}
 		})
 
 		$(document).on('click', '.reviews-list-item', function() {
@@ -372,8 +380,7 @@
 				$(this).css('max-height', 'unset');
 				$(this).data('collapsed', false);
 				return;
-			}
-			else if (collapsed == false) {
+			} else {
 				$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
