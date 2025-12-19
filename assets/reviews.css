@@ -170,6 +170,11 @@
 }
 .reviews-list-item-expand {
 	display: none;
+	width: 12px;
+	height: 6px;
+}
+.reviews-list-item-expand img {
+	width: 100%;
 }
 .reviews-list-item-author {
 	width: min-content;
