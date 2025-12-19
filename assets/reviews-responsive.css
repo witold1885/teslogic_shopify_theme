@@ -345,6 +345,7 @@
 		line-height: calc(20 * 100vw / 375);
 	}
 	.reviews-list-item-expand {
+		display: block;
 		width: calc(12 * 100vw / 375);
 		height: calc(6 * 100vw / 375);
 	}
