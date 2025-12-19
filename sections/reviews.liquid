@@ -362,8 +362,8 @@
 					item.style.maxHeight = maxItemHeight + 'px';
 					item.setAttribute('data-collapsed', 'true');
 					item.querySelector('.reviews-list-item-expand').style.display = 'flex';
-			}
-			else {
+			} else {
+				item.setAttribute('data-collapsed', 'false');
 				item.querySelector('.reviews-list-item-expand').style.display = 'none';
 			}
 		})
@@ -372,7 +372,7 @@
 			const collapsed = $(this).data('collapsed');
 			const itemHeight = $(this).height();
 		  	let itemText = $(this).find('.reviews-list-item-text');
-			if (collapsed == true) {
+			if (collapsed == true && itemHeight < maxItemHeight) {
 				$(itemText).css('background', 'unset');
 				$(itemText).css('background-clip', 'unset');
 				$(itemText).css('-webkit-background-clip', 'unset');
@@ -380,7 +380,9 @@
 				$(this).css('max-height', 'unset');
 				$(this).data('collapsed', false);
 				$(this).find('.reviews-list-item-expand').addClass('reviews-list-item-expand-reverted');
-			} else if (itemHeight >= maxItemHeight) {
+				return;
+			}
+			if (collapsed == false && itemHeight >= maxItemHeight) {
 				$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
@@ -388,6 +390,7 @@
 				$(this).css('max-height', `${maxItemHeight}px`);
 				$(this).data('collapsed', true);
 				$(this).find('.reviews-list-item-expand').removeClass('reviews-list-item-expand-reverted');
+				return;
 			}
 		})
 
