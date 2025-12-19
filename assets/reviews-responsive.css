@@ -335,8 +335,6 @@
 	.reviews-list-item-text {
 		font-size: calc(16 * 100vw / 375);
 		line-height: calc(20 * 100vw / 375);
-		text-overflow: ellipsis;
-  		overflow: hidden;
 	}
 	.reviews-list-item-author {
 		font-size: calc(16 * 100vw / 375);
