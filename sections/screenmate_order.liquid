@@ -10,13 +10,18 @@
         width: 1076px;
     }
 	.store_block-add-wireless-checkbox:checked:after {
-		content: url({{ 'ok.svg' | asset_url }});
+		/* content: url({{ 'ok.svg' | asset_url }}); */
 		position: absolute;
 		width: 10px;
 		height: 6.667px; 
 		top: 3.33px;
 		left: 4px;
 		color: #000;
+
+		background-image: url({{ 'ok.svg' | asset_url }});
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 	.store_block-product-preorder-delivery {
 		margin-top: 16px;
