@@ -352,11 +352,8 @@
 			
 		reviewItems.forEach(function(item, index) {
 		  	const itemHeight = item.offsetHeight;
-			const isCollapsible = (isMobile && itemHeight >= maxMobileItemHeight) || 
-								  (isDesktop && itemHeight >= maxDesktopItemHeight) || 
-								  (isLargeDesktop && itemHeight >= maxLargeDesktopItemHeight);
 
-			if (isCollapsible) {
+			if (itemHeight >= maxItemHeight) {
 				let itemText = item.querySelector('.reviews-list-item-text');
 					itemText.style.background = 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)';
 					itemText.style.backgroundClip = 'text';
@@ -372,6 +369,7 @@
 		})
 
 		$(document).on('click', '.reviews-list-item', function() {
+			console.log($(this).height())
 			let collapsed = $(this).data('collapsed');
 		  	let itemText = $(this).find('.reviews-list-item-text');
 			if (collapsed == true) {
@@ -381,7 +379,7 @@
 				$(itemText).css('-webkit-text-fill-color', 'unset');
 				$(this).css('max-height', 'unset');
 				$(this).data('collapsed', false);
-			} else {
+			} else if ($(this).height() >= maxItemHeight) {
 				$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
