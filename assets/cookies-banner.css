@@ -24,6 +24,7 @@
 .shopify-pc__banner__body {
     color: #2B343B !important;
     font-feature-settings: 'liga' off, 'clig' off;
+    margin-bottom: 0 !important;
 }
 .shopify-pc__banner__body h2 {
     font-size: 18px !important;
@@ -33,7 +34,7 @@
 }
 .shopify-pc__banner__body p, 
 .shopify-pc__prefs__scrollable p {
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 400 !important;
     line-height: 20px !important; /* 142.857% */
 }
