@@ -369,8 +369,8 @@
 		})
 
 		$(document).on('click', '.reviews-list-item', function() {
-			console.log($(this).height())
-			let collapsed = $(this).data('collapsed');
+			const collapsed = $(this).data('collapsed');
+			const itemHeight = $(this).height();
 		  	let itemText = $(this).find('.reviews-list-item-text');
 			if (collapsed == true) {
 				$(itemText).css('background', 'unset');
@@ -379,13 +379,15 @@
 				$(itemText).css('-webkit-text-fill-color', 'unset');
 				$(this).css('max-height', 'unset');
 				$(this).data('collapsed', false);
-			} else if ($(this).height() >= maxItemHeight) {
+				$(this).find('.reviews-list-item-expand').addClass('reviews-list-item-expand-reverted');
+			} else if (itemHeight >= maxItemHeight) {
 				$(itemText).css('background', 'linear-gradient(180deg, #666 73.8%, rgba(102, 102, 102, 0.00) 100%)');
 				$(itemText).css('background-clip', 'text');
 				$(itemText).css('-webkit-background-clip', 'text');
 				$(itemText).css('-webkit-text-fill-color', 'transparent');
 				$(this).css('max-height', `${maxItemHeight}px`);
 				$(this).data('collapsed', true);
+				$(this).find('.reviews-list-item-expand').removeClass('reviews-list-item-expand-reverted');
 			}
 		})
 
