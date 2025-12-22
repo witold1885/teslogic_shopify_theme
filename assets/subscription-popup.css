@@ -87,7 +87,10 @@
     font-weight: 600;
     line-height: 40px;
 }
-.success-popup .subscription-popup-title {
+#subscription-popup .subscription-popup-subtitle br {
+    display: none;
+}
+#success-popup .subscription-popup-title {
     width: 240px;
 }
 .subscription-popup-subtitle {
