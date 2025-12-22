@@ -73,6 +73,9 @@
 .subscription-popup-logo {
     width: 131px;
     height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .subscription-popup-logo img {
     width: 100%;
