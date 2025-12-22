@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-    padding: 0 36px 24px;
+    padding: 0 36px;
 }
 .subscription-popup-field {
     display: flex;
@@ -235,7 +235,7 @@
     }
     .subscription-popup-fields {
         row-gap: calc(24 * 100vw / 1440);
-        padding: 0 calc(36 * 100vw / 1440) calc(24 * 100vw / 1440);
+        padding: 0 calc(36 * 100vw / 1440);
     }
     .subscription-popup-field {
         row-gap: calc(8 * 100vw / 1440);
@@ -271,47 +271,23 @@
 @media screen and (max-width: 575px) {
     .subscription-popup {
         width: calc(336 * 100vw / 375);
-        height: calc(764 * 100vw / 375);
-        border-radius: calc(24 * 100vw / 375);
-        flex-direction: column;
+        height: calc(428 * 100vw / 375);
+        border-radius: calc(40 * 100vw / 375);
     }
     .success-popup {
-        width: calc(336 * 100vw / 375);
-        height: calc(196 * 100vw / 375);
-        padding: calc(24 * 100vw / 375);
-        border-radius: calc(24 * 100vw / 375);
+        width: calc(315 * 100vw / 375);
+        height: calc(240 * 100vw / 375);
+        padding: calc(40 * 100vw / 375) calc(48 * 100vw / 375);
+        border-radius: calc(40 * 100vw / 375);
     }
     .subscription-popup-close, .success-popup-close {
-        width: calc(20 * 100vw / 375);
-        height: calc(20 * 100vw / 375);
+        width: calc(24 * 100vw / 375);
+        height: calc(24 * 100vw / 375);
+        top: calc(16 * 100vw / 375);
         right: calc(16 * 100vw / 375);
     }
-    .subscription-popup-close {
-        top: unset;
-        bottom: calc(476 * 100vw / 375);
-    }
-    .success-popup-close {
-        top: calc(16 * 100vw / 375);
-    }
-    .subscription-popup-side {
-        width: 100%;
-    }
-    .subscription-popup-left {
-        height: calc(252 * 100vw / 375);
-    }
-    .subscription-popup-left img.image-desktop {
-        display: none;
-    }
-    .subscription-popup-left img.image-mobile {
-        display: block;
-    }
-    .subscription-popup-right {
-        height: calc(512 * 100vw / 375);
-        row-gap: calc(20 * 100vw / 375);
-        padding: calc(24 * 100vw / 375);
-    }
     .subscription-popup-head {
-        row-gap: calc(20 * 100vw / 375);
+        row-gap: calc(24 * 100vw / 375);
     }
     .subscription-popup-logo {
         width: calc(131 * 100vw / 375);
