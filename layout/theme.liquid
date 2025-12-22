@@ -304,6 +304,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <div id="success-popup" class="subscription-popup-shadow">
           <div class="success-popup">
+            <video autoplay muted loop class="subscription-popup-video">
+              <source src="{{ 'subscription_popup_bg_video.mp4' | asset_url }}" type="video/mp4">
+            </video>
             <div class="success-popup-close">
               <img src="{{ 'subscription_popup_close_white.svg' | asset_url }}" alt="">
             </div>
