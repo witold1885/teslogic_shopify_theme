@@ -275,7 +275,7 @@
     .success-popup {
         width: calc(315 * 100vw / 375);
         height: calc(240 * 100vw / 375);
-        padding: calc(40 * 100vw / 375) calc(48 * 100vw / 375);
+        padding: calc(40 * 100vw / 375) calc(48 * 100vw / 375) calc(48 * 100vw / 375);
         border-radius: calc(40 * 100vw / 375);
     }
     .subscription-popup-close, .success-popup-close {
