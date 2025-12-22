@@ -79,6 +79,9 @@
     flex-direction: column;
     row-gap: 12px;
 }
+.subscription-popup-info > * {
+    text-align: center;
+}
 .subscription-popup-title {
     font-size: 32px;
     font-weight: 600;
