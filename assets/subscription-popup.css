@@ -94,9 +94,6 @@
 #subscription-popup .subscription-popup-title br {
     display: none;
 }
-#success-popup .subscription-popup-title {
-    width: 240px;
-}
 .subscription-popup-subtitle {
     font-size: 18px;
     font-weight: 400;
@@ -227,9 +224,6 @@
         font-size: calc(32 * 100vw / 1440);
         line-height: calc(40 * 100vw / 1440);
     }
-    .success-popup .subscription-popup-title {
-        width: calc(240 * 100vw / 1440);
-    }
     .subscription-popup-subtitle {
         font-size: calc(18 * 100vw / 1440);
         line-height: calc(24 * 100vw / 1440); 
@@ -307,9 +301,6 @@
     }
     #subsubscription-popup .subscription-popup-title br {
         display: block;
-    }
-    #success-popup .subscription-popup-title {
-        width: calc(172 * 100vw / 375);
     }
     .subscription-popup-subtitle {
         font-size: calc(16 * 100vw / 375);
