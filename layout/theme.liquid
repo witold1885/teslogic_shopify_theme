@@ -262,46 +262,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <div id="subscription-popup" class="subscription-popup-shadow">
           <div class="subscription-popup">
+            <video autoplay muted loop class="subscription-popup-video">
+              <source src="{{ 'subscription_popup_bg_video.mp4' | asset_url }}" type="video/mp4">
+            </video>
             <div class="subscription-popup-close">
               <img src="{{ 'subscription_popup_close.svg' | asset_url }}" alt="">
             </div>
-            <div class="subscription-popup-side subscription-popup-left">
-              <img class="image-desktop" src="{{ 'subscription_popup_image.png' | asset_url }}" alt="">
-              <img class="image-mobile" src="{{ 'subscription_popup_image_mobile.png' | asset_url }}" alt="">
-            </div>
-            <div class="subscription-popup-side subscription-popup-right">
-              <div class="subscription-popup-head">
-                <div class="subscription-popup-logo">
-                  <img src="{{ 'subscription_popup_logo.svg' | asset_url }}" alt="">
+            <div class="subscription-popup-head">
+              <div class="subscription-popup-logo">
+                <img src="{{ 'subscription_popup_logo.svg' | asset_url }}" alt="">
+              </div>
+              <div class="subscription-popup-info">
+                <div class="subscription-popup-title">
+                  Your first 10% discount <br>is on us!
                 </div>
-                <div class="subscription-popup-info">
-                  <div class="subscription-popup-title">
-                    Your first <span>10%</span><br><span>discount</span> Is on Us!
-                  </div>
-                  <div class="subscription-popup-subtitle">
-                    Join Screenmate Community and get <br>
-                    best deals and exclusive updates.
-                  </div>
+                <div class="subscription-popup-subtitle">
+                  Join Screenmate Community and get <br>
+                  best deals and exclusive updates.
                 </div>
               </div>
-              <div class="subscription-popup-form">
-                <div class="subscription-popup-fields">
-                  <div class="subscription-popup-field">
-                    <label>Name:</label>
-                    <input class="subscription-popup-name" type="text" placeholder="Enter your name">
-                    <span class="subscription-popup-field-error-message"></span>
-                  </div>
-                  <div class="subscription-popup-field">
-                    <label>E-mail:</label>
-                    <input class="subscription-popup-email" type="email" placeholder="John.smith@example.com">
-                    <span class="subscription-popup-field-error-message"></span>
-                  </div>
+            </div>
+            <div class="subscription-popup-form">
+              <div class="subscription-popup-fields">
+                <div class="subscription-popup-field">
+                  <label>E-mail:</label>
+                  <input class="subscription-popup-email" type="email" placeholder="John.smith@example.com">
+                  <span class="subscription-popup-field-error-message"></span>
                 </div>
-                <div class="subscription-popup-buttons">
-                  <button class="subscription-popup-submit">Unlock my discount</button>
-                  <div class="subscription-popup-cancel">
-                    No, I want to pay full price.
-                  </div>
+              </div>
+              <div class="subscription-popup-buttons">
+                <button class="subscription-popup-submit">
+                  I want 10% off
+                </button>
+                <div class="subscription-popup-cancel">
+                  I'll pay in full
                 </div>
               </div>
             </div>
