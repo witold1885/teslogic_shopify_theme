@@ -112,6 +112,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 24px;
+    padding: 0 36px 24px;
 }
 .subscription-popup-field {
     display: flex;
@@ -227,6 +228,7 @@
     }
     .subscription-popup-fields {
         row-gap: calc(24 * 100vw / 1440);
+        padding: 0 calc(36 * 100vw / 1440) calc(24 * 100vw / 1440);
     }
     .subscription-popup-field {
         row-gap: calc(8 * 100vw / 1440);
