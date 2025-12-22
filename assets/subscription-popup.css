@@ -1,3 +1,35 @@
+@keyframes fadeInBg {
+    from { background: rgba(0, 0, 0, 0); }
+    to { background: rgba(0, 0, 0, 0.66); }
+}
+
+@keyframes fadeOutBg {
+    from { background: rgba(0, 0, 0, 0.66); }
+    to { background: rgba(0, 0, 0, 0); }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}
+
 .subscription-popup-shadow {
     position: fixed;
     z-index: 100;
@@ -11,6 +43,21 @@
     display: none;
     justify-content: center;
     align-items: center;
+}
+.subscription-popup-shadow.is-visible {
+    display: flex !important;
+    animation: fadeInBg 0.25s ease forwards;
+}
+.subscription-popup-shadow.is-hiding {
+    animation: fadeOutBg 0.25s ease forwards;
+}
+.subscription-popup-shadow.is-visible .subscription-popup,
+.subscription-popup-shadow.is-visible .success-popup {
+    animation: slideUpFade 0.5s ease forwards;
+}
+.subscription-popup-shadow.is-hiding .subscription-popup,
+.subscription-popup-shadow.is-hiding .success-popup {
+    animation: slideDownFade 0.5s ease forwards;
 }
 #success-popup {
     display: none;
