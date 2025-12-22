@@ -110,6 +110,7 @@
     display: none;
 }
 .subscription-popup-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     row-gap: 24px;
@@ -320,7 +321,7 @@
     }
     .subscription-popup-fields {
         row-gap: calc(24 * 100vw / 375);
-        padding: 0 calc(36 * 100vw / 1440);
+        padding: 0 calc(36 * 100vw / 375);
     }
     .subscription-popup-field {
         row-gap: calc(8 * 100vw / 375);
