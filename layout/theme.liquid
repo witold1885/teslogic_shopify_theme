@@ -329,6 +329,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             /* subscription popup script */
             function checkSubscriptionCookie() {
               const cookies = document.cookie.split('; ')
+              console.log({ cookies })
               return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
             }
 
