@@ -318,7 +318,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 Thank you <br>for subscribing!
               </div>
               <div class="subscription-popup-subtitle">
-                Your discount has justlanded <br> in your inbox.
+                Your discount has justlanded <br>in your inbox.
               </div>
             </div>
           </div>
@@ -339,19 +339,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               document.cookie = `discount_subscription=${value}; ${expires}; path=/`
             }
 
-            // setTimeout(() => {
-            //   const cookieExists = checkSubscriptionCookie()
-            //   if (!cookieExists) {
-            //     $('#subscription-popup').css('display', 'flex')
-            //   }
-            // }, 10000)
+            setTimeout(() => {
+              const cookieExists = checkSubscriptionCookie()
+              if (!cookieExists) {
+                $('#subscription-popup').css('display', 'flex')
+              }
+            }, 10000)
 
             $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
               setSubscriptionCookie(0)
               $('#subscription-popup').hide()
             })
 
-            const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
+            // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
             const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -370,14 +370,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 $(this).find('.subscription-popup-field-error-message').text('')
               })
 
-              const name = $('.subscription-popup-name').val()
+              // const name = $('.subscription-popup-name').val()
               const email = $('.subscription-popup-email').val()
 
-              if (!name) {
-                $(nameField).addClass('subscription-popup-field-error')
-                $(nameField).find('.subscription-popup-field-error-message').text(errors.emptyField)
-                return
-              }
+              // if (!name) {
+              //   $(nameField).addClass('subscription-popup-field-error')
+              //   $(nameField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+              //   return
+              // }
 
               if (!email) {
                 $(emailField).addClass('subscription-popup-field-error')
@@ -393,7 +393,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
               const response = await fetch(sendMailUrl, {
                   method: 'post',
-                  body: JSON.stringify({ name, email }),
+                  body: JSON.stringify({ name: '', email }),
                   headers: {'Content-Type': 'application/json'}
               })
               const data = await response.json()
