@@ -340,16 +340,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               document.cookie = `discount_subscription=${value}; ${expires}; path=/`
             }
 
+            function closePopup(popupId) {
+              const popup = $(popupId)
+              popup.addClass('is-hiding')
+              
+              setTimeout(() => {
+                popup.removeClass('is-visible is-hiding')
+              }, 500)
+            }
+
             setTimeout(() => {
               const cookieExists = checkSubscriptionCookie()
               if (!cookieExists) {
-                $('#subscription-popup').css('display', 'flex')
+                $('#subscription-popup').addClass('is-visible')
               }
             }, 10000)
 
             $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
               setSubscriptionCookie(0)
-              $('#subscription-popup').hide()
+              closePopup('#subscription-popup')
             })
 
             // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
@@ -403,8 +412,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               if (response.status == 200) {
                 if (data.success) {
                   setSubscriptionCookie(1)
-                  $('#subscription-popup').css('display', 'none')
-                  $('#success-popup').css('display', 'flex')
+                  $('#subscription-popup').addClass('is-hiding')
+        
+                  setTimeout(() => {
+                    $('#subscription-popup').removeClass('is-visible is-hiding')
+                    $('#success-popup').addClass('is-visible')
+                  }, 500)
                 } else {
                   $(emailField).addClass('subscription-popup-field-error')
                   if (data.message == 'email_exists') {
@@ -417,7 +430,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             })
 
             $('.success-popup-close').on('click', function() {
-              $('#success-popup').hide()
+              closePopup('#success-popup')
             })
             /* subscription popup script */
           })
@@ -457,19 +470,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script>
       if ('paintWorklet' in CSS) {
-        CSS.paintWorklet.add('{{ "smooth-corners.js" | asset_url }}');
+        CSS.paintWorklet.add('{{ "smooth-corners.js" | asset_url }}')
         document.documentElement.classList.add('houdini-supported')
       }
     </script>
 
     <script>
-      window.shopUrl = '{{ shop.url }}';
+      window.shopUrl = '{{ shop.url }}'
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
         cart_change_url: '{{ routes.cart_change_url }}',
         cart_update_url: '{{ routes.cart_update_url }}',
         predictive_search_url: '{{ routes.predictive_search_url }}'
-      };
+      }
 
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
