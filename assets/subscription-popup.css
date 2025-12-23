@@ -187,7 +187,7 @@
     line-height: 20px;
     border-radius: 6px;
     border: 1px solid #D9D9D9;
-    color: #B9B9B9;
+    color: #FFF;
     background: transparent;
     outline: none;
     box-shadow: none;
@@ -195,7 +195,7 @@
 }
 .subscription-popup-field input:active,
 .subscription-popup-field input:focus {
-    border: 1px solid #CCC;
+    border: 1px solid #FFF;
 }
 .subscription-popup-field-error input {
     border: 1px solid #FC3E30;
@@ -230,6 +230,9 @@
     box-shadow: none;
     box-sizing: border-box;
     cursor: pointer;
+}
+.subscription-popup-buttons > *:hover {
+    background: rgba(255, 255, 255, 0.20);
 }
 .subscription-popup-submit {
     font-size: 18px;
