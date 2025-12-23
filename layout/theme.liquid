@@ -78,28 +78,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       @font-face {
         font-family: 'Manrope';
-        src: url({{ 'Manrope-Regular.ttf' | asset_url }}) format('truetype');
+        src: url({{ 'Manrope-Regular.woff2' | asset_url }}) format('woff2'),
+             url({{ 'Manrope-Regular.woff' | asset_url }}) format('woff'),
+             url({{ 'Manrope-Regular.ttf' | asset_url }}) format('truetype');
         font-weight: 400;
         font-style: normal;
       }
 
       @font-face {
         font-family: 'Manrope';
-        src: url({{ 'Manrope-Medium.ttf' | asset_url }}) format('truetype');
+        src: url({{ 'Manrope-Medium.woff2' | asset_url }}) format('woff2'),
+             url({{ 'Manrope-Medium.woff' | asset_url }}) format('woff'),
+             url({{ 'Manrope-Medium.ttf' | asset_url }}) format('truetype');
         font-weight: 500;
         font-style: normal;
       }
 
       @font-face {
         font-family: 'Manrope';
-        src: url({{ 'Manrope-SemiBold.ttf' | asset_url }}) format('truetype');
+        src: url({{ 'Manrope-SemiBold.woff2' | asset_url }}) format('woff2'),
+             url({{ 'Manrope-SemiBold.woff' | asset_url }}) format('woff'),
+             url({{ 'Manrope-SemiBold.ttf' | asset_url }}) format('truetype');
         font-weight: 600;
         font-style: normal;
       }
 
       @font-face {
         font-family: 'Manrope';
-        src: url({{ 'Manrope-Bold.ttf' | asset_url }}) format('truetype');
+        src: url({{ 'Manrope-Bold.woff2' | asset_url }}) format('woff2'),
+             url({{ 'Manrope-Bold.woff' | asset_url }}) format('woff'),
+             url({{ 'Manrope-Bold.ttf' | asset_url }}) format('truetype');
         font-weight: 700;
         font-style: normal;
       }
