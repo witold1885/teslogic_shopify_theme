@@ -216,6 +216,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.30);
 }
 .subscription-popup-buttons > * {
+    font-family: Manrope !important;
     width: 50%;
     height: 100%;
     display: flex;
