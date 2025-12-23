@@ -348,12 +348,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               }, 500)
             }
 
-            setTimeout(() => {
-              const cookieExists = checkSubscriptionCookie()
-              if (!cookieExists) {
-                $('#subscription-popup').addClass('is-visible')
-              }
-            }, 10000)
+            // setTimeout(() => {
+            //   const cookieExists = checkSubscriptionCookie()
+            //   if (!cookieExists) {
+            //     $('#subscription-popup').addClass('is-visible')
+            //   }
+            // }, 10000)
 
             $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
               setSubscriptionCookie(0)
