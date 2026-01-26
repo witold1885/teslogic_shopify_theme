@@ -145,6 +145,9 @@ footer {
 .footer-top .logo {
     width: 233.333px;
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-top .logo img {
@@ -176,7 +179,7 @@ footer {
 }
 
 .footer-menu__list-last {
-    width: auto;
+    width: auto !important;
 }
 
 .footer-menu__list-title {
