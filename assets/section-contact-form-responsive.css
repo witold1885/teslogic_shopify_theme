@@ -157,7 +157,16 @@
     font-size: calc(16 * 100vw / 375);
     line-height: calc(20 * 100vw / 375);
   }
+  .contact__info-notes-highlighted {
+    padding: calc(12 * 100vw / 375);
+    border-radius: calc(12 * 100vw / 375);
+    font-size: calc(14 * 100vw / 375);
+    line-height: calc(20 * 100vw / 375);
+  }
   .contact__info-item {
+    grid-row-gap: calc(8 * 100vw / 375);
+  }
+  .contact__info-item-texts {
     grid-row-gap: calc(8 * 100vw / 375);
   }
   .contact__info-item-title {
@@ -165,6 +174,7 @@
     line-height: calc(32 * 100vw / 375);
   }
   .contact__info-item-text {
+    grid-row-gap: calc(8 * 100vw / 375);
     font-size: calc(16 * 100vw / 375);
     line-height: calc(20 * 100vw / 375);
   }
