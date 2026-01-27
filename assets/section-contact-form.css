@@ -155,18 +155,31 @@
 .contact__info-notes {
   display: flex;
   flex-direction: column;
-  grid-row-gap: 20px;
+  grid-row-gap: 16px;
   color: #4D4D4D;
   font-family: Manrope;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 24px;
+}
+.contact__info-notes-highlighted {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: #F6F6F6;
+  font-size: 14px;
+  line-height: 20px;
 }
 .contact__info-item {
   display: flex;
   flex-direction: column;
-  grid-row-gap: 12px;
+  grid-row-gap: 16px;
+}
+.contact__info-item-texts {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 15px;
 }
 .contact__info-item-title {
   color: #000;
@@ -177,12 +190,15 @@
   line-height: 40px;
 }
 .contact__info-item-text {
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 8px;
   color: #4D4D4D;
   font-family: Manrope;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 24px;
 }
 .contact__info a {
   color: #1657FC;
