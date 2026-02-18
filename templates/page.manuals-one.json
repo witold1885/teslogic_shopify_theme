@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "manuals_pro": {
+      "type": "manuals_one",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "manuals_one"
+  ]
+}
