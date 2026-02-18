@@ -1,0 +1,207 @@
+<link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<div class="manuals__pro-wrap">
+<div class="manuals manuals__pro" id="manuals">
+	<div class="manuals__title">Screenmate ONE Manuals</div>
+	<div class="manuals__body">
+		<div class="manuals__menu">
+			<div class="manuals__menu-title">Select Manuals</div>
+			<div class="manuals__menu-list">
+	            {% for link in linklists.manuals-pro-menu.links %}
+					<div 
+						class="manuals__menu-item"
+						data-title="{{ link.title }}"
+					>
+						{{ link.title }}
+					</div>
+				{%- endfor -%}
+			</div>		
+		</div>
+		<div class="manuals__download">
+			<div class="manuals__download-title">Select Manuals</div>
+			<div class="manuals__download-select">
+				<div class="manuals__download-select-dropdown-select manuals__download-selected">
+					<span class="manuals__download-select-value">Select model</span>
+					<div class="manuals__download-select-arrow">
+						<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
+					</div>
+				</div>
+				<div class="manuals__download-select-dropdown">
+					<div class="manuals__download-select-dropdown-select">
+						<span class="manuals__download-select-value">Select model</span>
+						<div class="manuals__download-select-arrow">
+							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
+						</div>
+					</div>
+	                {% for link in linklists.manuals-pro-menu.links %}
+						<div 
+							class="manuals__download-select-dropdown-item"
+							data-title="{{ link.title }}"
+						>
+							{{ link.title }}
+						</div>
+					{%- endfor -%}
+				</div>
+			</div>
+		</div>
+		<div class="manuals__content">
+			<div class="manuals__content-title"></div>
+			<div class="manuals__content-links">
+				<div class="manuals__content-links-title">PDF Manuals:</div>
+				<div class="manuals__content-links-items"></div>
+			</div>
+			<!-- <div class="manuals__content-videos">
+				<div class="manuals__content-videos-title">Video Installation Guides:</div>
+				<div class="manuals__content-videos-items"></div>
+			</div> -->
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		const contents = [
+		  {
+		    "title": "Model 3/Y with Intel MCU",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3/Y<br>with Intel MCU",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_3_Y_with_Intel_MCU.pdf?v=1764764826"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ],
+		    "videos": []
+		  },
+		  {
+		    "title": "Model 3 with Ryzen MCU",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model 3<br>with Ryzen MCU",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_3_with_Ryzen_MCU.pdf?v=1764764827"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ],
+		    "videos": []
+		  },
+		  {
+		    "title": "Model Y with Ryzen MCU",
+		    "links": [
+		      {
+		        "text": "User's Manual for Tesla Model Y<br>with Ryzen MCU",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_Y_with_Ryzen_MCU.pdf?v=1764764828"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ],
+		    "videos": []
+		  },
+		  {
+			"title": "Highland/Juniper with Ryzen MCU",
+		    "links": [
+		      {
+		        "text": "User's Manual for Highland/<br> Juniper with Ryzen MCU",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Model_3_Y_with_Ryzen_MCU_and_HW4.0.pdf?v=1769080884"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ],
+		    "videos": []
+		  }
+		]
+
+		var manualTitle = 'Model 3/Y with Intel MCU'
+
+		setContent(manualTitle)
+
+		function setContent(title) {
+			const content = searchContent(title)
+
+			$('.manuals__content-title').text(content.title)
+
+			let linksHTML = ''
+			for (const link of content.links) {
+				linksHTML += `
+					<a href="${link.href}" class="manuals__content-link-item">
+						<div class="manuals__content-link-item-icon">
+							<img src="{{ 'pdf-icon.svg' | asset_url }}">
+						</div>
+						<div class="manuals__content-link-item-text">${link.text}</div>			
+					</a>
+				`
+			}
+			$('.manuals__content-links-items').html(linksHTML)
+
+			if (content.videos.length == 0) {
+				$('.manuals__content-videos').hide()
+			}
+			else {
+				$('.manuals__content-videos').show()
+				let videosHTML = ''
+				for (const video of content.videos) {
+					videosHTML += `
+						<div class="manuals__content-video-item">
+							<iframe width="1280" height="720" src="${video.src}" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+							</iframe>
+						</div>
+					`
+				}
+				$('.manuals__content-videos-items').html(videosHTML)
+			}
+
+			$('.manuals__menu-item').each(function() {
+				$(this).removeClass('active')
+			})
+			$(`.manuals__menu-item[data-title="${title}"]`).addClass('active')
+		}
+
+		function searchContent(title) {
+			return contents.find(content => content.title == title)
+		}
+
+		$('.manuals__menu-item').on('click', function() {
+			selectModel($(this).data('title'))
+			setContent($(this).data('title'))
+		})
+
+		selectModel(manualTitle)
+
+		$('.manuals__download-select-dropdown-select').on('click', function() {
+			let dropdown = $(this).parents('.manuals__download-select').find('.manuals__download-select-dropdown')
+			if ($(dropdown).is(':visible')) {
+				$(dropdown).css('display', 'none')
+			}
+			else {
+				$(dropdown).css('display', 'flex')
+			}
+		})
+		$('.manuals__download-select-dropdown-item').on('click', function() {
+			selectModel($(this).data('title'))
+			setContent($(this).data('title'))
+		})
+		$(document).click(function(event) { 
+			var $target = $(event.target)
+			if (!$target.closest('.manuals__download-select').length && 
+				!$target.closest('.manuals__download-select-dropdown').length && 
+				$('.manuals__download-select-dropdown').is(":visible")) {
+				$('.manuals__download-select-dropdown').hide()
+			}        
+		})
+		function selectModel(title) {
+			let model = $(`.manuals__download-select-dropdown-item[data-title="${title}"]`).first()
+			$('.manuals__download-selected').find('.manuals__download-select-value').text(model.text())
+			$('.manuals__download-select').find('.manuals__download-select-dropdown').hide()
+		}
+	})
+</script>
