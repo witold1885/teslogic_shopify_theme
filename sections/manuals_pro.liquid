@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="{{ 'manuals.css' | asset_url }}" media="print" onload="this.media='all'">
 
-{% assign product = all_products['screenmate-dash-kit'] %}
-
 <div class="manuals__pro-wrap">
 <div class="manuals manuals__pro" id="manuals">
 	<div class="manuals__title">Powermate Manuals</div>
@@ -9,7 +7,7 @@
 		<div class="manuals__menu">
 			<div class="manuals__menu-title">Select Manuals</div>
 			<div class="manuals__menu-list">
-	      {% for link in linklists.manuals-pro-menu.links %}
+	      		{% for link in linklists.manuals-pro-menu.links %}
 					<div 
 						class="manuals__menu-item"
 						data-title="{{ link.title }}"
@@ -35,7 +33,7 @@
 							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
 						</div>
 					</div>
-	        {% for link in linklists.manuals-pro-menu.links %}
+	        		{% for link in linklists.manuals-pro-menu.links %}
 						<div 
 							class="manuals__download-select-dropdown-item"
 							data-title="{{ link.title }}"
