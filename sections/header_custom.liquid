@@ -15,7 +15,7 @@
   <div class="top-wrap">
     <div class="top">
       <a href="/" class="logo">
-        {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
+        {% if page.handle == 'one-manuals' or page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
           <img class="logo-white" src="{{ 'screenmate_logo_white.svg' | asset_url }}">
         {% else %}
           <img src="{{ 'screenmate_logo_black.svg' | asset_url }}">
@@ -30,7 +30,7 @@
           >
             <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
             {% if link.links.size > 0 or link.title == 'Accessories' %}
-              {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
+              {% if page.handle == 'one-manuals' or page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               {% else %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
@@ -117,7 +117,7 @@
           {% if link.links.size > 0 or link.title == 'Accessories' %}
             <div class="menu__item-title">
               <a href="{{ link.url }}">{{ link.title }} {% if link.title == 'Screenmate' or link.title == 'Screenmate One' %}<span>NEW</span>{% endif %}</a>
-              {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
+              {% if page.handle == 'one-manuals' or page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               {% else %}
                 <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down-black.svg' | asset_url }}">
@@ -184,7 +184,7 @@
   var logo_white = "{{ 'screenmate_logo_white.svg' | asset_url }}"
   var chevron_white = "{{ 'chevron-down.svg' | asset_url }}"
   var chevron_black = "{{ 'chevron-down-black.svg' | asset_url }}"
-  {% if page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
+  {% if page.handle == 'one-manuals' or page.handle == 'pro-manuals' or page.handle == 'pro-faq' %}
    var chevron_back = chevron_white
    var logo_back = logo_white
   {% else %}
