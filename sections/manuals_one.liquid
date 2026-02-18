@@ -50,10 +50,10 @@
 				<div class="manuals__content-links-title">PDF Manuals:</div>
 				<div class="manuals__content-links-items"></div>
 			</div> {% endcomment %}
-			<!-- <div class="manuals__content-videos">
-				<div class="manuals__content-videos-title">Video Installation Guides:</div>
+			<div class="manuals__content-videos">
+				<div class="manuals__content-videos-title">Video Installation Guide:</div>
 				<div class="manuals__content-videos-items"></div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>
@@ -61,84 +61,51 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-        console.log('Test')
-        console.log('{{ linklists.manuals-one-menu.links }}')
-        const links = JSON.parse('{{ linklists.manuals-one-menu.links | json }}')
-        console.log({ links })
+        
+		const contents = [
+		  {
+		    "title": "Model 3 ('17-20)",
+		    "links": [],
+		    "videos": [{
+                "title": "Screenmate ONE Installation Guide | Tesla Model 3 ('17-20)",
+                "src": "https://www.youtube.com/embed/k1Ho2y8Hm8E?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
+            }]
+		  },
+		  {
+		    "title": "Model 3 ('21-23)",
+		    "links": [],
+		    "videos": [{
+                "title": "Screenmate ONE Installation Guide | Tesla Model 3 ('21-23)",
+                "src": "https://www.youtube.com/embed/ou5mLsP03Lc?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
+            }]
+		  },
+		  {
+		    "title": "HIghland / Juniper",
+		    "links": [],
+		    "videos": [{
+                "title": "Screenmate ONE Installation Guide | Tesla Model 3 HIghland & Model Y Juniper",
+                "src": "https://www.youtube.com/embed/0-4Q7ffXU1M?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
+            }]
+		  },
+		  {
+			"title": "Model Y ('20-24)",
+		    "links": [],
+		    "videos": [{
+                "title": "Screenmate ONE Installation Guide | Tesla Model Y",
+                "src": "https://www.youtube.com/embed/XqyZ1priq9o?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
+            }]
+		  },
+		  {
+			"title": "Model S ('21+) / Model X ('21+)",
+		    "links": [],
+		    "videos": [{
+                "title": "Screenmate ONE Installation Guide | Tesla Model S & Model X",
+                "src": "https://www.youtube.com/embed/85GPK1ZuIDQ?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
+            }]
+		  }
+		]
 
-        const contents = []
-        // Loop through the Liquid array using Liquid's `for` tag
-        {% for link in linklists.manuals-one-menu.links %}
-            // Push each item into the JS array. Use `| json` for safe conversion.
-            contents.push({
-                title: "{{ link.title }}",
-                links: [],
-                videos: []
-            })
-        {% endfor %}
-
-        console.log({ contents })
-
-		// const contents = [
-		//   {
-		//     "title": "Model 3/Y with Intel MCU",
-		//     "links": [
-		//       {
-		//         "text": "User's Manual for Tesla Model 3/Y<br>with Intel MCU",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_3_Y_with_Intel_MCU.pdf?v=1764764826"
-		//       },
-		//       {
-		//         "text": "User's Manual for Screenmate<br>Wireless Charger",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
-		//       }
-		//     ],
-		//     "videos": []
-		//   },
-		//   {
-		//     "title": "Model 3 with Ryzen MCU",
-		//     "links": [
-		//       {
-		//         "text": "User's Manual for Tesla Model 3<br>with Ryzen MCU",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_3_with_Ryzen_MCU.pdf?v=1764764827"
-		//       },
-		//       {
-		//         "text": "User's Manual for Screenmate<br>Wireless Charger",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
-		//       }
-		//     ],
-		//     "videos": []
-		//   },
-		//   {
-		//     "title": "Model Y with Ryzen MCU",
-		//     "links": [
-		//       {
-		//         "text": "User's Manual for Tesla Model Y<br>with Ryzen MCU",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Powermate_for_Model_Y_with_Ryzen_MCU.pdf?v=1764764828"
-		//       },
-		//       {
-		//         "text": "User's Manual for Screenmate<br>Wireless Charger",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
-		//       }
-		//     ],
-		//     "videos": []
-		//   },
-		//   {
-		// 	"title": "Highland/Juniper with Ryzen MCU",
-		//     "links": [
-		//       {
-		//         "text": "User's Manual for Highland/<br> Juniper with Ryzen MCU",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Model_3_Y_with_Ryzen_MCU_and_HW4.0.pdf?v=1769080884"
-		//       },
-		//       {
-		//         "text": "User's Manual for Screenmate<br>Wireless Charger",
-		//         "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
-		//       }
-		//     ],
-		//     "videos": []
-		//   }
-		// ]
-
-		var manualTitle = 'Model 3/Y with Intel MCU'
+		var manualTitle = 'Model 3 (\'17-20)'
 
 		setContent(manualTitle)
 
