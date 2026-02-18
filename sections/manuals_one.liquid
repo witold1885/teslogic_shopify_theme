@@ -7,7 +7,7 @@
 		<div class="manuals__menu">
 			<div class="manuals__menu-title">Select Manuals</div>
 			<div class="manuals__menu-list">
-	            {% for link in linklists.manuals-menu.links %}
+	            {% for link in linklists.manuals-one-menu.links %}
 					<div 
 						class="manuals__menu-item"
 						data-title="{{ link.title }}"
@@ -33,7 +33,7 @@
 							<img src="{{ 'chevron-down-manuals.svg' | asset_url }}">
 						</div>
 					</div>
-	                {% for link in linklists.manuals-menu.links %}
+	                {% for link in linklists.manuals-one-menu.links %}
 						<div 
 							class="manuals__download-select-dropdown-item"
 							data-title="{{ link.title }}"
