@@ -380,6 +380,9 @@
 	.manuals__pro .manuals__download-select-dropdown-item {
 		color: #888;
 	}
+	.manuals__pro .manuals__download-select-dropdown-item.active {
+		color: #FFF;
+	}
 	.manuals__download-select-value {
 		font-family: Manrope;
 		font-style: normal;
