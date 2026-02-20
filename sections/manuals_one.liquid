@@ -144,10 +144,10 @@
 				$('.manuals__content-videos-items').html(videosHTML)
 			}
 
-			$('.manuals__menu-item').each(function() {
+			$('.manuals__menu-item, .manuals__download-select-dropdown-item').each(function() {
 				$(this).removeClass('active')
 			})
-			$(`.manuals__menu-item[data-title="${title}"]`).addClass('active')
+			$(`.manuals__menu-item[data-title="${title}"], .manuals__download-select-dropdown-item[data-title="${title}"]`).addClass('active')
 		}
 
 		function searchContent(title) {
