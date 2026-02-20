@@ -440,6 +440,7 @@
 		font-weight: 600;
 		line-height: calc(48 * 100vw / 375);
 		text-align: left;
+		white-space: nowrap;
 	}
 	.banner__subtitle {
 		color: #FFF;
