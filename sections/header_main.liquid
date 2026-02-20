@@ -34,7 +34,8 @@
     height: 100%;
   }
   .banner {
-    background: url({{ 'newbrand_bg_mobile.png' | asset_url }});
+    /* background: url({{ 'newbrand_bg_mobile.png' | asset_url }}); */
+    background: url({{ 'bg_mobile.png' | asset_url }});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -385,10 +386,10 @@ Unlock advanced capabilities of your Tesla.</div>
   <!-- <div class="header_mobile-fix"></div> -->
   <div class="banner banner-menu-closed">
     <div class="banner-top banner-top-promo">
-      <div class="banner-newbrand">
+      {% comment %} <div class="banner-newbrand">
         <div class="banner-newbrand-title">We rebranded to Screenmate.<br>Nothing else changes for you.</div>
         <div class="banner-newbrand-subtitle">Formerly Teslogic</div>
-      </div>
+      </div> {% endcomment %}
       <div class="banner-info">
         <div class="banner__suptitle">Formerly Teslogic v2</div>
         <div class="banner__title">Screenmate Dash</div>
