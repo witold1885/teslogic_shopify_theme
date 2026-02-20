@@ -377,6 +377,9 @@
 		color: #0F0F0F;
 		cursor: pointer;
 	}
+	.manuals__pro .manuals__download-select-dropdown-item {
+		color: #888;
+	}
 	.manuals__download-select-value {
 		font-family: Manrope;
 		font-style: normal;
@@ -385,6 +388,9 @@
 		line-height: calc(32 * 100vw / 375);
 		color: #9FA1A8;
 		margin-right: calc(20 * 100vw / 375);
+	}
+	.manuals__pro .manuals__download-select-value {
+		color: #FFF;
 	}
 	.manuals__download-select-arrow {
 		width: calc(12 * 100vw / 375);
