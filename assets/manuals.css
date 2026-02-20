@@ -338,6 +338,9 @@
 		padding: 0 calc(20 * 100vw / 375);
 		box-sizing: border-box;
 	}
+	.manuals__pro .manuals__download-select {
+		background: #262626;
+	}
 	.manuals__download-select-dropdown-select {
 		width: 100%;
 		display: flex;
