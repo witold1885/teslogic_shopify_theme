@@ -364,6 +364,10 @@
 		border-radius: calc(8 * 100vw / 375);
 		z-index: 2;
 	}
+	.manuals__pro .manuals__download-select-dropdown {
+		background: #262626;
+		box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
+	}
 	.manuals__download-select-dropdown-item {
 		font-family: Manrope;
 		font-style: normal;
