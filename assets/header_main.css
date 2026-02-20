@@ -262,7 +262,8 @@
 	opacity: 0.6;
 	position: absolute;
 	/* top: 695px; */
-	top: calc(100vh + 131px);
+	/* top: calc(100vh + 131px); */
+	top: 295px;
 	left: 72px;
 }
 .title {
@@ -274,7 +275,8 @@
 	line-height: 72px;
 	position: absolute;
 	/* top: 729px; */
-	top: calc(100vh + 165px);
+	/* top: calc(100vh + 165px); */
+	top: 329px;
 	left: 72px;
 }
 .subtitle {
@@ -286,13 +288,15 @@
 	line-height: 32px;
 	position: absolute;
 	/* top: 813px; */
-	top: calc(100vh + 249px);
+	/* top: calc(100vh + 249px); */
+	top: 413px;
 	left: 72px;
 }
 .banner-buttons {
 	position: absolute;
 	/* top: 905px; */
-	top: calc(100vh + 341px);
+	/* top: calc(100vh + 341px); */
+	top: 505px;
 	left: 72px;
 	display: flex;
 	align-items: center;

@@ -12,21 +12,22 @@
     }
   }
   header#header_main {
-    /* height: 100vh; */
+    height: 100vh;
   }
   @media screen and (min-width: 576px) {
     header#header_main {
       /* height: calc(1210 * 100vw / 1440); */
-      height: calc(100vh + 646 * 100vw / 1440);
+      /* height: calc(100vh + 646 * 100vw / 1440); */
     }
   }
   .banner-desktop-wrap {
-    background-image: url({{ 'newbrand_bg_gradient.png' | asset_url }}),
-                      url({{ 'newbrand_bg_black.png' | asset_url }}),
+    background-image: /*url({{ 'newbrand_bg_gradient.png' | asset_url }}),
+                      url({{ 'newbrand_bg_black.png' | asset_url }})*/,
                       url({{ 'newbrand_bg_image.png' | asset_url }});
-    background-position: top center, top center, bottom center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: 100vw 100vh, 100vw 100vh, 100%;
+    background-position: /*top center, top center, */bottom center;
+    background-repeat: /*no-repeat, no-repeat, */no-repeat;
+    /* background-size: 100vw 100vh, 100vw 100vh, 100%; */
+    background-size: cover;
     height: 100%;
   }
   .banner-desktop {
@@ -141,10 +142,10 @@
   <div class="header_main-fix"></div>
   <div class="banner-desktop-wrap">
     <div class="banner-desktop">
-      <div class="banner-newbrand">
+      {% comment %} <div class="banner-newbrand">
         <div class="banner-newbrand-title">We rebranded to Screenmate.<br>Nothing else changes for you.</div>
         <div class="banner-newbrand-subtitle">Formerly Teslogic</div>
-      </div>
+      </div> {% endcomment %}
       <div class="suptitle">Formerly Teslogic v2</div>
       <div class="title">Screenmate Dash</div>
       <div class="subtitle">Powerful Dashboard for Model 3/Y.<br>
