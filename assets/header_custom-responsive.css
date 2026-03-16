@@ -75,8 +75,7 @@
 }
 
 @media screen and (min-width: 576px) and (max-width: 1700px) {
-	.top {
-/*		width: calc(1440 * 100vw / 1440);*/
+	#header_custom, .top {
 		height: calc(64 * 100vw / 1440);
 	}
 	.top .logo {
