@@ -99,7 +99,7 @@
         "q13": {
           "type": "question",
           "settings": {
-            "question": "Can I use a hotspot from Screenmate or connect to other hotspots?",
+            "question": "Can I use a hotspot from Screenmate One or connect to other hotspots?",
             "answer": "Yes, you can share the internet from Screenmate or connect to a hotspot or other types of Wi-Fi."
           }
         },
