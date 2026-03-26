@@ -155,8 +155,8 @@
         "q21": {
           "type": "question",
           "settings": {
-            "question": "Is there a way to easily bypass the Screenmate device?",
-            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect Screenmate, just reconnect the monitor cable to Tesla’s computer."
+            "question": "Is there a way to easily bypass the Screenmate One device?",
+            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate One can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect the device, just reconnect the monitor cable to Tesla’s computer."
           }
         },
         "q22": {
