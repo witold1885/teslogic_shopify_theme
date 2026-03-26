@@ -106,8 +106,8 @@
         "q14": {
           "type": "question",
           "settings": {
-            "question": "How does Screenmate behave when the car is waking up?",
-            "answer": "When Screenmate is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed.          Booting the Screenmate from a “powered off state” (when the car is in deep sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the Screenmate to enter sleep mode alongside the vehicle, rather than shutting down completely."
+            "question": "How does Screenmate One behave when the car is waking up?",
+            "answer": "When the device is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed. \nBooting the Screenmate One from a “powered off state” (when the car is in deep-sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the device to enter sleep mode alongside the vehicle, rather than shutting down completely."
           }
         },
         "q15": {
