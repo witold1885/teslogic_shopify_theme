@@ -85,8 +85,8 @@
         "q11": {
           "type": "question",
           "settings": {
-            "question": "Do I need the Internet to use Screenmate?",
-            "answer": "Screenmate can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
+            "question": "Do I need the Internet to use Screenmate One?",
+            "answer": "Screenmate One can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
           }
         },
         "q12": {
