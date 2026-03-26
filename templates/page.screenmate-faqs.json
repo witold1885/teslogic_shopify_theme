@@ -92,8 +92,8 @@
         "q12": {
           "type": "question",
           "settings": {
-            "question": "How does Screenmate connect to the internet?",
-            "answer": "Screenmate supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
+            "question": "How does Screenmate One connect to the Internet?",
+            "answer": "Screenmate One supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
           }
         },
         "q13": {
