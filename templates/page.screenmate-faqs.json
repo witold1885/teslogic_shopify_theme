@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "screenmate_faqs": {
@@ -112,7 +121,7 @@
           "type": "question",
           "settings": {
             "question": "Is there a manufacturer's warranty for the Screenmate One?",
-            "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@teslogic.co, and we'll provide assistance."
+            "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@screenmate.co, and we'll provide assistance."
           }
         },
         "q17": {
