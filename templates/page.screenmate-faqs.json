@@ -23,7 +23,7 @@
           "type": "question",
           "settings": {
             "question": "What about the MCU?",
-            "answer": "Screenmate supports both Intel Atom and AMD Ryzen processors."
+            "answer": "Screenmate One supports both Intel Atom and AMD Ryzen processors."
           }
         },
         "q3": {
@@ -52,13 +52,6 @@
           "settings": {
             "question": "Does Screenmate replace the Tesla MCU?",
             "answer": "No, you can switch between Tesla's screen and Screenmate with a four-finger touch."
-          }
-        },
-        "q7": {
-          "type": "question",
-          "settings": {
-            "question": "Is a remote needed to control Screenmate?",
-            "answer": "No, the Tesla touchscreen controls it directly."
           }
         },
         "q8": {
@@ -188,7 +181,6 @@
         "q4",
         "q5",
         "q6",
-        "q7",
         "q8",
         "q9",
         "q10",
