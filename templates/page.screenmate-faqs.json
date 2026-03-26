@@ -121,20 +121,20 @@
           "type": "question",
           "settings": {
             "question": "Is there a manufacturer's warranty for the Screenmate One?",
-            "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@screenmate.co, and we'll provide assistance."
+            "answer": "Yes, Screenmate One comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@screenmate.co, and we'll provide assistance."
           }
         },
         "q17": {
           "type": "question",
           "settings": {
-            "question": "Can Screenmate compromise my Tesla warranty?",
+            "question": "Can Screenmate One compromise my Tesla warranty?",
             "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Screenmate One, doesn't void the overall warranty. However, as a precaution, we recommend removing the device from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
         "q18": {
           "type": "question",
           "settings": {
-            "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate?",
+            "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate One?",
             "answer": "No, you can continue using any other third-part devices."
           }
         },
@@ -155,8 +155,8 @@
         "q21": {
           "type": "question",
           "settings": {
-            "question": "Is there a way to easily bypass the Screenmate device?",
-            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect Screenmate, just reconnect the monitor cable to Tesla’s computer."
+            "question": "Is there a way to easily bypass the Screenmate One device?",
+            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate One can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect the device, just reconnect the monitor cable to Tesla’s computer."
           }
         },
         "q22": {
