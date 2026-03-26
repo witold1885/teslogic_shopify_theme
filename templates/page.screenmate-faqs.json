@@ -128,7 +128,7 @@
           "type": "question",
           "settings": {
             "question": "Can Screenmate compromise my Tesla warranty?",
-            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Screenmate One, doesn't void the overall warranty. However, as a precaution, we recommend removing Screenmate One from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
+            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Screenmate One, doesn't void the overall warranty. However, as a precaution, we recommend removing the device from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
         "q18": {
@@ -162,15 +162,15 @@
         "q22": {
           "type": "question",
           "settings": {
-            "question": "Can Tesla block Screenmate?",
-            "answer": "No, Tesla cannot block Screenmate. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
+            "question": "Can Tesla block Screenmate One?",
+            "answer": "No, Tesla cannot block Screenmate One. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
           }
         },
         "q23": {
           "type": "question",
           "settings": {
-            "question": "If I change my car while waiting for Screenmate, how can I let you know?",
-            "answer": "We’ll contact all backers before shipment to confirm the required Screenmate version."
+            "question": "If I change my car while waiting for Screenmate One, how can I let you know?",
+            "answer": "We’ll contact all backers before shipment to confirm the required Screenmate One version."
           }
         },
         "q24": {
