@@ -64,8 +64,8 @@
         "q8": {
           "type": "question",
           "settings": {
-            "question": "Where does Screenmate get its power?",
-            "answer": "In Model 3 (2021+) and Model Y cars, Screenmate is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate connects directly to the MCU."
+            "question": "Where does Screenmate One get its power?",
+            "answer": "In Model 3 (2021+) and Model Y cars, Screenmate One is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate One connects directly to the MCU."
           }
         },
         "q9": {
