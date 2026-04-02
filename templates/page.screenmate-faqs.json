@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "screenmate_faqs": {
@@ -14,14 +23,14 @@
           "type": "question",
           "settings": {
             "question": "What about the MCU?",
-            "answer": "Screenmate supports both Intel Atom and AMD Ryzen processors."
+            "answer": "Screenmate One supports both Intel Atom and AMD Ryzen processors."
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "Does Screenmate supports RHD cars?",
-            "answer": "Yes, Screenmate is fully compatible with RHD vehicles."
+            "question": "Does Screenmate One support RHD cars?",
+            "answer": "Yes, Screenmate One is fully compatible with RHD vehicles."
           }
         },
         "q4": {
@@ -41,22 +50,15 @@
         "q6": {
           "type": "question",
           "settings": {
-            "question": "Does Screenmate replace the Tesla MCU?",
-            "answer": "No, you can switch between Tesla's screen and Screenmate with a four-finger touch."
-          }
-        },
-        "q7": {
-          "type": "question",
-          "settings": {
-            "question": "Is a remote needed to control Screenmate?",
-            "answer": "No, the Tesla touchscreen controls it directly."
+            "question": "Does Screenmate One replace the Tesla MCU?",
+            "answer": "No, you can switch between Tesla's screen and Screenmate One with a four-finger touch."
           }
         },
         "q8": {
           "type": "question",
           "settings": {
-            "question": "Where does Screenmate get its power?",
-            "answer": "In Model 3 (2021+) and Model Y cars, Screenmate is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate connects directly to the MCU."
+            "question": "Where does Screenmate One get its power?",
+            "answer": "In Model 3 (2021+) and Model Y cars, Screenmate One is powered through the diagnostic connector. For earlier models (Model 3, 2018-2020), Screenmate One connects directly to the MCU."
           }
         },
         "q9": {
@@ -76,35 +78,35 @@
         "q11": {
           "type": "question",
           "settings": {
-            "question": "Do I need the Internet to use Screenmate?",
-            "answer": "Screenmate can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
+            "question": "Do I need the Internet to use Screenmate One?",
+            "answer": "Screenmate One can operate without an Internet connection, but you will need one for apps that require it, just like on your smartphone."
           }
         },
         "q12": {
           "type": "question",
           "settings": {
-            "question": "How does Screenmate connect to the internet?",
-            "answer": "Screenmate supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
+            "question": "How does Screenmate One connect to the Internet?",
+            "answer": "Screenmate One supports cellular network connection and has a slot for a SIM card (SIM card must be purchased separately)."
           }
         },
         "q13": {
           "type": "question",
           "settings": {
-            "question": "Can I use a hotspot from Screenmate or connect to other hotspots?",
+            "question": "Can I use a hotspot from Screenmate One or connect to other hotspots?",
             "answer": "Yes, you can share the internet from Screenmate or connect to a hotspot or other types of Wi-Fi."
           }
         },
         "q14": {
           "type": "question",
           "settings": {
-            "question": "How does Screenmate behave when the car is waking up?",
-            "answer": "When Screenmate is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed.          Booting the Screenmate from a “powered off state” (when the car is in deep sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the Screenmate to enter sleep mode alongside the vehicle, rather than shutting down completely."
+            "question": "How does Screenmate One behave when the car is waking up?",
+            "answer": "When the device is \"not powered up\" or not booted for any reason, the Tesla monitor functions as it normally would, as if Screenmate were not installed. \nBooting the Screenmate One from a “powered off state” (when the car is in deep-sleep mode) takes approximately 20-30 seconds. We are also working on a feature that will allow the device to enter sleep mode alongside the vehicle, rather than shutting down completely."
           }
         },
         "q15": {
           "type": "question",
           "settings": {
-            "question": "Can using a Screenmate harm my car?",
+            "question": "Can using a Screenmate One harm my car?",
             "answer": "No, Screenmate One is designed to be safe for your vehicle and does not pose any harm."
           }
         },
@@ -112,20 +114,20 @@
           "type": "question",
           "settings": {
             "question": "Is there a manufacturer's warranty for the Screenmate One?",
-            "answer": "Yes, Screenmate comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@teslogic.co, and we'll provide assistance."
+            "answer": "Yes, Screenmate One comes with a comprehensive 3-year warranty. If you have any issues or if the device malfunctions, please get in touch with us at info@screenmate.co, and we'll provide assistance."
           }
         },
         "q17": {
           "type": "question",
           "settings": {
-            "question": "Can Screenmate compromise my Tesla warranty?",
-            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Teslogic, doesn't void the overall warranty. However, as a precaution, we recommend removing Teslogic from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
+            "question": "Can Screenmate One compromise my Tesla warranty?",
+            "answer": "According to Tesla's official Vehicle Limited Warranty, adding third-party accessories, including Screenmate One, doesn't void the overall warranty. However, as a precaution, we recommend removing the device from your car before visiting a Tesla service center. This is to prevent any potential issues with the service staff."
           }
         },
         "q18": {
           "type": "question",
           "settings": {
-            "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate?",
+            "question": "I have other aftermarket devices installed in my Tesla. Will they interfere with Screenmate One?",
             "answer": "No, you can continue using any other third-part devices."
           }
         },
@@ -146,22 +148,22 @@
         "q21": {
           "type": "question",
           "settings": {
-            "question": "Is there a way to easily bypass the Screenmate device?",
-            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect Screenmate, just reconnect the monitor cable to Tesla’s computer."
+            "question": "Is there a way to easily bypass the Screenmate One device?",
+            "answer": "You can do it through the screen, the mobile app, or the CAN bus. Screenmate One can also be reset like Tesla’s main computer by holding down the steering wheel scroll buttons. By default, it boots in bypass mode, showing Tesla’s native screen. If you need to completely disconnect the device, just reconnect the monitor cable to Tesla’s computer."
           }
         },
         "q22": {
           "type": "question",
           "settings": {
-            "question": "Can Tesla block Screenmate?",
-            "answer": "No, Tesla cannot block Screenmate. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
+            "question": "Can Tesla block Screenmate One?",
+            "answer": "No, Tesla cannot block Screenmate One. The device operates independently of Tesla's software by switching the display input to its own system, bypassing Tesla's interface entirely."
           }
         },
         "q23": {
           "type": "question",
           "settings": {
-            "question": "If I change my car while waiting for Screenmate, how can I let you know?",
-            "answer": "We’ll contact all backers before shipment to confirm the required Screenmate version."
+            "question": "If I change my car while waiting for Screenmate One, how can I let you know?",
+            "answer": "We’ll contact all backers before shipment to confirm the required Screenmate One version."
           }
         },
         "q24": {
@@ -179,7 +181,6 @@
         "q4",
         "q5",
         "q6",
-        "q7",
         "q8",
         "q9",
         "q10",
