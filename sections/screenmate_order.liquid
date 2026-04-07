@@ -96,7 +96,7 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
 					<div class="store_block-product-price-new">{{ product.price | divided_by: 100 }} USD</div>
-					{% comment %} <div class="store_block-product-price-old">{{ product.compare_at_price | divided_by: 100 }} USD</div> {% endcomment %}
+					<div class="store_block-product-price-old">{{ product.compare_at_price | divided_by: 100 }} USD</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
@@ -334,9 +334,9 @@
 			$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
 			price = model.data('price') / 100
 			setTotalPrice(price, charger_selected, camera_selected)
-			// if (model.data('compare_at_price')) {
-			// 	$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
-			// }
+			if (model.data('compare_at_price')) {
+				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
+			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		$('#select-charger').on('change', function() {
