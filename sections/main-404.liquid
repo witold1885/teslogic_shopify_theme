@@ -1,23 +1,72 @@
 <style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
+  .not-found-block {
+    margin: 244px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
   }
-
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
+  .not-found-block-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
   }
+  .not-found-block-top > div {
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+  }
+  .not-found-block-status {
+    font-size: 44px;
+    line-height: 56px;
+  }
+  .not-found-block-title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .not-found-block-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .not-found-block-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .not-found-block-bottom > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    padding: 20px;
+    border-radius: 32px;
+    background: #0465FD;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+	.not-found-block-bottom > a:hover {
+		color: #0345ED;
+	}
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
+<div class="not-found">
+  <div class="not-found-block">
+    <div class="not-found-block-top">
+      <div class="not-found-block-status">404</div>
+      <div class="not-found-block-title">Page not found</div>
+      <div class="not-found-block-subtitle">Something went wrong,<br>to continue go to the main page</div>
+    </div>
+    <div class="not-found-block-bottom">
+      <a href="/">Main Page</a>
+    </div>
+  </div>
 </div>
