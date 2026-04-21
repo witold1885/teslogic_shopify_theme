@@ -55,7 +55,8 @@
     text-decoration: none;
   }
 	.not-found-block-bottom > a:hover {
-		color: #0345ED;
+		background: #0345ED;
+    color: #FFF;
 	}
   @media screen and (min-width: 576px) and (max-width: 1440px) {
     .not-found-block {
@@ -83,6 +84,34 @@
       border-radius: calc(32 * 100vw / 1440);
       font-size: calc(18 * 100vw / 1440);
       line-height: calc(24 * 100vw / 1440);
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .not-found-block {
+      margin: calc(195 * 100vw / 375) auto;
+      row-gap: calc(32 * 100vw / 375);
+    }
+    .not-found-block-top {
+      row-gap: calc(12 * 100vw / 375);
+    }
+    .not-found-block-status {
+      font-size: calc(44 * 100vw / 375);
+      line-height: calc(56 * 100vw / 375);
+    }
+    .not-found-block-title {
+      font-size: calc(28 * 100vw / 375);
+      line-height: calc(40 * 100vw / 375);
+    }
+    .not-found-block-subtitle {
+      font-size: calc(16 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
+    }
+    .not-found-block-bottom > a {
+      width: calc(220 * 100vw / 375);
+      padding: calc(20 * 100vw / 375);
+      border-radius: calc(32 * 100vw / 375);
+      font-size: calc(18 * 100vw / 375);
+      line-height: calc(24 * 100vw / 375);
     }
   }
 </style>
