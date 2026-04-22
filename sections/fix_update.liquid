@@ -18,20 +18,21 @@
     .fix-update-steps {
         display: flex;
         flex-direction: column;
-        row-gap: 40px;
         margin: 0;
         padding: 32px;
         border-radius: 24px;
         border: 1px solid rgba(0, 0, 0, 0.10);
         background: #F6F6F6;
     }
-    /* .fix-update-step {
-        display: flex;
-        flex-direction: column;
-        row-gap: 20px;
-    } */
     .fix-update-step {
         list-style-position: inside;
+    }
+    .fix-update-step:not(:first-child) {
+        padding-top: 40px;
+    }
+    .fix-update-step:not(:last-child) {
+        padding-bottom: 40px;
+        border-bottom: 2px solid #D9D9D9;
     }
     .fix-update-step::marker, .fix-update-step-text {
         color: #000;
@@ -41,8 +42,9 @@
         font-weight: 500;
         line-height: 40px;
     }
-    .fix-update-step-image {
+    .fix-update-step-actions, .fix-update-step-image {
         width: 100%;
+        margin-top: 20px;
     }
 </style>
 
@@ -52,6 +54,7 @@
         <ol class="fix-update-steps">
             <li class="fix-update-step">
                 <span class="fix-update-step-text">Download the file from the link.</span>
+                <div class="fix-update-step-actions"></div>
             </li>
             <li class="fix-update-step">
                 <span class="fix-update-step-text">Open the Downloads folder and<br>launch the app update file.</span>
