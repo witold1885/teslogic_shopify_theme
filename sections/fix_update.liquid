@@ -1,6 +1,6 @@
 <style type="text/css">
     .fix-update-block {
-        max-width: 856px;
+        width: 856px;
         margin: 180px auto;
         display: flex;
         flex-direction: column;
@@ -51,6 +51,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: fit-content;
         padding: 20px 40px;
         border-radius: 32px;
         background: #0465FD;
@@ -65,6 +66,40 @@
     .fix-update-step-actions > a:hover {
         background: #0345ED;
         color: #FFF;
+    }
+    @media screen and (min-width: 576px) and (max-width: 1440px) {
+        .fix-update-block {
+            width: calc(856 * 100vw / 1440);
+            margin: calc(180 * 100vw / 1440) auto;
+            row-gap: calc(40 * 100vw / 1440);
+        }
+        .fix-update-title {
+            font-size: calc(52 * 100vw / 1440);
+            line-height: calc(64 * 100vw / 1440);
+        }
+        .fix-update-steps {
+            padding: calc(32 * 100vw / 1440);
+            border-radius: calc(24 * 100vw / 1440);
+        }
+        .fix-update-step:not(:first-child) {
+            padding-top: calc(40 * 100vw / 1440);
+        }
+        .fix-update-step:not(:last-child) {
+            padding-bottom: calc(40 * 100vw / 1440);
+        }
+        .fix-update-step::marker, .fix-update-step-text {
+            font-size: calc(32 * 100vw / 1440);
+            line-height: calc(40 * 100vw / 1440);
+        }
+        .fix-update-step-actions, .fix-update-step-image {
+            margin-top: calc(20 * 100vw / 1440);
+        }
+        .fix-update-step-actions > a {
+            padding: calc(20 * 100vw / 1440) 40 * 100vw / 1440);
+            border-radius: calc(32 * 100vw / 1440);
+            font-size: calc(18 * 100vw / 1440);
+            line-height: calc(24 * 100vw / 1440);
+        }
     }
 </style>
 
