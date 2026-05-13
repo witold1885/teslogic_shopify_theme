@@ -33,7 +33,7 @@
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
 {%- endif -%}
 
-{% if template == 'index' %}
+{% if template == 'index' or page.handle == 'dash' %}
   <meta property="og:image" content="{{ 'og_image_screenmate_dash.png' | asset_url }}">
 {% elsif page.handle == 'pro' %}
   <meta property="og:image" content="{{ 'og_image_powermate.png' | asset_url }}">

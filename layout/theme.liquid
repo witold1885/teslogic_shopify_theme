@@ -254,10 +254,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </head>
 
   <body class="gradient">
-    <div {% if template == 'index' %}style="overflow: hidden;"{% endif %}>
+    <div {% if template == 'index' or page.handle == 'dash' %}style="overflow: hidden;"{% endif %}>
       <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
       <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
-      {% if template == 'index' or page.handle == 'pro' or page.handle == 'screenmate' %}
+      {% if template == 'index' or page.handle == 'dash' or page.handle == 'pro' or page.handle == 'screenmate' %}
         <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
         <div id="subscription-popup" class="subscription-popup-shadow">
@@ -436,7 +436,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </script>
       {% endif %}
 
-      {% if template == 'index' %}
+      {% if template == 'index' or page.handle == 'dash' %}
         {% section 'header_main' %}
       {% elsif page.handle == 'pro' %}
         {% section 'header_pro' %}
