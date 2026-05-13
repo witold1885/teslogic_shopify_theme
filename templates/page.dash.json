@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "using": {
+      "type": "using",
+      "settings": {
+      }
+    },
+    "screens": {
+      "type": "screens",
+      "settings": {
+      }
+    },
+    "devices_supporting": {
+      "type": "devices_supporting",
+      "settings": {
+      }
+    },
+    "significant": {
+      "type": "significant",
+      "settings": {
+      }
+    },
+    "shortcuts": {
+      "type": "shortcuts",
+      "settings": {
+      }
+    },
+    "box_block": {
+      "type": "box_block",
+      "settings": {
+      }
+    },
+    "bloggers_block": {
+      "type": "bloggers_block",
+      "settings": {
+      }
+    },
+    "store_block": {
+      "type": "store_block",
+      "settings": {
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "using",
+    "screens",
+    "devices_supporting",
+    "significant",
+    "shortcuts",
+    "box_block",
+    "bloggers_block",
+    "store_block",
+    "reviews"
+  ]
+}
