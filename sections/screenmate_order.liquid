@@ -23,19 +23,6 @@
 		background-repeat: no-repeat;
 		background-position: center;
 	}
-	/* .store_block-product-preorder-delivery {
-		margin-top: 16px;
-		color: #000;
-		font-feature-settings: 'liga' off, 'clig' off;
-		font-family: Manrope;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 20px;
-	}
-	.store_block-product-preorder-delivery span {
-		color: #1657FC;
-	} */
 	.store_block-product-order-delivery {
 		display: flex;
 		flex-direction: column;
@@ -70,11 +57,6 @@
 			width: calc(12 * 100vw / 1440);
 			height: calc(10 * 100vw / 1440);
 		}
-		/* .store_block-product-preorder-delivery {
-			margin-top: calc(16 * 100vw / 1440);
-			font-size: calc(16 * 100vw / 1440);
-			line-height: calc(20 * 100vw / 1440);
-		} */
 		.store_block-product-order-delivery {
 			row-gap: calc(8 * 100vw / 1440);
 			margin-top: calc(20 * 100vw / 1440);
@@ -223,9 +205,6 @@
 						</div>
 					</div>
 				</div>
-				{% comment %} <div class="store_block-product-preorder-delivery">
-					Delivery: <span>May 2026</span>
-				</div> {% endcomment %}
 				<div class="store_block-product-order-delivery">
 					{% comment %} <div>Delivery timeline:</div>
 					<div>Model 3 (’17-24), Model Y (’20-25): <span>May 2026</span></div>
@@ -375,9 +354,11 @@
 			setTotalPrice(price, charger_selected, camera_selected)
 			if (model.data('compare_at_price') && model.data('compare_at_price') > model.data('price')) {
 				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
-				$('.store_block-product-order-delivery').html('<div><span>July</span></div>')
+				$('.store_block-product-add, .store_block-product-add-mobile-text').text('Preorder now')
+				$('.store_block-product-order-delivery').html('<div>Delivery timeline: <span>July</span></div>')
 			} else {
 				$('.store_block-product-price-old').text('')
+				$('.store_block-product-add, .store_block-product-add-mobile-text').text('Order now')
 				$('.store_block-product-order-delivery').empty()
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
