@@ -373,6 +373,8 @@
 			setTotalPrice(price, charger_selected, camera_selected)
 			if (model.data('compare_at_price') && model.data('compare_at_price') > model.data('price')) {
 				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
+			} else {
+				$('.store_block-product-price-old').text('')
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
