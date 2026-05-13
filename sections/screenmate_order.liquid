@@ -227,16 +227,16 @@
 					Delivery: <span>May 2026</span>
 				</div> {% endcomment %}
 				<div class="store_block-product-order-delivery">
-					<div>Delivery timeline:</div>
+					{% comment %} <div>Delivery timeline:</div>
 					<div>Model 3 (’17-24), Model Y (’20-25): <span>May 2026</span></div>
-					<div>Model S, X, Highland and Juniper: <span>June 2026</span></div>
+					<div>Model S, X, Highland and Juniper: <span>June 2026</span></div> {% endcomment %}					
 				</div>
 			</div>
 		</div>
 	</div>
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
-	{% comment %} <input type="hidden" id="camera-variant-id" value="{{ charger.variants[0].id }}">				 {% endcomment %}
+	{% comment %} <input type="hidden" id="camera-variant-id" value="{{ charger.variants[0].id }}">	{% endcomment %}
 </div>
 
 <script type="text/javascript">
@@ -375,8 +375,10 @@
 			setTotalPrice(price, charger_selected, camera_selected)
 			if (model.data('compare_at_price') && model.data('compare_at_price') > model.data('price')) {
 				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
+				$('.store_block-product-order-delivery').html('<div><span>July</span></div>')
 			} else {
 				$('.store_block-product-price-old').text('')
+				$('.store_block-product-order-delivery').empty()
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
