@@ -126,9 +126,11 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">
 					<div class="store_block-product-price-new">{{ product.price_max | divided_by: 100 }} USD</div>
-					{% if product.compare_at_price > product.price_max %}
-						<div class="store_block-product-price-old">{{ product.compare_at_price | divided_by: 100 }} USD</div>
-					{% endif %}
+					<div class="store_block-product-price-old"></div>
+						{% if product.compare_at_price > product.price_max %}
+							{{ product.compare_at_price | divided_by: 100 }} USD
+						{% endif %}
+					</div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
 			</div>
