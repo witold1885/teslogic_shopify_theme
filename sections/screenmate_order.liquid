@@ -126,7 +126,7 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">
 					<div class="store_block-product-price-new">{{ product.price_max | divided_by: 100 }} USD</div>
-					<div class="store_block-product-price-old"></div>
+					<div class="store_block-product-price-old">
 						{% if product.compare_at_price > product.price_max %}
 							{{ product.compare_at_price | divided_by: 100 }} USD
 						{% endif %}
