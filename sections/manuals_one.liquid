@@ -47,13 +47,13 @@
 		</div>
 		<div class="manuals__content">
 			<div class="manuals__content-title"></div>
-			{% comment %} <div class="manuals__content-links">
-				<div class="manuals__content-links-title">PDF Manuals:</div>
-				<div class="manuals__content-links-items"></div>
-			</div> {% endcomment %}
 			<div class="manuals__content-videos">
 				<div class="manuals__content-videos-title">Video Installation Guide:</div>
 				<div class="manuals__content-videos-items"></div>
+			</div>
+			<div class="manuals__content-links">
+				<div class="manuals__content-links-title">PDF Manuals:</div>
+				<div class="manuals__content-links-items"></div>
 			</div>
 		</div>
 	</div>
@@ -62,47 +62,93 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		const storageUrl = 'http://64.23.170.121:8000/storage/manuals/one'
         
 		const contents = [
 		  {
 		    "title": "Model 3 ('17-20)",
-		    "links": [],
 		    "videos": [{
                 "title": "Screenmate ONE Installation Guide | Tesla Model 3 ('17-20)",
                 "src": "https://www.youtube.com/embed/k1Ho2y8Hm8E?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
-            }]
+            }],
+		    "links": [
+		      {
+		        "text": "User's Manual for Model 3 ('17-20)",
+		        "file": "screenmate-manual-model-3-17-20.pdf"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ]
 		  },
 		  {
 		    "title": "Model 3 ('21-23)",
-		    "links": [],
 		    "videos": [{
                 "title": "Screenmate ONE Installation Guide | Tesla Model 3 ('21-23)",
                 "src": "https://www.youtube.com/embed/ou5mLsP03Lc?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
-            }]
+            }],
+		    "links": [
+		      {
+		        "text": "User's Manual for Model 3 ('21-23)",
+		        "file": "screenmate-manual-model-3-21-23.pdf"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ]
 		  },
 		  {
 		    "title": "HIghland / Juniper",
-		    "links": [],
 		    "videos": [{
                 "title": "Screenmate ONE Installation Guide | Tesla Model 3 HIghland & Model Y Juniper",
                 "src": "https://www.youtube.com/embed/0-4Q7ffXU1M?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
-            }]
+            }],
+		    "links": [
+		      {
+		        "text": "User's Manual for HIghland / Juniper",
+		        "file": "screenmate-manual-model-3-highland-model-y-juniper.pdf"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ]
 		  },
 		  {
 			"title": "Model Y ('20-24)",
-		    "links": [],
 		    "videos": [{
                 "title": "Screenmate ONE Installation Guide | Tesla Model Y",
                 "src": "https://www.youtube.com/embed/XqyZ1priq9o?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
-            }]
+            }],
+		    "links": [
+		      {
+		        "text": "User's Manual for Model Y ('20-24)",
+		        "file": "screenmate-manual-model-y-20-24.pdf"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ]
 		  },
 		  {
 			"title": "Model S ('21+) / Model X ('21+)",
-		    "links": [],
 		    "videos": [{
                 "title": "Screenmate ONE Installation Guide | Tesla Model S & Model X",
                 "src": "https://www.youtube.com/embed/85GPK1ZuIDQ?list=PLO_SsfaODIeQC4PNkwnvrd7LcaPC-sK2d"
-            }]
+            }],
+		    "links": [
+		      {
+		        "text": "User's Manual for Model S ('21+) / Model X ('21+)",
+		        "file": "screenmate-manual-model-s-21plus-model-x-21plus.pdf"
+		      },
+		      {
+		        "text": "User's Manual for Screenmate<br>Wireless Charger",
+		        "href": "https://cdn.shopify.com/s/files/1/0792/5163/6443/files/Wireless_Charger.pdf?v=1764764827"
+		      }
+		    ]
 		  }
 		]
 
@@ -118,7 +164,7 @@
 			let linksHTML = ''
 			for (const link of content.links) {
 				linksHTML += `
-					<a href="${link.href}" class="manuals__content-link-item">
+					<a href="${link.href || `${storageUrl}/${link.file}`}" class="manuals__content-link-item">
 						<div class="manuals__content-link-item-icon">
 							<img src="{{ 'pdf-icon.svg' | asset_url }}">
 						</div>
