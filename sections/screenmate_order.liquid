@@ -340,7 +340,7 @@
 				$('.store_block-product-select-dropdown').hide()
 			}        
 		})
-		var price = null, charger_selected = true, camera_selected = true
+		var price = null, charger_selected = true, camera_selected = false
 		function selectModel(sku) {
 			let model = $(`.store_block-product-select-dropdown-item[data-sku="${sku}"]`).first()
 			model_id = model.data('model_id')
