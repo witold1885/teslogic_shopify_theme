@@ -519,16 +519,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </body>
 
   <script>
-    const hostElement = document.querySelector('.dynamic-checkout__content')
-    const style = document.createElement('style')
-    style.textContent = `
-      .wallet-cart-button-container:has([name="button-PayPal"]) {
-        display: none;
-      }
-      shopify-paypal-button {
-        display: none !important;
-      }
-    `
-    hostElement.shadowRoot.appendChild(style)
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log('DOMContentLoaded')
+      const hostElement = document.querySelector('.dynamic-checkout__content')
+      const style = document.createElement('style')
+      style.textContent = `
+        .wallet-cart-button-container:has([name="button-PayPal"]) {
+          display: none;
+        }
+        shopify-paypal-button {
+          display: none !important;
+        }
+      `
+      hostElement.shadowRoot.appendChild(style)
+    })
   </script>
 </html>
