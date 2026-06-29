@@ -522,6 +522,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     document.addEventListener("DOMContentLoaded", () => {
       const hidePaypalInShadow = () => {
         const shadowHost = document.querySelector('shopify-accelerated-checkout-cart')
+        console.log({ shadowHost })
         
         if (shadowHost && shadowHost.shadowRoot) {
           if (!shadowHost.shadowRoot.querySelector('#custom-hide-paypal')) {
