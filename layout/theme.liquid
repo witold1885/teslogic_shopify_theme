@@ -520,18 +520,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      console.log('DOMContentLoaded')
-      const hostElement = document.querySelector('.dynamic-checkout__content')
-      const style = document.createElement('style')
-      style.textContent = `
-        .wallet-cart-button-container:has([name="button-PayPal"]) {
-          display: none;
+      const hidePaypalInShadow = () => {
+        const shadowHost = document.querySelector('shopify-accelerated-checkout-cart')
+        
+        if (shadowHost && shadowHost.shadowRoot) {
+          if (!shadowHost.shadowRoot.querySelector('#custom-hide-paypal')) {
+            const style = document.createElement('style')
+            style.id = 'custom-hide-paypal'
+            
+            style.textContent = `
+              .wallet-cart-button-container:has([name="button-PayPal"]) {
+                display: none !important;
+              }
+              shopify-paypal-button {
+                display: none !important;
+              }
+            `
+            shadowHost.shadowRoot.appendChild(style)
+          }
         }
-        shopify-paypal-button {
-          display: none !important;
-        }
-      `
-      hostElement.shadowRoot.appendChild(style)
+      }
+
+      const observer = new MutationObserver(() => {
+        hidePaypalInShadow()
+      })
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      })
     })
   </script>
 </html>
