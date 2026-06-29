@@ -222,6 +222,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       shopify-paypal-button {
         display: none !important;
       }
+      shopify-google-pay-button {
+        margin-top: -62px !important;
+      }
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
@@ -520,36 +523,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       LeadDyno.recordVisit();
     </script>
   </body>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hidePaypalInShadow = () => {
-        const shadowHost = document.querySelector('shopify-accelerated-checkout-cart')
-        console.log({ shadowHost })
-        
-        if (shadowHost && shadowHost.shadowRoot) {
-          if (!shadowHost.shadowRoot.querySelector('#custom-hide-paypal')) {
-            const style = document.createElement('style')
-            style.id = 'custom-hide-paypal'
-            
-            style.textContent = `
-              .wallet-cart-button-container:has([name="button-PayPal"]) {
-                display: none !important;
-              }
-            `
-            shadowHost.shadowRoot.appendChild(style)
-          }
-        }
-      }
-
-      const observer = new MutationObserver(() => {
-        hidePaypalInShadow()
-      })
-
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      })
-    })
-  </script>
 </html>
