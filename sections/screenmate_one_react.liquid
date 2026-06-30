@@ -1,41 +1,35 @@
 <div id="react-screenmate-one-root"></div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  (function() {
     var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
     var cdnPath = fullUrl.split('?')[0].replace('missing-marker.js', '')
-    window.__shopify_assets_url__ = cdnPath
-    window.__VITE_DYNAMIC_BASE__ = cdnPath
 
     var manifestUrl = "{{ 'manifest.json' | asset_url }}"
     var entryPoint = "src/pages/ScreenmateOne.tsx"
 
     fetch(manifestUrl)
-      .then(function(res) { 
-        if (!res.ok) throw new Error('Status: ' + res.status)
-        return res.json()
-      })
+      .then(function(res) { return res.json() })
       .then(function(manifest) {
+        var imports = {}
+        
+        Object.keys(manifest).forEach(function(key) {
+          var item = manifest[key]
+          imports["./" + item.file] = cdnPath + item.file
+          imports[item.file] = cdnPath + item.file
+        })
+
+        var im = document.createElement('script')
+        im.type = 'importmap'
+        im.textContent = JSON.stringify({ imports: imports })
+        document.head.appendChild(im)
+
         var mainEntry = manifest[entryPoint]
-        if (!mainEntry) return
-
-        if (mainEntry.css) {
-          mainEntry.css.forEach(function(cssFile) {
-            var link = document.createElement('link')
-            link.rel = 'stylesheet'
-            link.href = cdnPath + cssFile
-            document.head.appendChild(link)
-          })
-        }
-
         var script = document.createElement('script')
         script.type = 'module'
         script.src = cdnPath + mainEntry.file
         script.defer = true
         document.body.appendChild(script)
       })
-      .catch(function(err) {
-        console.error('Vite manifest error:', err)
-      })
-  })
+  })()
 </script>
