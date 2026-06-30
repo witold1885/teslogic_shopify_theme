@@ -2,4 +2,11 @@
 
 {{ 'ScreenmateOne-react.css' | asset_url | stylesheet_tag }}
 
+<script>
+  (function() {
+    var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
+    window.__shopify_assets_url__ = fullUrl.replace('missing-marker.js', '')
+  })()
+</script>
+
 <script src="{{ 'ScreenmateOne-react.js' | asset_url }}" type="module" defer></script>
