@@ -5,7 +5,8 @@
 <script>
   (function() {
     var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
-    window.__shopify_assets_url__ = fullUrl.replace('missing-marker.js', '')
+    var cleanUrl = fullUrl.split('?')[0]
+    window.__shopify_assets_url__ = cleanUrl.replace('missing-marker.js', '')
   })()
 </script>
 
