@@ -1,9 +1,11 @@
 import React, { useMemo, useState } from 'react'
 import { Heading, Tabs, type TabProps, Video } from '../Common'
-import streamingVideo from '../../assets/videos/screenmate-one/streaming.mp4'
-import navigationVideo from '../../assets/videos/screenmate-one/navigation.mp4'
-import gamingVideo from '../../assets/videos/screenmate-one/gaming.mp4'
-import socialVideo from '../../assets/videos/screenmate-one/social.mp4'
+import {
+    streaming as streamingVideo,
+    navigation as navigationVideo,
+    gaming as gamingVideo,
+    social as socialVideo
+} from '../../assets/videos/screenmate-one'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 

@@ -2,9 +2,11 @@ import React, { Fragment, useMemo, useState, type CSSProperties, type ReactNode 
 import { Heading, Icon, Image, Popup, Video } from '../Common'
 
 import dualViewModeImage from '../../assets/images/screenmate-one/dual-view-mode.png'
-import dualViewModeVideo from '../../assets/videos/screenmate-one/dual-view-mode.mp4'
 import beyondBasicControlsImage from '../../assets/images/screenmate-one/beyond-basic-controls.png'
-import beyondBasicControlsVideo from '../../assets/videos/screenmate-one/beyond-basic-controls.mp4'
+import {
+    dualViewMode as dualViewModeVideo,
+    beyondBasicControls as beyondBasicControlsVideo
+} from '../../assets/videos/screenmate-one'
 import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
 import pointerTopLeftDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-left-desktop.svg'

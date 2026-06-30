@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Button, Icon, Video } from '../Common'
 
-import bannerVideo from '../../assets/videos/screenmate-one/banner-desktop.mp4'
+import { bannerDesktop as bannerVideo } from '../../assets/videos/screenmate-one'
 import logoImage from '../../assets/images/screenmate-one/logo.svg'
 import playButton from '../../assets/icons/play-button.svg'
 import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'

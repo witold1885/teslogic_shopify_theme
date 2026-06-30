@@ -9,6 +9,9 @@ interface VideoProps {
 }
 
 const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, src, background, loop = false }, ref) => {
+    const isAbsolute = src.startsWith('http') || src.startsWith('data:')
+    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
+
     const [isIntersecting, setIsIntersecting] = useState(false)
     const containerRef = useRef<HTMLDivElement | null>(null)
     const videoRef = useRef<HTMLVideoElement | null>(null)
@@ -50,12 +53,12 @@ const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, s
                 else if (ref) ref.current = node
             }}
             className={className}
-            style={{ ...style, background: background ? `url(${background})` : 'transparent' }}
+            style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover' } : {}) }}
         >
             <video 
                 ref={videoRef}
                 className="object-cover"
-                src={isIntersecting ? src : undefined}
+                src={isIntersecting ? finalSrc : undefined}
                 loop={loop}
                 playsInline
                 muted

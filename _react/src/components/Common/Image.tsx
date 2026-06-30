@@ -8,10 +8,15 @@ interface ImageProps {
     onClick?: () => void
 }
 
-const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, src, alt = '', onClick }, ref) => (
-    <div {...{ref, className, style, onClick}}>
-        <img className="object-cover" {...{src, alt}} loading="lazy" />
-    </div>
-))
+const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, src, alt = '', onClick }, ref) => {
+    const isAbsolute = src.startsWith('http') || src.startsWith('data:')
+    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
+    
+    return (
+        <div {...{ref, className, style, onClick}}>
+            <img className="object-cover" src={finalSrc} alt={alt} loading="lazy" />
+        </div>
+    )
+})
 
 export default Image
