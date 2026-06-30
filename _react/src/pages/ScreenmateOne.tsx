@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useRef } from 'react'
 import '../assets/styles/screenmate-one.scss'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
+import { mountForShopify } from './mount'
 
 const slugs: string[] = ['Features', 'Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation', 'Order']
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => ({
@@ -30,5 +31,7 @@ const ScreenmateOne: React.FC = () => {
         </ProductLayout>
     )
 }
+
+mountForShopify('react-screenmate-one-root', ScreenmateOne)
 
 export default ScreenmateOne
