@@ -1,1 +1,1 @@
-import{n as e,t}from"./react-chunk-jsx-runtime-DIBGU2nq.js";import"./react-chunk-ProductLayout-yLPuAeVz.js";e(),t();
+import{n as e,t}from"./assets/jsx-runtime-DIBGU2nq.js";import"./assets/ProductLayout-DiNbGNl5.js";e(),t();
