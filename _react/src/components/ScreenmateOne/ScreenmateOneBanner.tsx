@@ -1,0 +1,59 @@
+import React, { useMemo } from 'react'
+import { Button, Icon, Video } from '../Common'
+
+import bannerVideo from '../../assets/videos/screenmate-one/banner-desktop.mp4'
+import logoImage from '../../assets/images/screenmate-one/logo.svg'
+import playButton from '../../assets/icons/play-button.svg'
+import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'
+import heartIcon from '../../assets/icons/heart-fill.svg'
+import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    logo: { yFrom: '20px' },
+    title: { yFrom: '40px' },
+    button_1: { yFrom: '20px' },
+    button_2: { yFrom: '20px' },
+    kickstarter: { yFrom: '20px' },
+}
+
+const ScreenmateOneBanner: React.FC<{ onExpand?: () => void }> = ({ onExpand }) => {
+    const { isMobile } = useInlineStyles()
+
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+
+    const { anime } = useAnime(animationConfigs)
+
+    return (
+        <div className="screenmate-one__banner relative">
+            {!isMobile && <Video className="absolute inset" src={bannerVideo} />}
+            <div className="container h-full relative">
+                <div className="screenmate-one__banner-inner">
+                    <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
+                    <h1 {...anime('title')}>The ultimate Tesla multimedia upgrade</h1>
+                    <div className="flex gap-24">
+                        <Button {...anime('button_1')}>
+                            <span>order now</span>
+                        </Button>
+                        <Button {...anime('button_2')}>
+                            <Icon icon={playButton} />
+                            <span>Play video</span>
+                        </Button>
+                    </div>
+                </div>
+                <div {...anime('kickstarter')} className="screenmate-one__banner-kickstarter">
+                    <img src={kickstarterImage} alt="Kickstarter" fetchPriority="high" />
+                    <div className="screenmate-one__banner-kickstarter-badge"> 
+                        <Icon icon={heartIcon} />
+                        <span>Project we love</span>
+                    </div>
+                </div>
+                <Icon className="screenmate-one__banner-expand" icon={chevronIcon} onClick={onExpand} />
+            </div>
+        </div>
+    )
+}
+
+export default ScreenmateOneBanner

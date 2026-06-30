@@ -1,0 +1,166 @@
+@use '@/assets/styles/common.scss';
+@use '@/assets/styles/mixins' as *;
+
+.reviews {
+    @include responsive(padding, 180px, 0);
+    background: url(../../assets/images/reviews-background.png);
+    background-size: cover;
+
+    @include mobile() {
+        @include responsive(padding, 96px, 0);
+    }
+
+    &-star {
+        @extend .flex-center;
+        @include square(32px);
+
+        @include mobile() {
+            @include square(20px);
+        }
+
+        &-big {
+            @extend .reviews-star;
+            @include square(64px);
+
+            @include mobile() {
+                @include square(128px);
+            }
+        }
+    }
+
+    &-judgeme {
+        @extend .mob\:hidden;
+        @include responsive(width, 129.231px);
+        @include responsive(height, 32px);
+    }
+
+    &-grid {
+
+        &-item {
+            @extend .flex-column, .gap-16;
+            @include responsive(padding, 40px);
+            @include responsive(border-radius, 24px);
+            background: #1A1A1A;
+            color: #A3A3A3;
+
+            @include mobile() {
+                @include responsive(padding, 24px);
+                @include responsive(border-radius, 12px);
+            }
+        }
+    }
+
+    &-pagination {
+        @extend .flex-center, .gap-8;
+
+        &-nav {
+            @extend .flex-center;
+            @include responsive(width, 4px);
+            @include responsive(height, 8px);
+        }
+
+        &-item {
+            @extend .flex-center, .font-manrope-18, .font-500, .text-white, .cursor-pointer;
+            @include square(24px);
+
+            &.active {
+                @include responsive(border-radius, 4px);
+                background: #FFF;
+                color: #000;
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    & button {
+        @include responsive(padding, 20px, 40px);
+        @include responsive(border-radius, 54px);
+        border: 2px solid rgba(255, 255, 255, 0.10);
+        background: #FFF;
+        backdrop-filter: blur(8px);
+        color: #1657FC;
+        @extend .font-manrope-24, .font-500, .text-center;
+    }
+
+    &-form {
+
+        &-wrap {
+            width: 636px;
+            padding: 40px 40px 28px 40px;
+            border-radius: 16px;            
+            background: #1A1A1A;
+            box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+        }
+
+        &-close {
+            width: 20px;
+            height: 20px;
+            top: 16px;
+            right: 16px;
+        }
+
+        &-rating {
+
+            & label {
+                width: 24px;
+                height: 24px;
+                background-image: url(@/assets/icons/star-grey.svg);
+                background-size: cover;
+                @extend .cursor-pointer;
+            }
+
+            & label:hover,
+            & label:hover ~ label,
+            & input[type="radio"]:checked ~ label,
+            &:not(:hover) input[type="radio"]:checked ~ label:hover,
+            &:not(:hover) input[type="radio"]:checked ~ label:hover ~ label {
+                background-image: url(@/assets/icons/star-blue.svg);
+            }
+        }
+
+        &-body {
+            @extend .grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 24px;
+            row-gap: 28px;
+        }
+
+        &-field {
+
+            &.full {
+                grid-column: span 2;
+            }
+
+            & input, & textarea {
+                padding: 16px;
+                border-radius: 6px;
+                border: 1px solid #D9D9D9;
+                background: transparent;
+                @extend .font-manrope-16;
+                color: #FFF;
+            }
+
+            & textarea {
+                height: 161px;
+            }
+
+            &-error {
+                bottom: -22px;
+                color: #FC3E30;
+                @extend .absolute, .font-manrope-14;
+            }
+        }
+
+        & button {
+            padding: 14px 28px; 
+            border-radius: 26px;
+            border: none;
+            background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+            color: #FFF;
+            @extend .font-manrope-18, .font-400, .text-center;
+        }
+    }    
+}

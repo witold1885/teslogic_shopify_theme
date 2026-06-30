@@ -1,0 +1,42 @@
+@use '@/assets/styles/common.scss';
+@use '@/assets/styles/mixins' as *;
+
+.tabs {
+    @extend .flex-center, .gap-64, .mob\:gap-8;
+    border-bottom: 1px solid #666;
+
+    &-item {
+        @extend .flex-center, .relative;
+
+        @include mobile() {
+            flex: 1;
+            @include responsive(max-height, 72px);
+        }
+
+        &-title {
+            @include responsive(padding, 24px, 0);
+            @extend .font-manrope-24, .font-500, .text-center, .text-white, .mob\:font-manrope-14;
+            opacity: .6;
+
+            .active & {
+                @extend .font-600;
+                @include responsive(padding-bottom, 22px);
+                margin-bottom: -1px;
+                opacity: 1;
+            }
+
+            @include mobile() {
+                text-align: left;
+                word-break: break-word;
+            }
+        }
+
+        &-marker {
+            @extend .absolute;
+            left: 0;
+            bottom: 0;
+            @include responsive(height, 3px);
+            background: #FFF;
+        }
+    }
+}

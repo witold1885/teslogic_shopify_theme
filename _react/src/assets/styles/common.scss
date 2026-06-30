@@ -1,0 +1,285 @@
+@use './fonts.scss';
+@use './flexbox.scss';
+@use 'mixins' as *;
+
+html, body {
+    margin: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+@include mobile() {
+    .mob\: {
+        &hidden {
+            display: none;
+        }
+        &block {
+            display: block;
+        }
+        &w-full {
+            width: 100%;
+        }
+        &h-full {
+            height: 100%;
+        }
+    }
+}
+
+.container {
+    @include responsive(width, 1296px);
+    margin: 0 auto;
+
+    @include mobile() {
+        @include responsive(width, 350px);
+    }
+}
+
+.object-cover {
+    @extend .w-full, .h-full;
+    object-fit: cover;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset {
+    inset: 0;
+}
+
+.overflow {
+    &-hidden {
+        overflow: hidden;
+    }
+
+    &-scroll {
+        overflow: scroll;
+
+        &-x {
+            overflow-x: scroll;
+        }
+
+        &-y {
+            overflow-y: scroll;
+        }
+    }
+}
+
+.heading {
+    font-family: "Neue Haas Grotesk Display Pro";
+    @include responsive(font-size, 80px);
+    font-style: normal;
+    font-weight: 900;
+    @include responsive(line-height, 94px);
+    @extend .text-center;
+
+    @include mobile() {
+        @include responsive(font-size, 52px);
+        @include responsive(line-height, 56px);
+        text-align: left !important;
+    }
+
+    &[style*="--is-finished: 1"] {
+        transform: none !important;
+        perspective: none !important;
+        backface-visibility: visible !important;
+    }
+}
+
+h1 {
+    margin: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+@include generate-text-utilities();
+
+@media (max-width: 576px) {
+    @include generate-text-utilities("mob");
+}
+
+.text {
+
+    &-blue {
+        color: #0465FD;
+    }
+
+    &-grey {
+        color: #666;
+    }
+
+    &-darkgrey {
+        color: #999;
+    }
+
+    &-white {
+        color: #FFF;
+    }
+}
+
+a {
+    color: #0465FD;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+
+    & span {
+        @extend .font-manrope-24, .font-600;
+        white-space: nowrap;
+        @include responsive(letter-spacing, 0.48px);
+        
+        background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #FFFFFF;
+
+        @include mobile() {
+            @include fontManrope(18px);
+        }
+    }
+}
+
+input {
+    &[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        @include responsive(width, 20px);
+        @include responsive(height, 20px);
+        margin: 0;
+        background: url('../icons/checkbox-inactive.svg');
+        background-size: cover;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        
+        &:checked {
+            background: url('../icons/checkbox-active.svg');
+            background-size: cover;
+        }
+    }
+}
+
+input, textarea {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown {
+    @extend .w-full, .relative;
+    z-index: 1;
+
+    &-field {
+        @include responsive(padding, 20px);
+        @include responsive(border-radius, 12px);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: #191919;
+        @extend .cursor-pointer;
+
+        @include mobile() {
+            @include responsive(padding, 20px, 16px);
+            @include responsive(border-radius, 6px);
+        }
+
+        & span {
+            color: #FAFAFA;
+            @extend .font-manrope-20, .mob\:font-manrope-16, .font-500;
+        }
+    }
+
+    & .icon {
+        @include responsive(width, 12px);
+        @include responsive(height, 32px);
+    }
+
+    &-menu {
+        @extend .w-full, .flex-column, .gap-22, .mob\:gap-18, .absolute, .font-manrope-20, .mob\:font-manrope-16, .font-500;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        @include responsive(padding, 22px, 20px, 24px, 20px);
+        @include responsive(border-radius, 12px);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        background: #191919;
+        box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
+
+        @include mobile() {
+            @include responsive(padding, 18px, 20px, 24px);
+            @include responsive(border-radius, 6px);
+        }
+
+        &-item {
+            @extend .w-full;
+
+            &:hover {
+                color: #B3B3B3;
+            }
+
+            & .icon {
+                @include square(24px);
+
+                @include mobile() {
+                    @include square(20px);
+                }
+            }
+        }
+    }
+}
+
+.circle {
+    border-radius: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+
+.shadow {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.66);
+    z-index: 15;
+}
