@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "screenmate_one_react": {
+      "type": "screenmate_one_react",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "screenmate_one_react"
+  ]
+}
