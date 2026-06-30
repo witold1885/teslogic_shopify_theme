@@ -1,3 +1,5 @@
 <div id="react-screenmate-one-root"></div>
 
-{% render 'vite-loader-ScreenmateOne-react' %}
+{{ 'ScreenmateOne.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'ScreenmateOne.js' | asset_url }}" defer></script>
