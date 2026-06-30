@@ -4,13 +4,16 @@
   (function() {
     var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
     var cdnPath = fullUrl.split('?')[0].replace('missing-marker.js', '')
-    
     window.__shopify_assets_url__ = cdnPath
 
+    var manifestUrl = "{{ 'manifest.json' | asset_url }}"
     var entryPoint = "ScreenmateOne-react.tsx"
 
-    fetch(cdnPath + '.vite/manifest.json')
-      .then(function(res) { return res.json() })
+    fetch(manifestUrl)
+      .then(function(res) { 
+        if (!res.ok) throw new Error('Статус відповіді сервера: ' + res.status)
+        return res.json()
+      })
       .then(function(manifest) {
         var mainEntry = manifest[entryPoint]
         if (!mainEntry) return
