@@ -4,6 +4,31 @@ import babel from '@rolldown/plugin-babel'
 import path from 'path'
 import fs from 'fs'
 
+const outDir = path.resolve(__dirname, '../assets')
+
+const currentPage = process.env.PAGE
+
+const cleanOldChunksPlugin = () => {
+  return {
+    name: 'clean-old-chunks',
+    buildStart() {
+      if (fs.existsSync(outDir)) {
+        const files = fs.readdirSync(outDir)
+        files.forEach((file) => {
+          if (file.startsWith('react-chunk-')) {
+            const filePath = path.join(outDir, file)
+            try {
+              fs.unlinkSync(filePath)
+            } catch (err) {
+              console.error(`Can not delete old chunk ${file}:`, err)
+            }
+          }
+        })
+      }
+    }
+  }
+}
+
 const getEntryPoints = (): Record<string, string> => {
   const pagesDir = path.resolve(__dirname, 'src/pages')
   const entries: Record<string, string> = {}
@@ -12,8 +37,7 @@ const getEntryPoints = (): Record<string, string> => {
     fs.readdirSync(pagesDir).forEach((file) => {
       if (file.endsWith('.tsx') || file.endsWith('.jsx')) {
         const name = path.parse(file).name
-        
-        entries[`${name}-react`] = path.resolve(pagesDir, file)
+        entries[name] = path.resolve(pagesDir, file)
       }
     })
   }
@@ -21,9 +45,16 @@ const getEntryPoints = (): Record<string, string> => {
   return entries
 }
 
+const entryPoints = getEntryPoints()
+
+const inputEntry = currentPage && entryPoints[currentPage] 
+  ? { [currentPage]: entryPoints[currentPage] }
+  : entryPoints
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    cleanOldChunksPlugin(),
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
@@ -32,18 +63,22 @@ export default defineConfig({
       '@': import.meta.dirname + '/src'
     },
   },
+  base: '',
   build: {
-    outDir: path.resolve(__dirname, '../assets'), 
+    outDir, 
     emptyOutDir: false,
     sourcemap: false,
     rollupOptions: {
-      input: getEntryPoints(),
+      input: inputEntry,
       output: {
         entryFileNames: '[name].js',
-        assetFileNames: (assetInfo) => (
-          assetInfo.name && assetInfo.name.endsWith('.css') ? '[name].css' : '[name].[ext]'
-        ),
-        manualChunks: undefined
+        chunkFileNames: 'react-chunk-[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo?.name?.endsWith('.css')) return '[name].css'
+          return 'react-[name].[ext]'
+        },
+        format: 'esm',
+        inlineDynamicImports: !!currentPage
       }
     }
   }
