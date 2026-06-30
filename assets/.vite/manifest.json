@@ -1,0 +1,959 @@
+{
+  "_react-chunk-ProductLayout-DnXeIKmm.js": {
+    "file": "react-chunk-ProductLayout-DnXeIKmm.js",
+    "name": "ProductLayout",
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js"
+    ],
+    "dynamicImports": [
+      "src/components/Reviews/Reviews.tsx"
+    ]
+  },
+  "_react-chunk-arrow-top-right-blue-DH0s19gw.js": {
+    "file": "react-chunk-arrow-top-right-blue-DH0s19gw.js",
+    "name": "arrow-top-right-blue"
+  },
+  "_react-chunk-inline-styles-wmseNla7.js": {
+    "file": "react-chunk-inline-styles-wmseNla7.js",
+    "name": "inline-styles",
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js"
+    ]
+  },
+  "_react-chunk-jsx-runtime-DIBGU2nq.js": {
+    "file": "react-chunk-jsx-runtime-DIBGU2nq.js",
+    "name": "jsx-runtime"
+  },
+  "src/assets/fonts/Manrope/Manrope-Bold.ttf": {
+    "file": "react-Manrope-Bold.ttf",
+    "src": "src/assets/fonts/Manrope/Manrope-Bold.ttf"
+  },
+  "src/assets/fonts/Manrope/Manrope-Medium.ttf": {
+    "file": "react-Manrope-Medium.ttf",
+    "src": "src/assets/fonts/Manrope/Manrope-Medium.ttf"
+  },
+  "src/assets/fonts/Manrope/Manrope-Regular.ttf": {
+    "file": "react-Manrope-Regular.ttf",
+    "src": "src/assets/fonts/Manrope/Manrope-Regular.ttf"
+  },
+  "src/assets/fonts/Manrope/Manrope-SemiBold.ttf": {
+    "file": "react-Manrope-SemiBold.ttf",
+    "src": "src/assets/fonts/Manrope/Manrope-SemiBold.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.eot": {
+    "file": "react-NeueHaasDisplay-Black.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.ttf": {
+    "file": "react-NeueHaasDisplay-Black.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.woff": {
+    "file": "react-NeueHaasDisplay-Black.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Black.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.eot": {
+    "file": "react-NeueHaasDisplay-BlackItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.ttf": {
+    "file": "react-NeueHaasDisplay-BlackItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.woff": {
+    "file": "react-NeueHaasDisplay-BlackItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BlackItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.eot": {
+    "file": "react-NeueHaasDisplay-Bold.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.ttf": {
+    "file": "react-NeueHaasDisplay-Bold.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.woff": {
+    "file": "react-NeueHaasDisplay-Bold.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Bold.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.eot": {
+    "file": "react-NeueHaasDisplay-BoldItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.ttf": {
+    "file": "react-NeueHaasDisplay-BoldItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.woff": {
+    "file": "react-NeueHaasDisplay-BoldItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-BoldItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.eot": {
+    "file": "react-NeueHaasDisplay-Light.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.ttf": {
+    "file": "react-NeueHaasDisplay-Light.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.woff": {
+    "file": "react-NeueHaasDisplay-Light.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Light.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.eot": {
+    "file": "react-NeueHaasDisplay-LightItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.ttf": {
+    "file": "react-NeueHaasDisplay-LightItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.woff": {
+    "file": "react-NeueHaasDisplay-LightItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-LightItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.eot": {
+    "file": "react-NeueHaasDisplay-Mediu.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf": {
+    "file": "react-NeueHaasDisplay-Mediu.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.woff": {
+    "file": "react-NeueHaasDisplay-Mediu.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.eot": {
+    "file": "react-NeueHaasDisplay-MediumItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.ttf": {
+    "file": "react-NeueHaasDisplay-MediumItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.woff": {
+    "file": "react-NeueHaasDisplay-MediumItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-MediumItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.eot": {
+    "file": "react-NeueHaasDisplay-Roman.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.ttf": {
+    "file": "react-NeueHaasDisplay-Roman.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.woff": {
+    "file": "react-NeueHaasDisplay-Roman.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.eot": {
+    "file": "react-NeueHaasDisplay-RomanItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.ttf": {
+    "file": "react-NeueHaasDisplay-RomanItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.woff": {
+    "file": "react-NeueHaasDisplay-RomanItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-RomanItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.eot": {
+    "file": "react-NeueHaasDisplay-Thin.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.ttf": {
+    "file": "react-NeueHaasDisplay-Thin.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.woff": {
+    "file": "react-NeueHaasDisplay-Thin.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Thin.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.eot": {
+    "file": "react-NeueHaasDisplay-ThinItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.ttf": {
+    "file": "react-NeueHaasDisplay-ThinItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.woff": {
+    "file": "react-NeueHaasDisplay-ThinItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-ThinItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.eot": {
+    "file": "react-NeueHaasDisplay-XThin.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.ttf": {
+    "file": "react-NeueHaasDisplay-XThin.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.woff": {
+    "file": "react-NeueHaasDisplay-XThin.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThin.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.eot": {
+    "file": "react-NeueHaasDisplay-XThinItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.ttf": {
+    "file": "react-NeueHaasDisplay-XThinItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.woff": {
+    "file": "react-NeueHaasDisplay-XThinItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XThinItalic.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.eot": {
+    "file": "react-NeueHaasDisplay-XXThin.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.ttf": {
+    "file": "react-NeueHaasDisplay-XXThin.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.woff": {
+    "file": "react-NeueHaasDisplay-XXThin.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThin.woff"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.eot": {
+    "file": "react-NeueHaasDisplay-XXThinItalic.eot",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.eot"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.ttf": {
+    "file": "react-NeueHaasDisplay-XXThinItalic.ttf",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.ttf"
+  },
+  "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.woff": {
+    "file": "react-NeueHaasDisplay-XXThinItalic.woff",
+    "src": "src/assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-XXThinItalic.woff"
+  },
+  "src/assets/icons/screenmate-one/chipset.svg": {
+    "file": "react-chipset.svg",
+    "src": "src/assets/icons/screenmate-one/chipset.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/battery-preheat.svg": {
+    "file": "react-battery-preheat.svg",
+    "src": "src/assets/icons/screenmate-one/commands/battery-preheat.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/car-wash-mode.svg": {
+    "file": "react-car-wash-mode.svg",
+    "src": "src/assets/icons/screenmate-one/commands/car-wash-mode.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/child-lock-right.svg": {
+    "file": "react-child-lock-right.svg",
+    "src": "src/assets/icons/screenmate-one/commands/child-lock-right.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/dim-mirrors.svg": {
+    "file": "react-dim-mirrors.svg",
+    "src": "src/assets/icons/screenmate-one/commands/dim-mirrors.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/drift-mode.svg": {
+    "file": "react-drift-mode.svg",
+    "src": "src/assets/icons/screenmate-one/commands/drift-mode.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/front-motor-disable.svg": {
+    "file": "react-front-motor-disable.svg",
+    "src": "src/assets/icons/screenmate-one/commands/front-motor-disable.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/open-front-passenger.svg": {
+    "file": "react-open-front-passenger.svg",
+    "src": "src/assets/icons/screenmate-one/commands/open-front-passenger.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/slippy-road-mode.svg": {
+    "file": "react-slippy-road-mode.svg",
+    "src": "src/assets/icons/screenmate-one/commands/slippy-road-mode.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/steering-wheel-heater.svg": {
+    "file": "react-steering-wheel-heater.svg",
+    "src": "src/assets/icons/screenmate-one/commands/steering-wheel-heater.svg"
+  },
+  "src/assets/icons/screenmate-one/commands/wiper-defrost.svg": {
+    "file": "react-wiper-defrost.svg",
+    "src": "src/assets/icons/screenmate-one/commands/wiper-defrost.svg"
+  },
+  "src/assets/images/logo-judgeme.svg": {
+    "file": "react-logo-judgeme.svg",
+    "src": "src/assets/images/logo-judgeme.svg"
+  },
+  "src/assets/images/reviews-background.png": {
+    "file": "react-reviews-background.png",
+    "src": "src/assets/images/reviews-background.png"
+  },
+  "src/assets/images/screenmate-one/banner-desktop.png": {
+    "file": "react-banner-desktop.png",
+    "src": "src/assets/images/screenmate-one/banner-desktop.png"
+  },
+  "src/assets/images/screenmate-one/banner-mobile.png": {
+    "file": "react-banner-mobile.png",
+    "src": "src/assets/images/screenmate-one/banner-mobile.png"
+  },
+  "src/assets/images/screenmate-one/beyond-basic-controls.png": {
+    "file": "react-beyond-basic-controls.png",
+    "src": "src/assets/images/screenmate-one/beyond-basic-controls.png"
+  },
+  "src/assets/images/screenmate-one/car-play-and-android-auto.png": {
+    "file": "react-car-play-and-android-auto2.png",
+    "src": "src/assets/images/screenmate-one/car-play-and-android-auto.png"
+  },
+  "src/assets/images/screenmate-one/connect-consoles.png": {
+    "file": "react-connect-consoles.png",
+    "src": "src/assets/images/screenmate-one/connect-consoles.png"
+  },
+  "src/assets/images/screenmate-one/connect-devices.png": {
+    "file": "react-connect-devices.png",
+    "src": "src/assets/images/screenmate-one/connect-devices.png"
+  },
+  "src/assets/images/screenmate-one/dash-background.png": {
+    "file": "react-dash-background.png",
+    "src": "src/assets/images/screenmate-one/dash-background.png"
+  },
+  "src/assets/images/screenmate-one/dash-image.png": {
+    "file": "react-dash-image.png",
+    "src": "src/assets/images/screenmate-one/dash-image.png"
+  },
+  "src/assets/images/screenmate-one/dual-view-mode.png": {
+    "file": "react-dual-view-mode2.png",
+    "src": "src/assets/images/screenmate-one/dual-view-mode.png"
+  },
+  "src/assets/images/screenmate-one/features/car-play-and-android-auto.png": {
+    "file": "react-car-play-and-android-auto.png",
+    "src": "src/assets/images/screenmate-one/features/car-play-and-android-auto.png"
+  },
+  "src/assets/images/screenmate-one/features/consoles-and-any-hdmi-devices.png": {
+    "file": "react-consoles-and-any-hdmi-devices.png",
+    "src": "src/assets/images/screenmate-one/features/consoles-and-any-hdmi-devices.png"
+  },
+  "src/assets/images/screenmate-one/features/control-panel-50-commands.png": {
+    "file": "react-control-panel-50-commands.png",
+    "src": "src/assets/images/screenmate-one/features/control-panel-50-commands.png"
+  },
+  "src/assets/images/screenmate-one/features/dual-view-mode.png": {
+    "file": "react-dual-view-mode.png",
+    "src": "src/assets/images/screenmate-one/features/dual-view-mode.png"
+  },
+  "src/assets/images/screenmate-one/features/run-any-android-apps.png": {
+    "file": "react-run-any-android-apps.png",
+    "src": "src/assets/images/screenmate-one/features/run-any-android-apps.png"
+  },
+  "src/assets/images/screenmate-one/features/screenmate-dash-app-support.png": {
+    "file": "react-screenmate-dash-app-support.png",
+    "src": "src/assets/images/screenmate-one/features/screenmate-dash-app-support.png"
+  },
+  "src/assets/images/screenmate-one/front-camera-integration.png": {
+    "file": "react-front-camera-integration.png",
+    "src": "src/assets/images/screenmate-one/front-camera-integration.png"
+  },
+  "src/assets/images/screenmate-one/gallery/1.png": {
+    "file": "react-1.png",
+    "src": "src/assets/images/screenmate-one/gallery/1.png"
+  },
+  "src/assets/images/screenmate-one/gallery/2.png": {
+    "file": "react-2.png",
+    "src": "src/assets/images/screenmate-one/gallery/2.png"
+  },
+  "src/assets/images/screenmate-one/gallery/3.png": {
+    "file": "react-3.png",
+    "src": "src/assets/images/screenmate-one/gallery/3.png"
+  },
+  "src/assets/images/screenmate-one/gallery/4.png": {
+    "file": "react-4.png",
+    "src": "src/assets/images/screenmate-one/gallery/4.png"
+  },
+  "src/assets/images/screenmate-one/gallery/5.png": {
+    "file": "react-5.png",
+    "src": "src/assets/images/screenmate-one/gallery/5.png"
+  },
+  "src/assets/images/screenmate-one/gallery/6.png": {
+    "file": "react-6.png",
+    "src": "src/assets/images/screenmate-one/gallery/6.png"
+  },
+  "src/assets/images/screenmate-one/gallery/7.png": {
+    "file": "react-7.png",
+    "src": "src/assets/images/screenmate-one/gallery/7.png"
+  },
+  "src/assets/images/screenmate-one/installation.png": {
+    "file": "react-installation.png",
+    "src": "src/assets/images/screenmate-one/installation.png"
+  },
+  "src/assets/images/screenmate-one/key-driving-info-desktop.png": {
+    "file": "react-key-driving-info-desktop.png",
+    "src": "src/assets/images/screenmate-one/key-driving-info-desktop.png"
+  },
+  "src/assets/images/screenmate-one/key-driving-info-mobile.png": {
+    "file": "react-key-driving-info-mobile.png",
+    "src": "src/assets/images/screenmate-one/key-driving-info-mobile.png"
+  },
+  "src/assets/images/screenmate-one/kickstarter-mobile.svg": {
+    "file": "react-kickstarter-mobile.svg",
+    "src": "src/assets/images/screenmate-one/kickstarter-mobile.svg"
+  },
+  "src/assets/images/screenmate-one/kickstarter.svg": {
+    "file": "react-kickstarter.svg",
+    "src": "src/assets/images/screenmate-one/kickstarter.svg"
+  },
+  "src/assets/images/screenmate-one/logo.svg": {
+    "file": "react-logo.svg",
+    "src": "src/assets/images/screenmate-one/logo.svg"
+  },
+  "src/assets/images/screenmate-one/models/model-3-17-23.png": {
+    "file": "react-model-3-17-23.png",
+    "src": "src/assets/images/screenmate-one/models/model-3-17-23.png"
+  },
+  "src/assets/images/screenmate-one/models/model-3-24-highland.png": {
+    "file": "react-model-3-24-highland.png",
+    "src": "src/assets/images/screenmate-one/models/model-3-24-highland.png"
+  },
+  "src/assets/images/screenmate-one/models/model-s-21.png": {
+    "file": "react-model-s-21.png",
+    "src": "src/assets/images/screenmate-one/models/model-s-21.png"
+  },
+  "src/assets/images/screenmate-one/models/model-x-21.png": {
+    "file": "react-model-x-21.png",
+    "src": "src/assets/images/screenmate-one/models/model-x-21.png"
+  },
+  "src/assets/images/screenmate-one/models/model-y-21-24.png": {
+    "file": "react-model-y-21-24.png",
+    "src": "src/assets/images/screenmate-one/models/model-y-21-24.png"
+  },
+  "src/assets/images/screenmate-one/models/model-y-25-juniper.png": {
+    "file": "react-model-y-25-juniper.png",
+    "src": "src/assets/images/screenmate-one/models/model-y-25-juniper.png"
+  },
+  "src/assets/images/screenmate-one/products/data-wire.png": {
+    "file": "react-data-wire.png",
+    "src": "src/assets/images/screenmate-one/products/data-wire.png"
+  },
+  "src/assets/images/screenmate-one/products/phone-holder.png": {
+    "file": "react-phone-holder.png",
+    "src": "src/assets/images/screenmate-one/products/phone-holder.png"
+  },
+  "src/assets/images/screenmate-one/products/plastic-tool.png": {
+    "file": "react-plastic-tool.png",
+    "src": "src/assets/images/screenmate-one/products/plastic-tool.png"
+  },
+  "src/assets/images/screenmate-one/products/screenmate-one-device.png": {
+    "file": "react-screenmate-one-device.png",
+    "src": "src/assets/images/screenmate-one/products/screenmate-one-device.png"
+  },
+  "src/assets/images/screenmate-one/products/screenmate-splitter.png": {
+    "file": "react-screenmate-splitter.png",
+    "src": "src/assets/images/screenmate-one/products/screenmate-splitter.png"
+  },
+  "src/assets/images/screenmate-one/products/video-wire.png": {
+    "file": "react-video-wire.png",
+    "src": "src/assets/images/screenmate-one/products/video-wire.png"
+  },
+  "src/assets/images/screenmate-one/products/wireless-phone-charger.png": {
+    "file": "react-wireless-phone-charger.png",
+    "src": "src/assets/images/screenmate-one/products/wireless-phone-charger.png"
+  },
+  "src/assets/images/screenmate-one/specifications-dimensions.png": {
+    "file": "react-specifications-dimensions.png",
+    "src": "src/assets/images/screenmate-one/specifications-dimensions.png"
+  },
+  "src/assets/videos/screenmate-one/banner-desktop.mp4": {
+    "file": "react-banner-desktop.mp4",
+    "src": "src/assets/videos/screenmate-one/banner-desktop.mp4"
+  },
+  "src/assets/videos/screenmate-one/beyond-basic-controls.mp4": {
+    "file": "react-beyond-basic-controls.mp4",
+    "src": "src/assets/videos/screenmate-one/beyond-basic-controls.mp4"
+  },
+  "src/assets/videos/screenmate-one/car-play-and-android-auto.mp4": {
+    "file": "react-car-play-and-android-auto.mp4",
+    "src": "src/assets/videos/screenmate-one/car-play-and-android-auto.mp4"
+  },
+  "src/assets/videos/screenmate-one/dual-view-mode.mp4": {
+    "file": "react-dual-view-mode.mp4",
+    "src": "src/assets/videos/screenmate-one/dual-view-mode.mp4"
+  },
+  "src/assets/videos/screenmate-one/gaming.mp4": {
+    "file": "react-gaming.mp4",
+    "src": "src/assets/videos/screenmate-one/gaming.mp4"
+  },
+  "src/assets/videos/screenmate-one/navigation.mp4": {
+    "file": "react-navigation.mp4",
+    "src": "src/assets/videos/screenmate-one/navigation.mp4"
+  },
+  "src/assets/videos/screenmate-one/social.mp4": {
+    "file": "react-social.mp4",
+    "src": "src/assets/videos/screenmate-one/social.mp4"
+  },
+  "src/assets/videos/screenmate-one/streaming.mp4": {
+    "file": "react-streaming.mp4",
+    "src": "src/assets/videos/screenmate-one/streaming.mp4"
+  },
+  "src/components/Reviews/Reviews.tsx": {
+    "file": "react-chunk-Reviews-BxncFlRL.js",
+    "name": "Reviews",
+    "src": "src/components/Reviews/Reviews.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "css": [
+      "Reviews.css"
+    ],
+    "assets": [
+      "react-logo-judgeme.svg",
+      "react-NeueHaasDisplay-BlackItalic.eot",
+      "react-NeueHaasDisplay-BlackItalic.woff",
+      "react-NeueHaasDisplay-BlackItalic.ttf",
+      "react-NeueHaasDisplay-Mediu.eot",
+      "react-NeueHaasDisplay-Mediu.woff",
+      "react-NeueHaasDisplay-Mediu.ttf",
+      "react-NeueHaasDisplay-Light.eot",
+      "react-NeueHaasDisplay-Light.woff",
+      "react-NeueHaasDisplay-Light.ttf",
+      "react-NeueHaasDisplay-ThinItalic.eot",
+      "react-NeueHaasDisplay-ThinItalic.woff",
+      "react-NeueHaasDisplay-ThinItalic.ttf",
+      "react-NeueHaasDisplay-RomanItalic.eot",
+      "react-NeueHaasDisplay-RomanItalic.woff",
+      "react-NeueHaasDisplay-RomanItalic.ttf",
+      "react-NeueHaasDisplay-XXThinItalic.eot",
+      "react-NeueHaasDisplay-XXThinItalic.woff",
+      "react-NeueHaasDisplay-XXThinItalic.ttf",
+      "react-NeueHaasDisplay-Roman.eot",
+      "react-NeueHaasDisplay-Roman.woff",
+      "react-NeueHaasDisplay-Roman.ttf",
+      "react-NeueHaasDisplay-BoldItalic.eot",
+      "react-NeueHaasDisplay-BoldItalic.woff",
+      "react-NeueHaasDisplay-BoldItalic.ttf",
+      "react-NeueHaasDisplay-Thin.eot",
+      "react-NeueHaasDisplay-Thin.woff",
+      "react-NeueHaasDisplay-Thin.ttf",
+      "react-NeueHaasDisplay-Black.eot",
+      "react-NeueHaasDisplay-Black.woff",
+      "react-NeueHaasDisplay-Black.ttf",
+      "react-NeueHaasDisplay-XXThin.eot",
+      "react-NeueHaasDisplay-XXThin.woff",
+      "react-NeueHaasDisplay-XXThin.ttf",
+      "react-NeueHaasDisplay-MediumItalic.eot",
+      "react-NeueHaasDisplay-MediumItalic.woff",
+      "react-NeueHaasDisplay-MediumItalic.ttf",
+      "react-NeueHaasDisplay-Bold.eot",
+      "react-NeueHaasDisplay-Bold.woff",
+      "react-NeueHaasDisplay-Bold.ttf",
+      "react-NeueHaasDisplay-XThin.eot",
+      "react-NeueHaasDisplay-XThin.woff",
+      "react-NeueHaasDisplay-XThin.ttf",
+      "react-NeueHaasDisplay-LightItalic.eot",
+      "react-NeueHaasDisplay-LightItalic.woff",
+      "react-NeueHaasDisplay-LightItalic.ttf",
+      "react-NeueHaasDisplay-XThinItalic.eot",
+      "react-NeueHaasDisplay-XThinItalic.woff",
+      "react-NeueHaasDisplay-XThinItalic.ttf",
+      "react-Manrope-Regular.ttf",
+      "react-Manrope-Medium.ttf",
+      "react-Manrope-SemiBold.ttf",
+      "react-Manrope-Bold.ttf",
+      "react-reviews-background.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneComplectation.tsx": {
+    "file": "react-chunk-ScreenmateOneComplectation-CYDyxGLG.js",
+    "name": "ScreenmateOneComplectation",
+    "src": "src/components/ScreenmateOne/ScreenmateOneComplectation.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "assets": [
+      "react-screenmate-one-device.png",
+      "react-phone-holder.png",
+      "react-plastic-tool.png",
+      "react-data-wire.png",
+      "react-video-wire.png",
+      "react-wireless-phone-charger.png",
+      "react-screenmate-splitter.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneConvenience.tsx": {
+    "file": "react-chunk-ScreenmateOneConvenience-CCae4Sjm.js",
+    "name": "ScreenmateOneConvenience",
+    "src": "src/components/ScreenmateOne/ScreenmateOneConvenience.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js",
+      "_react-chunk-arrow-top-right-blue-DH0s19gw.js"
+    ],
+    "assets": [
+      "react-dual-view-mode2.png",
+      "react-dual-view-mode.mp4",
+      "react-beyond-basic-controls.png",
+      "react-beyond-basic-controls.mp4",
+      "react-front-camera-integration.png",
+      "react-battery-preheat.svg",
+      "react-car-wash-mode.svg",
+      "react-child-lock-right.svg",
+      "react-dim-mirrors.svg",
+      "react-drift-mode.svg",
+      "react-front-motor-disable.svg",
+      "react-open-front-passenger.svg",
+      "react-slippy-road-mode.svg",
+      "react-steering-wheel-heater.svg",
+      "react-wiper-defrost.svg"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneDash.tsx": {
+    "file": "react-chunk-ScreenmateOneDash-EYQE-Kg9.js",
+    "name": "ScreenmateOneDash",
+    "src": "src/components/ScreenmateOne/ScreenmateOneDash.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js",
+      "_react-chunk-arrow-top-right-blue-DH0s19gw.js"
+    ],
+    "assets": [
+      "react-dash-image.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneFeatures.tsx": {
+    "file": "react-chunk-ScreenmateOneFeatures-DzGeeDPC.js",
+    "name": "ScreenmateOneFeatures",
+    "src": "src/components/ScreenmateOne/ScreenmateOneFeatures.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "assets": [
+      "react-run-any-android-apps.png",
+      "react-control-panel-50-commands.png",
+      "react-car-play-and-android-auto.png",
+      "react-dual-view-mode.png",
+      "react-consoles-and-any-hdmi-devices.png",
+      "react-screenmate-dash-app-support.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx": {
+    "file": "react-chunk-ScreenmateOneInstallation-lp_VjVnH.js",
+    "name": "ScreenmateOneInstallation",
+    "src": "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js",
+      "_react-chunk-arrow-top-right-blue-DH0s19gw.js"
+    ],
+    "assets": [
+      "react-installation.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneIntegration.tsx": {
+    "file": "react-chunk-ScreenmateOneIntegration-DWQ5Sgzs.js",
+    "name": "ScreenmateOneIntegration",
+    "src": "src/components/ScreenmateOne/ScreenmateOneIntegration.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "assets": [
+      "react-car-play-and-android-auto2.png",
+      "react-car-play-and-android-auto.mp4",
+      "react-connect-consoles.png",
+      "react-connect-devices.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneOrder.tsx": {
+    "file": "react-chunk-ScreenmateOneOrder-O5By6sJp.js",
+    "name": "ScreenmateOneOrder",
+    "src": "src/components/ScreenmateOne/ScreenmateOneOrder.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "assets": [
+      "react-1.png",
+      "react-2.png",
+      "react-3.png",
+      "react-4.png",
+      "react-5.png",
+      "react-6.png",
+      "react-7.png"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneSetup.tsx": {
+    "file": "react-chunk-ScreenmateOneSetup-BZDRA5TV.js",
+    "name": "ScreenmateOneSetup",
+    "src": "src/components/ScreenmateOne/ScreenmateOneSetup.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "assets": [
+      "react-streaming.mp4",
+      "react-navigation.mp4",
+      "react-gaming.mp4",
+      "react-social.mp4"
+    ]
+  },
+  "src/components/ScreenmateOne/ScreenmateOneSpecifications.tsx": {
+    "file": "react-chunk-ScreenmateOneSpecifications-7uTo8csT.js",
+    "name": "ScreenmateOneSpecifications",
+    "src": "src/components/ScreenmateOne/ScreenmateOneSpecifications.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "src/pages/ScreenmateOne.tsx",
+      "_react-chunk-inline-styles-wmseNla7.js",
+      "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx"
+    ],
+    "assets": [
+      "react-specifications-dimensions.png",
+      "react-chipset.svg",
+      "react-model-3-17-23.png",
+      "react-model-3-24-highland.png",
+      "react-model-y-21-24.png",
+      "react-model-y-25-juniper.png",
+      "react-model-s-21.png",
+      "react-model-x-21.png"
+    ]
+  },
+  "src/pages/Powermate.tsx": {
+    "file": "Powermate-react.js",
+    "name": "Powermate-react",
+    "src": "src/pages/Powermate.tsx",
+    "isEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js"
+    ],
+    "css": [
+      "Powermate-react.css"
+    ],
+    "assets": [
+      "react-NeueHaasDisplay-BlackItalic.eot",
+      "react-NeueHaasDisplay-BlackItalic.woff",
+      "react-NeueHaasDisplay-BlackItalic.ttf",
+      "react-NeueHaasDisplay-Mediu.eot",
+      "react-NeueHaasDisplay-Mediu.woff",
+      "react-NeueHaasDisplay-Mediu.ttf",
+      "react-NeueHaasDisplay-Light.eot",
+      "react-NeueHaasDisplay-Light.woff",
+      "react-NeueHaasDisplay-Light.ttf",
+      "react-NeueHaasDisplay-ThinItalic.eot",
+      "react-NeueHaasDisplay-ThinItalic.woff",
+      "react-NeueHaasDisplay-ThinItalic.ttf",
+      "react-NeueHaasDisplay-RomanItalic.eot",
+      "react-NeueHaasDisplay-RomanItalic.woff",
+      "react-NeueHaasDisplay-RomanItalic.ttf",
+      "react-NeueHaasDisplay-XXThinItalic.eot",
+      "react-NeueHaasDisplay-XXThinItalic.woff",
+      "react-NeueHaasDisplay-XXThinItalic.ttf",
+      "react-NeueHaasDisplay-Roman.eot",
+      "react-NeueHaasDisplay-Roman.woff",
+      "react-NeueHaasDisplay-Roman.ttf",
+      "react-NeueHaasDisplay-BoldItalic.eot",
+      "react-NeueHaasDisplay-BoldItalic.woff",
+      "react-NeueHaasDisplay-BoldItalic.ttf",
+      "react-NeueHaasDisplay-Thin.eot",
+      "react-NeueHaasDisplay-Thin.woff",
+      "react-NeueHaasDisplay-Thin.ttf",
+      "react-NeueHaasDisplay-Black.eot",
+      "react-NeueHaasDisplay-Black.woff",
+      "react-NeueHaasDisplay-Black.ttf",
+      "react-NeueHaasDisplay-XXThin.eot",
+      "react-NeueHaasDisplay-XXThin.woff",
+      "react-NeueHaasDisplay-XXThin.ttf",
+      "react-NeueHaasDisplay-MediumItalic.eot",
+      "react-NeueHaasDisplay-MediumItalic.woff",
+      "react-NeueHaasDisplay-MediumItalic.ttf",
+      "react-NeueHaasDisplay-Bold.eot",
+      "react-NeueHaasDisplay-Bold.woff",
+      "react-NeueHaasDisplay-Bold.ttf",
+      "react-NeueHaasDisplay-XThin.eot",
+      "react-NeueHaasDisplay-XThin.woff",
+      "react-NeueHaasDisplay-XThin.ttf",
+      "react-NeueHaasDisplay-LightItalic.eot",
+      "react-NeueHaasDisplay-LightItalic.woff",
+      "react-NeueHaasDisplay-LightItalic.ttf",
+      "react-NeueHaasDisplay-XThinItalic.eot",
+      "react-NeueHaasDisplay-XThinItalic.woff",
+      "react-NeueHaasDisplay-XThinItalic.ttf",
+      "react-Manrope-Regular.ttf",
+      "react-Manrope-Medium.ttf",
+      "react-Manrope-SemiBold.ttf",
+      "react-Manrope-Bold.ttf"
+    ]
+  },
+  "src/pages/ScreenmateDash.tsx": {
+    "file": "ScreenmateDash-react.js",
+    "name": "ScreenmateDash-react",
+    "src": "src/pages/ScreenmateDash.tsx",
+    "isEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js"
+    ],
+    "css": [
+      "ScreenmateDash-react.css"
+    ],
+    "assets": [
+      "react-NeueHaasDisplay-BlackItalic.eot",
+      "react-NeueHaasDisplay-BlackItalic.woff",
+      "react-NeueHaasDisplay-BlackItalic.ttf",
+      "react-NeueHaasDisplay-Mediu.eot",
+      "react-NeueHaasDisplay-Mediu.woff",
+      "react-NeueHaasDisplay-Mediu.ttf",
+      "react-NeueHaasDisplay-Light.eot",
+      "react-NeueHaasDisplay-Light.woff",
+      "react-NeueHaasDisplay-Light.ttf",
+      "react-NeueHaasDisplay-ThinItalic.eot",
+      "react-NeueHaasDisplay-ThinItalic.woff",
+      "react-NeueHaasDisplay-ThinItalic.ttf",
+      "react-NeueHaasDisplay-RomanItalic.eot",
+      "react-NeueHaasDisplay-RomanItalic.woff",
+      "react-NeueHaasDisplay-RomanItalic.ttf",
+      "react-NeueHaasDisplay-XXThinItalic.eot",
+      "react-NeueHaasDisplay-XXThinItalic.woff",
+      "react-NeueHaasDisplay-XXThinItalic.ttf",
+      "react-NeueHaasDisplay-Roman.eot",
+      "react-NeueHaasDisplay-Roman.woff",
+      "react-NeueHaasDisplay-Roman.ttf",
+      "react-NeueHaasDisplay-BoldItalic.eot",
+      "react-NeueHaasDisplay-BoldItalic.woff",
+      "react-NeueHaasDisplay-BoldItalic.ttf",
+      "react-NeueHaasDisplay-Thin.eot",
+      "react-NeueHaasDisplay-Thin.woff",
+      "react-NeueHaasDisplay-Thin.ttf",
+      "react-NeueHaasDisplay-Black.eot",
+      "react-NeueHaasDisplay-Black.woff",
+      "react-NeueHaasDisplay-Black.ttf",
+      "react-NeueHaasDisplay-XXThin.eot",
+      "react-NeueHaasDisplay-XXThin.woff",
+      "react-NeueHaasDisplay-XXThin.ttf",
+      "react-NeueHaasDisplay-MediumItalic.eot",
+      "react-NeueHaasDisplay-MediumItalic.woff",
+      "react-NeueHaasDisplay-MediumItalic.ttf",
+      "react-NeueHaasDisplay-Bold.eot",
+      "react-NeueHaasDisplay-Bold.woff",
+      "react-NeueHaasDisplay-Bold.ttf",
+      "react-NeueHaasDisplay-XThin.eot",
+      "react-NeueHaasDisplay-XThin.woff",
+      "react-NeueHaasDisplay-XThin.ttf",
+      "react-NeueHaasDisplay-LightItalic.eot",
+      "react-NeueHaasDisplay-LightItalic.woff",
+      "react-NeueHaasDisplay-LightItalic.ttf",
+      "react-NeueHaasDisplay-XThinItalic.eot",
+      "react-NeueHaasDisplay-XThinItalic.woff",
+      "react-NeueHaasDisplay-XThinItalic.ttf",
+      "react-Manrope-Regular.ttf",
+      "react-Manrope-Medium.ttf",
+      "react-Manrope-SemiBold.ttf",
+      "react-Manrope-Bold.ttf"
+    ]
+  },
+  "src/pages/ScreenmateOne.tsx": {
+    "file": "ScreenmateOne-react.js",
+    "name": "ScreenmateOne-react",
+    "src": "src/pages/ScreenmateOne.tsx",
+    "isEntry": true,
+    "imports": [
+      "_react-chunk-jsx-runtime-DIBGU2nq.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
+      "_react-chunk-inline-styles-wmseNla7.js"
+    ],
+    "dynamicImports": [
+      "src/pages/ScreenmateOne.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneComplectation.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneConvenience.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneDash.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneFeatures.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneIntegration.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneOrder.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneSetup.tsx",
+      "src/components/ScreenmateOne/ScreenmateOneSpecifications.tsx"
+    ],
+    "css": [
+      "ScreenmateOne-react.css"
+    ],
+    "assets": [
+      "react-banner-desktop.mp4",
+      "react-logo.svg",
+      "react-kickstarter.svg",
+      "react-NeueHaasDisplay-BlackItalic.eot",
+      "react-NeueHaasDisplay-BlackItalic.woff",
+      "react-NeueHaasDisplay-BlackItalic.ttf",
+      "react-NeueHaasDisplay-Mediu.eot",
+      "react-NeueHaasDisplay-Mediu.woff",
+      "react-NeueHaasDisplay-Mediu.ttf",
+      "react-NeueHaasDisplay-Light.eot",
+      "react-NeueHaasDisplay-Light.woff",
+      "react-NeueHaasDisplay-Light.ttf",
+      "react-NeueHaasDisplay-ThinItalic.eot",
+      "react-NeueHaasDisplay-ThinItalic.woff",
+      "react-NeueHaasDisplay-ThinItalic.ttf",
+      "react-NeueHaasDisplay-RomanItalic.eot",
+      "react-NeueHaasDisplay-RomanItalic.woff",
+      "react-NeueHaasDisplay-RomanItalic.ttf",
+      "react-NeueHaasDisplay-XXThinItalic.eot",
+      "react-NeueHaasDisplay-XXThinItalic.woff",
+      "react-NeueHaasDisplay-XXThinItalic.ttf",
+      "react-NeueHaasDisplay-Roman.eot",
+      "react-NeueHaasDisplay-Roman.woff",
+      "react-NeueHaasDisplay-Roman.ttf",
+      "react-NeueHaasDisplay-BoldItalic.eot",
+      "react-NeueHaasDisplay-BoldItalic.woff",
+      "react-NeueHaasDisplay-BoldItalic.ttf",
+      "react-NeueHaasDisplay-Thin.eot",
+      "react-NeueHaasDisplay-Thin.woff",
+      "react-NeueHaasDisplay-Thin.ttf",
+      "react-NeueHaasDisplay-Black.eot",
+      "react-NeueHaasDisplay-Black.woff",
+      "react-NeueHaasDisplay-Black.ttf",
+      "react-NeueHaasDisplay-XXThin.eot",
+      "react-NeueHaasDisplay-XXThin.woff",
+      "react-NeueHaasDisplay-XXThin.ttf",
+      "react-NeueHaasDisplay-MediumItalic.eot",
+      "react-NeueHaasDisplay-MediumItalic.woff",
+      "react-NeueHaasDisplay-MediumItalic.ttf",
+      "react-NeueHaasDisplay-Bold.eot",
+      "react-NeueHaasDisplay-Bold.woff",
+      "react-NeueHaasDisplay-Bold.ttf",
+      "react-NeueHaasDisplay-XThin.eot",
+      "react-NeueHaasDisplay-XThin.woff",
+      "react-NeueHaasDisplay-XThin.ttf",
+      "react-NeueHaasDisplay-LightItalic.eot",
+      "react-NeueHaasDisplay-LightItalic.woff",
+      "react-NeueHaasDisplay-LightItalic.ttf",
+      "react-NeueHaasDisplay-XThinItalic.eot",
+      "react-NeueHaasDisplay-XThinItalic.woff",
+      "react-NeueHaasDisplay-XThinItalic.ttf",
+      "react-Manrope-Regular.ttf",
+      "react-Manrope-Medium.ttf",
+      "react-Manrope-SemiBold.ttf",
+      "react-Manrope-Bold.ttf",
+      "react-banner-desktop.png",
+      "react-banner-mobile.png",
+      "react-kickstarter-mobile.svg",
+      "react-key-driving-info-desktop.png",
+      "react-key-driving-info-mobile.png",
+      "react-dash-background.png"
+    ]
+  }
+}
