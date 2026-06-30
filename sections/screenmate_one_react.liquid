@@ -5,6 +5,7 @@
     var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
     var cdnPath = fullUrl.split('?')[0].replace('missing-marker.js', '')
     window.__shopify_assets_url__ = cdnPath
+    window.__VITE_DYNAMIC_BASE__ = cdnPath
 
     var manifestUrl = "{{ 'manifest.json' | asset_url }}"
     var entryPoint = "src/pages/ScreenmateOne.tsx"
