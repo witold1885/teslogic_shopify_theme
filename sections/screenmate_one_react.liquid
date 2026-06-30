@@ -18,6 +18,8 @@
           imports["./" + item.file] = cdnPath + item.file
           imports[item.file] = cdnPath + item.file
         })
+        
+        console.log({ manifest, imports })
 
         var im = document.createElement('script')
         im.type = 'importmap'
