@@ -1,6 +1,6 @@
 {
-  "_react-chunk-ProductLayout-DcZRhwgt.js": {
-    "file": "react-chunk-ProductLayout-DcZRhwgt.js",
+  "_react-chunk-ProductLayout-DnXeIKmm.js": {
+    "file": "react-chunk-ProductLayout-DnXeIKmm.js",
     "name": "ProductLayout",
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js"
@@ -489,13 +489,13 @@
     "src": "src/assets/videos/screenmate-one/streaming.mp4"
   },
   "src/components/Reviews/Reviews.tsx": {
-    "file": "react-chunk-Reviews-Bpua8EKr.js",
+    "file": "react-chunk-Reviews-BxncFlRL.js",
     "name": "Reviews",
     "src": "src/components/Reviews/Reviews.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js",
-      "_react-chunk-ProductLayout-DcZRhwgt.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
       "_react-chunk-inline-styles-wmseNla7.js"
     ],
     "css": [
@@ -559,7 +559,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneComplectation.tsx": {
-    "file": "react-chunk-ScreenmateOneComplectation-Bee3VONm.js",
+    "file": "react-chunk-ScreenmateOneComplectation-CYDyxGLG.js",
     "name": "ScreenmateOneComplectation",
     "src": "src/components/ScreenmateOne/ScreenmateOneComplectation.tsx",
     "isDynamicEntry": true,
@@ -579,7 +579,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneConvenience.tsx": {
-    "file": "react-chunk-ScreenmateOneConvenience-BiEQr1oz.js",
+    "file": "react-chunk-ScreenmateOneConvenience-CCae4Sjm.js",
     "name": "ScreenmateOneConvenience",
     "src": "src/components/ScreenmateOne/ScreenmateOneConvenience.tsx",
     "isDynamicEntry": true,
@@ -608,7 +608,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneDash.tsx": {
-    "file": "react-chunk-ScreenmateOneDash-D6mWxjjC.js",
+    "file": "react-chunk-ScreenmateOneDash-EYQE-Kg9.js",
     "name": "ScreenmateOneDash",
     "src": "src/components/ScreenmateOne/ScreenmateOneDash.tsx",
     "isDynamicEntry": true,
@@ -623,7 +623,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneFeatures.tsx": {
-    "file": "react-chunk-ScreenmateOneFeatures-CVV_T5rw.js",
+    "file": "react-chunk-ScreenmateOneFeatures-DzGeeDPC.js",
     "name": "ScreenmateOneFeatures",
     "src": "src/components/ScreenmateOne/ScreenmateOneFeatures.tsx",
     "isDynamicEntry": true,
@@ -642,7 +642,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx": {
-    "file": "react-chunk-ScreenmateOneInstallation-BQhIkOhg.js",
+    "file": "react-chunk-ScreenmateOneInstallation-lp_VjVnH.js",
     "name": "ScreenmateOneInstallation",
     "src": "src/components/ScreenmateOne/ScreenmateOneInstallation.tsx",
     "isDynamicEntry": true,
@@ -657,7 +657,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneIntegration.tsx": {
-    "file": "react-chunk-ScreenmateOneIntegration-IQ2k0lOZ.js",
+    "file": "react-chunk-ScreenmateOneIntegration-DWQ5Sgzs.js",
     "name": "ScreenmateOneIntegration",
     "src": "src/components/ScreenmateOne/ScreenmateOneIntegration.tsx",
     "isDynamicEntry": true,
@@ -674,14 +674,14 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneOrder.tsx": {
-    "file": "react-chunk-ScreenmateOneOrder-CfP8Q2fs.js",
+    "file": "react-chunk-ScreenmateOneOrder-O5By6sJp.js",
     "name": "ScreenmateOneOrder",
     "src": "src/components/ScreenmateOne/ScreenmateOneOrder.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js",
       "src/pages/ScreenmateOne.tsx",
-      "_react-chunk-ProductLayout-DcZRhwgt.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
       "_react-chunk-inline-styles-wmseNla7.js"
     ],
     "assets": [
@@ -695,7 +695,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneSetup.tsx": {
-    "file": "react-chunk-ScreenmateOneSetup-BYZRO3nn.js",
+    "file": "react-chunk-ScreenmateOneSetup-BZDRA5TV.js",
     "name": "ScreenmateOneSetup",
     "src": "src/components/ScreenmateOne/ScreenmateOneSetup.tsx",
     "isDynamicEntry": true,
@@ -712,7 +712,7 @@
     ]
   },
   "src/components/ScreenmateOne/ScreenmateOneSpecifications.tsx": {
-    "file": "react-chunk-ScreenmateOneSpecifications-BG4RH5Vr.js",
+    "file": "react-chunk-ScreenmateOneSpecifications-7uTo8csT.js",
     "name": "ScreenmateOneSpecifications",
     "src": "src/components/ScreenmateOne/ScreenmateOneSpecifications.tsx",
     "isDynamicEntry": true,
@@ -740,7 +740,7 @@
     "isEntry": true,
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js",
-      "_react-chunk-ProductLayout-DcZRhwgt.js"
+      "_react-chunk-ProductLayout-DnXeIKmm.js"
     ],
     "css": [
       "Powermate-react.css"
@@ -807,7 +807,7 @@
     "isEntry": true,
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js",
-      "_react-chunk-ProductLayout-DcZRhwgt.js"
+      "_react-chunk-ProductLayout-DnXeIKmm.js"
     ],
     "css": [
       "ScreenmateDash-react.css"
@@ -874,7 +874,7 @@
     "isEntry": true,
     "imports": [
       "_react-chunk-jsx-runtime-DIBGU2nq.js",
-      "_react-chunk-ProductLayout-DcZRhwgt.js",
+      "_react-chunk-ProductLayout-DnXeIKmm.js",
       "_react-chunk-inline-styles-wmseNla7.js"
     ],
     "dynamicImports": [
