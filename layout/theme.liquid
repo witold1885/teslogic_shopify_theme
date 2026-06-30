@@ -225,6 +225,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       shopify-google-pay-button {
         margin-top: -62px !important;
       }
+      #express-checkout-wallets-wrapper > li:has(iframe#PAYPAL_EXPRESS-iframe) {
+        display: none !important;
+      }
     {% endstyle %}
 
     {%- unless settings.type_body_font.system? -%}
