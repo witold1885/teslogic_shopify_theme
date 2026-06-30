@@ -1,7 +1,7 @@
 <div id="react-screenmate-one-root"></div>
 
 <script>
-  (function() {
+  document.addEventListener("DOMContentLoaded", function() {
     var fullUrl = "{{ 'missing-marker.js' | asset_url }}"
     var cdnPath = fullUrl.split('?')[0].replace('missing-marker.js', '')
     window.__shopify_assets_url__ = cdnPath
@@ -11,7 +11,7 @@
 
     fetch(manifestUrl)
       .then(function(res) { 
-        if (!res.ok) throw new Error('Статус відповіді сервера: ' + res.status)
+        if (!res.ok) throw new Error('Status: ' + res.status)
         return res.json()
       })
       .then(function(manifest) {
@@ -27,18 +27,6 @@
           })
         }
 
-        if (mainEntry.imports) {
-          mainEntry.imports.forEach(function(chunkPath) {
-            var chunkEntry = manifest[chunkPath]
-            if (chunkEntry) {
-              var link = document.createElement('link')
-              link.rel = 'modulepreload'
-              link.href = cdnPath + chunkEntry.file
-              document.head.appendChild(link)
-            }
-          })
-        }
-
         var script = document.createElement('script')
         script.type = 'module'
         script.src = cdnPath + mainEntry.file
@@ -46,7 +34,7 @@
         document.body.appendChild(script)
       })
       .catch(function(err) {
-        console.error('Cannot load Vite manifest:', err)
+        console.error('Vite manifest error:', err)
       })
-  })()
+  })
 </script>
