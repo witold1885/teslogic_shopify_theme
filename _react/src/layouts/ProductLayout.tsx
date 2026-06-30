@@ -10,10 +10,15 @@ interface ProductLayoutProps {
     children?: ReactNode
 }
 
+const slugMap: Record<string, string> = {
+    'screenmate-one-react': 'screenmate'
+}
+
 const ProductLayout: React.FC<ProductLayoutProps> = ({ className, children }) => {
     const dispatch = useAppDispatch()
     const path = window.location.pathname
-    const slug = path.replace(/^\/+/, '')
+    const tail = path.split('/').filter(Boolean).pop() as string
+    const slug = slugMap[tail] || tail || null
 
     useEffect(() => {
         if (slug) dispatch(fetchProduct(slug))
