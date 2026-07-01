@@ -2,4 +2,15 @@
 
 {{ 'ScreenmateOne.css' | asset_url | stylesheet_tag }}
 
+{% assign main_menu = linklists.main-menu.links %}
+{% assign product = all_products['teslogic-screenmate'] %}
+{% assign charger = all_products['screenmate-wireless-charger'] %}
+{% assign splitter = all_products['screenmate-splitter'] %}
+
+<script>
+  window.ShopifyReactData = {
+    main_menu: '{{ main_menu | json }}'
+  }
+</script>
+
 <script src="{{ 'ScreenmateOne.js' | asset_url }}" type="module" defer></script>
