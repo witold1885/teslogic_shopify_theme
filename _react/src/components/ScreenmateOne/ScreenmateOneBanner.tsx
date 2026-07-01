@@ -38,7 +38,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void }> = ({ onExpand }) 
                             <span>order now</span>
                         </Button>
                         <Button {...anime('button_2')}>
-                            <Icon icon={playButton} />
+                            <Icon className="flex-center" icon={playButton} />
                             <span>Play video</span>
                         </Button>
                     </div>
@@ -46,11 +46,13 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void }> = ({ onExpand }) 
                 <div {...anime('kickstarter')} className="screenmate-one__banner-kickstarter">
                     <img src={kickstarterImage} alt="Kickstarter" fetchPriority="high" />
                     <div className="screenmate-one__banner-kickstarter-badge"> 
-                        <Icon icon={heartIcon} />
+                        <Icon className="flex-center" icon={heartIcon} />
                         <span>Project we love</span>
                     </div>
                 </div>
-                <Icon className="screenmate-one__banner-expand" icon={chevronIcon} onClick={onExpand} />
+                <div className="screenmate-one__banner-expand" onClick={onExpand}>
+                    <Icon className="flex-center" icon={chevronIcon} />
+                </div>
             </div>
         </div>
     )

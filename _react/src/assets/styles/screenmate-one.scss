@@ -179,7 +179,7 @@
                 @include responsive(height, 64px);
             }
 
-            & img {
+            & .icon {
                 @include responsive(width, 46.666px);
                 @include responsive(height, 24.591px);
 
