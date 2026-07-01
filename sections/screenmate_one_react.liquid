@@ -2,14 +2,24 @@
 
 {{ 'ScreenmateOne.css' | asset_url | stylesheet_tag }}
 
-{% assign main_menu = linklists.main-menu.links %}
+{%- capture main_menu -%}
+  [
+    {%- for link in linklists.main-menu.links -%}
+      {
+        "title": {{ link.title | json }},
+        "url": {{ link.url | json }}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+
 {% assign product = all_products['teslogic-screenmate'] %}
 {% assign charger = all_products['screenmate-wireless-charger'] %}
 {% assign splitter = all_products['screenmate-splitter'] %}
 
 <script>
   window.ShopifyReactData = {
-    main_menu: '{{ main_menu }}'
+    main_menu: {{ main_menu }}
   }
 </script>
 
