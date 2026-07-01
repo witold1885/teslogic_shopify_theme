@@ -379,11 +379,12 @@
                     @extend .font-manrope-20;
                 }
 
-                & > a {
+                & .icon {
+                    @include responsive(width, 16px);
+                    @include responsive(height, 28px);
 
-                    & img {
-                        @include responsive(width, 16px);
-                        @include responsive(height, 28px);
+                    @include mobile() {
+                        @include responsive(height, 24px);
                     }
                 }
             }
