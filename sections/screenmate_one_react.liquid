@@ -7,7 +7,17 @@
     {%- for link in linklists.main-menu.links -%}
       {
         "title": {{ link.title | json }},
-        "url": {{ link.url | json }}
+        "url": {{ link.url | json }},
+        "children": [
+          {%- if link.links != blank -%}
+            {%- for child_link in link.links -%}
+              {
+                "title": {{ child_link.title | json }},
+                "url": {{ child_link.url | json }}
+              }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          {%- endif -%}
+        ]
       }{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
   ]
