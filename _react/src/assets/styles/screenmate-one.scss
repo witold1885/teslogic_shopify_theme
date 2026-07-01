@@ -863,6 +863,13 @@
             @include responsive(padding, 96px, 0);
         }
 
+        & .heading {
+            background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #0465FD;
+        }
+
         &-body {
             @extend .flex-column-center, .gap-32, .mob\:flex-column-reverse, .mob\:gap-16;
             @include responsive(gap, 32px);
