@@ -262,7 +262,8 @@
         }
 
         &-video {
-            @include responsive(height, 644px);
+            @extend .w-full;
+            @include responsive(height, 580px);
             @include responsive(border-radius, 24px);
             @extend .overflow-hidden;
 
@@ -399,6 +400,10 @@
                         @include responsive(width, 350px);
                     }
                 }
+            }
+
+            &-video {
+                @include responsive(height, 580px);
             }
 
             &-pointer {
@@ -756,6 +761,10 @@
                 @include mobile() {
                     @include responsive(border-radius, 10px);
                 }
+            }
+
+            &-video {
+                @include responsive(height, 580px);
             }
         }
     }

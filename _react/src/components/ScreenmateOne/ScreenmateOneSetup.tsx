@@ -61,11 +61,11 @@ const ScreenmateOneSetup: React.FC = () => {
                     </div>
                 </div>
                 <div className="w-full flex-column-center gap-32 mob:gap-8">
-                    <div {...anime('video')} className="screenmate-one__setup-video">
-                        {activeTab && tabs[activeTab] && (
-                            <Video key={activeTab} src={tabs[activeTab].video as string} />
-                        )}
-                    </div>
+                    {(activeTab && tabs[activeTab]) ? (
+                        <Video {...anime('video')} className="screenmate-one__setup-video" key={activeTab} src={tabs[activeTab].video as string} />
+                    ) : (
+                        <div {...anime('video')} className="screenmate-one__setup-video"></div>
+                    )}
                     <div className="flex-column-center gap-32 mob:flex-column mob:gap-24">
                         <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} />
                         {activeTab && tabs[activeTab] && (
