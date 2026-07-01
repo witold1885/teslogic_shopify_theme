@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { Icon, Image } from '../Common'
 
 import installationImage from '../../assets/images/screenmate-one/installation.png'
-import arrowIcon from '../../assets/icons/arrow-top-right-blue.svg'
+import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -61,7 +61,7 @@ const ScreenmateOneInstallation: React.FC = () => {
                     {installation.links.map(({ text }, index) => (
                         <a {...anime(`links-${index}`)} className="flex gap-12 mob:gap-8" key={index}>
                             <span>{text}</span>
-                            <Icon className="flex-center" icon={arrowIcon} />
+                            <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                         </a>
                     ))}
                 </div>

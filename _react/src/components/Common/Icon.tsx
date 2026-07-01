@@ -1,16 +1,18 @@
-import React, { type CSSProperties } from 'react'
+import React, { type CSSProperties, type ReactNode } from 'react'
 
 interface IconProps {
     className?: string
     style?: CSSProperties
-    icon: string
+    icon?: string
+    svg?: ReactNode
     alt?: string
     onClick?: () => void
 }
 
-const Icon: React.FC<IconProps> = ({ className = '', style, icon, alt = '', onClick }) => (
+const Icon: React.FC<IconProps> = ({ className = '', style, icon, svg, alt = '', onClick }) => (
     <div className={`icon ${className} ${onClick ? 'cursor-pointer' : ''}`} {...{style, onClick}}>
-        <img className="w-full" src={icon} alt={alt} />
+        {icon && <img src={icon} alt={alt} />}
+        {svg}
     </div>
 )
 

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import Image from '../Common/Image'
 import Icon from '../Common/Icon'
 import dashImage from '../../assets/images/screenmate-one/dash-image.png'
-import arrowIcon from '../../assets/icons/arrow-top-right-blue.svg'
+import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -40,7 +40,7 @@ const ScreenmateOneDash: React.FC = () => {
                     </div>
                     <a {...anime('link')} className="screenmate-one__dash-body-info-link">
                         <span>Learn more about Screenmate Dash</span>
-                        <Icon className="flex-center" icon={arrowIcon} />
+                        <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                     </a>
                 </div>
                 <Image {...anime('image')} className="screenmate-one__dash-body-image" src={dashImage} />

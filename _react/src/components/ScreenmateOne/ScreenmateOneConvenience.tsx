@@ -19,7 +19,7 @@ import pointerTopRightMobile from '../../assets/images/screenmate-one/pointers/p
 import pointerBottomLeftMobile from '../../assets/images/screenmate-one/pointers/pointer-bottom-left-mobile.svg'
 import pointerBottomRightMobile from '../../assets/images/screenmate-one/pointers/pointer-bottom-right-mobile.svg'
 
-import arrowIcon from '../../assets/icons/arrow-top-right-blue.svg'
+import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
 import closeIcon from '../../assets/icons/close-rounded.svg'
 
 import commandIcons from '../../assets/icons/screenmate-one/commands'
@@ -183,7 +183,7 @@ const ScreenmateOneConvenience: React.FC = () => {
                 <div>Choose from 50 commands <br />to build your own control panel.</div>
                 <a className="flex-start-center gap-12 font-500 text-blue" onClick={() => setCommandsPopupOpen(true)}>
                     <span>View full command list</span>
-                    <Icon className="flex-center" icon={arrowIcon} />
+                    <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                 </a>
             </>,
             image: beyondBasicControlsImage,

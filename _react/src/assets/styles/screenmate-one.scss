@@ -69,7 +69,8 @@
 
                 &:first-child {
                     @extend .flex-center, .text-center, .uppercase;
-                    @include responsive(padding, 0, 40px);
+                    @include responsive(width, 226px);
+                    @include responsive(height, 72px);
                     @include responsive(border-radius, 54px);
                     border: 3px solid #0068FD;
                     background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
@@ -78,6 +79,11 @@
                     @include mobile() {
                         width: 100%;
                         @include responsive(height, 56px);
+                    }
+
+                    &:hover {
+                        border: none;
+                        background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                     }
                 }
 
@@ -241,7 +247,7 @@
             background: radial-gradient(98.08% 98.08% at 50% 50%, #FFF 0%, #808080 100%);
             background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: #0465FD;
         }
 
         &-subtitle, &-text {
@@ -309,7 +315,7 @@
             background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
             background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: #0465FD;
 
             @include mobile() {
                 @include responsive(width, 350px);
@@ -704,7 +710,7 @@
                 background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                -webkit-text-fill-color: #0465FD;
             }
 
             &:not(:first-child) .heading {
@@ -908,7 +914,7 @@
                     }
 
                     &:has(.image-item) {
-                        grid-template-columns: 390px 360px 360px !important;
+                        grid-template-columns: calc(390 * 100vw / 1440) calc(360 * 100vw / 1440) calc(360 * 100vw / 1440) !important;
                         @include responsive(column-gap, 50px);
                         @include responsive(row-gap, 32px);
                         @include responsive(padding-top, 32px);
@@ -970,13 +976,23 @@
 
             &-info {
                 @extend .flex-column, .gap-40, .mob\:gap-20;
-                @include responsive(padding, 60px);
+                @include responsive(padding, 0, 60px);
 
                 @include mobile() {
                     @include responsive(padding, 20px);
 
                     & br {
                         display: none;
+                    }
+                }
+
+                & .icon {
+                    @include responsive(width, 16px);
+                    @include responsive(height, 32px);
+
+
+                    @include mobile() {
+                        @include responsive(height, 24px);
                     }
                 }
             }
@@ -1077,7 +1093,14 @@
 
     &__order {
         @extend .flex, .mob\:flex-column, .mob\:gap-20;
+        max-height: 100dvh;
+        @include responsive(min-height, 810px);
         background: radial-gradient(56.25% 100% at 50% 100%, #1D1D1F 0%, #0E0E0E 100%), linear-gradient(180deg, #FFF 0%, #F6F6F6 100%);
+
+        @include mobile() {
+            max-height: auto;
+            min-height: auto;
+        }
 
         & > * {
             @extend .flex-1;
@@ -1131,14 +1154,14 @@
         }
 
         &-form {
-            @include responsive(padding, 153px, 0, 155px, 80px);
+            @include responsive(padding, 0, 0, 0, 80px);
 
             @include mobile() {
                 @include responsive(padding, 0, 20px, 96px);
             }
 
             &-wrap {
-                @extend .flex-column, .gap-36, .mob\:gap-24;
+                @extend .h-full, .flex-column-start-center, .gap-36, .mob\:gap-24;
                 @include responsive(width, 498px);
 
                 @include mobile() {
@@ -1156,6 +1179,10 @@
 
                 @include mobile() {
                     width: 100%;
+                }
+                
+                &:hover {
+                    background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
                 }
             }
 

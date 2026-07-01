@@ -8,7 +8,7 @@ import dataWire from '../../assets/images/screenmate-one/products/data-wire.png'
 import videoWire from '../../assets/images/screenmate-one/products/video-wire.png'
 import wirelessPhoneCharger from '../../assets/images/screenmate-one/products/wireless-phone-charger.png'
 import screenmateSplitter from '../../assets/images/screenmate-one/products/screenmate-splitter.png'
-import cartIcon from '../../assets/icons/cart-blue.svg'
+import CartBlueIcon from '../../assets/icons/CartBlueIcon'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -70,8 +70,8 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
                 </div>
             </div>
             <a className="flex gap-8">
-                <span className="font-manrope-20 mob:font-manrope-18 font-600 text-blue">Add to cart</span>
-                <Icon className="flex-center" icon={cartIcon} />
+                <span className="font-manrope-20 mob:font-manrope-18 font-600">Add to cart</span>
+                <Icon className="flex-center" svg={<CartBlueIcon />} />
             </a>
         </div>
     </div>

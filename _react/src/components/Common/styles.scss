@@ -1,6 +1,12 @@
 @use '@/assets/styles/common.scss';
 @use '@/assets/styles/mixins' as *;
 
+.icon {
+    & img, & svg {
+        @extend .w-full, .h-full;
+    }
+}
+
 .tabs {
     @extend .flex-center, .gap-64, .mob\:gap-8;
     border-bottom: 1px solid #666;
