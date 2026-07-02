@@ -8,7 +8,7 @@ interface VideoProps {
     loop?: boolean
 }
 
-const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, src, background, loop = false }, ref) => {
+const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, src, background, loop = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
 

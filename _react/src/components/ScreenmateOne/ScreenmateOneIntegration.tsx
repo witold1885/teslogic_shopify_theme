@@ -2,9 +2,12 @@ import React, { useMemo, type ReactNode } from 'react'
 import { Heading, Image, Video } from '../Common'
 
 import carPlayAndAndroidAutoImage from '../../assets/images/screenmate-one/car-play-and-android-auto.png'
-import { carPlayAndAndroidAuto as carPlayAndAndroidAutoVideo } from '../../assets/videos/screenmate-one'
-import connectConsoles from '../../assets/images/screenmate-one/connect-consoles.png'
+import connectConsolesImage from '../../assets/images/screenmate-one/connect-consoles.png'
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
+import {
+    carPlayAndAndroidAuto as carPlayAndAndroidAutoVideo,
+    connectConsoles as connectConsolesVideo
+} from '../../assets/videos/screenmate-one'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -48,7 +51,8 @@ const ScreenmateOneIntegration: React.FC = () => {
                 Android games on the powerful Qualcomm chipset or<br />
                 connect your favorite gaming console via HDMI or USB.
             </>,
-            image: connectConsoles,
+            image: connectConsolesImage,
+            video: connectConsolesVideo,
             sketch: connectDevices,
             info: [
                 {title: 'HDMI In', text: <>Connect external media<br />players or consoles to<br />display high-definition<br />video on the screen.</>},

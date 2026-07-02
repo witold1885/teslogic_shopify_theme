@@ -22,6 +22,10 @@ body {
     display: block;
 }
 
+.w-auto {
+    width: auto;
+}
+
 .w-full {
     width: 100%;
 }
@@ -67,6 +71,10 @@ body {
 
 .absolute {
     position: absolute;
+}
+
+.fixed {
+    position: fixed;
 }
 
 .inset {
@@ -170,21 +178,6 @@ button {
     outline: none;
     box-shadow: none;
     cursor: pointer;
-
-    & span {
-        @extend .font-manrope-24, .font-600;
-        white-space: nowrap;
-        @include responsive(letter-spacing, 0.48px);
-        
-        background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: #FFFFFF;
-
-        @include mobile() {
-            @include fontManrope(18px);
-        }
-    }
 }
 
 input {

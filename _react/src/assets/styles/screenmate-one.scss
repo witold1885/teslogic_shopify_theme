@@ -66,6 +66,13 @@
 
             & button {
                 @include responsive(height, 72px);
+                @extend .font-manrope-24, .mob\:font-manrope-18, .font-600;
+                white-space: nowrap;
+                @include responsive(letter-spacing, 0.48px);
+                background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: #FFFFFF;
 
                 &:first-child {
                     @extend .flex-center, .text-center, .uppercase;
@@ -773,6 +780,13 @@
             &-video {
                 @include responsive(height, 580px);
             }
+
+            &:has(.screenmate-one__integration-block-info) {
+
+                .screenmate-one__integration-block-video {
+                    @include responsive(height, 530px);
+                }
+            }
         }
     }
 
@@ -1178,12 +1192,13 @@
             }
 
             & button {
-                @extend .flex-center, .text-center, .uppercase;
+                @extend .flex-center, .font-manrope-24, .mob\:font-manrope-18, .text-center, .uppercase;
                 @include responsive(width, 404px);
                 @include responsive(padding, 20px, 40px);
                 @include responsive(border-radius, 54px);
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
                 backdrop-filter: blur(8px);
+                color: #F1F1F1;
 
                 @include mobile() {
                     width: 100%;
