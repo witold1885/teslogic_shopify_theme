@@ -792,7 +792,7 @@
 
     &__dash {
         @include responsive(padding, 120px, 0);
-        background: url("/src/assets/images/screenmate-one/dash-background.png") -37.333px 0px/146.914% 139.671% no-repeat, 
+        background: url("/src/assets/images/screenmate-one/dash-background.png") no-repeat, 
                     radial-gradient(88.89% 50% at 50% 50%, #262626 0%, #0D0D0D 100%) lightgray;
         background-size: cover;
 
