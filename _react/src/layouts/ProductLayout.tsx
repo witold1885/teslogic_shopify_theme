@@ -2,6 +2,8 @@ import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { fetchProduct } from '../redux/slices/products'
 import { fetchReviews } from '../redux/slices/reviews'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 const Reviews = lazy(() => import('../components/Reviews/Reviews'))
 
@@ -32,14 +34,16 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, children }) =>
         }
     }, [product])
 
-    return (
+    return (<>
+        <Header />
         <div {...{className}}>
             {children}
             <Suspense>
                 <Reviews />
             </Suspense>
         </div>
-    )
+        <Footer />
+    </>)
 }
 
 export default ProductLayout

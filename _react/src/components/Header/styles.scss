@@ -1,0 +1,99 @@
+@use '@/assets/styles/common.scss';
+@use '@/assets/styles/mixins' as *;
+
+.header {
+    @extend .w-full, .flex-between, .fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include responsive(padding, 32px, 72px);
+
+    &.sticky {
+        @include responsive(padding, 14px, 72px);
+        background: rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(32px);
+    }
+
+    &-logo {
+        @include responsive(width, 196px);
+        @include responsive(height, 36px);
+    }
+
+    &-menu {
+        @extend .flex-end-center, .gap-20;
+
+        &-item {
+            @extend .flex-center, .gap-4, .relative, .cursor-pointer;
+            
+            &:not(:last-child) {
+                @include responsive(padding, 8px, 0);
+            }
+
+            &:first-child {
+                @include responsive(margin-right, 8px);
+            }
+
+            &:last-child {
+                @include responsive(margin-left, 8px);
+            }
+
+            &-title, &-button {
+                @extend .font-manrope-16, .font-600, .text-white;
+            }
+
+            &-new {
+                @extend .flex-center, .font-manrope, .font-600, .text-white, .text-center;
+                @include responsive(padding, 0, 4px);
+                @include responsive(border-radius, 4px);
+                background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+                @include responsive(font-size, 12px);
+                @include responsive(line-height, 12px);
+            }
+
+            &-chevron {
+                @extend .flex-center;
+                @include square(20px);
+
+                & .icon {
+                    @include responsive(width, 10.145px);
+                    @include responsive(height, 5.346px);
+                }
+            }
+
+            &-button {
+                @extend .flex-center, .text-center, .uppercase;
+                @include responsive(width, 127px);
+                @include responsive(height, 36px);
+                @include responsive(border-radius, 20px);
+                background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%);
+
+                &:hover {
+                    background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+                }
+            }
+
+            &-dropdown {
+                @extend .flex-column, .gap-24, .absolute;
+                list-style: none;
+                margin: 0;
+                @include responsive(top, 36px);
+                left: 0;
+                @include responsive(padding, 24px);
+                @include responsive(border-radius, 20px);
+                background: #FFF;
+                box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+
+                & li a {
+                    @extend .font-manrope-16, .font-500;
+                    color: #000 !important;
+                    white-space: nowrap;
+
+                    &:hover {
+                        color: #1658FC !important; 
+                    }
+                }
+            }
+        }
+    }
+}
