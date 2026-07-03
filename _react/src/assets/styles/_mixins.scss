@@ -138,6 +138,11 @@ $gaps: 4, 6, 8, 10, 12, 16, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 50, 56, 60, 
         &-between {
             display: flex;
             justify-content: space-between;
+            &-start {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
             &-center {
                 display: flex;
                 justify-content: space-between;

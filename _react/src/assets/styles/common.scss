@@ -77,8 +77,32 @@ body {
     position: fixed;
 }
 
+.static {
+    position: static;
+}
+
 .inset {
     inset: 0;
+}
+
+@include mobile() {
+    .mob\: {
+        &relative {
+            position: relative;
+        }
+        &absolute {
+            position: absolute;
+        }
+        &fixed {
+            position: fixed;
+        }
+        &static {
+            position: static;
+        }
+        &inset {
+            inset: 0;
+        }
+    }
 }
 
 .overflow {
@@ -156,6 +180,10 @@ h1 {
     &-white {
         color: #FFF;
     }
+
+    &-black {
+        color: #000;
+    }
 }
 
 a {
@@ -181,6 +209,10 @@ button {
 }
 
 input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+
     &[type="checkbox"] {
         appearance: none;
         -webkit-appearance: none;
@@ -189,9 +221,6 @@ input {
         margin: 0;
         background: url('../icons/checkbox-inactive.svg');
         background-size: cover;
-        border: none;
-        outline: none;
-        box-shadow: none;
         
         &:checked {
             background: url('../icons/checkbox-active.svg');

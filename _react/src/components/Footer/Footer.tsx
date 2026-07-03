@@ -1,9 +1,167 @@
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import * as yup from 'yup'
+import './styles.scss'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { customSubscribe } from '../../redux/slices/subscribe'
+import type { MenuItem } from '../../types/shopify'
+import { Button, Icon, Image } from '../Common'
+import logoDesktop from '../../assets/images/logo-footer-desktop.svg'
+import logoMobile from '../../assets/images/logo-footer-mobile.svg'
+import appStoreDesktop from '../../assets/images/app-store-desktop.svg'
+import appStoreMobile from '../../assets/images/app-store-mobile.svg'
+import googlePlayDesktop from '../../assets/images/google-play-desktop.svg'
+import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
+import type { SubscribePayload } from '../../types/subscribe'
+
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
+    email: yup.string().email('Email not valid').required('Fill in the field')
+}).required()
+
+const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
+const paymentIcons: string[] = Object.values(paymentIconModules).map(mod => mod.default)
+
+const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => (<>
+    {group?.map(({ title, children }, index) => (
+        <div className="flex-column gap-16" key={index}>
+            <div className="font-manrope-24 mob:font-manrope-18 font-500">{title}</div>
+            <div className="flex-column gap-12 mob:gap-16">
+                {children?.map((child, i) => (
+                    <div key={i}>
+                        <a href={child.url}>{child.title}</a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    ))}
+</>)
 
 const Footer: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+
+    const dispatch = useAppDispatch()
+
+    const [data, setData] = useState<Record<keyof SubscribePayload, string>>({
+        email: ''
+    })
+
+    const [errors, setErrors] = useState<Record<keyof SubscribePayload, string | null>>({
+        email: null
+    })
+
+    const { error: apiError } = useAppSelector(state => state.subscribe)
+    const { main_menu } = useAppSelector(state => state.content)
+
+    const menu = useMemo(() => {
+        if (main_menu) {
+            return {
+                top: main_menu.filter(({ title }) => title !== 'For customers' && title !== 'Buy Now'),
+                bottom: [
+                    { title: 'Contacts', url: '#', children: [
+                        { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' },
+                        { title: <>
+                            Meydan Grandstand, 6th Floor <br />
+                            Meydan Road, Nad Al Sheba <br />
+                            Dubai, U.A.E.
+                        </>, url: null }
+                    ]},
+                    main_menu.find(({ title }) => title === 'For customers'),
+                    { title: 'Social', url: '#', children: [
+                        { title: 'Instagram', url: 'https://www.instagram.com/screenmate.co' },
+                        { title: 'Facebook', url: 'https://www.facebook.com/screenmate.co' },
+                        { title: 'YouTube', url: 'https://www.youtube.com/@screenmatefortesla' }
+                    ]},
+                    { title: 'Legal', url: '#', children: [
+                        { title: 'Privacy Policy', url: '/privacy' },
+                        { title: 'Terms of Use', url: '/terms' }
+                    ]}
+                ]
+            }
+        }
+    }, [main_menu])
+    
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setData(prev => ({ ...prev, [name]: value }))
+        setErrors(prev => ({ ...prev, [name]: null }))
+    }
+
+    const validateForm = async (formData: SubscribePayload) => {
+        try {
+            await subscribeSchema.validate(formData, { abortEarly: false })
+            return true
+        } catch (e: any) {
+            setErrors({
+                ...errors,
+                ...e.inner.reduce((acc: any, error: any) => ({ ...acc, [error.params.path]: error.message }), {})
+            })
+            return false
+        }
+    }
+
+    useEffect(() => {
+        if (apiError) {
+            setErrors({
+                email: apiError === 'email_exists' 
+                    ? 'This email is already registered' 
+                    : 'An error occurred, try again'
+            })
+        }
+    }, [apiError])
+
+    const handleSubscribe = async () => {
+        const formValid = await validateForm(data)
+        if (formValid === true) {
+            dispatch(customSubscribe(data))
+        }
+    }
+
     return (
         <footer className="footer">
-            
+            <div className="container flex-column gap-64 mob:gap-40">
+                <div className="footer-form">
+                    <div className="flex-column gap-12 mob:gap-8">
+                        <div className="font-manrope-24 mob:font-manrope-18 font-500">Sign Up for Our Newsletter Subscription</div>
+                        <div className="font-manrope-16">Stay informed about sales, updates and new products launches.</div>
+                    </div>
+                    <div className="flex-end-center mob:flex-column gap-24">
+                        <div className="footer-form-field">
+                            <input name="email" type="email" placeholder="Enter your e-mail adress" value={data.email} onChange={handleInputChange} />
+                            {errors.email && <span className="footer-form-field-error">{errors.email}</span>}
+                        </div>
+                        <Button onClick={handleSubscribe}><span>Subscribe</span></Button>
+                    </div>
+                </div>
+                <div className="footer-delimiter"></div>
+                <div className="footer-grid">
+                    <Image className="footer-logo" src={!isMobile ? logoDesktop : logoMobile} alt="Screenmate" />
+                    <FooterMenuGroup group={menu?.top as MenuItem[]} />
+                    <div className="footer-stores">
+                        <Image src={!isMobile ? appStoreDesktop : appStoreMobile} />
+                        <Image src={!isMobile ? googlePlayDesktop : googlePlayMobile} />
+                    </div>
+                    <FooterMenuGroup group={menu?.bottom as MenuItem[]} />
+                </div>
+                <div className="footer-delimiter"></div>
+                <div className="footer-bottom">
+                    <div className="flex-column gap-12">
+                        <div>
+                            Tesla, Model 3, Model Y, Model S, Model X are trademarks or registered trademarks of their respective <br />
+                            holders. Any references to these trademarks do not imply any affiliation or endorsement.
+                        </div>
+                        <div>SCREENMATE™ is a registered trademark.</div>
+                    </div>
+                    <div className="flex-end-center gap-16 mob:w-full mob:flex-column-start mob:gap-24">
+                        <div className="flex-end-center gap-8 mob:w-full mob:flex-between mob:gap-0">
+                            {paymentIcons.map((icon, index) => (
+                                <Icon className="flex-center" icon={icon} key={index} />
+                            ))}
+                        </div>
+                        <div className="text-white">© {new Date().getFullYear()} Screenmate</div>
+                    </div>
+                </div>
+            </div>
         </footer>
     )
 }

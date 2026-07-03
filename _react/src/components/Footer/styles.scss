@@ -1,0 +1,140 @@
+@use '@/assets/styles/common.scss';
+@use '@/assets/styles/mixins' as *;
+
+.footer {
+    @include responsive(padding, 64px, 0, 48px);
+    background: #010101;
+    color: #FFF;
+
+    @include mobile() {
+        @include responsive(padding, 40px, 0);
+    }
+
+    &-form {
+        @extend .flex-between, .mob\:flex-column, .mob\:gap-32;
+
+        &-field {
+            @extend .relative;
+            @include responsive(width, 416px);
+
+            & input {
+                @extend .w-full, .font-manrope-16;
+                @include responsive(height, 52px);
+                @include responsive(padding, 16px);
+                @include responsive(border-radius, 6px);
+                border: 1px solid #D9D9D9;
+                background: transparent;
+                color: #B9B9B9;
+            }
+
+            &-error {
+                @extend .absolute, .font-manrope-14;
+                left: 0;
+                @include responsive(bottom, -22px);
+                color: #FC3E30;
+            }
+        }
+
+        & button {
+            @include responsive(width, 195px);
+            @include responsive(height, 52px);
+            @extend .flex-center, .text-center, .font-manrope-18, .font-600;
+            border-radius: 26px;
+            border: 3px solid #0068FD;
+            background: transparent;
+            color: #1657FC;
+
+            &:hover {
+                border: none;
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                backdrop-filter: blur(8px);
+                color: #FFF;
+            }
+        }
+
+        @include mobile() {
+            &-field, & button {
+                width: 100%;
+            }
+        }
+    }
+
+    &-logo {
+        @include responsive(width, 254px);
+        @include responsive(height, 40px);
+
+        @include mobile() {
+            @include responsive(width, 182px);
+            @include responsive(height, 28px);
+            grid-column: span 2;
+        }
+    }
+
+    &-grid {
+        @extend .grid;
+        grid-template-columns: calc(330 * 100vw / 1440) calc(283 * 100vw / 1440) calc(268 * 100vw / 1440) calc(219 * 100vw / 1440) 1fr;
+        @include responsive(row-gap, 52px);
+
+        @include mobile() {
+            grid-template-columns: 1fr 1fr;
+            @include responsive(column-gap, 23px);
+            @include responsive(row-gap, 40px);
+            @include responsive(margin-bottom, 11px);
+        }
+
+        & a {
+            @extend .font-manrope-16;
+            text-decoration: none;
+            color: #D0D0D0;
+
+            &:hover {
+                color: #7D7E7F;
+            }
+
+            @include mobile() {
+                white-space: normal !important;
+
+                & br {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-stores {
+        @extend .flex-start-center, .gap-12, .mob\:gap-8;
+
+        @include mobile() {
+            grid-column: span 2;
+            order: 1;
+        }
+
+        & > * {
+            @include responsive(height, 40px);
+
+            @include mobile() {
+                flex: 1;
+                height: auto;
+            }
+        }
+    }
+
+    &-bottom {
+        @extend .flex-between-start, .mob\:flex-column, .mob\:gap-24, .font-manrope-16;
+        @include responsive(margin-top, -32px);
+        color: #808080;
+
+        @include mobile() {
+            @include responsive(margin-top, -20px);
+
+            & br {
+                display: none;
+            }
+        }
+    }
+
+    &-delimiter {
+        @extend .w-full;
+        border: 0.5px solid #808080;
+    }
+}

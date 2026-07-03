@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import contentReducer from './slices/content'
 import productsReducer from './slices/products'
 import reviewsReducer from './slices/reviews'
+import subscribeReducer from './slices/subscribe'
 
 const getInitialState = () => {
   const data: Window['ShopifyReactData'] = window.ShopifyReactData
@@ -20,6 +21,7 @@ const store = configureStore({
     content: contentReducer,
     products: productsReducer,
     reviews: reviewsReducer,
+    subscribe: subscribeReducer,
   },
   preloadedState: getInitialState()
 })

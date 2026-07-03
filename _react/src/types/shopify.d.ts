@@ -1,14 +1,18 @@
+import type { ReactNode } from 'react'
+
 interface MenuItem {
-    title: string
-    url: string
+    title: ReactNode
+    url?: string
     children?: MenuItem[]
 }
 
-interface Window {
-    ShopifyReactData?: {
-        content: {
-            main_menu: MenuItem[]
-            footer_menu: MenuItem[]
+declare global {
+    interface Window {
+        ShopifyReactData?: {
+            content: {
+                main_menu: MenuItem[]
+                footer_menu: MenuItem[]
+            }
         }
     }
 }

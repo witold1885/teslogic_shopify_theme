@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import type { MenuItem } from '../../types/shopify'
 
 interface ContentState {
     main_menu?: MenuItem[]
