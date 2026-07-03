@@ -9,10 +9,18 @@
     right: 0;
     @include responsive(padding, 32px, 72px);
 
+    @include mobile() {
+        @include responsive(padding, 22px, 20px);
+    }
+
     &.sticky {
         @include responsive(padding, 14px, 72px);
         background: rgba(0, 0, 0, 0.32);
         backdrop-filter: blur(32px);
+
+        @include mobile() {
+            @include responsive(padding, 22px, 20px);
+        }
     }
 
     &-logo {
@@ -21,29 +29,54 @@
     }
 
     &-menu {
-        @extend .flex-end-center, .gap-20;
+
+        &-desktop {
+            @extend .flex-end-center, .gap-20, .text-white;
+        }
+
+        &-mobile {
+            @extend .w-full, .flex-column-start, .gap-48;
+            @include responsive(margin-top, 52px);
+
+            &-open {
+                @extend .flex-center, .font-manrope-16, .font-500, .text-white;
+                @include responsive(padding, 8px, 16px);
+                @include responsive(border-radius, 54px);
+                background: rgba(0, 0, 0, 0.32);
+                backdrop-filter: blur(8px);
+            }
+
+            &-wrap {
+                @extend .fixed, .inset, .flex-column-between, .w-full, .h-full, .text-black;
+                z-index: 20;
+                @include responsive(padding, 22px, 20px);
+                background: #FFF;
+            }
+        }
 
         &-item {
-            @extend .flex-center, .gap-4, .relative, .cursor-pointer;
-            
-            &:not(:last-child) {
-                @include responsive(padding, 8px, 0);
-            }
+            @extend .flex-center, .mob\:w-full, .mob\:flex-start-center, .mob\:flex-wrap, .gap-4, .relative, .cursor-pointer;
+            @include responsive(padding, 8px, 0);
 
             &:first-child {
                 @include responsive(margin-right, 8px);
             }
 
-            &:last-child {
-                @include responsive(margin-left, 8px);
+            @include mobile() {
+                @include responsive(gap, 24px, 4px);
+                padding: 0;
+
+                &:first-child {
+                    margin-right: 0;
+                }
             }
 
-            &-title, &-button {
-                @extend .font-manrope-16, .font-600, .text-white;
+            &-title {
+                @extend .font-manrope-16, .font-600;
             }
 
             &-new {
-                @extend .flex-center, .font-manrope, .font-600, .text-white, .text-center;
+                @extend .flex-center, .font-manrope, .font-600, .text-center, .text-white;
                 @include responsive(padding, 0, 4px);
                 @include responsive(border-radius, 4px);
                 background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
@@ -61,20 +94,8 @@
                 }
             }
 
-            &-button {
-                @extend .flex-center, .text-center, .uppercase;
-                @include responsive(width, 127px);
-                @include responsive(height, 36px);
-                @include responsive(border-radius, 20px);
-                background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%);
-
-                &:hover {
-                    background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
-                }
-            }
-
             &-dropdown {
-                @extend .flex-column, .gap-24, .absolute;
+                @extend .flex-column, .gap-24, .absolute, .mob\:gap-20, .mob\:static, .mob\:w-full;
                 list-style: none;
                 margin: 0;
                 @include responsive(top, 36px);
@@ -84,6 +105,14 @@
                 background: #FFF;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 
+                @include mobile() {
+                    top: unset;
+                    padding: 0;
+                    border-radius: none;
+                    background: none;
+                    box-shadow: none;
+                }
+
                 & li a {
                     @extend .font-manrope-16, .font-500;
                     color: #000 !important;
@@ -92,6 +121,33 @@
                     &:hover {
                         color: #1658FC !important; 
                     }
+                }
+            }
+        }
+
+        &-button {
+            @extend .flex-center, .text-center, .font-manrope-16, .mob\:font-manrope-18, .font-600, .text-white, .uppercase;
+            @include responsive(width, 127px);
+            @include responsive(height, 36px);
+            @include responsive(border-radius, 20px);
+            background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%);
+
+            &:hover {
+                background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+            }
+
+            @include mobile() {
+                width: 100%;
+                @include responsive(height, 56px);
+                @include responsive(border-radius, 54px);
+                background: transparent;
+                border: 2px solid #0068FD;
+                color: #1657FC;
+
+                &:hover {
+                    border: none;
+                    background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                    color: #FFF;
                 }
             }
         }
