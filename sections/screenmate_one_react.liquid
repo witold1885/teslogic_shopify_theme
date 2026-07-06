@@ -6,9 +6,13 @@
   {% render 'menu-json', menu_handle: 'main-menu' %}
 {%- endcapture -%}
 
-{% assign product = all_products['teslogic-screenmate'] %}
+{%- capture product -%}
+  {% render 'product-json', product: all_products['teslogic-screenmate'] %}
+{%- endcapture -%}
+
+{% comment %} {% assign product = all_products['teslogic-screenmate'] %}
 {% assign charger = all_products['screenmate-wireless-charger'] %}
-{% assign splitter = all_products['screenmate-splitter'] %}
+{% assign splitter = all_products['screenmate-splitter'] %} {% endcomment %}
 
 <script>
   console.log('{{ product }}')
@@ -18,10 +22,10 @@
       footer_menu: []
     },
     product: {{ product }},
-    additionalProducts: [
-      {{ charger }},
-      {{ splitter }}
-    ]
+    // additionalProducts: [
+    //   {{ charger }},
+    //   {{ splitter }}
+    // ]
   }
 </script>
 
