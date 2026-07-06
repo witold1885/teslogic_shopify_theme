@@ -11,6 +11,7 @@
                     "id": {{ model.id }},
                     "title": {{ model.title | json }},
                     "price": {{ model.price | divided_by: 100 }},
+                    "oldPrice": {{ model.compare_at_price | divided_by: 100 }}
                 }{%- unless forloop.last -%},{%- endunless -%}
             {%- endfor -%}
         {%- endif -%}
