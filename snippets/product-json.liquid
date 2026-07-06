@@ -1,7 +1,18 @@
 {
+    "id": {{ product.id }},
     "title": {{ product.title | json }},
     "price": {{ product.price | divided_by: 100 }},
     "maxPrice": {{ product.price_max | divided_by: 100 }},
     "oldPrice": {{ product.compare_at_price | divided_by: 100 }},
-    "models": {{ product.variants | json }}
+    "models": [
+        {%- if product.variants != blank -%}
+            {%- for model in product.variants -%}
+                {
+                    "id": {{ model.id }},
+                    "title": {{ model.title | json }},
+                    "price": {{ model.price | divided_by: 100 }},
+                }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+        {%- endif -%}
+    ]
 }
