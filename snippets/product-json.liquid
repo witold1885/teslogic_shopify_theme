@@ -1,0 +1,7 @@
+{
+    "title": {{ product.title | json }},
+    "price": {{ product.price | divided_by: 100 }},
+    "maxPrice": {{ product.price_max | divided_by: 100 }},
+    "oldPrice": {{ product.compare_at_price | divided_by: 100 }},
+    "models": {{ product.variants }}
+}
