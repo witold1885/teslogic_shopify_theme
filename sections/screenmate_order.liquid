@@ -421,6 +421,7 @@
 					body: JSON.stringify(formData)
 				})
 				.then(response => {
+					console.log(response)
 				  	window.location.href = '/cart'
 				})
 				.catch((error) => {
