@@ -11,11 +11,17 @@
 {% assign splitter = all_products['screenmate-splitter'] %}
 
 <script>
+  console.log({{ product }})
   window.ShopifyReactData = {
     content: {
       main_menu: {{ main_menu }},
       footer_menu: []
-    }
+    },
+    product: {{ product }},
+    additionalProducts: [
+      {{ charger }},
+      {{ splitter }}
+    ]
   }
 </script>
 
