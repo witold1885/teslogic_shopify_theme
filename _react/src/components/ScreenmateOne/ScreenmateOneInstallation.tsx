@@ -30,8 +30,8 @@ const ScreenmateOneInstallation: React.FC = () => {
             </>
         ],
         links: [
-            { text: 'Where to install' },
-            { text: 'Manuals' },
+            { text: 'Where to install', url: '/pages/where-to-install' },
+            { text: 'Manuals', url: '/pages/one-manuals' },
         ]
     }
     
@@ -58,8 +58,8 @@ const ScreenmateOneInstallation: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex gap-32 mob:gap-20 font-manrope-24 mob:font-manrope-16 font-500">
-                    {installation.links.map(({ text }, index) => (
-                        <a {...anime(`links-${index}`)} className="flex gap-12 mob:gap-8" key={index}>
+                    {installation.links.map(({ text, url }, index) => (
+                        <a {...anime(`links-${index}`)} className="flex gap-12 mob:gap-8" href={url} key={index}>
                             <span>{text}</span>
                             <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                         </a>

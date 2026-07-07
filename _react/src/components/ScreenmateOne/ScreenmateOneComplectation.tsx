@@ -1,6 +1,8 @@
 import React, { forwardRef, Fragment, useMemo, type CSSProperties, type ReactNode } from 'react'
-import { Icon, Image } from '../Common'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { addToCart } from '../../redux/slices/products'
 
+import { Icon, Image } from '../Common'
 import screenmateOneDevice from '../../assets/images/screenmate-one/products/screenmate-one-device.png'
 import phoneHolder from '../../assets/images/screenmate-one/products/phone-holder.png'
 import plasticTool from '../../assets/images/screenmate-one/products/plastic-tool.png'
@@ -40,6 +42,7 @@ interface AddItemProps {
     oldPrice?: number
     description: ReactNode
     compatible: ReactNode
+    onAdd: () => void
 }
 
 const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, slug, name, image, imageStyle }, ref) => (
@@ -49,7 +52,7 @@ const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, sl
     </div>
 ))
 
-const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, price, oldPrice, description, compatible }, ref) => (
+const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, price, oldPrice, description, compatible, onAdd }, ref) => (
     <div ref={ref} className={`${className} flex-start-center gap-24 mob:flex-column-center mob:gap-20`} style={style}>
         <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
         <div className="flex-column gap-24 mob:gap-20">
@@ -58,7 +61,7 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
                     <div className="font-manrope-24 mob:font-manrope-18 font-500">{name}</div>
                     <div className="flex gap-8 font-manrope-20 mob:font-manrope-18 font-600">
                         <span className="text-blue">{price} USD</span>
-                        {oldPrice && (
+                        {!!oldPrice && oldPrice !== price && (
                             <span className="text-grey line-through">{oldPrice} USD</span>
                         )}
                     </div>
@@ -69,7 +72,7 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
                     {compatible}
                 </div>
             </div>
-            <a className="flex gap-8">
+            <a className="flex gap-8" onClick={onAdd}>
                 <span className="font-manrope-20 mob:font-manrope-18 font-600">Add to cart</span>
                 <Icon className="flex-center" svg={<CartBlueIcon />} />
             </a>
@@ -86,7 +89,21 @@ interface Group {
 }
 
 const ScreenmateOneComplectation: React.FC = () => {
+    const dispatch = useAppDispatch()
     const { isMobile, responsive } = useInlineStyles()
+
+    const { additionalProducts } = useAppSelector(state => state.products)
+
+    const additionalProductTitles: string[] = ['Wireless Charger', 'Splitter']
+    const additionalProductsData: Record<string, Record<string, number | null>> = useMemo(() => {
+        return additionalProducts?.reduce((acc, { id, title, models, price, oldPrice }) => ({
+            ...acc,
+            [title]: { id: models ? models[0].id : id, price, oldPrice }
+        }), {}) || additionalProductTitles.reduce((acc, title) => ({
+            ...acc,
+            [title]: { id: null, price: 40, oldPrice: 60 }
+        }), {})
+    }, [additionalProducts, additionalProductTitles])
 
     const groups: Record<string, Group> = useMemo(() => ({
         box: {
@@ -136,10 +153,11 @@ const ScreenmateOneComplectation: React.FC = () => {
             },
             items: {
                 charger: {
+                    id: additionalProductsData['Wireless Charger'].id,
                     name: 'Wireless Phone Charger',
                     image: wirelessPhoneCharger,
-                    price: 40,
-                    oldPrice: 60,
+                    price: additionalProductsData['Wireless Charger'].price,
+                    oldPrice: additionalProductsData['Wireless Charger'].oldPrice,
                     description: <>
                         This magnetic charger installs on <br />
                         a Phone Holder instead of a magnet. 
@@ -150,10 +168,11 @@ const ScreenmateOneComplectation: React.FC = () => {
                     </>
                 },
                 splitter: {
+                    id: additionalProductsData['Splitter'].id,
                     name: 'Screenmate Splitter',
                     image: screenmateSplitter,
-                    price: 40,
-                    oldPrice: 60,
+                    price: additionalProductsData['Splitter'].price,
+                    oldPrice: additionalProductsData['Splitter'].oldPrice,
                     description: <>
                         The Screenmate Splitter lets you <br />
                         connect two devices simultaneously <br />
@@ -173,7 +192,13 @@ const ScreenmateOneComplectation: React.FC = () => {
             },
             itemComponent: AddItem
         }
-    }), [isMobile, responsive])
+    }), [additionalProductsData, isMobile, responsive])
+
+    const handleAddToCart = (id: number | null) => {
+        if (id) {
+            dispatch(addToCart({ items: [{ id, quantity: 1 }] }))
+        }
+    }
 
     const animationConfigs = useMemo(() => mapBlocksConfigs(groups, animatedObjects), [])
 
@@ -197,6 +222,7 @@ const ScreenmateOneComplectation: React.FC = () => {
                                 style={{ gridArea: slug }}
                                 slug={slug}
                                 {...item}
+                                onAdd={() => handleAddToCart(item.id)}
                             />                            
                         ))}
                     </div>
