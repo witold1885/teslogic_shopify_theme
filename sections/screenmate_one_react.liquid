@@ -6,6 +6,10 @@
   {% render 'menu-json', menu_handle: 'main-menu' %}
 {%- endcapture -%}
 
+{%- capture cart -%}
+  {% render 'cart-json' %}
+{%- endcapture -%}
+
 {%- capture product -%}
   {% render 'product-json', product: all_products['teslogic-screenmate'] %}
 {%- endcapture -%}
@@ -24,6 +28,7 @@
       main_menu: {{ main_menu }},
       footer_menu: []
     },
+    cart: {{ cart }},
     product: {{ product }},
     additionalProducts: [{{ charger }}, {{ splitter }}]
   }
