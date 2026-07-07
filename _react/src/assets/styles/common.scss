@@ -42,6 +42,12 @@ body {
         &block {
             display: block;
         }
+        &flex {
+            display: flex;
+        }
+        &grid {
+            display: grid;
+        }
         &w-full {
             width: 100%;
         }
@@ -108,6 +114,14 @@ body {
 .overflow {
     &-hidden {
         overflow: hidden;
+
+        &-x {
+            overflow-x: hidden;
+        }
+
+        &-y {
+            overflow-y: hidden;
+        }
     }
 
     &-scroll {
@@ -184,6 +198,10 @@ h1 {
     &-black {
         color: #000;
     }
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
 }
 
 a {
@@ -300,11 +318,14 @@ input, textarea {
     border-radius: 100%;
 }
 
-.cursor-pointer {
-    cursor: pointer;
+.cursor {
+    &-pointer {
+        cursor: pointer;
+    }
+    &-grab {
+        cursor: grab;
+    }
 }
-
-
 
 .shadow {
     position: fixed;

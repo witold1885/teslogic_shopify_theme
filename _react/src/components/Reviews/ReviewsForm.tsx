@@ -51,7 +51,7 @@ interface FormFieldProps {
 const FormField: React.FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) => <Tag {...params} />
 
 const ReviewsForm: React.FC = () => {
-    const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch()
 
     const { product } = useAppSelector(state => state.products)
 
@@ -97,7 +97,7 @@ const ReviewsForm: React.FC = () => {
     }
 
     const handleSubmit = async () => {
-        const formData = { ...data, shop_url: window.location.host, id: product?.productId }
+        const formData = { ...data, shop_url: window.location.host, id: product?.id }
         const formValid = await validateForm(formData)
         if (formValid === true) {
             dispatch(sendReview(formData))
@@ -111,15 +111,15 @@ const ReviewsForm: React.FC = () => {
 
     return (<>
         <div className="flex-between mob:flex-column-center mob:gap-20">
-            <div {...anime('question')} className="font-manrope-52 mob:font-manrope-32 font-500 mob:text-center">Already own {product?.name}?</div>
+            <div {...anime('question')} className="font-manrope-52 mob:font-manrope-32 font-500 mob:text-center">Already own {product?.title}?</div>
             <Button {...anime('button')} className="flex-center" onClick={() => setPopupOpen(true)}>Write a review</Button>
         </div>
         <Popup open={popupOpen} onClose={() => setPopupOpen(false)}>
             <div className="reviews-form-wrap relative">
                 <Icon className="reviews-form-close absolute cursor-pointer" icon={closeIcon} onClick={() => setPopupOpen(false)}/>
                 <form className="reviews-form flex-column gap-24">
-                    <div className="flex gap-24">
-                        <div className="font-manrope-32 flex-1">Write a review</div>
+                    <div className="flex mob:flex-column gap-24">
+                        <div className="font-manrope-32 mob:font-manrope-24 flex-1">Write a review</div>
                         <div className="reviews-form-rating flex-1 flex-start-center gap-8 relative">
                             <div className="font-manrope-16">Rate:</div>
                             <div className="flex gap-4" style={{ direction: 'rtl' }}>
@@ -151,7 +151,7 @@ const ReviewsForm: React.FC = () => {
                         ))}
                     </div>
                     <div className="flex-end-center">
-                        <Button onClick={handleSubmit}>Send feedback</Button>
+                        <Button className="mob:w-full" onClick={handleSubmit}>Send feedback</Button>
                     </div>
                 </form>
             </div>

@@ -16,7 +16,7 @@ interface DropdownItemProps {
 }
 
 const DropdownItem: React.FC<DropdownItemProps> = ({ className, label, icon, onClick }) => (
-    <div className={`${className} flex-between-center cursor-pointer`} onClick={onClick}>
+    <div className={`${className} flex-between-center gap-12 cursor-pointer`} onClick={onClick}>
         <span>{label}</span>
         {icon && (
             <div className="icon flex-center">

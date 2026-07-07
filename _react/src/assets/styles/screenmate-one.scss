@@ -1120,15 +1120,15 @@
         background: radial-gradient(56.25% 100% at 50% 100%, #1D1D1F 0%, #0E0E0E 100%), linear-gradient(180deg, #FFF 0%, #F6F6F6 100%);
 
         @include mobile() {
-            max-height: auto;
-            min-height: auto;
+            max-height: unset !important;
+            min-height: auto !important;
         }
 
         & > * {
-            @extend .flex-1;
+            width: 50% !important;
 
             @include mobile() {
-                width: 100%;
+                width: 100% !important;
             }
         }
 
@@ -1140,20 +1140,43 @@
             }
 
             &-slider {
-                @extend .w-full, .flex-center, .gap-12, .absolute;
-                bottom: 0;
-                @include responsive(padding, 0, 40px, 40px);
+                @extend .w-full, .flex-center;
 
-                @include mobile() {
-                    @include responsive(padding, 0, 20px, 20px);
+                &-wrap {
+                    @extend .w-full, .flex-center, .gap-12, .absolute;
+                    min-width: 0;
+                    bottom: 0;
+                    @include responsive(padding, 0, 150px, 40px);
+
+                    @include mobile() {
+                        @include responsive(padding, 0, 57px, 20px);
+                    }
                 }
 
-                & > * {
-                    @extend .flex-center, .cursor-pointer;
+                & .slick-list {
+                    @include responsive(margin, 0, -6px);
                 }
 
-                &-nav {
+                & .slick-slide > div {
+                    @include responsive(padding, 0, 6px)
+                }
+
+                & .slick-arrow {
                     @include square(24px);
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    &.slick-prev {
+                        @include responsive(left, -36px);
+                    }
+
+                    &.slick-next {
+                        @include responsive(right, -36px);
+                    }
+
+                    &::before {
+                        display: none;
+                    }                    
 
                     & > img {
                         @extend .h-full;
@@ -1161,6 +1184,7 @@
                 }
 
                 &-item {
+                    @extend .cursor-pointer;
                     @include square(60px);
                     @include responsive(border-radius, 12px);
                     border: 1px solid rgba(255, 255, 255, 0.10);
@@ -1179,7 +1203,7 @@
             @include responsive(padding, 0, 0, 0, 80px);
 
             @include mobile() {
-                @include responsive(padding, 0, 20px, 96px);
+                @include responsive(padding, 20px, 20px, 96px);
             }
 
             &-wrap {

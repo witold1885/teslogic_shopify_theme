@@ -35,6 +35,7 @@
     }
 
     &-grid {
+        @extend .mob\:hidden;
 
         &-item {
             @extend .flex-column, .gap-16;
@@ -51,7 +52,7 @@
     }
 
     &-pagination {
-        @extend .flex-center, .gap-8;
+        @extend .flex-center, .gap-8, .mob\:hidden;
 
         &-nav {
             @extend .flex-center;
@@ -75,6 +76,49 @@
         }
     }
 
+    &-slider {
+        @extend .cursor-grab;
+
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+
+        & .slick-list {
+            @include responsive(margin, 0, -10px)
+        }
+
+        & .slick-slide > div {
+            @include responsive(padding, 0, 10px)
+        }
+
+        &-item {
+            @extend .flex-column, .gap-16;
+            @include responsive(width, 304px);
+            @include responsive(max-height, 440px);
+            @include responsive(padding, 24px, 24px, 16px);
+            @include responsive(border-radius, 12px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: #191919;
+            scroll-snap-align: start;
+            user-select: none;
+        }
+
+        &-scrollbar {
+            @extend .w-full, .relative, .cursor-pointer;
+            @include responsive(height, 4px);
+            @include responsive(border-radius, 2px);
+            background: #8478F7;
+            
+            &-thumb {
+                @extend .h-full, .absolute, .cursor-grab;
+                top: 0;
+                left: 0;
+                @include responsive(border-radius, 2px);
+                transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                background: #FFF;
+            }
+        }
+    }
+
     & button {
         @include responsive(padding, 20px, 40px);
         @include responsive(border-radius, 54px);
@@ -88,25 +132,28 @@
     &-form {
 
         &-wrap {
-            width: 636px;
-            padding: 40px 40px 28px 40px;
-            border-radius: 16px;            
+            @include responsive(width, 636px);
+            @include responsive(padding, 40px, 40px, 28px, 40px);
+            @include responsive(border-radius, 16px);
             background: #1A1A1A;
             box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+
+            @include mobile() {
+                @include responsive(width, 335px);
+                @include responsive(padding, 24px, 24px, 32px, 24px);
+            }
         }
 
         &-close {
-            width: 20px;
-            height: 20px;
-            top: 16px;
-            right: 16px;
+            @include square(20px);
+            @include responsive(top, 16px);
+            @include responsive(right, 16px);
         }
 
         &-rating {
 
             & label {
-                width: 24px;
-                height: 24px;
+                @include square(24px);
                 background-image: url(@/assets/icons/star-grey.svg);
                 background-size: cover;
                 @extend .cursor-pointer;
@@ -124,8 +171,11 @@
         &-body {
             @extend .grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: 24px;
-            row-gap: 28px;
+            @include responsive(gap, 28px, 24px);
+
+            @include mobile() {
+                grid-template-columns: 1fr;
+            }
         }
 
         &-field {
@@ -134,29 +184,32 @@
                 grid-column: span 2;
             }
 
+            @include mobile() {
+                 grid-column: span 1 !important;
+            }
+
             & input, & textarea {
-                padding: 16px;
-                border-radius: 6px;
+                @include responsive(padding, 16px);
+                @include responsive(border-radius, 6px);
                 border: 1px solid #D9D9D9;
                 background: transparent;
-                @extend .font-manrope-16;
-                color: #FFF;
+                @extend .font-manrope-16, .text-white;
             }
 
             & textarea {
-                height: 161px;
+                @include responsive(height, 161px);
             }
 
             &-error {
-                bottom: -22px;
+                @include responsive(bottom, -22px);
                 color: #FC3E30;
                 @extend .absolute, .font-manrope-14;
             }
         }
 
         & button {
-            padding: 14px 28px; 
-            border-radius: 26px;
+            @include responsive(padding, 14px, 28px);
+            @include responsive(border-radius, 26px);
             border: none;
             background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
             color: #FFF;

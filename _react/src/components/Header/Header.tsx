@@ -5,6 +5,7 @@ import type { MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
+import cartIcon from '../../assets/icons/cart-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
@@ -15,9 +16,12 @@ interface HeaderMenuProps {
     className?: string
     menu: MenuItem[]
     mode: 'desktop' | 'mobile'
+    onOrder?: () => void
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onOrder }) => {
+    const { cartItemCount } = useAppSelector(state => state.products)
+
     const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null)
 
     return (
@@ -48,14 +52,24 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) =
                     </div>
                 ))}
             </div>
-            <Button className="header-menu-button">
-                <span>ORDER NOW</span>
-            </Button>
+            {cartItemCount === 0 ? (
+                <Button className="header-menu-button" onClick={onOrder}>
+                    <span>ORDER NOW</span>
+                </Button>
+            ) : (
+                <a className="header-menu-cart" href="/cart">
+                    <div>
+                        <Icon className="w-full h-full flex-center" icon={cartIcon} />
+                        <span>{cartItemCount}</span>
+                    </div>
+                    <span>Cart</span>
+                </a>
+            )}
         </div>
     )
 }
 
-const Header: React.FC = () => {
+const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const { isMobile } = useInlineStyles()
     const scrollOffset = useScroll()
 
@@ -69,9 +83,11 @@ const Header: React.FC = () => {
 
     return (<>
         <header className={`header ${scrollOffset.y > 0 ? 'sticky' : ''}`}>
-            <Image className="header-logo" src={logo} alt="Screenmate" />
+            <a href="/">
+                <Image className="header-logo" src={logo} alt="Screenmate" />
+            </a>
             {!isMobile 
-                ? <HeaderMenu className="header-menu-desktop" menu={menu as MenuItem[]} mode="desktop" />
+                ? <HeaderMenu className="header-menu-desktop" menu={menu as MenuItem[]} mode="desktop" onOrder={onOrder} />
                 : <Button className="header-menu-mobile-open" onClick={() => setOpenMobileMenu(true)}><span>Menu</span></Button>
             }
         </header>
@@ -81,7 +97,7 @@ const Header: React.FC = () => {
                     <Image className="header-logo" src={logoBlack} alt="Screenmate" />
                     <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={() => setOpenMobileMenu(false)}/>
                 </div>
-                <HeaderMenu className="header-menu-mobile" menu={menu as MenuItem[]} mode="mobile" />
+                <HeaderMenu className="header-menu-mobile" menu={menu as MenuItem[]} mode="mobile" onOrder={onOrder} />
             </div>
         )}
     </>)

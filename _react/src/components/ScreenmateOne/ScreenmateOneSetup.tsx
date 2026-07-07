@@ -54,18 +54,18 @@ const ScreenmateOneSetup: React.FC = () => {
     return (
         <div className="screenmate-one__setup">
             <div className="container flex-column-center gap-64 mob:gap-28">
-                <div className="flex-column-center gap-24 mob:flex-column mob:gap-12">
+                <div className="flex-column-center gap-24 mob:flex-column-start mob:gap-12">
                     <Heading {...anime('title')} title="Your Screen, Your Setup" />
                     <div {...anime('subtitle')} className="screenmate-one__setup-subtitle">
                         Use the apps you already know and love.
                     </div>
                 </div>
                 <div className="w-full flex-column-center gap-32 mob:gap-8">
-                    {(activeTab && tabs[activeTab]) ? (
-                        <Video {...anime('video')} className="screenmate-one__setup-video" key={activeTab} src={tabs[activeTab].video as string} />
-                    ) : (
-                        <div {...anime('video')} className="screenmate-one__setup-video"></div>
-                    )}
+                    <div {...anime('video')} className="screenmate-one__setup-video">
+                        {Object.entries(tabs).map(([tab, { video }]) => (
+                            <Video className={tab === activeTab ? '' : 'hidden'} key={tab} src={video as string} />
+                        ))}
+                    </div>
                     <div className="flex-column-center gap-32 mob:flex-column mob:gap-24">
                         <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} />
                         {activeTab && tabs[activeTab] && (

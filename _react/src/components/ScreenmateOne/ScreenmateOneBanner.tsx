@@ -19,7 +19,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     kickstarter: { yFrom: '20px' },
 }
 
-const ScreenmateOneBanner: React.FC<{ onExpand?: () => void }> = ({ onExpand }) => {
+const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand, onOrder }) => {
     const { isMobile } = useInlineStyles()
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
@@ -34,7 +34,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void }> = ({ onExpand }) 
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
                     <h1 {...anime('title')}>The ultimate Tesla multimedia upgrade</h1>
                     <div className="flex gap-24">
-                        <Button {...anime('button_1')}>
+                        <Button {...anime('button_1')} onClick={onOrder}>
                             <span>order now</span>
                         </Button>
                         <Button {...anime('button_2')}>

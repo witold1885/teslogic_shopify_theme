@@ -10,8 +10,14 @@ const getInitialState = () => {
   return {
     content: {
       ...data?.content,
-      loading: false,
-      error: null
+      loading: false
+    },
+    products: {
+      cartItemCount: data?.cart?.item_count || 0,
+      products: [],
+      product: data?.product,
+      additionalProducts: data?.additionalProducts,
+      loading: false
     }
   }
 }

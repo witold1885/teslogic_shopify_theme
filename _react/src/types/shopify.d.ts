@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import type { Product } from './product'
 
 interface MenuItem {
     title: ReactNode
@@ -13,6 +14,9 @@ declare global {
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
             }
+            cart: { item_count: number }
+            product: Product
+            additionalProducts: Product[]
         }
     }
 }

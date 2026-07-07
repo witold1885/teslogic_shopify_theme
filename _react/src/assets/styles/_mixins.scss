@@ -126,6 +126,11 @@ $gaps: 4, 6, 8, 10, 12, 16, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 50, 56, 60, 
             flex-wrap: wrap;
         }
 
+        &-nowrap {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
         &-row {
             display: flex;
             flex-direction: row;
@@ -197,6 +202,12 @@ $gaps: 4, 6, 8, 10, 12, 16, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 50, 56, 60, 
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        &-start {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
 
         &-start-center {

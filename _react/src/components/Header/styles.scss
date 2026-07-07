@@ -151,5 +151,29 @@
                 }
             }
         }
+
+        &-cart {
+            @extend .flex-center, .gap-10;
+
+            & > div {
+                @extend .relative;
+                @include square(24px);
+
+                & > span {
+                    @extend .absolute, .flex-center, .font-manrope, .text-white;
+                    top: 0;
+                    right: 0;
+                    @include square(13.27px);
+                    border-radius: 100%;
+                    background: #1658FC;
+                    @include responsive(font-size, 10px);
+                    line-height: 1;
+                }
+            }
+
+            & > span {
+                @extend .font-manrope-16, .font-600, .text-white;
+            }
+        }
     }
 }

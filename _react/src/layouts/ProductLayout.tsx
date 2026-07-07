@@ -1,6 +1,5 @@
 import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import { fetchProduct } from '../redux/slices/products'
 import { fetchReviews } from '../redux/slices/reviews'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
@@ -9,33 +8,23 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews'))
 
 interface ProductLayoutProps {
     className?: string
+    onOrder?: () => void
     children?: ReactNode
 }
 
-const slugMap: Record<string, string> = {
-    'screenmate-one-react': 'screenmate'
-}
-
-const ProductLayout: React.FC<ProductLayoutProps> = ({ className, children }) => {
+const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {
     const dispatch = useAppDispatch()
-    const path = window.location.pathname
-    const tail = path.split('/').filter(Boolean).pop() as string
-    const slug = slugMap[tail] || tail || null
-
-    useEffect(() => {
-        if (slug) dispatch(fetchProduct(slug))
-    }, [dispatch, slug])
     
     const { product } = useAppSelector(state => state.products)
     
     useEffect(() => {
         if (product) {
-            dispatch(fetchReviews(product.productId))
+            dispatch(fetchReviews(product.id))
         }
     }, [product])
 
     return (<>
-        <Header />
+        <Header onOrder={onOrder} />
         <div {...{className}}>
             {children}
             <Suspense>

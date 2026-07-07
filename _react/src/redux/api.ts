@@ -1,6 +1,6 @@
 const baseUrl: string = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api'
 
-export type Payload = Record<string, string | number | boolean | undefined | null> | null
+export type Payload = Record<string, string | number | boolean | any[] | undefined | null> | null
 type HeaderParams = Record<string, string> | null
 
 export type ApiResponse<T> = 
