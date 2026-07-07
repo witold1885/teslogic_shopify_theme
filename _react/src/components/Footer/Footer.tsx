@@ -13,7 +13,17 @@ import googlePlayDesktop from '../../assets/images/google-play-desktop.svg'
 import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
 import type { SubscribePayload } from '../../types/subscribe'
 
+import { getAnimationConfig, mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    form: { yFrom: '40px', duration: 666 },
+    logo: { yFrom: '20px', duration: 333 },
+    stores: { yFrom: '20px', duration: 333 },
+    text: { yFrom: '20px', duration: 333 },
+    payments: { yFrom: '20px', duration: 333 },
+    copyright: { yFrom: '20px', duration: 333 },
+}
 
 const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field')
@@ -22,20 +32,28 @@ const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
 const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
 const paymentIcons: string[] = Object.values(paymentIconModules).map(mod => mod.default)
 
-const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => (<>
-    {group?.map(({ title, children }, index) => (
-        <div className="flex-column gap-16" key={index}>
-            <div className="font-manrope-24 mob:font-manrope-18 font-500">{title}</div>
-            <div className="flex-column gap-12 mob:gap-16">
-                {children?.map((child, i) => (
-                    <div key={i}>
-                        <a href={child.url}>{child.title}</a>
-                    </div>
-                ))}
+const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
+    const animationConfigs = useMemo(() => group?.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
+        ...acc, [`group_${index}`]: getAnimationConfig('20px', 333)
+    }), {}), [])
+    
+    const { anime } = useAnime(animationConfigs)
+
+    return (<>
+        {group?.map(({ title, children }, index) => (
+            <div {...anime(`group_${index}`)} className="flex-column gap-16" key={index}>
+                <div className="font-manrope-24 mob:font-manrope-18 font-500">{title}</div>
+                <div className="flex-column gap-12 mob:gap-16">
+                    {children?.map((child, i) => (
+                        <div key={i}>
+                            <a href={child.url}>{child.title}</a>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-    ))}
-</>)
+        ))}
+    </>)
+}
 
 const Footer: React.FC = () => {
     const { isMobile } = useInlineStyles()
@@ -117,10 +135,14 @@ const Footer: React.FC = () => {
         }
     }
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+    
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <footer className="footer">
             <div className="container flex-column gap-64 mob:gap-40">
-                <div className="footer-form">
+                <div {...anime('form')} className="footer-form">
                     <div className="flex-column gap-12 mob:gap-8">
                         <div className="font-manrope-24 mob:font-manrope-18 font-500">Sign Up for Our Newsletter Subscription</div>
                         <div className="font-manrope-16">Stay informed about sales, updates and new products launches.</div>
@@ -135,9 +157,9 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="footer-delimiter"></div>
                 <div className="footer-grid">
-                    <Image className="footer-logo" src={!isMobile ? logoDesktop : logoMobile} alt="Screenmate" />
+                    <Image {...anime('logo')} className="footer-logo" src={!isMobile ? logoDesktop : logoMobile} alt="Screenmate" />
                     <FooterMenuGroup group={menu?.top as MenuItem[]} />
-                    <div className="footer-stores">
+                    <div {...anime('stores')} className="footer-stores">
                         <Image src={!isMobile ? appStoreDesktop : appStoreMobile} />
                         <Image src={!isMobile ? googlePlayDesktop : googlePlayMobile} />
                     </div>
@@ -145,7 +167,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="footer-delimiter"></div>
                 <div className="footer-bottom">
-                    <div className="flex-column gap-12">
+                    <div {...anime('text')} className="flex-column gap-12">
                         <div>
                             Tesla, Model 3, Model Y, Model S, Model X are trademarks or registered trademarks of their respective <br />
                             holders. Any references to these trademarks do not imply any affiliation or endorsement.
@@ -153,12 +175,12 @@ const Footer: React.FC = () => {
                         <div>SCREENMATE™ is a registered trademark.</div>
                     </div>
                     <div className="flex-end-center gap-16 mob:w-full mob:flex-column-start mob:gap-24">
-                        <div className="flex-end-center gap-8 mob:w-full mob:flex-between mob:gap-0">
+                        <div {...anime('payments')} className="flex-end-center gap-8 mob:w-full mob:flex-between mob:gap-0">
                             {paymentIcons.map((icon, index) => (
                                 <Icon className="flex-center" icon={icon} key={index} />
                             ))}
                         </div>
-                        <div className="text-white">© {new Date().getFullYear()} Screenmate</div>
+                        <div {...anime('copyright')} className="text-white">© {new Date().getFullYear()} Screenmate</div>
                     </div>
                 </div>
             </div>

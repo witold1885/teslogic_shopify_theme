@@ -9,8 +9,13 @@ import cartIcon from '../../assets/icons/cart-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    header: { yFrom: '20px', duration: 333 },
+}
 
 interface HeaderMenuProps {
     className?: string
@@ -81,8 +86,12 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
     }, [main_menu])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+        
+    const { anime } = useAnime(animationConfigs)
+
     return (<>
-        <header className={`header ${scrollOffset.y > 0 ? 'sticky' : ''}`}>
+        <header {...anime('header')} className={`header ${scrollOffset.y > 0 ? 'sticky' : ''}`}>
             <a href="/">
                 <Image className="header-logo" src={logo} alt="Screenmate" />
             </a>
