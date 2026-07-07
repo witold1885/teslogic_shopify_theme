@@ -252,36 +252,38 @@ const ReviewsGrid: React.FC = () => {
                     </div>
                 </div>
             )}
-            <div {...anime('slider')} className="hidden mob:flex mob:flex-column mob:gap-40" onWheel={handleWheel}>
-                <SlickSlider ref={sliderRef} className="reviews-slider" {...sliderSettings}>
-                    {reviews.map(({ id,  ...item}) => (
-                        <ReviewItem
-                            key={id}
-                            ref={(el) => {
-                                if (el) itemRefs.current[id] = el
-                                else delete itemRefs.current[id]
-                            }}
-                            className="reviews-slider-item"
-                            {...item}
-                            hasMaxHeight={heights[id] === maxHeight}
+            {reviews.length !== 0 && (
+                <div {...anime('slider')} className="hidden mob:flex mob:flex-column mob:gap-40" onWheel={handleWheel}>
+                    <SlickSlider ref={sliderRef} className="reviews-slider" {...sliderSettings}>
+                        {reviews.map(({ id,  ...item}) => (
+                            <ReviewItem
+                                key={id}
+                                ref={(el) => {
+                                    if (el) itemRefs.current[id] = el
+                                    else delete itemRefs.current[id]
+                                }}
+                                className="reviews-slider-item"
+                                {...item}
+                                hasMaxHeight={heights[id] === maxHeight}
+                            />
+                        ))}
+                    </SlickSlider>
+                    <div
+                        ref={trackRef}
+                        className="reviews-slider-scrollbar"
+                        onClick={handleTrackClick}
+                    >
+                        <div 
+                            className="reviews-slider-scrollbar-thumb"
+                            onMouseDown={handleThumbMouseDown}
+                            style={{
+                                width: `${scrollWidth}%`,
+                                left: `calc(${scrollPercentage}% - (${scrollWidth}% * ${scrollPercentage / 100}))`
+                            }} 
                         />
-                    ))}
-                </SlickSlider>
-                <div
-                    ref={trackRef}
-                    className="reviews-slider-scrollbar"
-                    onClick={handleTrackClick}
-                >
-                    <div 
-                        className="reviews-slider-scrollbar-thumb"
-                        onMouseDown={handleThumbMouseDown}
-                        style={{
-                            width: `${scrollWidth}%`,
-                            left: `calc(${scrollPercentage}% - (${scrollWidth}% * ${scrollPercentage / 100}))`
-                        }} 
-                    />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }

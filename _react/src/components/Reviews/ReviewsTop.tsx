@@ -36,13 +36,16 @@ const ReviewsTop: React.FC = () => {
                     from clients — <br />
                     one of our main tasks
                 </div>
-                <div {...anime('summary')} className="flex-column-between mob:flex-column-end">
-                    <div className="font-manrope-16 font-500">Overall rating</div>
-                    <div className="flex mob:flex-center mob:flex-row-reverse gap-16 mob:gap-26">
-                        <div className="font-manrope-52 font-500">{avgRating}</div>
-                        <Icon className="reviews-star-big" icon={starIcon} />
+                <div {...anime('summary')} className="mob:flex-row mob:flex-start-center mob:gap-26">
+                    <Icon className="reviews-star-big hidden mob:flex mob:flex-center" icon={starIcon} />
+                    <div className="flex-column-between gap-12 mob:flex-column-start">
+                        <div className="font-manrope-16 font-500">Overall rating</div>
+                        <div className="flex mob:flex-center mob:flex-row-reverse gap-16 mob:gap-26">
+                            <div className="font-manrope-52 font-500">{avgRating}</div>
+                            <Icon className="reviews-star-big flex-center mob:hidden" icon={starIcon} />
+                        </div>
+                        <div className="font-manrope-16 font-500">{totalCount} reviews</div>
                     </div>
-                    <div className="font-manrope-16 font-500">{totalCount} reviews</div>
                 </div>
             </div>
         </div>
