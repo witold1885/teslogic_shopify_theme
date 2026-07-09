@@ -1,12 +1,14 @@
 import React, { Fragment, useMemo, useState, type CSSProperties, type ReactNode } from 'react'
 import { Heading, Icon, Image, Popup, Video } from '../Common'
 
-import dualViewModeImage from '../../assets/images/screenmate-one/dual-view-mode.png'
-import beyondBasicControlsImage from '../../assets/images/screenmate-one/beyond-basic-controls.png'
 import {
     dualViewMode as dualViewModeVideo,
     beyondBasicControls as beyondBasicControlsVideo
 } from '../../assets/videos/screenmate-one'
+import {
+    dualViewMode as dualViewModeBackground,
+    beyondBasicControls as beyondBasicControlsBackground
+} from '../../assets/videos/screenmate-one/backgrounds'
 import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
 import pointerTopLeftDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-left-desktop.svg'
@@ -37,6 +39,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     additional: { yFrom: '20px', duration: 333 },
     pointers: { yFrom: '20px', duration: 333 },
     image: { yFrom: '40px', duration: 666 },
+    video: { yFrom: '40px', duration: 666 },
 }
 
 interface Block {
@@ -49,6 +52,7 @@ interface Block {
     additional?: ReactNode
     image?: string
     video?: string
+    background?: string
     pointers?: Record<string, Pointer>
 }
 
@@ -125,8 +129,8 @@ const ScreenmateOneConvenience: React.FC = () => {
                 side and an app on the other. Resize and rearrange elements freely <br />
                 for a layout optimized for comfort, clarity, and ease of use.
             </>,
-            image: dualViewModeImage,
-            video: dualViewModeVideo
+            video: dualViewModeVideo,
+            background: dualViewModeBackground
         },
         'key-driving-info': {
             wrapClassName: 'flex-column',
@@ -186,8 +190,8 @@ const ScreenmateOneConvenience: React.FC = () => {
                     <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                 </a>
             </>,
-            image: beyondBasicControlsImage,
-            video: beyondBasicControlsVideo
+            video: beyondBasicControlsVideo,
+            background: beyondBasicControlsBackground
         },
         'front-camera-integration': {
             wrapClassName: 'flex-between mob:flex-column',
@@ -336,7 +340,7 @@ const ScreenmateOneConvenience: React.FC = () => {
         <div className="screenmate-one__convenience">
             <div className="screenmate-one__convenience-wrap">
                 <Heading {...anime('heading')} title="Built Around Everyday Convenience" />
-                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, pointers }]) => (
+                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, background, pointers }]) => (
                     <div
                         key={blockKey}
                         className={`screenmate-one__convenience-block ${blockKey} w-full`}
@@ -351,11 +355,12 @@ const ScreenmateOneConvenience: React.FC = () => {
                                     {additional}
                                 </div>
                             )}
-                            {video ? (
-                                <Video {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-video" src={video} background={image} />
-                            ) : (image && (
+                            {image && (
                                 <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} />
-                            ))}
+                            )}
+                            {video && (
+                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__convenience-block-video" src={video} background={background} />
+                            )}
                             {pointers && (<>
                                 {Object.entries(pointers).map(([pointerKey, pointer]) => (
                                     <div

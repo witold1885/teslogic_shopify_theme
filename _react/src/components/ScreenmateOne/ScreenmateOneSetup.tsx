@@ -6,6 +6,12 @@ import {
     gaming as gamingVideo,
     social as socialVideo
 } from '../../assets/videos/screenmate-one'
+import {
+    streaming as streamingBackground,
+    navigation as navigationBackground,
+    gaming as gamingBackground,
+    social as socialBackground
+} from '../../assets/videos/screenmate-one/backgrounds'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -23,24 +29,28 @@ const ScreenmateOneSetup: React.FC = () => {
             title: 'Streaming',
             text: <>Enjoy premium streaming of your favorite movies, TV shows,<br />music, and more with smooth, high-quality playback.</>,
             video: streamingVideo,
+            background: streamingBackground,
             timeout: 13000
         },
         navigation: {
             title: 'Navigation',
             text: <>Use the navigation apps you love, right on your Tesla’s display.</>,
             video: navigationVideo,
+            background: navigationBackground,
             timeout: 7000
         },
         gaming: {
             title: 'Gaming',
             text: <>Bring mobile gaming to your Tesla’s screen<br />with Google Play Games.</>,
             video: gamingVideo,
+            background: gamingBackground,
             timeout: 7000
         },
         social: {
             title: 'Social & Messaging',
             text: <>Stay connected on the go with quick access to social media,<br />email, video calls, and messaging apps.</>,
             video: socialVideo,
+            background: socialBackground,
             timeout: 13000
         },
     }
@@ -62,8 +72,8 @@ const ScreenmateOneSetup: React.FC = () => {
                 </div>
                 <div className="w-full flex-column-center gap-32 mob:gap-8">
                     <div {...anime('video')} className="screenmate-one__setup-video">
-                        {Object.entries(tabs).map(([tab, { video }]) => (
-                            <Video className={tab === activeTab ? '' : 'hidden'} key={tab} src={video as string} />
+                        {Object.entries(tabs).map(([tab, { video, background }]) => (
+                            <Video className={tab === activeTab ? '' : 'hidden'} key={tab} src={video as string} background={background} />
                         ))}
                     </div>
                     <div className="flex-column-center gap-32 mob:flex-column mob:gap-24">

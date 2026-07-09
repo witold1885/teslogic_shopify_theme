@@ -1,13 +1,15 @@
 import React, { useMemo, type ReactNode } from 'react'
-import { Heading, Image, Video } from '../Common'
+import { Heading, Video } from '../Common'
 
-import carPlayAndAndroidAutoImage from '../../assets/images/screenmate-one/car-play-and-android-auto.png'
-import connectConsolesImage from '../../assets/images/screenmate-one/connect-consoles.png'
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
 import {
     carPlayAndAndroidAuto as carPlayAndAndroidAutoVideo,
     connectConsoles as connectConsolesVideo
 } from '../../assets/videos/screenmate-one'
+import {
+    carPlayAndAndroidAuto as carPlayAndAndroidAutoBackground,
+    connectConsoles as connectConsolesBackground
+} from '../../assets/videos/screenmate-one/backgrounds'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -15,7 +17,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     heading: { yFrom: '40px', duration: 666 },
     title: { yFrom: '40px', duration: 666 },
     text: { yFrom: '20px', duration: 333 },
-    image: { yFrom: '40px', duration: 666 },
+    video: { yFrom: '40px', duration: 666 },
     sketch: { yFrom: '40px', duration: 666 },
     info: { yFrom: '20px', duration: 333 },
 }
@@ -24,8 +26,8 @@ interface Block {
     heading: ReactNode
     title: ReactNode
     text: ReactNode
-    image: string
     video?: string
+    background?: string
     sketch?: string
     info?: Record<string, ReactNode>[]
 }
@@ -40,8 +42,8 @@ const ScreenmateOneIntegration: React.FC = () => {
                 Connect once and enjoy a familiar<br />
                 interface every time you drive.
             </>,
-            image: carPlayAndAndroidAutoImage,
-            video: carPlayAndAndroidAutoVideo
+            video: carPlayAndAndroidAutoVideo,
+            background: carPlayAndAndroidAutoBackground
         },
         'bigger-entertainment': {
             heading: <>A Bigger Entertainment<br />Experience</>,
@@ -51,8 +53,8 @@ const ScreenmateOneIntegration: React.FC = () => {
                 Android games on the powerful Qualcomm chipset or<br />
                 connect your favorite gaming console via HDMI or USB.
             </>,
-            image: connectConsolesImage,
             video: connectConsolesVideo,
+            background: connectConsolesBackground,
             sketch: connectDevices,
             info: [
                 {title: 'HDMI In', text: <>Connect external media<br />players or consoles to<br />display high-definition<br />video on the screen.</>},
@@ -67,7 +69,7 @@ const ScreenmateOneIntegration: React.FC = () => {
 
     return (
         <div className="screenmate-one__integration">
-            {Object.entries(blocks).map(([blockKey, { heading, title, text, image, video, sketch, info }]) => (
+            {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
                 <div className="screenmate-one__integration-block" key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
                     <div className="w-full flex-wrap flex-between gap-60 mob:gap-32">
@@ -95,11 +97,9 @@ const ScreenmateOneIntegration: React.FC = () => {
                                     </div>
                                 </div>
                             )}
-                            {video ? (
-                                <Video {...anime(`${blockKey}-image`)} className="screenmate-one__integration-block-video" src={video} background={image} />
-                            ) : (image && (
-                                <Image {...anime(`${blockKey}-image`)} className="screenmate-one__integration-block-image" src={image} />
-                            ))}
+                            {video && (
+                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__integration-block-video" src={video} background={background} />
+                            )}
                         </div>
                     </div>
                 </div>

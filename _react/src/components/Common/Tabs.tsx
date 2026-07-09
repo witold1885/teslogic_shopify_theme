@@ -6,6 +6,7 @@ export interface TabProps {
     text?: ReactNode
     content?: ReactNode
     video?: string
+    background?: string
     timeout?: number
 }
 
