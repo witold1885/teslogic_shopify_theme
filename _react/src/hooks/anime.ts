@@ -18,6 +18,9 @@ interface ValidElement {
     config: AnimationConfig
 }
 
+type AnimationMode = 'show' | 'hide'
+type AnimationDirection = 'top' | 'bottom'
+
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const targetsRef = useRef<Record<string, HTMLElement | null>>({})
     
@@ -120,11 +123,11 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         }
     }, [])
 
-    const anime = useCallback((key: string) => ({
+    const anime = useCallback((key: string, mode?: AnimationMode) => ({
         ref: setRef(key),
         style: (
             !!finishedAnimations[key] ? { '--is-finished': 1 } 
-                                      : { opacity: 0 }
+                                      : { opacity: mode === 'hide' ? 1 : 0 }
         ) as any
     }), [setRef, finishedAnimations])
 
@@ -135,10 +138,41 @@ export const getAnimationConfig = (yFrom: string, duration?: number) => (
     { y: [yFrom, '0px'], opacity: [0, 1], duration: duration || defaultDuration }
 )
 
+export const getCustomConfig = (yFrom: string, duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {
+    let y, opacity
+    if (mode === 'show') {
+        opacity = [0, 1]
+        if (direction === 'top') {
+            y = [`-${yFrom}`, '0px']
+        }
+        if (direction === 'bottom') {
+            y = [yFrom, '0px']
+        }
+    }
+    if (mode === 'hide') {
+        opacity = [1, 0]
+        if (direction === 'top') {
+            y = ['0px', `-${yFrom}`]
+        }
+        if (direction === 'bottom') {
+            y = ['0px', yFrom]
+        }
+    }
+    return y && opacity ? { y, opacity, duration: duration || defaultDuration } : getAnimationConfig(yFrom, duration)
+}
+
 export const mapSimpleConfigs = (animatedObjects: Record<string, AnimatedObjectOptions>) => {
     return Object.entries(animatedObjects).reduce<Record<string, AnimationConfig>>(
         (acc, [key, { yFrom, duration }]) => ({
             ...acc, [key]: getAnimationConfig(yFrom, duration)
+        }), {}
+    )
+}
+
+export const mapCustomConfigs = (animatedObjects: Record<string, AnimatedObjectOptions>, mode?: AnimationMode, direction?: AnimationDirection) => {
+    return Object.entries(animatedObjects).reduce<Record<string, AnimationConfig>>(
+        (acc, [key, { yFrom, duration }]) => ({
+            ...acc, [key]: getCustomConfig(yFrom, duration, mode, direction)
         }), {}
     )
 }

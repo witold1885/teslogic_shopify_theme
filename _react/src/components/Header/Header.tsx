@@ -9,19 +9,22 @@ import cartIcon from '../../assets/icons/cart-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { mapCustomConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    header: { yFrom: '20px', duration: 333 },
+    header: { yFrom: '40px', duration: 666 },
 }
 
-interface HeaderMenuProps {
+interface HeaderProps {
     className?: string
     menu: MenuItem[]
-    mode: 'desktop' | 'mobile'
     onOrder?: () => void
+}
+
+interface HeaderMenuProps extends HeaderProps {
+    mode: 'desktop' | 'mobile'
 }
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onOrder }) => {
@@ -74,6 +77,50 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
     )
 }
 
+interface HeaderComponentProps extends HeaderProps {
+    position: 'absolute' | 'sticky'
+    isMobile: boolean
+    onMobileMenuOpen: () => void
+}
+
+const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, menu, isMobile, onOrder, onMobileMenuOpen }) => {
+    const headerKey = `header-${position}-${className}`
+    const mode = className === 'transparent' ? 'hide' : 'show'
+    const direction = position === 'sticky' ? 'top' : 'bottom'
+    const animationConfigs = useMemo(() => mapCustomConfigs({ [headerKey]: animatedObjects.header }, mode, direction), [headerKey])
+
+    const { anime } = useAnime(animationConfigs)
+
+    return (
+        <header
+            {...anime(headerKey, mode)}
+            className={`header ${className}`}
+        >
+            <a href="/">
+                <Image className="header-logo" src={logo} alt="Screenmate" />
+            </a>
+            {!isMobile 
+                ? <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
+                : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}><span>Menu</span></Button>
+            }
+        </header>
+    )
+}
+
+interface HeaderMobileProps extends HeaderProps {
+    onMobileMenuClose: () => void
+}
+
+const HeaderMobile: React.FC<HeaderMobileProps> = ({ menu, onOrder, onMobileMenuClose }) => (
+    <div className="header-menu-mobile-wrap">
+        <div className="flex-between-center">
+            <Image className="header-logo" src={logoBlack} alt="Screenmate" />
+            <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
+        </div>
+        <HeaderMenu className="header-menu-mobile" mode="mobile" {...{menu, onOrder}} />
+    </div>
+)
+
 const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const { isMobile } = useInlineStyles()
     const scrollOffset = useScroll()
@@ -86,29 +133,26 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
     }, [main_menu])
 
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
-        
-    const { anime } = useAnime(animationConfigs)
+    const isScrolling = scrollOffset.y > 0 && scrollOffset.direction === 'up'
+    const isAtTop = scrollOffset.y <= 0
+
+    const headerParams = { menu: menu as MenuItem[], onOrder }
+
+    const headerComponentParams = {
+        ...headerParams,
+        isMobile,
+        onMobileMenuOpen: () => setOpenMobileMenu(true)
+    }
+
+    const headerMobileParams = {
+        ...headerParams,
+        onMobileMenuClose: () => setOpenMobileMenu(false)
+    }
 
     return (<>
-        <header {...anime('header')} className={`header ${scrollOffset.y > 0 ? 'sticky' : ''}`}>
-            <a href="/">
-                <Image className="header-logo" src={logo} alt="Screenmate" />
-            </a>
-            {!isMobile 
-                ? <HeaderMenu className="header-menu-desktop" menu={menu as MenuItem[]} mode="desktop" onOrder={onOrder} />
-                : <Button className="header-menu-mobile-open" onClick={() => setOpenMobileMenu(true)}><span>Menu</span></Button>
-            }
-        </header>
-        {openMobileMenu && (
-            <div className="header-menu-mobile-wrap">
-                <div className="flex-between-center">
-                    <Image className="header-logo" src={logoBlack} alt="Screenmate" />
-                    <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={() => setOpenMobileMenu(false)}/>
-                </div>
-                <HeaderMenu className="header-menu-mobile" menu={menu as MenuItem[]} mode="mobile" onOrder={onOrder} />
-            </div>
-        )}
+        <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />
+        <HeaderComponent position="sticky" className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')} {...headerComponentParams} />
+        {openMobileMenu && <HeaderMobile {...headerMobileParams} />}
     </>)
 }
 

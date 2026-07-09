@@ -2,7 +2,7 @@
 @use '@/assets/styles/mixins' as *;
 
 .header {
-    @extend .w-full, .flex-between, .fixed;
+    @extend .w-full, .flex-between;
     z-index: 10;
     top: 0;
     left: 0;
@@ -14,6 +14,7 @@
     }
 
     &.sticky {
+        @extend .fixed;
         @include responsive(padding, 14px, 72px);
         background: rgba(0, 0, 0, 0.32);
         backdrop-filter: blur(32px);
@@ -21,6 +22,11 @@
         @include mobile() {
             @include responsive(padding, 22px, 20px);
         }
+    }
+
+    &.transparent {
+        @extend .fixed;
+        opacity: 0;
     }
 
     &-logo {
