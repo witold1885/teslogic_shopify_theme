@@ -212,7 +212,7 @@
             }
 
             &-item {
-                @extend .flex-column-between, .relative, .overflow-hidden;
+                @extend .flex-column-between, .relative, .overflow-hidden, .cursor-pointer;
                 @include responsive(width, 416px);
                 aspect-ratio: 1/1;
                 @include responsive(padding, 28px, 32px, 32px);

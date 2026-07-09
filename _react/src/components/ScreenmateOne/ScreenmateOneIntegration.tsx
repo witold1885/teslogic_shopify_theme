@@ -1,4 +1,4 @@
-import React, { useMemo, type ReactNode } from 'react'
+import { forwardRef, useImperativeHandle, useMemo, useRef, type ReactNode } from 'react'
 import { Heading, Video } from '../Common'
 
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
@@ -22,6 +22,10 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     info: { yFrom: '20px', duration: 333 },
 }
 
+interface Section {
+    getBlock?: (key: string) => HTMLDivElement | null
+}
+
 interface Block {
     heading: ReactNode
     title: ReactNode
@@ -32,7 +36,9 @@ interface Block {
     info?: Record<string, ReactNode>[]
 }
 
-const ScreenmateOneIntegration: React.FC = () => {
+const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
+    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})
+
     const blocks: Record<string, Block> = {
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
@@ -63,6 +69,10 @@ const ScreenmateOneIntegration: React.FC = () => {
         }
     }
 
+    useImperativeHandle(ref, () => ({
+        getBlock: (key: string) => blockRefs.current[key] || null
+    }))
+
     const animationConfigs = useMemo(() => mapBlocksConfigs(blocks, animatedObjects), [])
 
     const { anime } = useAnime(animationConfigs)
@@ -72,7 +82,10 @@ const ScreenmateOneIntegration: React.FC = () => {
             {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
                 <div className="screenmate-one__integration-block" key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
-                    <div className="w-full flex-wrap flex-between gap-60 mob:gap-32">
+                    <div ref={(el) => {
+                        if (el) blockRefs.current[blockKey] = el
+                        else delete blockRefs.current[blockKey]
+                    }} className="w-full flex-wrap flex-between gap-60 mob:gap-32">
                         <div className="w-full flex-between mob:flex-column mob:gap-12">
                             <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
                             <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
@@ -106,6 +119,6 @@ const ScreenmateOneIntegration: React.FC = () => {
             ))}
         </div>
     )
-}
+})
 
 export default ScreenmateOneIntegration

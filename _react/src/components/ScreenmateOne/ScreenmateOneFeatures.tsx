@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { Icon } from '../Common'
 
 import arrowIcon from '../../assets/icons/arrow-top-right.svg'
@@ -9,60 +9,116 @@ import dualViewMode from '../../assets/images/screenmate-one/features/dual-view-
 import consolesAndAnyHdmiDevices from '../../assets/images/screenmate-one/features/consoles-and-any-hdmi-devices.png'
 import screenmateDashAppSupport from '../../assets/images/screenmate-one/features/screenmate-dash-app-support.png'
 
-import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
+import { getAnimationConfig, getShiftConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 
 interface Feature {
-    style?: Record<string, any>
     title: string | ReactNode
     image?: string
     backgroundImage?: string
     imageStyle?: Record<string, any>
+    anchor?: string
+}
+
+interface FeatureBlockProps extends Feature {
+    index: number
+    style?: Record<string, any>
+    onClick?: () => void
 }
 
 const backgroundColor: string = '#1D1D1F'
 
-const FeatureBlock = forwardRef<HTMLDivElement, Feature>(({ style = {}, title, image, backgroundImage, imageStyle = {} }, ref) => (
-    <div
-        ref={ref}
-        className="screenmate-one__features-grid-item"
-        style={{
-            ...(backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : { backgroundColor }),
-            ...style
-        }}
-    >
-        <div className="flex-between">
-            <div className="font-manrope-28 font-600 mob:font-manrope-22">{title}</div>
-            <Icon className="screenmate-one__features-grid-item-header-icon flex-center" icon={arrowIcon} />
-        </div>
-        {image && <div style={imageStyle}><img className="w-full" src={image} /></div>}
-    </div>
-))
+const FeatureBlock: React.FC<FeatureBlockProps> = ({
+    index,
+    style = {},
+    title,
+    image,
+    backgroundImage,
+    imageStyle = {},
+    onClick
+}) => {
+    const [wasInteracted, setWasInteracted] = useState<boolean>(false)
+    const [isHovered, setIsHovered] = useState<boolean>(false)
 
-const ScreenmateOneFeatures = forwardRef<HTMLDivElement, {}>(({}, ref) => {
-    const { isMobile, responsive } = useInlineStyles()
-    const absoluteImageStyle = responsive({ width: !isMobile ? '385px' : '342px', height: !isMobile ? '286px' : '250px', position: 'absolute', bottom: 0 } as CSSProperties)
+    const handleMouseEnter = () => {
+        setWasInteracted(true)
+        setIsHovered(true)
+    }
 
-    const features: Feature[] = [
-        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive({ height: !isMobile ? '248px' : '218px' } as CSSProperties) },
-        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 } },
-        { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 } },
-        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode },
-        { title: <>Consoles & any<br />HDMI Devices</>, backgroundImage: consolesAndAnyHdmiDevices },
-        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport },
-    ]
+    const handleMouseLeave = () => {
+        setWasInteracted(true)
+        setIsHovered(false)
+    }
 
-    const animationConfigs = useMemo(() => features.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
-        ...acc, [`feature_${index}`]: getAnimationConfig('40px', 333)
-    }), {}), [])
+    const animeKey: string = useMemo(() => {
+        const baseKey = `feature_${index}`
+        if (!wasInteracted) return baseKey
+        return isHovered ? `${baseKey}_hover` : `${baseKey}_leave`
+    }, [index, wasInteracted, isHovered])
+    
+    const config: AnimationConfig = useMemo(() => {
+        if (animeKey.endsWith('_hover')) {
+            return getShiftConfig('0px', '-10px', 333)
+        }
+        if (animeKey.endsWith('_leave')) {
+            return getShiftConfig('-10px', '0px', 333)
+        }
+        return getAnimationConfig('40px', 333)
+    }, [animeKey])
+
+    const animationConfigs = useMemo(() => ({ [animeKey]: config }), [animeKey, config])
     
     const { anime } = useAnime(animationConfigs)
+
+    return (
+        <div
+            {...anime(animeKey)}
+            className="screenmate-one__features-grid-item"
+            style={{
+                ...(backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : { backgroundColor }),
+                ...style
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={onClick}
+        >
+            <div className="flex-between">
+                <div className="font-manrope-28 font-600 mob:font-manrope-22">{title}</div>
+                <Icon className="screenmate-one__features-grid-item-header-icon flex-center" icon={arrowIcon} />
+            </div>
+            {image && <div style={imageStyle}><img className="w-full" src={image} /></div>}
+        </div>
+    )
+}
+
+const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: string | null) => void }>(({ scrollTo }, ref) => {
+    const { isMobile, responsive } = useInlineStyles()
+    const absoluteImageStyle = responsive({
+        width: !isMobile ? '385px' : '342px',
+        height: !isMobile ? '286px' : '250px',
+        position: 'absolute',
+        bottom: 0
+    } as CSSProperties)
+
+    const features: Feature[] = useMemo(() => [
+        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive({ height: !isMobile ? '248px' : '218px' } as CSSProperties), anchor: 'Setup' },
+        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
+        { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
+        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
+        { title: <>Consoles & any<br />HDMI Devices</>, backgroundImage: consolesAndAnyHdmiDevices, anchor: 'Integration.bigger-entertainment' },
+        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, anchor: 'Dash' },
+    ], [isMobile, responsive])
 
     return (
         <div ref={ref} className="screenmate-one__features">
             <div className="screenmate-one__features-grid">
                 {features.map((feature: Feature, index: number) => (
-                    <FeatureBlock {...anime(`feature_${index}`)} {...feature} key={index} />
+                    <FeatureBlock
+                        key={index}
+                        index={index}
+                        {...feature}
+                        onClick={() => scrollTo(feature.anchor || null)}
+                    />
                 ))}
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo, useState, type CSSProperties, type ReactNode } from 'react'
+import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { Heading, Icon, Image, Popup, Video } from '../Common'
 
 import {
@@ -107,6 +107,10 @@ const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, ti
     )
 }
 
+interface Section {
+    getBlock?: (key: string) => HTMLDivElement | null
+}
+
 interface Pointer {
     title: string
     text: ReactNode
@@ -115,8 +119,10 @@ interface Pointer {
     imageStyle?: CSSProperties
 }
 
-const ScreenmateOneConvenience: React.FC = () => {
+const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
     const { isMobile, responsive } = useInlineStyles()
+
+    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})    
 
     const blocks: Record<string, Block> = useMemo(() => ({
         'dual-view-mode': {
@@ -322,6 +328,10 @@ const ScreenmateOneConvenience: React.FC = () => {
             { type: 'button', icon: commandIcons['unlock-charge-port'], title: <>Unlock Charge Port</> }
         ]
     }
+    
+    useImperativeHandle(ref, () => ({
+        getBlock: (key: string) => blockRefs.current[key] || null
+    }))
 
     const headingConfig = Object.values(animatedObjects.heading) as [string, number]
     const animationConfigs = useMemo(() => mapBlocksConfigs(blocks, animatedObjects, (blockKey: string, param: string) => {
@@ -343,6 +353,10 @@ const ScreenmateOneConvenience: React.FC = () => {
                 {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, background, pointers }]) => (
                     <div
                         key={blockKey}
+                        ref={(el) => {
+                            if (el) blockRefs.current[blockKey] = el
+                            else delete blockRefs.current[blockKey]
+                        }} 
                         className={`screenmate-one__convenience-block ${blockKey} w-full`}
                     >
                         <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''} mob:gap-32 relative`}>
@@ -417,6 +431,6 @@ const ScreenmateOneConvenience: React.FC = () => {
             </Popup>
         </div>
     )
-}
+})
 
 export default ScreenmateOneConvenience

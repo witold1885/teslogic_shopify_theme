@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, forwardRef } from 'react'
+import React, { forwardRef, useState, useMemo, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'

@@ -18,7 +18,7 @@ interface ValidElement {
     config: AnimationConfig
 }
 
-type AnimationMode = 'show' | 'hide'
+type AnimationMode = 'show' | 'hide' | 'shift'
 type AnimationDirection = 'top' | 'bottom'
 
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
@@ -127,7 +127,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         ref: setRef(key),
         style: (
             !!finishedAnimations[key] ? { '--is-finished': 1 } 
-                                      : { opacity: mode === 'hide' ? 1 : 0 }
+                                      : { opacity: mode === 'hide' || mode === 'shift' ? 1 : 0 }
         ) as any
     }), [setRef, finishedAnimations])
 
@@ -136,6 +136,10 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (
     { y: [yFrom, '0px'], opacity: [0, 1], duration: duration || defaultDuration }
+)
+
+export const getShiftConfig = (yFrom: string, yTo: string, duration?: number) => (
+    { y: [yFrom, yTo], duration: duration || defaultDuration }
 )
 
 export const getCustomConfig = (yFrom: string, duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import { forwardRef, useMemo, useState } from 'react'
 import { Heading, Tabs, type TabProps, Video } from '../Common'
 import {
     streaming as streamingVideo,
@@ -23,7 +23,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     text: { yFrom: '20px', duration: 333 },
 }
 
-const ScreenmateOneSetup: React.FC = () => {
+const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const tabs: Record<string, TabProps> = {
         streaming: {
             title: 'Streaming',
@@ -62,7 +62,7 @@ const ScreenmateOneSetup: React.FC = () => {
     const { anime } = useAnime(animationConfigs)
     
     return (
-        <div className="screenmate-one__setup">
+        <div ref={ref} className="screenmate-one__setup">
             <div className="container flex-column-center gap-64 mob:gap-28">
                 <div className="flex-column-center gap-24 mob:flex-column-start mob:gap-12">
                     <Heading {...anime('title')} title="Your Screen, Your Setup" />
@@ -86,6 +86,6 @@ const ScreenmateOneSetup: React.FC = () => {
             </div>
         </div>
     )
-}
+})
 
 export default ScreenmateOneSetup

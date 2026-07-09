@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { forwardRef, useMemo } from 'react'
 import Image from '../Common/Image'
 import Icon from '../Common/Icon'
 import dashImage from '../../assets/images/screenmate-one/dash-image.png'
@@ -15,14 +15,14 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     image: { yFrom: '40px', duration: 666 },
 }
 
-const ScreenmateOneDash: React.FC = () => {
+const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <div className="screenmate-one__dash">
+        <div ref={ref} className="screenmate-one__dash">
             <div {...anime('body')} className="screenmate-one__dash-body">
                 <div className="screenmate-one__dash-body-info">
                     <div className="screenmate-one__dash-body-info-texts">
@@ -47,6 +47,6 @@ const ScreenmateOneDash: React.FC = () => {
             </div>
         </div>
     )
-}
+})
 
 export default ScreenmateOneDash
