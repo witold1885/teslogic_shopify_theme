@@ -4,6 +4,7 @@ import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 import specificationsDimensions from '../../assets/images/screenmate-one/specifications-dimensions.png'
 
 import chipset from '../../assets/icons/screenmate-one/chipset.svg'
+import gpu from '../../assets/icons/screenmate-one/gpu.svg'
 import memory from '../../assets/icons/screenmate-one/memory.svg'
 import storage from '../../assets/icons/screenmate-one/storage.svg'
 import android from '../../assets/icons/screenmate-one/android.svg'
@@ -56,7 +57,7 @@ const ContentGridImageItem: React.FC<ContentGridItemProps> = ({ image, title, su
         <Image className="screenmate-one__specifications-body-content-grid-item-image" src={image as string} />
         <div className="flex-column font-manrope-24 mob:font-manrope-20 font-500">
             <div>{title}</div>
-            <div className="text-darkgrey">{subtitle}</div>
+            <div className="text-darkgrey whitespace-nowrap">{subtitle}</div>
         </div>
     </div>
 )
@@ -106,7 +107,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
                     { icon: memory, title: 'Memory', text: <>8 GB LPDDR4X RAM</> },
                     { icon: chipset, title: 'CPU', text: <>Quad-core ARM Cortex-A73 up to 2.4 GHz, <br />Quad-core ARM Cortex-A53 up to 1.9 GHz</> },
                     { icon: storage, title: 'Storage', text: <>128 GB UFS</> },
-                    { icon: chipset, title: 'GPU', text: <>Adreno 610</> },
+                    { icon: gpu, title: 'GPU', text: <>Adreno 610</> },
                     { icon: android, title: 'Operating system', text: <>Screenmate OS, based on Android 14</> },
                 ]}
                 cols={2}
@@ -184,7 +185,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
                     <div {...anime('content')} className="screenmate-one__specifications-body-content">
                         {activeTab && tabs[activeTab]?.content}
                     </div>
-                    <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} />
+                    <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} autoplay={false} />
                 </div>
                 <ScreenmateOneInstallation />
             </div>

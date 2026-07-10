@@ -15,9 +15,11 @@ export interface TabsProps {
     activeTab: string | null
     setActiveTab: (tab: string) => void
     timeout?: number
+    autoplay?: boolean
+    replay?: boolean
 }
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActiveTab, timeout = 4000 }, ref) => {
+const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActiveTab, timeout = 4000, autoplay = true, replay = true }, ref) => {
     const [progress, setProgress] = useState<number>(0)
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
 
@@ -59,6 +61,11 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
     useEffect(() => {
         if (!activeTab|| !isIntersecting) return
 
+        if (!autoplay) {
+            setProgress(100)
+            return
+        }
+
         setProgress(0)
 
         const keys = Object.keys(tabs)
@@ -75,6 +82,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
                     
                     if (nextTabIndex < keys.length) {
                         setActiveTab(keys[nextTabIndex])
+                    } else if (replay) {
+                        setActiveTab(keys[0])
                     }
 
                     return 100
@@ -87,7 +96,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
         return () => {
             clearInterval(timer)
         }
-    }, [isIntersecting, tabs, activeTab, setActiveTab, timeout])
+    }, [isIntersecting, tabs, activeTab, setActiveTab, timeout, autoplay, replay])
 
     return (
         <div ref={setRef} className="tabs">

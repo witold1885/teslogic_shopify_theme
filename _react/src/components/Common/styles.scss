@@ -38,7 +38,7 @@
         &-marker {
             @extend .absolute;
             left: 0;
-            bottom: 0;
+            @include responsive(bottom, -1px);
             @include responsive(height, 3px);
             background: #FFF;
         }
