@@ -63,8 +63,9 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
         if (animeKey.endsWith('_leave')) {
             return getShiftConfig('-10px', '0px', 333)
         }
-        return getAnimationConfig('40px', 333)
-    }, [animeKey])
+        const baseConfig = getAnimationConfig('40px', 333)
+        return { ...baseConfig, delay: index * 333 / 2 }
+    }, [animeKey, index])
 
     const animationConfigs = useMemo(() => ({ [animeKey]: config }), [animeKey, config])
     

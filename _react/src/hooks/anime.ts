@@ -8,6 +8,7 @@ export interface AnimatedObjectOptions {
 
 export interface AnimationConfig extends Record<string, any> {
     duration?: number
+    delay?: number
 }
 
 const defaultDuration: number = 333
@@ -72,7 +73,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                         const timePassedSinceLastStart = now - lastAnimationStartRef.current
                         const halfOfLastDuration = lastAnimationDurationRef.current / 2
 
-                        let delay = 0
+                        let delay = config.delay || 0
                         
                         if (timePassedSinceLastStart < halfOfLastDuration) {
                             delay = halfOfLastDuration - timePassedSinceLastStart
