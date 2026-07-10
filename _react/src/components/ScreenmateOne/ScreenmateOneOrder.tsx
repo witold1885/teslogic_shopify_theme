@@ -113,12 +113,14 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     return (
         <div className="screenmate-one__order" ref={ref}>
             <div className="screenmate-one__order-gallery">
-                <img
-                    className="object-cover"
-                    src={galleryImages[currentImageIndex]}
-                    alt=""
-                    loading="lazy"
-                />
+                {galleryImages.map((image, index) => (
+                    <img
+                        key={index}
+                        className={`object-cover ${index === currentImageIndex ? '' : 'hidden'}`}
+                        src={image}
+                        alt=""
+                    />
+                ))}
                 <div {...anime('slider')} className="screenmate-one__order-gallery-slider-wrap">
                     <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
                         {galleryThumbs.map((image, index) => (
