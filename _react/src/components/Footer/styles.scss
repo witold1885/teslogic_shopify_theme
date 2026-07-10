@@ -36,10 +36,10 @@
         }
 
         & button {
+            @extend .flex-center, .text-center, .font-manrope-18, .font-600;
             @include responsive(width, 195px);
             @include responsive(height, 52px);
-            @extend .flex-center, .text-center, .font-manrope-18, .font-600;
-            border-radius: 26px;
+            @include responsive(border-radius, 26px);
             border: 3px solid #0068FD;
             background: transparent;
             color: #1657FC;
