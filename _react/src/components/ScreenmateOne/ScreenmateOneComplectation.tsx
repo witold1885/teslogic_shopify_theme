@@ -57,7 +57,7 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
         <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
         <div className="flex-column gap-24 mob:gap-20">
             <div className="flex-column gap-20 mob:gap-16">
-                <div className="flex-column gap-4">
+                <div className="flex-column gap-8 mob:gap-4">
                     <div className="font-manrope-24 mob:font-manrope-18 font-500">{name}</div>
                     <div className="flex gap-8 font-manrope-20 mob:font-manrope-18 font-600">
                         <span className="text-blue">{price} USD</span>

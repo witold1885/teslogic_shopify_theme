@@ -1042,13 +1042,10 @@
             @extend .container, .flex-column, .gap-60, .mob\:gap-32;
 
             &-grid {
-                @extend .w-full, .grid, .overflow-hidden, .mob\:w-full;
-                @include responsive(gap, 2px);
+                @extend .w-full, .grid, .gap-0, .overflow-hidden, .mob\:w-full;
                 @include responsive(border-radius, 24px);
-                background: rgba(255, 255, 255, 0.15);
 
                 @include mobile() {
-                    @include responsive(gap, 1px);
                     @include responsive(border-radius, 12px);
                 }
 
@@ -1082,6 +1079,21 @@
                             & br {
                                 display: none;
                             }
+                        }
+                    }
+
+                    &.device, &.holder, &.data_wire, &.charger {
+                        border-right: 2px solid rgba(255, 255, 255, 0.15);
+                    }
+
+                    &.holder, &.tool {
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+                    }
+
+                    @include mobile() {
+                        &.device, &.charger {
+                            border-right: none;
+                            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
                         }
                     }
 
