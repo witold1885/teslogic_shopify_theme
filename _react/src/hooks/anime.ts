@@ -132,7 +132,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         ) as any
     }), [setRef, finishedAnimations])
 
-    return { anime, setRef }
+    return { anime, setRef, finishedAnimations }
 }
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (

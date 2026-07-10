@@ -1,4 +1,4 @@
-import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode, useEffect } from 'react'
 import { Icon } from '../Common'
 
 import arrowIcon from '../../assets/icons/arrow-top-right.svg'
@@ -26,6 +26,7 @@ interface FeatureBlockProps extends Feature {
     onClick?: () => void
 }
 
+const duration: number = 333
 const backgroundColor: string = '#1D1D1F'
 
 const FeatureBlock: React.FC<FeatureBlockProps> = ({
@@ -37,39 +38,42 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     imageStyle = {},
     onClick
 }) => {
-    const [wasInteracted, setWasInteracted] = useState<boolean>(false)
     const [isHovered, setIsHovered] = useState<boolean>(false)
+    const [isSpawned, setIsSpawned] = useState<boolean>(false)
 
-    const handleMouseEnter = () => {
-        setWasInteracted(true)
-        setIsHovered(true)
-    }
-
-    const handleMouseLeave = () => {
-        setWasInteracted(true)
-        setIsHovered(false)
-    }
+    const baseKey: string = useMemo(() => `feature_${index}`, [index])
 
     const animeKey: string = useMemo(() => {
-        const baseKey = `feature_${index}`
-        if (!wasInteracted) return baseKey
+        if (!isSpawned) return baseKey
         return isHovered ? `${baseKey}_hover` : `${baseKey}_leave`
-    }, [index, wasInteracted, isHovered])
+    }, [baseKey, isSpawned, isHovered])
     
     const config: AnimationConfig = useMemo(() => {
         if (animeKey.endsWith('_hover')) {
-            return getShiftConfig('0px', '-10px', 333)
+            return getShiftConfig('0px', '-10px', duration)
         }
         if (animeKey.endsWith('_leave')) {
-            return getShiftConfig('-10px', '0px', 333)
+            return getShiftConfig('-10px', '0px', duration)
         }
-        const baseConfig = getAnimationConfig('40px', 333)
-        return { ...baseConfig, delay: index * 333 / 2 }
+        const baseConfig = getAnimationConfig('40px', duration)
+        return { ...baseConfig, delay: index * duration / 4 }
     }, [animeKey, index])
 
     const animationConfigs = useMemo(() => ({ [animeKey]: config }), [animeKey, config])
     
-    const { anime } = useAnime(animationConfigs)
+    const { anime, finishedAnimations } = useAnime(animationConfigs)
+    
+    useEffect(() => {
+        setIsSpawned(!!finishedAnimations[baseKey])
+    }, [baseKey, finishedAnimations])
+
+    const handleMouseEnter = () => {
+        if (isSpawned) setIsHovered(true)
+    }
+
+    const handleMouseLeave = () => {
+        if (isSpawned) setIsHovered(false)
+    }
 
     return (
         <div
