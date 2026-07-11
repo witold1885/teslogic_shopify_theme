@@ -1,6 +1,7 @@
 const getUrl = (name: string) => new URL(`./${name}.png`, import.meta.url).href
 
 export const bannerDesktop = getUrl('banner-desktop')
+export const bannerMobile = getUrl('banner-mobile')
 export const beyondBasicControls = getUrl('beyond-basic-controls')
 export const carPlayAndAndroidAuto = getUrl('car-play-and-android-auto')
 export const connectConsoles = getUrl('connect-consoles')

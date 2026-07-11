@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { Button, Icon, Video } from '../Common'
 
-import { bannerDesktop as bannerVideo } from '../../assets/videos/screenmate-one'
-import { bannerDesktop as bannerBackground } from '../../assets/videos/screenmate-one/backgrounds'
+import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
+import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/backgrounds'
 import logoImage from '../../assets/images/screenmate-one/logo.svg'
 import playButton from '../../assets/icons/play-button.svg'
 import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'
@@ -29,7 +29,11 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
 
     return (
         <div className="screenmate-one__banner relative">
-            {!isMobile && <Video className="absolute inset" src={bannerVideo} background={bannerBackground} />}
+            {!isMobile ? (
+                <Video className="absolute inset" src={bannerDesktopVideo} background={bannerDesktopBackground} />
+            ) : (
+                <Video className="absolute inset" src={bannerMobileVideo} background={bannerMobileBackground} />
+            )}
             <div className="container h-full relative">
                 <div className="screenmate-one__banner-inner">
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />

@@ -11,10 +11,6 @@
 
         @include mobile() {
             @include responsive(min-height, 768px);
-            background-image: url(../../assets/images/screenmate-one/banner-mobile.png);
-            background-size: 100% auto;
-            background-position: top center;
-            background-repeat: no-repeat;
         }
 
         &-inner {
