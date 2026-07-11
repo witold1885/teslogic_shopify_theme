@@ -264,13 +264,17 @@ input, textarea {
         @extend .cursor-pointer;
 
         @include mobile() {
-            @include responsive(padding, 20px, 16px);
+            @include responsive(padding, 18px, 16px);
             @include responsive(border-radius, 6px);
         }
 
         & span {
             color: #FAFAFA;
             @extend .font-manrope-20, .mob\:font-manrope-16, .font-500;
+
+            @include mobile() {
+                @include responsive(line-height, 20px);
+            }
         }
     }
 
