@@ -91,11 +91,11 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
 const ScreenmateOneSpecifications: React.FC = () => {
     const tabs: Record<string, TabProps> = {
         'dimensions': {
-            title: 'Dimensions',
+            title: <>Dimen<br />sions</>,
             content: <Image className="flex-center" src={specificationsDimensions} />
         },
         'main-system': {
-            title: 'Main System',
+            title: <>Main System</>,
             content: <Content
                 title="Main System"
                 subtitle={<>
@@ -114,7 +114,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
             />
         },
         'microcontrollers': {
-            title: 'Microcontrollers',
+            title: <>Microcontrollers</>,
             content: <Content
                 title="Microcontrollers"
                 subtitle={<>
@@ -129,7 +129,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
             />
         },
         'interfaces': {
-            title: 'Interfaces',
+            title: <>Inter<br />faces</>,
             content: <Content
                 title="Interfaces"
                 subtitle={<>
@@ -151,7 +151,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
             />
         },
         'compatibility': {
-            title: 'Compatibility',
+            title: <>Compa<br />tibility</>,
             content: <Content
                 title="Compatibility Models"
                 subtitle={<>

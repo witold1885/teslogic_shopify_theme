@@ -42,7 +42,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
     const blocks: Record<string, Block> = {
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
-            title: <>CarPlay & Android Auto</>,
+            title: <>CarPlay & Android&nbsp;Auto</>,
             text: <>
                 Quick access to the apps you rely on.<br />
                 Connect once and enjoy a familiar<br />

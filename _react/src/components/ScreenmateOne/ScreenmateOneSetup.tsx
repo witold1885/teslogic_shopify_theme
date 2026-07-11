@@ -76,7 +76,7 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             <Video className={tab === activeTab ? '' : 'hidden'} key={tab} src={video as string} background={background} />
                         ))}
                     </div>
-                    <div className="flex-column-center gap-32 mob:flex-column mob:gap-24">
+                    <div className="flex-column-center gap-32 mob:flex-column-start mob:gap-24">
                         <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} />
                         {activeTab && tabs[activeTab] && (
                             <div {...anime('text')} className="screenmate-one__setup-text">{tabs[activeTab].text}</div>

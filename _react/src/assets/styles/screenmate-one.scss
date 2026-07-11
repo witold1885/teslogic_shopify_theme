@@ -274,7 +274,7 @@
             @extend .overflow-hidden;
 
             @include mobile() {
-                @include responsive(height, 290px);
+                height: auto;
                 @include responsive(border-radius, 10px);
             }
         }
@@ -411,6 +411,10 @@
 
             &-video {
                 @include responsive(height, 580px);
+
+                @include mobile() {
+                    height: auto;
+                }
             }
 
             &-pointer {
@@ -772,6 +776,10 @@
 
             &-video {
                 @include responsive(height, 580px);
+
+                @include mobile() {
+                    height: auto;
+                }
             }
 
             &:has(.screenmate-one__integration-block-info) {
@@ -879,7 +887,14 @@
 
         &-body {
             @extend .flex-column-center, .gap-32, .mob\:flex-column-reverse, .mob\:gap-16;
-            @include responsive(gap, 32px);
+
+            & .tabs-item-title > br {
+                display: none;
+
+                @include mobile() {
+                    display: block;
+                }
+            }
 
             &-content {
                 @extend .w-full, .overflow-hidden;

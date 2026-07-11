@@ -2,7 +2,7 @@ import { forwardRef, useState, useEffect, useRef, type ReactNode } from 'react'
 import './styles.scss'
 
 export interface TabProps {
-    title: string
+    title: ReactNode
     text?: ReactNode
     content?: ReactNode
     video?: string
