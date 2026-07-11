@@ -85,7 +85,16 @@ $fontsMap: (
             @include responsive(font-size, $fontSize);
             @include responsive(line-height, $lineHeight);
             font-weight: 400;
+        }
+
+        .font-manrope-#{replace-px($fontSize)} {
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;            
+        }
+
+        .mob\:font-manrope-#{replace-px($fontSize)} {
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
         }
     }
 }

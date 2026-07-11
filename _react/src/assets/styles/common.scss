@@ -145,11 +145,14 @@ body {
     @include responsive(line-height, 94px);
     @extend .text-center;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @include mobile() {
         @include responsive(font-size, 52px);
         @include responsive(line-height, 56px);
         text-align: left !important;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
     }
 
     &[style*="--is-finished: 1"] {
