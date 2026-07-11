@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getProduct } from '../lib'
 import type { CartResponse, CartPayload, Product } from '../../types/product'
 import shopify from '../shopify'
 
@@ -23,13 +22,6 @@ const initialState: ProductsState = {
     error: null
 }
 
-export const fetchProduct = createAsyncThunk(
-    'products/fetchProduct',
-    async (slug: string) => {
-        return getProduct(slug)
-    }
-)
-
 export const addToCart = createAsyncThunk(
     'products/addToCart',
     async (data: CartPayload, { rejectWithValue }) => {
@@ -49,19 +41,6 @@ export const productsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProduct.pending, (state) => {
-                state.loading = true
-                state.error = null
-            })
-            .addCase(fetchProduct.fulfilled, (state, action) => {
-                state.loading = false
-                state.product = action.payload
-            })
-            .addCase(fetchProduct.rejected, (state, action) => {
-                state.loading = false
-                state.product = null
-                state.error = action.payload as string
-            })
             .addCase(addToCart.pending, (state) => {
                 state.loading = true
                 state.addedToCart = false

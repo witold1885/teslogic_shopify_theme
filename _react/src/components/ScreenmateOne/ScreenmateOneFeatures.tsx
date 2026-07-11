@@ -5,7 +5,7 @@ import arrowIcon from '../../assets/icons/arrow-top-right.svg'
 import runAnyAndroidApps from '../../assets/images/screenmate-one/features/run-any-android-apps.png'
 import controlPanel50Commands from '../../assets/images/screenmate-one/features/control-panel-50-commands.png'
 import carPlayAndAndroidAuto from '../../assets/images/screenmate-one/features/car-play-and-android-auto.png'
-import dualViewMode from '../../assets/images/screenmate-one/features/dual-view-mode.png'
+import dualViewMode from '../../assets/images/screenmate-one/features/dual-view-mode-feature.png'
 import consolesAndAnyHdmiDevices from '../../assets/images/screenmate-one/features/consoles-and-any-hdmi-devices.png'
 import screenmateDashAppSupport from '../../assets/images/screenmate-one/features/screenmate-dash-app-support.png'
 
