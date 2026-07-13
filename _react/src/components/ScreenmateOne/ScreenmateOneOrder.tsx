@@ -51,8 +51,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         slidesToShow: !isMobile ? 6 : 4,
         slidesToScroll: 1,
         swipeToSlide: true,
-        prevArrow: <Icon icon={chevronLeft} />,
-        nextArrow: <Icon icon={chevronRight} />,
+        prevArrow: <div><Icon icon={chevronLeft} /></div>,
+        nextArrow: <div><Icon icon={chevronRight} /></div>,
         beforeChange: (_, next) => setCurrentImageIndex(next)
     }
 
@@ -124,14 +124,15 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 <div {...anime('slider')} className="screenmate-one__order-gallery-slider-wrap">
                     <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
                         {galleryThumbs.map((image, index) => (
-                            <Image
-                                key={index}
-                                className={`screenmate-one__order-gallery-slider-item ${
-                                    currentImageIndex === index ? 'active' : ''
-                                } overflow-hidden`}
-                                src={image}
-                                onClick={() => setCurrentImageIndex(index)}
-                            />
+                            <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
+                                <Image                                    
+                                    className={`screenmate-one__order-gallery-slider-item ${
+                                        currentImageIndex === index ? 'active' : ''
+                                    } overflow-hidden`}
+                                    src={image}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            </div>
                         ))}
                     </SlickSlider>
                 </div>
