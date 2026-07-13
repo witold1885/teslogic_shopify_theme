@@ -1,6 +1,6 @@
-$color1: #2F128E;
-$color2: #5306E3;
-$color3: #0400F9;
+$color1: #2F1F8E;
+$color2: #531FE3;
+$color3: #1F1FF9;
 $color4: #5836FF;
 
 $blur: 1rem;
@@ -24,7 +24,7 @@ $blur: 1rem;
   background-color: $color1;
   border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
   filter: blur($blur);
-  mix-blend-mode: overlay;
+  mix-blend-mode: normal;
 }
 
 .aurora__item:nth-of-type(1) {
