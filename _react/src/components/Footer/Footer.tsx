@@ -46,7 +46,7 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
                 <div className="flex-column gap-12 mob:gap-16">
                     {children?.map((child, i) => (
                         <div key={i}>
-                            <a href={child.url}>{child.title}</a>
+                            <a href={child.url} target="_blank">{child.title}</a>
                         </div>
                     ))}
                 </div>

@@ -52,7 +52,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                             <ul className="header-menu-item-dropdown">
                                 {children?.map((child, i) => (
                                     <li key={i}>
-                                        <a href={child.url}>{child.title}</a>
+                                        <a href={child.url} target="_blank">{child.title}</a>
                                     </li>
                                 ))}
                             </ul>
@@ -65,7 +65,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                     <span>ORDER NOW</span>
                 </Button>
             ) : (
-                <a className="header-menu-cart" href="/cart">
+                <a className="header-menu-cart" href="/cart" target="_blank">
                     <div>
                         <Icon className="w-full h-full flex-center" icon={cartIcon} />
                         <span>{cartItemCount}</span>
@@ -96,7 +96,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
             {...anime(headerKey, mode)}
             className={`header ${className}`}
         >
-            <a href="/">
+            <a href="/" target="_blank">
                 <Image className="header-logo" src={logo} alt="Screenmate" />
             </a>
             {!isMobile 

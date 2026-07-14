@@ -38,7 +38,7 @@ const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             the steering wheel selector.
                         </div>
                     </div>
-                    <a {...anime('link')} className="screenmate-one__dash-body-info-link" href="/dash">
+                    <a {...anime('link')} className="screenmate-one__dash-body-info-link" href="/dash" target="_blank">
                         <span>Learn more about Screenmate Dash</span>
                         <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                     </a>
