@@ -1217,6 +1217,7 @@
                     &-wrap {
                         @include square(60px);
                         @include responsive(border-radius, 12px);
+                        border: 2.5px solid transparent;
 
                         &:has(.active) {
                             @include responsive(border-radius, 14px);
@@ -1227,16 +1228,7 @@
                     &.active {
                         @include responsive(border-radius, 14px);
                         border: 2px solid rgba(255, 255, 255, 0.10);
-                        position: relative;
-
-                        & img {
-                            position: absolute;
-                            @include square(60px);
-                            top: -3.5px;
-                            left: -3.5px;
-                        }
-                    }
-                    
+                    }                    
                 }
             }
         }
