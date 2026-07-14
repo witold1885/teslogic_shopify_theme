@@ -16,7 +16,7 @@
 
         @include mobile() {
             flex: 1;
-            @include responsive(max-height, 72px);
+            @include responsive(height, 72px);
         }
 
         &-title {

@@ -20,15 +20,10 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     kickstarter: { yFrom: '20px' },
 }
 
-interface VideoParamsProps {
-    src: string
-    background: string
-}
-
 const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand, onOrder }) => {
     const { isMobile } = useInlineStyles()
 
-    const videoParams: VideoParamsProps = useMemo(() => {
+    const videoParams: { src: string; background: string } = useMemo(() => {
         return !isMobile 
             ? { src: bannerDesktopVideo, background: bannerDesktopBackground} 
             : { src: bannerMobileVideo, background: bannerMobileBackground }

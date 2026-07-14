@@ -274,7 +274,7 @@
             @extend .overflow-hidden;
 
             @include mobile() {
-                height: auto;
+                @include responsive(height, 196.883px);
                 @include responsive(border-radius, 10px);
             }
         }
@@ -807,6 +807,10 @@
             background: radial-gradient(30.67% 64.95% at 72.03% 50%, #1D1D1F 0%, #1D1D1F 100%);
             overflow: hidden;
 
+            @include mobile() {
+                @include responsive(border-radius, 10px);
+            }
+
             &-info {
                 @extend .flex-column, .flex-1, .gap-36, .mob\:gap-20;
                 @include responsive(padding, 110px, 0, 110px, 110px);
@@ -888,11 +892,15 @@
         &-body {
             @extend .flex-column-center, .gap-32, .mob\:flex-column-reverse, .mob\:gap-16;
 
-            & .tabs-item-title > br {
-                display: none;
+            & .tabs-item-title {
+                @extend .mob\:w-full;
 
-                @include mobile() {
-                    display: block;
+                & > br {
+                    display: none;
+
+                    @include mobile() {
+                        display: block;
+                    }
                 }
             }
 
@@ -909,7 +917,11 @@
                 @include mobile() {
                     height: auto;
                     @include responsive(border-radius, 12px);
-                    
+
+                    & > div:has(> img) {
+                        @include responsive(height, 220px);
+                    }
+
                     &:not(:has(> div > img)) {
                         @include responsive(padding, 20px, 20px, 36px);
                     }
