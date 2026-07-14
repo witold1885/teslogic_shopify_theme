@@ -102,7 +102,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     useEffect(() => {
         if (addedToCart) {
-            window.location.href = `${shopifyUrl}/cart`
+            window.open(`${shopifyUrl}/cart`, '_blank')
         }
     }, [addedToCart])
 
