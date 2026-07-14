@@ -13,19 +13,21 @@
         @include responsive(padding, 22px, 20px);
     }
 
-    &.sticky {
+    &.sticky, &.transparent {
         @extend .fixed;
         @include responsive(padding, 14px, 72px);
-        background: rgba(0, 0, 0, 0.32);
-        backdrop-filter: blur(32px);
 
         @include mobile() {
             @include responsive(padding, 22px, 20px);
         }
     }
 
+    &.sticky {
+        background: rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(32px);
+    }
+
     &.transparent {
-        @extend .fixed;
         opacity: 0;
     }
 
