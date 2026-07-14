@@ -20,8 +20,19 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     kickstarter: { yFrom: '20px' },
 }
 
+interface VideoParamsProps {
+    src: string
+    background: string
+}
+
 const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand, onOrder }) => {
     const { isMobile } = useInlineStyles()
+
+    const videoParams: VideoParamsProps = useMemo(() => {
+        return !isMobile 
+            ? { src: bannerDesktopVideo, background: bannerDesktopBackground} 
+            : { src: bannerMobileVideo, background: bannerMobileBackground }
+    }, [isMobile])
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
@@ -29,11 +40,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
 
     return (
         <div className="screenmate-one__banner relative">
-            {!isMobile ? (
-                <Video className="absolute inset" src={bannerDesktopVideo} background={bannerDesktopBackground} />
-            ) : (
-                <Video className="absolute inset" src={bannerMobileVideo} background={bannerMobileBackground} />
-            )}
+            <Video className="absolute inset" {...videoParams} />
             <div className="container h-full relative">
                 <div className="screenmate-one__banner-inner">
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
