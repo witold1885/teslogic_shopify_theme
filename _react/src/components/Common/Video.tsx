@@ -101,6 +101,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             <video 
                 ref={videoRef}
                 className="object-cover"
+                style={{ display: isReadyToPlay ? 'block' : 'none' }}
                 loop={loop}
                 playsInline
                 muted

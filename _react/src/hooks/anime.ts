@@ -32,7 +32,7 @@ const getDomElement = (target: HTMLElement | VideoRefMethods | null): HTMLElemen
 }
 
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
-    const targetsRef = useRef<Record<string, HTMLElement | null>>({})
+    const targetsRef = useRef<Record<string, HTMLElement | VideoRefMethods | null>>({})
     
     const timeoutsRef = useRef<number[]>([])
     const lastAnimationStartRef = useRef<number>(0)
@@ -126,7 +126,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         }
     }, [configsKey])
 
-    const setRef = useCallback((key: string) => (el: HTMLElement | null) => {
+    const setRef = useCallback((key: string) => (el: HTMLElement | VideoRefMethods | null) => {
         if (el) {
             targetsRef.current[key] = el
         } else {
