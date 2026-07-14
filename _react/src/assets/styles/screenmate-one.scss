@@ -1220,7 +1220,7 @@
                         border: 2.5px solid transparent;
 
                         &:has(.active) {
-                            @include responsive(border-radius, 14px);
+                            @include responsive(border-radius, 16px);
                             border: 1.5px solid #1657FC;
                         }
                     }
