@@ -93,6 +93,7 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 src={video as string}
                                 background={background}
                                 autoPlay={tab === activeTab}
+                                isActive={tab === activeTab}
                                 ref={(el: VideoRefMethods | null) => {
                                     if (el) videoRefs.current[tab] = el
                                     else delete videoRefs.current[tab]

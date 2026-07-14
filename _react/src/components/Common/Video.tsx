@@ -7,6 +7,7 @@ interface VideoProps {
     background?: string
     autoPlay?: boolean
     loop?: boolean
+    isActive?: boolean
 }
 
 export interface VideoRefMethods {
@@ -15,25 +16,24 @@ export interface VideoRefMethods {
     el: HTMLDivElement | null
 }
 
-const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, autoPlay = true, loop = true }, ref) => {
+const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, autoPlay = true, loop = true, isActive = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
 
     const [isIntersecting, setIsIntersecting] = useState(false)
+    const [isReadyToPlay, setIsReadyToPlay] = useState(false)
+
     const containerRef = useRef<HTMLDivElement | null>(null)
     const videoRef = useRef<HTMLVideoElement | null>(null)
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsIntersecting(true)
-                    if (containerRef.current) observer.unobserve(containerRef.current)
-                }
+                setIsIntersecting(entry.isIntersecting)
             },
             {
-                rootMargin: '100px',
-                threshold: 0.1
+                rootMargin: '200px',
+                threshold: 0.01
             }
         )
 
@@ -45,18 +45,43 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
     }, [])
 
     useEffect(() => {
-        if (isIntersecting && videoRef.current) {
-            videoRef.current.play().catch((error) => {
-                console.log(error)
-            })
+        const video = videoRef.current
+        if (!video) return
+
+        const shouldLoadAndPlay = isIntersecting && isActive
+
+        if (shouldLoadAndPlay) {
+            video.src = finalSrc
+            video.load()
+            
+            if (autoPlay && isReadyToPlay) {
+                const playPromise = video.play()
+                if (playPromise !== undefined) {
+                    playPromise.catch((error) => {
+                        if (error.name !== 'AbortError') {
+                            console.error('Autoplay failed:', error)
+                        }
+                    })
+                }
+            }
+        } else {
+            video.removeAttribute('src')
+            video.load() 
+            setIsReadyToPlay(false)
         }
-    }, [isIntersecting])
+    }, [isIntersecting, isActive, finalSrc, autoPlay, isReadyToPlay])
 
     useImperativeHandle(ref, () => ({
         play: () => {
-            if (videoRef.current) {
-                videoRef.current.currentTime = 0
-                return videoRef.current.play()
+            if (videoRef.current && isReadyToPlay) {
+                const playPromise = videoRef.current.play()
+                if (playPromise !== undefined) {
+                    playPromise.catch((error) => {
+                        if (error.name !== 'AbortError') {
+                            console.error('Manual play failed:', error)
+                        }
+                    })
+                }
             }
         },
         pause: () => {
@@ -76,12 +101,11 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             <video 
                 ref={videoRef}
                 className="object-cover"
-                src={isIntersecting ? finalSrc : undefined}
-                autoPlay={autoPlay}
                 loop={loop}
                 playsInline
                 muted
-                preload={isIntersecting ? 'auto' : 'none'}
+                preload={isIntersecting && isActive ? 'auto' : 'none'}
+                onCanPlayThrough={() => setIsReadyToPlay(true)}
             />
         </div>
     )
