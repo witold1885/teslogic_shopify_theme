@@ -88,7 +88,8 @@ const Footer: React.FC = () => {
                     { title: 'Social', url: '#', children: [
                         { title: 'Instagram', url: 'https://www.instagram.com/screenmate.co' },
                         { title: 'Facebook', url: 'https://www.facebook.com/screenmate.co' },
-                        { title: 'YouTube', url: 'https://www.youtube.com/@screenmatefortesla' }
+                        { title: 'YouTube', url: 'https://www.youtube.com/@screenmatefortesla' },
+                        { title: 'Discord', url: 'https://discord.gg/D8K8n94gkn' }
                     ]},
                     { title: 'Legal', url: '#', children: [
                         { title: 'Privacy Policy', url: '/privacy' },
