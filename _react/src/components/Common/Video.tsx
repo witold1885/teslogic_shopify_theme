@@ -1,14 +1,21 @@
-import { forwardRef, useState, useEffect, useRef, type CSSProperties } from 'react'
+import { forwardRef, useState, useEffect, useRef, useImperativeHandle, type CSSProperties } from 'react'
 
 interface VideoProps {
     className?: string
     style?: CSSProperties
     src: string
     background?: string
+    autoPlay?: boolean
     loop?: boolean
 }
 
-const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, src, background, loop = true }, ref) => {
+export interface VideoRefMethods {
+    play: () => Promise<void> | void
+    pause: () => void
+    el: HTMLDivElement | null
+}
+
+const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, autoPlay = true, loop = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
 
@@ -45,20 +52,32 @@ const Video = forwardRef<HTMLDivElement, VideoProps>(({ className = '', style, s
         }
     }, [isIntersecting])
 
+    useImperativeHandle(ref, () => ({
+        play: () => {
+            if (videoRef.current) {
+                videoRef.current.currentTime = 0
+                return videoRef.current.play()
+            }
+        },
+        pause: () => {
+            if (videoRef.current) {
+                videoRef.current.pause()
+            }
+        },
+        el: containerRef.current
+    }))
+
     return (
         <div
-            ref={(node) => {
-                containerRef.current = node
-                if (typeof ref === 'function') ref(node)
-                else if (ref) ref.current = node
-            }}
-            className={className}
-            style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover' } : {}) }}
+            ref={containerRef}
+            className={`h-full ${className}`}
+            style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
         >
             <video 
                 ref={videoRef}
                 className="object-cover"
                 src={isIntersecting ? finalSrc : undefined}
+                autoPlay={autoPlay}
                 loop={loop}
                 playsInline
                 muted

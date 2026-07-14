@@ -1,5 +1,5 @@
-import { forwardRef, useMemo, useState } from 'react'
-import { Heading, Tabs, type TabProps, Video } from '../Common'
+import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
+import { Heading, Tabs, type TabProps, Video, type VideoRefMethods } from '../Common'
 import {
     streaming as streamingVideo,
     navigation as navigationVideo,
@@ -60,6 +60,20 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         
     const { anime } = useAnime(animationConfigs)
+
+    const videoRefs = useRef<Record<string, VideoRefMethods | null>>({})
+
+    useEffect(() => {
+        Object.entries(videoRefs.current).forEach(([tab, videoComponent]) => {
+            if (!videoComponent) return
+
+            if (tab === activeTab) {
+                videoComponent.play()
+            } else {
+                videoComponent.pause()
+            }
+        })
+    }, [activeTab])
     
     return (
         <div ref={ref} className="screenmate-one__setup">
@@ -73,7 +87,17 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 <div className="w-full flex-column-center gap-32 mob:gap-8">
                     <div {...anime('video')} className="screenmate-one__setup-video">
                         {Object.entries(tabs).map(([tab, { video, background }]) => (
-                            <Video className={tab === activeTab ? '' : 'hidden'} key={tab} src={video as string} background={background} />
+                            <Video
+                                key={tab}
+                                className={tab === activeTab ? '' : 'hidden'}
+                                src={video as string}
+                                background={background}
+                                autoPlay={tab === activeTab}
+                                ref={(el: VideoRefMethods | null) => {
+                                    if (el) videoRefs.current[tab] = el
+                                    else delete videoRefs.current[tab]
+                                }}
+                            />
                         ))}
                     </div>
                     <div className="flex-column-center gap-32 mob:flex-column-start mob:gap-24">

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, isValidElement } from 'react'
 import { animate } from 'animejs'
+import type { VideoRefMethods } from '../components/Common'
 
 export interface AnimatedObjectOptions {
     yFrom: string
@@ -22,6 +23,14 @@ interface ValidElement {
 type AnimationMode = 'show' | 'hide' | 'shift'
 type AnimationDirection = 'top' | 'bottom'
 
+const getDomElement = (target: HTMLElement | VideoRefMethods | null): HTMLElement | null => {
+    if (!target) return null
+    if ('el' in target) {
+        return target.el as HTMLElement
+    }
+    return target as HTMLElement
+}
+
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const targetsRef = useRef<Record<string, HTMLElement | null>>({})
     
@@ -37,7 +46,8 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         const validElements: ValidElement[] = []
 
         Object.keys(configs).forEach((key) => {
-            const el = targetsRef.current[key]
+            const el = getDomElement(targetsRef.current[key])
+
             if (el) {
                 validElements.push({ key, el, config: configs[key] })
             }
