@@ -3,7 +3,7 @@ import { Button, Icon, Video } from '../Common'
 
 import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
 import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/backgrounds'
-import logoImage from '../../assets/images/screenmate-one/logo.svg'
+import logoImage from '../../assets/images/screenmate-one/screenmate-one-logo.svg'
 import playButton from '../../assets/icons/play-button.svg'
 import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'
 import heartIcon from '../../assets/icons/heart-fill.svg'
