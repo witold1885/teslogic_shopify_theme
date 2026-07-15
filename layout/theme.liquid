@@ -248,7 +248,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
       
     {% endunless %}
-    
+
     {% if template == 'index' %}
       <script>
         window.location.href = '/pages/screenmate';
@@ -523,6 +523,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     </script>
 
+    {% unless page.handle == 'screenmate-one-react' %}
     <script type="text/javascript" src="https://static.leaddyno.com/js"></script>
     <script>
       // If you use multiple sub-domains, set the root domain here
@@ -530,5 +531,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       LeadDyno.key = "5a811185091d34038e7c46e5466984addca95a9d"
       LeadDyno.recordVisit();
     </script>
+    {% endunless %}
   </body>
 </html>
