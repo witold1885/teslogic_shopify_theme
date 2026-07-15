@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import React, { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useAppSelector } from '../../redux/hooks'
 import macy, { type MacyInstance } from 'macy'
 import Slider, { type Settings } from 'react-slick'

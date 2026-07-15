@@ -55,14 +55,14 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
         if (validElements.length === 0) return
 
-        const animations: Record<string, any> = {}
+        // const animations: Record<string, any> = {}
         
-        validElements.forEach(({ key, el, config }) => {
-            animations[key] = animate(el, {
-                autoplay: false,
-                ...config
-            })
-        })
+        // validElements.forEach(({ key, el, config }) => {
+        //     animations[key] = animate(el, {
+        //         autoplay: false,
+        //         ...config
+        //     })
+        // })
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -74,8 +74,8 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                         if (!found) return
 
                         const { key, config } = found
-                        const currentAnim = animations[key]
-                        if (!currentAnim) return
+                        // const currentAnim = animations[key]
+                        // if (!currentAnim) return
 
                         const now = performance.now()
                         const duration = config.duration || defaultDuration
@@ -90,7 +90,13 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                         }
 
                         const startAnimation = () => {
-                            currentAnim.play().then(() => {
+                            // currentAnim.play().then(() => {
+                            //     setFinishedAnimations(prev => ({ ...prev, [key]: true }))
+                            // }).catch(() => {})
+                            animate(targetElement, {
+                                ...config,
+                                autoplay: true
+                            }).then(() => {
                                 setFinishedAnimations(prev => ({ ...prev, [key]: true }))
                             }).catch(() => {})
 
@@ -146,34 +152,34 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 }
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (
-    { y: [yFrom, '0px'], opacity: [0, 1], duration: duration || defaultDuration }
+    { translateY: [yFrom, '0px'], opacity: [0, 1], duration: duration || defaultDuration }
 )
 
 export const getShiftConfig = (yFrom: string, yTo: string, duration?: number) => (
-    { y: [yFrom, yTo], duration: duration || defaultDuration }
+    { translateY: [yFrom, yTo], duration: duration || defaultDuration }
 )
 
 export const getCustomConfig = (yFrom: string, duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {
-    let y, opacity
+    let translateY, opacity
     if (mode === 'show') {
         opacity = [0, 1]
         if (direction === 'top') {
-            y = [`-${yFrom}`, '0px']
+            translateY = [`-${yFrom}`, '0px']
         }
         if (direction === 'bottom') {
-            y = [yFrom, '0px']
+            translateY = [yFrom, '0px']
         }
     }
     if (mode === 'hide') {
         opacity = [1, 0]
         if (direction === 'top') {
-            y = ['0px', `-${yFrom}`]
+            translateY = ['0px', `-${yFrom}`]
         }
         if (direction === 'bottom') {
-            y = ['0px', yFrom]
+            translateY = ['0px', yFrom]
         }
     }
-    return y && opacity ? { y, opacity, duration: duration || defaultDuration } : getAnimationConfig(yFrom, duration)
+    return translateY && opacity ? { translateY, opacity, duration: duration || defaultDuration } : getAnimationConfig(yFrom, duration)
 }
 
 export const mapSimpleConfigs = (animatedObjects: Record<string, AnimatedObjectOptions>) => {
