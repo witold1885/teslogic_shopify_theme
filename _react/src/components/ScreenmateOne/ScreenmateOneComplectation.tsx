@@ -133,8 +133,8 @@ const ScreenmateOneComplectation: React.FC = () => {
                 },
                 holder: { name: 'Phone Holder', image: phoneHolder },
                 tool: { name: 'Plastic Tool', image: plasticTool },
-                data_wire: { name: 'Data Wire', image: dataWire },
-                video_wire: { name: 'Video Wire', image: videoWire }
+                data_wire: { name: 'Data Cable', image: dataWire },
+                video_wire: { name: 'Video Cable', image: videoWire }
             },
             itemComponent: BoxItem
         },

@@ -9,7 +9,7 @@ import {
     dualViewMode as dualViewModeBackground,
     beyondBasicControls as beyondBasicControlsBackground
 } from '../../assets/videos/screenmate-one/backgrounds'
-import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
+// import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
 import pointerTopLeftDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-left-desktop.svg'
 import pointerTopRightDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-right-desktop.svg'
@@ -199,19 +199,19 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             video: beyondBasicControlsVideo,
             background: beyondBasicControlsBackground
         },
-        'front-camera-integration': {
-            wrapClassName: 'flex-between mob:flex-column',
-            topClassName: 'flex-column',
-            topGap: 20,
-            title: <>Front Camera <br />Integration</>,
-            text: <>
-                Bring a live front camera view to your <br />
-                Tesla screen for added confidence <br />
-                when parking, maneuvering in tight <br />
-                spaces, or approaching curbs.
-            </>,
-            image: frontCameraIntegration
-        }
+        // 'front-camera-integration': {
+        //     wrapClassName: 'flex-between mob:flex-column',
+        //     topClassName: 'flex-column',
+        //     topGap: 20,
+        //     title: <>Front Camera <br />Integration</>,
+        //     text: <>
+        //         Bring a live front camera view to your <br />
+        //         Tesla screen for added confidence <br />
+        //         when parking, maneuvering in tight <br />
+        //         spaces, or approaching curbs.
+        //     </>,
+        //     image: frontCameraIntegration
+        // }
     }), [isMobile])
 
     const [commandsPopupOpen, setCommandsPopupOpen] = useState<boolean>(false)

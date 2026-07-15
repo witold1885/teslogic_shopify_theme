@@ -8,7 +8,7 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     body: { yFrom: '40px', duration: 666 },
-    subtitle: { yFrom: '20px', duration: 333 },
+    badge: { yFrom: '20px', duration: 333 },
     title: { yFrom: '20px', duration: 333 },
     texts: { yFrom: '20px', duration: 333 },
     link: { yFrom: '20px', duration: 333 },
@@ -27,7 +27,9 @@ const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 <div className="screenmate-one__dash-body-info">
                     <div className="screenmate-one__dash-body-info-texts">
                         <div className="screenmate-one__dash-body-info-texts-heading">
-                            <div {...anime('subtitle')} className="screenmate-one__dash-body-info-texts-heading-subtitle">A Must-Have App for Tesla 3/Y Drivers</div>
+                            <div {...anime('badge')} className="screenmate-one__dash-body-info-texts-heading-badge">
+                                <span>A Must-Have App for Tesla 3/Y Drivers</span>
+                            </div>
                             <div {...anime('title')} className="screenmate-one__dash-body-info-texts-heading-title">A complete driver display setup</div>
                         </div>
                         <div {...anime('texts')} className="screenmate-one__dash-body-info-texts-description">
