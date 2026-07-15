@@ -23,8 +23,9 @@
 {%- endcapture -%}
 
 <script>
+  {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
   window.ShopifyReactData = {
-    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first }}",
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
       main_menu: {{ main_menu }},
       footer_menu: []
