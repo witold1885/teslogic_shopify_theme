@@ -154,19 +154,44 @@ const ReviewsGrid: React.FC = () => {
         }
     }
 
-    useLayoutEffect(() => {
-        const newHeights: Record <number, number> = {}
+    // useLayoutEffect(() => {
+    //     const newHeights: Record <number, number> = {}
         
-        Object.keys(itemRefs.current).forEach((id: any) => {
-            const element = itemRefs.current[id]
-            if (element) {
-                newHeights[id] = element.getBoundingClientRect().height
-            }
-        })
-        setHeights(newHeights)
+    //     Object.keys(itemRefs.current).forEach((id: any) => {
+    //         const element = itemRefs.current[id]
+    //         if (element) {
+    //             newHeights[id] = element.getBoundingClientRect().height
+    //         }
+    //     })
+    //     setHeights(newHeights)
 
-        const newMaxHeight = Object.values(newHeights).reduce((acc, current) => Math.max(acc, current), -Infinity)
-        setMaxHeight(newMaxHeight)
+    //     const newMaxHeight = Object.values(newHeights).reduce((acc, current) => Math.max(acc, current), -Infinity)
+    //     setMaxHeight(newMaxHeight)
+    // }, [reviews, isMobile])
+
+    useEffect(() => {
+        if (!isMobile || reviews.length === 0) return
+
+        const handle = requestAnimationFrame(() => {
+            const newHeights: Record<number, number> = {}
+            let newMaxHeight = -Infinity
+
+            Object.keys(itemRefs.current).forEach((id: any) => {
+                const element = itemRefs.current[id]
+                if (element) {
+                    const height = element.offsetHeight
+                    newHeights[id] = height
+                    if (height > newMaxHeight) {
+                        newMaxHeight = height
+                    }
+                }
+            })
+
+            setHeights(newHeights)
+            setMaxHeight(newMaxHeight)
+        })
+
+        return () => cancelAnimationFrame(handle)
     }, [reviews, isMobile])
 
     const handleWheel = (e: React.WheelEvent) => {
@@ -234,25 +259,27 @@ const ReviewsGrid: React.FC = () => {
 
     return (
         <div className="flex-column gap-60 mob:gap-40">
-            <div ref={containerRef} className="reviews-grid">
-                {items.map(({ id,  ...item}) => (
-                    <ReviewItem {...anime(`review_${id}`)} className="reviews-grid-item" {...item} key={id} />
-                ))}
-            </div>
-            {pages?.length !== 0 && (
-                <div className="reviews-pagination">
-                    <div className={`reviews-pagination-item ${page === 1 ? 'disabled' : ''}`} onClick={() => handlePageChange(page - 1)}>
-                        <Icon className="reviews-pagination-nav" icon={page === 1 ? chevronInactiveLeft : chevronActiveLeft} />
-                    </div>
-                    {pages.map(num => (
-                        <div className={`reviews-pagination-item ${num === page ? 'active' : ''}`} key={num} onClick={() => handlePageChange(num)}>{num}</div>
+            {!isMobile && (<>
+                <div ref={containerRef} className="reviews-grid">
+                    {items.map(({ id,  ...item}) => (
+                        <ReviewItem {...anime(`review_${id}`)} className="reviews-grid-item" {...item} key={id} />
                     ))}
-                    <div className={`reviews-pagination-item ${page === pages.length ? 'disabled' : ''}`} onClick={() => handlePageChange(page + 1)}>
-                        <Icon className="reviews-pagination-nav" icon={page === pages.length ? chevronInactiveRight : chevronActiveRight} />
-                    </div>
                 </div>
-            )}
-            {reviews.length !== 0 && (
+                {pages?.length !== 0 && (
+                    <div className="reviews-pagination">
+                        <div className={`reviews-pagination-item ${page === 1 ? 'disabled' : ''}`} onClick={() => handlePageChange(page - 1)}>
+                            <Icon className="reviews-pagination-nav" icon={page === 1 ? chevronInactiveLeft : chevronActiveLeft} />
+                        </div>
+                        {pages.map(num => (
+                            <div className={`reviews-pagination-item ${num === page ? 'active' : ''}`} key={num} onClick={() => handlePageChange(num)}>{num}</div>
+                        ))}
+                        <div className={`reviews-pagination-item ${page === pages.length ? 'disabled' : ''}`} onClick={() => handlePageChange(page + 1)}>
+                            <Icon className="reviews-pagination-nav" icon={page === pages.length ? chevronInactiveRight : chevronActiveRight} />
+                        </div>
+                    </div>
+                )}
+            </>)}
+            {isMobile &&reviews.length !== 0 && (
                 <div {...anime('slider')} className="hidden mob:flex mob:flex-column mob:gap-40" onWheel={handleWheel}>
                     <SlickSlider ref={sliderRef} className="reviews-slider" {...sliderSettings}>
                         {reviews.map(({ id,  ...item}) => (
