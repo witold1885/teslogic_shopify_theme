@@ -71,19 +71,25 @@ const Footer: React.FC = () => {
     const { error: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
 
-    const contactUsItem = useMemo(() => {
-        return main_menu?.find(({ title }) => title === 'For customers')?.children?.find(({ title }) => title === 'Contact us')
+    const forCustomersBlockTitle: string = 'For customers'
+    const contactUsItemTitle: string = 'Contact us'
+
+    const forCustomersBlock: MenuItem | null = useMemo(() => {
+        if (main_menu) {
+            const { title, url, children } = main_menu.find(({ title }) => title === forCustomersBlockTitle) || {}
+            return { title, url, children: children?.filter(({ title }) => title !== contactUsItemTitle) }
+        }
+        return null
+    }, [main_menu])
+
+    const contactUsItem: MenuItem | null = useMemo(() => {
+        return main_menu?.find(({ title }) => title === forCustomersBlockTitle)?.children?.find(({ title }) => title === contactUsItemTitle) || null
     }, [main_menu])
 
     const menu = useMemo(() => {
         if (main_menu) {
             return {
-                top: main_menu.filter(
-                    ({ title }) => title !== 'For customers' && title !== 'Buy Now'
-                ).map(({ children, ...item }) => ({
-                    ...item,
-                    children: children?.filter(({ title }) => title !== 'Contact us')
-                })),
+                top: main_menu.filter(({ title }) => title !== forCustomersBlockTitle && title !== 'Buy Now'),
                 bottom: [
                     { title: 'Contacts', url: '#', children: [
                         contactUsItem,
@@ -94,7 +100,7 @@ const Footer: React.FC = () => {
                             Dubai, U.A.E.
                         </>, url: null }
                     ]},
-                    main_menu.find(({ title }) => title === 'For customers'),
+                    forCustomersBlock,
                     { title: 'Social', url: '#', children: [
                         { title: 'Instagram', url: 'https://www.instagram.com/screenmate.co' },
                         { title: 'Facebook', url: 'https://www.facebook.com/screenmate.co' },
@@ -105,10 +111,10 @@ const Footer: React.FC = () => {
                         { title: 'Privacy Policy', url: '/privacy' },
                         { title: 'Terms of Use', url: '/terms' }
                     ]}
-                ]
+                ].filter(Boolean)
             }
         }
-    }, [main_menu, contactUsItem])        
+    }, [main_menu, forCustomersBlock, contactUsItem])        
 
     const stores = useMemo(() => [
         {
