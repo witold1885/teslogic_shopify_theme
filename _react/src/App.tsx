@@ -41,8 +41,6 @@ const routesMap: Record<string, React.FC> = {
 }
 
 function App() {
-  console.log('TEST')
-
   useExternalScripts(EXTERNAL_SCRIPTS)
 
   const path = window.location.pathname

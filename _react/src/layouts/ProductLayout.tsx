@@ -13,6 +13,7 @@ interface ProductLayoutProps {
 }
 
 const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {
+    console.log('TEST')
     const dispatch = useAppDispatch()
     
     const { product } = useAppSelector(state => state.products)
