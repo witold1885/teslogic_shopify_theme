@@ -24,6 +24,7 @@
 
 <script>
   window.ShopifyReactData = {
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first }}",
     content: {
       main_menu: {{ main_menu }},
       footer_menu: []

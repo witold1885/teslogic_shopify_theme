@@ -78,7 +78,13 @@ export default defineConfig({
           return 'react-[name].[ext]'
         },
         format: 'esm',
-        inlineDynamicImports: !!currentPage
+        // inlineDynamicImports: !!currentPage
+        inlineDynamicImports: false,
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor' 
+          }
+        }
       }
     }
   }
