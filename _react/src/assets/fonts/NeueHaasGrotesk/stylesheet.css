@@ -7,6 +7,7 @@
         url('NeueHaasDisplay-BlackItalic.ttf') format('truetype');
     font-weight: 900;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -18,6 +19,7 @@
         url('NeueHaasDisplay-Mediu.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -29,6 +31,7 @@
         url('NeueHaasDisplay-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -40,6 +43,7 @@
         url('NeueHaasDisplay-ThinItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -51,6 +55,7 @@
         url('NeueHaasDisplay-RomanItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -62,6 +67,7 @@
         url('NeueHaasDisplay-XXThinItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -73,6 +79,7 @@
         url('NeueHaasDisplay-Roman.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -84,6 +91,7 @@
         url('NeueHaasDisplay-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -95,6 +103,7 @@
         url('NeueHaasDisplay-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -106,6 +115,7 @@
         url('NeueHaasDisplay-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -117,6 +127,7 @@
         url('NeueHaasDisplay-XXThin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -128,6 +139,7 @@
         url('NeueHaasDisplay-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -139,6 +151,7 @@
         url('NeueHaasDisplay-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -150,6 +163,7 @@
         url('NeueHaasDisplay-XThin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -161,6 +175,7 @@
         url('NeueHaasDisplay-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -172,5 +187,6 @@
         url('NeueHaasDisplay-XThinItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
