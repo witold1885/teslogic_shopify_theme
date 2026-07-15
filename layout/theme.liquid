@@ -257,12 +257,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         window.location.href = '/pages/screenmate';
       </script>
     {% endif %}
+    {% unless page.handle == 'screenmate-one-react' %}
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% endunless %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM54HXMV7K"></script>
     <script>
@@ -491,12 +493,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endif %}
     </div>
 
+    {% unless page.handle == 'screenmate-one-react' %}
     <script>
       if ('paintWorklet' in CSS) {
         CSS.paintWorklet.add('{{ "smooth-corners.js" | asset_url }}')
         document.documentElement.classList.add('houdini-supported')
       }
     </script>
+    {% endunless %}
 
     <script>
       window.shopUrl = '{{ shop.url }}'
