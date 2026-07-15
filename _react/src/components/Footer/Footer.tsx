@@ -71,12 +71,22 @@ const Footer: React.FC = () => {
     const { error: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
 
+    const contactUsItem = useMemo(() => {
+        return main_menu?.find(({ title }) => title === 'For customers')?.children?.find(({ title }) => title === 'Contact us')
+    }, [main_menu])
+
     const menu = useMemo(() => {
         if (main_menu) {
             return {
-                top: main_menu.filter(({ title }) => title !== 'For customers' && title !== 'Buy Now'),
+                top: main_menu.filter(
+                    ({ title }) => title !== 'For customers' && title !== 'Buy Now'
+                ).map(({ children, ...item }) => ({
+                    ...item,
+                    children: children?.filter(({ title }) => title !== 'Contact us')
+                })),
                 bottom: [
                     { title: 'Contacts', url: '#', children: [
+                        contactUsItem,
                         { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' },
                         { title: <>
                             Meydan Grandstand, 6th Floor <br />
@@ -98,7 +108,20 @@ const Footer: React.FC = () => {
                 ]
             }
         }
-    }, [main_menu])
+    }, [main_menu, contactUsItem])        
+
+    const stores = useMemo(() => [
+        {
+            url: 'https://apps.apple.com/am/app/teslogic-dash/id1623563438',
+            image: !isMobile ? appStoreDesktop : appStoreMobile,
+            alt: 'AppStore'
+        },
+        {
+            url: 'https://play.google.com/store/apps/details?id=co.teslogic.teslogic_dash',
+            image: !isMobile ? googlePlayDesktop : googlePlayMobile,
+            alt: 'GooglePlay'
+        }
+    ], [isMobile])
     
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -161,8 +184,11 @@ const Footer: React.FC = () => {
                     <Image {...anime('logo')} className="footer-logo" src={!isMobile ? logoDesktop : logoMobile} alt="Screenmate" />
                     <FooterMenuGroup group={menu?.top as MenuItem[]} />
                     <div {...anime('stores')} className="footer-stores">
-                        <Image src={!isMobile ? appStoreDesktop : appStoreMobile} />
-                        <Image src={!isMobile ? googlePlayDesktop : googlePlayMobile} />
+                        {stores.map(({ url, image, alt }, index) => (
+                            <a href={url} target="_blank" key={index}>
+                                <Image src={image} alt={alt} />
+                            </a>
+                        ))}
                     </div>
                     <FooterMenuGroup group={menu?.bottom as MenuItem[]} />
                 </div>
