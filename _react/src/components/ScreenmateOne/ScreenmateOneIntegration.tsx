@@ -80,7 +80,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
     return (
         <div className="screenmate-one__integration">
             {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
-                <div className="screenmate-one__integration-block" key={blockKey}>
+                <div className={`screenmate-one__integration-block ${blockKey}`} key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
                     <div ref={(el) => {
                         if (el) blockRefs.current[blockKey] = el

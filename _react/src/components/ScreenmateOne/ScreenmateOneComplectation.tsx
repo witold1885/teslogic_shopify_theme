@@ -46,7 +46,7 @@ interface AddItemProps {
 }
 
 const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, slug, name, image, imageStyle }, ref) => (
-    <div ref={ref} className={`${className} flex-column-center`} style={style}>
+    <div ref={ref} className={`${className} flex-column-center-end`} style={style}>
         <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={name} />
         <div className={`font-manrope-${slug === 'device' ? '24' : '20'} mob:font-manrope-${slug === 'device' ? '18' : '14'} font-500`}>{name}</div>
     </div>

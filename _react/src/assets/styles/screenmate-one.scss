@@ -691,6 +691,13 @@
                 display: none;
             }
 
+            &.bigger-entertainment {
+
+                & .block-text {
+                    @include responsive(margin-top, 12px);
+                }
+            }
+
             &-info {
                 @extend .flex-column, .overflow-hidden;
                 @include responsive(gap, 64px, 56.8px);
@@ -1067,11 +1074,9 @@
 
                     &.device {
                         @include responsive(gap, 78.13px);
-                        @include responsive(padding-top, 102px);
 
                         @include mobile() {
                             @include responsive(gap, 24px);
-                            @include responsive(padding-top, 40px);
                         }
                     }
 
