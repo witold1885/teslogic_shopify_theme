@@ -86,15 +86,15 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     } : {}, [position, animeKey])
 
     const iconActions = useMemo(() => position === 'slider' ? { onClick } : {}, [position])
-
+    
     return (
         <div
+            {...blockActions}
             className={`screenmate-one__features-item screenmate-one__features-${position}-item`}
             style={{
                 ...(backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : { backgroundColor }),
                 ...style
             }}
-            {...blockActions}
         >
             <div className="flex-between">
                 <div className="font-manrope-28 font-600 mob:font-manrope-22">{title}</div>

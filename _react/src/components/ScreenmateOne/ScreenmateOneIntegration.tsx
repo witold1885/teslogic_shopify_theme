@@ -49,7 +49,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 Connect once and enjoy a familiar<br />
                 interface every time you drive.
             </>,
-            bodyClassName: '',
+            bodyClassName: 'w-full',
             video: carPlayAndAndroidAutoVideo,
             background: carPlayAndAndroidAutoBackground
         },
