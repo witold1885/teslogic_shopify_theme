@@ -1,9 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useAppSelector } from '../../redux/hooks'
 import macy, { type MacyInstance } from 'macy'
-import Slider, { type Settings } from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 import Icon from '../Common/Icon'
 import starBlue from '@/assets/icons/star-blue.svg'
@@ -15,6 +12,7 @@ import chevronInactiveRight from '@/assets/icons/chevron-inactive-right.svg'
 
 import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import TrackSlider from '../Common/TrackSlider'
 
 const PER_PAGE: number = 7
 
@@ -126,48 +124,9 @@ const ReviewsGrid: React.FC = () => {
         }
     }, [items])
 
-    const SlickSlider = (Slider as any).default || Slider
-
-    const sliderRef = useRef<any>(null)
-    const trackRef = useRef<HTMLDivElement>(null)
     const itemRefs = useRef<Record <number, HTMLDivElement | null>>({})
     const [heights, setHeights] = useState<Record <number, number>>({})
     const [maxHeight, setMaxHeight] = useState<number>(0)
-    const [scrollPercentage, setScrollPercentage] = useState<number>(0)
-
-    const sliderSettings: Settings = {
-        dots: false,
-        infinite: false,
-        arrows: false,
-        speed: 500,
-        slidesToShow: 1.148026316,
-        slidesToScroll: 1,
-        swipeToSlide: true,
-        beforeChange: (_, next) => {
-            const maxScrollableSlides = reviews.length - sliderSettings.slidesToShow!
-        
-            if (maxScrollableSlides > 0) {
-                let pct = (next / maxScrollableSlides) * 100
-                pct = Math.max(0, Math.min(100, pct))
-                setScrollPercentage(pct)
-            }
-        }
-    }
-
-    // useLayoutEffect(() => {
-    //     const newHeights: Record <number, number> = {}
-        
-    //     Object.keys(itemRefs.current).forEach((id: any) => {
-    //         const element = itemRefs.current[id]
-    //         if (element) {
-    //             newHeights[id] = element.getBoundingClientRect().height
-    //         }
-    //     })
-    //     setHeights(newHeights)
-
-    //     const newMaxHeight = Object.values(newHeights).reduce((acc, current) => Math.max(acc, current), -Infinity)
-    //     setMaxHeight(newMaxHeight)
-    // }, [reviews, isMobile])
 
     useEffect(() => {
         if (!isMobile || reviews.length === 0) return
@@ -193,63 +152,6 @@ const ReviewsGrid: React.FC = () => {
 
         return () => cancelAnimationFrame(handle)
     }, [reviews, isMobile])
-
-    const handleWheel = (e: React.WheelEvent) => {
-        if (!sliderRef.current) return
-        
-        if (e.deltaX !== 0 || e.shiftKey) {
-            e.preventDefault()
-            const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY
-            if (delta > 0) {
-                sliderRef.current.slickNext()
-            } else {
-                sliderRef.current.slickPrev()
-            }
-        }
-    }
-
-    const scrollWidth: number = useMemo(() => 100 / reviews.length, [reviews])
-
-    const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!trackRef.current || !sliderRef.current || reviews.length <= 1) return
-        if ((e.target as HTMLElement).classList.contains('reviews-slider-scrollbar-thumb')) return
-
-        const rect = trackRef.current.getBoundingClientRect()
-        const offsetX = e.clientX - rect.left
-        
-        let clickPercentage = (offsetX / rect.width) * 100
-        clickPercentage = Math.max(0, Math.min(100, clickPercentage))
-
-        const maxScrollableSlides = reviews.length - sliderSettings.slidesToShow!
-        const targetSlide = Math.round((clickPercentage / 100) * maxScrollableSlides)
-        
-        sliderRef.current.slickGoTo(targetSlide)
-    }
-
-    const handleThumbMouseDown = (e: React.MouseEvent) => {
-        e.preventDefault()
-        if (!trackRef.current || !sliderRef.current || reviews.length <= 1) return
-
-        const rect = trackRef.current.getBoundingClientRect()
-        const maxScrollableSlides = reviews.length - sliderSettings.slidesToShow!
-
-        const onMouseMove = (moveEvent: MouseEvent) => {
-            const currentX = moveEvent.clientX - rect.left
-            let dragPercentage = (currentX / rect.width) * 100
-            dragPercentage = Math.max(0, Math.min(100, dragPercentage))
-
-            const targetSlide = Math.round((dragPercentage / 100) * maxScrollableSlides)
-            sliderRef.current.slickGoTo(targetSlide, true) 
-        }
-
-        const onMouseUp = () => {
-            document.removeEventListener('mousemove', onMouseMove)
-            document.removeEventListener('mouseup', onMouseUp)
-        }
-
-        document.addEventListener('mousemove', onMouseMove)
-        document.addEventListener('mouseup', onMouseUp)
-    }
     
     const animationConfigs = useMemo(() => macyInitialized ? items.reduce<Record<string, AnimationConfig>>((acc, { id }) => ({
         ...acc, [`review_${id}`]: getAnimationConfig('20px', 333)
@@ -279,37 +181,24 @@ const ReviewsGrid: React.FC = () => {
                     </div>
                 )}
             </>)}
-            {isMobile &&reviews.length !== 0 && (
-                <div {...anime('slider')} className="hidden mob:flex mob:flex-column mob:gap-40" onWheel={handleWheel}>
-                    <SlickSlider ref={sliderRef} className="reviews-slider" {...sliderSettings}>
-                        {reviews.map(({ id,  ...item}) => (
-                            <ReviewItem
-                                key={id}
-                                ref={(el) => {
-                                    if (el) itemRefs.current[id] = el
-                                    else delete itemRefs.current[id]
-                                }}
-                                className="reviews-slider-item"
-                                {...item}
-                                hasMaxHeight={heights[id] === maxHeight}
-                            />
-                        ))}
-                    </SlickSlider>
-                    <div
-                        ref={trackRef}
-                        className="reviews-slider-scrollbar"
-                        onClick={handleTrackClick}
-                    >
-                        <div 
-                            className="reviews-slider-scrollbar-thumb"
-                            onMouseDown={handleThumbMouseDown}
-                            style={{
-                                width: `${scrollWidth}%`,
-                                left: `calc(${scrollPercentage}% - (${scrollWidth}% * ${scrollPercentage / 100}))`
-                            }} 
+            {isMobile && reviews.length !== 0 && (
+                <TrackSlider
+                    {...anime('slider')}
+                    className="reviews-slider"
+                    items={reviews.map(({ id,  ...item}) => (
+                        <ReviewItem
+                            key={id}
+                            ref={(el) => {
+                                if (el) itemRefs.current[id] = el
+                                else delete itemRefs.current[id]
+                            }}
+                            className="reviews-slider-item"
+                            {...item}
+                            hasMaxHeight={heights[id] === maxHeight}
                         />
-                    </div>
-                </div>
+                    ))}
+                    slidesToShow={1.148026316}
+                />
             )}
         </div>
     )

@@ -164,42 +164,54 @@
         @include responsive(padding, 150px, 0, 180px);
 
         @include mobile() {
-            @include responsive(padding, 40px, 0, 96px);
+            @include responsive(padding, 40px, 0, 94px);
+        }
+
+        &-item {
+            @extend .flex-column-between, .relative, .overflow-hidden, .cursor-pointer;
+            aspect-ratio: 1/1;
+            background-size: cover;
+
+            &-header {
+
+                &-icon {
+                    @extend .circle, .cursor-pointer;
+                    @include responsive(width, 40px);
+                    @include responsive(height, 40px);
+                    @include responsive(margin-top, 4px);
+                    @include responsive(padding, 5px, 12px, 4px, 12px);
+                    background: #262626;
+                }
+            }
         }
 
         &-grid {
             @extend .container, .grid, .gap-24;
             grid-template-columns: repeat(3, 1fr);
 
-            @include mobile() {
-                grid-template-columns: 1fr;
-                @include responsive(gap, 20px);
+            &-item {
+                @include responsive(width, 416px);
+                @include responsive(padding, 28px, 32px, 32px);
+                @include responsive(border-radius, 24px);
+            }
+        }
+
+        &-slider {
+            &-wrap {
+                @include responsive(margin, 0, 20px);
             }
 
             &-item {
-                @extend .flex-column-between, .relative, .overflow-hidden, .cursor-pointer;
-                @include responsive(width, 416px);
-                aspect-ratio: 1/1;
-                @include responsive(padding, 28px, 32px, 32px);
-                @include responsive(border-radius, 24px);
-                background-size: cover;
+                @include responsive(width, 320px);
+                @include responsive(padding, 20px, 20px, 32px);
+                @include responsive(border-radius, 20px);
+            }
 
-                @include mobile() {
-                    width: 100%;
-                    @include responsive(padding, 20px, 20px, 32px);
-                    @include responsive(border-radius, 20px);
-                }
-
-                &-header {
-
-                    &-icon {
-                        @extend .circle, .cursor-pointer;
-                        @include responsive(width, 40px);
-                        @include responsive(height, 40px);
-                        @include responsive(margin-top, 4px);
-                        @include responsive(padding, 5px, 12px, 4px, 12px);
-                        background: #262626;
-                    }
+            &-scrollbar {
+                background: #1D1D1F;
+                
+                &-thumb {
+                    background: #1658FC;
                 }
             }
         }
@@ -243,7 +255,7 @@
             @extend .overflow-hidden;
 
             @include mobile() {
-                @include responsive(height, 196.883px);
+                @include responsive(height, 290px);
                 @include responsive(border-radius, 10px);
             }
         }
@@ -382,7 +394,7 @@
                 @include responsive(height, 580px);
 
                 @include mobile() {
-                    height: auto;
+                    @include responsive(height, 290px);
                 }
             }
 
@@ -755,15 +767,16 @@
             &-video {
                 @include responsive(height, 580px);
 
-                @include mobile() {
-                    height: auto;
-                }
-            }
-
-            &:has(.screenmate-one__integration-block-info) {
-
-                .screenmate-one__integration-block-video {
+                .bigger-entertainment & {
                     @include responsive(height, 530px);
+                }
+
+                @include mobile() {
+                    @include responsive(height, 290px);
+
+                    .bigger-entertainment & {
+                        @include responsive(height, 280px);
+                    }
                 }
             }
         }
@@ -882,7 +895,7 @@
             @extend .flex-column-center, .gap-32, .mob\:flex-column-reverse, .mob\:gap-16;
 
             & .tabs-item-title {
-                @extend .mob\:w-full;
+                @extend .mob\:w-full, .mob\:text-left;
 
                 & > br {
                     display: none;

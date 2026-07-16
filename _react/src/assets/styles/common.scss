@@ -48,6 +48,9 @@ body {
         &grid {
             display: grid;
         }
+        &w-auto {
+            width: auto;
+        }
         &w-full {
             width: 100%;
         }
@@ -133,6 +136,36 @@ body {
 
         &-y {
             overflow-y: scroll;
+        }
+    }
+}
+
+@include mobile() {
+    .mob\: {
+        &overflow {
+            &-hidden {
+                overflow: hidden;
+
+                &-x {
+                    overflow-x: hidden;
+                }
+
+                &-y {
+                    overflow-y: hidden;
+                }
+            }
+
+            &-scroll {
+                overflow: scroll;
+
+                &-x {
+                    overflow-x: scroll;
+                }
+
+                &-y {
+                    overflow-y: scroll;
+                }
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode, useEffect } from 'react'
-import { Icon } from '../Common'
 
+import { Icon } from '../Common'
 import arrowIcon from '../../assets/icons/arrow-top-right.svg'
 import runAnyAndroidApps from '../../assets/images/screenmate-one/features/run-any-android-apps.png'
 import controlPanel50Commands from '../../assets/images/screenmate-one/features/control-panel-50-commands.png'
@@ -11,6 +11,7 @@ import screenmateDashAppSupport from '../../assets/images/screenmate-one/feature
 
 import { getAnimationConfig, getShiftConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import TrackSlider from '../Common/TrackSlider'
 
 interface Feature {
     title: string | ReactNode
@@ -23,6 +24,7 @@ interface Feature {
 interface FeatureBlockProps extends Feature {
     index: number
     style?: Record<string, any>
+    position: 'grid' | 'slider'
     onClick?: () => void
 }
 
@@ -36,6 +38,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     image,
     backgroundImage,
     imageStyle = {},
+    position,
     onClick
 }) => {
     const [isHovered, setIsHovered] = useState<boolean>(false)
@@ -75,21 +78,27 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
         if (isSpawned) setIsHovered(false)
     }
 
+    const blockActions = useMemo(() => position === 'grid' ? {
+        ...anime(animeKey),
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+        onClick
+    } : {}, [position, animeKey])
+
+    const iconActions = useMemo(() => position === 'slider' ? { onClick } : {}, [position])
+
     return (
         <div
-            {...anime(animeKey)}
-            className="screenmate-one__features-grid-item"
+            className={`screenmate-one__features-item screenmate-one__features-${position}-item`}
             style={{
                 ...(backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : { backgroundColor }),
                 ...style
             }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={onClick}
+            {...blockActions}
         >
             <div className="flex-between">
                 <div className="font-manrope-28 font-600 mob:font-manrope-22">{title}</div>
-                <Icon className="screenmate-one__features-grid-item-header-icon flex-center" icon={arrowIcon} />
+                <Icon className="screenmate-one__features-item-header-icon flex-center" icon={arrowIcon} {...iconActions} />
             </div>
             {image && <div style={imageStyle}><img className="w-full" src={image} /></div>}
         </div>
@@ -99,14 +108,16 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
 const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: string | null) => void }>(({ scrollTo }, ref) => {
     const { isMobile, responsive } = useInlineStyles()
     const absoluteImageStyle = responsive({
-        width: !isMobile ? '385px' : '342px',
-        height: !isMobile ? '286px' : '250px',
+        width: !isMobile ? '385px' : '312px',
+        height: !isMobile ? '286px' : '220px',
         position: 'absolute',
         bottom: 0
     } as CSSProperties)
 
     const features: Feature[] = useMemo(() => [
-        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive({ height: !isMobile ? '248px' : '218px' } as CSSProperties), anchor: 'Setup' },
+        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive(
+            !isMobile ? { height: '248px' } : { width: '310px', height: '218px', position: 'absolute', left: '5px', right: '5px', bottom: 0 } as CSSProperties
+        ), anchor: 'Setup' },
         { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
         { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
         { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
@@ -116,16 +127,34 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
 
     return (
         <div ref={ref} className="screenmate-one__features">
-            <div className="screenmate-one__features-grid">
-                {features.map((feature: Feature, index: number) => (
-                    <FeatureBlock
-                        key={index}
-                        index={index}
-                        {...feature}
-                        onClick={() => scrollTo(feature.anchor || null)}
-                    />
-                ))}
-            </div>
+            {!isMobile && (
+                <div className="screenmate-one__features-grid">
+                    {features.map((feature: Feature, index: number) => (
+                        <FeatureBlock
+                            key={index}
+                            index={index}
+                            {...feature}
+                            position="grid"
+                            onClick={() => scrollTo(feature.anchor || null)}
+                        />
+                    ))}
+                </div>
+            )}
+            {isMobile && (
+                <TrackSlider
+                    className="screenmate-one__features-slider"
+                    items={features.map((feature: Feature, index: number) => (
+                        <FeatureBlock
+                            key={index}
+                            index={index}
+                            {...feature}
+                            position="slider"
+                            onClick={() => scrollTo(feature.anchor || null)}
+                        />
+                    ))}
+                    slidesToShow={1.09375}
+                />
+            )}
         </div>
     )
 })

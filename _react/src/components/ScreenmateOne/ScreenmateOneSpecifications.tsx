@@ -1,7 +1,8 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
 import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 
-import dimensionsSketch from '../../assets/images/screenmate-one/dimensions-sketch.png'
+import dimensionsSketchDesktop from '../../assets/images/screenmate-one/dimensions-sketch-desktop.png'
+import dimensionsSketchMobile from '../../assets/images/screenmate-one/dimensions-sketch-mobile.png'
 
 import chipset from '../../assets/icons/screenmate-one/chipset.svg'
 import gpu from '../../assets/icons/screenmate-one/gpu.svg'
@@ -89,10 +90,12 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
 }
 
 const ScreenmateOneSpecifications: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+    
     const tabs: Record<string, TabProps> = {
         'dimensions': {
             title: <>Dimen<br />sions</>,
-            content: <Image className="flex-center" src={dimensionsSketch} />
+            content: <Image className="flex-center" src={!isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile} />
         },
         'main-system': {
             title: <>Main System</>,

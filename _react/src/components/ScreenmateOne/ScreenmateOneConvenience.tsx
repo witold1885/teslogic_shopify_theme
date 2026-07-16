@@ -151,30 +151,30 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                 'top-left': {
                     title: 'Cruise & Speed Limit',
                     text: <>Keep an eye on autopilot, <br />cruise control, and speed limit</>,
-                    legendStyle: { top: !isMobile ? '156px' : '192px', left: !isMobile ? 0 : '24px' },
+                    legendStyle: { top: !isMobile ? '156px' : '192px', left: !isMobile ? 0 : '4px' },
                     image: !isMobile ? pointerTopLeftDesktop : pointerTopLeftMobile,
-                    imageStyle: { top: !isMobile ? '185px' : '224px', left : !isMobile ? '259.5px' : '24px' }
+                    imageStyle: { top: !isMobile ? '185px' : '224px', left : !isMobile ? '259.5px' : '4px' }
                 },
                 'top-right': {
                     title: 'Battery Status',
                     text: <>Monitor your Tesla's <br />battery status easily</>,
-                    legendStyle: { top: !isMobile ? '156px' : '192px', right: !isMobile ? 0 : '24px' },
+                    legendStyle: { top: !isMobile ? '156px' : '192px', right: !isMobile ? 0 : '4px' },
                     image: !isMobile ? pointerTopRightDesktop : pointerTopRightMobile,
-                    imageStyle: { top: !isMobile ? '185px' : '224px', right : !isMobile ? '191.5px' : '24px' }
+                    imageStyle: { top: !isMobile ? '185px' : '224px', right : !isMobile ? '191.5px' : '4px' }
                 },
                 'bottom-left': {
                     title: 'SI and Imperial',
                     text: <>Screenmate supports both SI <br />and Imperial measurement systems</>,
-                    legendStyle: { top: !isMobile ? '376px' : '412px', left: !isMobile ? 0 : '24px' },
+                    legendStyle: { top: !isMobile ? '376px' : '412px', left: !isMobile ? 0 : '4px' },
                     image: !isMobile ? pointerBottomLeftDesktop : pointerBottomLeftMobile,
-                    imageStyle: { top: !isMobile ? '376px' : '353px', left : !isMobile ? '182.25px' : '24px' }
+                    imageStyle: { top: !isMobile ? '376px' : '353px', left : !isMobile ? '182.25px' : '4px' }
                 },
                 'bottom-right': {
                     title: 'Blind Spot Alerts',
                     text: <>Stay aware of surrounding traffic <br />with real-time blind spot alerts</>,
-                    legendStyle: { top: !isMobile ? '376px' : '412px', right: !isMobile ? 0 : '24px' },
+                    legendStyle: { top: !isMobile ? '376px' : '412px', right: !isMobile ? 0 : '4px' },
                     image: !isMobile ? pointerBottomRightDesktop : pointerBottomRightMobile,
-                    imageStyle: { top: !isMobile ? '371.5px' : '371px', right : !isMobile ? '204px' : '24px' }
+                    imageStyle: { top: !isMobile ? '371.5px' : '371px', right : !isMobile ? '204px' : '4px' }
                 }
             }
         },

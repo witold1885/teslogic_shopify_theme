@@ -30,6 +30,7 @@ interface Block {
     heading: ReactNode
     title: ReactNode
     text: ReactNode
+    bodyClassName?: string
     video?: string
     background?: string
     sketch?: string
@@ -48,6 +49,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 Connect once and enjoy a familiar<br />
                 interface every time you drive.
             </>,
+            bodyClassName: '',
             video: carPlayAndAndroidAutoVideo,
             background: carPlayAndAndroidAutoBackground
         },
@@ -59,6 +61,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 Android games on the powerful Qualcomm chipset or<br />
                 connect your favorite gaming console via HDMI or USB.
             </>,
+            bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
             video: connectConsolesVideo,
             background: connectConsolesBackground,
             sketch: connectDevices,
@@ -79,7 +82,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
 
     return (
         <div className="screenmate-one__integration">
-            {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
+            {Object.entries(blocks).map(([blockKey, { heading, title, text, bodyClassName, video, background, sketch, info }]) => (
                 <div className={`screenmate-one__integration-block ${blockKey}`} key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
                     <div ref={(el) => {
@@ -90,7 +93,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                             <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
                             <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                         </div>
-                        <div className="w-full flex mob:flex-column-reverse mob:gap-32">
+                        <div className={bodyClassName}>
                             {sketch && info && (
                                 <div className="screenmate-one__integration-block-info">
                                     <div {...anime(`${blockKey}-sketch`)} className="screenmate-one__integration-block-info-sketch">

@@ -79,17 +79,6 @@
     &-slider {
         @extend .cursor-grab;
 
-        scrollbar-width: none;
-        &::-webkit-scrollbar { display: none; }
-
-        & .slick-list {
-            @include responsive(margin, 0, -10px)
-        }
-
-        & .slick-slide > div {
-            @include responsive(padding, 0, 10px)
-        }
-
         &-item {
             @extend .flex-column, .gap-16;
             @include responsive(width, 304px);
@@ -103,17 +92,9 @@
         }
 
         &-scrollbar {
-            @extend .w-full, .relative, .cursor-pointer;
-            @include responsive(height, 4px);
-            @include responsive(border-radius, 2px);
             background: #8478F7;
             
             &-thumb {
-                @extend .h-full, .absolute, .cursor-grab;
-                top: 0;
-                left: 0;
-                @include responsive(border-radius, 2px);
-                transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 background: #FFF;
             }
         }
