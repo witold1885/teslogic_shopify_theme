@@ -55,6 +55,17 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         },
     }
 
+    useEffect(() => {
+        const backgroundUrls = Object.values(tabs)
+            .map(tab => tab.background)
+            .filter(Boolean) as string[]
+
+        backgroundUrls.forEach(url => {
+            const img = new Image()
+            img.src = url
+        })
+    }, [])
+
     const [activeTab, setActiveTab] = useState<string | null>(Object.keys(tabs)[0])
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
@@ -89,7 +100,8 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         {Object.entries(tabs).map(([tab, { video, background }]) => (
                             <Video
                                 key={tab}
-                                className={tab === activeTab ? '' : 'hidden'}
+                                className="w-full h-full absolute inset"
+                                style={{ opacity: tab === activeTab ? 1 : 0 }}
                                 src={video as string}
                                 background={background}
                                 autoPlay={tab === activeTab}
