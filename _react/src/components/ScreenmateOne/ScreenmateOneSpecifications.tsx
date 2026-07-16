@@ -1,7 +1,7 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
 import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 
-import specificationsDimensions from '../../assets/images/screenmate-one/specifications-dimensions.png'
+import dimensionsSketch from '../../assets/images/screenmate-one/dimensions-sketch.png'
 
 import chipset from '../../assets/icons/screenmate-one/chipset.svg'
 import gpu from '../../assets/icons/screenmate-one/gpu.svg'
@@ -92,7 +92,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
     const tabs: Record<string, TabProps> = {
         'dimensions': {
             title: <>Dimen<br />sions</>,
-            content: <Image className="flex-center" src={specificationsDimensions} />
+            content: <Image className="flex-center" src={dimensionsSketch} />
         },
         'main-system': {
             title: <>Main System</>,
