@@ -33,7 +33,7 @@ const getDomElement = (target: HTMLElement | VideoRefMethods | null): HTMLElemen
 
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const targetsRef = useRef<Record<string, HTMLElement | VideoRefMethods | null>>({})
-    const animationsRef = useRef<Record<string, any>>({})
+    // const animationsRef = useRef<Record<string, any>>({})
     const timeoutsRef = useRef<number[]>([])
     const lastAnimationStartRef = useRef<number>(0)
     const lastAnimationDurationRef = useRef<number>(0)
@@ -55,32 +55,32 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
         if (validElements.length === 0) return
 
-        // const animations: Record<string, any> = {}
+        const animations: Record<string, any> = {}
         
-        // validElements.forEach(({ key, el, config }) => {
-        //     animations[key] = animate(el, {
-        //         autoplay: false,
-        //         ...config
-        //     })
-        // })
-        const initializeAnimations = () => {
-            validElements.forEach(({ key, el, config }) => {
-                if (!animationsRef.current[key]) {
-                    animationsRef.current[key] = animate(el, {
-                        autoplay: false,
-                        ...config
-                    })
-                }
+        validElements.forEach(({ key, el, config }) => {
+            animations[key] = animate(el, {
+                autoplay: false,
+                ...config
             })
-        }
+        })
+        // const initializeAnimations = () => {
+        //     validElements.forEach(({ key, el, config }) => {
+        //         if (!animationsRef.current[key]) {
+        //             animationsRef.current[key] = animate(el, {
+        //                 autoplay: false,
+        //                 ...config
+        //             })
+        //         }
+        //     })
+        // }
 
-        let idleId: number
-        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-            idleId = (window as any).requestIdleCallback(() => initializeAnimations(), { timeout: 200 })
-        } else {
-            const timer = (window as any).setTimeout(initializeAnimations, 150)
-            timeoutsRef.current.push(timer)
-        }
+        // let idleId: number
+        // if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        //     idleId = (window as any).requestIdleCallback(() => initializeAnimations(), { timeout: 200 })
+        // } else {
+        //     const timer = (window as any).setTimeout(initializeAnimations, 150)
+        //     timeoutsRef.current.push(timer)
+        // }
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -92,16 +92,16 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                         if (!found) return
 
                         const { key, config } = found
-                        // const currentAnim = animations[key]
-                        // if (!currentAnim) return
-                        let currentAnim = animationsRef.current[key]
-                        if (!currentAnim) {
-                            currentAnim = animate(targetElement, {
-                                autoplay: false,
-                                ...config
-                            })
-                            animationsRef.current[key] = currentAnim
-                        }
+                        const currentAnim = animations[key]
+                        if (!currentAnim) return
+                        // let currentAnim = animationsRef.current[key]
+                        // if (!currentAnim) {
+                        //     currentAnim = animate(targetElement, {
+                        //         autoplay: false,
+                        //         ...config
+                        //     })
+                        //     animationsRef.current[key] = currentAnim
+                        // }
 
                         const now = performance.now()
                         const duration = config.duration || defaultDuration
@@ -149,9 +149,9 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         return () => {
             observer.disconnect()
             timeoutsRef.current.forEach(clearTimeout)
-            if (idleId && 'cancelIdleCallback' in window) {
-                (window as any).cancelIdleCallback(idleId)
-            }
+            // if (idleId && 'cancelIdleCallback' in window) {
+            //     (window as any).cancelIdleCallback(idleId)
+            // }
         }
     }, [configsKey])
 
