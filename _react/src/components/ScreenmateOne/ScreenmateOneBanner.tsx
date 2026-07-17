@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
-import { Button, Icon, Video } from '../Common'
+import { Button, Icon } from '../Common'
+import Video from '../Common/Video'
 
 import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
 import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/backgrounds'

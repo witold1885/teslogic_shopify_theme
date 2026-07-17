@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useMemo, useRef, type ReactNode } from 'react'
-import { Heading, Video } from '../Common'
+import { Heading } from '../Common'
+import Video from '../Common/Video'
 
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
 import {

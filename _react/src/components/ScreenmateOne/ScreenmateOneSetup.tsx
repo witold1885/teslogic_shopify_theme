@@ -1,5 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
-import { Heading, Tabs, type TabProps, Video, type VideoRefMethods } from '../Common'
+import { Heading, Tabs, type TabProps } from '../Common'
+import Video, { type VideoRefMethods } from '../Common/Video'
+
 import {
     streaming as streamingVideo,
     navigation as navigationVideo,
