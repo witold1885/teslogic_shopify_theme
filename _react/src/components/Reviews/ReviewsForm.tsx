@@ -123,7 +123,7 @@ const ReviewsForm: React.FC = () => {
                         <div className="reviews-form-rating flex-1 flex-start-center gap-8 relative">
                             <div className="font-manrope-16">Rate:</div>
                             <div className="flex gap-4" style={{ direction: 'rtl' }}>
-                                {Array.from({ length: 5 }, (_, i) => 5 - i).map(index => (
+                                {[...Array(5).keys()].map(i => 5 - i).map(index => (
                                     <Fragment key={index}>
                                         <input
                                             type="radio"

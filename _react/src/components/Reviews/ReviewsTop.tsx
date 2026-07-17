@@ -23,7 +23,7 @@ const ReviewsTop: React.FC = () => {
         <div className="flex-column gap-24 mob:gap-12">
             <div {...anime('top')} className="flex-start-center gap-12">
                 <div className="flex-start-center gap-8">
-                    {Array.from({ length: 5 }).map((_, index) => (
+                    {[...Array(5).keys()].map((_, index) => (
                         <Icon className="reviews-star" icon={starIcon} key={index} />
                     ))}
                 </div>

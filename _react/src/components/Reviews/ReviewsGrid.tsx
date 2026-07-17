@@ -34,7 +34,7 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
                 <div className="flex-column gap-12 mob:gap-8">
                     <div className="font-manrope-18 mob:font-manrope-16 font-600 text-white">{reviewer_name}</div>
                     <div className="flex gap-4">
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {[...Array(5).keys()].map((_, index) => (
                             <Icon icon={index < rating ? starBlue : starGrey} key={index} />
                         ))}
                     </div>
@@ -99,7 +99,7 @@ const ReviewsGrid: React.FC = () => {
     }, [])
 
     const pages = useMemo(() => {
-        return Array.from({ length: Math.ceil(totalCount / PER_PAGE) }, (_, i) => i + 1)
+        return [...Array(Math.ceil(totalCount / PER_PAGE)).keys()].map(i => i + 1)
     }, [totalCount])
 
     const handlePageChange = (num: number) => {
