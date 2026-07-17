@@ -1,1 +1,0 @@
-import{f as e,p as t}from"./react-chunk-vendor-BkjIhiV5.js";var n=e.withTypes(),r=t.withTypes();export{r as n,n as t};

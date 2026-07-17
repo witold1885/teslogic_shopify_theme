@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { preload } from 'react-dom'
 import './screenmate-one-banner.scss'
 import { Button, Icon } from '../Common'
 import Video from '../Common/Video'
@@ -22,6 +23,16 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand, onOrder }) => {
     const { isMobile } = useInlineStyles()
+
+    preload(bannerDesktopVideo, { 
+        as: 'video', 
+        fetchPriority: 'high' 
+    })
+
+    preload(bannerMobileVideo, { 
+        as: 'video', 
+        fetchPriority: 'high' 
+    })
 
     const videoParams: { src: string; background: string } = useMemo(() => {
         return !isMobile 
