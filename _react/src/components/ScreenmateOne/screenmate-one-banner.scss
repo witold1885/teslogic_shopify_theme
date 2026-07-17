@@ -11,6 +11,15 @@
             @include responsive(min-height, 768px);
         }
 
+        &-video {
+            @extend .absolute, .inset;
+
+            @include mobile() {
+                bottom: unset;
+                aspect-ratio: 154/169;
+            }
+        }
+
         &-inner {
             @extend .flex-column, .gap-32, .absolute;
             @include responsive(top, 284px);

@@ -35,7 +35,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
 
     return (
         <div className="screenmate-one__banner relative">
-            <Video className="absolute inset" {...videoParams} />
+            <Video className="screenmate-one__banner-video" {...videoParams} />
             <div className="container h-full relative">
                 <div className="screenmate-one__banner-inner">
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
