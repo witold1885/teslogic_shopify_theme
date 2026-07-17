@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useRef } from 'react'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
+import LazySection from './LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
 import ScreenmateOneFeatures from '../components/ScreenmateOne/ScreenmateOneFeatures'
@@ -50,9 +51,11 @@ const ScreenmateOne: React.FC = () => {
                 />
             </Suspense>
             {Object.entries(sections).map(([slug, Component]) => (
-                <Suspense key={slug}>
-                    <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
-                </Suspense>
+                <LazySection key={slug}>
+                    <Suspense>
+                        <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
+                    </Suspense>
+                </LazySection>
             ))}
             <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
         </ProductLayout>

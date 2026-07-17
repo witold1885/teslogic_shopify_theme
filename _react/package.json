@@ -16,6 +16,7 @@
     "macy": "^2.5.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "react-intersection-observer": "^10.1.0",
     "react-redux": "^9.3.0",
     "react-slick": "^0.31.0",
     "sass-embedded": "^1.100.0",
