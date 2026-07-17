@@ -1,4 +1,5 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
+import './screenmate-one-specifications.scss'
 import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 
 import dimensionsSketchDesktop from '../../assets/images/screenmate-one/dimensions-sketch-desktop.png'

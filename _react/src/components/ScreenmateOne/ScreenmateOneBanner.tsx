@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import './screenmate-one-banner.scss'
 import { Button, Icon } from '../Common'
 import Video from '../Common/Video'
 

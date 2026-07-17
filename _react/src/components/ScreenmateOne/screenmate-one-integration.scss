@@ -1,0 +1,106 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+
+    &__integration {
+        @extend .flex-column-center, .gap-150, .mob\:gap-64;
+        @include responsive(padding, 156px, 0, 180px);
+
+        @include mobile() {
+            @include responsive(padding, 122px, 0, 96px);
+        }
+
+        &-block {
+            @extend .container, .flex-column, .gap-150, .mob\:gap-64;
+
+            & .heading {
+                background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: #0465FD;
+            }
+
+            &:not(:first-child) .heading {
+                display: none;
+            }
+
+            &.bigger-entertainment {
+
+                & .block-text {
+                    @include responsive(margin-top, 12px);
+                }
+            }
+
+            &-info {
+                @extend .flex-column, .overflow-hidden;
+                @include responsive(gap, 64px, 56.8px);
+                @include responsive(width, 660px);
+                @include responsive(padding, 64px, 0, 60px);
+
+                @include mobile() {
+                    @include responsive(gap, 24px, 20px);
+                    @include responsive(width, 350px);
+                    padding: 0;
+                }
+
+                &-sketch {
+                    @include responsive(height, 182px);
+
+                    @include mobile() {
+                        @include responsive(height, 125px);
+                    }
+                }
+
+                &-item {
+                    @extend .flex-column, .gap-16, .mob\:gap-8;
+
+                    @include mobile() {
+                        @include responsive(width, 145px);
+
+                        & br {
+                            display: none;
+                        }
+                    }
+
+                    & > div {
+
+                        &:first-child {
+                            @extend .font-manrope-24, .mob\:font-manrope-18, .font-600, .text-white;
+                        }
+
+                        &:last-child {
+                            color: #999;
+                            @extend .font-manrope-20, .mob\:font-manrope-14;
+                        }
+                    }
+                }
+            }
+
+            &-image, &-video {
+                @extend .flex-1, .mob\:w-full, .overflow-hidden;
+                @include responsive(border-radius, 24px);
+
+                @include mobile() {
+                    @include responsive(border-radius, 10px);
+                }
+            }
+
+            &-video {
+                @include responsive(height, 580px);
+
+                .bigger-entertainment & {
+                    @include responsive(height, 530px);
+                }
+
+                @include mobile() {
+                    @include responsive(height, 290px);
+
+                    .bigger-entertainment & {
+                        @include responsive(height, 280px);
+                    }
+                }
+            }
+        }
+    }
+}

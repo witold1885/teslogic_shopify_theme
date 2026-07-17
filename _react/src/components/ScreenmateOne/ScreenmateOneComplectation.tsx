@@ -1,4 +1,5 @@
 import React, { forwardRef, Fragment, useMemo, type CSSProperties, type ReactNode } from 'react'
+import './screenmate-one-complectation.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart } from '../../redux/slices/products'
 

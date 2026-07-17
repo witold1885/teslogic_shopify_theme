@@ -1,0 +1,99 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+
+    &__dash {
+        @include responsive(padding, 120px, 0);
+        background: url("/src/assets/images/screenmate-one/dash-background.png") no-repeat, 
+                    radial-gradient(88.89% 50% at 50% 50%, #262626 0%, #0D0D0D 100%) lightgray;
+        background-size: cover;
+
+        @include mobile() {
+            @include responsive(padding, 90px, 0);
+        }
+
+        &-body {
+            @extend .container, .flex-between-center, .mob\:flex-column, .gap-85, .mob\:gap-32, .overflow-hidden;
+            @include responsive(border-radius, 24px);
+            background: radial-gradient(30.67% 64.95% at 72.03% 50%, #1D1D1F 0%, #1D1D1F 100%);
+            overflow: hidden;
+
+            @include mobile() {
+                @include responsive(border-radius, 10px);
+            }
+
+            &-info {
+                @extend .flex-column, .flex-1, .gap-36, .mob\:gap-20;
+                @include responsive(padding, 110px, 0, 110px, 110px);
+
+                @include mobile() {
+                    @include responsive(padding, 24px, 20px, 0);
+                }
+
+                &-texts {
+                    @extend .flex-column, .gap-20, .mob\:gap-12;
+
+                    &-heading {
+                        @extend .flex-column-start, .gap-12, .mob\:gap-8;
+
+                        &-badge {
+                            @extend .w-auto;
+                            @include responsive(padding, 4px, 8px);
+                            @include responsive(border-radius, 6px);
+                            border: 1px solid #7C56FB;
+                            background: #141415;
+                            
+                            & span {
+                                @extend .font-manrope-20, .mob\:font-manrope-14, .font-600;
+                                background: linear-gradient(90deg, #7C56FB 0%, #0465FD 106.31%);
+                                background-clip: text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                            }
+                        }
+
+                        &-title {
+                            color: #FAFAFA;
+                            @extend .font-manrope-52, .mob\:font-manrope-32, .font-600;
+                        }
+
+                    }
+
+                    &-description {
+                        color: #F1F1F1;
+                        @extend .font-manrope-20, .mob\:font-manrope-16;
+
+                        @include mobile() {
+                            & > br {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &-link {
+                    @extend .flex-start-center, .gap-12, .mob\:gap-8, .font-manrope-20, .mob\:font-manrope-16, .font-500;
+
+                    & .icon {
+                        @include responsive(width, 16px);
+                        @include responsive(height, 28px);
+
+                        @include mobile() {
+                            @include responsive(height, 24px);
+                        }
+                    }
+                }
+            }
+
+            &-image {
+                @include responsive(width, 648px);
+                @include responsive(height, 612px);
+
+                @include mobile() {
+                    @include square(350px);
+                }
+            }
+        }
+    }
+}

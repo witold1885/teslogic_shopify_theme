@@ -1,0 +1,63 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+
+    &__setup {
+        @include responsive(padding-bottom, 180px);
+
+        @include mobile() {
+            @include responsive(padding-bottom, 96px);
+        }
+
+        & .heading {
+            background: radial-gradient(98.08% 98.08% at 50% 50%, #FFF 0%, #808080 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #0465FD;
+        }
+
+        &-subtitle, &-text {
+            color: #F1F1F1;
+            @extend .text-center;
+
+            @include mobile() {
+                text-align: left;
+            }
+        }
+
+        &-subtitle {
+            @extend .font-manrope-24, .mob\:font-manrope-18;
+
+            @include mobile() {
+                @include responsive(max-width, 185px);
+            }
+        }
+
+        &-video {
+            @extend .w-full;
+            @include responsive(height, 580px);
+            @include responsive(border-radius, 24px);
+            @extend .overflow-hidden;
+
+            @include mobile() {
+                @include responsive(height, 290px);
+                @include responsive(border-radius, 10px);
+            }
+        }
+
+        &-text {
+            @extend .font-manrope-24, .mob\:font-manrope-14;
+            @include responsive(height, 64px);
+
+            @include mobile() {
+                @include responsive(max-width, 270px);
+                @include responsive(height, 60px);
+
+                & > br {
+                    display: none;
+                }
+            }
+        }
+    }
+}

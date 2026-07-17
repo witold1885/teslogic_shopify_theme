@@ -1,4 +1,5 @@
 import { forwardRef, useMemo } from 'react'
+import './screenmate-one-dash.scss'
 import Image from '../Common/Image'
 import Icon from '../Common/Icon'
 import dashImage from '../../assets/images/screenmate-one/dash-image.png'

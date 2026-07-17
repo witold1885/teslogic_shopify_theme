@@ -1,0 +1,160 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+    
+    &__banner {
+        height: 100dvh;
+        @include responsive(min-height, 810px);
+
+        @include mobile() {
+            @include responsive(min-height, 768px);
+        }
+
+        &-inner {
+            @extend .flex-column, .gap-32, .absolute;
+            @include responsive(top, 284px);
+            left: 0;
+
+            @include mobile() {
+                gap: 0;
+                top: unset;
+                @include responsive(bottom, 88px);
+            }
+
+            & > img {
+                @include responsive(width, 326px);
+                @include responsive(height, 24px);
+                aspect-ratio: 163/12;
+
+                @include mobile() {
+                    @include responsive(width, 217px);
+                    @include responsive(height, 16px);
+                    aspect-ratio: 217/16;
+                    @include responsive(margin-bottom, 20px);
+                }
+            }
+
+            & h1 {
+                @include responsive(width, 600px);
+                font-family: "Neue Haas Grotesk Display Pro";
+                @include responsive(font-size, 64px);
+                font-style: normal;
+                font-weight: 900;
+                @include responsive(line-height, 72px);
+                background: radial-gradient(206.09% 206.09% at 50% 50%, #FFF 0%, #808080 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                @include mobile() {
+                    @include responsive(width, 350px);
+                    @include responsive(font-size, 37.4px);
+                    @include responsive(line-height, 44px);
+                    @include responsive(margin-bottom, 28px);
+                }
+            }
+
+            & button {
+                @include responsive(height, 72px);
+                @extend .font-manrope-24, .mob\:font-manrope-18, .font-600;
+                white-space: nowrap;
+                @include responsive(letter-spacing, 0.48px);
+                background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: #FFFFFF;
+
+                &:first-child {
+                    @extend .flex-center, .text-center, .uppercase;
+                    @include responsive(width, 280px);
+                    @include responsive(height, 72px);
+                    @include responsive(border-radius, 54px);
+                    border: 3px solid #0068FD;
+                    background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+                    backdrop-filter: blur(8px);
+
+                    @include mobile() {
+                        width: 100%;
+                        @include responsive(height, 56px);
+                    }
+
+                    &:hover {
+                        border: none;
+                        background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                    }
+                }
+            }
+        }
+
+        &-kickstarter {
+            @extend .flex-column, .gap-12, .absolute;
+            @include responsive(bottom, 73px);
+            right: 0;
+
+            @include mobile() {
+                @include responsive(bottom, 328px);
+                @include responsive(width, 104px);
+                @include responsive(height, 40px);
+                aspect-ratio: 13/5;
+                background-image: url(../../assets/images/screenmate-one/kickstarter-mobile.svg);
+                background-size: cover;
+
+                & * {
+                    display: none;
+                }
+            }
+
+            & > .icon {
+                @include responsive(width, 200px);
+                @include responsive(height, 21px);
+                aspect-ratio: 200/21;
+            }
+
+            &-badge {
+                @extend .flex-start-center, .gap-10;
+                @include responsive(padding, 6px, 16px);
+                @include responsive(border-radius, 100px);
+                background: #004650;
+
+                & img {
+                    @include responsive(width, 20.33px);
+                    @include responsive(height, 18.824px);
+                }
+
+                & span {
+                    font-family: "Product Sans Medium";
+                    @include responsive(font-size, 20px);
+                    font-style: normal;
+                    @include responsive(line-height, 28px);
+                    @extend .font-500, .text-white;
+                }
+            }
+        }
+
+        &-expand {
+            @extend .flex-center, .absolute, .cursor-pointer;
+            left: 50%;
+            transform: translateX(-50%);
+            @include responsive(bottom, 1px);
+            @include responsive(width, 92px);
+            @include responsive(height, 92px);
+
+            @include mobile() {
+                @include responsive(bottom, 12px);
+                @include responsive(width, 64px);
+                @include responsive(height, 64px);
+            }
+
+            & .icon {
+                @include responsive(width, 46.666px);
+                @include responsive(height, 24.591px);
+
+                @include mobile() {
+                    @include responsive(width, 22px);
+                    @include responsive(height, 12px);
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React, { forwardRef, useState, useMemo, useEffect } from 'react'
+import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'

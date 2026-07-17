@@ -1,0 +1,96 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+    
+    &__complectation {
+        @extend .flex-column, .gap-100, .mob\:gap-60;
+        @include responsive(padding, 0, 0, 172px);
+        background: linear-gradient(180deg, rgba(29, 29, 31, 0.00) 0%, #202022 57.88%, #252528 100%);
+
+        @include mobile() {
+            @include responsive(padding, 0, 0, 96px);
+        }
+
+        &-group {
+            @extend .container, .flex-column, .gap-60, .mob\:gap-32;
+
+            &-grid {
+                @extend .w-full, .grid, .gap-0, .overflow-hidden, .mob\:w-full;
+                @include responsive(border-radius, 24px);
+
+                @include mobile() {
+                    @include responsive(border-radius, 12px);
+                }
+
+                &-item {
+                    background: #2F2F32;
+
+                    .grid.box & {
+                        @include responsive(padding-bottom, 36px);
+
+                        @include mobile() {
+                            @include responsive(padding-bottom, 18.13px);
+                        }
+                    }
+
+                    &.device {
+                        @include responsive(gap, 78.13px);
+
+                        @include mobile() {
+                            @include responsive(gap, 24px);
+                        }
+                    }
+
+                    .grid.add & {
+                        @include responsive(padding, 52px, 0, 56px, 32px);
+
+                        @include mobile() {
+                            @include responsive(padding, 32px, 20px, 40px);
+
+                            & br {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &.device, &.holder, &.data_wire, &.charger {
+                        border-right: 2px solid rgba(255, 255, 255, 0.15);
+                    }
+
+                    &.holder, &.tool {
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+                    }
+
+                    @include mobile() {
+                        &.device, &.charger {
+                            border-right: none;
+                            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+                        }
+                    }
+
+                    &-image {
+
+                        .grid.box & {
+                            @include square(220px);
+
+                            @include mobile() {
+                                @include square(124.765px);
+                            }
+                        }
+
+                        .grid.add & {
+                            @include responsive(width, 200px);
+                            @include responsive(height, 240px);
+                            aspect-ratio: 5/6;
+                        }
+                    }
+
+                    & .icon {
+                        @include square(24px);
+                    }
+                }
+            }
+        }
+    }
+}

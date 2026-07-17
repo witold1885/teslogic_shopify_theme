@@ -1,0 +1,411 @@
+@use '../../assets/styles/common.scss';
+@use '../../assets/styles/mixins' as *;
+
+.screenmate-one {
+    
+    &__convenience {
+        @include responsive(padding, 156px, 0);
+        background: linear-gradient(0deg, #1D1D1F 0%, #1D1D1F 100%), #191919;
+
+        @include mobile() {
+            @include responsive(padding, 90px, 0, 96px);
+        }
+
+        &-wrap {
+            @extend .flex-column-center, .gap-150;
+
+            @include mobile() {
+                @include responsive(gap, 72px);
+            }
+        }
+
+        & .heading {
+            @include responsive(width, 857px);
+            background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #0465FD;
+
+            @include mobile() {
+                @include responsive(width, 350px);
+                @include responsive(margin-bottom, 8px);
+            }
+        }
+
+        &-block {            
+
+            &.key-driving-info {
+                @include responsive(height, 746px);
+                @include responsive(padding-top, 120px);
+                background-image: url(../../assets/images/screenmate-one/key-driving-info-desktop.png);
+                background-size: cover;
+
+                @include mobile() {
+                    @include responsive(height, 548px);
+                    padding-top: 0;
+                    background-image: url(../../assets/images/screenmate-one/key-driving-info-mobile.png);
+                    background-size: 100% auto;
+                    background-position-x: center;
+                    @include responsive(background-position-y, 156px);
+                    background-repeat: no-repeat;
+                }
+            }
+
+            &-top {
+
+                & .block-title {
+
+                    .key-driving-info &, .front-camera-integration & {
+                        @extend .text-white;
+                    }
+                }
+
+                & .block-text {
+
+                    .key-driving-info &, .front-camera-integration & {
+                        @extend .text-white;
+                    }
+
+                    .key-driving-info & {
+                        text-align: right;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 0 4px 60px #000;
+
+                        @include mobile() {
+                            text-align: left;
+                        }
+                    }
+
+                    .beyond-basic-control & {
+                        @extend .font-manrope-20;
+                    }
+                }
+            }
+
+            &-additional {
+
+                & > * {
+                    color: #F1F1F1;
+                    @extend .font-manrope-20;
+                }
+
+                & .icon {
+                    @include responsive(width, 16px);
+                    @include responsive(height, 28px);
+
+                    @include mobile() {
+                        @include responsive(height, 24px);
+                    }
+                }
+            }
+
+            &-image, &-video {
+                @extend .w-full, .overflow-hidden;
+                @include responsive(border-radius, 24px);
+
+                @include mobile() {
+                    @include responsive(border-radius, 10px);
+                }
+            }
+
+            &-image {
+
+                .front-camera-integration & {
+                    @include responsive(width, 746px);
+
+                    @include mobile() {
+                        @include responsive(width, 350px);
+                    }
+                }
+            }
+
+            &-video {
+                @include responsive(height, 580px);
+
+                @include mobile() {
+                    @include responsive(height, 290px);
+                }
+            }
+
+            &-pointer {
+
+                &.top-left {
+                    @include responsive(width, 353.5px);
+                    @include responsive(height, 58.5px);
+
+                    @include mobile() {
+                        @include responsive(width, 153.5px);
+                        @include responsive(height, 55.5px);
+                    }
+                }
+
+                &.top-right {
+                    @include responsive(width, 238px);
+                    @include responsive(height, 61px);
+
+                    @include mobile() {
+                        @include responsive(width, 71px);
+                        @include responsive(height, 53.5px);
+                    }
+                }
+
+                &.bottom-left {
+                    @include responsive(width, 208.25px);
+                    @include responsive(height, 34.501px);
+
+                    @include mobile() {
+                        @include responsive(width, 47px);
+                        @include responsive(height, 47px);
+                    }
+                }
+
+                &.bottom-right {
+                    @include responsive(width, 176.5px);
+                    @include responsive(height, 39px);
+
+                    @include mobile() {
+                        @include responsive(width, 42.5px);
+                        @include responsive(height, 29px);
+                    }
+                }
+            }
+
+            &-legend {
+
+                & span {
+                    @extend .text-white, .font-manrope;
+                    text-align: inherit;
+
+                    &:first-child {
+                        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                        @extend .font-manrope-24, .mob\:font-manrope-14, .font-600;
+                    }
+
+                    &:last-child {
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+                        @extend .font-manrope-20, .font-500;
+                    }
+                }
+            }
+        }
+
+        &-commands {
+            @extend .container, .relative;
+            height: calc(740 / 810 * 100vh);
+            @include responsive(border-radius, 24px);
+            background: #1D1D1F;
+
+            @include mobile() {
+                height: calc(800 / 844 * 100vh);
+                @include responsive(border-radius, 16px);
+            }
+
+            & > * {
+                @include responsive(padding, 28px);
+
+                @include mobile() {
+                    @include responsive(padding, 20px);
+                }
+            }
+
+            &-head {
+                @extend .flex-between-center;
+                border-bottom: 1px solid #4D4D4D;
+
+                & > div:first-child br {
+                    display: none;
+
+                    @include mobile() {
+                        display: block;
+                    }
+                }
+            }
+
+            &-body {
+                @extend .flex-column, .mob\:flex-column-center, .gap-36, .overflow-scroll-y;
+                height: calc(100% - calc(96 * 100vw / 1440));
+
+                @include mobile() {
+                    height: calc(100% - calc(100 * 100vw / 390));
+                }
+            }
+
+            &-close {
+                @include square(40px);
+
+                @include mobile() {
+                    @include square(32px);
+                }
+            }
+
+            &-grid {
+                @extend .w-full, .grid;
+                align-items: flex-start;
+                grid-template-columns: repeat(4, calc(284 * 100vw / 1440));
+                @include responsive(gap, 32px, 16px);
+
+                @include mobile() {
+                    grid-template-columns: repeat(2, calc(150 * 100vw / 390));
+                    @include responsive(gap, 32px, 10px);
+                }
+
+                &-item {
+                    font-family: "Universal Sans Display";
+                    font-style: normal;
+                    
+                    @include mobile() {
+
+                        &:has(.range), &:has(.switch) {
+                            grid-column: span 2;
+                        }
+                    }
+
+                    &-content {
+                        @include responsive(height, 96px);
+                        @include responsive(border-radius, 22px);
+                        background: rgba(51, 51, 51, 0.80);
+                        @extend .overflow-hidden;
+                    }
+
+                    & .button {
+                        @extend .flex-center, .font-500, .text-white;
+                        @include responsive(width, 96px);
+                        @include responsive(font-size, 18px);
+                        @include responsive(line-height, 24px);
+                        @include responsive(letter-spacing, 0.36px);
+
+                        & .icon {
+                            @include responsive(width, 64px);
+                            @include responsive(height, 64px);
+                        }
+                    }
+
+                    & .range {
+                        @extend .flex-between-center;
+                        @include responsive(width, 212px);
+                        @include responsive(padding, 6px, 12px);
+
+                        color: #DEDEDE;
+                        @include responsive(font-size, 38px);
+                        @include responsive(line-height, 48px);
+                        font-weight: 200;
+
+                        & span {
+                            @include responsive(font-size, 10px);
+                            @include responsive(line-height, 12px);
+                            @include responsive(letter-spacing, 0.2px);
+                            @extend .font-600, .text-white, .uppercase;
+                        }
+
+                        & .icon:not(.chevron) {
+                            @include responsive(width, 48px);
+                            @include responsive(height, 48px);
+                        }
+
+                        & .chevron {
+                            @extend .flex-center;
+                            @include responsive(width, 5.5px);
+                            @include responsive(height, 11.5px);
+                        }
+                    }
+
+                    & .switch {
+                        @extend .flex, .font-500, .text-center, .text-white;
+                        @include responsive(width, 212px);
+                        @include responsive(font-size, 16px);
+                        @include responsive(line-height, 20px);
+                        @include responsive(letter-spacing, 0.32px);
+
+                        & > * {
+                            @extend .flex-1;
+                            background: inherit;
+
+                            &:nth-child(2) {
+                                background: #666;
+                            }
+                        }
+
+                        &:has(:nth-child(3)) {
+                            & > * {
+                                &:nth-child(2) {
+                                    background: inherit;
+                                }
+
+                                &:nth-child(3) {
+                                    background: #1461FF;
+                                }
+                            }
+                        }
+                    }
+
+                    &:has(.control) {
+                        grid-column: span 2;
+                    }
+
+                    & .control {
+                        @extend .flex;
+                        @include responsive(font-size, 18px);
+                        @include responsive(line-height, 24px);
+                        color: #808080;
+
+                        @include mobile() {
+                            @include responsive(height, 53px);
+                            @include responsive(border-radius, 16px);
+                            @include responsive(font-size, 12px);
+                            @include responsive(line-height, 16px);
+                        }
+
+                        & > * {
+
+                            &:first-child {
+                                background: #666;
+                                color: #F7F7F7;
+                            }
+
+                            &:first-child, &:last-child {
+                                @include responsive(width, 120px);
+
+                                @include mobile() {
+                                    @include responsive(width, 77.5px);
+                                }
+                            }
+
+                            &:not(:first-child) {
+                                border-left: 1px solid #666;
+                            }
+                        }
+
+                        & .icon {
+                            @include square(48px);
+                            
+                            @include mobile() {
+                                @include square(24px);
+                            }
+                        }
+                    }
+
+                    &-title {
+                        @extend .font-manrope-18, .font-500, .text-left, .mob\:text-center;
+                        white-space: nowrap;
+                    }
+                }
+            }
+
+            &-font {
+
+                &-18 {
+                    @include responsive(font-size, 18px);
+                    @include responsive(line-height, 24px);
+                }
+            }
+
+            &-delimiter {
+                @extend .w-full;
+                border: 1px solid #4D4D4D;
+
+                &:last-child {
+                    display: none;
+                }
+            }
+        }
+    }
+}

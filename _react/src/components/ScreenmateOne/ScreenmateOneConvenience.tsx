@@ -1,4 +1,5 @@
 import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import './screenmate-one-convenience.scss'
 import { Heading, Icon, Image, Popup } from '../Common'
 import Video from '../Common/Video'
 

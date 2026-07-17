@@ -1,4 +1,5 @@
 import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode, useEffect } from 'react'
+import './screenmate-one-features.scss'
 
 import { Icon } from '../Common'
 import arrowIcon from '../../assets/icons/arrow-top-right.svg'
