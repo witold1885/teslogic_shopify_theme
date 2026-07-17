@@ -5,6 +5,7 @@ interface VideoProps {
     style?: CSSProperties
     src: string
     background?: string
+    fetchpriority?: string
     autoPlay?: boolean
     loop?: boolean
     isActive?: boolean
@@ -16,7 +17,7 @@ export interface VideoRefMethods {
     el: HTMLDivElement | null
 }
 
-const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, autoPlay = true, loop = true, isActive = true }, ref) => {
+const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, fetchpriority = 'auto', autoPlay = true, loop = true, isActive = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
 
@@ -103,6 +104,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 className="object-cover"
                 style={{ display: isReadyToPlay ? 'block' : 'none' }}
                 loop={loop}
+                {...{ fetchpriority } as React.HTMLAttributes<HTMLVideoElement>}
                 playsInline
                 muted
                 preload={isIntersecting && isActive ? 'auto' : 'none'}
