@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, type ReactNode } from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import LazySection from '../pages/LazySection'
 
 const Reviews = lazy(() => import('../components/Reviews/Reviews'))
 
@@ -14,9 +15,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
     <Header onOrder={onOrder} />
     <div {...{className}}>
         {children}
-        <Suspense>
-            <Reviews />
-        </Suspense>
+        <LazySection>
+            <Suspense>
+                <Reviews />
+            </Suspense>
+        </LazySection>
     </div>
     <Footer />
 </>)
