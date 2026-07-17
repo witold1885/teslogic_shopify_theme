@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { SubscribePayload, SubscribeResponse } from '../../types/subscribe'
-import api from '../api'
 
 interface SubscribeState {
     loading: boolean
@@ -15,6 +14,7 @@ const initialState: SubscribeState = {
 export const customSubscribe = createAsyncThunk(
     'subscribe/customSubscribe',
     async (data: SubscribePayload, { rejectWithValue }) => {
+        const { default: api } = await import('../api')
         const result = await api.post<SubscribeResponse>('mail/custom-subscribe', data)
 
         if (!result.success) {

@@ -12,11 +12,21 @@ const Reviews: React.FC = () => {
     const { product } = useAppSelector(state => state.products)
 
     useEffect(() => {
-        if (product) {
-            dispatch(fetchReviews(product.id))
-        }
-    }, [product])
-    
+        if (!product) return
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                dispatch(fetchReviews(product.id))
+                observer.disconnect()
+            }
+        }, { rootMargin: '810px' })
+
+        const element = document.querySelector('.reviews')
+        if (element) observer.observe(element)
+
+        return () => observer.disconnect()
+    }, [product, dispatch])
+
     return (
         <div className="reviews">
             <div className="container flex-column gap-50 mob:gap-48">
