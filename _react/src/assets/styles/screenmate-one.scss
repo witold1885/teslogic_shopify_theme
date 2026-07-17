@@ -1,31 +1,4 @@
-@use './common.scss';
-@use 'mixins' as *;
-
 .screenmate-one {
     background-color: #000;
     color: #FFF;
-}
-
-.block {
-    
-    &-title {
-        color: #FAFAFA;
-        @extend .font-manrope-52, .mob\:font-manrope-32, .font-600;
-    }
-
-    &-text {
-        @include responsive(margin-top, 4px);
-        color: #F1F1F1;
-        @extend .font-manrope-24, .mob\:font-manrope-16;
-        white-space: nowrap;
-
-        @include mobile() {
-            margin-top: 0;
-            white-space: normal;
-
-            & > br {
-                display: none;
-            }
-        }
-    }
 }

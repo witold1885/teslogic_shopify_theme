@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import './styles.scss'
+import './header.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'

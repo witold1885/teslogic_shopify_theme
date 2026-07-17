@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import * as yup from 'yup'
-import './styles.scss'
+import './footer.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { customSubscribe } from '../../redux/slices/subscribe'
 import type { MenuItem } from '../../types/shopify'
