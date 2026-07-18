@@ -1,7 +1,8 @@
 @use "sass:string";
 @use 'mixins' as *;
 
-$allFonts: (Manrope, NeueHaasGrotesk, Universal);
+// $allFonts: (Manrope, NeueHaasGrotesk, Universal);
+$allFonts: (Manrope);
 
 $fontsMap: (
     14px: 20px,
