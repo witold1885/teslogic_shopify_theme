@@ -1,7 +1,10 @@
+@use "sass:string";
 @use 'mixins' as *;
-@import '../fonts/NeueHaasGrotesk/stylesheet.css';
 @import '../fonts/Manrope/stylesheet.css';
+@import '../fonts/NeueHaasGrotesk/stylesheet.css';
 @import '../fonts/Universal/stylesheet.css';
+
+$allFonts: (Manrope, NeueHaasGrotesk, Universal);
 
 $fontsMap: (
     14px: 20px,
@@ -16,24 +19,55 @@ $fontsMap: (
     52px: 64px
 );
 
-$weights: 400, 500, 600;
+$weights: 400, 500, 600, 700, 800, 900;
 
-@include generate-font-utilities(Manrope);
-
-@media (max-width: 576px) {
-    @include generate-font-utilities(Manrope, "mob");
-}
-
-.font {
-
-    &-manrope {
-        font-family: Manrope;
-        font-style: normal;
-    }
+@mixin render-font-core($type: "placeholder", $prefix: "") {
+    $symbol: if(sass($type == "class"): "."; else: "%");
+    $separator: if(sass($prefix == ""): ""; else: "\\:");
 
     @each $weight in $weights {
-        &-#{$weight} {
+        #{$symbol}#{$prefix}#{$separator}font-#{$weight} {
             font-weight: $weight;
         }
     }
+
+    @each $fontFamily in $allFonts {
+        $slug: string.to-lower-case(#{$fontFamily});
+
+        #{$symbol}#{$prefix}#{$separator}font-#{$slug} {
+            font-family: $fontFamily;
+            font-style: normal;
+        }
+
+        @each $fontSize, $lineHeight in $fontsMap {
+            $size: replace-px($fontSize);
+            
+            #{$symbol}#{$prefix}#{$separator}font-#{$slug}-#{$size} {
+                font-family: $fontFamily;
+                font-style: normal;
+                font-weight: 400;
+                @include responsive(font-size, $fontSize);
+                @include responsive(line-height, $lineHeight);
+
+                @if $prefix == "mob" {
+                    -webkit-font-smoothing: subpixel-antialiased;
+                    -moz-osx-font-smoothing: auto;
+                } @else {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        }
+    }
+    
+}
+
+@include render-font-core("placeholder");
+
+@include mobile() {
+    @include render-font-core("placeholder", "mob");
+}
+
+@mixin generate-font-classes($prefix: "") {
+    @include render-font-core("class", $prefix);
 }

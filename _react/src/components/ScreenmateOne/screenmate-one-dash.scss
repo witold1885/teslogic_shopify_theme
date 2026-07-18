@@ -1,4 +1,7 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
@@ -14,17 +17,16 @@
         }
 
         &-body {
-            @extend .container, .flex-between-center, .mob\:flex-column, .gap-85, .mob\:gap-32, .overflow-hidden;
+            @extend %container, %flex-between-center, %mob\:flex-column, %gap-85, %mob\:gap-32, %overflow-hidden;
             @include responsive(border-radius, 24px);
             background: radial-gradient(30.67% 64.95% at 72.03% 50%, #1D1D1F 0%, #1D1D1F 100%);
-            overflow: hidden;
 
             @include mobile() {
                 @include responsive(border-radius, 10px);
             }
 
             &-info {
-                @extend .flex-column, .flex-1, .gap-36, .mob\:gap-20;
+                @extend %flex-column, %flex-1, %gap-36, %mob\:gap-20;
                 @include responsive(padding, 110px, 0, 110px, 110px);
 
                 @include mobile() {
@@ -32,20 +34,20 @@
                 }
 
                 &-texts {
-                    @extend .flex-column, .gap-20, .mob\:gap-12;
+                    @extend %flex-column, %gap-20, %mob\:gap-12;
 
                     &-heading {
-                        @extend .flex-column-start, .gap-12, .mob\:gap-8;
+                        @extend %flex-column-start, %gap-12, %mob\:gap-8;
 
                         &-badge {
-                            @extend .w-auto;
+                            @extend %w-auto;
                             @include responsive(padding, 4px, 8px);
                             @include responsive(border-radius, 6px);
                             border: 1px solid #7C56FB;
                             background: #141415;
                             
                             & span {
-                                @extend .font-manrope-20, .mob\:font-manrope-14, .font-600;
+                                @extend %font-manrope-20, %mob\:font-manrope-14, %font-600;
                                 background: linear-gradient(90deg, #7C56FB 0%, #0465FD 106.31%);
                                 background-clip: text;
                                 -webkit-background-clip: text;
@@ -55,14 +57,14 @@
 
                         &-title {
                             color: #FAFAFA;
-                            @extend .font-manrope-52, .mob\:font-manrope-32, .font-600;
+                            @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
                         }
 
                     }
 
                     &-description {
                         color: #F1F1F1;
-                        @extend .font-manrope-20, .mob\:font-manrope-16;
+                        @extend %font-manrope-20, %mob\:font-manrope-16;
 
                         @include mobile() {
                             & > br {
@@ -73,11 +75,10 @@
                 }
 
                 &-link {
-                    @extend .flex-start-center, .gap-12, .mob\:gap-8, .font-manrope-20, .mob\:font-manrope-16, .font-500;
+                    @extend %flex-start-center, %gap-12, %mob\:gap-8, %font-manrope-20, %mob\:font-manrope-16, %font-500;
 
                     & .icon {
-                        @include responsive(width, 16px);
-                        @include responsive(height, 28px);
+                        @include block(16px, 28px);
 
                         @include mobile() {
                             @include responsive(height, 24px);
@@ -87,8 +88,7 @@
             }
 
             &-image {
-                @include responsive(width, 648px);
-                @include responsive(height, 612px);
+                @include block(648px, 612px);
 
                 @include mobile() {
                     @include square(350px);

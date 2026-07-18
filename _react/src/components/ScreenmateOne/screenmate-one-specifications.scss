@@ -1,10 +1,13 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
 
     &__specifications {
-        @extend .container, .flex-column, .gap-150, .mob\:gap-64;
+        @extend %container, %flex-column, %gap-150, %mob\:gap-64;
         @include responsive(padding, 156px, 0, 180px);
 
         @include mobile {
@@ -19,10 +22,10 @@
         }
 
         &-body {
-            @extend .flex-column-center, .gap-32, .mob\:flex-column-reverse, .mob\:gap-16;
+            @extend %flex-column-center, %gap-32, %mob\:flex-column-reverse, %mob\:gap-16;
 
             & .tabs-item-title {
-                @extend .mob\:w-full, .mob\:text-left;
+                @extend %mob\:w-full, %mob\:text-left;
 
                 & > br {
                     display: none;
@@ -34,7 +37,7 @@
             }
 
             &-content {
-                @extend .w-full, .overflow-hidden;
+                @extend %w-full, %overflow-hidden;
                 @include responsive(height, 600px);
                 @include responsive(border-radius, 32px);
                 background: #1D1D1F;
@@ -65,7 +68,7 @@
                 }
 
                 &-top {
-                    @extend .flex-column, .gap-16, .mob\:gap-12, .text-white;
+                    @extend %flex-column, %gap-16, %mob\:gap-12, %text-white;
                     @include responsive(padding-bottom, 38px);
                     border-bottom: 1px solid #4D4D4D;
 
@@ -75,7 +78,7 @@
                 }
 
                 &-grid {
-                    @extend .grid;
+                    @extend %grid;
                     @include responsive(row-gap, 64px);
                     @include responsive(padding-top, 40px);
 
@@ -100,7 +103,7 @@
 
                     &-item {
                         &.info-item {
-                            @extend .flex-column, .gap-4;
+                            @extend %flex-column, %gap-4;
                             @include responsive(max-height, 56px);
 
                             @include mobile() {
@@ -109,7 +112,7 @@
                         }
 
                         &.image-item {
-                            @extend .flex-start-center, .gap-24;
+                            @extend %flex-start-center, %gap-24;
 
                             @include mobile() {
 
@@ -120,9 +123,8 @@
                         }
 
                         &-image {
-                            @extend .flex-center;
-                            @include responsive(width, 200px);
-                            @include responsive(height, 150px);
+                            @extend %flex-center;
+                            @include block(200px, 150px);
 
                             @include mobile() {
                                 @include square(120px);
@@ -137,7 +139,7 @@
         }
 
         &-installation {
-            @extend .flex-between-center, .mob\:flex-column, .flex-1, .overflow-hidden;
+            @extend %flex-between-center, %mob\:flex-column, %flex-1, %overflow-hidden;
             @include responsive(border-radius, 24px);
             background: #1D1D1F;
 
@@ -146,7 +148,7 @@
             }
 
             &-info {
-                @extend .flex-column, .gap-40, .mob\:gap-20;
+                @extend %flex-column, %gap-40, %mob\:gap-20;
                 @include responsive(padding, 0, 60px);
 
                 @include mobile() {
@@ -158,8 +160,7 @@
                 }
 
                 & .icon {
-                    @include responsive(width, 16px);
-                    @include responsive(height, 32px);
+                    @include block(16px, 32px);
 
 
                     @include mobile() {
@@ -169,12 +170,10 @@
             }
 
             &-image {
-                @include responsive(width, 660px);
-                @include responsive(height, 588px);
+                @include block(660px, 588px);
 
                 @include mobile() {
-                    @include responsive(width, 350px);
-                    @include responsive(height, 300px);
+                    @include block(350px, 300px);
                 }
             }
         }

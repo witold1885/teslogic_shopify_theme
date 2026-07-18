@@ -1,4 +1,7 @@
-@use '@/assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '@/assets/styles/mixins' as *;
 
 .footer {
@@ -11,14 +14,14 @@
     }
 
     &-form {
-        @extend .flex-between, .mob\:flex-column, .mob\:gap-32;
+        @extend %flex-between, %mob\:flex-column, %mob\:gap-32;
 
         &-field {
-            @extend .relative;
+            @extend %relative;
             @include responsive(width, 416px);
 
             & input {
-                @extend .w-full, .font-manrope-16;
+                @extend %w-full, %font-manrope-16;
                 @include responsive(height, 52px);
                 @include responsive(padding, 16px);
                 @include responsive(border-radius, 6px);
@@ -28,7 +31,7 @@
             }
 
             &-error {
-                @extend .absolute, .font-manrope-14;
+                @extend %absolute, %font-manrope-14;
                 left: 0;
                 @include responsive(bottom, -22px);
                 color: #FC3E30;
@@ -36,9 +39,8 @@
         }
 
         & button {
-            @extend .flex-center, .text-center, .font-manrope-18, .font-600;
-            @include responsive(width, 195px);
-            @include responsive(height, 52px);
+            @extend %flex-center, %text-center, %font-manrope-18, %font-600;
+            @include block(195px, 52px);
             @include responsive(border-radius, 26px);
             border: 3px solid #0068FD;
             background: transparent;
@@ -60,18 +62,16 @@
     }
 
     &-logo {
-        @include responsive(width, 254px);
-        @include responsive(height, 40px);
+        @include block(254px, 40px);
 
         @include mobile() {
-            @include responsive(width, 182px);
-            @include responsive(height, 28px);
+            @include block(182px, 28px);
             grid-column: span 2;
         }
     }
 
     &-grid {
-        @extend .grid;
+        @extend %grid;
         grid-template-columns: calc(330 * 100vw / 1440) calc(283 * 100vw / 1440) calc(268 * 100vw / 1440) calc(219 * 100vw / 1440) 1fr;
         @include responsive(row-gap, 52px);
 
@@ -83,7 +83,7 @@
         }
 
         & a {
-            @extend .font-manrope-16;
+            @extend %font-manrope-16;
             text-decoration: none;
             color: #D0D0D0;
 
@@ -102,7 +102,7 @@
     }
 
     &-stores {
-        @extend .flex-start-center, .gap-12, .mob\:gap-8;
+        @extend %flex-start-center, %gap-12, %mob\:gap-8;
 
         @include mobile() {
             grid-column: span 2;
@@ -120,7 +120,7 @@
     }
 
     &-bottom {
-        @extend .flex-between-start, .mob\:flex-column, .mob\:gap-24, .font-manrope-16;
+        @extend %flex-between-start, %mob\:flex-column, %mob\:gap-24, %font-manrope-16;
         @include responsive(margin-top, -32px);
         color: #808080;
 
@@ -134,7 +134,7 @@
     }
 
     &-delimiter {
-        @extend .w-full;
+        @extend %w-full;
         border: 0.5px solid #808080;
     }
 }

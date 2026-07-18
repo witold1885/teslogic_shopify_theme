@@ -1,4 +1,7 @@
-@use '@/assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '@/assets/styles/mixins' as *;
 
 .reviews {
@@ -11,7 +14,7 @@
     }
 
     &-star {
-        @extend .flex-center;
+        @extend %flex-center;
         @include square(32px);
 
         @include mobile() {
@@ -29,16 +32,15 @@
     }
 
     &-judgeme {
-        @extend .mob\:hidden;
-        @include responsive(width, 129.231px);
-        @include responsive(height, 32px);
+        @extend %mob\:hidden;
+        @include block(129.231px, 32px);
     }
 
     &-grid {
-        @extend .mob\:hidden;
+        @extend %mob\:hidden;
 
         &-item {
-            @extend .flex-column, .gap-16;
+            @extend %flex-column, %gap-16;
             @include responsive(padding, 40px);
             @include responsive(border-radius, 24px);
             background: #1A1A1A;
@@ -52,16 +54,15 @@
     }
 
     &-pagination {
-        @extend .flex-center, .gap-8, .mob\:hidden;
+        @extend %flex-center, %gap-8, %mob\:hidden;
 
         &-nav {
-            @extend .flex-center;
-            @include responsive(width, 4px);
-            @include responsive(height, 8px);
+            @extend %flex-center;
+            @include block(4px, 8px);
         }
 
         &-item {
-            @extend .flex-center, .font-manrope-18, .font-500, .text-white, .cursor-pointer;
+            @extend %flex-center, %font-manrope-18, %font-500, %text-white, %cursor-pointer;
             @include square(24px);
 
             &.active {
@@ -77,10 +78,10 @@
     }
 
     &-slider {
-        @extend .cursor-grab;
+        @extend %cursor-grab;
 
         &-item {
-            @extend .flex-column, .gap-16;
+            @extend %flex-column, %gap-16;
             @include responsive(width, 304px);
             @include responsive(max-height, 440px);
             @include responsive(padding, 24px, 24px, 16px);
@@ -107,7 +108,7 @@
         background: #FFF;
         backdrop-filter: blur(8px);
         color: #1657FC;
-        @extend .font-manrope-24, .font-500, .text-center;
+        @extend %font-manrope-24, %font-500, %text-center;
 
         &:hover {
             border: 3px solid #FFF;
@@ -143,7 +144,7 @@
                 @include square(24px);
                 background-image: url(@/assets/icons/star-grey.svg);
                 background-size: cover;
-                @extend .cursor-pointer;
+                @extend %cursor-pointer;
             }
 
             & label:hover,
@@ -156,7 +157,7 @@
         }
 
         &-body {
-            @extend .grid;
+            @extend %grid;
             grid-template-columns: 1fr 1fr;
             @include responsive(gap, 28px, 24px);
 
@@ -180,7 +181,7 @@
                 @include responsive(border-radius, 6px);
                 border: 1px solid #D9D9D9;
                 background: transparent;
-                @extend .font-manrope-16, .text-white;
+                @extend %font-manrope-16, %text-white;
             }
 
             & textarea {
@@ -190,7 +191,7 @@
             &-error {
                 @include responsive(bottom, -22px);
                 color: #FC3E30;
-                @extend .absolute, .font-manrope-14;
+                @extend %absolute, %font-manrope-14;
             }
         }
 
@@ -200,7 +201,7 @@
             border: none;
             background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
             color: #FFF;
-            @extend .font-manrope-18, .font-400, .text-center;
+            @extend %font-manrope-18, %font-400, %text-center;
         }
     }    
 }

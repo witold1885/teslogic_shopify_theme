@@ -1,0 +1,75 @@
+@use 'mixins' as *;
+
+$displayMap: (
+    "hidden": none,
+    "block": block
+);
+
+$sizingMap: (
+    "w-auto": (width: auto),
+    "w-full": (width: 100%),
+    "h-auto": (height: auto),
+    "h-full": (height: 100%)
+);
+
+$positionMap: (
+    "relative": relative,
+    "absolute": absolute,
+    "fixed": fixed,
+    "static": static
+);
+
+@mixin render-base-core($type: "placeholder", $prefix: "") {
+    $symbol: if(sass($type == "class"): "."; else: "%");
+    $separator: if(sass($prefix == ""): ""; else: "\\:");
+
+    @each $name, $value in $displayMap {
+        #{$symbol}#{$prefix}#{$separator}#{$name} { display: $value !important; }
+    }
+
+    @each $name, $props in $sizingMap {
+        #{$symbol}#{$prefix}#{$separator}#{$name} {
+            @each $prop, $value in $props {
+                #{$prop}: $value;
+            }
+        }
+    }
+
+    @each $name, $value in $positionMap {
+        #{$symbol}#{$prefix}#{$separator}#{$name} { position: $value; }
+    }
+
+    #{$symbol}#{$prefix}#{$separator}inset { inset: 0; }
+
+    #{$symbol}#{$prefix}#{$separator}overflow-hidden   { overflow: hidden; }
+    #{$symbol}#{$prefix}#{$separator}overflow-hidden-x { overflow-x: hidden; }
+    #{$symbol}#{$prefix}#{$separator}overflow-hidden-y { overflow-y: hidden; }
+
+    #{$symbol}#{$prefix}#{$separator}overflow-scroll   { overflow: scroll; }
+    #{$symbol}#{$prefix}#{$separator}overflow-scroll-x { overflow-x: scroll; }
+    #{$symbol}#{$prefix}#{$separator}overflow-scroll-y { overflow-y: scroll; }
+
+    #{$symbol}#{$prefix}#{$separator}circle { border-radius: 100%; }
+
+    #{$symbol}#{$prefix}#{$separator}cursor-pointer { cursor: pointer; }
+    #{$symbol}#{$prefix}#{$separator}cursor-grab { cursor: grab; }
+}
+
+%container {
+    @include responsive(width, 1296px);
+    margin: 0 auto;
+
+    @include mobile() {
+        @include responsive(width, 350px);
+    }
+}
+
+@include render-base-core("placeholder");
+
+@include mobile() {
+    @include render-base-core("placeholder", "mob");
+}
+
+@mixin generate-base-classes($prefix: "") {
+    @include render-base-core("class", $prefix);
+}

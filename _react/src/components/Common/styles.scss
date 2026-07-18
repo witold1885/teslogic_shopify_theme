@@ -1,18 +1,21 @@
-@use '@/assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '@/assets/styles/mixins' as *;
 
 .icon {
     & img, & svg {
-        @extend .w-full, .h-full;
+        @extend %w-full, %h-full;
     }
 }
 
 .tabs {
-    @extend .flex-center, .gap-64, .mob\:gap-8;
+    @extend %flex-center, %gap-64, %mob\:gap-8;
     border-bottom: 1px solid #666;
 
     &-item {
-        @extend .flex-center, .relative;
+        @extend %flex-center, %relative;
 
         @include mobile() {
             flex: 1;
@@ -21,11 +24,11 @@
 
         &-title {
             @include responsive(padding, 24px, 0);
-            @extend .font-manrope-24, .font-500, .text-center, .text-white, .mob\:font-manrope-14;
+            @extend %font-manrope-24, %font-500, %text-center, %text-white, %mob\:font-manrope-14;
             opacity: .6;
 
             .active & {
-                @extend .font-600;
+                @extend %font-600;
                 opacity: 1;
             }
 
@@ -35,7 +38,7 @@
         }
 
         &-marker {
-            @extend .absolute;
+            @extend %absolute;
             left: 0;
             bottom: -1px;
             height: 3px;
@@ -55,16 +58,16 @@
     }
 
     &-wrap {
-        @extend .flex-column, .gap-40;
+        @extend %flex-column, %gap-40;
     }
 
     &-scrollbar {
-        @extend .w-full, .relative, .cursor-pointer;
+        @extend %w-full, %relative, %cursor-pointer;
         @include responsive(height, 4px);
         @include responsive(border-radius, 2px);
         
         &-thumb {
-            @extend .h-full, .absolute, .cursor-grab;
+            @extend %h-full, %absolute, %cursor-grab;
             top: 0;
             left: 0;
             @include responsive(border-radius, 2px);

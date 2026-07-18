@@ -1,4 +1,7 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
@@ -12,7 +15,7 @@
         }
 
         &-video {
-            @extend .absolute, .inset;
+            @extend %absolute, %inset;
 
             @include mobile() {
                 bottom: unset;
@@ -21,7 +24,7 @@
         }
 
         &-inner {
-            @extend .flex-column, .gap-32, .absolute;
+            @extend %flex-column, %gap-32, %absolute;
             @include responsive(top, 284px);
             left: 0;
 
@@ -32,13 +35,11 @@
             }
 
             & > img {
-                @include responsive(width, 326px);
-                @include responsive(height, 24px);
+                @include block(326px, 24px);
                 aspect-ratio: 163/12;
 
                 @include mobile() {
-                    @include responsive(width, 217px);
-                    @include responsive(height, 16px);
+                    @include block(217px, 16px);
                     aspect-ratio: 217/16;
                     @include responsive(margin-bottom, 20px);
                 }
@@ -66,7 +67,7 @@
 
             & button {
                 @include responsive(height, 72px);
-                @extend .font-manrope-24, .mob\:font-manrope-18, .font-600;
+                @extend %font-manrope-24, %mob\:font-manrope-18, %font-600;
                 white-space: nowrap;
                 @include responsive(letter-spacing, 0.48px);
                 background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
@@ -75,7 +76,7 @@
                 -webkit-text-fill-color: #FFFFFF;
 
                 &:first-child {
-                    @extend .flex-center, .text-center, .uppercase;
+                    @extend %flex-center, %text-center, %uppercase;
                     @include responsive(width, 280px);
                     @include responsive(height, 72px);
                     @include responsive(border-radius, 54px);
@@ -97,14 +98,13 @@
         }
 
         &-kickstarter {
-            @extend .flex-column, .gap-12, .absolute;
+            @extend %flex-column, %gap-12, %absolute;
             @include responsive(bottom, 73px);
             right: 0;
 
             @include mobile() {
                 @include responsive(bottom, 328px);
-                @include responsive(width, 104px);
-                @include responsive(height, 40px);
+                @include block(104px, 40px);
                 aspect-ratio: 13/5;
                 background-image: url(../../assets/images/screenmate-one/kickstarter-mobile.svg);
                 background-size: cover;
@@ -115,20 +115,18 @@
             }
 
             & > .icon {
-                @include responsive(width, 200px);
-                @include responsive(height, 21px);
+                @include block(200px, 21px);
                 aspect-ratio: 200/21;
             }
 
             &-badge {
-                @extend .flex-start-center, .gap-10;
+                @extend %flex-start-center, %gap-10;
                 @include responsive(padding, 6px, 16px);
                 @include responsive(border-radius, 100px);
                 background: #004650;
 
                 & img {
-                    @include responsive(width, 20.33px);
-                    @include responsive(height, 18.824px);
+                    @include block(20.33px, 18.824px);
                 }
 
                 & span {
@@ -136,32 +134,28 @@
                     @include responsive(font-size, 20px);
                     font-style: normal;
                     @include responsive(line-height, 28px);
-                    @extend .font-500, .text-white;
+                    @extend %font-500, %text-white;
                 }
             }
         }
 
         &-expand {
-            @extend .flex-center, .absolute, .cursor-pointer;
+            @extend %flex-center, %absolute, %cursor-pointer;
             left: 50%;
             transform: translateX(-50%);
             @include responsive(bottom, 1px);
-            @include responsive(width, 92px);
-            @include responsive(height, 92px);
+            @include square(92px);
 
             @include mobile() {
                 @include responsive(bottom, 12px);
-                @include responsive(width, 64px);
-                @include responsive(height, 64px);
+                @include square(64px);
             }
 
             & .icon {
-                @include responsive(width, 46.666px);
-                @include responsive(height, 24.591px);
+                @include block(46.666px, 24.591px);
 
                 @include mobile() {
-                    @include responsive(width, 22px);
-                    @include responsive(height, 12px);
+                    @include block(22px, 12px);
                 }
             }
         }

@@ -1,4 +1,7 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
@@ -19,7 +22,7 @@
 
         &-subtitle, &-text {
             color: #F1F1F1;
-            @extend .text-center;
+            @extend %text-center;
 
             @include mobile() {
                 text-align: left;
@@ -27,7 +30,7 @@
         }
 
         &-subtitle {
-            @extend .font-manrope-24, .mob\:font-manrope-18;
+            @extend %font-manrope-24, %mob\:font-manrope-18;
 
             @include mobile() {
                 @include responsive(max-width, 185px);
@@ -35,10 +38,9 @@
         }
 
         &-video {
-            @extend .w-full;
+            @extend %w-full, %overflow-hidden;
             @include responsive(height, 580px);
             @include responsive(border-radius, 24px);
-            @extend .overflow-hidden;
 
             @include mobile() {
                 @include responsive(height, 290px);
@@ -47,7 +49,7 @@
         }
 
         &-text {
-            @extend .font-manrope-24, .mob\:font-manrope-14;
+            @extend %font-manrope-24, %mob\:font-manrope-14;
             @include responsive(height, 64px);
 
             @include mobile() {

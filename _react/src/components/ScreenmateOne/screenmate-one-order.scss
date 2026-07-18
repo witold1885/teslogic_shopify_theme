@@ -1,10 +1,13 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
 
     &__order {
-        @extend .flex, .mob\:flex-column, .mob\:gap-20;
+        @extend %flex, %mob\:flex-column, %mob\:gap-20;
         max-height: 100dvh;
         @include responsive(min-height, 810px);
         background: radial-gradient(56.25% 100% at 50% 100%, #1D1D1F 0%, #0E0E0E 100%), linear-gradient(180deg, #FFF 0%, #F6F6F6 100%);
@@ -23,17 +26,17 @@
         }
 
         &-gallery {
-            @extend .relative;
+            @extend %relative;
 
             @include mobile() {
                 @include responsive(height, 450px);
             }
 
             &-slider {
-                @extend .w-full, .flex-center;
+                @extend %w-full, %flex-center;
 
                 &-wrap {
-                    @extend .w-full, .flex-center, .gap-12, .absolute;
+                    @extend %w-full, %flex-center, %gap-12, %absolute;
                     min-width: 0;
                     bottom: 0;
                     @include responsive(padding, 0, 150px, 40px);
@@ -69,17 +72,16 @@
                     }
 
                     & .icon {
-                        @extend .w-full, .h-full, .flex-center;
+                        @extend %w-full, %h-full, %flex-center;
 
                         & > img {
-                            @include responsive(width, 6px);
-                            @include responsive(height, 12px);
+                            @include block(6px, 12px);
                         }
                     }
                 }
 
                 &-item {
-                    @extend .w-full, .h-full, .cursor-pointer;
+                    @extend %w-full, %h-full, %cursor-pointer;
                     @include responsive(border-radius, 12px);
                     border: 1px solid rgba(255, 255, 255, 0.10);
                     background: lightgray 50% / cover no-repeat, #191919;
@@ -111,7 +113,7 @@
             }
 
             &-wrap {
-                @extend .h-full, .flex-column-start-center, .gap-36, .mob\:gap-24;
+                @extend %h-full, %flex-column-start-center, %gap-36, %mob\:gap-24;
                 @include responsive(width, 498px);
 
                 @include mobile() {
@@ -120,7 +122,7 @@
             }
 
             & button {
-                @extend .flex-center, .font-manrope-24, .mob\:font-manrope-18, .text-center, .uppercase;
+                @extend %flex-center, %font-manrope-24, %mob\:font-manrope-18, %text-center, %uppercase;
                 @include responsive(width, 404px);
                 @include responsive(padding, 20px, 40px);
                 @include responsive(border-radius, 54px);
@@ -138,7 +140,7 @@
             }
 
             &-details {
-                @extend .flex-column, .gap-12;
+                @extend %flex-column, %gap-12;
 
                 & .icon {
                     @include square(20px);

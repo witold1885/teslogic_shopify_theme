@@ -1,4 +1,7 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
@@ -12,7 +15,7 @@
         }
 
         &-wrap {
-            @extend .flex-column-center, .gap-150;
+            @extend %flex-column-center, %gap-150;
 
             @include mobile() {
                 @include responsive(gap, 72px);
@@ -56,14 +59,14 @@
                 & .block-title {
 
                     .key-driving-info &, .front-camera-integration & {
-                        @extend .text-white;
+                        @extend %text-white;
                     }
                 }
 
                 & .block-text {
 
                     .key-driving-info &, .front-camera-integration & {
-                        @extend .text-white;
+                        @extend %text-white;
                     }
 
                     .key-driving-info & {
@@ -76,7 +79,7 @@
                     }
 
                     .beyond-basic-control & {
-                        @extend .font-manrope-20;
+                        @extend %font-manrope-20;
                     }
                 }
             }
@@ -85,12 +88,11 @@
 
                 & > * {
                     color: #F1F1F1;
-                    @extend .font-manrope-20;
+                    @extend %font-manrope-20;
                 }
 
                 & .icon {
-                    @include responsive(width, 16px);
-                    @include responsive(height, 28px);
+                    @include block(16px, 28px);
 
                     @include mobile() {
                         @include responsive(height, 24px);
@@ -99,7 +101,7 @@
             }
 
             &-image, &-video {
-                @extend .w-full, .overflow-hidden;
+                @extend %w-full, %overflow-hidden;
                 @include responsive(border-radius, 24px);
 
                 @include mobile() {
@@ -129,42 +131,34 @@
             &-pointer {
 
                 &.top-left {
-                    @include responsive(width, 353.5px);
-                    @include responsive(height, 58.5px);
+                    @include block(353.5px, 58.5px);
 
                     @include mobile() {
-                        @include responsive(width, 153.5px);
-                        @include responsive(height, 55.5px);
+                        @include block(153.5px, 55.5px);
                     }
                 }
 
                 &.top-right {
-                    @include responsive(width, 238px);
-                    @include responsive(height, 61px);
+                    @include block(238px, 61px);
 
                     @include mobile() {
-                        @include responsive(width, 71px);
-                        @include responsive(height, 53.5px);
+                        @include block(71px, 53.5px);
                     }
                 }
 
                 &.bottom-left {
-                    @include responsive(width, 208.25px);
-                    @include responsive(height, 34.501px);
+                    @include block(208.25px, 34.501px);
 
                     @include mobile() {
-                        @include responsive(width, 47px);
-                        @include responsive(height, 47px);
+                        @include square(47px);
                     }
                 }
 
                 &.bottom-right {
-                    @include responsive(width, 176.5px);
-                    @include responsive(height, 39px);
+                    @include block(176.5px, 39px);
 
                     @include mobile() {
-                        @include responsive(width, 42.5px);
-                        @include responsive(height, 29px);
+                        @include block(42.5px, 29px);
                     }
                 }
             }
@@ -172,24 +166,24 @@
             &-legend {
 
                 & span {
-                    @extend .text-white, .font-manrope;
+                    @extend %text-white, %font-manrope;
                     text-align: inherit;
 
                     &:first-child {
                         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-                        @extend .font-manrope-24, .mob\:font-manrope-14, .font-600;
+                        @extend %font-manrope-24, %mob\:font-manrope-14, %font-600;
                     }
 
                     &:last-child {
                         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-                        @extend .font-manrope-20, .font-500;
+                        @extend %font-manrope-20, %font-500;
                     }
                 }
             }
         }
 
         &-commands {
-            @extend .container, .relative;
+            @extend %container, %relative;
             height: calc(740 / 810 * 100vh);
             @include responsive(border-radius, 24px);
             background: #1D1D1F;
@@ -208,7 +202,7 @@
             }
 
             &-head {
-                @extend .flex-between-center;
+                @extend %flex-between-center;
                 border-bottom: 1px solid #4D4D4D;
 
                 & > div:first-child br {
@@ -221,7 +215,7 @@
             }
 
             &-body {
-                @extend .flex-column, .mob\:flex-column-center, .gap-36, .overflow-scroll-y;
+                @extend %flex-column, %mob\:flex-column-center, %gap-36, %overflow-scroll-y;
                 height: calc(100% - calc(96 * 100vw / 1440));
 
                 @include mobile() {
@@ -238,7 +232,7 @@
             }
 
             &-grid {
-                @extend .w-full, .grid;
+                @extend %w-full, %grid;
                 align-items: flex-start;
                 grid-template-columns: repeat(4, calc(284 * 100vw / 1440));
                 @include responsive(gap, 32px, 16px);
@@ -263,24 +257,23 @@
                         @include responsive(height, 96px);
                         @include responsive(border-radius, 22px);
                         background: rgba(51, 51, 51, 0.80);
-                        @extend .overflow-hidden;
+                        @extend %overflow-hidden;
                     }
 
                     & .button {
-                        @extend .flex-center, .font-500, .text-white;
+                        @extend %flex-center, %font-500, %text-white;
                         @include responsive(width, 96px);
                         @include responsive(font-size, 18px);
                         @include responsive(line-height, 24px);
                         @include responsive(letter-spacing, 0.36px);
 
                         & .icon {
-                            @include responsive(width, 64px);
-                            @include responsive(height, 64px);
+                            @include square(64px);
                         }
                     }
 
                     & .range {
-                        @extend .flex-between-center;
+                        @extend %flex-between-center;
                         @include responsive(width, 212px);
                         @include responsive(padding, 6px, 12px);
 
@@ -293,30 +286,28 @@
                             @include responsive(font-size, 10px);
                             @include responsive(line-height, 12px);
                             @include responsive(letter-spacing, 0.2px);
-                            @extend .font-600, .text-white, .uppercase;
+                            @extend %font-600, %text-white, %uppercase;
                         }
 
                         & .icon:not(.chevron) {
-                            @include responsive(width, 48px);
-                            @include responsive(height, 48px);
+                            @include square(48px);
                         }
 
                         & .chevron {
-                            @extend .flex-center;
-                            @include responsive(width, 5.5px);
-                            @include responsive(height, 11.5px);
+                            @extend %flex-center;
+                            @include block(5.5px, 11.5px);
                         }
                     }
 
                     & .switch {
-                        @extend .flex, .font-500, .text-center, .text-white;
+                        @extend %flex, %font-500, %text-center, %text-white;
                         @include responsive(width, 212px);
                         @include responsive(font-size, 16px);
                         @include responsive(line-height, 20px);
                         @include responsive(letter-spacing, 0.32px);
 
                         & > * {
-                            @extend .flex-1;
+                            @extend %flex-1;
                             background: inherit;
 
                             &:nth-child(2) {
@@ -342,7 +333,7 @@
                     }
 
                     & .control {
-                        @extend .flex;
+                        @extend %flex;
                         @include responsive(font-size, 18px);
                         @include responsive(line-height, 24px);
                         color: #808080;
@@ -384,7 +375,7 @@
                     }
 
                     &-title {
-                        @extend .font-manrope-18, .font-500, .text-left, .mob\:text-center;
+                        @extend %font-manrope-18, %font-500, %text-left, %mob\:text-center;
                         white-space: nowrap;
                     }
                 }
@@ -399,7 +390,7 @@
             }
 
             &-delimiter {
-                @extend .w-full;
+                @extend %w-full;
                 border: 1px solid #4D4D4D;
 
                 &:last-child {

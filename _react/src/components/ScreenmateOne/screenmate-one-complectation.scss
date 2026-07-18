@@ -1,10 +1,13 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
     
     &__complectation {
-        @extend .flex-column, .gap-100, .mob\:gap-60;
+        @extend %flex-column, %gap-100, %mob\:gap-60;
         @include responsive(padding, 0, 0, 172px);
         background: linear-gradient(180deg, rgba(29, 29, 31, 0.00) 0%, #202022 57.88%, #252528 100%);
 
@@ -13,10 +16,10 @@
         }
 
         &-group {
-            @extend .container, .flex-column, .gap-60, .mob\:gap-32;
+            @extend %container, %flex-column, %gap-60, %mob\:gap-32;
 
             &-grid {
-                @extend .w-full, .grid, .gap-0, .overflow-hidden, .mob\:w-full;
+                @extend %w-full, %grid, %gap-0, %overflow-hidden, %mob\:w-full;
                 @include responsive(border-radius, 24px);
 
                 @include mobile() {
@@ -26,7 +29,7 @@
                 &-item {
                     background: #2F2F32;
 
-                    .grid.box & {
+                    .box & {
                         @include responsive(padding-bottom, 36px);
 
                         @include mobile() {
@@ -42,7 +45,7 @@
                         }
                     }
 
-                    .grid.add & {
+                    .add & {
                         @include responsive(padding, 52px, 0, 56px, 32px);
 
                         @include mobile() {
@@ -71,7 +74,7 @@
 
                     &-image {
 
-                        .grid.box & {
+                        .box & {
                             @include square(220px);
 
                             @include mobile() {
@@ -79,9 +82,8 @@
                             }
                         }
 
-                        .grid.add & {
-                            @include responsive(width, 200px);
-                            @include responsive(height, 240px);
+                        .add & {
+                            @include block(200px, 240px);
                             aspect-ratio: 5/6;
                         }
                     }

@@ -1,6 +1,8 @@
-@use './fonts.scss';
-@use './flexbox.scss';
-@use 'mixins' as *;
+@use 'flexbox' as flexbox;
+@use 'fonts' as fonts;
+@use 'layout' as layout;
+@use 'text' as text;
+@use 'mixins' as m;
 
 html, body {
     margin: 0;
@@ -14,175 +16,44 @@ body {
     box-sizing: border-box;
 }
 
-.hidden {
-    display: none;
-}
+@include flexbox.generate-flex-classes();
+@include layout.generate-base-classes();
+@include fonts.generate-font-classes();
+@include text.generate-text-classes();
 
-.block {
-    display: block;
-}
-
-.w-auto {
-    width: auto;
-}
-
-.w-full {
-    width: 100%;
-}
-
-.h-full {
-    height: 100%;
-}
-
-@include mobile() {
-    .mob\: {
-        &hidden {
-            display: none;
-        }
-        &block {
-            display: block;
-        }
-        &flex {
-            display: flex;
-        }
-        &grid {
-            display: grid;
-        }
-        &w-auto {
-            width: auto;
-        }
-        &w-full {
-            width: 100%;
-        }
-        &h-full {
-            height: 100%;
-        }
-    }
+@include m.mobile() {
+    @include flexbox.generate-flex-classes("mob");
+    @include layout.generate-base-classes("mob");
+    @include fonts.generate-font-classes("mob");
+    @include text.generate-text-classes("mob");
 }
 
 .container {
-    @include responsive(width, 1296px);
+    @include m.responsive(width, 1296px);
     margin: 0 auto;
 
-    @include mobile() {
-        @include responsive(width, 350px);
+    @include m.mobile() {
+        @include m.responsive(width, 350px);
     }
 }
 
 .object-cover {
-    @extend .w-full, .h-full;
+    @extend %w-full, %h-full;
     object-fit: cover;
-}
-
-.relative {
-    position: relative;
-}
-
-.absolute {
-    position: absolute;
-}
-
-.fixed {
-    position: fixed;
-}
-
-.static {
-    position: static;
-}
-
-.inset {
-    inset: 0;
-}
-
-@include mobile() {
-    .mob\: {
-        &relative {
-            position: relative;
-        }
-        &absolute {
-            position: absolute;
-        }
-        &fixed {
-            position: fixed;
-        }
-        &static {
-            position: static;
-        }
-        &inset {
-            inset: 0;
-        }
-    }
-}
-
-.overflow {
-    &-hidden {
-        overflow: hidden;
-
-        &-x {
-            overflow-x: hidden;
-        }
-
-        &-y {
-            overflow-y: hidden;
-        }
-    }
-
-    &-scroll {
-        overflow: scroll;
-
-        &-x {
-            overflow-x: scroll;
-        }
-
-        &-y {
-            overflow-y: scroll;
-        }
-    }
-}
-
-@include mobile() {
-    .mob\: {
-        &overflow {
-            &-hidden {
-                overflow: hidden;
-
-                &-x {
-                    overflow-x: hidden;
-                }
-
-                &-y {
-                    overflow-y: hidden;
-                }
-            }
-
-            &-scroll {
-                overflow: scroll;
-
-                &-x {
-                    overflow-x: scroll;
-                }
-
-                &-y {
-                    overflow-y: scroll;
-                }
-            }
-        }
-    }
 }
 
 .heading {
     font-family: "Neue Haas Grotesk Display Pro";
-    @include responsive(font-size, 80px);
+    @include m.responsive(font-size, 80px);
+    @include m.responsive(line-height, 94px);
     font-style: normal;
-    font-weight: 900;
-    @include responsive(line-height, 94px);
-    @extend .text-center;
+    @extend %font-900, %text-center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @include mobile() {
-        @include responsive(font-size, 52px);
-        @include responsive(line-height, 56px);
+    @include m.mobile() {
+        @include m.responsive(font-size, 52px);
+        @include m.responsive(line-height, 56px);
         text-align: left !important;
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
@@ -199,55 +70,12 @@ h1 {
     margin: 0;
 }
 
-.uppercase {
-    text-transform: uppercase;
-}
-
-.line-through {
-    text-decoration: line-through;
-}
-
-@include generate-text-utilities();
-
-@media (max-width: 576px) {
-    @include generate-text-utilities("mob");
-}
-
-.text {
-
-    &-blue {
-        color: #0465FD;
-    }
-
-    &-grey {
-        color: #666;
-    }
-
-    &-darkgrey {
-        color: #999;
-    }
-
-    &-white {
-        color: #FFF;
-    }
-
-    &-black {
-        color: #000;
-    }
-}
-
-.whitespace-nowrap {
-    white-space: nowrap;
-}
-
 a {
-    color: #0465FD;
+    @extend %text-blue, %whitespace-nowrap, %cursor-pointer;
     text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
     
     &:hover {
-        color: #0345ED;
+        color: #0345ED !important;
 
         & .icon > svg path {
             fill: #0345ED;
@@ -270,8 +98,7 @@ input {
     &[type="checkbox"] {
         appearance: none;
         -webkit-appearance: none;
-        @include responsive(width, 20px);
-        @include responsive(height, 20px);
+        @include m.square(20px);
         margin: 0;
         background: url('../icons/checkbox-inactive.svg');
         background-size: cover;
@@ -289,81 +116,67 @@ input, textarea {
 }
 
 .dropdown {
-    @extend .w-full, .relative;
+    @extend %w-full, %relative;
     z-index: 1;
 
     &-field {
-        @include responsive(padding, 20px);
-        @include responsive(border-radius, 12px);
+        @include m.responsive(padding, 20px);
+        @include m.responsive(border-radius, 12px);
         border: 1px solid rgba(255, 255, 255, 0.10);
         background: #191919;
-        @extend .cursor-pointer;
+        @extend %cursor-pointer;
 
-        @include mobile() {
-            @include responsive(padding, 12px, 16px);
-            @include responsive(border-radius, 6px);
+        @include m.mobile() {
+            @include m.responsive(padding, 12px, 16px);
+            @include m.responsive(border-radius, 6px);
         }
 
         & span {
             color: #FAFAFA;
-            @extend .font-manrope-20, .mob\:font-manrope-16, .font-500;
+            @extend %font-manrope-20, %mob\:font-manrope-16, %font-500;
 
-            @include mobile() {
-                @include responsive(line-height, 20px);
+            @include m.mobile() {
+                @include m.responsive(line-height, 20px);
             }
         }
     }
 
     & .icon {
-        @include responsive(width, 12px);
-        @include responsive(height, 32px);
+        @include m.block(12px, 32px);
     }
 
     &-menu {
-        @extend .w-full, .flex-column, .gap-22, .mob\:gap-18, .absolute, .font-manrope-20, .mob\:font-manrope-16, .font-500;
+        @extend %w-full, %flex-column, %gap-22, %mob\:gap-18, %absolute, %font-manrope-20, %mob\:font-manrope-16, %font-500;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1;
-        @include responsive(padding, 22px, 20px, 24px, 20px);
-        @include responsive(border-radius, 12px);
+        @include m.responsive(padding, 22px, 20px, 24px, 20px);
+        @include m.responsive(border-radius, 12px);
         border: 1px solid rgba(255, 255, 255, 0.10);
         background: #191919;
         box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
 
-        @include mobile() {
-            @include responsive(padding, 12px, 16px, 24px);
-            @include responsive(border-radius, 6px);
+        @include m.mobile() {
+            @include m.responsive(padding, 12px, 16px, 24px);
+            @include m.responsive(border-radius, 6px);
         }
 
         &-item {
-            @extend .w-full;
+            @extend %w-full;
 
             &:hover {
                 color: #B3B3B3;
             }
 
             & .icon {
-                @include square(24px);
+                @include m.square(24px);
 
-                @include mobile() {
-                    @include square(20px);
+                @include m.mobile() {
+                    @include m.square(20px);
                 }
             }
         }
-    }
-}
-
-.circle {
-    border-radius: 100%;
-}
-
-.cursor {
-    &-pointer {
-        cursor: pointer;
-    }
-    &-grab {
-        cursor: grab;
     }
 }
 
@@ -380,16 +193,16 @@ input, textarea {
     
     &-title {
         color: #FAFAFA;
-        @extend .font-manrope-52, .mob\:font-manrope-32, .font-600;
+        @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
     }
 
     &-text {
-        @include responsive(margin-top, 4px);
+        @include m.responsive(margin-top, 4px);
         color: #F1F1F1;
-        @extend .font-manrope-24, .mob\:font-manrope-16;
+        @extend %font-manrope-24, %mob\:font-manrope-16, %whitespace-nowrap;
         white-space: nowrap;
 
-        @include mobile() {
+        @include m.mobile() {
             margin-top: 0;
             white-space: normal;
 

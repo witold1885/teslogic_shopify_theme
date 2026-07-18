@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, type ReactNode } from 'react'
+import '@/assets/styles/common.scss'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import LazySection from '../pages/LazySection'

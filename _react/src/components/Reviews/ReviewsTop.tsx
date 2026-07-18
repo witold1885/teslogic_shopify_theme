@@ -5,6 +5,7 @@ import starIcon from '@/assets/icons/star.svg'
 import judgeMeLogo from '@/assets/images/logo-judgeme.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     top: { yFrom: '20px', duration: 333 },
@@ -13,6 +14,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 const ReviewsTop: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+
     const { totalCount, avgRating } = useAppSelector(state => state.reviews)
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
@@ -37,12 +40,12 @@ const ReviewsTop: React.FC = () => {
                     one of our main tasks
                 </div>
                 <div {...anime('summary')} className="mob:flex-row mob:flex-start-center mob:gap-26">
-                    <Icon className="reviews-star-big hidden mob:flex mob:flex-center" icon={starIcon} />
+                    {isMobile && <Icon className="reviews-star-big" icon={starIcon} />}
                     <div className="flex-column-between gap-12 mob:flex-column-start">
                         <div className="font-manrope-16 font-500">Overall rating</div>
                         <div className="flex mob:flex-center mob:flex-row-reverse gap-16 mob:gap-26">
                             <div className="font-manrope-52 font-500">{avgRating}</div>
-                            <Icon className="reviews-star-big flex-center mob:hidden" icon={starIcon} />
+                            {!isMobile && <Icon className="reviews-star-big" icon={starIcon} />}
                         </div>
                         <div className="font-manrope-16 font-500">{totalCount} reviews</div>
                     </div>

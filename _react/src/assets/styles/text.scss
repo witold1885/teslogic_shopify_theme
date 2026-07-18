@@ -1,0 +1,36 @@
+@use 'mixins' as *;
+
+$textColors: (
+    "blue": #0465FD,
+    "grey": #666,
+    "darkgrey": #999,
+    "white": #FFF,
+    "black": #000
+);
+
+@mixin render-text-core($type: "placeholder", $prefix: "") {
+    $symbol: if(sass($type == "class"): "."; else: "%");
+    $separator: if(sass($prefix == ""): ""; else: "\\:");
+
+    @each $name, $color in $textColors {
+        #{$symbol}#{$prefix}#{$separator}text-#{$name} { color: $color !important; }
+    }
+
+    #{$symbol}#{$prefix}#{$separator}text-left          { text-align: left; }
+    #{$symbol}#{$prefix}#{$separator}text-center        { text-align: center; }
+    #{$symbol}#{$prefix}#{$separator}text-right         { text-align: right; }
+
+    #{$symbol}#{$prefix}#{$separator}whitespace-nowrap  { white-space: nowrap; }
+    #{$symbol}#{$prefix}#{$separator}uppercase          { text-transform: uppercase; }
+    #{$symbol}#{$prefix}#{$separator}line-through       { text-decoration: line-through; }
+}
+
+@include render-text-core("placeholder");
+
+@include mobile() {
+    @include render-text-core("placeholder", "mob");
+}
+
+@mixin generate-text-classes($prefix: "") {
+    @include render-text-core("class", $prefix);
+}

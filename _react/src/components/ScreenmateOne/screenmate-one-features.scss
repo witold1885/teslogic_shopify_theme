@@ -1,4 +1,7 @@
-@use '../../assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one {
@@ -11,16 +14,15 @@
         }
 
         &-item {
-            @extend .flex-column-between, .relative, .overflow-hidden, .cursor-pointer;
+            @extend %flex-column-between, %relative, %overflow-hidden, %cursor-pointer;
             aspect-ratio: 1/1;
             background-size: cover;
 
             &-header {
 
                 &-icon {
-                    @extend .circle, .cursor-pointer;
-                    @include responsive(width, 40px);
-                    @include responsive(height, 40px);
+                    @extend %circle, %cursor-pointer;
+                    @include square(40px);
                     @include responsive(margin-top, 4px);
                     @include responsive(padding, 5px, 12px, 4px, 12px);
                     background: #262626;
@@ -29,7 +31,7 @@
         }
 
         &-grid {
-            @extend .container, .grid, .gap-24;
+            @extend %container, %grid, %gap-24;
             grid-template-columns: repeat(3, 1fr);
 
             &-item {

@@ -1,8 +1,11 @@
-@use '@/assets/styles/common.scss';
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
 @use '@/assets/styles/mixins' as *;
 
 .header {
-    @extend .w-full, .flex-between;
+    @extend %w-full, %flex-between;
     z-index: 10;
     top: 0;
     left: 0;
@@ -14,7 +17,7 @@
     }
 
     &.sticky, &.transparent {
-        @extend .fixed;
+        @extend %fixed;
         @include responsive(padding, 14px, 72px);
 
         @include mobile() {
@@ -32,22 +35,21 @@
     }
 
     &-logo {
-        @include responsive(width, 196px);
-        @include responsive(height, 36px);
+        @include block(196px, 36px);
     }
 
     &-menu {
 
         &-desktop {
-            @extend .flex-end-center, .gap-20, .text-white;
+            @extend %flex-end-center, %gap-20, %text-white;
         }
 
         &-mobile {
-            @extend .w-full, .flex-column-start, .gap-48;
+            @extend %w-full, %flex-column-start, %gap-48;
             @include responsive(margin-top, 52px);
 
             &-open {
-                @extend .flex-center, .font-manrope-16, .font-500, .text-white;
+                @extend %flex-center, %font-manrope-16, %font-500, %text-white;
                 @include responsive(padding, 8px, 16px);
                 @include responsive(border-radius, 54px);
                 background: rgba(0, 0, 0, 0.32);
@@ -55,7 +57,7 @@
             }
 
             &-wrap {
-                @extend .fixed, .inset, .flex-column-between, .w-full, .h-full, .text-black;
+                @extend %fixed, %inset, %flex-column-between, %w-full, %h-full, %text-black;
                 z-index: 20;
                 @include responsive(padding, 22px, 20px);
                 background: #FFF;
@@ -63,7 +65,7 @@
         }
 
         &-item {
-            @extend .flex-center, .mob\:w-full, .mob\:flex-start-center, .mob\:flex-wrap, .gap-4, .relative, .cursor-pointer;
+            @extend %flex-center, %mob\:w-full, %mob\:flex-start-center, %mob\:flex-wrap, %gap-4, %relative, %cursor-pointer;
             @include responsive(padding, 8px, 0);
 
             &:first-child {
@@ -80,11 +82,11 @@
             }
 
             &-title {
-                @extend .font-manrope-16, .font-600;
+                @extend %font-manrope-16, %font-600;
             }
 
             &-new {
-                @extend .flex-center, .font-manrope, .font-600, .text-center, .text-white;
+                @extend %flex-center, %font-manrope, %font-600, %text-center, %text-white;
                 @include responsive(padding, 2px, 4px, 3px);
                 @include responsive(border-radius, 4px);
                 background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
@@ -93,17 +95,16 @@
             }
 
             &-chevron {
-                @extend .flex-center;
+                @extend %flex-center;
                 @include square(20px);
 
                 & .icon {
-                    @include responsive(width, 10.145px);
-                    @include responsive(height, 5.346px);
+                    @include block(10.145px, 5.346px);
                 }
             }
 
             &-dropdown {
-                @extend .flex-column, .gap-24, .absolute, .mob\:gap-20, .mob\:static, .mob\:w-full;
+                @extend %flex-column, %gap-24, %absolute, %mob\:gap-20, %mob\:static, %mob\:w-full;
                 list-style: none;
                 margin: 0;
                 @include responsive(top, 36px);
@@ -122,7 +123,7 @@
                 }
 
                 & li a {
-                    @extend .font-manrope-16, .font-500;
+                    @extend %font-manrope-16, %font-500;
                     color: #000 !important;
                     white-space: nowrap;
 
@@ -134,9 +135,8 @@
         }
 
         &-button {
-            @extend .flex-center, .text-center, .font-manrope-16, .mob\:font-manrope-18, .font-600, .text-white, .uppercase;
-            @include responsive(width, 127px);
-            @include responsive(height, 36px);
+            @extend %flex-center, %text-center, %font-manrope-16, %mob\:font-manrope-18, %font-600, %text-white, %uppercase;
+            @include block(127px, 36px);
             @include responsive(border-radius, 20px);
             background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%);
 
@@ -161,14 +161,14 @@
         }
 
         &-cart {
-            @extend .flex-center, .gap-10;
+            @extend %flex-center, %gap-10;
 
             & > div {
-                @extend .relative;
+                @extend %relative;
                 @include square(24px);
 
                 & > span {
-                    @extend .absolute, .flex-center, .font-manrope, .text-white;
+                    @extend %absolute, %flex-center, %font-manrope, %text-white;
                     top: 0;
                     right: 0;
                     @include square(13.27px);
@@ -180,7 +180,7 @@
             }
 
             & > span {
-                @extend .font-manrope-16, .font-600, .text-white;
+                @extend %font-manrope-16, %font-600, %text-white;
             }
         }
     }

@@ -1,11 +1,60 @@
 @use 'mixins' as *;
 
-@include generate-flex-utilities();
+$flexSpecs: (
+    "flex":                      (display: flex),
+    "flex-wrap":                 (display: flex, flex-wrap: wrap),
+    "flex-nowrap":               (display: flex, flex-wrap: nowrap),
+    "flex-row":                  (display: flex, flex-direction: row),
+    "flex-row-reverse":          (display: flex, flex-direction: row-reverse),
+    "flex-between":              (display: flex, justify-content: space-between),
+    "flex-between-start":        (display: flex, justify-content: space-between, align-items: flex-start),
+    "flex-between-center":       (display: flex, justify-content: space-between, align-items: center),
+    "flex-column":               (display: flex, flex-direction: column),
+    "flex-column-between":       (display: flex, flex-direction: column, justify-content: space-between),
+    "flex-column-start":         (display: flex, flex-direction: column, align-items: flex-start),
+    "flex-column-start-center":  (display: flex, flex-direction: column, align-items: flex-start, justify-content: center),
+    "flex-column-center":        (display: flex, flex-direction: column, align-items: center),
+    "flex-column-center-end":    (display: flex, flex-direction: column, justify-content: flex-end, align-items: center),
+    "flex-column-end":           (display: flex, flex-direction: column, align-items: flex-end),
+    "flex-column-reverse":       (display: flex, flex-direction: column-reverse, align-items: flex-start),
+    "flex-center":               (display: flex, justify-content: center, align-items: center),
+    "flex-start":                (display: flex, justify-content: flex-start, align-items: flex-start),
+    "flex-start-center":         (display: flex, justify-content: flex-start, align-items: center),
+    "flex-end-center":           (display: flex, justify-content: flex-end, align-items: center),
+    "flex-end":                  (display: flex, align-items: flex-end),
+    "flex-1":                    (flex: 1),
+    "grid":                      (display: grid)
+);
 
-@media (max-width: 576px) {
-    @include generate-flex-utilities("mob");
+$gaps: 4, 6, 8, 10, 12, 16, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 50, 56, 60, 64, 85, 96, 100, 150;
+
+@mixin render-flex-core($type: "placeholder", $prefix: "") {
+    $symbol: if(sass($type == "class"): "."; else: "%");
+    $separator: if(sass($prefix == ""): ""; else: "\\:");
+    
+    @each $name, $props in $flexSpecs {
+        #{$symbol}#{$prefix}#{$separator}#{$name} {
+            @each $prop, $value in $props { 
+                #{$prop}: $value; 
+            }
+        }
+    }
+
+    #{$symbol}#{$prefix}#{$separator}gap-0 { gap: unset; }
+
+    @each $gap in $gaps {
+        #{$symbol}#{$prefix}#{$separator}gap-#{$gap} {
+            @include responsive(gap, $gap);
+        }
+    }
 }
 
-.grid {
-    display: grid;
+@include render-flex-core("placeholder");
+
+@include mobile() {
+    @include render-flex-core("placeholder", "mob");
+}
+
+@mixin generate-flex-classes($prefix: "") {
+    @include render-flex-core("class", $prefix);
 }
