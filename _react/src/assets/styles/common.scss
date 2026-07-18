@@ -3,6 +3,9 @@
 @use 'layout' as layout;
 @use 'text' as text;
 @use 'mixins' as m;
+@import '../fonts/Manrope/stylesheet.css';
+@import '../fonts/NeueHaasGrotesk/stylesheet.css';
+@import '../fonts/Universal/stylesheet.css';
 
 html, body {
     margin: 0;

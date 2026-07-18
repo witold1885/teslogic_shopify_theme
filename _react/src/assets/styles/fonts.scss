@@ -1,8 +1,5 @@
 @use "sass:string";
 @use 'mixins' as *;
-@import '../fonts/Manrope/stylesheet.css';
-@import '../fonts/NeueHaasGrotesk/stylesheet.css';
-@import '../fonts/Universal/stylesheet.css';
 
 $allFonts: (Manrope, NeueHaasGrotesk, Universal);
 
