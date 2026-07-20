@@ -40,6 +40,12 @@ body {
     }
 }
 
+video, img {
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0); 
+}
+
 .object-cover {
     @extend %w-full, %h-full;
     object-fit: cover;
