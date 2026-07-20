@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
-import LazySection from '../pages/LazySection'
+import LazySection from './LazySection'
 
 const Reviews = lazy(() => import('../components/Reviews/Reviews'))
+const Footer = lazy(() => import('../components/Footer/Footer'))
 
 interface ProductLayoutProps {
     className?: string
@@ -22,7 +22,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
             </Suspense>
         </LazySection>
     </div>
-    <Footer />
+    <LazySection>
+        <Suspense>
+            <Footer />
+        </Suspense>
+    </LazySection>
 </>)
 
 export default ProductLayout

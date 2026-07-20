@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useRef } from 'react'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
-import LazySection from './LazySection'
+import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
 import ScreenmateOneFeatures from '../components/ScreenmateOne/ScreenmateOneFeatures'
