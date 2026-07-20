@@ -19,7 +19,7 @@ export interface VideoRefMethods {
 
 const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, fetchpriority = 'auto', autoPlay = true, loop = true, isActive = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
-    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
+    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href + '#t=0.001'
 
     const [isIntersecting, setIsIntersecting] = useState(false)
     const [isReadyToPlay, setIsReadyToPlay] = useState(false)
@@ -69,6 +69,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // video.removeAttribute('src')
             // video.load() 
             video.pause()
+            video.currentTime = 0
             // setIsReadyToPlay(false)
         }
     }, [isIntersecting, isActive, finalSrc, autoPlay, isReadyToPlay])
