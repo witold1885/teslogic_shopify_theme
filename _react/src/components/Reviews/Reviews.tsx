@@ -5,6 +5,7 @@ import { fetchReviews } from '../../redux/slices/reviews'
 import ReviewsTop from './ReviewsTop'
 import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
+import reviewsBackground from '../../assets/images/reviews-background.png'
 
 const Reviews: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -28,7 +29,7 @@ const Reviews: React.FC = () => {
     }, [product, dispatch])
 
     return (
-        <div className="reviews">
+        <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
             <div className="container flex-column gap-50 mob:gap-48">
                 <div className="flex-column gap-60 mob:gap-40">
                     <ReviewsTop />

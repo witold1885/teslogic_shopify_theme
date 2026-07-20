@@ -6,8 +6,6 @@
 
 .reviews {
     @include responsive(padding, 180px, 0);
-    background: url(../../assets/images/reviews-background.png);
-    background-size: cover;
 
     @include mobile() {
         @include responsive(padding, 96px, 0);

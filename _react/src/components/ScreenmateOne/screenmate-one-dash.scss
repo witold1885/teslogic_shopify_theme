@@ -27,7 +27,7 @@
 
             &-info {
                 @extend %flex-column, %flex-1, %gap-36, %mob\:gap-20;
-                @include responsive(padding, 110px, 0, 110px, 110px);
+                @include responsive(padding, 110px, 0, 0, 110px);
 
                 @include mobile() {
                     @include responsive(padding, 24px, 20px, 0);
@@ -44,7 +44,6 @@
                             @include responsive(padding, 4px, 8px);
                             @include responsive(border-radius, 6px);
                             border: 1px solid #7C56FB;
-                            background: #141415;
                             
                             & span {
                                 @extend %font-manrope-20, %mob\:font-manrope-14, %font-600;

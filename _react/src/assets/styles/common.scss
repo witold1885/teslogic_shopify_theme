@@ -74,7 +74,8 @@ h1 {
 }
 
 a {
-    @extend %text-blue, %whitespace-nowrap, %cursor-pointer;
+    @extend %whitespace-nowrap, %cursor-pointer;
+    color: #0465FD;
     text-decoration: none;
     
     &:hover {
