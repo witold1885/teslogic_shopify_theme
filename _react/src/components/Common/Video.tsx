@@ -52,8 +52,8 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
         const shouldLoadAndPlay = isIntersecting && isActive
 
         if (shouldLoadAndPlay) {
-            video.src = finalSrc
-            video.load()
+            // video.src = finalSrc
+            // video.load()
             
             if (autoPlay && isReadyToPlay) {
                 const playPromise = video.play()
@@ -66,9 +66,10 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 }
             }
         } else {
-            video.removeAttribute('src')
-            video.load() 
-            setIsReadyToPlay(false)
+            // video.removeAttribute('src')
+            // video.load() 
+            video.pause()
+            // setIsReadyToPlay(false)
         }
     }, [isIntersecting, isActive, finalSrc, autoPlay, isReadyToPlay])
 
@@ -97,12 +98,14 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
         <div
             ref={containerRef}
             className={className}
-            style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
+            style={style}
+            // style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
         >
             <video 
                 ref={videoRef}
                 className="object-cover"
                 style={{ display: isReadyToPlay ? 'block' : 'none' }}
+                src={finalSrc}
                 loop={loop}
                 {...{ fetchpriority } as React.HTMLAttributes<HTMLVideoElement>}
                 playsInline

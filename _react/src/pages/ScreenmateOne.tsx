@@ -8,21 +8,30 @@ import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner
 import ScreenmateOneFeatures from '../components/ScreenmateOne/ScreenmateOneFeatures'
 import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
-import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../assets/videos/screenmate-one'
 import {
-    streaming as streamingVideo,
-    navigation as navigationVideo,
-    gaming as gamingVideo,
-    social as socialVideo
+    bannerDesktop,
+    bannerMobile,
+    streaming,
+    navigation,
+    gaming,
+    social,
+    dualViewMode,
+    beyondBasicControls,
+    carPlayAndAndroidAuto,
+    connectConsoles
 } from '../assets/videos/screenmate-one'
 
-const preloadVideos: string[] = [
-    bannerDesktopVideo,
-    bannerMobileVideo,
-    streamingVideo,
-    navigationVideo,
-    gamingVideo,
-    socialVideo,
+const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto" }[] = [
+    { video: bannerDesktop, fetchPriority: 'high' },
+    { video: bannerMobile, fetchPriority: 'high' },
+    { video: streaming, fetchPriority: 'high' },
+    { video: navigation, fetchPriority: 'low' },
+    { video: gaming, fetchPriority: 'low' },
+    { video: social, fetchPriority: 'low' },
+    { video: dualViewMode, fetchPriority: 'low' },
+    { video: beyondBasicControls, fetchPriority: 'low' },
+    { video: carPlayAndAndroidAuto, fetchPriority: 'low' },
+    { video: connectConsoles, fetchPriority: 'low' },
 ]
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
@@ -37,9 +46,9 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 
 const ScreenmateOne: React.FC = () => {
 
-    preloadVideos.forEach(video => preload(video, { 
+    preloadVideos.forEach(({ video, fetchPriority }) => preload(video, { 
         as: 'video', 
-        fetchPriority: 'high' 
+        fetchPriority
     }))
 
     const sectionRefs = useRef<Record <string, any>>({})
