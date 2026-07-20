@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useRef } from 'react'
+import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
@@ -6,6 +7,23 @@ import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
 import ScreenmateOneFeatures from '../components/ScreenmateOne/ScreenmateOneFeatures'
 import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
+
+import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../assets/videos/screenmate-one'
+import {
+    streaming as streamingVideo,
+    navigation as navigationVideo,
+    gaming as gamingVideo,
+    social as socialVideo
+} from '../assets/videos/screenmate-one'
+
+const preloadVideos: string[] = [
+    bannerDesktopVideo,
+    bannerMobileVideo,
+    streamingVideo,
+    navigationVideo,
+    gamingVideo,
+    socialVideo,
+]
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
@@ -18,6 +36,12 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 }), {})
 
 const ScreenmateOne: React.FC = () => {
+
+    preloadVideos.forEach(video => preload(video, { 
+        as: 'video', 
+        fetchPriority: 'high' 
+    }))
+
     const sectionRefs = useRef<Record <string, any>>({})
 
     const setRef = (el: HTMLDivElement, slug: string) => {
