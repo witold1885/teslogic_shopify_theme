@@ -54,6 +54,7 @@ interface Block {
     additional?: ReactNode
     image?: string
     video?: string
+    videoStyle?: CSSProperties
     background?: string
     pointers?: Record<string, Pointer>
 }
@@ -138,6 +139,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                 for a layout optimized for comfort, clarity, and ease of use.
             </>,
             video: dualViewModeVideo,
+            videoStyle: { objectPosition: '66.6667%' },
             background: dualViewModeBackground
         },
         'key-driving-info': {
@@ -352,7 +354,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         <div className="screenmate-one__convenience">
             <div className="screenmate-one__convenience-wrap">
                 <Heading {...anime('heading')} title="Built Around Everyday Convenience" />
-                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, background, pointers }]) => (
+                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, videoStyle, background, pointers }]) => (
                     <div
                         key={blockKey}
                         ref={(el) => {
@@ -375,7 +377,13 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                 <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} />
                             )}
                             {video && (
-                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__convenience-block-video" src={video} background={background} />
+                                <Video
+                                    {...anime(`${blockKey}-video`)}
+                                    style={videoStyle || {}}
+                                    className="screenmate-one__convenience-block-video"
+                                    src={video}
+                                    background={background}
+                                />
                             )}
                             {pointers && (<>
                                 {Object.entries(pointers).map(([pointerKey, pointer]) => (
