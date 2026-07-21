@@ -88,10 +88,12 @@
                     }
 
                     &:has(.image-item) {
-                        grid-template-columns: calc(390 * 100vw / 1440) calc(360 * 100vw / 1440) calc(360 * 100vw / 1440) !important;
-                        @include responsive(column-gap, 50px);
+                        grid-template-columns: calc(400 * 100vw / 1440) calc(376 * 100vw / 1440) calc(360 * 100vw / 1440) !important;
+                        @include responsive(column-gap, 40px);
                         @include responsive(row-gap, 24px);
                         @include responsive(padding-top, 32px);
+                        @include responsive(margin-left, -20px);
+                        @include responsive(margin-right, -20px);
 
                         @include mobile() {
                             grid-template-columns: 1fr !important;
@@ -149,7 +151,7 @@
 
             &-info {
                 @extend %flex-column, %gap-40, %mob\:gap-20;
-                @include responsive(padding, 0, 60px);
+                @include responsive(padding, 0, 0, 0, 60px);
 
                 @include mobile() {
                     @include responsive(padding, 20px);

@@ -83,23 +83,23 @@
                 &-item {
                     @extend %w-full, %h-full, %cursor-pointer;
                     @include responsive(border-radius, 12px);
-                    border: 1px solid rgba(255, 255, 255, 0.10);
+                    @include border(1px, solid, rgba(255, 255, 255, 0.10));
                     background: lightgray 50% / cover no-repeat, #191919;
 
                     &-wrap {
                         @include square(60px);
                         @include responsive(border-radius, 12px);
-                        border: 2.5px solid transparent;
+                        @include border(2.5px, solid, transparent);
 
                         &:has(.active) {
                             @include responsive(border-radius, 16px);
-                            border: 1.5px solid #1657FC;
+                            @include border(1.5px, solid, #1657FC);
                         }
                     }
 
                     &.active {
                         @include responsive(border-radius, 14px);
-                        border: 2px solid rgba(255, 255, 255, 0.10);
+                        @include border(2px, solid, rgba(255, 255, 255, 0.10));
                     }                    
                 }
             }

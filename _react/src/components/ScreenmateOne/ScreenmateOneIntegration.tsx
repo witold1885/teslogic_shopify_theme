@@ -59,9 +59,9 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
             heading: <>A Bigger Entertainment<br />Experience</>,
             title: <>Connect Consoles<br />and HDMI Devices</>,
             text: <>
-                More ways to play, all on the screen you already have. Run<br />
-                Android games on the powerful Qualcomm chipset or<br />
-                connect your favorite gaming console via HDMI or USB.
+                More ways to play, all on the screen you already have. <br />
+                Run Android games on the powerful Qualcomm chipset <br />
+                or connect your favorite gaming console via HDMI or USB.
             </>,
             bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
             video: connectConsolesVideo,

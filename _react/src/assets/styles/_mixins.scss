@@ -54,3 +54,9 @@ $screens: (
     @include responsive(font-size, $fontSize);
     @include responsive(line-height, $lineHeight);
 }
+
+@mixin border($width, $style, $color) {
+    @include responsive(border-width, $width);
+    border-style: $style;
+    border-color: $color;
+}
