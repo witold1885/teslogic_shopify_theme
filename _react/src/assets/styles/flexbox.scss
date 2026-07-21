@@ -20,6 +20,7 @@ $flexSpecs: (
     "flex-center":               (display: flex, justify-content: center, align-items: center),
     "flex-start":                (display: flex, justify-content: flex-start, align-items: flex-start),
     "flex-start-center":         (display: flex, justify-content: flex-start, align-items: center),
+    "flex-start-end":            (display: flex, justify-content: flex-start, align-items: flex-end),
     "flex-end-center":           (display: flex, justify-content: flex-end, align-items: center),
     "flex-end":                  (display: flex, align-items: flex-end),
     "flex-1":                    (flex: 1),

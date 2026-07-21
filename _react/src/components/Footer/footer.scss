@@ -101,12 +101,19 @@
         }
     }
 
+    &-contacts {
+
+        @include mobile() {
+            order: 1;
+        }
+    }
+
     &-stores {
-        @extend %flex-start-center, %gap-12, %mob\:gap-8;
+        @extend %flex-start-end, %gap-12, %mob\:flex-center, %mob\:gap-8;
 
         @include mobile() {
             grid-column: span 2;
-            order: 1;
+            order: 2;
         }
 
         & > * {

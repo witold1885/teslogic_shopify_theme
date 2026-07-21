@@ -67,7 +67,7 @@
 
         &-item {
             @extend %flex-center, %mob\:w-full, %mob\:flex-between-center, %mob\:flex-wrap, %gap-4, %relative, %cursor-pointer;
-            @include responsive(padding, 8px, 0);
+            @include responsive(padding, 8px, 0, 20px);
 
             &:first-child {
                 @include responsive(margin-right, 8px);
@@ -122,7 +122,7 @@
                 margin: 0;
                 @include responsive(top, 48px);
                 @include responsive(left, -24px);
-                @include responsive(padding, 24px);
+                @include responsive(padding, 20px, 24px, 24px);
                 @include responsive(border-radius, 12px);
                 background: #FFF;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);

@@ -41,9 +41,13 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
 
     return (<>
         {group?.map(({ title, children }, index) => (
-            <div {...anime(`group_${index}`)} className="flex-column gap-16" key={index}>
+            <div
+                {...anime(`group_${index}`)}
+                className={`${title ? `footer-${(title as string).replace(' ', '-').toLowerCase()}` : ''} flex-column gap-16`}
+                key={index}
+            >
                 <div className="font-manrope-24 mob:font-manrope-18 font-500">{title}</div>
-                <div className="flex-column gap-12 mob:gap-16">
+                <div className="flex-column gap-10">
                     {children?.map((child, i) => (
                         <div key={i}>
                             <a href={child.url} target="_blank">{child.title}</a>
@@ -93,12 +97,7 @@ const Footer: React.FC = () => {
                 bottom: [
                     { title: 'Contacts', url: '#', children: [
                         contactUsItem,
-                        { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' },
-                        { title: <>
-                            Meydan Grandstand, 6th Floor <br />
-                            Meydan Road, Nad Al Sheba <br />
-                            Dubai, U.A.E.
-                        </>, url: null }
+                        { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' }
                     ]},
                     forCustomersBlock,
                     { title: 'Social', url: '#', children: [
