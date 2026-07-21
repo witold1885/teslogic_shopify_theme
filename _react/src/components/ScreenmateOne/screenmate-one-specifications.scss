@@ -25,7 +25,7 @@
             @extend %flex-column-center, %gap-32, %mob\:flex-column-reverse, %mob\:gap-16;
 
             & .tabs {
-                @extend %w-full, %flex-start-center, %overflow-scroll-x;
+                @extend %mob\:w-full, %mob\:flex-start-center, %mob\:overflow-scroll-x;
                 
                 &-item {
 
