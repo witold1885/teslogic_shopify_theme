@@ -21,11 +21,48 @@
             -webkit-text-fill-color: #0465FD;
         }
 
+        &-tabs {
+
+            &-wrap {
+                // @extend %flex;
+                @extend %relative;
+
+                @include mobile() {
+                    width: 100vw;
+                    @include responsive(margin-left, -20px);
+                    @include responsive(margin-right, -20px);
+                }
+            }
+
+            &-fix {
+                @extend %absolute;
+                display: none;
+
+                @include mobile() {
+                    display: block;
+                    @include responsive(width, 20px);
+                    border-bottom: 1px solid black;
+                    top: 0;
+                    bottom: 0;
+                    &:first-child {
+                        left: 0;
+                    }
+                    &:last-child {
+                        right: 0;
+                    }
+                }
+            }
+        }
+
         &-body {
             @extend %flex-column-center, %gap-32, %mob\:flex-column-reverse, %mob\:gap-16;
 
             & .tabs {
                 @extend %mob\:w-full, %mob\:flex-start-center, %mob\:overflow-scroll-x;
+
+                @include mobile() {
+                    @include responsive(padding, 0, 20px);
+                }
                 
                 &-item {
 

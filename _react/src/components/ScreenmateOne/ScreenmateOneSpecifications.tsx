@@ -1,4 +1,4 @@
-import React, { useMemo, useState, type ReactNode } from 'react'
+import React, { useEffect, useMemo, useState, type ReactNode } from 'react'
 import './screenmate-one-specifications.scss'
 import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 
@@ -29,6 +29,7 @@ import ScreenmateOneInstallation from './ScreenmateOneInstallation'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useHorizontalScroll } from '../../hooks/horizontal-scroll'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -92,6 +93,7 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
 
 const ScreenmateOneSpecifications: React.FC = () => {
     const { isMobile } = useInlineStyles()
+    const { elementRef: scrollRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLDivElement>()
     
     const tabs: Record<string, TabProps> = {
         'dimensions': {
@@ -189,7 +191,11 @@ const ScreenmateOneSpecifications: React.FC = () => {
                     <div {...anime('content')} className="screenmate-one__specifications-body-content">
                         {activeTab && tabs[activeTab]?.content}
                     </div>
-                    <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} autoplay={false} />
+                    <div {...anime('tabs')} className="screenmate-one__specifications-tabs-wrap">
+                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft === 0 ? 1 : -1 }}></div>
+                        <Tabs ref={scrollRef} {...{tabs, activeTab, setActiveTab}} autoplay={false} />
+                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft === scrollRight ? 0 : -1 }}></div>
+                    </div>
                 </div>
                 <ScreenmateOneInstallation />
             </div>
