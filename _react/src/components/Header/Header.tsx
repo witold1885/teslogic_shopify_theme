@@ -19,6 +19,10 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },
 }
 
+const pagesMap: Record<string, string[]> = {
+    'Screenmate ONE': ['/screenmate', '/pages/screenmate', '/pages/screenmate-one-react'],
+}
+
 interface HeaderProps {
     className?: string
     menu: MenuItem[]
@@ -32,7 +36,11 @@ interface HeaderMenuProps extends HeaderProps {
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onOrder }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
 
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null)
+    const activeMenuIndex = useMemo(() => menu.findIndex(
+        ({ title }) => pagesMap[title as string].includes(window.location.pathname)
+    ), [window.location.pathname])
+
+    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(activeMenuIndex || null)
 
     return (
         <div className="flex-end-center gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
@@ -134,8 +142,6 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { main_menu } = useAppSelector(state => state.content)
-
-    console.log({ main_menu, path: window.location.pathname })
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
