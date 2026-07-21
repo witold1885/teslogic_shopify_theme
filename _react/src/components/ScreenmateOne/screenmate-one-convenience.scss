@@ -121,6 +121,13 @@
 
                 @include mobile() {
                     @include responsive(height, 290px);
+
+                    & video {
+                        
+                        .dual-view-mode & {
+                            object-position: 66.6667%;
+                        }
+                    }
                 }
             }
 

@@ -1,7 +1,7 @@
 import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-convenience.scss'
 import { Heading, Icon, Image, Popup } from '../Common'
-import Video, { type VideoProps } from '../Common/Video'
+import Video from '../Common/Video'
 
 import {
     dualViewMode as dualViewModeVideo,
@@ -54,7 +54,6 @@ interface Block {
     additional?: ReactNode
     image?: string
     video?: string
-    videoStyle?: CSSProperties
     background?: string
     pointers?: Record<string, Pointer>
 }
@@ -139,7 +138,6 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                 for a layout optimized for comfort, clarity, and ease of use.
             </>,
             video: dualViewModeVideo,
-            videoStyle: { objectPosition: '66.6667%' },
             background: dualViewModeBackground
         },
         'key-driving-info': {
@@ -354,64 +352,56 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         <div className="screenmate-one__convenience">
             <div className="screenmate-one__convenience-wrap">
                 <Heading {...anime('heading')} title="Built Around Everyday Convenience" />
-                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, videoStyle, background, pointers }]) => {
-                    const videoParams: VideoProps = {
-                        ...anime(`${blockKey}-video`),
-                        style: videoStyle || {},
-                        src: video as string,
-                        background
-                    }
-                    return (
-                        <div
-                            key={blockKey}
-                            ref={(el) => {
-                                if (el) blockRefs.current[blockKey] = el
-                                else delete blockRefs.current[blockKey]
-                            }} 
-                            className={`screenmate-one__convenience-block ${blockKey} w-full`}
-                        >
-                            <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''} mob:gap-32 relative`}>
-                                <div className={`screenmate-one__convenience-block-top ${topClassName} mob:flex-column ${topGap ? `gap-${topGap}` : ''} mob:gap-12`}>
-                                    <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
-                                    <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
-                                </div>
-                                {additional && (
-                                    <div {...anime(`${blockKey}-additional`)} className="screenmate-one__convenience-block-additional flex-column">
-                                        {additional}
-                                    </div>
-                                )}
-                                {image && (
-                                    <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} />
-                                )}
-                                {video && (
-                                    <Video {...videoParams} className="screenmate-one__convenience-block-video" />
-                                )}
-                                {pointers && (<>
-                                    {Object.entries(pointers).map(([pointerKey, pointer]) => (
-                                        <div
-                                            key={pointerKey}
-                                            {...anime(`${blockKey}-pointers-${pointerKey}`)}
-                                            className="w-full absolute"
-                                        >
-                                            <Icon
-                                                className={`screenmate-one__convenience-block-pointer ${pointerKey} absolute`}
-                                                style={responsive(pointer.imageStyle)}
-                                                icon={pointer.image}
-                                            />
-                                            <div
-                                                className={`screenmate-one__convenience-block-legend flex-column gap-12 absolute text-${pointerKey.split('-')[1] || ''}`}
-                                                style={responsive(pointer.legendStyle)}
-                                            >
-                                                <span>{pointer.title}</span>
-                                                <span className="mob:hidden">{pointer.text}</span>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </>)}
+                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, background, pointers }]) => (
+                    <div
+                        key={blockKey}
+                        ref={(el) => {
+                            if (el) blockRefs.current[blockKey] = el
+                            else delete blockRefs.current[blockKey]
+                        }} 
+                        className={`screenmate-one__convenience-block ${blockKey} w-full`}
+                    >
+                        <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''} mob:gap-32 relative`}>
+                            <div className={`screenmate-one__convenience-block-top ${topClassName} mob:flex-column ${topGap ? `gap-${topGap}` : ''} mob:gap-12`}>
+                                <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
+                                <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                             </div>
+                            {additional && (
+                                <div {...anime(`${blockKey}-additional`)} className="screenmate-one__convenience-block-additional flex-column">
+                                    {additional}
+                                </div>
+                            )}
+                            {image && (
+                                <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} />
+                            )}
+                            {video && (
+                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__convenience-block-video" src={video} background={background} />
+                            )}
+                            {pointers && (<>
+                                {Object.entries(pointers).map(([pointerKey, pointer]) => (
+                                    <div
+                                        key={pointerKey}
+                                        {...anime(`${blockKey}-pointers-${pointerKey}`)}
+                                        className="w-full absolute"
+                                    >
+                                        <Icon
+                                            className={`screenmate-one__convenience-block-pointer ${pointerKey} absolute`}
+                                            style={responsive(pointer.imageStyle)}
+                                            icon={pointer.image}
+                                        />
+                                        <div
+                                            className={`screenmate-one__convenience-block-legend flex-column gap-12 absolute text-${pointerKey.split('-')[1] || ''}`}
+                                            style={responsive(pointer.legendStyle)}
+                                        >
+                                            <span>{pointer.title}</span>
+                                            <span className="mob:hidden">{pointer.text}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </>)}
                         </div>
-                    )
-                })}
+                    </div>
+                ))}
             </div>
             <Popup open={commandsPopupOpen} onClose={() => setCommandsPopupOpen(false)}>
                 <div className="screenmate-one__convenience-commands">
