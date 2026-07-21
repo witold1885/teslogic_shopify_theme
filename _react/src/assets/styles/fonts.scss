@@ -25,7 +25,7 @@ $weights: 400, 500, 600, 700, 800, 900;
 
     @each $weight in $weights {
         #{$symbol}#{$prefix}#{$separator}font-#{$weight} {
-            font-weight: $weight;
+            font-weight: $weight !important;
         }
     }
 

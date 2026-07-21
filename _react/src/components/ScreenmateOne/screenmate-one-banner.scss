@@ -67,7 +67,7 @@
 
             & button {
                 @include responsive(height, 72px);
-                @extend %font-manrope-24, %mob\:font-manrope-18, %font-600;
+                @extend %font-manrope-24, %font-600, %mob\:font-manrope-18;
                 white-space: nowrap;
                 @include responsive(letter-spacing, 0.48px);
                 background: linear-gradient(180deg, #0068FD 0%, #3414FA 292.19%);
