@@ -77,10 +77,6 @@
                             text-align: left;
                         }
                     }
-
-                    .beyond-basic-control & {
-                        @extend %font-manrope-20;
-                    }
                 }
             }
 
@@ -88,7 +84,7 @@
 
                 & > * {
                     color: #F1F1F1;
-                    @extend %font-manrope-20;
+                    @extend %font-manrope-20, %mob\:font-manrope-16;
                 }
 
                 & .icon {

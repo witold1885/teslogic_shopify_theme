@@ -60,8 +60,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const options = (product?.models || []).map(({ id, title }) => ({ label: title, value: id }))
 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
+    const [error, setError] = useState<boolean>(false)
 
     const handleModelSelect = (modelId: number) => {
+        setError(false)
         const model = product?.models?.find(({ id }) => id === modelId) || null
         setSelectedModel(model)
     }
@@ -98,6 +100,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 ...selectedAdditionals.filter(Boolean).map(id => ({ id, quantity: 1 }))
             ]
             dispatch(addToCart({ items }))
+        } else {
+            setError(true)
         }
     }
 
@@ -156,7 +160,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             <Dropdown
                                 {...anime('models')}
                                 placeholder="Select your Tesla model and year"
-                                options={options}
+                                {...{options, error}}
                                 onSelect={(modelId) => handleModelSelect(modelId as number)}
                             />
                             {additionalProducts && (

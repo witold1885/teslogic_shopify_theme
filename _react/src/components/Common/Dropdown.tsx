@@ -30,9 +30,10 @@ interface DropdownProps {
     placeholder?: string
     options: DropdownOption[]
     onSelect?: (value: DropdownOption['value']) => void
+    error?: boolean
 }
 
-const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, options, onSelect }, ref) => {
+const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, options, onSelect, error }, ref) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
     const [selectedlabel, setSelectedLabel] = useState<string|null>(null)
 
@@ -44,7 +45,12 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, optio
 
     return (
         <div ref={ref} className="dropdown">
-            <DropdownItem className="dropdown-field" label={selectedlabel || placeholder} icon={chevronDown} onClick={() => setMenuOpen(true)}/>
+            <DropdownItem
+                className={`dropdown-field ${error ? 'dropdown-field-error' : ''}`}
+                label={selectedlabel || placeholder}
+                icon={chevronDown}
+                onClick={() => setMenuOpen(true)}
+            />
             {menuOpen && (
                 <div className="dropdown-menu">
                     <DropdownItem className="w-full text-grey" label={placeholder} icon={chevronUp} onClick={() => setMenuOpen(false)}/>

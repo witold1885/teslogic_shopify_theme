@@ -103,7 +103,7 @@
             right: 0;
 
             @include mobile() {
-                @include responsive(bottom, 328px);
+                @include responsive(bottom, 377px);
                 @include block(104px, 40px);
                 aspect-ratio: 13/5;
                 background-image: url(../../assets/images/screenmate-one/kickstarter-mobile.svg);

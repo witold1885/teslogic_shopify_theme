@@ -164,10 +164,10 @@ const ScreenmateOneSpecifications: React.FC = () => {
                 </>}
                 items={[
                     { image: model31723, title: 'Model 3', subtitle: '‘17-23' },
-                    { image: modelY2124, title: 'Model Y', subtitle: '‘21-24' },
-                    { image: modelS21, title: 'Model S', subtitle: '‘21+' },
                     { image: model324Highland, title: 'Model 3', subtitle: '‘24+(Highland)' },
+                    { image: modelY2124, title: 'Model Y', subtitle: '‘21-24' },
                     { image: modelY25Juniper, title: 'Model Y', subtitle: '‘25+(Juniper)' },
+                    { image: modelS21, title: 'Model S', subtitle: '‘21+' },
                     { image: modelX21, title: 'Model X', subtitle: '‘21+' },
                 ]}
                 cols={3}

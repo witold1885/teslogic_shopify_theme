@@ -89,6 +89,8 @@
 
                     &:has(.image-item) {
                         grid-template-columns: calc(400 * 100vw / 1440) calc(376 * 100vw / 1440) calc(360 * 100vw / 1440) !important;
+                        grid-template-rows: 1fr 1fr;
+                        grid-auto-flow: column;
                         @include responsive(column-gap, 40px);
                         @include responsive(row-gap, 24px);
                         @include responsive(padding-top, 32px);
@@ -100,6 +102,8 @@
                             @include responsive(column-gap, 24px);
                             row-gap: 0;
                             padding-top: 0;
+                            margin-left: unset;
+                            margin-right: unset;
                         }
                     }
 

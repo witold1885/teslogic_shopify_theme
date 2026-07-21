@@ -136,6 +136,10 @@ input, textarea {
         background: #191919;
         @extend %cursor-pointer;
 
+        &-error {
+            border: 1px solid #FC3E30;
+        }
+
         @include m.mobile() {
             @include m.responsive(padding, 12px, 16px);
             @include m.responsive(border-radius, 6px);
