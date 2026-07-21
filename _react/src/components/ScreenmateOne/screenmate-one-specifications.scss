@@ -32,6 +32,13 @@
                     @include mobile() {
                         @include block(109.6px, 72px);
                     }
+
+                    &-title {
+
+                        @include mobile() {
+                            white-space: nowrap;
+                        }
+                    }
                 }
             }
 

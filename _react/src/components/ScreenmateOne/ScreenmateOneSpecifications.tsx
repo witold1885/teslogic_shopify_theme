@@ -48,16 +48,16 @@ const ContentGridInfoItem: React.FC<ContentGridItemProps> = ({ icon, title, text
     <div className="screenmate-one__specifications-body-content-grid-item info-item">
         <div className="flex-start-center gap-8">
             <Icon icon={icon as string} />
-            <span className="font-manrope-16 font-600 text-darkgrey uppercase">{title}</span>
+            <span className="font-manrope-16 mob:font-manrope-14 font-600 text-darkgrey uppercase">{title}</span>
         </div>
-        <div className="font-manrope-20">{text}</div>
+        <div className="font-manrope-20 mob:font-manrope-16">{text}</div>
     </div>
 )
 
 const ContentGridImageItem: React.FC<ContentGridItemProps> = ({ image, title, subtitle }) => (
     <div className="screenmate-one__specifications-body-content-grid-item image-item">
         <Image className="screenmate-one__specifications-body-content-grid-item-image" src={image as string} />
-        <div className="flex-column font-manrope-24 mob:font-manrope-20 font-500">
+        <div className="flex-column font-manrope-24 mob:font-manrope-16 font-500">
             <div>{title}</div>
             <div className="text-darkgrey whitespace-nowrap">{subtitle}</div>
         </div>
@@ -75,8 +75,8 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
     const { isMobile } = useInlineStyles()
     return (<>
         <div className="screenmate-one__specifications-body-content-top">
-            <div className="font-manrope-52 mob:font-manrope-32 font-500">{title}</div>
-            <div className="font-manrope-20 mob:font-manrope-16">{subtitle}</div>
+            <div className="font-manrope-52 mob:font-manrope-28 font-500">{title}</div>
+            <div className="font-manrope-20 mob:font-manrope-14">{subtitle}</div>
         </div>
         <div
             className="screenmate-one__specifications-body-content-grid"
