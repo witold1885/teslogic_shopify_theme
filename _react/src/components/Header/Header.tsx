@@ -6,12 +6,14 @@ import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
 import cartIcon from '../../assets/icons/cart-white.svg'
+import burgerIcon from '../../assets/icons/burger.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
 import { mapCustomConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
+import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },
@@ -43,8 +45,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
                         onClick={mode === 'mobile' ? () => setOpenMenuIndex(index) : () => {}}
                     >
-                        <span className="header-menu-item-title">{title}</span>
-                        {index === 0 && <span className="header-menu-item-new">NEW</span>}
+                        <span className="header-menu-item-title">
+                            {title}
+                            {index === 0 && <span className="header-menu-item-new">NEW</span>}
+                        </span>                        
                         <div className="header-menu-item-chevron">
                             <Icon className="flex-center" svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
                         </div>
@@ -101,7 +105,9 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
             </a>
             {!isMobile 
                 ? <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
-                : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}><span>Menu</span></Button>
+                : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
+                    <Icon className="flex-center" icon={burgerIcon} />
+                </Button>
             }
         </header>
     )
@@ -148,6 +154,8 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         ...headerParams,
         onMobileMenuClose: () => setOpenMobileMenu(false)
     }
+
+    useLockBodyScroll(openMobileMenu)
 
     return (<>
         <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />

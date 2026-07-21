@@ -45,27 +45,28 @@
         }
 
         &-mobile {
-            @extend %w-full, %flex-column-start, %gap-48;
-            @include responsive(margin-top, 52px);
+            @extend %w-full, %flex-column-start, %gap-20;
+            @include responsive(margin-top, 40px);
 
             &-open {
-                @extend %flex-center, %font-manrope-16, %font-500, %text-white;
-                @include responsive(padding, 8px, 16px);
-                @include responsive(border-radius, 54px);
+                @extend %flex-center, %circle;
+                @include square(40px);
                 background: rgba(0, 0, 0, 0.32);
                 backdrop-filter: blur(8px);
             }
 
             &-wrap {
-                @extend %fixed, %inset, %flex-column-between, %w-full, %h-full, %text-black;
+                @extend %fixed, %inset, %flex-column-between, %text-black;
                 z-index: 20;
-                @include responsive(padding, 22px, 20px);
+                @include responsive(margin, 20px, 0);
+                @include responsive(padding, 20px, 24px, 48px);
+                @include responsive(border-radius, 44px);
                 background: #FFF;
             }
         }
 
         &-item {
-            @extend %flex-center, %mob\:w-full, %mob\:flex-start-center, %mob\:flex-wrap, %gap-4, %relative, %cursor-pointer;
+            @extend %flex-center, %mob\:w-full, %mob\:flex-between-center, %mob\:flex-wrap, %gap-4, %relative, %cursor-pointer;
             @include responsive(padding, 8px, 0);
 
             &:first-child {
@@ -79,10 +80,22 @@
                 &:first-child {
                     margin-right: 0;
                 }
+
+                &:not(:last-child) {
+                    @include responsive(padding-bottom, 20px);
+                    border-bottom: 1px solid #E0E0E0;
+                }
             }
 
             &-title {
-                @extend %font-manrope-16, %font-600;
+                @extend %flex-start-center, %gap-4, %mob\:gap-8, %font-manrope-16, %font-600;
+
+                @include mobile() {
+
+                    &:hover {
+                        color: #888;
+                    }
+                }
             }
 
             &-new {
@@ -104,13 +117,13 @@
             }
 
             &-dropdown {
-                @extend %flex-column, %gap-24, %absolute, %mob\:gap-20, %mob\:static, %mob\:w-full;
+                @extend %flex-column, %gap-16, %absolute, %mob\:gap-20, %mob\:static, %mob\:w-full;
                 list-style: none;
                 margin: 0;
-                @include responsive(top, 36px);
-                left: 0;
+                @include responsive(top, 48px);
+                @include responsive(left, -24px);
                 @include responsive(padding, 24px);
-                @include responsive(border-radius, 20px);
+                @include responsive(border-radius, 12px);
                 background: #FFF;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 
@@ -123,7 +136,7 @@
                 }
 
                 & li a {
-                    @extend %font-manrope-16, %font-500;
+                    @extend %font-manrope-16, %font-500, %mob\:font-manrope-14;
                     color: #000 !important;
                     white-space: nowrap;
 
