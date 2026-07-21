@@ -95,7 +95,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
     
     const tabs: Record<string, TabProps> = {
         'dimensions': {
-            title: <>Dimen<br />sions</>,
+            title: <>Dimensions</>,
             content: <Image className="flex-center" src={!isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile} />
         },
         'main-system': {
@@ -133,7 +133,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
             />
         },
         'interfaces': {
-            title: <>Inter<br />faces</>,
+            title: <>Interfaces</>,
             content: <Content
                 title="Interfaces"
                 subtitle={<>
@@ -155,7 +155,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
             />
         },
         'compatibility': {
-            title: <>Compa<br />tibility</>,
+            title: <>Compatibility</>,
             content: <Content
                 title="Compatibility Models"
                 subtitle={<>

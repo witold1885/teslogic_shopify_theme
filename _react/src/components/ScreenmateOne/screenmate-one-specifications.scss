@@ -24,14 +24,13 @@
         &-body {
             @extend %flex-column-center, %gap-32, %mob\:flex-column-reverse, %mob\:gap-16;
 
-            & .tabs-item-title {
-                @extend %mob\:w-full, %mob\:text-left;
-
-                & > br {
-                    display: none;
+            & .tabs {
+                @extend %w-full, %flex-start-center, %overflow-scroll-x;
+                
+                &-item {
 
                     @include mobile() {
-                        display: block;
+                        @include block(109.6px, 72px);
                     }
                 }
             }
