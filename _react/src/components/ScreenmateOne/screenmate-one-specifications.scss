@@ -31,6 +31,7 @@
 
                     @include mobile() {
                         @include block(109.6px, 72px);
+                        @include responsive(flex, 0, 0, 109.6px);
                     }
 
                     &-title {
