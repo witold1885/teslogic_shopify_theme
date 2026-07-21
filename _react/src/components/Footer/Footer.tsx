@@ -191,7 +191,7 @@ const Footer: React.FC = () => {
                     <div {...anime('stores')} className="footer-stores">
                         {stores.map(({ url, image, alt }, index) => (
                             <a href={url} target="_blank" key={index}>
-                                <Image src={image} alt={alt} />
+                                <Image className="h-full" src={image} alt={alt} />
                             </a>
                         ))}
                     </div>
