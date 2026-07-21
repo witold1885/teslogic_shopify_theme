@@ -40,7 +40,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
     ), [window.location.pathname])
 
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(activeMenuIndex || null)
+    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(activeMenuIndex !== -1 ? activeMenuIndex : null)
 
     return (
         <div className="flex-end-center gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
@@ -51,7 +51,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         className="header-menu-item"
                         onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                        onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev ? null : index) : () => {}}
+                        onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
                     >
                         <span className="header-menu-item-title">
                             {title}
