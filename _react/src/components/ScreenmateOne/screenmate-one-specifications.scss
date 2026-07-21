@@ -99,6 +99,8 @@
 
                         @include mobile() {
                             grid-template-columns: 1fr !important;
+                            grid-template-rows: unset;
+                            grid-auto-flow: row;
                             @include responsive(column-gap, 24px);
                             row-gap: 0;
                             padding-top: 0;
