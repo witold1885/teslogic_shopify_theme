@@ -43,7 +43,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         className="header-menu-item"
                         onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                        onClick={mode === 'mobile' ? () => setOpenMenuIndex(index) : () => {}}
+                        onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev ? null : index) : () => {}}
                     >
                         <span className="header-menu-item-title">
                             {title}
@@ -135,7 +135,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const { main_menu } = useAppSelector(state => state.content)
 
-    console.log({ main_menu })
+    console.log({ main_menu, path: window.location.pathname })
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
