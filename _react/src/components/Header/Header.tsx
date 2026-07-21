@@ -64,7 +64,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                     </div>
                 ))}
             </div>
-            {cartItemCount === 0 ? (
+            {(cartItemCount === 0 || mode === 'mobile') ? (
                 <Button className="header-menu-button" onClick={onOrder}>
                     <span>ORDER NOW</span>
                 </Button>
@@ -134,6 +134,8 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { main_menu } = useAppSelector(state => state.content)
+
+    console.log({ main_menu })
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
