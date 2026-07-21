@@ -40,7 +40,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
     ), [window.location.pathname])
 
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(activeMenuIndex !== -1 ? activeMenuIndex : null)
+    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(mode === 'mobile' && activeMenuIndex !== -1 ? activeMenuIndex : null)
 
     return (
         <div className="flex-end-center gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
