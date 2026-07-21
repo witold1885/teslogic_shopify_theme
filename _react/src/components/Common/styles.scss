@@ -13,6 +13,12 @@
 .tabs {
     @extend %flex-center, %gap-64, %mob\:gap-8;
     border-bottom: 1px solid #666;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &-item {
         @extend %flex-center, %relative;
