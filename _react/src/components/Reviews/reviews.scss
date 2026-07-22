@@ -66,7 +66,7 @@
             &.active {
                 @include responsive(border-radius, 4px);
                 background: #FFF;
-                color: #000;
+                color: #000 !important;
             }
 
             &.disabled {
