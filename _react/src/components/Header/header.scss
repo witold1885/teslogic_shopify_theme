@@ -135,18 +135,26 @@
                     box-shadow: none;
                 }
 
-                & li a {
-                    @extend %font-500;
-                    @include text(16px, 20px);
-                    color: #000 !important;
-                    white-space: nowrap;
-
-                    &:hover {
-                        color: #1658FC !important; 
-                    }
+                & li {
+                    @include responsive(height, 20px);
 
                     @include mobile() {
-                        @include text(14px, 18px);
+                        @include responsive(height, 18px);
+                    }
+                    
+                    & a {
+                        @extend %font-manrope, %font-500;
+                        @include text(16px, 20px);
+                        color: #000 !important;
+                        white-space: nowrap;
+
+                        &:hover {
+                            color: #1658FC !important; 
+                        }
+
+                        @include mobile() {
+                            @include text(14px, 18px);
+                        }
                     }
                 }
             }
