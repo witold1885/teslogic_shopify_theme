@@ -188,6 +188,7 @@
 
         &-cart {
             @extend %flex-center, %gap-10;
+            @include responsive(padding-top, 8px);
 
             & > div {
                 @extend %relative;
