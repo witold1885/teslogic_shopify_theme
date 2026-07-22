@@ -136,12 +136,17 @@
                 }
 
                 & li a {
-                    @extend %font-manrope-16, %font-500, %mob\:font-manrope-14;
+                    @extend %font-500;
+                    @include text(16px, 20px);
                     color: #000 !important;
                     white-space: nowrap;
 
                     &:hover {
                         color: #1658FC !important; 
+                    }
+
+                    @include mobile() {
+                        @include text(14px, 18px);
                     }
                 }
             }
