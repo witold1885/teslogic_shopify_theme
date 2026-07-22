@@ -41,7 +41,7 @@
     &-menu {
 
         &-desktop {
-            @extend %flex-end-center, %gap-20, %text-white;
+            @extend %flex-end-start, %gap-20, %text-white;
         }
 
         &-mobile {
