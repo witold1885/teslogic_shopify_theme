@@ -11,7 +11,7 @@ import {
 import {
     carPlayAndAndroidAuto as carPlayAndAndroidAutoBackground,
     connectConsoles as connectConsolesBackground
-} from '../../assets/videos/screenmate-one/backgrounds'
+} from '../../assets/videos/screenmate-one/screenshots'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 

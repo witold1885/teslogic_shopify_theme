@@ -99,8 +99,8 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
         <div
             ref={containerRef}
             className={className}
-            style={style}
-            // style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
+            // style={style}
+            style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
         >
             <video 
                 ref={videoRef}

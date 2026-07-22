@@ -14,7 +14,7 @@ import {
     navigation as navigationBackground,
     gaming as gamingBackground,
     social as socialBackground
-} from '../../assets/videos/screenmate-one/backgrounds'
+} from '../../assets/videos/screenmate-one/screenshots'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 

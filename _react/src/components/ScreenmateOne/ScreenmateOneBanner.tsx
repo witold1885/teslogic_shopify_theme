@@ -4,7 +4,7 @@ import { Button, Icon } from '../Common'
 import Video from '../Common/Video'
 
 import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
-import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/backgrounds'
+import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/screenshots'
 import logoImage from '../../assets/images/screenmate-one/screenmate-one-logo.svg'
 import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'
 import heartIcon from '../../assets/icons/heart-fill.svg'
