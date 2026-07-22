@@ -168,7 +168,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                     {additionalProducts.map(({ id, title, price, models }) => {
                                         const modelId = models ? models[0].id : null
                                         return (
-                                            <div className="flex gap-12 cursor-pointer" key={id}>
+                                            <div className="flex-start-center gap-12 cursor-pointer" key={id}>
                                                 <input
                                                     type="checkbox"
                                                     id={`additional-product-${id}`}

@@ -88,17 +88,16 @@
 
                     &-wrap {
                         @include square(60px);
-                        @include responsive(border-radius, 12px);
+                        @include responsive(border-radius, 14.5px);
                         @include border(2.5px, solid, transparent);
 
                         &:has(.active) {
-                            @include responsive(border-radius, 16px);
+                            @include responsive(border-radius, 13.5px);
                             @include border(1.5px, solid, #1657FC);
                         }
                     }
 
                     &.active {
-                        @include responsive(border-radius, 14px);
                         @include border(2px, solid, rgba(255, 255, 255, 0.10));
                     }                    
                 }
