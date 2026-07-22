@@ -31,7 +31,7 @@
             @include mobile() {
                 gap: 0;
                 top: unset;
-                @include responsive(bottom, 88px);
+                @include responsive(bottom, 108px);
             }
 
             & > img {
@@ -148,7 +148,7 @@
             @include square(92px);
 
             @include mobile() {
-                @include responsive(bottom, 12px);
+                @include responsive(bottom, 32px);
                 @include square(64px);
             }
 

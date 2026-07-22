@@ -58,9 +58,7 @@
             &-wrap {
                 @extend %fixed, %inset, %flex-column-between, %text-black;
                 z-index: 20;
-                @include responsive(margin, 20px, 0);
                 @include responsive(padding, 20px, 24px, 48px);
-                @include responsive(border-radius, 44px);
                 background: #FFF;
             }
         }
@@ -113,6 +111,12 @@
 
                 & .icon {
                     @include block(10.145px, 5.346px);
+                }
+
+                @include mobile() {
+                    .active & {
+                        transform: rotate(180deg);
+                    }
                 }
             }
 

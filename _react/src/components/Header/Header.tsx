@@ -48,7 +48,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                 {menu.map(({ title, children }, index) => (
                     <div
                         key={index}
-                        className="header-menu-item"
+                        className={`header-menu-item ${openMenuIndex === index ? 'active' : ''}`}
                         onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
                         onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
