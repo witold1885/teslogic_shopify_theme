@@ -25,17 +25,19 @@ import {
     connectConsoles
 } from '../assets/videos/screenmate-one'
 
-const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto" }[] = [
-    { video: bannerDesktop, fetchPriority: 'high' },
-    { video: bannerMobile, fetchPriority: 'high' },
-    { video: streamingDesktop, fetchPriority: 'high' },
-    { video: streamingMobile, fetchPriority: 'high' },
-    { video: navigationDesktop, fetchPriority: 'low' },
-    { video: navigationMobile, fetchPriority: 'low' },
-    { video: gamingDesktop, fetchPriority: 'low' },
-    { video: gamingMobile, fetchPriority: 'low' },
-    { video: socialDesktop, fetchPriority: 'low' },
-    { video: socialMobile, fetchPriority: 'low' },
+import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+
+const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto"; media?: string }[] = [
+    { video: bannerDesktop, fetchPriority: 'high', media: mediaDesktop },
+    { video: bannerMobile, fetchPriority: 'high', media: mediaMobile },
+    { video: streamingDesktop, fetchPriority: 'high', media: mediaDesktop },
+    { video: streamingMobile, fetchPriority: 'high', media: mediaMobile },
+    { video: navigationDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: navigationMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: gamingDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: gamingMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: socialDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: socialMobile, fetchPriority: 'low', media: mediaMobile },
     { video: dualViewMode, fetchPriority: 'low' },
     { video: beyondBasicControls, fetchPriority: 'low' },
     { video: carPlayAndAndroidAuto, fetchPriority: 'low' },
@@ -54,9 +56,10 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 
 const ScreenmateOne: React.FC = () => {
 
-    preloadVideos.forEach(({ video, fetchPriority }) => preload(video, { 
+    preloadVideos.forEach(({ video, fetchPriority, media }) => preload(video, { 
         as: 'video', 
-        fetchPriority
+        fetchPriority,
+        ...(media && { media })
     }))
 
     const sectionRefs = useRef<Record <string, any>>({})

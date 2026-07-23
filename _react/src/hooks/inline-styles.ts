@@ -1,10 +1,13 @@
 import { useState, useEffect, useCallback, type CSSProperties } from 'react'
 
+export const mediaDesktop = '(min-width: 577px)'
+export const mediaMobile = '(max-width: 576px)'
+
 export const useInlineStyles = () => {
     const [isMobile, setIsMobile] = useState<boolean>(false)
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 576px)')
+        const mediaQuery = window.matchMedia(mediaMobile)
         
         setIsMobile(mediaQuery.matches)
 
