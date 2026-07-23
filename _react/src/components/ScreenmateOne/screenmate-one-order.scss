@@ -121,7 +121,7 @@
             }
 
             & button {
-                @extend %flex-center, %font-manrope-24, %mob\:font-manrope-18, %text-center, %uppercase;
+                @extend %flex-center, %font-manrope-24, %mob\:font-manrope-18, %font-700, %text-center, %uppercase;
                 @include responsive(width, 404px);
                 @include responsive(padding, 20px, 40px);
                 @include responsive(border-radius, 54px);

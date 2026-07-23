@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, type ReactNode } from 'react'
+import React, { useMemo, useState, type ReactNode } from 'react'
 import './screenmate-one-specifications.scss'
 import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
 
@@ -48,7 +48,7 @@ interface ContentGridItemProps {
 const ContentGridInfoItem: React.FC<ContentGridItemProps> = ({ icon, title, text }) => (
     <div className="screenmate-one__specifications-body-content-grid-item info-item">
         <div className="flex-start-center gap-8">
-            <Icon icon={icon as string} />
+            <Icon className="flex-center" icon={icon as string} />
             <span className="font-manrope-16 mob:font-manrope-14 font-600 text-darkgrey uppercase">{title}</span>
         </div>
         <div className="font-manrope-20 mob:font-manrope-16">{text}</div>
