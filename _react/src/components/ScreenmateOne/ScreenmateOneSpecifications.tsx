@@ -20,7 +20,7 @@ import fpd from '../../assets/icons/screenmate-one/fpd.svg'
 
 import model31723 from '../../assets/images/screenmate-one/models/model-3-17-23.png'
 import model324Highland from '../../assets/images/screenmate-one/models/model-3-24-highland.png'
-import modelY2124 from '../../assets/images/screenmate-one/models/model-y-21-24.png'
+import modelY2024 from '../../assets/images/screenmate-one/models/model-y-20-24.png'
 import modelY25Juniper from '../../assets/images/screenmate-one/models/model-y-25-juniper.png'
 import modelS21 from '../../assets/images/screenmate-one/models/model-s-21.png'
 import modelX21 from '../../assets/images/screenmate-one/models/model-x-21.png'
@@ -167,7 +167,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
                 items={[
                     { image: model31723, title: 'Model 3', subtitle: '‘17-23' },
                     { image: model324Highland, title: 'Model 3', subtitle: '‘24+(Highland)' },
-                    { image: modelY2124, title: 'Model Y', subtitle: '‘21-24' },
+                    { image: modelY2024, title: 'Model Y', subtitle: '‘20-24' },
                     { image: modelY25Juniper, title: 'Model Y', subtitle: '‘25+(Juniper)' },
                     { image: modelS21, title: 'Model S', subtitle: '‘21+' },
                     { image: modelX21, title: 'Model X', subtitle: '‘21+' },

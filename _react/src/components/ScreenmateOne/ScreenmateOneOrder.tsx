@@ -15,6 +15,7 @@ import warranty from '@/assets/icons/warranty.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import type { DropdownOption } from '../Common/Dropdown'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
@@ -57,7 +58,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         beforeChange: (_, next) => setCurrentImageIndex(next)
     }
 
-    const options = (product?.models || []).map(({ id, title }) => ({ label: title, value: id }))
+    const options: DropdownOption[] = (product?.models || []).flatMap(({ id, title }) =>
+        title.split('|').map((model) => ({ label: model.trim(), value: id }))
+    )
 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
     const [error, setError] = useState<boolean>(false)

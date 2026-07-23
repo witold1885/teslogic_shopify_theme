@@ -3,7 +3,7 @@ import chevronUp from '@/assets/icons/chevron-white-up.svg'
 import chevronDown from '@/assets/icons/chevron-white-down.svg'
 import selectedIcon from '@/assets/icons/selected.svg'
 
-interface DropdownOption {
+export interface DropdownOption {
     label: string
     value: number|string
 }
