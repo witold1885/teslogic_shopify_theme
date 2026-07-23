@@ -4,19 +4,28 @@ import { Heading, Tabs, type TabProps } from '../Common'
 import Video, { type VideoRefMethods } from '../Common/Video'
 
 import {
-    streaming as streamingVideo,
-    navigation as navigationVideo,
-    gaming as gamingVideo,
-    social as socialVideo
+    streamingDesktop as streamingVideoDesktop,
+    streamingMobile as streamingVideoMobile,
+    navigationDesktop as navigationVideoDesktop,
+    navigationMobile as navigationVideoMobile,
+    gamingDesktop as gamingVideoDesktop,
+    gamingMobile as gamingVideoMobile,
+    socialDesktop as socialVideoDesktop,
+    socialMobile as socialVideoMobile
 } from '../../assets/videos/screenmate-one'
 import {
-    streaming as streamingBackground,
-    navigation as navigationBackground,
-    gaming as gamingBackground,
-    social as socialBackground
+    streamingDesktop as streamingBackgroundDesktop,
+    streamingMobile as streamingBackgroundMobile,
+    navigationDesktop as navigationBackgroundDesktop,
+    navigationMobile as navigationBackgroundMobile,
+    gamingDesktop as gamingBackgroundDesktop,
+    gamingMobile as gamingBackgroundMobile,
+    socialDesktop as socialBackgroundDesktop,
+    socialMobile as socialBackgroundMobile
 } from '../../assets/videos/screenmate-one/screenshots'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -27,36 +36,38 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
-    const tabs: Record<string, TabProps> = {
+    const { isMobile } = useInlineStyles()
+
+    const tabs: Record<string, TabProps> = useMemo(() => ({
         streaming: {
             title: 'Streaming',
             text: <>Enjoy premium streaming of your favorite movies, TV shows,<br />music, and more with smooth, high-quality playback.</>,
-            video: streamingVideo,
-            background: streamingBackground,
+            video: !isMobile ? streamingVideoDesktop : streamingVideoMobile,
+            background: !isMobile ? streamingBackgroundDesktop : streamingBackgroundMobile,
             timeout: 13000
         },
         navigation: {
             title: 'Navigation',
             text: <>Use the navigation apps you love, right on your Tesla’s display.</>,
-            video: navigationVideo,
-            background: navigationBackground,
+            video: !isMobile ? navigationVideoDesktop : navigationVideoMobile,
+            background: !isMobile ? navigationBackgroundDesktop : navigationBackgroundMobile,
             timeout: 7000
         },
         gaming: {
             title: 'Gaming',
             text: <>Bring mobile gaming to your Tesla’s screen<br />with Google Play Games.</>,
-            video: gamingVideo,
-            background: gamingBackground,
+            video: !isMobile ? gamingVideoDesktop : gamingVideoMobile,
+            background: !isMobile ? gamingBackgroundDesktop : gamingBackgroundMobile,
             timeout: 7000
         },
         social: {
             title: 'Social & Messaging',
             text: <>Stay connected on the go with quick access to social media,<br />email, video calls, and messaging apps.</>,
-            video: socialVideo,
-            background: socialBackground,
+            video: !isMobile ? socialVideoDesktop : socialVideoMobile,
+            background: !isMobile ? socialBackgroundDesktop : socialBackgroundMobile,
             timeout: 13000
         },
-    }
+    }), [isMobile])
 
     useEffect(() => {
         const backgroundUrls = Object.values(tabs)

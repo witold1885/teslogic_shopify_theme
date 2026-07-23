@@ -5,10 +5,14 @@ const externalUrls: Record<string, string> = {
     carPlayAndAndroidAuto: 'https://cdn.shopify.com/videos/c/o/v/9ee8b0da9dae433b88bf15ff0acf37ef.mp4',
     connectConsoles: 'https://cdn.shopify.com/videos/c/o/v/34d81e824c9d4c44a359f50f6693adfb.mp4',
     dualViewMode: 'https://cdn.shopify.com/videos/c/o/v/a42bc18d607946a786727618b42e2f50.mp4',
-    gaming: 'https://cdn.shopify.com/videos/c/o/v/03a0d5e25007456eb0edc0538e086394.mp4',
-    navigation: 'https://cdn.shopify.com/videos/c/o/v/ee90abc85f3f44e59830496b4c35e438.mp4',
-    social: 'https://cdn.shopify.com/videos/c/o/v/35908affa6b84f92a6c07b2a31d71e96.mp4',
-    streaming: 'https://cdn.shopify.com/videos/c/o/v/120c9e3fd20f49c38f2612e893cc0585.mp4',
+    gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/c5ca80ab75a74c58b6effe22d99d461a.mp4',
+    gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/ee2f4bcce53a4a888f033c2f607377a0.mp4',
+    navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/7f713217611b494dabd63f9c8a3d8eac.mp4',
+    navigationMobile: 'https://cdn.shopify.com/videos/c/o/v/47ba5020c3454261a34371661175bff9.mp4',
+    socialDesktop: 'https://cdn.shopify.com/videos/c/o/v/75239955719549bb99e73700f4acdf86.mp4',
+    socialMobile: 'https://cdn.shopify.com/videos/c/o/v/8bde54067a384bbcbc54f277f2a9e3f4.mp4',
+    streamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/3a994b55a1b444f0ba3b96ee2d90dff7.mp4',
+    streamingMobile: 'https://cdn.shopify.com/videos/c/o/v/3d0512c1e70140f89cf732cd46e4c3da.mp4',
 }
 
 const isProd: boolean = import.meta.env.PROD
@@ -20,7 +24,11 @@ export const beyondBasicControls = isProd ? externalUrls.beyondBasicControls : g
 export const carPlayAndAndroidAuto = isProd ? externalUrls.carPlayAndAndroidAuto : getDevUrl('car-play-and-android-auto')
 export const connectConsoles = isProd ? externalUrls.connectConsoles : getDevUrl('connect-consoles')
 export const dualViewMode = isProd ? externalUrls.dualViewMode : getDevUrl('dual-view-mode')
-export const gaming = isProd ? externalUrls.gaming : getDevUrl('gaming')
-export const navigation = isProd ? externalUrls.navigation : getDevUrl('navigation')
-export const social = isProd ? externalUrls.social : getDevUrl('social')
-export const streaming = isProd ? externalUrls.streaming : getDevUrl('streaming')
+export const gamingDesktop = isProd ? externalUrls.gamingDesktop : getDevUrl('gaming-desktop')
+export const gamingMobile = isProd ? externalUrls.gamingMobile : getDevUrl('gaming-mobile')
+export const navigationDesktop = isProd ? externalUrls.navigationDesktop : getDevUrl('navigation-desktop')
+export const navigationMobile = isProd ? externalUrls.navigationMobile : getDevUrl('navigation-mobile')
+export const socialDesktop = isProd ? externalUrls.socialDesktop : getDevUrl('social-desktop')
+export const socialMobile = isProd ? externalUrls.socialMobile : getDevUrl('social-mobile')
+export const streamingDesktop = isProd ? externalUrls.streamingDesktop : getDevUrl('streaming-desktop')
+export const streamingMobile = isProd ? externalUrls.streamingMobile : getDevUrl('streaming-mobile')
