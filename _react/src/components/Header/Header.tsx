@@ -124,15 +124,6 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
                         // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
                         onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
-                        {...(mode === 'mobile' ? (
-                            index === prevMenuIndex 
-                                ? anime(`item-close-${index}`, 'hide') 
-                                : (
-                                    index === openMenuIndex 
-                                        ? anime(`item-open-${index}`, 'show')
-                                        : {} 
-                                )
-                        ) : {})}
                     >
                         <span className="header-menu-item-title">
                             {title}
@@ -141,8 +132,20 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         <div className="header-menu-item-chevron">
                             <Icon className="flex-center" svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
                         </div>
-                        {openMenuIndex === index && children?.length !== 0 && (
-                            <ul className="header-menu-item-dropdown">
+                        {children?.length !== 0 && (
+                            <ul
+                                className="header-menu-item-dropdown"
+                                style={{ opacity: openMenuIndex === index ? 1 : 0 }}
+                                {...(mode === 'mobile' ? (
+                                    index === prevMenuIndex 
+                                        ? anime(`item-close-${index}`, 'hide') 
+                                        : (
+                                            index === openMenuIndex 
+                                                ? anime(`item-open-${index}`, 'show')
+                                                : {} 
+                                        )
+                                ) : {})}
+                            >
                                 {children?.map((child, i) => (
                                     <li key={i}>
                                         <a href={child.url} target="_blank">{child.title}</a>
