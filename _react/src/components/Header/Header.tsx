@@ -69,9 +69,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
             result.push({ key: `item-open-${openMenuIndex}`, mode: 'show' })
         }
         return result
-    }, [prevMenuIndex, openMenuIndex])
+    }, [openMenuIndex])
 
-    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode}) => ({
+    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode }) => ({
         ...acc,
         [key]: getCollapseConfig(animatedObjects.item.duration, mode as AnimationMode)
     }), {}), [configs])
