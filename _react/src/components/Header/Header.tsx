@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import './header.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { MenuItem } from '../../types/shopify'
@@ -10,7 +10,7 @@ import burgerIcon from '../../assets/icons/burger.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
-import { getCollapseConfig, getCustomConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationDirection, type AnimationMode } from '../../hooks/anime'
+import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
@@ -50,42 +50,21 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         setOpenMenuIndex(prev => prev !== index ? index : null)
     }
 
-    const getItemHeight = (index: number): number => {
-        const el = document.getElementById(`header-menu-item-dropdown-${index}`)
-        return el?.scrollHeight || 200
-    }
-
-    const configs: Record<string, number | string | AnimationMode | AnimationDirection>[] = useMemo(() => {
+    const configs: Record<string, string | AnimationMode>[] = useMemo(() => {
         const result = []
-        const direction = !prevMenuIndex && openMenuIndex ? 'bottom' : 'top'
         if (prevMenuIndex !== null) {
-            result.push({
-                index: prevMenuIndex,
-                key: `item-close-${prevMenuIndex}`,
-                mode: 'hide',
-                direction
-            })
+            result.push({ key: `item-close-${prevMenuIndex}`, mode: 'hide' })
         }
         if (openMenuIndex !== null) {
-            result.push({
-                index: openMenuIndex,
-                key: `item-open-${openMenuIndex}`,
-                mode: 'show',
-                direction
-            })
+            result.push({ key: `item-open-${openMenuIndex}`, mode: 'show' })
         }
         return result
     }, [prevMenuIndex, openMenuIndex])
 
-    // const { duration } = animatedObjects.item
-
-    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { index, key, mode, direction}) => ({
+    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode}) => ({
         ...acc,
-        [key]: getCollapseConfig(333, mode as AnimationMode, direction as AnimationDirection)
+        [key]: getCollapseConfig(333, mode as AnimationMode)
     }), {}), [configs])
-
-    // console.log({ animationConfigsOld, animationConfigsNew })
-    console.log({ configs, animationConfigs })
 
     const { anime } = useAnime(animationConfigs)
 
@@ -102,7 +81,6 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                             className={`header-menu-item ${isOpen ? 'active' : ''}`}
                             onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
                             onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                            // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
                             onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
                         >
                             <span className="header-menu-item-title">
@@ -116,7 +94,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                                 <ul
                                     id={`header-menu-item-dropdown-${index}`}
                                     className="header-menu-item-dropdown"
-                                    style={{ display: mode === 'mobile' ? (isOpen || isPrev ? 'flex' : 'none') : undefined }}
+                                    style={{ display: mode === 'mobile' ? (isOpen ? 'flex' : 'none') : undefined }}
                                     {...(mode === 'mobile' ? (
                                         isPrev 
                                             ? anime(`item-close-${index}`, 'hide') 
