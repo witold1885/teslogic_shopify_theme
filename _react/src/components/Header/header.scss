@@ -119,6 +119,9 @@
                 }
 
                 @include mobile() {
+                    transition: transform 0.333s ease-in-out;
+                    will-change: transform;
+
                     .active & {
                         transform: rotate(180deg);
                     }
@@ -143,6 +146,7 @@
                     background: none;
                     box-shadow: none;
                     overflow: hidden;
+                    will-change: height, opacity;
                 }
 
                 & li {
