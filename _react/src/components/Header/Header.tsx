@@ -50,42 +50,17 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         setOpenMenuIndex(prev => prev !== index ? index : null)
     }
 
-    // useEffect(() => {
-    //     console.log({ prevMenuIndex, openMenuIndex })
-    // }, [prevMenuIndex, openMenuIndex])
+    const getItemHeight = (index: number): number => {
+        const el = document.getElementById(`header-menu-item-dropdown-${index}`)
+        return el?.scrollHeight || 200
+    }
 
-    // const itemKeys: string[] = useMemo(() => {
-    //     const result = []
-    //     if (prevMenuIndex) {
-    //         result.push(`item-close-${prevMenuIndex}`)
-    //     }
-    //     if (openMenuIndex) {
-    //         result.push(`item-open-${openMenuIndex}`)
-    //     }
-    //     return result
-    // }, [prevMenuIndex, openMenuIndex])
-
-    // const modes: string[] = useMemo(() => {
-    //     const result = []
-    //     if (prevMenuIndex) result.push('hide')
-    //     if (openMenuIndex) result.push(`show`)
-    //     return result
-    // }, [prevMenuIndex, openMenuIndex])
-
-    // // const itemKey = `item-${position}-${className}`
-    // const mode = className === 'transparent' ? 'hide' : 'show'
-    // const direction: string = useMemo(() => !prevMenuIndex && openMenuIndex ? 'bottom' : 'top', [prevMenuIndex, openMenuIndex])
-    // // const animationConfigs = useMemo(() => mapCustomConfigs({ [itemKey]: animatedObjects.item }, mode, direction), [itemKey])
-    // const animationConfigsOld = useMemo(() => mapCustomConfigs(itemKeys.reduce((acc, key) => ({
-    //     ...acc,
-    //     [key]: animatedObjects.item
-    // }), {}), mode, direction), [itemKeys, direction])
-
-    const configs: Record<string, string | AnimationMode | AnimationDirection>[] = useMemo(() => {
+    const configs: Record<string, number | string | AnimationMode | AnimationDirection>[] = useMemo(() => {
         const result = []
         const direction = !prevMenuIndex && openMenuIndex ? 'bottom' : 'top'
         if (prevMenuIndex !== null) {
             result.push({
+                index: prevMenuIndex,
                 key: `item-close-${prevMenuIndex}`,
                 mode: 'hide',
                 direction
@@ -93,6 +68,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         }
         if (openMenuIndex !== null) {
             result.push({
+                index: openMenuIndex,
                 key: `item-open-${openMenuIndex}`,
                 mode: 'show',
                 direction
@@ -103,9 +79,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     // const { duration } = animatedObjects.item
 
-    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode, direction}) => ({
+    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { index, key, mode, direction}) => ({
         ...acc,
-        [key]: getCollapseConfig(333, mode as AnimationMode, direction as AnimationDirection)
+        [key]: getCollapseConfig(getItemHeight(index as number), 333, mode as AnimationMode, direction as AnimationDirection)
     }), {}), [configs])
 
     // console.log({ animationConfigsOld, animationConfigsNew })
@@ -134,6 +110,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         </div>
                         {children?.length !== 0 && (
                             <ul
+                                id={`header-menu-item-dropdown-${index}`}
                                 className="header-menu-item-dropdown"
                                 style={{ opacity: openMenuIndex === index ? 1 : 0 }}
                                 {...(mode === 'mobile' ? (
