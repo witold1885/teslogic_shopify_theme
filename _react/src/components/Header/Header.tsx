@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import './header.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { MenuItem } from '../../types/shopify'
@@ -17,6 +17,8 @@ import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },
+    menu: { yFrom: '40px', duration: 666 },
+    item: { yFrom: '20px', duration: 333 },
 }
 
 const pagesMap: Record<string, string[]> = {
@@ -40,7 +42,24 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
     ), [window.location.pathname])
 
+    const [prevMenuIndex, setPrevMenuIndex] = useState<number | null>(null)
     const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(mode === 'mobile' && activeMenuIndex !== -1 ? activeMenuIndex : null)
+
+    const toggleMenuItem = (index: number) => {
+        setPrevMenuIndex(openMenuIndex)
+        setOpenMenuIndex(prev => prev !== index ? index : null)
+    }
+
+    useEffect(() => {
+        console.log({ prevMenuIndex, openMenuIndex })
+    }, [prevMenuIndex, openMenuIndex])
+
+    // const itemKey = `item-${position}-${className}`
+    // const mode = className === 'transparent' ? 'hide' : 'show'
+    // const direction = position === 'sticky' ? 'top' : 'bottom'
+    // const animationConfigs = useMemo(() => mapCustomConfigs({ [itemKey]: animatedObjects.item }, mode, direction), [itemKey])
+
+    // const { anime } = useAnime(animationConfigs)
 
     return (
         <div className="flex-end-start gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
@@ -51,7 +70,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         className={`header-menu-item ${openMenuIndex === index ? 'active' : ''}`}
                         onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                        onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
+                        // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
+                        onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
+                        // {...(mode === 'mobile' ? anime(itemKey, mode) : {})}
                     >
                         <span className="header-menu-item-title">
                             {title}
@@ -125,8 +146,8 @@ interface HeaderMobileProps extends HeaderProps {
     onMobileMenuClose: () => void
 }
 
-const HeaderMobile: React.FC<HeaderMobileProps> = ({ menu, onOrder, onMobileMenuClose }) => (
-    <div className="header-menu-mobile-wrap">
+const HeaderMobile: React.FC<HeaderMobileProps> = ({ className = '', menu, onOrder, onMobileMenuClose }) => (
+    <div className={`header-menu-mobile-wrap ${className}`}>
         <div className="flex-between-center">
             <Image className="header-logo" src={logoBlack} alt="Screenmate" />
             <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
@@ -163,12 +184,20 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         onMobileMenuClose: () => setOpenMobileMenu(false)
     }
 
+    const mode = useMemo(() => openMobileMenu ? 'show' : 'hide', [openMobileMenu])
+    const direction = useMemo(() => openMobileMenu ? 'top' : 'bottom', [openMobileMenu])
+    const menuKey = useMemo(() => `menu-${mode}`, [mode])
+    const animationConfigs = useMemo(() => mapCustomConfigs({ [menuKey]: animatedObjects.menu }, mode, direction), [menuKey])
+
+    const { anime } = useAnime(animationConfigs)
+
     useLockBodyScroll(openMobileMenu)
 
     return (<>
         <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />
         <HeaderComponent position="sticky" className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')} {...headerComponentParams} />
-        {openMobileMenu && <HeaderMobile {...headerMobileParams} />}
+        {/* {openMobileMenu && <HeaderMobile {...headerMobileParams} />} */}
+        <HeaderMobile {...anime(menuKey, mode)} className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
     </>)
 }
 

@@ -60,6 +60,11 @@
                 z-index: 20;
                 @include responsive(padding, 20px, 24px, 48px);
                 background: #FFF;
+
+                &.transparent {
+                    opacity: 0;
+                    z-index: -1;
+                }
             }
         }
 
