@@ -10,7 +10,7 @@ import burgerIcon from '../../assets/icons/burger.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
 
-import { getCustomConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationDirection, type AnimationMode } from '../../hooks/anime'
+import { getCollapseConfig, getCustomConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationDirection, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
@@ -101,11 +101,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         return result
     }, [prevMenuIndex, openMenuIndex])
 
-    const { yFrom, duration } = animatedObjects.item
+    // const { duration } = animatedObjects.item
 
     const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode, direction}) => ({
         ...acc,
-        [key]: getCustomConfig(yFrom, duration, mode as AnimationMode, direction as AnimationDirection)
+        [key]: getCollapseConfig(333, mode as AnimationMode, direction as AnimationDirection)
     }), {}), [configs])
 
     // console.log({ animationConfigsOld, animationConfigsNew })
@@ -135,7 +135,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         {children?.length !== 0 && (
                             <ul
                                 className="header-menu-item-dropdown"
-                                style={{ opacity: openMenuIndex === index ? 1 : 0, display: openMenuIndex === index ? 'flex' : 'none' }}
+                                style={{ opacity: openMenuIndex === index ? 1 : 0 }}
                                 {...(mode === 'mobile' ? (
                                     index === prevMenuIndex 
                                         ? anime(`item-close-${index}`, 'hide') 
