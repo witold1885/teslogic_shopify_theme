@@ -61,7 +61,7 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             timeout: 7000
         },
         social: {
-            title: 'Social & Messaging',
+            title: 'Social',
             text: <>Stay connected on the go with quick access to social media,<br />email, video calls, and messaging apps.</>,
             video: !isMobile ? socialVideoDesktop : socialVideoMobile,
             background: !isMobile ? socialBackgroundDesktop : socialBackgroundMobile,
