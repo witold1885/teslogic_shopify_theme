@@ -1,6 +1,6 @@
 const externalUrls: Record<string, string> = {
-    bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/1df357ba7898441ebb74c18c360f1867.mp4',
-    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/7293d084a4b64047925f5915dae31ae7.mp4',
+    bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/e844591cfe6b4ff38cdba0979cbb5254.mp4',
+    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/4e5a56ce184549368a5e391aaba75205.mp4',
     beyondBasicControlsDesktop: 'https://cdn.shopify.com/videos/c/o/v/8373787401d0407a8187fc788e973661.mp4',
     beyondBasicControlsMobile: 'https://cdn.shopify.com/videos/c/o/v/978aff40f5c645d599e36daabf76585a.mp4',
     carPlayAndAndroidAutoDesktop: 'https://cdn.shopify.com/videos/c/o/v/03a53abb1046411b9a1c1828765a94a1.mp4',
