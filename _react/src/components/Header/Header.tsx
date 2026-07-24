@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import './header.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { MenuItem } from '../../types/shopify'
@@ -50,6 +50,16 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         setOpenMenuIndex(prev => prev !== index ? index : null)
     }
 
+    useEffect(() => {
+        if (prevMenuIndex === null) return
+
+        const timer = setTimeout(() => {
+            setPrevMenuIndex(null)
+        }, animatedObjects.item.duration)
+
+        return () => clearTimeout(timer)
+    }, [prevMenuIndex])
+
     const configs: Record<string, string | AnimationMode>[] = useMemo(() => {
         const result = []
         if (prevMenuIndex !== null) {
@@ -63,7 +73,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode}) => ({
         ...acc,
-        [key]: getCollapseConfig(333, mode as AnimationMode)
+        [key]: getCollapseConfig(animatedObjects.item.duration, mode as AnimationMode)
     }), {}), [configs])
 
     const { anime } = useAnime(animationConfigs)
@@ -74,6 +84,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                 {menu.map(({ title, children }, index) => {
                     const isOpen = openMenuIndex === index
                     const isPrev = prevMenuIndex === index
+
+                    const isVisible = mode === 'mobile' ? (isOpen || isPrev) : isOpen
 
                     return (
                         <div
@@ -93,7 +105,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                             {children?.length !== 0 && (
                                 <ul
                                     id={`header-menu-item-dropdown-${index}`}
-                                    className={`header-menu-item-dropdown ${!isOpen ? 'hidden' : ''}`}
+                                    className={`header-menu-item-dropdown ${!isVisible ? 'hidden' : ''}`}
                                     {...(mode === 'mobile' ? (
                                         isPrev 
                                             ? anime(`item-close-${index}`, 'hide') 
