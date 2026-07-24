@@ -19,10 +19,14 @@ import {
     gamingMobile,
     socialDesktop,
     socialMobile,
-    dualViewMode,
-    beyondBasicControls,
-    carPlayAndAndroidAuto,
-    connectConsoles
+    dualViewModeDesktop,
+    dualViewModeMobile,
+    beyondBasicControlsDesktop,
+    beyondBasicControlsMobile,
+    carPlayAndAndroidAutoDesktop,
+    carPlayAndAndroidAutoMobile,
+    connectConsolesDesktop,
+    connectConsolesMobile
 } from '../assets/videos/screenmate-one'
 
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
@@ -38,10 +42,14 @@ const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto"; m
     { video: gamingMobile, fetchPriority: 'low', media: mediaMobile },
     { video: socialDesktop, fetchPriority: 'low', media: mediaDesktop },
     { video: socialMobile, fetchPriority: 'low', media: mediaMobile },
-    { video: dualViewMode, fetchPriority: 'low' },
-    { video: beyondBasicControls, fetchPriority: 'low' },
-    { video: carPlayAndAndroidAuto, fetchPriority: 'low' },
-    { video: connectConsoles, fetchPriority: 'low' },
+    { video: dualViewModeDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: dualViewModeMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: beyondBasicControlsDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: beyondBasicControlsMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: carPlayAndAndroidAutoDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: carPlayAndAndroidAutoMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: connectConsolesDesktop, fetchPriority: 'low', media: mediaDesktop },
+    { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']

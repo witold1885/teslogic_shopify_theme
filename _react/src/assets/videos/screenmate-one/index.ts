@@ -1,10 +1,14 @@
 const externalUrls: Record<string, string> = {
     bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/1df357ba7898441ebb74c18c360f1867.mp4',
-    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/8ece68fb283b4d4c83eea1fcc3d65ec1.mp4',
-    beyondBasicControls: 'https://cdn.shopify.com/videos/c/o/v/465ad860a52142bea95dd018fcd849bc.mp4',
-    carPlayAndAndroidAuto: 'https://cdn.shopify.com/videos/c/o/v/9ee8b0da9dae433b88bf15ff0acf37ef.mp4',
-    connectConsoles: 'https://cdn.shopify.com/videos/c/o/v/34d81e824c9d4c44a359f50f6693adfb.mp4',
-    dualViewMode: 'https://cdn.shopify.com/videos/c/o/v/a42bc18d607946a786727618b42e2f50.mp4',
+    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/7293d084a4b64047925f5915dae31ae7.mp4',
+    beyondBasicControlsDesktop: 'https://cdn.shopify.com/videos/c/o/v/8373787401d0407a8187fc788e973661.mp4',
+    beyondBasicControlsMobile: 'https://cdn.shopify.com/videos/c/o/v/978aff40f5c645d599e36daabf76585a.mp4',
+    carPlayAndAndroidAutoDesktop: 'https://cdn.shopify.com/videos/c/o/v/03a53abb1046411b9a1c1828765a94a1.mp4',
+    carPlayAndAndroidAutoMobile: 'https://cdn.shopify.com/videos/c/o/v/91ae2ac7bec249ac8bbb1f1ac8aee96b.mp4',
+    connectConsolesDesktop: 'https://cdn.shopify.com/videos/c/o/v/2fcc7c5f78a14caf938806bdce41972a.mp4',
+    connectConsolesMobile: 'https://cdn.shopify.com/videos/c/o/v/cdbc8c6f1cca451fa6530ef3f3daa99a.mp4',
+    dualViewModeDesktop: 'https://cdn.shopify.com/videos/c/o/v/8e794f7b730744ab85a72503ad8f869f.mp4',
+    dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/a785ec13d29e48d9922e1b0a64c68df6.mp4',
     gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/c5ca80ab75a74c58b6effe22d99d461a.mp4',
     gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/ee2f4bcce53a4a888f033c2f607377a0.mp4',
     navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/7f713217611b494dabd63f9c8a3d8eac.mp4',
@@ -20,10 +24,14 @@ const getDevUrl = (name: string) => new URL(`./${name}.mp4`, import.meta.url).hr
 
 export const bannerDesktop = isProd ? externalUrls.bannerDesktop : getDevUrl('banner-desktop')
 export const bannerMobile = isProd ? externalUrls.bannerMobile : getDevUrl('banner-mobile')
-export const beyondBasicControls = isProd ? externalUrls.beyondBasicControls : getDevUrl('beyond-basic-controls')
-export const carPlayAndAndroidAuto = isProd ? externalUrls.carPlayAndAndroidAuto : getDevUrl('car-play-and-android-auto')
-export const connectConsoles = isProd ? externalUrls.connectConsoles : getDevUrl('connect-consoles')
-export const dualViewMode = isProd ? externalUrls.dualViewMode : getDevUrl('dual-view-mode')
+export const beyondBasicControlsDesktop = isProd ? externalUrls.beyondBasicControlsDesktop : getDevUrl('beyond-basic-controls-desktop')
+export const beyondBasicControlsMobile = isProd ? externalUrls.beyondBasicControlsMobile : getDevUrl('beyond-basic-controls-mobile')
+export const carPlayAndAndroidAutoDesktop = isProd ? externalUrls.carPlayAndAndroidAutoDesktop : getDevUrl('car-play-and-android-auto-desktop')
+export const carPlayAndAndroidAutoMobile = isProd ? externalUrls.carPlayAndAndroidAutoMobile : getDevUrl('car-play-and-android-auto-mobile')
+export const connectConsolesDesktop = isProd ? externalUrls.connectConsolesDesktop : getDevUrl('connect-consoles-desktop')
+export const connectConsolesMobile = isProd ? externalUrls.connectConsolesMobile : getDevUrl('connect-consoles-mobile')
+export const dualViewModeDesktop = isProd ? externalUrls.dualViewModeDesktop : getDevUrl('dual-view-mode-desktop')
+export const dualViewModeMobile = isProd ? externalUrls.dualViewModeMobile : getDevUrl('dual-view-mode-mobile')
 export const gamingDesktop = isProd ? externalUrls.gamingDesktop : getDevUrl('gaming-desktop')
 export const gamingMobile = isProd ? externalUrls.gamingMobile : getDevUrl('gaming-mobile')
 export const navigationDesktop = isProd ? externalUrls.navigationDesktop : getDevUrl('navigation-desktop')

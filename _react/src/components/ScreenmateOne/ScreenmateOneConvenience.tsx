@@ -4,12 +4,16 @@ import { Heading, Icon, Image, Popup } from '../Common'
 import Video from '../Common/Video'
 
 import {
-    dualViewMode as dualViewModeVideo,
-    beyondBasicControls as beyondBasicControlsVideo
+    dualViewModeDesktop as dualViewModeVideoDesktop,
+    dualViewModeMobile as dualViewModeVideoMobile,
+    beyondBasicControlsDesktop as beyondBasicControlsVideoDesktop,
+    beyondBasicControlsMobile as beyondBasicControlsVideoMobile
 } from '../../assets/videos/screenmate-one'
 import {
-    dualViewMode as dualViewModeBackground,
-    beyondBasicControls as beyondBasicControlsBackground
+    dualViewModeDesktop as dualViewModeBackgroundDesktop,
+    dualViewModeMobile as dualViewModeBackgroundMobile,
+    beyondBasicControlsDesktop as beyondBasicControlsBackgroundDesktop,
+    beyondBasicControlsMobile as beyondBasicControlsBackgroundMobile
 } from '../../assets/videos/screenmate-one/screenshots'
 // import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
@@ -137,8 +141,8 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                 side and an app on the other. Resize and rearrange elements freely <br />
                 for a layout optimized for comfort, clarity, and ease of use.
             </>,
-            video: dualViewModeVideo,
-            background: dualViewModeBackground
+            video: !isMobile ? dualViewModeVideoDesktop : dualViewModeVideoMobile,
+            background: !isMobile ? dualViewModeBackgroundDesktop : dualViewModeBackgroundMobile
         },
         'key-driving-info': {
             wrapClassName: 'flex-column',
@@ -198,8 +202,8 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                     <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
                 </a>
             </>,
-            video: beyondBasicControlsVideo,
-            background: beyondBasicControlsBackground
+            video: !isMobile ? beyondBasicControlsVideoDesktop : beyondBasicControlsVideoMobile,
+            background: !isMobile ? beyondBasicControlsBackgroundDesktop : beyondBasicControlsBackgroundMobile
         },
         // 'front-camera-integration': {
         //     wrapClassName: 'flex-between mob:flex-column',

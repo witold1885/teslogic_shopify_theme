@@ -5,15 +5,20 @@ import Video from '../Common/Video'
 
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
 import {
-    carPlayAndAndroidAuto as carPlayAndAndroidAutoVideo,
-    connectConsoles as connectConsolesVideo
+    carPlayAndAndroidAutoDesktop as carPlayAndAndroidAutoVideoDesktop,
+    carPlayAndAndroidAutoMobile as carPlayAndAndroidAutoVideoMobile,
+    connectConsolesDesktop as connectConsolesVideoDesktop,
+    connectConsolesMobile as connectConsolesVideoMobile
 } from '../../assets/videos/screenmate-one'
 import {
-    carPlayAndAndroidAuto as carPlayAndAndroidAutoBackground,
-    connectConsoles as connectConsolesBackground
+    carPlayAndAndroidAutoDesktop as carPlayAndAndroidAutoBackgroundDesktop,
+    carPlayAndAndroidAutoMobile as carPlayAndAndroidAutoBackgroundMobile,
+    connectConsolesDesktop as connectConsolesBackgroundDesktop,
+    connectConsolesMobile as connectConsolesBackgroundMobile
 } from '../../assets/videos/screenmate-one/screenshots'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     heading: { yFrom: '40px', duration: 666 },
@@ -40,9 +45,11 @@ interface Block {
 }
 
 const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
+    const { isMobile } = useInlineStyles()
+
     const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})
 
-    const blocks: Record<string, Block> = {
+    const blocks: Record<string, Block> = useMemo(() => ({
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
             title: <>CarPlay & Android&nbsp;Auto</>,
@@ -52,8 +59,8 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 interface every time you drive.
             </>,
             bodyClassName: 'w-full',
-            video: carPlayAndAndroidAutoVideo,
-            background: carPlayAndAndroidAutoBackground
+            video: !isMobile ? carPlayAndAndroidAutoVideoDesktop : carPlayAndAndroidAutoVideoMobile,
+            background: !isMobile ? carPlayAndAndroidAutoBackgroundDesktop : carPlayAndAndroidAutoBackgroundMobile
         },
         'bigger-entertainment': {
             heading: <>A Bigger Entertainment<br />Experience</>,
@@ -64,15 +71,15 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 or connect your favorite gaming console via HDMI or USB.
             </>,
             bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
-            video: connectConsolesVideo,
-            background: connectConsolesBackground,
+            video: !isMobile ? connectConsolesVideoDesktop : connectConsolesVideoMobile,
+            background: !isMobile ? connectConsolesBackgroundDesktop : connectConsolesBackgroundMobile,
             sketch: connectDevices,
             info: [
                 {title: 'HDMI In', text: <>Connect external media<br />players or consoles to<br />display high-definition<br />video on the screen.</>},
                 {title: 'Video In', text: <>Additional video input port.<br />Connects your source device<br />using the compatible video<br />interface cable.</>}
             ]
         }
-    }
+    }), [isMobile])
 
     useImperativeHandle(ref, () => ({
         getBlock: (key: string) => blockRefs.current[key] || null
