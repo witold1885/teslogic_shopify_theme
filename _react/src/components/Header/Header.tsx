@@ -218,12 +218,12 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         onMobileMenuClose: () => setOpenMobileMenu(false)
     }
 
-    const mode = useMemo(() => openMobileMenu ? 'show' : 'hide', [openMobileMenu])
-    const direction = useMemo(() => openMobileMenu ? 'top' : 'bottom', [openMobileMenu])
-    const menuKey = useMemo(() => `menu-${mode}`, [mode])
-    const animationConfigs = useMemo(() => mapCustomConfigs({ [menuKey]: animatedObjects.menu }, mode, direction), [menuKey])
+    // const mode = useMemo(() => openMobileMenu ? 'show' : 'hide', [openMobileMenu])
+    // const direction = useMemo(() => openMobileMenu ? 'top' : 'bottom', [openMobileMenu])
+    // const menuKey = useMemo(() => `menu-${mode}`, [mode])
+    // const animationConfigs = useMemo(() => mapCustomConfigs({ [menuKey]: animatedObjects.menu }, mode, direction), [menuKey])
 
-    const { anime } = useAnime(animationConfigs)
+    // const { anime } = useAnime(animationConfigs)
 
     useLockBodyScroll(openMobileMenu)
 
@@ -231,7 +231,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />
         <HeaderComponent position="sticky" className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')} {...headerComponentParams} />
         {/* {openMobileMenu && <HeaderMobile {...headerMobileParams} />} */}
-        <HeaderMobile {...anime(menuKey, mode)} className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
+        <HeaderMobile className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
     </>)
 }
 
