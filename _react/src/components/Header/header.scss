@@ -60,7 +60,8 @@
                 z-index: 20;
                 @include responsive(padding, 20px, 24px, 48px);
                 background: #FFF;
-                transition: transform 0.2s ease-in-out;
+                opacity: 1;
+                transition: opacity 0.2s ease-in-out;
                 will-change: opacity;
 
                 &.transparent {
