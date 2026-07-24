@@ -20,8 +20,8 @@ interface ValidElement {
     config: AnimationConfig
 }
 
-type AnimationMode = 'show' | 'hide' | 'shift'
-type AnimationDirection = 'top' | 'bottom'
+export type AnimationMode = 'show' | 'hide' | 'shift'
+export type AnimationDirection = 'top' | 'bottom'
 
 const getDomElement = (target: HTMLElement | VideoRefMethods | null): HTMLElement | null => {
     if (!target) return null
