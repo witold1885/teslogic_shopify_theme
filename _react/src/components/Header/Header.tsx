@@ -93,8 +93,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                             {children?.length !== 0 && (
                                 <ul
                                     id={`header-menu-item-dropdown-${index}`}
-                                    className="header-menu-item-dropdown"
-                                    style={{ display: mode === 'mobile' ? (isOpen ? 'flex' : 'none') : undefined }}
+                                    className={`header-menu-item-dropdown ${!isOpen ? 'hidden' : ''}`}
                                     {...(mode === 'mobile' ? (
                                         isPrev 
                                             ? anime(`item-close-${index}`, 'hide') 
