@@ -92,46 +92,54 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
     return (
         <div className="flex-end-start gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
             <div {...{className}}>
-                {menu.map(({ title, children }, index) => (
-                    <div
-                        key={index}
-                        className={`header-menu-item ${openMenuIndex === index ? 'active' : ''}`}
-                        onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
-                        onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                        // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
-                        onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
-                    >
-                        <span className="header-menu-item-title">
-                            {title}
-                            {index === 0 && <span className="header-menu-item-new">NEW</span>}
-                        </span>                        
-                        <div className="header-menu-item-chevron">
-                            <Icon className="flex-center" svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
+                {menu.map(({ title, children }, index) => {
+                    const isOpen = openMenuIndex === index
+                    const isPrev = prevMenuIndex === index
+
+                    return (
+                        <div
+                            key={index}
+                            className={`header-menu-item ${isOpen ? 'active' : ''}`}
+                            onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
+                            onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
+                            // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
+                            onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
+                        >
+                            <span className="header-menu-item-title">
+                                {title}
+                                {index === 0 && <span className="header-menu-item-new">NEW</span>}
+                            </span>                        
+                            <div className="header-menu-item-chevron">
+                                <Icon className="flex-center" svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
+                            </div>
+                            {children?.length !== 0 && (
+                                <ul
+                                    id={`header-menu-item-dropdown-${index}`}
+                                    className="header-menu-item-dropdown"
+                                    style={{
+                                        overflow: 'hidden',
+                                        display: mode === 'mobile' ? (isOpen || isPrev ? 'block' : 'none') : undefined,
+                                    }}
+                                    {...(mode === 'mobile' ? (
+                                        isPrev 
+                                            ? anime(`item-close-${index}`, 'hide') 
+                                            : (
+                                                isOpen 
+                                                    ? anime(`item-open-${index}`, 'show')
+                                                    : {} 
+                                            )
+                                    ) : {})}
+                                >
+                                    {children?.map((child, i) => (
+                                        <li key={i}>
+                                            <a href={child.url} target="_blank">{child.title}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
-                        {children?.length !== 0 && (
-                            <ul
-                                id={`header-menu-item-dropdown-${index}`}
-                                className="header-menu-item-dropdown"
-                                style={{ opacity: openMenuIndex === index ? 1 : 0 }}
-                                {...(mode === 'mobile' ? (
-                                    index === prevMenuIndex 
-                                        ? anime(`item-close-${index}`, 'hide') 
-                                        : (
-                                            index === openMenuIndex 
-                                                ? anime(`item-open-${index}`, 'show')
-                                                : {} 
-                                        )
-                                ) : {})}
-                            >
-                                {children?.map((child, i) => (
-                                    <li key={i}>
-                                        <a href={child.url} target="_blank">{child.title}</a>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                ))}
+                    )
+                })}
             </div>
             {(cartItemCount === 0 || mode === 'mobile') ? (
                 <Button className="header-menu-button" onClick={onOrder}>
