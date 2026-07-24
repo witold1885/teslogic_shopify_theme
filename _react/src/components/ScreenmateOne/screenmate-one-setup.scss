@@ -48,6 +48,10 @@
             }
         }
 
+        & .tabs {
+            @extend %mob\:w-full;
+        }
+
         &-text {
             @extend %font-manrope-24, %mob\:font-manrope-14;
             @include responsive(height, 64px);
