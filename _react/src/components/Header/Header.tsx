@@ -81,7 +81,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { index, key, mode, direction}) => ({
         ...acc,
-        [key]: getCollapseConfig(getItemHeight(index as number), 333, mode as AnimationMode, direction as AnimationDirection)
+        [key]: getCollapseConfig(333, mode as AnimationMode, direction as AnimationDirection)
     }), {}), [configs])
 
     // console.log({ animationConfigsOld, animationConfigsNew })
@@ -116,7 +116,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                                 <ul
                                     id={`header-menu-item-dropdown-${index}`}
                                     className="header-menu-item-dropdown"
-                                    style={{ display: mode === 'mobile' ? (isOpen || isPrev ? 'block' : 'none') : undefined }}
+                                    style={{ display: mode === 'mobile' ? (isOpen || isPrev ? 'flex' : 'none') : undefined }}
                                     {...(mode === 'mobile' ? (
                                         isPrev 
                                             ? anime(`item-close-${index}`, 'hide') 

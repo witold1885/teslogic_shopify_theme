@@ -205,24 +205,24 @@ export const getCustomConfig = (yFrom: string, duration?: number, mode?: Animati
     return translateY && opacity ? { translateY, opacity, duration: duration || defaultDuration } : getAnimationConfig(yFrom, duration)
 }
 
-export const getCollapseConfig = (maxHeight: number, duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {
+export const getCollapseConfig = (duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {
     let height, opacity
     if (mode === 'show') {
         opacity = [0, 1]
         if (direction === 'top') {
-            height = ['0px', `${maxHeight}px`]
+            height = ['0px', (el: HTMLElement) => `${el.scrollHeight}px`]
         }
         if (direction === 'bottom') {
-            height = ['0px', `${maxHeight}px`]
+            height = ['0px', (el: HTMLElement) => `${el.scrollHeight}px`]
         }
     }
     if (mode === 'hide') {
         opacity = [1, 0]
         if (direction === 'top') {
-            height = [`${maxHeight}px`, '0px']
+            height = [(el: HTMLElement) => `${el.scrollHeight || el.clientHeight}px`, '0px']
         }
         if (direction === 'bottom') {
-            height = [`${maxHeight}px`, '0px']
+            height = [(el: HTMLElement) => `${el.scrollHeight || el.clientHeight}px`, '0px']
         }
     }
     return height && opacity ? { height, opacity, duration: duration || defaultDuration } : {}
