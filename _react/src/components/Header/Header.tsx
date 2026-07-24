@@ -84,14 +84,14 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
     const configs: Record<string, string | AnimationMode | AnimationDirection>[] = useMemo(() => {
         const result = []
         const direction = !prevMenuIndex && openMenuIndex ? 'bottom' : 'top'
-        if (prevMenuIndex) {
+        if (prevMenuIndex !== null) {
             result.push({
                 key: `item-close-${prevMenuIndex}`,
                 mode: 'hide',
                 direction
             })
         }
-        if (openMenuIndex) {
+        if (openMenuIndex !== null) {
             result.push({
                 key: `item-open-${openMenuIndex}`,
                 mode: 'show',
@@ -103,15 +103,15 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     const { yFrom, duration } = animatedObjects.item
 
-    const animationConfigsNew = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode, direction}) => ({
+    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode, direction}) => ({
         ...acc,
         [key]: getCustomConfig(yFrom, duration, mode as AnimationMode, direction as AnimationDirection)
     }), {}), [configs])
 
     // console.log({ animationConfigsOld, animationConfigsNew })
-    console.log({ animationConfigsNew })
+    console.log({ configs, animationConfigs })
 
-    // const { anime } = useAnime(animationConfigs)
+    const { anime } = useAnime(animationConfigs)
 
     return (
         <div className="flex-end-start gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
@@ -124,7 +124,15 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                         onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
                         // onClick={mode === 'mobile' ? () => setOpenMenuIndex(prev => prev !== index ? index : null) : () => {}}
                         onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
-                        // {...(mode === 'mobile' ? anime(itemKey, mode) : {})}
+                        {...(mode === 'mobile' ? (
+                            index === prevMenuIndex 
+                                ? anime(`item-close-${index}`, 'hide') 
+                                : (
+                                    index === openMenuIndex 
+                                        ? anime(`item-open-${index}`, 'show')
+                                        : {} 
+                                )
+                        ) : {})}
                     >
                         <span className="header-menu-item-title">
                             {title}
