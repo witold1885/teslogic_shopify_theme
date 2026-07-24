@@ -17,8 +17,6 @@ import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },
-    menu: { yFrom: '40px', duration: 666 },
-    item: { yFrom: '20px', duration: 333 },
 }
 
 const pagesMap: Record<string, string[]> = {
@@ -50,12 +48,14 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
         setOpenMenuIndex(prev => prev !== index ? index : null)
     }
 
+    const duration: number = 333
+
     useEffect(() => {
         if (prevMenuIndex === null) return
 
         const timer = setTimeout(() => {
             setPrevMenuIndex(null)
-        }, animatedObjects.item.duration)
+        }, duration)
 
         return () => clearTimeout(timer)
     }, [prevMenuIndex])
@@ -73,7 +73,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode }) => ({
         ...acc,
-        [key]: getCollapseConfig(animatedObjects.item.duration, mode as AnimationMode)
+        [key]: getCollapseConfig(duration, mode as AnimationMode)
     }), {}), [configs])
 
     const { anime } = useAnime(animationConfigs)
@@ -218,19 +218,11 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         onMobileMenuClose: () => setOpenMobileMenu(false)
     }
 
-    // const mode = useMemo(() => openMobileMenu ? 'show' : 'hide', [openMobileMenu])
-    // const direction = useMemo(() => openMobileMenu ? 'top' : 'bottom', [openMobileMenu])
-    // const menuKey = useMemo(() => `menu-${mode}`, [mode])
-    // const animationConfigs = useMemo(() => mapCustomConfigs({ [menuKey]: animatedObjects.menu }, mode, direction), [menuKey])
-
-    // const { anime } = useAnime(animationConfigs)
-
     useLockBodyScroll(openMobileMenu)
 
     return (<>
         <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />
         <HeaderComponent position="sticky" className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')} {...headerComponentParams} />
-        {/* {openMobileMenu && <HeaderMobile {...headerMobileParams} />} */}
         <HeaderMobile className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
     </>)
 }
