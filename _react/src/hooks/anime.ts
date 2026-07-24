@@ -210,19 +210,19 @@ export const getCollapseConfig = (maxHeight: number, duration?: number, mode?: A
     if (mode === 'show') {
         opacity = [0, 1]
         if (direction === 'top') {
-            height = [`${maxHeight}px`, '0px']
+            height = ['0px', `${maxHeight}px`]
         }
         if (direction === 'bottom') {
-            height = [`${maxHeight}px`, '0px']
+            height = ['0px', `${maxHeight}px`]
         }
     }
     if (mode === 'hide') {
         opacity = [1, 0]
         if (direction === 'top') {
-            height = ['0px', `${maxHeight}px`]
+            height = [`${maxHeight}px`, '0px']
         }
         if (direction === 'bottom') {
-            height = ['0px', `${maxHeight}px`]
+            height = [`${maxHeight}px`, '0px']
         }
     }
     return height && opacity ? { height, opacity, duration: duration || defaultDuration } : {}
