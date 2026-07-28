@@ -83,9 +83,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 //         }
                 //     })
                 // }
-                if (video.readyState >= 1) {
+                // if (video.readyState >= 1) {
                     safePlay()
-                }
+                // }
             }
         } else {
             video.pause()
