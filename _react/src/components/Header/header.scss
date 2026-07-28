@@ -82,7 +82,7 @@
             }
 
             @include mobile() {
-                @include responsive(gap, 24px, 4px);
+                @include responsive(gap, 0, 4px);
                 padding: 0;
 
                 &:first-child {
@@ -159,6 +159,10 @@
 
                     @include mobile() {
                         @include responsive(height, 18px);
+
+                        &:first-child {
+                            @include responsive(margin-top, 24px);
+                        }
                     }
                     
                     & a {
