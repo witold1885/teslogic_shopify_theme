@@ -22,7 +22,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href + '#t=0.001'
 
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
-    const [isReadyToPlay, setIsReadyToPlay] = useState<boolean>(false)
+    // const [isReadyToPlay, setIsReadyToPlay] = useState<boolean>(false)
     const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     const containerRef = useRef<HTMLDivElement | null>(null)
@@ -72,9 +72,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             //     video.src = finalSrc
             // }
             // video.src = finalSrc
-            video.load()
+            // video.load()
             
-            if (autoPlay) {
+            // if (autoPlay) {
                 // const playPromise = video.play()
                 // if (playPromise !== undefined) {
                 //     playPromise.then(() => setIsLoaded(true)).catch((error) => {
@@ -83,10 +83,12 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 //         }
                 //     })
                 // }
-                // if (video.readyState >= 1) {
+                if (video.readyState >= 1) {
                     safePlay()
-                // }
-            }
+                } else {
+                    video.load()
+                }
+            // }
         } else {
             video.pause()
             // video.currentTime = 0
@@ -98,7 +100,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // // setIsReadyToPlay(false)
             setIsLoaded(false)
         }
-    }, [isIntersecting, isActive, finalSrc, autoPlay, isReadyToPlay])
+    }, [isIntersecting, isActive, finalSrc, autoPlay])
 
     useImperativeHandle(ref, () => ({
         play: () => {
@@ -154,7 +156,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 webkit-playsinline="true"
                 preload="metadata"
                 onLoadedMetadata={() => {
-                    if (isIntersecting && autoPlay) {
+                    if (isIntersecting && isActive && autoPlay) {
                         safePlay()
                     }
                 }}
@@ -163,7 +165,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
                 // onLoadedData={() => setIsReadyToPlay(true)}
             >
-                <source key={isIntersecting ? finalSrc : 'empty'} type="video/mp4" src={isIntersecting ? finalSrc : undefined} />
+                <source type="video/mp4" src={isIntersecting ? finalSrc : undefined} />
             </video>
         </div>
     )
