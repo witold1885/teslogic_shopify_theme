@@ -73,7 +73,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
 
     const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode }) => ({
         ...acc,
-        [key]: getCollapseConfig(duration, mode as AnimationMode)
+        [key]: { ...getCollapseConfig(duration, mode as AnimationMode), stagger: false }
     }), {}), [configs])
 
     const { anime } = useAnime(animationConfigs)
