@@ -141,7 +141,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                     // visibility: isReadyToPlay ? 'visible' : 'hidden'
                     opacity: isLoaded ? 1 : 0
                 }}
-                // src={finalSrc}
+                src={finalSrc}
                 loop={loop}
                 muted
                 {...{ fetchpriority, muted: true } as React.HTMLAttributes<HTMLVideoElement>}
@@ -162,9 +162,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // preload={isIntersecting && isActive ? 'auto' : 'none'}
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
                 // onLoadedData={() => setIsReadyToPlay(true)}
-            >
-                <source type="video/mp4" src={finalSrc} />
-            </video>
+            />
         </div>
     )
 })
