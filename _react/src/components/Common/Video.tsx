@@ -50,6 +50,10 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
         const video = videoRef.current
         if (!video) return
 
+        if (video.readyState === 0) {
+            video.load()
+        }
+
         const playPromise = video.play()
         if (playPromise !== undefined) {
             playPromise.then(() => setIsLoaded(true)).catch((error) => {
@@ -93,10 +97,10 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             try {
                 video.currentTime = 0
             } catch (e) {}
-            // video.removeAttribute('src')
-            // video.load() 
+            video.removeAttribute('src')
+            video.load() 
             // // setIsReadyToPlay(false)
-            // setIsLoaded(false)
+            setIsLoaded(false)
         }
     }, [isIntersecting, isActive, finalSrc, autoPlay, isReadyToPlay])
 
@@ -141,7 +145,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                     // visibility: isReadyToPlay ? 'visible' : 'hidden'
                     opacity: isLoaded ? 1 : 0
                 }}
-                // src={finalSrc}
+                src={finalSrc}
                 loop={loop}
                 muted
                 {...{ fetchpriority, muted: true } as React.HTMLAttributes<HTMLVideoElement>}
@@ -162,9 +166,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // preload={isIntersecting && isActive ? 'auto' : 'none'}
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
                 // onLoadedData={() => setIsReadyToPlay(true)}
-            >
-                <source type="video/mp4" src={finalSrc} />
-            </video>
+            />
         </div>
     )
 })
