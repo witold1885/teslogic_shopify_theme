@@ -54,6 +54,13 @@
 }
 
 .track-slider {
+    @extend %mob\:overflow-scroll-x, %mob\:overflow-hidden-y;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     & .slick-list {
         @include responsive(margin, 0, -10px)
