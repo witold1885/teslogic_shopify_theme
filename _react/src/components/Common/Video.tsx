@@ -74,9 +74,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // video.src = finalSrc
             // video.load()
 
-            // if (video.readyState === 0) {
+            if (video.readyState >= 0) {
                 video.load()
-            // }
+            }
             
             if (autoPlay) {
                 // const playPromise = video.play()
@@ -100,9 +100,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 video.currentTime = 0
             } catch (e) {}
             // video.removeAttribute('src')
-            // if (video.readyState > 0) { 
+            if (video.readyState >= 0) { 
                 video.load()
-            // }            
+            }            
             // // setIsReadyToPlay(false)
             setIsLoaded(false)
         }
