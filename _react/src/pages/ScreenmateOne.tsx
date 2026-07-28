@@ -5,7 +5,6 @@ import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
-import ScreenmateOneFeatures from '../components/ScreenmateOne/ScreenmateOneFeatures'
 import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
 import {
@@ -52,6 +51,8 @@ const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto"; m
     // { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
+const ScreenmateOneFeatures = lazy(() => import('../components/ScreenmateOne/ScreenmateOneFeatures'))
+
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control'],
@@ -96,12 +97,14 @@ const ScreenmateOne: React.FC = () => {
                 onExpand={() => scrollTo('Features')}
                 onOrder={() => scrollTo('Order')}
             />
-            <Suspense>
-                <ScreenmateOneFeatures
-                    ref={(el: HTMLDivElement) => setRef(el, 'Features')}
-                    scrollTo={(anchor) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
-                />
-            </Suspense>
+            <LazySection>
+                <Suspense>
+                    <ScreenmateOneFeatures
+                        ref={(el: HTMLDivElement) => setRef(el, 'Features')}
+                        scrollTo={(anchor) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
+                    />
+                </Suspense>
+            </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
                 <LazySection key={slug}>
                     <Suspense>
