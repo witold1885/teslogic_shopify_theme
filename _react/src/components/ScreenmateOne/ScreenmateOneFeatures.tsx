@@ -143,7 +143,7 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
             )}
             {isMobile && (
                 <TrackSlider
-                    className="screenmate-one__features-slider flex-start-center gap-20 overflow-hidden-x"
+                    className="screenmate-one__features-slider"
                     items={features.map((feature: Feature, index: number) => (
                         <FeatureBlock
                             key={index}
