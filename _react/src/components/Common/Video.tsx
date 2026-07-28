@@ -50,8 +50,6 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
         const video = videoRef.current
         if (!video) return
 
-        video.load()
-
         const playPromise = video.play()
         if (playPromise !== undefined) {
             playPromise.then(() => setIsLoaded(true)).catch((error) => {
@@ -74,7 +72,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             //     video.src = finalSrc
             // }
             // video.src = finalSrc
-            // video.load()
+            video.load()
             
             if (autoPlay) {
                 // const playPromise = video.play()
@@ -165,7 +163,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
                 // onLoadedData={() => setIsReadyToPlay(true)}
             >
-                <source type="video/mp4" src={isIntersecting ? finalSrc : undefined} />
+                <source key={isIntersecting ? finalSrc : 'empty'} type="video/mp4" src={isIntersecting ? finalSrc : undefined} />
             </video>
         </div>
     )
