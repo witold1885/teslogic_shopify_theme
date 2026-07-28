@@ -105,14 +105,21 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             <video 
                 ref={videoRef}
                 className="object-cover"
-                style={{ display: isReadyToPlay ? 'block' : 'none' }}
+                // style={{ display: isReadyToPlay ? 'block' : 'none' }}
+                style={{ 
+                    opacity: isReadyToPlay ? 1 : 0,
+                    visibility: isReadyToPlay ? 'visible' : 'hidden'
+                }}
                 src={finalSrc}
                 loop={loop}
                 {...{ fetchpriority } as React.HTMLAttributes<HTMLVideoElement>}
                 playsInline
+                // @ts-ignore
+                webkit-playsinline="true"
                 muted
                 preload={isIntersecting && isActive ? 'auto' : 'none'}
                 onCanPlayThrough={() => setIsReadyToPlay(true)}
+                onLoadedData={() => setIsReadyToPlay(true)}
             />
         </div>
     )

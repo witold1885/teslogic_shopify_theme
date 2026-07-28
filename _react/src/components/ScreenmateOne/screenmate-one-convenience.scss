@@ -121,10 +121,11 @@
 
                 @include mobile() {
                     @include responsive(height, 290px);
+                    
+                    .dual-view-mode & {
+                        background-position: 66.6667%;
 
-                    & video {
-                        
-                        .dual-view-mode & {
+                        & video {
                             object-position: 66.6667%;
                         }
                     }
