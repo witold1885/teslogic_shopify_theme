@@ -48,6 +48,7 @@
 
             &-item {
                 @include responsive(width, 320px);
+                @include responsive(flex, 0, 0, 320px);
                 @include responsive(padding, 20px, 20px, 32px);
                 @include responsive(border-radius, 20px);
             }
