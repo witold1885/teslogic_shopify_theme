@@ -192,9 +192,9 @@ const ScreenmateOneSpecifications: React.FC = () => {
                         {activeTab && tabs[activeTab]?.content}
                     </div>
                     <div {...anime('tabs')} className="screenmate-one__specifications-tabs-wrap">
-                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft === 0 ? 1 : -1 }}></div>
+                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft <= 0 ? 1 : -1 }}></div>
                         <Tabs ref={scrollRef} {...{tabs, activeTab, setActiveTab}} autoplay={false} />
-                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft === scrollRight ? 0 : -1 }}></div>
+                        <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft >= scrollRight ? 0 : -1 }}></div>
                     </div>
                 </div>
                 <ScreenmateOneInstallation />
