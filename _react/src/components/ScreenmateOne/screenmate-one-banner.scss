@@ -7,6 +7,7 @@
 .screenmate-one {
     
     &__banner {
+        height: 100vh;
         height: 100dvh;
         @include responsive(min-height, 810px);
 
