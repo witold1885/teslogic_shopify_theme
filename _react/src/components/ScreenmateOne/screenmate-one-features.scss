@@ -42,8 +42,13 @@
         }
 
         &-slider {
-            @extend %mob\:flex-start-center, %mob\:gap-20, %mob\:overflow-hidden-x;
             
+            &:not(.slick-initialized) {
+                .slick-track {
+                    @extend %mob\:flex-start-center, %mob\:gap-20;
+                }
+            }
+
             &-wrap {
                 @include responsive(margin, 0, 20px);
             }
