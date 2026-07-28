@@ -100,9 +100,11 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 video.currentTime = 0
             } catch (e) {}
             // video.removeAttribute('src')
-            // video.load() 
+            if (video.readyState > 0) { 
+                video.load()
+            }            
             // // setIsReadyToPlay(false)
-            // setIsLoaded(false)
+            setIsLoaded(false)
         }
     }, [isIntersecting, isActive, finalSrc, autoPlay])
 
