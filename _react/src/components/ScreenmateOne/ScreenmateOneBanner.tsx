@@ -29,7 +29,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
             : { src: bannerMobileVideo, background: bannerMobileBackground }
     }, [isMobile])
 
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+    const animationConfigs = useMemo(() => ({ ...mapSimpleConfigs(animatedObjects), rootMargin: '0px' }), [])
 
     const { anime } = useAnime(animationConfigs)
 
