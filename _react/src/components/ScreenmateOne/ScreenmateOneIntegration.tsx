@@ -3,8 +3,8 @@ import './screenmate-one-integration.scss'
 import { Heading } from '../Common'
 import Video from '../Common/Video'
 
-import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
-import consoleGaming from '../../assets/images/screenmate-one/console-gaming.png'
+import consoleGamingDesktop from '../../assets/images/screenmate-one/console-gaming-desktop.png'
+import consoleGamingMobile from '../../assets/images/screenmate-one/console-gaming-mobile.png'
 import {
     carPlayAndAndroidAutoDesktop as carPlayAndAndroidAutoVideoDesktop,
     carPlayAndAndroidAutoMobile as carPlayAndAndroidAutoVideoMobile,
@@ -74,7 +74,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
             bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
             video: !isMobile ? connectConsolesVideoDesktop : connectConsolesVideoMobile,
             background: !isMobile ? connectConsolesBackgroundDesktop : connectConsolesBackgroundMobile,
-            sketch: consoleGaming,
+            sketch: !isMobile ? consoleGamingDesktop : consoleGamingMobile,
             info: [
                 {title: 'USB-C Video In', text: <>Connect compatible gaming consoles and external<br />video devices through the USB-C Video Input.</>},
             ]
