@@ -161,6 +161,11 @@
 
                             @include mobile() {
                                 max-height: unset;
+
+                                & .icon {
+                                    @include responsive(width, 20px);
+                                    height: auto;
+                                }
                             }
                         }
 
