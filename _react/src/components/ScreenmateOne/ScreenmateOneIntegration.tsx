@@ -4,6 +4,7 @@ import { Heading } from '../Common'
 import Video from '../Common/Video'
 
 import connectDevices from '../../assets/images/screenmate-one/connect-devices.png'
+import consoleGaming from '../../assets/images/screenmate-one/console-gaming.png'
 import {
     carPlayAndAndroidAutoDesktop as carPlayAndAndroidAutoVideoDesktop,
     carPlayAndAndroidAutoMobile as carPlayAndAndroidAutoVideoMobile,
@@ -64,19 +65,18 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
         },
         'bigger-entertainment': {
             heading: <>A Bigger Entertainment<br />Experience</>,
-            title: <>Connect Consoles<br />and HDMI Devices</>,
+            title: <>Bring Console Gaming<br />to Your Tesla</>,
             text: <>
                 More ways to play, all on the screen you already have. <br />
-                Run Android games on the powerful Qualcomm chipset <br />
-                or connect your favorite gaming console via HDMI or USB.
+                Enjoy smooth Android gaming powered by Qualcomm, <br />
+                or connect a compatible console through USB-C Video In.
             </>,
             bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
             video: !isMobile ? connectConsolesVideoDesktop : connectConsolesVideoMobile,
             background: !isMobile ? connectConsolesBackgroundDesktop : connectConsolesBackgroundMobile,
-            sketch: connectDevices,
+            sketch: consoleGaming,
             info: [
-                {title: 'HDMI In', text: <>Connect external media<br />players or consoles to<br />display high-definition<br />video on the screen.</>},
-                {title: 'Video In', text: <>Additional video input port.<br />Connects your source device<br />using the compatible video<br />interface cable.</>}
+                {title: 'USB-C Video In', text: <>Connect compatible gaming consoles and external<br />video devices through the USB-C Video Input.</>},
             ]
         }
     }), [isMobile])
@@ -108,7 +108,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                                     <div {...anime(`${blockKey}-sketch`)} className="screenmate-one__integration-block-info-sketch">
                                         <img className="h-full" src={sketch} alt="" />
                                     </div>
-                                    <div className="flex gap-60 mob:w-full mob:flex-center mob:gap-20">
+                                    <div className="screenmate-one__integration-block-info-items">
                                         {info.map(({ title, text }, index) => (
                                             <div
                                                 key={index}

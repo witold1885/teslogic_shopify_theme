@@ -36,10 +36,10 @@
             }
 
             &-info {
-                @extend %flex-column, %overflow-hidden;
+                @extend %flex-column;
                 @include responsive(gap, 64px, 56.8px);
-                @include responsive(width, 660px);
-                @include responsive(padding, 64px, 0, 60px);
+                @include responsive(width, 658px);
+                @include responsive(padding, 40px, 0, 77px);
 
                 @include mobile() {
                     @include responsive(gap, 24px, 20px);
@@ -48,10 +48,20 @@
                 }
 
                 &-sketch {
-                    @include responsive(height, 182px);
+                    @include responsive(height, 247px);
+                    @include responsive(margin-left, -72px);
 
                     @include mobile() {
                         @include responsive(height, 125px);
+                        margin-left: 0;
+                    }
+                }
+
+                &-items {
+                    @extend %flex, %gap-60, %mob\:w-full, %mob\:flex-start-center, %mob\:gap-20;
+
+                    @include mobile() {
+                        @include responsive(padding, 0, 20px)
                     }
                 }
 
@@ -59,7 +69,7 @@
                     @extend %flex-column, %gap-16, %mob\:gap-8;
 
                     @include mobile() {
-                        @include responsive(width, 145px);
+                        @include responsive(width, 245px);
 
                         & br {
                             display: none;
