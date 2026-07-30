@@ -7,6 +7,10 @@
 @import '../fonts/NeueHaasGrotesk/stylesheet.css';
 @import '../fonts/Universal/stylesheet.css';
 
+:root {
+    color-scheme: dark;
+}
+
 html, body {
     margin: 0;
 }
