@@ -10,7 +10,7 @@ import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg
 import heartIcon from '../../assets/icons/heart-fill.svg'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
@@ -29,7 +29,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
             : { src: bannerMobileVideo, background: bannerMobileBackground }
     }, [isMobile])
 
-    const animationConfigs = useMemo(() => ({ ...mapSimpleConfigs(animatedObjects), rootMargin: '0px' }), [])
+    const animationConfigs = useMemo(() => ({ ...mapSimpleConfigs(animatedObjects), rootMargin: '0px' } as AnimationConfig), [])
 
     const { anime } = useAnime(animationConfigs)
 

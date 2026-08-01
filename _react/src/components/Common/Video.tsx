@@ -151,7 +151,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // style={style}
             style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
         >
-            <video 
+            {isIntersecting && <video 
                 ref={videoRef}
                 className="object-cover"
                 // style={{ display: isReadyToPlay ? 'block' : 'none' }}
@@ -185,7 +185,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // onLoadedData={() => setIsReadyToPlay(true)}
             >
                 <source type="video/mp4" src={(isIntersecting || isActive) ? finalSrc : undefined} />
-            </video>
+            </video>}
         </div>
     )
 })
