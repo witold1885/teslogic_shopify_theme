@@ -8,7 +8,8 @@ const externalUrls: Record<string, string> = {
     connectConsolesDesktop: 'https://cdn.shopify.com/videos/c/o/v/2fcc7c5f78a14caf938806bdce41972a.mp4',
     connectConsolesMobile: 'https://cdn.shopify.com/videos/c/o/v/cdbc8c6f1cca451fa6530ef3f3daa99a.mp4',
     dualViewModeDesktop: 'https://cdn.shopify.com/videos/c/o/v/8e794f7b730744ab85a72503ad8f869f.mp4',
-    dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/a785ec13d29e48d9922e1b0a64c68df6.mp4',
+    // dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/a785ec13d29e48d9922e1b0a64c68df6.mp4',
+    dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/5bd40e78fa6a4d748643a790047671be.mp4',
     gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/c5ca80ab75a74c58b6effe22d99d461a.mp4',
     gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/ee2f4bcce53a4a888f033c2f607377a0.mp4',
     navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/7f713217611b494dabd63f9c8a3d8eac.mp4',
@@ -31,7 +32,8 @@ export const carPlayAndAndroidAutoMobile = isProd ? externalUrls.carPlayAndAndro
 export const connectConsolesDesktop = isProd ? externalUrls.connectConsolesDesktop : getDevUrl('connect-consoles-desktop')
 export const connectConsolesMobile = isProd ? externalUrls.connectConsolesMobile : getDevUrl('connect-consoles-mobile')
 export const dualViewModeDesktop = isProd ? externalUrls.dualViewModeDesktop : getDevUrl('dual-view-mode-desktop')
-export const dualViewModeMobile = isProd ? externalUrls.dualViewModeMobile : getDevUrl('dual-view-mode-mobile')
+// export const dualViewModeMobile = isProd ? externalUrls.dualViewModeMobile : getDevUrl('dual-view-mode-mobile')
+export const dualViewModeMobile = isProd ? externalUrls.dualViewModeMobile : getDevUrl('dual-view-mode-mobile-web')
 export const gamingDesktop = isProd ? externalUrls.gamingDesktop : getDevUrl('gaming-desktop')
 export const gamingMobile = isProd ? externalUrls.gamingMobile : getDevUrl('gaming-mobile')
 export const navigationDesktop = isProd ? externalUrls.navigationDesktop : getDevUrl('navigation-desktop')
