@@ -74,20 +74,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // video.src = finalSrc
             // video.load()
 
-            const source = video.querySelector('source')
-            if (source) {
-                // [Критично для iOS / Гібридний метод]:
-                // Якщо джерело ще не встановлено (для далеких секцій) — встановлюємо
-                if (!source.getAttribute('src')) {
-                    source.setAttribute('src', finalSrc)
-                    // [Критично для iOS]: load() обов'язковий після зміни <source>
-                    video.load()
-                }
+            if (video.readyState === 0) {
+                video.load()
             }
-
-            // if (video.readyState === 0) {
-            //     video.load()
-            // }
             
             if (autoPlay) {
                 // const playPromise = video.play()
@@ -151,7 +140,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // style={style}
             style={{ ...style, ...(background ? { backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}) }}
         >
-            {isIntersecting && <video 
+            <video 
                 ref={videoRef}
                 className="object-cover"
                 // style={{ display: isReadyToPlay ? 'block' : 'none' }}
@@ -172,10 +161,9 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // @ts-ignore
                 webkit-playsinline="true"
                 // preload="metadata"
-                // preload={isIntersecting ? 'metadata' : 'none'}
-                preload="none"
+                preload={isIntersecting ? 'metadata' : 'none'}
                 onLoadedMetadata={() => {
-                    if (isIntersecting && isActive && autoPlay) {
+                    if (isIntersecting && autoPlay) {
                         safePlay()
                     }
                 }}
@@ -184,8 +172,8 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
                 // onLoadedData={() => setIsReadyToPlay(true)}
             >
-                <source type="video/mp4" src={(isIntersecting || isActive) ? finalSrc : undefined} />
-            </video>}
+                <source type="video/mp4" src={finalSrc} />
+            </video>
         </div>
     )
 })
