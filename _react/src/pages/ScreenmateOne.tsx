@@ -8,6 +8,10 @@ import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner
 import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
 import {
+    bannerDesktop as bannerDesktopBackground,
+    bannerMobile as bannerMobileBackground
+} from '../assets/videos/screenmate-one/screenshots'
+import {
     bannerDesktop,
     bannerMobile,
     streamingDesktop,
@@ -30,7 +34,25 @@ import {
 
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
 
-const preloadVideos: { video: string; fetchPriority?: "high" | "low" | "auto"; media?: string }[] = [
+interface PreloadContent {
+    fetchPriority?: "high" | "low" | "auto"
+    media?: string
+}
+
+interface PreloadImage extends PreloadContent {
+    image: string
+}
+
+interface PreloadVideo extends PreloadContent {
+    video: string
+}
+
+const preloadImages: PreloadImage[] = [
+    { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
+    { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
+]
+
+const preloadVideos: PreloadVideo[] = [
     { video: bannerDesktop, fetchPriority: 'high', media: mediaDesktop },
     { video: bannerMobile, fetchPriority: 'high', media: mediaMobile },
     { video: streamingDesktop, fetchPriority: 'high', media: mediaDesktop },
@@ -64,6 +86,12 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 }), {})
 
 const ScreenmateOne: React.FC = () => {
+
+    preloadImages.forEach(({ video, fetchPriority, media }) => preload(video, { 
+        as: 'image', 
+        fetchPriority,
+        ...(media && { media })
+    }))
 
     preloadVideos.forEach(({ video, fetchPriority, media }) => preload(video, { 
         as: 'video', 
