@@ -17,6 +17,13 @@
     font-family: Manrope !important;
     font-style: normal !important;
 
+    @include mobile() {
+        @include responsive(width, 335px);
+        @include responsive(border-radius, 20px);
+        left: calc(50% - calc(335 * 100vw / 375) / 2);
+        @include responsive(bottom, 20px);
+    }
+
     & * {
         box-sizing: border-box;
     }
@@ -34,12 +41,31 @@
 
         & h2 {
             @extend %font-manrope-18, %font-600;
-            margin-bottom: 8px !important;
+            @include responsive(margin-bottom, 8px);
         }
     }
 
     &__btns {
         @extend %flex-between-center, %gap-12;
+
+        @include mobile() {
+
+            & button:first-child {
+                font-size: 0;
+                line-height: 0;
+
+                & span {
+                    display: none !important;
+                }
+
+                &::after {
+                    content: 'Manage';
+                    visibility: visible;
+                    display: block;
+                    @include text(14px, 20px);
+                }
+            }
+        }
     }
 
     &__body p a, &__btns button:first-child {
@@ -67,14 +93,28 @@
         font-family: Manrope !important;
         font-style: normal !important;
 
+        @include mobile() {
+            @include responsive(width, 335px);
+            height: auto;
+            @include responsive(max-height, 748px);
+            @include responsive(border-radius, 20px);
+            @include responsive(top, 32px);
+            left: calc(50% - calc(335 * 100vw / 375) / 2);
+            @include responsive(bottom, 32px);
+        }
+
         & * {
             box-sizing: border-box;
         }
 
         & header {
-            @extend %w-full, %flex-row, %flex-between-center;
+            @extend %w-full, %flex-row, %flex-between-center, %mob\:flex-column-start, %mob\:gap-12;
             @include responsive(padding, 20px, 24px);
             border-bottom: 1px solid #E6E6E6;
+
+            @include mobile() {
+                @include responsive(padding, 20px);
+            }
         }
     }
 
@@ -83,6 +123,11 @@
         &-title {
             @extend %font-manrope-18, %font-600, %text-left;
             margin: 0;
+
+            @include mobile() {
+                @include responsive(width, 165px);
+                padding: 0 !important;
+            }
         }
 
         &-close {
@@ -96,6 +141,12 @@
             background: #E3EAFE;
             border: none !important;
             outline: none !important;
+
+            @include mobile() {
+                order: 2;
+                @include responsive(top, 22px);
+                @include responsive(right, 20px);
+            }
 
             & svg {
                 @include square(16px);
@@ -113,12 +164,32 @@
     &__header {
 
         &-actions {
-            @extend %flex-end-center, %gap-12;
+            @extend %flex-end-center, %gap-12, %mob\:w-full, %mob\:flex-row, %mob\:gap-8;
             @include responsive(margin-right, 56px);
             padding: 0 !important;
 
+            @include mobile() {
+                margin-right: 0 !important;
+            }
+
             & button {
                 @include responsive(width, 182px);
+
+                @include mobile() {
+                    @include responsive(width, 93.3333);
+
+                    &:last-child {
+                        color: transparent !important;
+                        font-size: 0 !important;
+                        line-height: 0 !important;
+
+                        &::after {
+                            content: 'Save';
+                            @include text(14px, 20px);
+                            color: #1657FC !important;
+                        }
+                    }
+                }
             }
         }
     }
@@ -126,6 +197,10 @@
     &__scrollable {
         @extend %flex-column;
         @include responsive(padding, 22px, 24px, 24px);
+
+        @include mobile() {
+            @include responsive(padding, 22px, 20px, 24px);
+        }
     }
 
     &__intro {
@@ -203,6 +278,10 @@
 .shopify-pc__prefs__scrollable p {
     @include text(13px, 20px);
     @extend %font-400;
+
+    @include mobile() {
+        @include text(14px, 20px);
+    }
 }
 
 .shopify-pc__banner__btns button, 
@@ -220,4 +299,19 @@
 .shopify-pc__prefs__header-actions button {
     @include responsive(border-radius, 33px);
     background: #E3EAFE !important;
+}
+
+@media screen and (max-width: 750px) {
+    .shopify-pc__prefs__header-actions {
+        flex-direction: row !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shopify-pc__banner__btns {
+        flex-direction: row !important;
+    }
+    .shopify-pc__banner__btns button {
+        order: unset !important;
+    }
 }
