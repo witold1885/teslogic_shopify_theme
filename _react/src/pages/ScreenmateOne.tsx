@@ -87,7 +87,7 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 
 const ScreenmateOne: React.FC = () => {
 
-    preloadImages.forEach(({ video, fetchPriority, media }) => preload(video, { 
+    preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
         as: 'image', 
         fetchPriority,
         ...(media && { media })
