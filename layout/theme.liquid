@@ -283,8 +283,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="gradient">
     <div {% if template == 'index' or page.handle == 'dash' %}style="overflow: hidden;"{% endif %}>
-      <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
-      <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
+      {% unless page.handle == 'screenmate-one-react' %}
+        <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
+        <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
+      {% endunless %}
       {% if template == 'index' or page.handle == 'dash' or page.handle == 'pro' or page.handle == 'screenmate' %}
         <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
