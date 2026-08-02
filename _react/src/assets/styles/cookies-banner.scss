@@ -20,7 +20,7 @@
     @include mobile() {
         @include responsive(width, 335px);
         @include responsive(border-radius, 20px);
-        left: calc(50% - calc(335 * 100vw / 375) / 2);
+        left: calc(50% - calc(335 * 100vw / 390) / 2);
         @include responsive(bottom, 20px);
     }
 
@@ -99,7 +99,7 @@
             @include responsive(max-height, 748px);
             @include responsive(border-radius, 20px);
             @include responsive(top, 32px);
-            left: calc(50% - calc(335 * 100vw / 375) / 2);
+            left: calc(50% - calc(335 * 100vw / 390) / 2);
             @include responsive(bottom, 32px);
         }
 
