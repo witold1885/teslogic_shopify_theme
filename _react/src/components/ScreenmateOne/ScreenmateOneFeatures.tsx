@@ -1,4 +1,4 @@
-import { forwardRef, useState, useMemo, type CSSProperties, type ReactNode, useEffect } from 'react'
+import { forwardRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-features.scss'
 
 import { Icon } from '../Common'
@@ -10,7 +10,6 @@ import dualViewMode from '../../assets/images/screenmate-one/features/dual-view-
 import consolesAndAnyHdmiDevices from '../../assets/images/screenmate-one/features/consoles-and-any-hdmi-devices.png'
 import screenmateDashAppSupport from '../../assets/images/screenmate-one/features/screenmate-dash-app-support.png'
 
-// import { getAnimationConfig, getShiftConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import TrackSlider from '../Common/TrackSlider'
 
@@ -23,17 +22,14 @@ interface Feature {
 }
 
 interface FeatureBlockProps extends Feature {
-    index: number
     style?: Record<string, any>
     position: 'grid' | 'slider'
     onClick?: () => void
 }
 
-// const duration: number = 333
 const backgroundColor: string = '#1D1D1F'
 
 const FeatureBlock: React.FC<FeatureBlockProps> = ({
-    index,
     style = {},
     title,
     image,
@@ -42,50 +38,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     position,
     onClick
 }) => {
-    // const [isHovered, setIsHovered] = useState<boolean>(false)
-    // const [isSpawned, setIsSpawned] = useState<boolean>(false)
-
-    // const baseKey: string = useMemo(() => `feature_${index}`, [index])
-
-    // const animeKey: string = useMemo(() => {
-    //     if (!isSpawned) return baseKey
-    //     return isHovered ? `${baseKey}_hover` : `${baseKey}_leave`
-    // }, [baseKey, isSpawned, isHovered])
-    
-    // const config: AnimationConfig = useMemo(() => {
-    //     if (animeKey.endsWith('_hover')) {
-    //         return getShiftConfig('0px', '-10px', duration)
-    //     }
-    //     if (animeKey.endsWith('_leave')) {
-    //         return getShiftConfig('-10px', '0px', duration)
-    //     }
-    //     const baseConfig = getAnimationConfig('40px', duration)
-    //     return { ...baseConfig, delay: index * duration / 4 }
-    // }, [animeKey, index])
-
-    // const animationConfigs = useMemo(() => ({ [animeKey]: config }), [animeKey, config])
-    
-    // const { anime, finishedAnimations } = useAnime(animationConfigs)
-    
-    // useEffect(() => {
-    //     setIsSpawned(!!finishedAnimations[baseKey])
-    // }, [baseKey, finishedAnimations])
-
-    // const handleMouseEnter = () => {
-    //     if (isSpawned) setIsHovered(true)
-    // }
-
-    // const handleMouseLeave = () => {
-    //     if (isSpawned) setIsHovered(false)
-    // }
-
-    const blockActions = useMemo(() => position === 'grid' ? {
-        // ...anime(animeKey),
-        // onMouseEnter: handleMouseEnter,
-        // onMouseLeave: handleMouseLeave,
-        onClick
-    } : {}, [position, /*animeKey*/])
-
+    const blockActions = useMemo(() => position === 'grid' ? { onClick } : {}, [position])
     const iconActions = useMemo(() => position === 'slider' ? { onClick } : {}, [position])
     
     return (
@@ -133,7 +86,6 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
                     {features.map((feature: Feature, index: number) => (
                         <FeatureBlock
                             key={index}
-                            index={index}
                             {...feature}
                             position="grid"
                             onClick={() => scrollTo(feature.anchor || null)}
@@ -147,7 +99,6 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
                     items={features.map((feature: Feature, index: number) => (
                         <FeatureBlock
                             key={index}
-                            index={index}
                             {...feature}
                             position="slider"
                             onClick={() => scrollTo(feature.anchor || null)}

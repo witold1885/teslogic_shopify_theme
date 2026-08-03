@@ -159,10 +159,6 @@ export const getAnimationConfig = (yFrom: string, duration?: number) => (
     { translateY: [yFrom, '0px'], opacity: [0, 1], duration: duration || defaultDuration }
 )
 
-export const getShiftConfig = (yFrom: string, yTo: string, duration?: number) => (
-    { translateY: [yFrom, yTo], duration: duration || defaultDuration }
-)
-
 export const getCustomConfig = (yFrom: string, duration?: number, mode?: AnimationMode, direction?: AnimationDirection) => {
     let translateY, opacity
     if (mode === 'show') {

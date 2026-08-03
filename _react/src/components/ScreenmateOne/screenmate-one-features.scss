@@ -25,7 +25,7 @@
                 transform: translateY(calc(-10 * 100vw / 1440));
 
                 @include mobile() {
-                    transform: translateY(calc(-10 * 100vw / 390));
+                    transform: none;
                 }
             }
 
