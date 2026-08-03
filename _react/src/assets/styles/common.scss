@@ -72,7 +72,7 @@ video, img {
         -moz-osx-font-smoothing: auto;
     }
 
-    &[style*="--is-finished: 1"] {
+    &.anime-finished {
         transform: none !important;
         perspective: none !important;
         backface-visibility: visible !important;

@@ -40,7 +40,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const lastAnimationStartRef = useRef<number>(0)
     const lastAnimationDurationRef = useRef<number>(0)
 
-    const [finishedAnimations, setFinishedAnimations] = useState<Record<string, boolean>>({})
+    // const [finishedAnimations, setFinishedAnimations] = useState<Record<string, boolean>>({})
 
     const configsKey = Object.keys(configs).join(',')
 
@@ -103,7 +103,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
                             const startAnimation = () => {
                                 currentAnim.play().then(() => {
-                                    setFinishedAnimations(prev => ({ ...prev, [key]: true }))
+                                    targetElement?.classList?.add('anime-finished')
                                 }).catch(() => {})
 
                                 lastAnimationStartRef.current = performance.now()
@@ -145,14 +145,10 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     }, [])
 
     const anime = useCallback((key: string, mode?: AnimationMode) => ({
-        ref: setRef(key),
-        style: (
-            !!finishedAnimations[key] ? { '--is-finished': 1 } 
-                                      : { opacity: mode === 'hide' || mode === 'shift' ? 1 : 0 }
-        ) as any
-    }), [setRef, finishedAnimations])
+        ref: setRef(key)
+    }), [setRef, /* finishedAnimations */])
 
-    return { anime, setRef, finishedAnimations }
+    return { anime, setRef, /* finishedAnimations */ }
 }
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (

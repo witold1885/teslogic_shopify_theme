@@ -1,4 +1,4 @@
-import { forwardRef, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import Aurora from './Aurora'
 
 interface HeadingProps {
@@ -14,7 +14,6 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
     aurora = true,
     style = {}
 }, ref) => {
-    const isFinished = style && (style as any)['--is-finished'] === 1
     return (
         <h1
             ref={ref}
@@ -22,7 +21,7 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
             style={style}
         >
             {title}
-            {aurora && isFinished && <Aurora />}
+            {aurora && <Aurora />}
         </h1>
     )
 })

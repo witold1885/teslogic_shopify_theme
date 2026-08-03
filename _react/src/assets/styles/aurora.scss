@@ -6,6 +6,14 @@ $color4: #5836FF;
 $blur: 1rem;
 
 .aurora {
+  display: none;
+}
+
+.anime-finished .aurora {
+  display: block;
+}
+
+.aurora {
   position: absolute;
   top: 0;
   left: 0;
