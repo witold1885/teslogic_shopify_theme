@@ -190,7 +190,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                     animate(target, {
                         ease: 'outSine',
                         ...config,
-                        complete: () => {
+                        onComplete: () => {
                             target.style.setProperty('--is-finished', '1')
                         }
                     })
