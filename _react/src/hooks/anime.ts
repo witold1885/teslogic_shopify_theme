@@ -16,12 +16,6 @@ export interface AnimationConfig extends Record<string, any> {
 
 const defaultDuration: number = 333
 
-// interface ValidElement {
-//     key: string
-//     el: HTMLElement
-//     config: AnimationConfig
-// }
-
 export type AnimationMode = 'show' | 'hide' | 'shift'
 export type AnimationDirection = 'top' | 'bottom'
 
@@ -67,104 +61,9 @@ const getObserver = (rootMargin: string) => {
 
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const targetsRef = useRef<Record<string, HTMLElement | VideoRefMethods | null>>({})
-    
     const timeoutsRef = useRef<number[]>([])
     const lastAnimationStartRef = useRef<number>(0)
     const lastAnimationDurationRef = useRef<number>(0)
-
-    // const configsKey = Object.keys(configs).join(',')
-
-    // useEffect(() => {
-    //     const validElements: ValidElement[] = []
-
-    //     Object.keys(configs).forEach((key) => {
-    //         const el = getDomElement(targetsRef.current[key])
-
-    //         if (el) {
-    //             validElements.push({ key, el, config: configs[key] })
-    //         }
-    //     })
-
-    //     if (validElements.length === 0) return
-
-    //     const animations: Record<string, any> = {}
-        
-    //     validElements.forEach(({ key, el, config }) => {
-    //         animations[key] = animate(el, {
-    //             autoplay: false,
-    //             ...config
-    //         })
-    //     })
-
-    //     const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
-    //         const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
-    //         if (!acc[rootMargin]) acc[rootMargin] = []
-    //         acc[rootMargin].push(item)
-    //         return acc
-    //     }, {})
-
-    //     const observers: IntersectionObserver[] = []        
-
-    //     Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
-    //         const observer = new IntersectionObserver(
-    //             (entries) => {
-    //                 entries.forEach((entry) => {
-    //                     if (entry.isIntersecting) {
-    //                         const targetElement = entry.target as HTMLElement
-                            
-    //                         const found = validElements.find(item => item.el === targetElement)
-    //                         if (!found) return
-
-    //                         const { key, config } = found
-    //                         const currentAnim = animations[key]
-    //                         if (!currentAnim) return
-
-    //                         const now = performance.now()
-    //                         const duration = config.duration || defaultDuration
-                            
-    //                         const timePassedSinceLastStart = now - lastAnimationStartRef.current
-    //                         const halfOfLastDuration = lastAnimationDurationRef.current / 2
-
-    //                         let delay = config.delay || 0
-                            
-    //                         if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
-    //                             delay = halfOfLastDuration - timePassedSinceLastStart
-    //                         }
-
-    //                         const startAnimation = () => {
-    //                             currentAnim.play().then(() => {
-    //                                 targetElement?.classList?.add('anime-finished')
-    //                             }).catch(() => {})
-
-    //                             lastAnimationStartRef.current = performance.now()
-    //                             lastAnimationDurationRef.current = duration
-    //                         }
-
-    //                         if (delay === 0) {
-    //                             startAnimation()
-    //                         } else {
-    //                             const timer = window.setTimeout(() => {
-    //                                 startAnimation()
-    //                             }, delay)
-    //                             timeoutsRef.current.push(timer)
-    //                         }
-
-    //                         observer.unobserve(targetElement)
-    //                     }
-    //                 })
-    //             },
-    //             { root: null, rootMargin, threshold: 0.1 }
-    //         )
-
-    //         elements.forEach(({ el }) => observer.observe(el))
-    //         observers.push(observer)
-    //     })
-
-    //     return () => {
-    //         observers.forEach(observer => observer.disconnect())
-    //         timeoutsRef.current.forEach(clearTimeout)
-    //     }
-    // }, [configsKey])
 
     useEffect(() => {
         Object.entries(configs).forEach(([key, config]) => {

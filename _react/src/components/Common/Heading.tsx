@@ -13,17 +13,15 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
     title,
     aurora = true,
     style = {}
-}, ref) => {
-    return (
-        <h1
-            ref={ref}
-            className={`heading ${className} ${aurora ? 'relative overflow-hidden' : ''}`}
-            style={style}
-        >
-            {title}
-            {aurora && <Aurora />}
-        </h1>
-    )
-})
+}, ref) => (
+    <h1
+        ref={ref}
+        className={`heading ${className} ${aurora ? 'relative overflow-hidden' : ''}`}
+        style={style}
+    >
+        {title}
+        {aurora && <Aurora />}
+    </h1>
+))
 
 export default Heading
