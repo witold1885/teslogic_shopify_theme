@@ -192,22 +192,21 @@ export const mapBlocksConfigs = (
     animatedObjects: Record<string, AnimatedObjectOptions>,
     getOptions?: (blockKey: string, param: string) => AnimatedObjectOptions
 ) => {
-    return Object.fromEntries(
-        Object.entries(
-            Object.entries(blocks).reduce<Record<string, AnimationConfig>>((acc, [blockKey, block]) => ({
-                ...acc,
-                ...Object.entries(block).reduce((obj, [param, value]) => {
-                    const { yFrom, duration } = getOptions ? getOptions(blockKey, param) : (animatedObjects[param] || {})
-                    const config = yFrom ? getAnimationConfig(yFrom, duration) : null
-                    return typeof value === 'object' && value !== null && !isValidElement(value) ? {
-                        ...obj,
-                        ...Object.keys(value).reduce((carry, itemKey) => ({
-                            ...carry,
-                            [`${blockKey}-${param}-${itemKey}`]: config
-                        }), {})
-                    } : { ...obj, [`${blockKey}-${param}`]: config }
-                }, {})
-            }), {})
-        ).filter(([_, value]) => !!value)
-    )
+    const configs: Record<string, AnimationConfig> = {}
+    for (const [blockKey, block] of Object.entries(blocks)) {
+        for (const [param, value] of Object.entries(block)) {
+            const { yFrom, duration } = getOptions ? getOptions(blockKey, param) : (animatedObjects[param] || {})
+            const config = yFrom ? getAnimationConfig(yFrom, duration) : null
+            if (config) {
+                if (typeof value === 'object' && value !== null && !isValidElement(value)) {
+                    for (const itemKey of Object.keys(value)) {
+                        configs[`${blockKey}-${param}-${itemKey}`] = config
+                    }
+                } else {
+                    configs[`${blockKey}-${param}`] = config
+                }
+            }
+        }
+    }
+    return configs
 }

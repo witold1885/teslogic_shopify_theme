@@ -201,7 +201,7 @@ const ScreenmateOneComplectation: React.FC = () => {
         }
     }
 
-    const animationConfigs = useMemo(() => mapBlocksConfigs(groups, animatedObjects), [])
+    const animationConfigs = useMemo(() => mapBlocksConfigs(groups, animatedObjects), [groups])
 
     const { anime } = useAnime(animationConfigs)
 
