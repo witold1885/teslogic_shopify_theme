@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, type CSSProperties, type ReactNode } from 'react'
 import Aurora from './Aurora'
 
 interface HeadingProps {

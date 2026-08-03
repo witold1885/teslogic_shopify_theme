@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, isValidElement } from 'react'
+import { useEffect, useRef, useCallback, isValidElement } from 'react'
 import { animate } from 'animejs'
 import type { VideoRefMethods } from '../components/Common'
 
@@ -39,8 +39,6 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const timeoutsRef = useRef<number[]>([])
     const lastAnimationStartRef = useRef<number>(0)
     const lastAnimationDurationRef = useRef<number>(0)
-
-    // const [finishedAnimations, setFinishedAnimations] = useState<Record<string, boolean>>({})
 
     const configsKey = Object.keys(configs).join(',')
 
@@ -144,11 +142,11 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         }
     }, [])
 
-    const anime = useCallback((key: string, mode?: AnimationMode) => ({
+    const anime = useCallback((key: string) => ({
         ref: setRef(key)
-    }), [setRef, /* finishedAnimations */])
+    }), [setRef])
 
-    return { anime, setRef, /* finishedAnimations */ }
+    return { anime, setRef }
 }
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (

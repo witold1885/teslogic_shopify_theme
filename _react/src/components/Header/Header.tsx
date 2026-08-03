@@ -108,10 +108,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                                     className={`header-menu-item-dropdown ${!isVisible ? 'hidden' : ''}`}
                                     {...(mode === 'mobile' ? (
                                         isPrev 
-                                            ? anime(`item-close-${index}`, 'hide') 
+                                            ? anime(`item-close-${index}`) 
                                             : (
                                                 isOpen 
-                                                    ? anime(`item-open-${index}`, 'show')
+                                                    ? anime(`item-open-${index}`)
                                                     : {} 
                                             )
                                     ) : {})}
@@ -160,7 +160,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
 
     return (
         <header
-            {...anime(headerKey, mode)}
+            {...anime(headerKey)}
             className={`header ${className}`}
         >
             <a href="/" target="_blank">
