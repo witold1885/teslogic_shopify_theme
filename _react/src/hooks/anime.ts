@@ -44,97 +44,97 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
     const configsKey = Object.keys(configs).join(',')
 
-    // useEffect(() => {
-    //     const validElements: ValidElement[] = []
+    useEffect(() => {
+        const validElements: ValidElement[] = []
 
-    //     Object.keys(configs).forEach((key) => {
-    //         const el = getDomElement(targetsRef.current[key])
+        Object.keys(configs).forEach((key) => {
+            const el = getDomElement(targetsRef.current[key])
 
-    //         if (el) {
-    //             validElements.push({ key, el, config: configs[key] })
-    //         }
-    //     })
+            if (el) {
+                validElements.push({ key, el, config: configs[key] })
+            }
+        })
 
-    //     if (validElements.length === 0) return
+        if (validElements.length === 0) return
 
-    //     const animations: Record<string, any> = {}
+        const animations: Record<string, any> = {}
         
-    //     validElements.forEach(({ key, el, config }) => {
-    //         animations[key] = animate(el, {
-    //             autoplay: false,
-    //             ...config
-    //         })
-    //     })
+        validElements.forEach(({ key, el, config }) => {
+            animations[key] = animate(el, {
+                autoplay: false,
+                ...config
+            })
+        })
 
-    //     const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
-    //         const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
-    //         if (!acc[rootMargin]) acc[rootMargin] = []
-    //         acc[rootMargin].push(item)
-    //         return acc
-    //     }, {})
+        const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
+            const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
+            if (!acc[rootMargin]) acc[rootMargin] = []
+            acc[rootMargin].push(item)
+            return acc
+        }, {})
 
-    //     const observers: IntersectionObserver[] = []
+        const observers: IntersectionObserver[] = []
 
-    //     Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
-    //         const observer = new IntersectionObserver(
-    //             (entries) => {
-    //                 entries.forEach((entry) => {
-    //                     if (entry.isIntersecting) {
-    //                         const targetElement = entry.target as HTMLElement
+        Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const targetElement = entry.target as HTMLElement
                             
-    //                         const found = validElements.find(item => item.el === targetElement)
-    //                         if (!found) return
+                            const found = validElements.find(item => item.el === targetElement)
+                            if (!found) return
 
-    //                         const { key, config } = found
-    //                         const currentAnim = animations[key]
-    //                         if (!currentAnim) return
+                            const { key, config } = found
+                            const currentAnim = animations[key]
+                            if (!currentAnim) return
 
-    //                         const now = performance.now()
-    //                         const duration = config.duration || defaultDuration
+                            const now = performance.now()
+                            const duration = config.duration || defaultDuration
                             
-    //                         const timePassedSinceLastStart = now - lastAnimationStartRef.current
-    //                         const halfOfLastDuration = lastAnimationDurationRef.current / 2
+                            const timePassedSinceLastStart = now - lastAnimationStartRef.current
+                            const halfOfLastDuration = lastAnimationDurationRef.current / 2
 
-    //                         let delay = config.delay || 0
+                            let delay = config.delay || 0
                             
-    //                         if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
-    //                             delay = halfOfLastDuration - timePassedSinceLastStart
-    //                         }
+                            if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
+                                delay = halfOfLastDuration - timePassedSinceLastStart
+                            }
 
-    //                         const startAnimation = () => {
-    //                             currentAnim.play().then(() => {
-    //                                 setFinishedAnimations(prev => ({ ...prev, [key]: true }))
-    //                             }).catch(() => {})
+                            const startAnimation = () => {
+                                currentAnim.play().then(() => {
+                                    setFinishedAnimations(prev => ({ ...prev, [key]: true }))
+                                }).catch(() => {})
 
-    //                             lastAnimationStartRef.current = performance.now()
-    //                             lastAnimationDurationRef.current = duration
-    //                         }
+                                lastAnimationStartRef.current = performance.now()
+                                lastAnimationDurationRef.current = duration
+                            }
 
-    //                         if (delay === 0) {
-    //                             startAnimation()
-    //                         } else {
-    //                             const timer = window.setTimeout(() => {
-    //                                 startAnimation()
-    //                             }, delay)
-    //                             timeoutsRef.current.push(timer)
-    //                         }
+                            if (delay === 0) {
+                                startAnimation()
+                            } else {
+                                const timer = window.setTimeout(() => {
+                                    startAnimation()
+                                }, delay)
+                                timeoutsRef.current.push(timer)
+                            }
 
-    //                         observer.unobserve(targetElement)
-    //                     }
-    //                 })
-    //             },
-    //             { root: null, rootMargin, threshold: 0.1 }
-    //         )
+                            observer.unobserve(targetElement)
+                        }
+                    })
+                },
+                { root: null, rootMargin, threshold: 0.1 }
+            )
 
-    //         elements.forEach(({ el }) => observer.observe(el))
-    //         observers.push(observer)
-    //     })
+            elements.forEach(({ el }) => observer.observe(el))
+            observers.push(observer)
+        })
 
-    //     return () => {
-    //         observers.forEach(observer => observer.disconnect())
-    //         timeoutsRef.current.forEach(clearTimeout)
-    //     }
-    // }, [configsKey])
+        return () => {
+            observers.forEach(observer => observer.disconnect())
+            timeoutsRef.current.forEach(clearTimeout)
+        }
+    }, [configsKey])
 
     const setRef = useCallback((key: string) => (el: HTMLElement | VideoRefMethods | null) => {
         if (el) {
