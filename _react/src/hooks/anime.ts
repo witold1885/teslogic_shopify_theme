@@ -16,11 +16,11 @@ export interface AnimationConfig extends Record<string, any> {
 
 const defaultDuration: number = 333
 
-interface ValidElement {
-    key: string
-    el: HTMLElement
-    config: AnimationConfig
-}
+// interface ValidElement {
+//     key: string
+//     el: HTMLElement
+//     config: AnimationConfig
+// }
 
 export type AnimationMode = 'show' | 'hide' | 'shift'
 export type AnimationDirection = 'top' | 'bottom'
@@ -224,8 +224,9 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         }
     }, [])
 
-    const anime = useCallback((key: string) => ({
-        ref: setRef(key)
+    const anime = useCallback((key: string, mode?: AnimationMode) => ({
+        ref: setRef(key),
+        style: { opacity: mode === 'hide' || mode === 'shift' ? 1 : 0 }
     }), [setRef])
 
     return { anime, setRef }
