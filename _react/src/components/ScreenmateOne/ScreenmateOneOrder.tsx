@@ -45,7 +45,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const SlickSlider = (Slider as any).default || Slider
     
-    const sliderSettings: Settings = {
+    const sliderSettings: Settings = useMemo(() => ({
         dots: false,
         infinite: true,
         arrows: true,
@@ -56,7 +56,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         prevArrow: <div><Icon icon={chevronLeft} /></div>,
         nextArrow: <div><Icon icon={chevronRight} /></div>,
         beforeChange: (_, next) => setCurrentImageIndex(next)
-    }
+    }), [isMobile])
 
     const options: DropdownOption[] = (product?.models || []).flatMap(({ id, title }) =>
         title.split('|').map((model) => ({ label: model.trim(), value: id }))
