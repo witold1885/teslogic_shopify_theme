@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import React, { forwardRef, Fragment, useEffect, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-convenience.scss'
 import { Heading, Icon, Image, Popup } from '../Common'
 import Video from '../Common/Video'
@@ -30,7 +30,6 @@ import pointerBottomRightMobile from '../../assets/images/screenmate-one/pointer
 import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
 import closeIcon from '../../assets/icons/close-rounded.svg'
 
-import commandIcons from '../../assets/icons/screenmate-one/commands'
 import chevronLeft from '../../assets/icons/chevron-small-left.svg'
 import chevronRight from '../../assets/icons/chevron-small-right.svg'
 
@@ -72,6 +71,8 @@ interface Command {
     num?: number
     typeCount?: number
 }
+
+const commandIconModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-one/commands/*.svg', { eager: false })
 
 const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
     const { isMobile, responsive } = useInlineStyles()
@@ -220,9 +221,24 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         // }
     }), [isMobile])
 
+    const [commandIcons, setCommandIcons] = useState<Record<string, string>>({})
+
+    useEffect(() => {
+        const fetchCommandIcons = async () => {
+            const icons: Record<string, string> = {}
+            for (const path in commandIconModules) {
+                const module = await commandIconModules[path]()
+                icons[path.replace('/src/assets/icons/screenmate-one/commands/', '').replace('.svg', '')] = module.default
+            }
+            setCommandIcons(icons)
+        }
+
+        fetchCommandIcons()
+    }, [])
+
     const [commandsPopupOpen, setCommandsPopupOpen] = useState<boolean>(false)
 
-    const commands: Record<string, Command[]> = {
+    const commands: Record<string, Command[]> = useMemo(() => ({
         'CLIMATE': [
             { type: 'button', icon: commandIcons['climate'], title: <>Climate</> },
             { type: 'button', text: 'AUTO', title: <>Auto Climate</> },
@@ -333,7 +349,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             { type: 'button', icon: commandIcons['battery-preheat'], title: <>Battery Preheat</> },
             { type: 'button', icon: commandIcons['unlock-charge-port'], title: <>Unlock Charge Port</> }
         ]
-    }
+    }), [commandIcons])
     
     useImperativeHandle(ref, () => ({
         getBlock: (key: string) => blockRefs.current[key] || null

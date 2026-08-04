@@ -29,8 +29,7 @@ const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field')
 }).required()
 
-const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
-const paymentIcons: string[] = Object.values(paymentIconModules).map(mod => mod.default)
+const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: false })
 
 const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
     const animationConfigs = useMemo(() => group?.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
@@ -164,6 +163,21 @@ const Footer: React.FC = () => {
         }
     }
 
+    const [paymentIcons, setPaymentIcons] = useState({})
+
+    useEffect(() => {
+        const fetchPaymentIcons = async () => {
+            const icons: Record<string, string> = {}
+            for (const path in paymentIconModules) {
+                const module = await paymentIconModules[path]()
+                icons[path] = module.default
+            }
+            setPaymentIcons(icons)
+        }
+
+        fetchPaymentIcons()
+    }, [])
+
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
     
     const { anime } = useAnime(animationConfigs)
@@ -208,8 +222,8 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="flex-end-center gap-16 mob:w-full mob:flex-column-start mob:gap-24">
                         <div {...anime('payments')} className="flex-end-center gap-8 mob:w-full mob:flex-between mob:gap-0">
-                            {paymentIcons.map((icon, index) => (
-                                <Icon className="flex-center" icon={icon} key={index} />
+                            {Object.values(paymentIcons).map((icon, index) => (
+                                <Icon className="flex-center" icon={icon as unknown as string} key={index} />
                             ))}
                         </div>
                         <div {...anime('copyright')} className="text-white">© {new Date().getFullYear()} Screenmate</div>

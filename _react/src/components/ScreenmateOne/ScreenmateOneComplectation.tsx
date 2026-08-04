@@ -96,14 +96,18 @@ const ScreenmateOneComplectation: React.FC = () => {
     const { additionalProducts } = useAppSelector(state => state.products)
 
     const additionalProductTitles: string[] = ['Wireless Charger', 'Splitter']
-    const additionalProductsData: Record<string, Record<string, number | null>> = useMemo(() => {
-        return additionalProducts?.reduce((acc, { id, title, models, price, oldPrice }) => ({
-            ...acc,
-            [title]: { id: models ? models[0].id : id, price, oldPrice }
-        }), {}) || additionalProductTitles.reduce((acc, title) => ({
-            ...acc,
-            [title]: { id: null, price: 40, oldPrice: 60 }
-        }), {})
+    const additionalProductsData: Record<string, Record<string, number | null | undefined>> = useMemo(() => {
+        const data: Record<string, Record<string, number | null | undefined>> = {}
+        if (additionalProducts) {
+            for (const { id, title, models, price, oldPrice } of additionalProducts) {
+                data[title] = { id: models ? models[0].id : id, price, oldPrice }
+            }
+        } else {
+            for (const title of additionalProductTitles) {
+                data[title] = { id: null, price: 40, oldPrice: 60 }
+            }
+        }
+        return data
     }, [additionalProducts, additionalProductTitles])
 
     const groups: Record<string, Group> = useMemo(() => ({
@@ -170,12 +174,12 @@ const ScreenmateOneComplectation: React.FC = () => {
                 },
                 splitter: {
                     id: additionalProductsData['Splitter'].id,
-                    name: 'Screenmate Splitter',
+                    name: 'Connection Splitter',
                     image: screenmateSplitter,
                     price: additionalProductsData['Splitter'].price,
                     oldPrice: additionalProductsData['Splitter'].oldPrice,
                     description: <>
-                        The Screenmate Splitter lets you <br />
+                        The Connection Splitter lets you <br />
                         connect two devices simultaneously <br />
                         through one connector.
                     </>,

@@ -34,17 +34,16 @@ const ScreenmateOneInstallation: React.FC = () => {
             { text: 'Manuals', url: '/pages/one-manuals' },
         ]
     }
-    
-    const animationConfigs = useMemo(() => mapSimpleConfigs({
-        ...animatedObjects,
-        ...Object.entries(installation).reduce((acc, [key, items]) => ({
-            ...acc,
-            ...Object.keys(items).reduce((obj, index) => ({
-                ...obj,
-                [`${key}-${index}`]: animatedObjects[key]
-            }), {})
-        }), {})
-    }), [])
+
+    const animationConfigs = useMemo(() => {
+        let configs = { ...animatedObjects }
+        for (const [key, items] of Object.entries(installation)) {
+            for (const index of Object.keys(items)) {
+                configs[`${key}-${index}`] = animatedObjects[key]
+            }
+        }
+        return configs
+    }, [])
     
     const { anime } = useAnime(animationConfigs)
 
