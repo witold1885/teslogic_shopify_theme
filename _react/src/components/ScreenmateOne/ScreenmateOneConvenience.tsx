@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useEffect, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-convenience.scss'
 import { Heading, Icon, Image, Popup } from '../Common'
 import Video from '../Common/Video'
@@ -72,7 +72,12 @@ interface Command {
     typeCount?: number
 }
 
-const commandIconModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-one/commands/*.svg', { eager: false })
+const commandIconPath: string = 'assets/icons/screenmate-one/commands'
+const commandIconModules: Record<string, any> = import.meta.glob(`@/${commandIconPath}/*.svg`, { eager: true })
+const commandIcons: Record<string, any> = Object.entries(commandIconModules).reduce((acc, [key, mod]) => ({
+    ...acc,
+    [key.replace(`/src/${commandIconPath}/`, '').replace('.svg', '')]: mod.default
+}), {})
 
 const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
     const { isMobile, responsive } = useInlineStyles()
@@ -221,21 +226,6 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         // }
     }), [isMobile])
 
-    const [commandIcons, setCommandIcons] = useState<Record<string, string>>({})
-
-    useEffect(() => {
-        const fetchCommandIcons = async () => {
-            const icons: Record<string, string> = {}
-            for (const path in commandIconModules) {
-                const module = await commandIconModules[path]()
-                icons[path.replace('/src/assets/icons/screenmate-one/commands/', '').replace('.svg', '')] = module.default
-            }
-            setCommandIcons(icons)
-        }
-
-        fetchCommandIcons()
-    }, [])
-
     const [commandsPopupOpen, setCommandsPopupOpen] = useState<boolean>(false)
 
     const commands: Record<string, Command[]> = useMemo(() => ({
@@ -349,7 +339,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             { type: 'button', icon: commandIcons['battery-preheat'], title: <>Battery Preheat</> },
             { type: 'button', icon: commandIcons['unlock-charge-port'], title: <>Unlock Charge Port</> }
         ]
-    }), [commandIcons])
+    }), [])
     
     useImperativeHandle(ref, () => ({
         getBlock: (key: string) => blockRefs.current[key] || null
