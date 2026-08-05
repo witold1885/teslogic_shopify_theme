@@ -1,9 +1,15 @@
-import React, { forwardRef, useState, useMemo, useEffect } from 'react'
+import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
-import Slider, { type Settings } from 'react-slick'
+
+const Slider = lazy(() =>
+    import('react-slick').then(module => ({
+        default: (module.default as any).default
+    }))
+)
+import { type Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
@@ -42,7 +48,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
-
+    
     const SlickSlider = (Slider as any).default || Slider
     
     const sliderSettings: Settings = useMemo(() => ({
@@ -130,19 +136,21 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                     />
                 ))}
                 <div {...anime('slider')} className="screenmate-one__order-gallery-slider-wrap">
-                    <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
-                        {galleryThumbs.map((image, index) => (
-                            <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
-                                <Image                                    
-                                    className={`screenmate-one__order-gallery-slider-item ${
-                                        currentImageIndex === index ? 'active' : ''
-                                    } overflow-hidden`}
-                                    src={image}
-                                    onClick={() => setCurrentImageIndex(index)}
-                                />
-                            </div>
-                        ))}
-                    </SlickSlider>
+                    <Suspense>
+                        <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
+                            {galleryThumbs.map((image, index) => (
+                                <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
+                                    <Image                                    
+                                        className={`screenmate-one__order-gallery-slider-item ${
+                                            currentImageIndex === index ? 'active' : ''
+                                        } overflow-hidden`}
+                                        src={image}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                    />
+                                </div>
+                            ))}
+                        </SlickSlider>
+                    </Suspense>
                 </div>
             </div>
             {product && (
