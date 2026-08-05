@@ -1,1 +1,0 @@
-var e=``+new URL(`react-installation-DcOv3mIC.png`,import.meta.url).href;export{e as t};

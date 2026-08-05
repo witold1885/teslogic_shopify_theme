@@ -1,6 +1,6 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
 import './screenmate-one-specifications.scss'
-import { Heading, Icon, Image, Tabs, type TabProps } from '../Common'
+import { Heading, Icon, Image, Tabs, type ImageProps, type TabProps } from '../Common'
 
 import dimensionsSketchDesktop from '../../assets/images/screenmate-one/dimensions-sketch-desktop.png'
 import dimensionsSketchMobile from '../../assets/images/screenmate-one/dimensions-sketch-mobile.png'
@@ -27,8 +27,6 @@ import modelX21 from '../../assets/images/screenmate-one/models/model-x-21.png'
 
 import installationImage from '../../assets/images/screenmate-one/installation.png'
 import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
-
-// import ScreenmateOneInstallation from './ScreenmateOneInstallation'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -101,28 +99,28 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
     </>)
 }
 
-const ScreenmateOneInstallation: React.FC = () => {
-    const installation: Record<string, any[]> = {
-        texts: [
-            <>
-                Screenmate ONE installs in about 10 minutes with a <br />
-                simple, non-invasive setup. The unit fits neatly into the <br />
-                compartment under the center console, keeping the <br />
-                installation clean and fully integrated.
-            </>,
-            <>
-                The setup process is straightforward, but if you need <br />
-                assistance, you can contact one of our trusted installers <br />
-                or visit a local service center that works with Tesla <br />
-                accessories.
-            </>
-        ],
-        links: [
-            { text: 'Where to install', url: '/pages/where-to-install' },
-            { text: 'Manuals', url: '/pages/one-manuals' },
-        ]
-    }
+const installation: Record<string, any[]> = {
+    texts: [
+        <>
+            Screenmate ONE installs in about 10 minutes with a <br />
+            simple, non-invasive setup. The unit fits neatly into the <br />
+            compartment under the center console, keeping the <br />
+            installation clean and fully integrated.
+        </>,
+        <>
+            The setup process is straightforward, but if you need <br />
+            assistance, you can contact one of our trusted installers <br />
+            or visit a local service center that works with Tesla <br />
+            accessories.
+        </>
+    ],
+    links: [
+        { text: 'Where to install', url: '/pages/where-to-install' },
+        { text: 'Manuals', url: '/pages/one-manuals' },
+    ]
+}
 
+const ScreenmateOneInstallation: React.FC = () => {
     const animationConfigs = useMemo(() => {
         let configs = { ...installationAnimatedObjects }
         for (const [key, items] of Object.entries(installation)) {
@@ -158,58 +156,55 @@ const ScreenmateOneInstallation: React.FC = () => {
     )
 }
 
-const ScreenmateOneSpecifications: React.FC = () => {
-    const { isMobile } = useInlineStyles()
-    const { elementRef: scrollRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLDivElement>()
-    
-    const tabs: Record<string, TabProps> = useMemo(() => ({
+const getTabs = (isMobile: boolean) => {
+    return {
         'dimensions': {
             title: <>Dimensions</>,
-            content: <Image className="flex-center" src={!isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile} />
+            content: { type: 'image', className: 'flex-center', image: !isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile }
         },
         'main-system': {
             title: <>Main System</>,
-            content: <Content
-                title="Main System"
-                subtitle={<>
+            content: {
+                title: 'Main System',
+                subtitle: <>
                     Screenmate ONE runs Screenmate OS <br />
                     on a Qualcomm Android system-on-module.
-                </>}
-                items={[
+                </>,
+                items: [
                     { icon: chipset, title: 'Chipset', text: <>Qualcomm SM6225</> },
                     { icon: memory, title: 'Memory', text: <>8 GB LPDDR4X RAM</> },
                     { icon: chipset, title: 'CPU', text: <>Quad-core ARM Cortex-A73 up to 2.4 GHz, <br />Quad-core ARM Cortex-A53 up to 1.9 GHz</> },
                     { icon: storage, title: 'Storage', text: <>128 GB UFS</> },
                     { icon: gpu, title: 'GPU', text: <>Adreno 610</> },
                     { icon: android, title: 'Operating system', text: <>Screenmate OS, based on Android 14</> },
-                ]}
-                cols={2}
-            />
+                ],
+                cols: 2
+            }
         },
         'microcontrollers': {
             title: <>Microcontrollers</>,
-            content: <Content
-                title="Microcontrollers"
-                subtitle={<>
+            content: {
+                title: 'Microcontrollers',
+                subtitle: <>
                     Screenmate ONE includes dedicated microcontrollers used for Bluetooth Low Energy <br />
                     communication, vehicle integration, video interface control, and other system functions.
-                </>}
-                items={[
+                </>,
+                items: [
                     { icon: bluetooth, title: 'Bluetooth Low Energy microcontroller', text: <>Nordic nRF52840, ARM Cortex-M4, 64 MHz, 1 MB flash, 256 KB SRAM</> },
                     { icon: chipset, title: 'Additional system microcontrollers', text: <>2 x STM32G, ARM Cortex-M4, 170 MHz, 512 KB flash</> },
-                ]}
-                cols={1}
-            />
+                ],
+                cols: 1
+            }
         },
         'interfaces': {
             title: <>Interfaces</>,
-            content: <Content
-                title="Interfaces"
-                subtitle={<>
+            content: {
+                title: 'Interfaces',
+                subtitle: <>
                     Screenmate ONE includes interfaces for video input, data, power, <br />
                     vehicle communication, and external device connection.
-                </>}
-                items={[
+                </>,
+                items: [
                     { icon: displayPort, title: 'Video In', text: <>USB-C DisplayPort Alt Mode input</> },
                     { icon: displayPort, title: 'Charge In / Backup Power', text: <>USB Power Delivery charger input</> },
                     { icon: wiFi, title: 'Wi-Fi', text: <>802.11 a/b/g/n/ac</> },
@@ -219,30 +214,37 @@ const ScreenmateOneSpecifications: React.FC = () => {
                     { icon: usb, title: 'USB data', text: <>USB 3.1 data interface</> },
                     { icon: fpd, title: 'Video interface', text: <>2 x FPD video interfaces</> },
                     { icon: bluetooth, title: 'Screenmate Dash app output', text: <>Bluetooth 5.4</> },
-                ]}
-                cols={3}
-            />
+                ],
+                cols: 3
+            }
         },
         'compatibility': {
             title: <>Compatibility</>,
-            content: <Content
-                title="Compatible Models"
-                subtitle={<>
+            content: {
+                title: 'Compatible Models',
+                subtitle: <>
                     Screenmate ONE is designed for compatible Tesla vehicles. Compatibility depends on the vehicle <br />
                     model, production year, display interface, and the selected Screenmate ONE hardware version.
-                </>}
-                items={[
+                </>,
+                items: [
                     { image: model31723, title: 'Model 3', subtitle: '‘17-23' },
                     { image: model324Highland, title: 'Model 3', subtitle: '‘24+(Highland)' },
                     { image: modelY2024, title: 'Model Y', subtitle: '‘20-24' },
                     { image: modelY25Juniper, title: 'Model Y', subtitle: '‘25+(Juniper)' },
                     { image: modelS21, title: 'Model S', subtitle: '‘21+' },
                     { image: modelX21, title: 'Model X', subtitle: '‘21+' },
-                ]}
-                cols={3}
-            />
+                ],
+                cols: 3
+            }
         },
-    }), [isMobile])
+    }
+}
+
+const ScreenmateOneSpecifications: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+    const { elementRef: scrollRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLDivElement>()
+    
+    const tabs: Record<string, TabProps> = useMemo(() => getTabs(isMobile), [isMobile])
     
     const [activeTab, setActiveTab] = useState<string | null>(Object.keys(tabs)[0])
     
@@ -256,7 +258,13 @@ const ScreenmateOneSpecifications: React.FC = () => {
             <div className="flex-column gap-150 mob:gap-96">
                 <div className="screenmate-one__specifications-body">
                     <div {...anime('content')} className="screenmate-one__specifications-body-content">
-                        {activeTab && tabs[activeTab]?.content}
+                        {activeTab && tabs[activeTab]?.content && (
+                            tabs[activeTab].content.type === 'image' ? (
+                                <Image {...tabs[activeTab].content as ImageProps} />
+                            ) : (
+                                <Content {...tabs[activeTab].content as ContentProps} />
+                            )
+                        )}
                     </div>
                     <div {...anime('tabs')} className="screenmate-one__specifications-tabs-wrap">
                         <div className="screenmate-one__specifications-tabs-fix" style={{ zIndex: scrollLeft <= 0 ? 1 : -1 }}></div>

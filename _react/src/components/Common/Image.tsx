@@ -1,6 +1,6 @@
 import { forwardRef, type CSSProperties } from 'react'
 
-interface ImageProps {
+export interface ImageProps {
     className?: string
     style?: CSSProperties
     src: string

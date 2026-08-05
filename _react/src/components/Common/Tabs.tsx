@@ -4,7 +4,7 @@ import './styles.scss'
 export interface TabProps {
     title: ReactNode
     text?: ReactNode
-    content?: ReactNode
+    content?: Record<string, any>
     video?: string
     background?: string
     timeout?: number
