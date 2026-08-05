@@ -1,1 +1,0 @@
-var e=``+new URL(`react-payment-icon-4-B5er8hy8.svg`,import.meta.url).href;export{e as default};

@@ -29,7 +29,8 @@ const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field')
 }).required()
 
-const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: false })
+const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
+const paymentIcons: string[] = Object.values(paymentIconModules).map(mod => mod.default)
 
 const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
     const animationConfigs = useMemo(() => group?.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
@@ -58,6 +59,47 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
     </>)
 }
 
+const forCustomersBlockTitle: string = 'For customers'
+const contactUsItemTitle: string = 'Contact us'
+
+const getMenu = (main_menu: MenuItem[] | undefined, forCustomersBlock: MenuItem | null, contactUsItem: MenuItem | null) => {
+    return main_menu ? {
+        top: main_menu.filter(({ title }) => title !== forCustomersBlockTitle && title !== 'Buy Now'),
+        bottom: [
+            { title: 'Contacts', url: '#', children: [
+                contactUsItem,
+                { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' }
+            ]},
+            forCustomersBlock,
+            { title: 'Social', url: '#', children: [
+                { title: 'Instagram', url: 'https://www.instagram.com/screenmate.co' },
+                { title: 'Facebook', url: 'https://www.facebook.com/screenmate.co' },
+                { title: 'YouTube', url: 'https://www.youtube.com/@screenmatefortesla' },
+                { title: 'Discord', url: 'https://discord.gg/D8K8n94gkn' }
+            ]},
+            { title: 'Legal', url: '#', children: [
+                { title: 'Privacy Policy', url: '/privacy' },
+                { title: 'Terms of Use', url: '/terms' }
+            ]}
+        ].filter(Boolean)
+    } : {}
+}
+
+const getStores = (isMobile: boolean) => {
+    return [
+        {
+            url: 'https://apps.apple.com/am/app/teslogic-dash/id1623563438',
+            image: !isMobile ? appStoreDesktop : appStoreMobile,
+            alt: 'AppStore'
+        },
+        {
+            url: 'https://play.google.com/store/apps/details?id=co.teslogic.teslogic_dash',
+            image: !isMobile ? googlePlayDesktop : googlePlayMobile,
+            alt: 'GooglePlay'
+        }
+    ]
+}
+
 const Footer: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
@@ -74,9 +116,6 @@ const Footer: React.FC = () => {
     const { error: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
 
-    const forCustomersBlockTitle: string = 'For customers'
-    const contactUsItemTitle: string = 'Contact us'
-
     const forCustomersBlock: MenuItem | null = useMemo(() => {
         if (main_menu) {
             const { title, url, children } = main_menu.find(({ title }) => title === forCustomersBlockTitle) || {}
@@ -89,43 +128,9 @@ const Footer: React.FC = () => {
         return main_menu?.find(({ title }) => title === forCustomersBlockTitle)?.children?.find(({ title }) => title === contactUsItemTitle) || null
     }, [main_menu])
 
-    const menu = useMemo(() => {
-        if (main_menu) {
-            return {
-                top: main_menu.filter(({ title }) => title !== forCustomersBlockTitle && title !== 'Buy Now'),
-                bottom: [
-                    { title: 'Contacts', url: '#', children: [
-                        contactUsItem,
-                        { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' }
-                    ]},
-                    forCustomersBlock,
-                    { title: 'Social', url: '#', children: [
-                        { title: 'Instagram', url: 'https://www.instagram.com/screenmate.co' },
-                        { title: 'Facebook', url: 'https://www.facebook.com/screenmate.co' },
-                        { title: 'YouTube', url: 'https://www.youtube.com/@screenmatefortesla' },
-                        { title: 'Discord', url: 'https://discord.gg/D8K8n94gkn' }
-                    ]},
-                    { title: 'Legal', url: '#', children: [
-                        { title: 'Privacy Policy', url: '/privacy' },
-                        { title: 'Terms of Use', url: '/terms' }
-                    ]}
-                ].filter(Boolean)
-            }
-        }
-    }, [main_menu, forCustomersBlock, contactUsItem])        
+    const menu = useMemo(() => getMenu(main_menu, forCustomersBlock, contactUsItem), [main_menu, forCustomersBlock, contactUsItem])        
 
-    const stores = useMemo(() => [
-        {
-            url: 'https://apps.apple.com/am/app/teslogic-dash/id1623563438',
-            image: !isMobile ? appStoreDesktop : appStoreMobile,
-            alt: 'AppStore'
-        },
-        {
-            url: 'https://play.google.com/store/apps/details?id=co.teslogic.teslogic_dash',
-            image: !isMobile ? googlePlayDesktop : googlePlayMobile,
-            alt: 'GooglePlay'
-        }
-    ], [isMobile])
+    const stores = useMemo(() => getStores(isMobile), [isMobile])
     
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -162,21 +167,6 @@ const Footer: React.FC = () => {
             dispatch(customSubscribe(data))
         }
     }
-
-    const [paymentIcons, setPaymentIcons] = useState({})
-
-    useEffect(() => {
-        const fetchPaymentIcons = async () => {
-            const icons: Record<string, string> = {}
-            for (const path in paymentIconModules) {
-                const module = await paymentIconModules[path]()
-                icons[path] = module.default
-            }
-            setPaymentIcons(icons)
-        }
-
-        fetchPaymentIcons()
-    }, [])
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
     
