@@ -160,7 +160,7 @@ const getTabs = (isMobile: boolean) => {
     return {
         'dimensions': {
             title: <>Dimensions</>,
-            content: { type: 'image', className: 'flex-center', image: !isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile }
+            content: { type: 'image', className: 'flex-center', src: !isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile }
         },
         'main-system': {
             title: <>Main System</>,

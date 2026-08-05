@@ -72,11 +72,10 @@ interface Command {
     typeCount?: number
 }
 
-const commandIconPath: string = 'assets/icons/screenmate-one/commands'
-const commandIconModules: Record<string, any> = import.meta.glob(`@/${commandIconPath}/*.svg`, { eager: true })
+const commandIconModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-one/commands/*.svg', { eager: true })
 const commandIcons: Record<string, any> = Object.entries(commandIconModules).reduce((acc, [key, mod]) => ({
     ...acc,
-    [key.replace(`/src/${commandIconPath}/`, '').replace('.svg', '')]: mod.default
+    [key.replace('/src/assets/icons/screenmate-one/commands/', '').replace('.svg', '')]: mod.default
 }), {})
 
 const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
