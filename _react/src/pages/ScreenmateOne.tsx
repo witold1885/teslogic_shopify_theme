@@ -10,7 +10,7 @@ import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 import {
     bannerDesktop as bannerDesktopBackground,
     bannerMobile as bannerMobileBackground
-} from '../assets/videos/screenmate-one/screenshots'
+} from '../assets/videos/screenmate-one/web/screenshots'
 import {
     bannerDesktop,
     bannerMobile,
@@ -58,19 +58,19 @@ const preloadVideos: PreloadVideo[] = [
     { video: streamingDesktop, fetchPriority: 'high', media: mediaDesktop },
     { video: streamingMobile, fetchPriority: 'high', media: mediaMobile },
     { video: navigationDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: navigationMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: navigationMobile, fetchPriority: 'low', media: mediaMobile },
     { video: gamingDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: gamingMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: gamingMobile, fetchPriority: 'low', media: mediaMobile },
     { video: socialDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: socialMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: socialMobile, fetchPriority: 'low', media: mediaMobile },
     { video: dualViewModeDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: dualViewModeMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: dualViewModeMobile, fetchPriority: 'low', media: mediaMobile },
     { video: beyondBasicControlsDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: beyondBasicControlsMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: beyondBasicControlsMobile, fetchPriority: 'low', media: mediaMobile },
     { video: carPlayAndAndroidAutoDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: carPlayAndAndroidAutoMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: carPlayAndAndroidAutoMobile, fetchPriority: 'low', media: mediaMobile },
     { video: connectConsolesDesktop, fetchPriority: 'low', media: mediaDesktop },
-    // { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
+    { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
 const ScreenmateOneFeatures = lazy(() => import('../components/ScreenmateOne/ScreenmateOneFeatures'))

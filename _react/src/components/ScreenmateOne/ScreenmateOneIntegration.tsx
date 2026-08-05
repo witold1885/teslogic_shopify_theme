@@ -16,7 +16,7 @@ import {
     carPlayAndAndroidAutoMobile as carPlayAndAndroidAutoBackgroundMobile,
     connectConsolesDesktop as connectConsolesBackgroundDesktop,
     connectConsolesMobile as connectConsolesBackgroundMobile
-} from '../../assets/videos/screenmate-one/screenshots'
+} from '../../assets/videos/screenmate-one/web/screenshots'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'

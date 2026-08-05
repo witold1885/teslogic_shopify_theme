@@ -22,7 +22,7 @@ import {
     gamingMobile as gamingBackgroundMobile,
     socialDesktop as socialBackgroundDesktop,
     socialMobile as socialBackgroundMobile
-} from '../../assets/videos/screenmate-one/screenshots'
+} from '../../assets/videos/screenmate-one/web/screenshots'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'

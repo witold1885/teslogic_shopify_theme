@@ -14,7 +14,7 @@ import {
     dualViewModeMobile as dualViewModeBackgroundMobile,
     beyondBasicControlsDesktop as beyondBasicControlsBackgroundDesktop,
     beyondBasicControlsMobile as beyondBasicControlsBackgroundMobile
-} from '../../assets/videos/screenmate-one/screenshots'
+} from '../../assets/videos/screenmate-one/web/screenshots'
 // import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
 import pointerTopLeftDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-left-desktop.svg'
