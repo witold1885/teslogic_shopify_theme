@@ -246,7 +246,8 @@ const ScreenmateOneSpecifications: React.FC = () => {
     
     const tabs: Record<string, TabProps> = useMemo(() => getTabs(isMobile), [isMobile])
     
-    const [activeTab, setActiveTab] = useState<string | null>(Object.keys(tabs)[0])
+    const firstTab = Object.keys(tabs)[0] || null
+    const [activeTab, setActiveTab] = useState<string | null>(firstTab)
     
     const animationConfigs = useMemo(() => mapSimpleConfigs(specificationsAnimatedObjects), [])
         
