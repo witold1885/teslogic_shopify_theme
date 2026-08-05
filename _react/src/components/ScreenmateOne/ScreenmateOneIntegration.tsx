@@ -45,12 +45,8 @@ interface Block {
     info?: Record<string, ReactNode>[]
 }
 
-const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
-    const { isMobile } = useInlineStyles()
-
-    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})
-
-    const blocks: Record<string, Block> = useMemo(() => ({
+const getBlocks = (isMobile: boolean) => {
+    return {
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
             title: <>CarPlay & Android&nbsp;Auto</>,
@@ -79,7 +75,15 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                 {title: 'USB-C Video In', text: <>Connect compatible gaming consoles and external<br />video devices through the USB-C Video Input.</>},
             ]
         }
-    }), [isMobile])
+    }
+}
+
+const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
+    const { isMobile } = useInlineStyles()
+
+    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})
+
+    const blocks: Record<string, Block> = useMemo(() => getBlocks(isMobile), [isMobile])
 
     useImperativeHandle(ref, () => ({
         getBlock: (key: string) => blockRefs.current[key] || null

@@ -35,10 +35,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     text: { yFrom: '20px', duration: 333 },
 }
 
-const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
-    const { isMobile } = useInlineStyles()
-
-    const tabs: Record<string, TabProps> = useMemo(() => ({
+const getTabs = (isMobile: boolean) => {
+    return {
         streaming: {
             title: 'Streaming',
             text: <>Enjoy premium streaming of your favorite movies, TV shows,<br />music, and more with smooth, high-quality playback.</>,
@@ -67,7 +65,13 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             background: !isMobile ? socialBackgroundDesktop : socialBackgroundMobile,
             timeout: 13000
         },
-    }), [isMobile])
+    }
+}
+
+const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+    const { isMobile } = useInlineStyles()
+
+    const tabs: Record<string, TabProps> = useMemo(() => getTabs(isMobile), [isMobile])
 
     useEffect(() => {
         const backgroundUrls = Object.values(tabs)

@@ -59,6 +59,23 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     )
 }
 
+const getFeatures = (
+    isMobile: boolean,
+    responsive: (styles?: CSSProperties) => Record<string, string>,
+    absoluteImageStyle: CSSProperties
+) => {
+    return [
+        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive(
+            !isMobile ? { height: '248px' } : { width: '310px', height: '218px', position: 'absolute', left: '5px', right: '5px', bottom: 0 } as CSSProperties
+        ), anchor: 'Setup' },
+        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
+        { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
+        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
+        { title: <>Console Gaming<br />on Your Tesla</>, backgroundImage: consolesAndAnyHdmiDevices, anchor: 'Integration.bigger-entertainment' },
+        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, anchor: 'Dash' },
+    ]
+}
+
 const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: string | null) => void }>(({ scrollTo }, ref) => {
     const { isMobile, responsive } = useInlineStyles()
     const absoluteImageStyle = responsive({
@@ -68,16 +85,10 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
         bottom: 0
     } as CSSProperties)
 
-    const features: Feature[] = useMemo(() => [
-        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive(
-            !isMobile ? { height: '248px' } : { width: '310px', height: '218px', position: 'absolute', left: '5px', right: '5px', bottom: 0 } as CSSProperties
-        ), anchor: 'Setup' },
-        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
-        { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
-        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
-        { title: <>Console Gaming<br />on Your Tesla</>, backgroundImage: consolesAndAnyHdmiDevices, anchor: 'Integration.bigger-entertainment' },
-        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, anchor: 'Dash' },
-    ], [isMobile, responsive])
+    const features: Feature[] = useMemo(
+        () => getFeatures(isMobile, responsive, absoluteImageStyle),
+        [isMobile, responsive, absoluteImageStyle]
+    )
 
     return (
         <div ref={ref} className="screenmate-one__features">

@@ -130,12 +130,8 @@ interface Pointer {
     imageStyle?: CSSProperties
 }
 
-const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
-    const { isMobile, responsive } = useInlineStyles()
-
-    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})    
-
-    const blocks: Record<string, Block> = useMemo(() => ({
+const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: boolean) => void) => {
+    return {
         'dual-view-mode': {
             wrapClassName: 'flex-column',
             topClassName: 'w-full flex-between',
@@ -223,9 +219,17 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         //     </>,
         //     image: frontCameraIntegration
         // }
-    }), [isMobile])
+    }
+}
 
-    const [commandsPopupOpen, setCommandsPopupOpen] = useState<boolean>(false)
+const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
+    const { isMobile, responsive } = useInlineStyles()
+
+    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({}) 
+
+    const [commandsPopupOpen, setCommandsPopupOpen] = useState<boolean>(false)   
+
+    const blocks: Record<string, Block> = useMemo(() => getBlocks(isMobile, setCommandsPopupOpen), [isMobile])
 
     const commands: Record<string, Command[]> = useMemo(() => ({
         'CLIMATE': [
