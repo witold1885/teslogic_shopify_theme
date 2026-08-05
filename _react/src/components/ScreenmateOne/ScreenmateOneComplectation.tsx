@@ -89,28 +89,14 @@ interface Group {
     itemComponent: React.FC<ItemProps>
 }
 
-const ScreenmateOneComplectation: React.FC = () => {
-    const dispatch = useAppDispatch()
-    const { isMobile, responsive } = useInlineStyles()
+type AdditionalProduct = Record<string, number | null | undefined>
 
-    const { additionalProducts } = useAppSelector(state => state.products)
-
-    const additionalProductTitles: string[] = ['Wireless Charger', 'Splitter']
-    const additionalProductsData: Record<string, Record<string, number | null | undefined>> = useMemo(() => {
-        const data: Record<string, Record<string, number | null | undefined>> = {}
-        if (additionalProducts) {
-            for (const { id, title, models, price, oldPrice } of additionalProducts) {
-                data[title] = { id: models ? models[0].id : id, price, oldPrice }
-            }
-        } else {
-            for (const title of additionalProductTitles) {
-                data[title] = { id: null, price: 40, oldPrice: 60 }
-            }
-        }
-        return data
-    }, [additionalProducts, additionalProductTitles])
-
-    const groups: Record<string, Group> = useMemo(() => ({
+const getGroups = (
+    additionalProductsData: Record<string, AdditionalProduct>,
+    isMobile: boolean,
+    responsive: (styles?: CSSProperties) => Record<string, string>
+) => {
+    return {
         box: {
             title: 'What\'s in the box',
             grid: true,
@@ -197,7 +183,34 @@ const ScreenmateOneComplectation: React.FC = () => {
             },
             itemComponent: AddItem
         }
-    }), [additionalProductsData, isMobile, responsive])
+    }
+}
+
+const ScreenmateOneComplectation: React.FC = () => {
+    const dispatch = useAppDispatch()
+    const { isMobile, responsive } = useInlineStyles()
+
+    const { additionalProducts } = useAppSelector(state => state.products)
+
+    const additionalProductTitles: string[] = ['Wireless Charger', 'Splitter']
+    const additionalProductsData: Record<string, AdditionalProduct> = useMemo(() => {
+        const data: Record<string, AdditionalProduct> = {}
+        if (additionalProducts) {
+            for (const { id, title, models, price, oldPrice } of additionalProducts) {
+                data[title] = { id: models ? models[0].id : id, price, oldPrice }
+            }
+        } else {
+            for (const title of additionalProductTitles) {
+                data[title] = { id: null, price: 40, oldPrice: 60 }
+            }
+        }
+        return data
+    }, [additionalProducts, additionalProductTitles])
+
+    const groups: Record<string, Group> = useMemo(
+        () => getGroups(additionalProductsData, isMobile, responsive),
+        [additionalProductsData, isMobile, responsive]
+    )
 
     const handleAddToCart = (id: number | null) => {
         if (id) {
@@ -221,7 +234,7 @@ const ScreenmateOneComplectation: React.FC = () => {
                     >
                         {Object.entries(items).map(([slug, item]) => (
                             <Item
-                                {...anime(`${key}-items-${slug}`)}
+                                // {...anime(`${key}-items-${slug}`)}
                                 key={slug}
                                 className={`screenmate-one__complectation-group-grid-item ${slug}`}
                                 style={{ gridArea: slug }}
