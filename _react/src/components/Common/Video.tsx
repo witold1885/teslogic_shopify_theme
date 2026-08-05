@@ -162,11 +162,11 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 webkit-playsinline="true"
                 // preload="metadata"
                 preload={isIntersecting ? 'metadata' : 'none'}
-                onLoadedMetadata={() => {
-                    if (isIntersecting && autoPlay) {
-                        safePlay()
-                    }
-                }}
+                // onLoadedMetadata={() => {
+                //     if (isIntersecting && autoPlay) {
+                //         safePlay()
+                //     }
+                // }}
                 onPlaying={() => setIsLoaded(true)}
                 // preload={isIntersecting && isActive ? 'auto' : 'none'}
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
