@@ -20,7 +20,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 const pagesMap: Record<string, string[]> = {
-    'Screenmate ONE': ['/screenmate', '/pages/screenmate', '/pages/screenmate-one-react'],
+    'Screenmate ONE': ['/', '/screenmate', '/pages/screenmate', '/pages/screenmate-one-react'],
 }
 
 interface HeaderProps {
