@@ -27,7 +27,7 @@ export interface ReviewsResponse {
 }
 
 export type ReviewsPayload = {
-    productId: number
+    product_id: number
     source?: string
 }
 

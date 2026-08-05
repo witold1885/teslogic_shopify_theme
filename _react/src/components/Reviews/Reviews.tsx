@@ -17,7 +17,7 @@ const Reviews: React.FC = () => {
 
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                dispatch(fetchReviews({ productId: product.id, source: window.location.host }))
+                dispatch(fetchReviews({ product_id: product.id, source: window.location.host }))
                 observer.disconnect()
             }
         }, { rootMargin: '810px' })

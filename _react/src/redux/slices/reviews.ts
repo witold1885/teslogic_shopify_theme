@@ -16,9 +16,9 @@ const initialState: ReviewsState = {
 
 export const fetchReviews = createAsyncThunk(
     'reviews/fetchReviews',
-    async ({ productId, source }: ReviewsPayload, { rejectWithValue }) => {
+    async ({ product_id, source }: ReviewsPayload, { rejectWithValue }) => {
         const { default: api } = await import('../api')
-        const result = await api.get<ReviewsResponse>('get-reviews', { productId, source })
+        const result = await api.get<ReviewsResponse>('get-reviews', { product_id, source })
         
         if (!result.success) {
             return rejectWithValue(result.message)
