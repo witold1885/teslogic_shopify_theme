@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import * as yup from 'yup'
 import './footer.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'

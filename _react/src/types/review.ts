@@ -26,6 +26,11 @@ export interface ReviewsResponse {
     avgRating: number
 }
 
+export type ReviewsPayload = {
+    productId: number
+    source?: string
+}
+
 export type ReviewPayload = {
     shop_url?: string
     id?: number

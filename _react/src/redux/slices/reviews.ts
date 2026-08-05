@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { ReviewsResponse, ReviewPayload } from '../../types/review'
+import type { ReviewsResponse, ReviewsPayload, ReviewPayload } from '../../types/review'
 
 interface ReviewsState extends ReviewsResponse {
     loading: boolean
@@ -16,9 +16,9 @@ const initialState: ReviewsState = {
 
 export const fetchReviews = createAsyncThunk(
     'reviews/fetchReviews',
-    async (productId: number, { rejectWithValue }) => {
+    async ({ productId, source }: ReviewsPayload, { rejectWithValue }) => {
         const { default: api } = await import('../api')
-        const result = await api.get<ReviewsResponse>('get-reviews', { product_id: productId })
+        const result = await api.get<ReviewsResponse>('get-reviews', { productId, source })
         
         if (!result.success) {
             return rejectWithValue(result.message)
