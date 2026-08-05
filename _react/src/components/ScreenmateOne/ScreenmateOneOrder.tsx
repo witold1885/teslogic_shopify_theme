@@ -1,19 +1,17 @@
-import React, { lazy, forwardRef, useState, useMemo, useEffect } from 'react'
+import React, { forwardRef, useState, useMemo, useEffect } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
+import Slider, { type Settings } from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import { Button, Dropdown, Icon, Image } from '../Common'
 import chevronLeft from '@/assets/icons/chevron-white-left.svg'
 import chevronRight from '@/assets/icons/chevron-white-right.svg'
 import shipping from '@/assets/icons/shipping.svg'
 import warranty from '@/assets/icons/warranty.svg'
-
-const Slider = lazy(() => import('react-slick'))
-import { type Settings } from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
