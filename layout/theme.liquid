@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" style="background-color: #000000; color-scheme: dark;">
   <head>
-    {% unless page.handle == 'screenmate-one-react' %}
+    {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
     <!-- Reddit Pixel -->
     <script>
     !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','t2_lup6ap2m', {"optOut":false,"useDecimalCurrencyValues":true,"aaid":"<AAID-HERE>","email":"<EMAIL-HERE>","externalId":"<EXTERNAL-ID-HERE>","idfa":"<IDFA-HERE>"});rdt('track', 'PageVisit');
@@ -23,7 +23,7 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
 
-    {% unless page.handle == 'screenmate-one-react' %}
+    {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -55,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {{ content_for_header }}
 
-    {% unless page.handle == 'screenmate-one-react' %}
+    {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -283,7 +283,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <body class="gradient">
     <div {% if template == 'index' or page.handle == 'dash' %}style="overflow: hidden;"{% endif %}>
-      {% unless page.handle == 'screenmate-one-react' %}
+      {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
         <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
         <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
       {% endunless %}
@@ -470,13 +470,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% section 'header_main' %}
       {% elsif page.handle == 'pro' %}
         {% section 'header_pro' %}
-      {% elsif page.handle == 'screenmate' %}
-        {% section 'header_screenmate' %}
+      {% comment %} {% elsif page.handle == 'screenmate' %}
+        {% section 'header_screenmate' %} {% endcomment %}
       {% elsif page.handle == 'screenmate-subscription' or page.handle == 'screenmate-done' %}
         {% section 'header_screenmate_subscription' %}
       {% elsif page.handle == 'app-redirect' %}
         <div></div>
-      {% elsif page.handle != 'screenmate-one-react' %}
+      {% elsif page.handle != 'screenmate' and page.handle != 'screenmate-one-react' %}
         {% section 'header_custom' %}
       {% endif %}
 
@@ -492,12 +492,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </main>
 
     <!-- </div> -->
-    {% if page.handle != 'screenmate-subscription' and page.handle != 'screenmate-done' and page.handle != 'screenmate-one-react' %}
+    {% if page.handle != 'screenmate' and page.handle != 'screenmate-subscription' and page.handle != 'screenmate-done' and page.handle != 'screenmate-one-react' %}
       {% section 'footer' %}
     {% endif %}
     </div>
 
-    {% unless page.handle == 'screenmate-one-react' %}
+    {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
     <script>
       if ('paintWorklet' in CSS) {
         CSS.paintWorklet.add('{{ "smooth-corners.js" | asset_url }}')
@@ -534,7 +534,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     </script>
 
-    {% unless page.handle == 'screenmate-one-react' %}
+    {% unless page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
     <script type="text/javascript" src="https://static.leaddyno.com/js"></script>
     <script>
       // If you use multiple sub-domains, set the root domain here
