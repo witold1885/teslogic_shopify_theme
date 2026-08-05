@@ -38,7 +38,7 @@
         }
 
         &-video {
-            @extend %w-full, %overflow-hidden;
+            @extend %w-full, %relative, %overflow-hidden;
             @include responsive(height, 580px);
             @include responsive(border-radius, 24px);
 

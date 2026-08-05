@@ -78,6 +78,10 @@
             @extend %flex-center, %mob\:w-full, %mob\:flex-between-center, %mob\:flex-wrap, %gap-4, %relative, %cursor-pointer;
             @include responsive(padding, 8px, 0, 20px);
 
+            .sticky & {
+                @include responsive(padding, 8px, 0);
+            }
+
             &:first-child {
                 @include responsive(margin-right, 8px);
             }

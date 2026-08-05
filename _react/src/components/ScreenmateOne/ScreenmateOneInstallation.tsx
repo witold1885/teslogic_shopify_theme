@@ -42,7 +42,7 @@ const ScreenmateOneInstallation: React.FC = () => {
                 configs[`${key}-${index}`] = animatedObjects[key]
             }
         }
-        return configs
+        return mapSimpleConfigs(configs)
     }, [])
     
     const { anime } = useAnime(animationConfigs)

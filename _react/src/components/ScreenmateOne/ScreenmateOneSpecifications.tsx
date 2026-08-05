@@ -95,7 +95,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
     const { isMobile } = useInlineStyles()
     const { elementRef: scrollRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLDivElement>()
     
-    const tabs: Record<string, TabProps> = {
+    const tabs: Record<string, TabProps> = useMemo(() => ({
         'dimensions': {
             title: <>Dimensions</>,
             content: <Image className="flex-center" src={!isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile} />
@@ -159,7 +159,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
         'compatibility': {
             title: <>Compatibility</>,
             content: <Content
-                title="Compatibility Models"
+                title="Compatible Models"
                 subtitle={<>
                     Screenmate ONE is designed for compatible Tesla vehicles. Compatibility depends on the vehicle <br />
                     model, production year, display interface, and the selected Screenmate ONE hardware version.
@@ -175,7 +175,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
                 cols={3}
             />
         },
-    }
+    }), [isMobile])
     
     const [activeTab, setActiveTab] = useState<string | null>(Object.keys(tabs)[0])
     

@@ -187,12 +187,12 @@ const Footer: React.FC = () => {
             <div className="container flex-column gap-64 mob:gap-40">
                 <div {...anime('form')} className="footer-form">
                     <div className="flex-column gap-12 mob:gap-8">
-                        <div className="font-manrope-24 mob:font-manrope-18 font-500">Sign Up for Our Newsletter Subscription</div>
+                        <div className="font-manrope-24 mob:font-manrope-18 font-500">Sign Up for Our Newsletter</div>
                         <div className="font-manrope-16">Stay informed about sales, updates and new products launches.</div>
                     </div>
                     <div className="flex-end-center mob:flex-column gap-24">
                         <div className="footer-form-field">
-                            <input name="email" type="email" placeholder="Enter your e-mail adress" value={data.email} onChange={handleInputChange} />
+                            <input name="email" type="email" placeholder="Enter your email adress" value={data.email} onChange={handleInputChange} />
                             {errors.email && <span className="footer-form-field-error">{errors.email}</span>}
                         </div>
                         <Button onClick={handleSubscribe}><span>Subscribe</span></Button>
