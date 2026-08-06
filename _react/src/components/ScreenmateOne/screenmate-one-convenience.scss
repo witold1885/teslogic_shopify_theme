@@ -35,7 +35,12 @@
             }
         }
 
-        &-block {            
+        &-block {    
+            @extend %w-full;
+
+            & .container {
+                @extend %mob\:gap-32, %relative;
+            }
 
             &.key-driving-info {
                 @include responsive(height, 746px);
@@ -55,6 +60,7 @@
             }
 
             &-top {
+                @extend %mob\:flex-column, %mob\:gap-12;
 
                 & .block-title {
 
@@ -81,6 +87,7 @@
             }
 
             &-additional {
+                @extend %flex-column;
 
                 & > * {
                     color: #F1F1F1;
@@ -133,6 +140,7 @@
             }
 
             &-pointer {
+                @extend %absolute;
 
                 &.top-left {
                     @include block(353.5px, 58.5px);

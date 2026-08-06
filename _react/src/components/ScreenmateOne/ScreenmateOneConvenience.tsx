@@ -372,15 +372,15 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                             if (el) blockRefs.current[blockKey] = el
                             else delete blockRefs.current[blockKey]
                         }} 
-                        className={`screenmate-one__convenience-block ${blockKey} w-full`}
+                        className={`screenmate-one__convenience-block ${blockKey}`}
                     >
-                        <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''} mob:gap-32 relative`}>
-                            <div className={`screenmate-one__convenience-block-top ${topClassName} mob:flex-column ${topGap ? `gap-${topGap}` : ''} mob:gap-12`}>
+                        <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''}`}>
+                            <div className={`screenmate-one__convenience-block-top ${topClassName} ${topGap ? `gap-${topGap}` : ''}`}>
                                 <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
                                 <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                             </div>
                             {additional && (
-                                <div {...anime(`${blockKey}-additional`)} className="screenmate-one__convenience-block-additional flex-column">
+                                <div {...anime(`${blockKey}-additional`)} className="screenmate-one__convenience-block-additional">
                                     {additional}
                                 </div>
                             )}
@@ -398,7 +398,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                         className="w-full absolute"
                                     >
                                         <Icon
-                                            className={`screenmate-one__convenience-block-pointer ${pointerKey} absolute`}
+                                            className={`screenmate-one__convenience-block-pointer ${pointerKey}`}
                                             style={responsive(pointer.imageStyle)}
                                             icon={pointer.image}
                                         />

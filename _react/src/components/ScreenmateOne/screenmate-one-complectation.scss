@@ -98,6 +98,18 @@
                         @include square(24px);
                     }
 
+                    &-info {
+                        @extend %flex-column, %gap-24, %mob\:gap-20;
+
+                        & > div {
+                            @extend %flex-column, %gap-20, %mob\:gap-16;
+                        }
+
+                        & > a {
+                            @extend %flex, %gap-8;
+                        }
+                    }
+
                     &-compatible {
                         @extend %flex, %gap-12, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
                     }

@@ -56,8 +56,8 @@ const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, sl
 const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, price, oldPrice, description, compatible, onAdd }, ref) => (
     <div ref={ref} {...{className, style}}>
         <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
-        <div className="flex-column gap-24 mob:gap-20">
-            <div className="flex-column gap-20 mob:gap-16">
+        <div className="screenmate-one__complectation-group-grid-item-info">
+            <div>
                 <div className="flex-column gap-8 mob:gap-4">
                     <div className="font-manrope-24 mob:font-manrope-18 font-500">{name}</div>
                     <div className="flex gap-8 font-manrope-20 mob:font-manrope-18 font-600">
@@ -73,7 +73,7 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
                     {compatible}
                 </div>
             </div>
-            <a className="flex gap-8" onClick={onAdd}>
+            <a onClick={onAdd}>
                 <span className="font-manrope-20 mob:font-manrope-18 font-600">Add to cart</span>
                 <Icon className="flex-center" svg={<CartBlueIcon />} />
             </a>
