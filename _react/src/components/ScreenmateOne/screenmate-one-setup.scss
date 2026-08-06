@@ -13,6 +13,21 @@
             @include responsive(padding-bottom, 96px);
         }
 
+        & .container {
+            @extend %flex-column-center, %gap-64, %mob\:gap-28;
+
+            & > div {
+
+                &:first-child {
+                    @extend %flex-column-center, %gap-24, %mob\:flex-column-start, %mob\:gap-12;
+                }
+
+                &:last-child {
+                    @extend %w-full, %flex-column-center, %gap-32, %mob\:gap-8;
+                }
+            }
+        }
+
         & .heading {
             background: radial-gradient(98.08% 98.08% at 50% 50%, #FFF 0%, #808080 100%);
             background-clip: text;
@@ -46,6 +61,14 @@
                 @include responsive(height, 290px);
                 @include responsive(border-radius, 10px);
             }
+
+            & > div {
+                @extend %w-full, %h-full, %absolute, %inset;
+            }
+        }
+
+        &-tabs {
+            @extend %mob\:w-full, %flex-column-center, %gap-32, %mob\:flex-column-start, %mob\:gap-24;
         }
 
         & .tabs {

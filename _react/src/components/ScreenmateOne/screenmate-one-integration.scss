@@ -28,6 +28,25 @@
                 display: none;
             }
 
+            &-body {
+                @extend %w-full, %flex-wrap, %flex-between, %gap-60, %mob\:gap-32;
+
+                & > div {
+
+                    &:first-child {
+                        @extend %w-full, %flex-between, %mob\:flex-column, %mob\:gap-12;
+                    }
+
+                    &:last-child {
+                        @extend %w-full;
+
+                        .bigger-entertainment & {
+                            @extend %flex, %mob\:flex-column-reverse, %mob\:gap-32;
+                        }
+                    }
+                }
+            }
+
             &.bigger-entertainment {
 
                 & .block-text {
@@ -54,6 +73,10 @@
                     @include mobile() {
                         @include responsive(height, 125px);
                         margin-left: 0;
+                    }
+
+                    & img {
+                        @extend %h-full;
                     }
                 }
 

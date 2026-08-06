@@ -1,4 +1,5 @@
 import React, { forwardRef, useState } from 'react'
+import Icon from './Icon'
 import chevronUp from '@/assets/icons/chevron-white-up.svg'
 import chevronDown from '@/assets/icons/chevron-white-down.svg'
 import selectedIcon from '@/assets/icons/selected.svg'
@@ -16,13 +17,9 @@ interface DropdownItemProps {
 }
 
 const DropdownItem: React.FC<DropdownItemProps> = ({ className, label, icon, onClick }) => (
-    <div className={`${className} flex-between-center gap-12 cursor-pointer`} onClick={onClick}>
+    <div className={`${className} dropdown-item`} onClick={onClick}>
         <span>{label}</span>
-        {icon && (
-            <div className="icon flex-center">
-                <img src={icon} alt="" />
-            </div>
-        )}
+        {icon && <Icon icon={icon} />}
     </div>
 )
 
@@ -53,7 +50,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, optio
             />
             {menuOpen && (
                 <div className="dropdown-menu">
-                    <DropdownItem className="w-full text-grey" label={placeholder} icon={chevronUp} onClick={() => setMenuOpen(false)}/>
+                    <DropdownItem className="dropdown-menu-placeholder" label={placeholder} icon={chevronUp} onClick={() => setMenuOpen(false)}/>
                     {options.map((option, index) => (
                         <DropdownItem
                             key={index}

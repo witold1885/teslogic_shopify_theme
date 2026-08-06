@@ -49,7 +49,7 @@ interface AddItemProps {
 const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, slug, name, image, imageStyle }, ref) => (
     <div ref={ref} {...{className, style}}>
         <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={name} />
-        <div className={`font-manrope-${slug === 'device' ? '24' : '20'} mob:font-manrope-${slug === 'device' ? '18' : '14'} font-500`}>{name}</div>
+        <div className="screenmate-one__complectation-group-grid-item-title">{name}</div>
     </div>
 ))
 
@@ -58,24 +58,22 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
         <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
         <div className="screenmate-one__complectation-group-grid-item-info">
             <div>
-                <div className="flex-column gap-8 mob:gap-4">
-                    <div className="font-manrope-24 mob:font-manrope-18 font-500">{name}</div>
-                    <div className="flex gap-8 font-manrope-20 mob:font-manrope-18 font-600">
-                        <span className="text-blue">{price} USD</span>
-                        {!!oldPrice && oldPrice !== price && (
-                            <span className="text-grey line-through">{oldPrice} USD</span>
-                        )}
+                <div>
+                    <div className="screenmate-one__complectation-group-grid-item-info-name">{name}</div>
+                    <div className="screenmate-one__complectation-group-grid-item-info-prices">
+                        <span>{price} USD</span>
+                        {!!oldPrice && oldPrice !== price && <span>{oldPrice} USD</span>}
                     </div>
                 </div>
-                <div className="flex-column gap-12 font-manrope-16">
+                <div>
                     <div>{description}</div>
-                    <div className="font-600">Сompatible with:</div>
+                    <div className="screenmate-one__complectation-group-grid-item-info-compatible-label">Сompatible with:</div>
                     {compatible}
                 </div>
             </div>
             <a onClick={onAdd}>
-                <span className="font-manrope-20 mob:font-manrope-18 font-600">Add to cart</span>
-                <Icon className="flex-center" svg={<CartBlueIcon />} />
+                <span>Add to cart</span>
+                <Icon svg={<CartBlueIcon />} />
             </a>
         </div>
     </div>
@@ -169,7 +167,7 @@ const getGroups = (
                         connect two devices simultaneously <br />
                         through one connector.
                     </>,
-                    compatible: <div className="screenmate-one__complectation-group-grid-item-compatible">
+                    compatible: <div className="screenmate-one__complectation-group-grid-item-info-compatible">
                         {['Model 3 ‘21+', 'Model Y', 'Model S', 'Model X'].map((model, index, array) => (
                             <Fragment key={index}>
                                 <span>{model}</span>

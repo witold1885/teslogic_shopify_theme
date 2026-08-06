@@ -105,6 +105,21 @@
             @include responsive(margin-bottom, 11px);
         }
 
+        &-item {
+            @extend %flex-column, %gap-16;
+
+            & > div {
+
+                &:first-child {
+                    @extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
+                }
+
+                &:last-child {
+                    @extend %flex-column, %gap-10;
+                }
+            }
+        }
+
         & a {
             @extend %font-manrope-16;
             text-decoration: none;
@@ -146,6 +161,10 @@
                 flex: 1;
                 height: auto;
             }
+        }
+
+        & .image {
+            @extend %h-full;
         }
     }
 

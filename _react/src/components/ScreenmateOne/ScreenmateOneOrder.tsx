@@ -143,7 +143,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                     <Image                                    
                                         className={`screenmate-one__order-gallery-slider-item ${
                                             currentImageIndex === index ? 'active' : ''
-                                        } overflow-hidden`}
+                                        }`}
                                         src={image}
                                         onClick={() => setCurrentImageIndex(index)}
                                     />
@@ -156,18 +156,16 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             {product && (
                 <div className="screenmate-one__order-form">
                     <div className="screenmate-one__order-form-wrap">
-                        <div className="flex-column gap-12 mob:gap-8">
-                            <div {...anime('name')} className="font-manrope-52 mob:font-manrope-32 font-600">{product.title}</div>
-                            <div {...anime('prices')} className="flex-start-center gap-12">
-                                <span className="font-manrope-36 mob:font-manrope-24 font-600 text-blue">{prices.current} USD</span>
+                        <div>
+                            <div {...anime('name')} className="screenmate-one__order-form-name">{product.title}</div>
+                            <div {...anime('prices')} className="screenmate-one__order-form-prices">
+                                <span>{prices.current} USD</span>
                                 {(prices.old || 0) > (prices.current || 0) && (
-                                    <span className="font-manrope-32 mob:font-manrope-24 font-600 text-grey line-through">
-                                        {prices.old} USD
-                                    </span>
+                                    <span>{prices.old} USD</span>
                                 )}
                             </div>
                         </div>
-                        <div className="w-full flex-column gap-20 mob:gap-16">
+                        <div>
                             <Dropdown
                                 {...anime('models')}
                                 placeholder="Select your Tesla model and year"
@@ -175,20 +173,20 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 onSelect={(modelId) => handleModelSelect(modelId as number)}
                             />
                             {additionalProducts && (
-                                <div {...anime('additionals')} className="flex-column gap-16">
+                                <div {...anime('additionals')} className="screenmate-one__order-form-additionals">
                                     {additionalProducts.map(({ id, title, price, models }) => {
                                         const modelId = models ? models[0].id : null
                                         return (
-                                            <div className="flex-start-center gap-12 cursor-pointer" key={id}>
+                                            <div key={id}>
                                                 <input
                                                     type="checkbox"
                                                     id={`additional-product-${id}`}
                                                     checked={modelId !== null && selectedAdditionals.includes(modelId)}
                                                     onChange={(e) => handleAdditionalSelect(e, modelId)}
                                                 />
-                                                <label htmlFor={`additional-product-${id}`} className="font-manrope-16 cursor-pointer">
-                                                    <span className="font-500">Add {title}</span>&nbsp;
-                                                    <span className="text-blue font-600">{price} USD</span>
+                                                <label htmlFor={`additional-product-${id}`}>
+                                                    <span>Add {title}</span>&nbsp;
+                                                    <span>{price} USD</span>
                                                 </label>
                                             </div>
                                         )
@@ -196,17 +194,17 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 </div>
                             )}
                         </div>
-                        <div className="flex-column gap-32 mob:w-full mob:gap-24">
+                        <div>
                             <Button {...anime('button')} onClick={handleSubmit}>
                                 <span>order now</span>
                             </Button>
                             <div {...anime('details')} className="screenmate-one__order-form-details">
                                 {details.map(({ icon, main, add }, index) => (
-                                    <div className="flex gap-8" key={index}>
-                                        <Icon className="flex-center" {...{icon}} />
-                                        <span className="font-manrope-16">
-                                            <span className="text-blue font-600">{main}</span>&nbsp;
-                                            <span className="font-500">{add}</span>
+                                    <div key={index}>
+                                        <Icon {...{icon}} />
+                                        <span>
+                                            <span>{main}</span>&nbsp;
+                                            <span>{add}</span>
                                         </span>
                                     </div>
                                 ))}

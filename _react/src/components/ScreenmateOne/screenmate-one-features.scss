@@ -30,6 +30,11 @@
             }
 
             &-header {
+                @extend %flex-between;
+
+                &-title {
+                    @extend %font-manrope-28, %font-600, %mob\:font-manrope-22;
+                }
 
                 &-icon {
                     @extend %circle, %cursor-pointer;
@@ -38,6 +43,10 @@
                     @include responsive(padding, 5px, 12px, 4px, 12px);
                     background: #262626;
                 }
+            }
+
+            &-image > img {
+                @extend %w-full;
             }
         }
 

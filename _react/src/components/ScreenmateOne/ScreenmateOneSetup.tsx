@@ -106,19 +106,18 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     
     return (
         <div ref={ref} className="screenmate-one__setup">
-            <div className="container flex-column-center gap-64 mob:gap-28">
-                <div className="flex-column-center gap-24 mob:flex-column-start mob:gap-12">
+            <div className="container">
+                <div>
                     <Heading {...anime('title')} title="Your Screen, Your Setup" />
                     <div {...anime('subtitle')} className="screenmate-one__setup-subtitle">
                         Use the apps you already know and love.
                     </div>
                 </div>
-                <div className="w-full flex-column-center gap-32 mob:gap-8">
+                <div>
                     <div {...anime('video')} className="screenmate-one__setup-video">
                         {Object.entries(tabs).map(([tab, { video, background }]) => (
                             <Video
                                 key={tab}
-                                className="w-full h-full absolute inset"
                                 style={{ opacity: tab === activeTab ? 1 : 0 }}
                                 src={video as string}
                                 background={background}
@@ -131,7 +130,7 @@ const ScreenmateOneSetup = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             />
                         ))}
                     </div>
-                    <div className="mob:w-full flex-column-center gap-32 mob:flex-column-start mob:gap-24">
+                    <div className="screenmate-one__setup-tabs">
                         <Tabs {...anime('tabs')} {...{tabs, activeTab, setActiveTab}} />
                         {activeTab && tabs[activeTab] && (
                             <div {...anime('text')} className="screenmate-one__setup-text">{tabs[activeTab].text}</div>

@@ -16,7 +16,7 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
 }, ref) => (
     <h1
         ref={ref}
-        className={`heading ${className} ${aurora ? 'relative overflow-hidden' : ''}`}
+        className={`heading ${className}`}
         style={style}
     >
         {title}

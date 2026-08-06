@@ -103,7 +103,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
             {Object.entries(tabs).map(([tab, { title }]) => (
                 <div
                     key={tab}
-                    className={`tabs-item ${activeTab === tab ? 'active': ''} cursor-pointer`}
+                    className={`tabs-item ${activeTab === tab ? 'active': ''}`}
                     onClick={() => setActiveTab(tab)}
                 >
                     <div className="tabs-item-title">{title}</div>

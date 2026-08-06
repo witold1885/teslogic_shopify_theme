@@ -26,7 +26,7 @@ const Popup: React.FC<PopupProps> = ({ open, children, onClose }) => {
     }, [open, onClose])
 
     return open ? (
-        <div className="flex-center shadow">
+        <div className="shadow">
             <div ref={popupRef}>
                 {children}
             </div>

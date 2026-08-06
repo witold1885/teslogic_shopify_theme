@@ -48,10 +48,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 interface Block {
-    wrapClassName?: string
-    topClassName?: string
-    wrapGap?: number
-    topGap?: number
     title: ReactNode
     text: ReactNode
     additional?: ReactNode
@@ -80,7 +76,6 @@ const commandIcons: Record<string, any> = Object.entries(commandIconModules).red
 
 const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
     const { isMobile, responsive } = useInlineStyles()
-    const className = type === 'button' ? 'flex-start-center gap-20 mob:flex-column-center' : 'flex-column mob:flex-column-center gap-16'
     const isLastOdd = type === 'button' && typeCount as number % 2 === 1 && num === typeCount as number - 1
     const itemStyle = isMobile && isLastOdd ? { gridColumn: 'span 2' } : {}
     const optionWidth: string = type === 'control' ? (
@@ -88,12 +83,12 @@ const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, ti
     ) : 'auto'
     return (
         <div
-            className={`screenmate-one__convenience-commands-grid-item ${className}`}
+            className="screenmate-one__convenience-commands-grid-item"
             style={itemStyle}
         >        
             <div className={`screenmate-one__convenience-commands-grid-item-content ${type}`}>
                 {type === 'button' && (<>
-                    {icon && <Icon className="flex-center" icon={icon} />}
+                    {icon && <Icon icon={icon} />}
                     {text && <div>{text}</div>}
                 </>)}
                 {type === 'range' && (<>
@@ -105,7 +100,6 @@ const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, ti
                     {options?.map((option, index) => (
                         <div
                             key={index}
-                            className="flex-center"
                             style={index !== 0 && index !== options.length - 1 ? responsive({ width: optionWidth }) : {}}
                         >
                             {option}
@@ -133,9 +127,6 @@ interface Pointer {
 const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: boolean) => void) => {
     return {
         'dual-view-mode': {
-            wrapClassName: 'flex-column',
-            topClassName: 'w-full flex-between',
-            wrapGap: 56,
             title: 'Dual View Mode',
             text: <>
                 Place any two apps side by side, or keep the Tesla interface on one <br />
@@ -146,8 +137,6 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
             background: !isMobile ? dualViewModeBackgroundDesktop : dualViewModeBackgroundMobile
         },
         'key-driving-info': {
-            wrapClassName: 'flex-column',
-            topClassName: 'w-full flex-between',
             title: 'Key Driving Info',
             text: <>
                 The Dashboard keeps vital information visible while <br />
@@ -186,10 +175,6 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
             }
         },
         'beyond-basic-control': {
-            wrapClassName: 'flex-wrap flex-between flex-end',
-            topClassName: 'flex-column',
-            wrapGap: 60,
-            topGap: 12,
             title: 'Beyond Basic Controls',
             text: <>
                 The compact Control Panel puts essential commands <br />
@@ -198,18 +183,15 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
             </>,
             additional: <>
                 <div>Choose from 50 commands <br />to build your own control panel.</div>
-                <a className="flex-start-center gap-12 font-500 text-blue" onClick={() => setCommandsPopupOpen(true)}>
+                <a onClick={() => setCommandsPopupOpen(true)}>
                     <span>View full command list</span>
-                    <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
+                    <Icon svg={<ArrowTopRightBlueIcon />} />
                 </a>
             </>,
             video: !isMobile ? beyondBasicControlsVideoDesktop : beyondBasicControlsVideoMobile,
             background: !isMobile ? beyondBasicControlsBackgroundDesktop : beyondBasicControlsBackgroundMobile
         },
         // 'front-camera-integration': {
-        //     wrapClassName: 'flex-between mob:flex-column',
-        //     topClassName: 'flex-column',
-        //     topGap: 20,
         //     title: <>Front Camera <br />Integration</>,
         //     text: <>
         //         Bring a live front camera view to your <br />
@@ -254,19 +236,19 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             </> },
             { type: 'button', icon: commandIcons['keep-climate-on'], title: <>Keep Climate On</> },
             { type: 'range', content: <>22°</>, title: <>Temperature Driver</> },
-            { type: 'range', content: <div className="h-full flex-column-center-end gap-6">
+            { type: 'range', content: <div className="passenger">
                 <div>22</div>
-                <span className="uppercase">Passenger</span>
+                <span>Passenger</span>
             </div>, title: <>Temperature Passenger</> },
             { type: 'switch', options: [<>SPLIT</>, <>SYNC</>], title: <>Split / Sync (Dual Zone)</> },
-            { type: 'range', content: <div className="flex-center gap-4">
+            { type: 'range', content: <div className="wind-flow">
                 <div>3</div>
-                <Icon className="flex-center" icon={commandIcons['wind-flow']} />
+                <Icon icon={commandIcons['wind-flow']} />
             </div>, title: <>Wind flow level control</> },
             {
                 type: 'switch',
                 options: ['up', 'face', 'down'].map(direction => (
-                    <Icon className="flex-center" icon={commandIcons[`airflow-direction-${direction}`]} />
+                    <Icon icon={commandIcons[`airflow-direction-${direction}`]} />
                 )),
                 title: <>Airflow Direction</>
             }
@@ -276,8 +258,8 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             { type: 'button', icon: commandIcons['wiper-service-mode'], title: <>Wiper Service <br />Mode</> },
             { type: 'button', icon: commandIcons['wiper-defrost'], title: <>Wiper Defrost</> },
             { type: 'control', options: [
-                <div className="flex-center">
-                    <Icon className="flex-center" icon={commandIcons['wiper-off']} />
+                <div>
+                    <Icon icon={commandIcons['wiper-off']} />
                     <span>Off</span>
                 </div>,
                 <>I</>,
@@ -292,8 +274,8 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             { type: 'button', icon: commandIcons['front-fog-lights'], title: <>Front Fog Lights</> },
             { type: 'button', icon: commandIcons['rear-fog-lights'], title: <>Rear Fog Lights</> },
             { type: 'control', options: [
-                <div className="flex-center">
-                    <Icon className="flex-center" icon={commandIcons['headlights-off']} />
+                <div>
+                    <Icon icon={commandIcons['headlights-off']} />
                     <span>Off</span>
                 </div>,
                 <>Parking</>,
@@ -329,12 +311,12 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             { type: 'button', icon: commandIcons['open-rear-right-door'], title: <>Open Rear <br className="hidden mob:block" />Right Door</> }
         ],
         'Seats': [
-            { type: 'range', content: <div className="flex-center gap-4">
-                <Icon className="flex-center" icon={commandIcons['right-seat']} />
+            { type: 'range', content: <div className="right-seat">
+                <Icon icon={commandIcons['right-seat']} />
                 <div className="screenmate-one__convenience-commands-font-18">Right Seat</div>
             </div>, title: <>Move Front Passenger Seat</> },
-            { type: 'range', content: <div className="flex-center gap-8">
-                <Icon className="flex-center" icon={commandIcons['backrest']} />
+            { type: 'range', content: <div className="backrest">
+                <Icon icon={commandIcons['backrest']} />
                 <div className="screenmate-one__convenience-commands-font-18">Backrest</div>
             </div>, title: <>Move Front Passenger <br />Seat Backrest</> }            
         ],
@@ -365,7 +347,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         <div className="screenmate-one__convenience">
             <div className="screenmate-one__convenience-wrap">
                 <Heading {...anime('heading')} title="Built Around Everyday Convenience" />
-                {Object.entries(blocks).map(([blockKey, { wrapClassName, topClassName, wrapGap, topGap, title, text, additional, image, video, background, pointers }]) => (
+                {Object.entries(blocks).map(([blockKey, { title, text, additional, image, video, background, pointers }]) => (
                     <div
                         key={blockKey}
                         ref={(el) => {
@@ -374,8 +356,8 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                         }} 
                         className={`screenmate-one__convenience-block ${blockKey}`}
                     >
-                        <div className={`container ${wrapClassName} ${wrapGap ? `gap-${wrapGap}` : ''}`}>
-                            <div className={`screenmate-one__convenience-block-top ${topClassName} ${topGap ? `gap-${topGap}` : ''}`}>
+                        <div className="screenmate-one__convenience-block-wrap container">
+                            <div className="screenmate-one__convenience-block-top">
                                 <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
                                 <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                             </div>
@@ -395,7 +377,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                     <div
                                         key={pointerKey}
                                         {...anime(`${blockKey}-pointers-${pointerKey}`)}
-                                        className="w-full absolute"
+                                        className="screenmate-one__convenience-block-pointer-wrap"
                                     >
                                         <Icon
                                             className={`screenmate-one__convenience-block-pointer ${pointerKey}`}
@@ -403,11 +385,11 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                             icon={pointer.image}
                                         />
                                         <div
-                                            className={`screenmate-one__convenience-block-legend flex-column gap-12 absolute text-${pointerKey.split('-')[1] || ''}`}
+                                            className={`screenmate-one__convenience-block-legend text-${pointerKey.split('-')[1] || ''}`}
                                             style={responsive(pointer.legendStyle)}
                                         >
                                             <span>{pointer.title}</span>
-                                            <span className="mob:hidden">{pointer.text}</span>
+                                            <span>{pointer.text}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -419,14 +401,14 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
             <Popup open={commandsPopupOpen} onClose={() => setCommandsPopupOpen(false)}>
                 <div className="screenmate-one__convenience-commands">
                     <div className="screenmate-one__convenience-commands-head">
-                        <div className="font-manrope-28 font-500 mob:font-manrope-22">Full Commands List <br />of Control Panel</div>
+                        <div>Full Commands List <br />of Control Panel</div>
                         <Icon className="screenmate-one__convenience-commands-close" icon={closeIcon} onClick={() => setCommandsPopupOpen(false)}/>
                     </div>
                     <div className="screenmate-one__convenience-commands-body">
                         {Object.entries(commands).map(([section, items]) => (
                             <Fragment key={section}>
-                                <div className="flex-column gap-28 mob:flex-column-center" key={section}>
-                                    <div className="font-manrope-20 font-500 uppercase">{section}</div>
+                                <div key={section}>
+                                    <div className="screenmate-one__convenience-commands-title">{section}</div>
                                     <div className="screenmate-one__convenience-commands-grid">
                                         {items.map((item, index) => (
                                             <CommandItem

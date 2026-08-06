@@ -23,31 +23,31 @@ const ReviewsTop: React.FC = () => {
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <div className="flex-column gap-24 mob:gap-12">
-            <div {...anime('top')} className="flex-start-center gap-12">
-                <div className="flex-start-center gap-8">
+        <div className="reviews-top">
+            <div {...anime('top')}>
+                <div className="reviews-stars">
                     {[...Array(5).keys()].map((_, index) => (
                         <Icon className="reviews-star" icon={starIcon} key={index} />
                     ))}
                 </div>
-                <div className="font-manrope-24 font-500 mob:hidden">Reviews by</div>
+                <span>Reviews by</span>
                 <Icon className="reviews-judgeme" icon={judgeMeLogo} alt="Judge.me" />
             </div>
-            <div className="flex-between mob:flex-column mob:gap-32">
-                <div {...anime('title')} className="font-manrope-52 mob:font-manrope-32 font-600">
+            <div>
+                <div {...anime('title')} className="reviews-title">
                     Positive feedback <br className="hidden mob:block" />
                     from clients — <br />
                     one of our main tasks
                 </div>
-                <div {...anime('summary')} className="mob:flex-row mob:flex-start-center mob:gap-26">
+                <div {...anime('summary')} className="reviews-summary">
                     {isMobile && <Icon className="reviews-star-big" icon={starIcon} />}
-                    <div className="flex-column-between gap-12 mob:flex-column-start">
-                        <div className="font-manrope-16 font-500">Overall rating</div>
-                        <div className="flex mob:flex-center mob:flex-row-reverse gap-16 mob:gap-26">
-                            <div className="font-manrope-52 font-500">{avgRating}</div>
+                    <div className="reviews-summary-info">
+                        <div>Overall rating</div>
+                        <div>
+                            <div>{avgRating}</div>
                             {!isMobile && <Icon className="reviews-star-big" icon={starIcon} />}
                         </div>
-                        <div className="font-manrope-16 font-500">{totalCount} reviews</div>
+                        <div>{totalCount} reviews</div>
                     </div>
                 </div>
             </div>

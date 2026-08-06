@@ -50,11 +50,15 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
                 ...style
             }}
         >
-            <div className="flex-between">
-                <div className="font-manrope-28 font-600 mob:font-manrope-22">{title}</div>
-                <Icon className="screenmate-one__features-item-header-icon flex-center" icon={arrowIcon} {...iconActions} />
+            <div className="screenmate-one__features-item-header">
+                <div className="screenmate-one__features-item-header-title">{title}</div>
+                <Icon className="screenmate-one__features-item-header-icon" icon={arrowIcon} {...iconActions} />
             </div>
-            {image && <div style={imageStyle}><img className="w-full" src={image} loading="lazy" /></div>}
+            {image && (
+                <div className="screenmate-one__features-item-image" style={imageStyle}>
+                    <img src={image} loading="lazy" />
+                </div>
+            )}
         </div>
     )
 }

@@ -55,20 +55,20 @@ interface ContentGridItemProps {
 
 const ContentGridInfoItem: React.FC<ContentGridItemProps> = ({ icon, title, text }) => (
     <div className="screenmate-one__specifications-body-content-grid-item info-item">
-        <div className="flex-start-center gap-8">
-            <Icon className="flex-center" icon={icon as string} />
-            <span className="font-manrope-16 mob:font-manrope-14 font-600 text-darkgrey uppercase">{title}</span>
+        <div>
+            <Icon icon={icon as string} />
+            <span>{title}</span>
         </div>
-        <div className="font-manrope-20 mob:font-manrope-16">{text}</div>
+        <div>{text}</div>
     </div>
 )
 
 const ContentGridImageItem: React.FC<ContentGridItemProps> = ({ image, title, subtitle }) => (
     <div className="screenmate-one__specifications-body-content-grid-item image-item">
         <Image className="screenmate-one__specifications-body-content-grid-item-image" src={image as string} />
-        <div className="flex-column font-manrope-24 mob:font-manrope-16 font-500">
+        <div>
             <div>{title}</div>
-            <div className="text-darkgrey whitespace-nowrap">{subtitle}</div>
+            <div>{subtitle}</div>
         </div>
     </div>
 )
@@ -84,8 +84,8 @@ const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
     const { isMobile } = useInlineStyles()
     return (<>
         <div className="screenmate-one__specifications-body-content-top">
-            <div className="font-manrope-52 mob:font-manrope-28 font-500">{title}</div>
-            <div className="font-manrope-20 mob:font-manrope-14">{subtitle}</div>
+            <div className="screenmate-one__specifications-body-content-top-title">{title}</div>
+            <div className="screenmate-one__specifications-body-content-top-subtitle">{subtitle}</div>
         </div>
         <div
             className="screenmate-one__specifications-body-content-grid"
@@ -136,17 +136,17 @@ const ScreenmateOneInstallation: React.FC = () => {
     return (
         <div {...anime('body')} className="screenmate-one__specifications-installation">
             <div className="screenmate-one__specifications-installation-info">
-                <div className="flex-column gap-24 mob:gap-12">
-                    <div {...anime('title')} className="font-manrope-52 mob:font-manrope-32 font-600">Effortless <br />Installation</div>
-                    <div className="flex-column gap-20 mob:gap-12 font-manrope-20 mob:font-manrope-16">
+                <div>
+                    <div {...anime('title')} className="screenmate-one__specifications-installation-title">Effortless <br />Installation</div>
+                    <div className="screenmate-one__specifications-installation-texts">
                         {installation.texts.map((text, index) => <div {...anime(`texts-${index}`)} key={index}>{text}</div>)}
                     </div>
                 </div>
-                <div className="flex gap-32 mob:gap-20 font-manrope-24 mob:font-manrope-16 font-500">
+                <div>
                     {installation.links.map(({ text, url }, index) => (
-                        <a {...anime(`links-${index}`)} className="flex gap-12 mob:gap-8" href={url} target="_blank" key={index}>
+                        <a {...anime(`links-${index}`)} className="screenmate-one__specifications-installation-link" href={url} target="_blank" key={index}>
                             <span>{text}</span>
-                            <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
+                            <Icon svg={<ArrowTopRightBlueIcon />} />
                         </a>
                     ))}
                 </div>
@@ -160,7 +160,7 @@ const getTabs = (isMobile: boolean) => {
     return {
         'dimensions': {
             title: <>Dimensions</>,
-            content: { type: 'image', className: 'flex-center', src: !isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile }
+            content: { type: 'image', src: !isMobile ? dimensionsSketchDesktop : dimensionsSketchMobile }
         },
         'main-system': {
             title: <>Main System</>,
@@ -256,7 +256,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
     return (
         <div className="screenmate-one__specifications">
             <Heading {...anime('title')} title="Technical Specifications" />
-            <div className="flex-column gap-150 mob:gap-96">
+            <div className="screenmate-one__specifications-wrap">
                 <div className="screenmate-one__specifications-body">
                     <div {...anime('content')} className="screenmate-one__specifications-body-content">
                         {activeTab && tabs[activeTab]?.content && (

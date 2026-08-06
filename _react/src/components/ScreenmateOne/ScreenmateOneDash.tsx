@@ -43,7 +43,7 @@ const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                     </div>
                     <a {...anime('link')} className="screenmate-one__dash-body-info-link" href="/dash" target="_blank">
                         <span>Learn more about Screenmate Dash</span>
-                        <Icon className="flex-center" svg={<ArrowTopRightBlueIcon />} />
+                        <Icon svg={<ArrowTopRightBlueIcon />} />
                     </a>
                 </div>
                 <Image {...anime('image')} className="screenmate-one__dash-body-image" src={dashImage} />

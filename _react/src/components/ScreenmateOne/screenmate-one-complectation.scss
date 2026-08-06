@@ -98,20 +98,66 @@
                         @include square(24px);
                     }
 
+                    &-title {
+                        @extend %font-manrope-20, %mob\:font-manrope-14, %font-500;
+
+                        .device & {
+                            @extend %font-manrope-24, %mob\:font-manrope-18;
+                        }
+                    }
+
                     &-info {
                         @extend %flex-column, %gap-24, %mob\:gap-20;
 
                         & > div {
                             @extend %flex-column, %gap-20, %mob\:gap-16;
+
+                            & > div {
+
+                                &:first-child {
+                                    @extend %flex-column, %gap-8, %mob\:gap-4;
+                                }
+
+                                &:last-child {
+                                    @extend %flex-column, %gap-12, %font-manrope-16;
+                                }
+                            }
+                        }
+
+                        &-name {
+                            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
+                        }
+
+                        &-prices {
+                            @extend %flex, %gap-8, %font-manrope-20, %mob\:font-manrope-18, %font-600;
+
+                            & span {
+
+                                &:first-child {
+                                    @extend %text-blue;
+                                }
+
+                                &:last-child {
+                                    @extend %text-grey, %line-through;
+                                }
+                            }
+                        }
+
+                        &-compatible {
+                            @extend %flex, %gap-12, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
+
+                            &-label {
+                                @extend %font-600;
+                            }
                         }
 
                         & > a {
                             @extend %flex, %gap-8;
-                        }
-                    }
 
-                    &-compatible {
-                        @extend %flex, %gap-12, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
+                            & span {
+                                @extend %font-manrope-20, %mob\:font-manrope-18, %font-600;
+                            }
+                        }
                     }
                 }
             }

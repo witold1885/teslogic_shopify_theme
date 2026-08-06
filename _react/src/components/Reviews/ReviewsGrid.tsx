@@ -29,17 +29,17 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
     const [open, setOpen] = useState<boolean>(false)
 
     return (
-        <div {...{ref, className}} style={open ? { height: 'auto', maxHeight: 'unset' } : {}}>
-            <div className="flex-between">
-                <div className="flex-column gap-12 mob:gap-8">
-                    <div className="font-manrope-18 mob:font-manrope-16 font-600 text-white">{reviewer_name}</div>
-                    <div className="flex gap-4">
+        <div ref={ref} className={`${className} reviews-item`} style={open ? { height: 'auto', maxHeight: 'unset' } : {}}>
+            <div className="reviews-item-top">
+                <div>
+                    <div className="reviews-item-author">{reviewer_name}</div>
+                    <div className="reviews-item-stars">
                         {[...Array(5).keys()].map((_, index) => (
                             <Icon icon={index < rating ? starBlue : starGrey} key={index} />
                         ))}
                     </div>
                 </div>
-                <div className="font-manrope-16 text-right whitespace-nowrap">
+                <div className="reviews-item-date">
                     {new Date(updated_datetime).toLocaleDateString('en-US', {
                         month: 'short',
                         day: '2-digit',
@@ -48,7 +48,7 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
                 </div>
             </div>
             <div
-                className="item-body h-full flex-1 overflow-hidden-y font-manrope-16"
+                className="reviews-item-body"
                 style={hasMaxHeight && !open ? {
                     background: 'linear-gradient(180deg, #A3A3A3 73.8%, rgba(102, 102, 102, 0.00) 100%)',
                     backgroundClip: 'text',
@@ -59,8 +59,8 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
                 {body}
             </div>
             {hasMaxHeight && (
-                <div className="flex-center">
-                    <Icon className="flex-center" style={open ? { transform: 'rotate(180deg)' } : {}} svg={
+                <div className="reviews-item-bottom">
+                    <Icon style={open ? { transform: 'rotate(180deg)' } : {}} svg={
                         <svg width="13" height="7" viewBox="0 0 13 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.904297 0.209962C0.723127 0.21042 0.560858 0.273672 0.425781 0.394532C0.285148 0.520374 0.209961 0.684199 0.209961 0.873048C0.210051 1.05336 0.273219 1.21522 0.396484 1.34668L0.407227 1.35742L5.91992 6.43359C6.05802 6.56463 6.22873 6.62988 6.41992 6.62988C6.61044 6.62988 6.7811 6.56565 6.91895 6.43555L12.4326 1.3418L12.4355 1.33984C12.5649 1.21703 12.6298 1.05889 12.6299 0.880859C12.6299 0.695072 12.5535 0.533977 12.4189 0.40625C12.2844 0.278592 12.1197 0.209961 11.9346 0.209961C11.7506 0.210069 11.5882 0.278962 11.4541 0.405274L11.4531 0.404297L6.4209 5.05859L1.3877 0.404298L1.36426 0.382813L1.35254 0.377931C1.22459 0.269605 1.0744 0.209532 0.904297 0.209962Z" fill="#D1D1D1" stroke="#D1D1D1" strokeWidth="0.42" />
                         </svg>
@@ -160,7 +160,7 @@ const ReviewsGrid: React.FC = () => {
     const { anime } = useAnime({ ...animationConfigs, slider: getAnimationConfig('20px', 333) })
 
     return (
-        <div className="flex-column gap-60 mob:gap-40">
+        <div className="reviews-grid-wrap">
             {!isMobile && (<>
                 <div ref={containerRef} className="reviews-grid">
                     {items.map(({ id,  ...item}) => (

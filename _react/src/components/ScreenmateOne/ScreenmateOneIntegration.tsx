@@ -38,7 +38,6 @@ interface Block {
     heading: ReactNode
     title: ReactNode
     text: ReactNode
-    bodyClassName?: string
     video?: string
     background?: string
     sketch?: string
@@ -55,7 +54,6 @@ const getBlocks = (isMobile: boolean) => {
                 Connect once and enjoy a familiar<br />
                 interface every time you drive.
             </>,
-            bodyClassName: 'w-full',
             video: !isMobile ? carPlayAndAndroidAutoVideoDesktop : carPlayAndAndroidAutoVideoMobile,
             background: !isMobile ? carPlayAndAndroidAutoBackgroundDesktop : carPlayAndAndroidAutoBackgroundMobile
         },
@@ -67,7 +65,6 @@ const getBlocks = (isMobile: boolean) => {
                 Enjoy smooth Android gaming powered by Qualcomm, <br />
                 or connect a compatible console through USB-C Video In.
             </>,
-            bodyClassName: 'w-full flex mob:flex-column-reverse mob:gap-32',
             video: !isMobile ? connectConsolesVideoDesktop : connectConsolesVideoMobile,
             background: !isMobile ? connectConsolesBackgroundDesktop : connectConsolesBackgroundMobile,
             sketch: !isMobile ? consoleGamingDesktop : consoleGamingMobile,
@@ -95,22 +92,22 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
 
     return (
         <div className="screenmate-one__integration">
-            {Object.entries(blocks).map(([blockKey, { heading, title, text, bodyClassName, video, background, sketch, info }]) => (
+            {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
                 <div className={`screenmate-one__integration-block ${blockKey}`} key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
                     <div ref={(el) => {
                         if (el) blockRefs.current[blockKey] = el
                         else delete blockRefs.current[blockKey]
-                    }} className="w-full flex-wrap flex-between gap-60 mob:gap-32">
-                        <div className="w-full flex-between mob:flex-column mob:gap-12">
+                    }} className="screenmate-one__integration-block-body">
+                        <div>
                             <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
                             <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                         </div>
-                        <div className={bodyClassName}>
+                        <div>
                             {sketch && info && (
                                 <div className="screenmate-one__integration-block-info">
                                     <div {...anime(`${blockKey}-sketch`)} className="screenmate-one__integration-block-info-sketch">
-                                        <img className="h-full" src={sketch} alt="" />
+                                        <img src={sketch} alt="" />
                                     </div>
                                     <div className="screenmate-one__integration-block-info-items">
                                         {info.map(({ title, text }, index) => (

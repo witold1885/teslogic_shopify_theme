@@ -11,6 +11,37 @@
         @include responsive(padding, 96px, 0);
     }
 
+    & .container {
+        @extend %flex-column, %gap-50, %mob\:gap-48;
+
+        & > div:first-child {
+            @extend %flex-column, %gap-60, %mob\:gap-40;
+        }
+    }
+
+    &-top {
+        @extend %flex-column, %gap-24, %mob\:gap-12;
+
+        & > div {
+
+            &:first-child {
+                @extend %flex-start-center, %gap-12;
+
+                & span {
+                    @extend %font-manrope-24, %font-500, %mob\:hidden;
+                }
+            }
+
+            &:last-child {
+                @extend %flex-between, %mob\:flex-column, %mob\:gap-32;
+            }
+        }
+    }
+
+    &-stars {
+        @extend %flex-start-center, %gap-8;
+    }
+
     &-star {
         @extend %flex-center;
         @include square(32px);
@@ -34,8 +65,66 @@
         @include block(129.231px, 32px);
     }
 
+    &-title {
+        @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
+    }
+
+    &-summary {
+        @extend %mob\:flex-row, %mob\:flex-start-center, %mob\:gap-26;
+
+        &-info {
+            @extend %flex-column-between, %gap-12, %mob\:flex-column-start;
+
+            & > div {
+
+                &:nth-child(1), &:nth-child(3) {
+                    @extend %font-manrope-16, %font-500;
+                }
+
+                &:nth-child(2) {
+                    @extend %flex, %mob\:flex-center, %mob\:flex-row-reverse, %gap-16, %mob\:gap-26, %font-manrope-52, %font-500;
+                }
+            }
+        }
+    }
+
+    &-item {
+
+        &-top {
+            @extend %flex-between;
+
+            & > div:first-child {
+                @extend %flex-column, %gap-12, %mob\:gap-8;
+            }
+        }
+
+        &-author {
+            @extend %font-manrope-18, %mob\:font-manrope-16, %font-600, %text-white;
+        }
+
+        &-stars {
+            @extend %flex, %gap-4;
+        }
+
+        &-date {
+            @extend %font-manrope-16, %text-right, %whitespace-nowrap;
+        }
+
+        &-body {
+            @extend %h-full, %flex-1, %overflow-hidden-y, %font-manrope-16;
+        }
+
+        &-bottom {
+            @extend %flex-center;
+        }
+    }
+
     &-grid {
         @extend %mob\:hidden;
+
+        &-wrap {
+            @extend %flex-column, %gap-60, %mob\:gap-40;
+        }
 
         &-item {
             @extend %flex-column, %gap-16;
@@ -116,8 +205,18 @@
     }
 
     &-form {
+        @extend %flex-column, %gap-24;
+
+        &-trigger {
+            @extend %flex-between, %mob\:flex-column-center, %mob\:gap-20;
+
+            & > div {
+                @extend %font-manrope-52, %mob\:font-manrope-32, %font-500, %mob\:text-center;
+            }
+        }
 
         &-wrap {
+            @extend %relative;
             @include responsive(width, 636px);
             @include responsive(padding, 40px, 40px, 28px, 40px);
             @include responsive(border-radius, 16px);
@@ -131,12 +230,31 @@
         }
 
         &-close {
+            @extend %absolute, %cursor-pointer;
             @include square(20px);
             @include responsive(top, 16px);
             @include responsive(right, 16px);
         }
 
+        &-top {
+            @extend %flex, %mob\:flex-column, %gap-24;
+        }
+
+        &-title {
+            @extend %font-manrope-32, %mob\:font-manrope-24, %flex-1;
+        }
+
         &-rating {
+            @extend %flex-1, %flex-start-center, %gap-8, %relative;
+
+            & > div:first-child {
+                @extend %font-manrope-16;
+            }
+
+            &-stars {
+                @extend %flex, %gap-4;
+                direction: rtl;
+            }
 
             & label {
                 @include square(24px);
@@ -165,13 +283,18 @@
         }
 
         &-field {
+            @extend %flex-column, %gap-8, %relative;
 
             &.full {
                 grid-column: span 2;
             }
 
             @include mobile() {
-                 grid-column: span 1 !important;
+                grid-column: span 1 !important;
+            }
+
+            & label {
+                @extend %font-manrope-16;
             }
 
             & input, & textarea {
@@ -193,7 +316,12 @@
             }
         }
 
+        &-bottom {
+            @extend %flex-end-center;
+        }
+
         & button {
+            @extend %mob\:w-full;
             @include responsive(padding, 14px, 28px);
             @include responsive(border-radius, 26px);
             border: none;

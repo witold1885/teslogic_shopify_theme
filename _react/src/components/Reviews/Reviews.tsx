@@ -30,8 +30,8 @@ const Reviews: React.FC = () => {
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
-            <div className="container flex-column gap-50 mob:gap-48">
-                <div className="flex-column gap-60 mob:gap-40">
+            <div className="container">
+                <div>
                     <ReviewsTop />
                     <ReviewsGrid />
                 </div>

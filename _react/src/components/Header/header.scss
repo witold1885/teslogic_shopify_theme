@@ -16,6 +16,10 @@
         @include responsive(padding, 22px, 20px);
     }
 
+    &.absolute {
+        @extend %absolute;
+    }
+    
     &.sticky, &.transparent {
         @extend %fixed;
         @include responsive(padding, 14px, 72px);
@@ -71,6 +75,10 @@
                     opacity: 0;
                     pointer-events: none;
                     transition: opacity 0.1s ease-in-out;
+                }
+
+                & > div:first-child {
+                    @extend %flex-between-center;
                 }
             }
         }
@@ -222,6 +230,10 @@
             & > div {
                 @extend %relative;
                 @include square(24px);
+
+                & .icon {
+                    @extend %w-full, %h-full;
+                }
 
                 & > span {
                     @extend %absolute, %flex-center, %font-manrope, %text-white;

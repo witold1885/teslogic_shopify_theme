@@ -5,6 +5,8 @@
 @use '@/assets/styles/mixins' as *;
 
 .icon {
+    @extend %flex-center;
+    
     & img, & svg {
         @extend %w-full, %h-full;
     }
@@ -21,7 +23,7 @@
     }
 
     &-item {
-        @extend %flex-center, %relative;
+        @extend %flex-center, %relative, %cursor-pointer;
 
         @include mobile() {
             flex: 1;

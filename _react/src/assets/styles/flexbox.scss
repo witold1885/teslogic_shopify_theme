@@ -9,6 +9,7 @@ $flexSpecs: (
     "flex-between":              (display: flex, justify-content: space-between),
     "flex-between-start":        (display: flex, justify-content: space-between, align-items: flex-start),
     "flex-between-center":       (display: flex, justify-content: space-between, align-items: center),
+    "flex-between-end":          (display: flex, justify-content: space-between, align-items: flex-end),
     "flex-column":               (display: flex, flex-direction: column),
     "flex-column-between":       (display: flex, flex-direction: column, justify-content: space-between),
     "flex-column-start":         (display: flex, flex-direction: column, align-items: flex-start),

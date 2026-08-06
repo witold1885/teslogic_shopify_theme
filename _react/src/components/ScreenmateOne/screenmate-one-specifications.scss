@@ -21,6 +21,10 @@
             -webkit-text-fill-color: #0465FD;
         }
 
+        &-wrap {
+            @extend %flex-column, %gap-150, %mob\:gap-96;
+        }
+
         &-tabs {
 
             &-wrap {
@@ -112,6 +116,10 @@
                     }
                 }
 
+                & .image {
+                    @extend %flex-center;
+                }
+
                 &-top {
                     @extend %flex-column, %gap-16, %mob\:gap-12, %text-white;
                     @include responsive(padding-bottom, 38px);
@@ -119,6 +127,14 @@
 
                     @include mobile() {
                         @include responsive(padding-bottom, 24px);
+                    }
+
+                    &-title {
+                        @extend %font-manrope-52, %mob\:font-manrope-28, %font-500;
+                    }
+
+                    &-subtitle {
+                        @extend %font-manrope-20, %mob\:font-manrope-14;
                     }
                 }
 
@@ -167,6 +183,19 @@
                                     height: auto;
                                 }
                             }
+
+                            & > div {
+
+                                &:first-child {
+                                    @extend %flex-start-center, %gap-8, %font-manrope-16, %mob\:font-manrope-14, %font-600, %text-darkgrey, %uppercase;
+
+                                }
+
+                                &:last-child {
+                                    @extend %font-manrope-20, %mob\:font-manrope-16;
+
+                                }
+                            }
                         }
 
                         &.image-item {
@@ -176,6 +205,14 @@
 
                                 &:not(:first-child) {
                                     @include responsive(margin-top, -24px);
+                                }
+                            }
+
+                            & > div:last-child {
+                                @extend %flex-column, %font-manrope-24, %mob\:font-manrope-16, %font-500;
+
+                                & > div:last-child {
+                                    @extend %text-darkgrey, %whitespace-nowrap;
                                 }
                             }
                         }
@@ -217,6 +254,17 @@
                     }
                 }
 
+                & > div {
+
+                    &:first-child {
+                        @extend %flex-column, %gap-24, %mob\:gap-12;
+                    }
+
+                    &:last-child {
+                        @extend %flex, %gap-32, %mob\:gap-20, %font-manrope-24, %mob\:font-manrope-16, %font-500;
+                    }
+                }
+
                 & .icon {
                     @include block(16px, 32px);
 
@@ -225,6 +273,18 @@
                         @include responsive(height, 24px);
                     }
                 }
+            }
+
+            &-title {
+                @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
+            }
+
+            &-texts {
+                @extend %flex-column, %gap-20, %mob\:gap-12, %font-manrope-20, %mob\:font-manrope-16;
+            }
+
+            &-link {
+                @extend %flex, %gap-12, %mob\:gap-8;
             }
 
             &-image {

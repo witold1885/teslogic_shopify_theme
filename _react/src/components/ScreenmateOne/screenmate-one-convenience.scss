@@ -38,8 +38,24 @@
         &-block {    
             @extend %w-full;
 
-            & .container {
+            &-wrap {
                 @extend %mob\:gap-32, %relative;
+
+                .dual-view-mode &, .key-driving-info & {
+                    @extend %flex-column;
+                }
+
+                .dual-view-mode & {
+                    @extend %gap-56;
+                }
+
+                .beyond-basic-control & {
+                    @extend %flex-between-end, %flex-wrap, %gap-60;
+                }
+
+                .front-camera-integration & {
+                    @extend %flex-between, %mob\:flex-column;
+                }
             }
 
             &.key-driving-info {
@@ -61,6 +77,22 @@
 
             &-top {
                 @extend %mob\:flex-column, %mob\:gap-12;
+
+                .dual-view-mode &, .key-driving-info & {
+                    @extend %w-full, %flex-between;
+                }
+
+                .beyond-basic-control &, .front-camera-integration & {
+                    @extend %flex-column;
+                }
+
+                .beyond-basic-control & {
+                    @extend %gap-12;
+                }
+
+                .front-camera-integration & {
+                    @extend %gap-20;
+                }
 
                 & .block-title {
 
@@ -92,6 +124,10 @@
                 & > * {
                     color: #F1F1F1;
                     @extend %font-manrope-20, %mob\:font-manrope-16;
+                }
+
+                & a {
+                    @extend %flex-start-center, %gap-12, %font-500, %text-blue;
                 }
 
                 & .icon {
@@ -142,6 +178,10 @@
             &-pointer {
                 @extend %absolute;
 
+                &-wrap {
+                    @extend %w-full, %absolute;
+                }
+
                 &.top-left {
                     @include block(353.5px, 58.5px);
 
@@ -176,6 +216,7 @@
             }
 
             &-legend {
+                @extend %flex-column, %gap-12, %absolute;
 
                 & span {
                     @extend %text-white, %font-manrope;
@@ -188,7 +229,7 @@
 
                     &:last-child {
                         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-                        @extend %font-manrope-20, %font-500;
+                        @extend %font-manrope-20, %font-500, %mob\:hidden;
                     }
                 }
             }
@@ -217,12 +258,24 @@
                 @extend %flex-between-center;
                 border-bottom: 1px solid #4D4D4D;
 
-                & > div:first-child br {
-                    display: none;
+                & > div:first-child {
+                    @extend %font-manrope-28, %font-500, %mob\:font-manrope-22;
 
-                    @include mobile() {
-                        display: block;
+                    & br {
+                        display: none;
+
+                        @include mobile() {
+                            display: block;
+                        }
                     }
+                }
+            }
+
+            &-close {
+                @include square(40px);
+
+                @include mobile() {
+                    @include square(32px);
                 }
             }
 
@@ -233,14 +286,14 @@
                 @include mobile() {
                     height: calc(100% - calc(100 * 100vw / 390));
                 }
+
+                & > div {
+                    @extend %flex-column, %gap-28, %mob\:flex-column-center;
+                }
             }
 
-            &-close {
-                @include square(40px);
-
-                @include mobile() {
-                    @include square(32px);
-                }
+            &-title {
+                @extend %font-manrope-20, %font-500, %uppercase;
             }
 
             &-grid {
@@ -263,6 +316,14 @@
                         &:has(.range), &:has(.switch) {
                             grid-column: span 2;
                         }
+                    }
+
+                    &:has(.button) {
+                        @extend %flex-start-center, %gap-20, %mob\:flex-column-center;
+                    }
+
+                    &:not(:has(.button)) {
+                        @extend %flex-column-start, %mob\:flex-column-center, %gap-16;
                     }
 
                     &-content {
@@ -308,6 +369,26 @@
                         & .chevron {
                             @extend %flex-center;
                             @include block(5.5px, 11.5px);
+                        }
+
+                        & .passenger {
+                            @extend %h-full, %flex-column-center-end, %gap-6;
+
+                            & span {
+                                @extend %uppercase;
+                            }
+                        }
+
+                        & .wind-flow {
+                            @extend %flex-center, %gap-4;
+                        }
+
+                        & .right-seat {
+                            @extend %flex-center, %gap-4;
+                        }
+
+                        & .backrest {
+                            @extend %flex-center, %gap-8;
                         }
                     }
 
@@ -359,6 +440,10 @@
 
                         & > * {
 
+                            & > div {
+                                @extend %flex-center;
+                            }
+
                             &:first-child {
                                 background: #666;
                                 color: #F7F7F7;
@@ -386,9 +471,15 @@
                         }
                     }
 
+                    & .switch, & .control {
+
+                        & > div {
+                            @extend %flex-center;
+                        }
+                    }
+
                     &-title {
-                        @extend %font-manrope-18, %font-500, %text-left, %mob\:text-center;
-                        white-space: nowrap;
+                        @extend %font-manrope-18, %font-500, %text-left, %mob\:text-center, %whitespace-nowrap;
                     }
                 }
             }

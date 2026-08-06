@@ -100,7 +100,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                                 {index === 0 && <span className="header-menu-item-new">NEW</span>}
                             </span>                        
                             <div className="header-menu-item-chevron">
-                                <Icon className="flex-center" svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
+                                <Icon svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
                             </div>
                             {children?.length !== 0 && (
                                 <ul
@@ -134,7 +134,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
             ) : (
                 <a className="header-menu-cart" href="/cart" target="_blank">
                     <div>
-                        <Icon className="w-full h-full flex-center" icon={cartIcon} />
+                        <Icon icon={cartIcon} />
                         <span>{cartItemCount}</span>
                     </div>
                     <span>Cart</span>
@@ -169,7 +169,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
             {!isMobile 
                 ? <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
                 : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
-                    <Icon className="flex-center" icon={burgerIcon} />
+                    <Icon icon={burgerIcon} />
                 </Button>
             }
         </header>
@@ -182,7 +182,7 @@ interface HeaderMobileProps extends HeaderProps {
 
 const HeaderMobile: React.FC<HeaderMobileProps> = ({ className = '', menu, onOrder, onMobileMenuClose }) => (
     <div className={`header-menu-mobile-wrap ${className}`}>
-        <div className="flex-between-center">
+        <div>
             <Image className="header-logo" src={logoBlack} alt="Screenmate" />
             <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
         </div>

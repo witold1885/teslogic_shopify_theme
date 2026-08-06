@@ -90,6 +90,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                         ease: 'outSine',
                         ...config,
                         onComplete: () => {
+                            target.classList.add('anime-finished')
                             target.style.setProperty('--is-finished', '1')
                         }
                     })

@@ -23,16 +23,37 @@ body {
     box-sizing: border-box;
 }
 
-@include flexbox.generate-flex-classes();
-@include layout.generate-base-classes();
-@include fonts.generate-font-classes();
-@include text.generate-text-classes();
+// @include flexbox.generate-flex-classes();
+// @include layout.generate-base-classes();
+// @include fonts.generate-font-classes();
+// @include text.generate-text-classes();
+
+// @include m.mobile() {
+//     @include flexbox.generate-flex-classes("mob");
+//     @include layout.generate-base-classes("mob");
+//     @include fonts.generate-font-classes("mob");
+//     @include text.generate-text-classes("mob");
+// }
+
+.hidden {
+    display: none !important;
+}
+
+.block {
+    display: block !important;
+}
 
 @include m.mobile() {
-    @include flexbox.generate-flex-classes("mob");
-    @include layout.generate-base-classes("mob");
-    @include fonts.generate-font-classes("mob");
-    @include text.generate-text-classes("mob");
+    .mob\ {
+
+        &:hidden {
+            display: hidden !important;
+        }
+
+        &:block {
+            display: block !important;
+        }
+    }
 }
 
 .container {
@@ -70,6 +91,10 @@ video, img {
         text-align: left !important;
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
+    }
+
+    &:has(.aurora) {
+        @extend %relative, %overflow-hidden;
     }
 
     &.anime-finished {
@@ -129,9 +154,17 @@ input, textarea {
     box-shadow: none;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .dropdown {
     @extend %w-full, %relative;
     z-index: 1;
+
+    &-item {
+        @extend %flex-between-center, %gap-12, %cursor-pointer;
+    }
 
     &-field {
         @include m.responsive(padding, 20px);
@@ -180,6 +213,10 @@ input, textarea {
             @include m.responsive(border-radius, 6px);
         }
 
+        &-placeholder {
+            @extend %w-full, %text-grey;
+        }
+
         &-item {
             @extend %w-full;
 
@@ -199,10 +236,9 @@ input, textarea {
 }
 
 .shadow {
-    position: fixed;
+    @extend %flex-center, %fixed, %inset;
     width: 100vw;
     height: 100vh;
-    inset: 0;
     background: rgba(0, 0, 0, 0.66);
     z-index: 15;
 }
@@ -218,7 +254,6 @@ input, textarea {
         @include m.responsive(margin-top, 4px);
         color: #F1F1F1;
         @extend %font-manrope-24, %mob\:font-manrope-16, %whitespace-nowrap;
-        white-space: nowrap;
 
         @include m.mobile() {
             margin-top: 0;

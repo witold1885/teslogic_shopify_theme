@@ -110,19 +110,19 @@ const ReviewsForm: React.FC = () => {
     const { anime } = useAnime(animationConfigs)
 
     return (<>
-        <div className="flex-between mob:flex-column-center mob:gap-20">
-            <div {...anime('question')} className="font-manrope-52 mob:font-manrope-32 font-500 mob:text-center">Already own {product?.title}?</div>
-            <Button {...anime('button')} className="flex-center" onClick={() => setPopupOpen(true)}>Write a review</Button>
+        <div className="reviews-form-trigger">
+            <div {...anime('question')}>Already own {product?.title}?</div>
+            <Button {...anime('button')} onClick={() => setPopupOpen(true)}>Write a review</Button>
         </div>
         <Popup open={popupOpen} onClose={() => setPopupOpen(false)}>
-            <div className="reviews-form-wrap relative">
-                <Icon className="reviews-form-close absolute cursor-pointer" icon={closeIcon} onClick={() => setPopupOpen(false)}/>
-                <form className="reviews-form flex-column gap-24">
-                    <div className="flex mob:flex-column gap-24">
-                        <div className="font-manrope-32 mob:font-manrope-24 flex-1">Write a review</div>
-                        <div className="reviews-form-rating flex-1 flex-start-center gap-8 relative">
-                            <div className="font-manrope-16">Rate:</div>
-                            <div className="flex gap-4" style={{ direction: 'rtl' }}>
+            <div className="reviews-form-wrap">
+                <Icon className="reviews-form-close" icon={closeIcon} onClick={() => setPopupOpen(false)}/>
+                <form className="reviews-form">
+                    <div className="reviews-form-top">
+                        <div className="reviews-form-title">Write a review</div>
+                        <div className="reviews-form-rating">
+                            <div>Rate:</div>
+                            <div className="reviews-form-rating-stars">
                                 {[...Array(5).keys()].map(i => 5 - i).map(index => (
                                     <Fragment key={index}>
                                         <input
@@ -143,15 +143,15 @@ const ReviewsForm: React.FC = () => {
                     </div>
                     <div className="reviews-form-body">
                         {params.map(({ name, label, type, placeholder, value, size, component }, index) => (
-                            <div className={`reviews-form-field ${size || ''} flex-column gap-8 relative`} key={index}>
-                                <label htmlFor={name} className="font-manrope-16">{label}</label>
+                            <div className={`reviews-form-field ${size || ''}`} key={index}>
+                                <label htmlFor={name}>{label}</label>
                                 <FormField as={component} id={name} {...{name, type, placeholder, value}} onChange={handleInputChange} />
                                 {errors[name] && <div className="reviews-form-field-error">{errors[name]}</div>}
                             </div>
                         ))}
                     </div>
-                    <div className="flex-end-center">
-                        <Button className="mob:w-full" onClick={handleSubmit}>Send feedback</Button>
+                    <div className="reviews-form-bottom">
+                        <Button onClick={handleSubmit}>Send feedback</Button>
                     </div>
                 </form>
             </div>

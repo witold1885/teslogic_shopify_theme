@@ -81,7 +81,7 @@
                 }
 
                 &-item {
-                    @extend %w-full, %h-full, %cursor-pointer;
+                    @extend %w-full, %h-full, %overflow-hidden, %cursor-pointer;
                     @include responsive(border-radius, 12px);
                     @include border(1px, solid, rgba(255, 255, 255, 0.10));
                     background: lightgray 50% / cover no-repeat, #191919;
@@ -118,6 +118,64 @@
                 @include mobile() {
                     width: 100%;
                 }
+
+                & > div {
+
+                    &:nth-child(1) {
+                        @extend %flex-column, %gap-12, %mob\:gap-8;
+                    }
+
+                    &:nth-child(2) {
+                        @extend %w-full, %flex-column, %gap-20, %mob\:gap-16;
+                    }
+
+                    &:nth-child(3) {
+                        @extend %flex-column, %gap-32, %mob\:w-full, %mob\:gap-24;
+                    }
+                }
+            }
+
+            &-name {
+                @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
+
+            }
+
+            &-prices {
+                @extend %flex-start-center, %gap-12;
+
+                & span {
+
+                    &:first-child {
+                        @extend %font-manrope-36, %mob\:font-manrope-24, %font-600, %text-blue;
+                    }
+
+                    &:last-child {
+                        @extend %font-manrope-32, %mob\:font-manrope-24, %font-600, %text-grey, %line-through;
+                    }
+                }
+            }
+
+            &-additionals {
+                @extend %flex-column, %gap-16;
+
+                & > div {
+                    @extend %flex-start-center, %gap-12, %cursor-pointer;
+
+                    & label {
+                        @extend %font-manrope-16, %cursor-pointer;
+
+                        & span {
+
+                            &:first-child {
+                                @extend %font-500;
+                            }
+
+                            &:last-child {
+                                @extend %text-blue, %font-600;
+                            }
+                        }
+                    }
+                }
             }
 
             & button {
@@ -141,8 +199,27 @@
             &-details {
                 @extend %flex-column, %gap-12;
 
-                & .icon {
-                    @include square(20px);
+                & > div {
+                    @extend %flex, %gap-8;
+
+                    & .icon {
+                        @include square(20px);
+                    }
+
+                    & > span {
+                        @extend %font-manrope-16;
+
+                        & span {
+
+                            &:first-child {
+                                @extend %text-blue, %font-600;
+                            }
+
+                            &:last-child {
+                                @extend %font-500;
+                            }
+                        }
+                    }
                 }
             }
         }

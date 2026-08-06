@@ -43,11 +43,11 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
         {group?.map(({ title, children }, index) => (
             <div
                 {...anime(`group_${index}`)}
-                className={`${title ? `footer-${(title as string).replace(' ', '-').toLowerCase()}` : ''} flex-column gap-16`}
+                className={`footer-grid-item ${title ? `footer-${(title as string).replace(' ', '-').toLowerCase()}` : ''}`}
                 key={index}
             >
-                <div className="font-manrope-24 mob:font-manrope-18 font-500">{title}</div>
-                <div className="flex-column gap-10">
+                <div>{title}</div>
+                <div>
                     {children?.map((child, i) => (
                         <div key={i}>
                             <a href={child.url} target="_blank">{child.title}</a>
@@ -195,7 +195,7 @@ const Footer: React.FC = () => {
                     <div {...anime('stores')} className="footer-stores">
                         {stores.map(({ url, image, alt }, index) => (
                             <a href={url} target="_blank" key={index}>
-                                <Image className="h-full" src={image} alt={alt} />
+                                <Image src={image} alt={alt} />
                             </a>
                         ))}
                     </div>
@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
                     <div>
                         <div {...anime('payments')} className="footer-bottom-payments">
                             {Object.values(paymentIcons).map((icon, index) => (
-                                <Icon className="flex-center" icon={icon as unknown as string} key={index} />
+                                <Icon icon={icon as unknown as string} key={index} />
                             ))}
                         </div>
                         <div {...anime('copyright')} className="footer-bottom-copyright">© {new Date().getFullYear()} Screenmate</div>

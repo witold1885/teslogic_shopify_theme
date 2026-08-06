@@ -13,7 +13,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, s
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
     
     return (
-        <div {...{ref, className, style, onClick}}>
+        <div className={`image ${className}`} {...{ref, style, onClick}}>
             <img className="object-cover" src={finalSrc} alt={alt} loading="lazy" />
         </div>
     )
