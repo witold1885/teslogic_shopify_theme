@@ -27,7 +27,6 @@ type ItemProps = BoxItemProps & AddItemProps
 interface BoxItemProps {
     className: string
     style: CSSProperties
-    slug: string
     name: string
     image: string
     imageStyle?: CSSProperties
@@ -36,7 +35,6 @@ interface BoxItemProps {
 interface AddItemProps {
     className: string
     style: CSSProperties
-    slug: string
     name: string
     image: string
     price: number
@@ -46,7 +44,7 @@ interface AddItemProps {
     onAdd: () => void
 }
 
-const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, slug, name, image, imageStyle }, ref) => (
+const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, name, image, imageStyle }, ref) => (
     <div ref={ref} {...{className, style}}>
         <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={name} />
         <div className="screenmate-one__complectation-group-grid-item-title">{name}</div>
@@ -82,7 +80,6 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
 interface Group {
     title: string
     grid: boolean
-    gridStyle: CSSProperties
     items: Record<string, any>
     itemComponent: React.FC<ItemProps>
 }
@@ -98,22 +95,6 @@ const getGroups = (
         box: {
             title: 'What\'s in the box',
             grid: true,
-            gridStyle: !isMobile ? {
-                ...responsive({ gridTemplateColumns: '550px 371px 371px' }),
-                gridTemplateRows: '1fr 1fr',
-                gridTemplateAreas: `
-                    'device    holder       tool'
-                    'device    data_wire    video_wire'
-                `
-            } : {
-                ...responsive({ gridTemplateRows: '323px 172px 172px' }),
-                gridTemplateColumns: '1fr 1fr',
-                gridTemplateAreas: `
-                    'device    device'
-                    'holder    tool'
-                    'data_wire video_wire'
-                `
-            },
             items: {
                 device: {
                     name: 'Screenmate ONE Device',
@@ -130,16 +111,6 @@ const getGroups = (
         add: {
             title: 'Additional products',
             grid: true,
-            gridStyle: !isMobile ? {
-                gridTemplateColumns: '1fr 1fr',
-                gridTemplateAreas: `'charger splitter'`
-            } : {
-                gridTemplateRows: '1fr 1fr',
-                gridTemplateAreas: `
-                    'charger'
-                    'splitter'
-                `
-            },
             items: {
                 charger: {
                     id: additionalProductsData['Wireless Charger'].id,
@@ -222,13 +193,12 @@ const ScreenmateOneComplectation: React.FC = () => {
 
     return (
         <div className="screenmate-one__complectation">
-            {Object.entries(groups).map(([key, { title, gridStyle, items, itemComponent: Item }]) => (
+            {Object.entries(groups).map(([key, { title, items, itemComponent: Item }]) => (
                 <div className="screenmate-one__complectation-group" key={key}>
                     <div {...anime(`${key}-title`)} className="screenmate-one__complectation-group-title">{title}</div>
                     <div
                         {...anime(`${key}-grid`)}
                         className={`screenmate-one__complectation-group-grid ${key}`}
-                        style={gridStyle}
                     >
                         {Object.entries(items).map(([slug, item]) => (
                             <Item
@@ -236,10 +206,9 @@ const ScreenmateOneComplectation: React.FC = () => {
                                 key={slug}
                                 className={`screenmate-one__complectation-group-grid-item ${slug}`}
                                 style={{ gridArea: slug }}
-                                slug={slug}
                                 {...item}
                                 onAdd={() => handleAddToCart(item.id)}
-                            />                            
+                            />
                         ))}
                     </div>
                 </div>

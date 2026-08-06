@@ -26,8 +26,40 @@
                 @extend %w-full, %grid, %gap-0, %overflow-hidden, %mob\:w-full;
                 @include responsive(border-radius, 24px);
 
+                &.box {
+                    @include responsive(grid-template-columns, 550px, 371px, 371px);
+                    grid-template-rows: 1fr 1fr;
+                    grid-template-areas: 
+                        'device    holder       tool'
+                        'device    data_wire    video_wire'
+                    ;
+                }
+
+                &.add {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: 'charger splitter';
+                }
+
                 @include mobile() {
                     @include responsive(border-radius, 12px);
+
+                    &.box {
+                        @include responsive(grid-template-rows, 323px, 172px, 172px);
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: 
+                            'device    device'
+                            'holder    tool'
+                            'data_wire video_wire'
+                        ;
+                    }
+
+                    &.add {
+                        grid-template-rows: 1fr 1fr;
+                        grid-template-areas: 
+                            'charger'
+                            'splitter'
+                        ;
+                    }
                 }
 
                 &-item {
