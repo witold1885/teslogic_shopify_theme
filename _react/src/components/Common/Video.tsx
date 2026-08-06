@@ -19,7 +19,7 @@ export interface VideoRefMethods {
 
 const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, fetchpriority = 'auto', autoPlay = true, loop = true, isActive = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
-    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href + '#t=0.001'
+    const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
 
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
     // const [isReadyToPlay, setIsReadyToPlay] = useState<boolean>(false)
