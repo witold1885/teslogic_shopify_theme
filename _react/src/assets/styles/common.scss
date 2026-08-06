@@ -44,15 +44,12 @@ body {
 }
 
 @include m.mobile() {
-    .mob\ {
+    .mob\:hidden {
+        display: hidden !important;
+    }
 
-        &:hidden {
-            display: hidden !important;
-        }
-
-        &:block {
-            display: block !important;
-        }
+    .mob\:block {
+        display: block !important;
     }
 }
 

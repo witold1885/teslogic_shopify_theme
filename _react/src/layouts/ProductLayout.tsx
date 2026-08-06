@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
-import '@/assets/styles/cookies-banner.scss'
+// import '@/assets/styles/cookies-banner.scss'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
 

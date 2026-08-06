@@ -53,9 +53,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% render 'meta-tags' %}
 
-    {{ content_for_header }}
-
     {% unless template == 'index' or page.handle == 'screenmate' or page.handle == 'screenmate-one-react' %}
+
+    {{ content_for_header }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
