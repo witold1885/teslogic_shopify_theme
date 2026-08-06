@@ -79,7 +79,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <div className="flex-end-start gap-28 mob:flex-column-between mob:flex-1 mob:gap-0">
+        <div className="header-menu">
             <div {...{className}}>
                 {menu.map(({ title, children }, index) => {
                     const isOpen = openMenuIndex === index

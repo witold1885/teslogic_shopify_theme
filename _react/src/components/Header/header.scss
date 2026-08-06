@@ -39,6 +39,7 @@
     }
 
     &-menu {
+        @extend %flex-end-start, %gap-28, %mob\:flex-column-between, %mob\:flex-1, %mob\:gap-0;
 
         &-desktop {
             @extend %flex-end-start, %gap-20, %text-white;

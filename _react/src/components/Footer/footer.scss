@@ -13,8 +13,31 @@
         @include responsive(padding, 40px, 0);
     }
 
+    & .container {
+        @extend %flex-column, %gap-64, %mob\:gap-40;
+    }
+
     &-form {
         @extend %flex-between, %mob\:flex-column, %mob\:gap-32;
+
+        & > div {
+
+            &:first-child {
+                @extend %flex-column, %gap-12, %mob\:gap-8;
+            }
+
+            &:last-child {
+                @extend %flex-end-center, %mob\:flex-column, %gap-24;
+            }
+        }
+
+        &-title {
+            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
+        }
+
+        &-subtitle {
+            @extend %font-manrope-16;
+        }
 
         &-field {
             @extend %relative;
@@ -137,6 +160,21 @@
             & br {
                 display: none;
             }
+        }
+
+        & > div {
+
+            &:first-child {
+                @extend %flex-column, %gap-12;
+            }
+
+            &:last-child {
+                @extend %flex-end-center, %gap-16, %mob\:w-full, %mob\:flex-column-start, %mob\:gap-24;
+            }
+        }
+
+        &-payments {
+            @extend %flex-end-center, %gap-8, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
         }
     }
 

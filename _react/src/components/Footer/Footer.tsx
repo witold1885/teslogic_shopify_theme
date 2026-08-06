@@ -174,13 +174,13 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="footer">
-            <div className="container flex-column gap-64 mob:gap-40">
+            <div className="container">
                 <div {...anime('form')} className="footer-form">
-                    <div className="flex-column gap-12 mob:gap-8">
-                        <div className="font-manrope-24 mob:font-manrope-18 font-500">Sign Up for Our Newsletter</div>
-                        <div className="font-manrope-16">Stay informed about sales, updates and new products launches.</div>
+                    <div>
+                        <div className="footer-form-title">Sign Up for Our Newsletter</div>
+                        <div className="footer-form-subtitle">Stay informed about sales, updates and new products launches.</div>
                     </div>
-                    <div className="flex-end-center mob:flex-column gap-24">
+                    <div>
                         <div className="footer-form-field">
                             <input name="email" type="email" placeholder="Enter your email adress" value={data.email} onChange={handleInputChange} />
                             {errors.email && <span className="footer-form-field-error">{errors.email}</span>}
@@ -203,15 +203,15 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="footer-delimiter"></div>
                 <div className="footer-bottom">
-                    <div {...anime('text')} className="flex-column gap-12">
+                    <div {...anime('text')}>
                         <div>
                             Tesla, Model 3, Model Y, Model S, Model X are trademarks or registered trademarks of their respective <br />
                             holders. Any references to these trademarks do not imply any affiliation or endorsement.
                         </div>
                         <div>SCREENMATE™ is a registered trademark.</div>
                     </div>
-                    <div className="flex-end-center gap-16 mob:w-full mob:flex-column-start mob:gap-24">
-                        <div {...anime('payments')} className="flex-end-center gap-8 mob:w-full mob:flex-between mob:gap-0">
+                    <div>
+                        <div {...anime('payments')} className="footer-bottom-payments">
                             {Object.values(paymentIcons).map((icon, index) => (
                                 <Icon className="flex-center" icon={icon as unknown as string} key={index} />
                             ))}
