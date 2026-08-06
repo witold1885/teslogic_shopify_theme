@@ -106,7 +106,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
             // // setIsReadyToPlay(false)
             setIsLoaded(false)
         }
-    }, [isIntersecting, isActive, finalSrc, autoPlay])
+    }, [isIntersecting, isActive/*, finalSrc*/, autoPlay])
 
     useImperativeHandle(ref, () => ({
         play: () => {
@@ -160,10 +160,10 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 x5-playsinline="true"
                 // @ts-ignore
                 webkit-playsinline="true"
-                // preload="metadata"
-                preload={isIntersecting ? 'metadata' : 'none'}
+                preload="metadata"
+                // preload={isIntersecting ? 'metadata' : 'none'}
                 // onLoadedMetadata={() => {
-                //     if (isIntersecting && autoPlay) {
+                //     if (isIntersecting && isActive && autoPlay) {
                 //         safePlay()
                 //     }
                 // }}
