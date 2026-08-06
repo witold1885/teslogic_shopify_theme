@@ -36,11 +36,11 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
     return (
         <div className="screenmate-one__banner relative">
             <Video className="screenmate-one__banner-video" {...videoParams} fetchpriority="high" />
-            <div className="container h-full relative">
+            <div className="container">
                 <div className="screenmate-one__banner-inner">
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
                     <h1 {...anime('title')}>The ultimate Tesla multimedia upgrade</h1>
-                    <div className="flex gap-24">
+                    <div className="screenmate-one__banner-inner-buttons">
                         <Button onClick={onOrder}>
                             <span>order now</span>
                         </Button>

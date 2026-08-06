@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                                 <Icon className="flex-center" icon={icon as unknown as string} key={index} />
                             ))}
                         </div>
-                        <div {...anime('copyright')} className="text-white">© {new Date().getFullYear()} Screenmate</div>
+                        <div {...anime('copyright')} className="footer-bottom-copyright">© {new Date().getFullYear()} Screenmate</div>
                     </div>
                 </div>
             </div>

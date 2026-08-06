@@ -47,14 +47,14 @@ interface AddItemProps {
 }
 
 const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, slug, name, image, imageStyle }, ref) => (
-    <div ref={ref} className={`${className} flex-column-center-end`} style={style}>
+    <div ref={ref} {...{className, style}}>
         <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={name} />
         <div className={`font-manrope-${slug === 'device' ? '24' : '20'} mob:font-manrope-${slug === 'device' ? '18' : '14'} font-500`}>{name}</div>
     </div>
 ))
 
 const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, price, oldPrice, description, compatible, onAdd }, ref) => (
-    <div ref={ref} className={`${className} flex-start-center gap-24 mob:flex-column-center mob:gap-20`} style={style}>
+    <div ref={ref} {...{className, style}}>
         <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
         <div className="flex-column gap-24 mob:gap-20">
             <div className="flex-column gap-20 mob:gap-16">
@@ -169,7 +169,7 @@ const getGroups = (
                         connect two devices simultaneously <br />
                         through one connector.
                     </>,
-                    compatible: <div className="flex gap-12 mob:w-full mob:flex-between mob:gap-0">
+                    compatible: <div className="screenmate-one__complectation-group-grid-item-compatible">
                         {['Model 3 ‘21+', 'Model Y', 'Model S', 'Model X'].map((model, index, array) => (
                             <Fragment key={index}>
                                 <span>{model}</span>
@@ -226,7 +226,7 @@ const ScreenmateOneComplectation: React.FC = () => {
         <div className="screenmate-one__complectation">
             {Object.entries(groups).map(([key, { title, gridStyle, items, itemComponent: Item }]) => (
                 <div className="screenmate-one__complectation-group" key={key}>
-                    <div {...anime(`${key}-title`)} className="font-manrope-52 mob:font-manrope-32 font-600">{title}</div>
+                    <div {...anime(`${key}-title`)} className="screenmate-one__complectation-group-title">{title}</div>
                     <div
                         {...anime(`${key}-grid`)}
                         className={`screenmate-one__complectation-group-grid ${key}`}

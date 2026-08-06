@@ -176,6 +176,10 @@
         &-payments {
             @extend %flex-end-center, %gap-8, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
         }
+
+        &-copyright {
+            @extend %text-white;
+        }
     }
 
     &-delimiter {

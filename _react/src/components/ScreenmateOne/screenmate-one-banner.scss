@@ -15,6 +15,10 @@
             @include responsive(min-height, 768px);
         }
 
+        & .container {
+            @extend %h-full, %relative;
+        }
+
         &-video {
             @extend %absolute, %inset;
 
@@ -64,6 +68,10 @@
                     @include responsive(line-height, 44px);
                     @include responsive(margin-bottom, 28px);
                 }
+            }
+
+            &-buttons {
+                @extend %flex, %gap-24;
             }
 
             & button {

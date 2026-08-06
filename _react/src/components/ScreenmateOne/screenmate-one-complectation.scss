@@ -18,6 +18,10 @@
         &-group {
             @extend %container, %flex-column, %gap-60, %mob\:gap-32;
 
+            &-title {
+                @extend %font-manrope-52, %mob\:font-manrope-32, %font-600;
+            }
+
             &-grid {
                 @extend %w-full, %grid, %gap-0, %overflow-hidden, %mob\:w-full;
                 @include responsive(border-radius, 24px);
@@ -30,6 +34,7 @@
                     background: #2F2F32;
 
                     .box & {
+                        @extend %flex-column-center-end;
                         @include responsive(padding-bottom, 36px);
 
                         @include mobile() {
@@ -46,6 +51,7 @@
                     }
 
                     .add & {
+                        @extend %flex-start-center, %gap-24, %mob\:flex-column-center, %mob\:gap-20;
                         @include responsive(padding, 52px, 0, 56px, 32px);
 
                         @include mobile() {
@@ -90,6 +96,10 @@
 
                     & .icon {
                         @include square(24px);
+                    }
+
+                    &-compatible {
+                        @extend %flex, %gap-12, %mob\:w-full, %mob\:flex-between, %mob\:gap-0;
                     }
                 }
             }
