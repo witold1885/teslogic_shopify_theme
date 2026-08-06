@@ -16,6 +16,12 @@ export interface AnimationConfig extends Record<string, any> {
 
 const defaultDuration: number = 333
 
+interface ValidElement {
+    key: string
+    el: HTMLElement
+    config: AnimationConfig
+}
+
 export type AnimationMode = 'show' | 'hide' | 'shift'
 export type AnimationDirection = 'top' | 'bottom'
 
@@ -27,37 +33,37 @@ const getDomElement = (target: HTMLElement | VideoRefMethods | null): HTMLElemen
     return target as HTMLElement
 }
 
-const observers = new Map<string, IntersectionObserver>()
-const handlers = new WeakMap<Element, () => void>()
+// const observers = new Map<string, IntersectionObserver>()
+// const handlers = new WeakMap<Element, () => void>()
 
-const getObserver = (rootMargin: string) => {
-    let observer = observers.get(rootMargin)
+// const getObserver = (rootMargin: string) => {
+//     let observer = observers.get(rootMargin)
 
-    if (!observer) {
-        observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return
+//     if (!observer) {
+//         observer = new IntersectionObserver((entries) => {
+//             entries.forEach((entry) => {
+//                 if (!entry.isIntersecting) return
 
-                const element = entry.target as HTMLElement
+//                 const element = entry.target as HTMLElement
 
-                const handler = handlers.get(element)
+//                 const handler = handlers.get(element)
 
-                if (handler) {
-                    handlers.delete(element)
-                    observer!.unobserve(element)
-                    handler()
-                }
-            })
-        }, {
-            rootMargin,
-            threshold: 0.1
-        })
+//                 if (handler) {
+//                     handlers.delete(element)
+//                     observer!.unobserve(element)
+//                     handler()
+//                 }
+//             })
+//         }, {
+//             rootMargin,
+//             threshold: 0.1
+//         })
 
-        observers.set(rootMargin, observer)
-    }
+//         observers.set(rootMargin, observer)
+//     }
 
-    return observer
-}
+//     return observer
+// }
 
 export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const targetsRef = useRef<Record<string, HTMLElement | VideoRefMethods | null>>({})
@@ -65,56 +71,150 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
     const lastAnimationStartRef = useRef<number>(0)
     const lastAnimationDurationRef = useRef<number>(0)
 
+    const configsKey = Object.keys(configs).join(',')
+
     useEffect(() => {
-        Object.entries(configs).forEach(([key, config]) => {
-            const target = getDomElement(targetsRef.current[key])
-            if (!target) return
+        const validElements: ValidElement[] = []
 
-            const rootMargin = config.rootMargin ?? '0px 0px -10% 0px'
-            const observer = getObserver(rootMargin)
+        Object.keys(configs).forEach((key) => {
+            const el = getDomElement(targetsRef.current[key])
+            if (el) {
+                validElements.push({ key, el, config: configs[key] })
+            }
+        })
 
-            handlers.set(target, () => {
-                const now = performance.now()
-                const duration = config.duration ?? defaultDuration
-                const half = lastAnimationDurationRef.current / 2
-                const passed = now - lastAnimationStartRef.current
+        if (validElements.length === 0) return
 
-                let delay = config.delay ?? 0
+        const animations: Record<string, any> = {}
 
-                if (config.stagger !== false && passed < half) {
-                    delay += half - passed
-                }
+        validElements.forEach(({ key, el, config }) => {
+            animations[key] = animate(el, {
+                autoplay: false,
+                ...config
+            })
+        })
 
-                const run = () => {
-                    animate(target, {
-                        ease: 'outSine',
-                        ...config,
-                        onComplete: () => {
-                            target.classList.add('anime-finished')
-                            target.style.setProperty('--is-finished', '1')
+        const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
+            const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
+            if (!acc[rootMargin]) acc[rootMargin] = []
+            acc[rootMargin].push(item)
+            return acc
+        }, {})
+
+        const observers: IntersectionObserver[] = []        
+
+        Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const targetElement = entry.target as HTMLElement
+
+                            const found = validElements.find(item => item.el === targetElement)
+                            if (!found) return
+
+                            const { key, config } = found
+                            const currentAnim = animations[key]
+                            if (!currentAnim) return
+
+                            const now = performance.now()
+                            const duration = config.duration || defaultDuration
+
+                            const timePassedSinceLastStart = now - lastAnimationStartRef.current
+                            const halfOfLastDuration = lastAnimationDurationRef.current / 2
+
+                            let delay = config.delay || 0
+
+                            if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
+                                delay = halfOfLastDuration - timePassedSinceLastStart
+                            }
+
+                            const startAnimation = () => {
+                                currentAnim.play().then(() => {
+                                    targetElement?.classList?.add('anime-finished')
+                                    targetElement.style.setProperty('--is-finished', '1')
+                                }).catch(() => {})
+
+                                lastAnimationStartRef.current = performance.now()
+                                lastAnimationDurationRef.current = duration
+                            }
+
+                            if (delay === 0) {
+                                startAnimation()
+                            } else {
+                                const timer = window.setTimeout(() => {
+                                    startAnimation()
+                                }, delay)
+                                timeoutsRef.current.push(timer)
+                            }
+
+                            observer.unobserve(targetElement)
                         }
                     })
+                },
+                { root: null, rootMargin, threshold: 0.1 }
+            )
 
-                    lastAnimationStartRef.current = performance.now()
-                    lastAnimationDurationRef.current = duration
-                }
-
-                if (delay) {
-                    const id = window.setTimeout(run, delay)
-                    timeoutsRef.current.push(id)
-                } else {
-                    run()
-                }
-
-            })
-
-            observer.observe(target)
+            elements.forEach(({ el }) => observer.observe(el))
+            observers.push(observer)
         })
 
         return () => {
+            observers.forEach(observer => observer.disconnect())
             timeoutsRef.current.forEach(clearTimeout)
         }
-    }, [configs])
+    }, [configsKey])
+
+    // useEffect(() => {
+    //     Object.entries(configs).forEach(([key, config]) => {
+    //         const target = getDomElement(targetsRef.current[key])
+    //         if (!target) return
+
+    //         const rootMargin = config.rootMargin ?? '0px 0px -10% 0px'
+    //         const observer = getObserver(rootMargin)
+
+    //         handlers.set(target, () => {
+    //             const now = performance.now()
+    //             const duration = config.duration ?? defaultDuration
+    //             const half = lastAnimationDurationRef.current / 2
+    //             const passed = now - lastAnimationStartRef.current
+
+    //             let delay = config.delay ?? 0
+
+    //             if (config.stagger !== false && passed < half) {
+    //                 delay += half - passed
+    //             }
+
+    //             const run = () => {
+    //                 animate(target, {
+    //                     ease: 'outSine',
+    //                     ...config,
+    //                     onComplete: () => {
+    //                         target.classList.add('anime-finished')
+    //                         target.style.setProperty('--is-finished', '1')
+    //                     }
+    //                 })
+
+    //                 lastAnimationStartRef.current = performance.now()
+    //                 lastAnimationDurationRef.current = duration
+    //             }
+
+    //             if (delay) {
+    //                 const id = window.setTimeout(run, delay)
+    //                 timeoutsRef.current.push(id)
+    //             } else {
+    //                 run()
+    //             }
+
+    //         })
+
+    //         observer.observe(target)
+    //     })
+
+    //     return () => {
+    //         timeoutsRef.current.forEach(clearTimeout)
+    //     }
+    // }, [configs])
 
     const setRef = useCallback((key: string) => (el: HTMLElement | VideoRefMethods | null) => {
         if (el) {
