@@ -79,13 +79,13 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const prices: { current?: number | null; old?: number | null } = useMemo(() => {
         let current = null, old = null
-        console.log({ product })
         if (product) {
             current = product.maxPrice, old = product.oldPrice
             if (selectedModel) {
                 current = selectedModel.price, old = selectedModel.oldPrice
             }
         }
+        console.log({ product, selectedModel, current, old })
         return { current, old }
     }, [product, selectedModel])
 
