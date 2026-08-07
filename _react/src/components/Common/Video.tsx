@@ -167,6 +167,11 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 //         safePlay()
                 //     }
                 // }}
+                onCanPlay={() => {
+                    if (isIntersecting && isActive && autoPlay) {
+                        safePlay()
+                    }
+                }}
                 onPlaying={() => setIsLoaded(true)}
                 // preload={isIntersecting && isActive ? 'auto' : 'none'}
                 // onCanPlayThrough={() => setIsReadyToPlay(true)}
