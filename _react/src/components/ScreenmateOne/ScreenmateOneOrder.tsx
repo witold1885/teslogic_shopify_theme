@@ -77,8 +77,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         setSelectedModel(model)
     }
 
-    const prices: { current?: number | null, old?: number | null } = useMemo(() => {
+    const prices: { current?: number | null; old?: number | null } = useMemo(() => {
         let current = null, old = null
+        console.log({ product })
         if (product) {
             current = product.maxPrice, old = product.oldPrice
             if (selectedModel) {
