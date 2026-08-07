@@ -47,7 +47,7 @@ const externalUrls: Record<string, string> = {
 
 const isProd: boolean = import.meta.env.PROD
 const getDevUrl = (name: string, dir?: string) => new URL(`./${dir ? `${dir}/` : ''}${name}.mp4`, import.meta.url).href
-
+/*
 // export const bannerDesktop = isProd ? externalUrls.bannerDesktop : getDevUrl('banner-desktop')
 export const bannerDesktop = isProd ? externalUrls.bannerDesktop : getDevUrl('web/banner-desktop-web')
 // export const bannerMobile = isProd ? externalUrls.bannerMobile : getDevUrl('banner-mobile')
@@ -92,3 +92,31 @@ export const socialMobile = isProd ? externalUrls.socialMobile : getDevUrl('web/
 export const streamingDesktop = isProd ? externalUrls.streamingDesktop : getDevUrl('web/streaming-desktop-web')
 // export const streamingMobile = isProd ? externalUrls.streamingMobile : getDevUrl('streaming-mobile')
 export const streamingMobile = isProd ? externalUrls.streamingMobile : getDevUrl('web/streaming-mobile-web')
+*/
+
+export const bannerDesktop = getDevUrl('web/banner-desktop-web')
+export const bannerMobile = getDevUrl('web/banner-mobile-web')
+
+export const beyondBasicControlsDesktop = getDevUrl('web/beyond-basic-controls-desktop-web')
+export const beyondBasicControlsMobile = getDevUrl('web/beyond-basic-controls-mobile-web')
+
+export const carPlayAndAndroidAutoDesktop = getDevUrl('web/car-play-and-android-auto-desktop-web')
+export const carPlayAndAndroidAutoMobile = getDevUrl('web/car-play-and-android-auto-mobile-web')
+
+export const connectConsolesDesktop = getDevUrl('web/connect-consoles-desktop-web')
+export const connectConsolesMobile = getDevUrl('web/connect-consoles-mobile-web')
+
+export const dualViewModeDesktop = getDevUrl('web/dual-view-mode-desktop-web')
+export const dualViewModeMobile = getDevUrl('web/dual-view-mode-mobile-web')
+
+export const gamingDesktop = getDevUrl('web/gaming-desktop-web')
+export const gamingMobile = getDevUrl('web/gaming-mobile-web')
+
+export const navigationDesktop = getDevUrl('web/navigation-desktop-web')
+export const navigationMobile = getDevUrl('web/navigation-mobile-web')
+
+export const socialDesktop = getDevUrl('web/social-desktop-web')
+export const socialMobile = getDevUrl('web/social-mobile-web')
+
+export const streamingDesktop = getDevUrl('web/streaming-desktop-web')
+export const streamingMobile = getDevUrl('web/streaming-mobile-web')
