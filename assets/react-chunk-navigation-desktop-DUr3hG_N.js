@@ -1,0 +1,1 @@
+var e=``+new URL(`react-navigation-desktop-CUVY3l3a.mp4`,import.meta.url).href;export{e as default};

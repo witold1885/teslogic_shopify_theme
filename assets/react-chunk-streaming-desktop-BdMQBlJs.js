@@ -1,0 +1,1 @@
+var e=``+new URL(`react-streaming-desktop-CKdhCqel.mp4`,import.meta.url).href;export{e as default};

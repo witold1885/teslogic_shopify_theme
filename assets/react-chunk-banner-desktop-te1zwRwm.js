@@ -1,0 +1,1 @@
+var e=``+new URL(`react-banner-desktop-D1hH7VCo.mp4`,import.meta.url).href;export{e as default};

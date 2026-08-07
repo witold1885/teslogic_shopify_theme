@@ -1,0 +1,1 @@
+var e=``+new URL(`react-car-play-and-android-auto-desktop-DX-fXZBB.mp4`,import.meta.url).href;export{e as default};
