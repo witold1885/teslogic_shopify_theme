@@ -15,7 +15,7 @@ interface ProductLayoutProps {
 }
 
 const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {   
-    useExternalScripts(EXTERNAL_SCRIPTS)
+    // useExternalScripts(EXTERNAL_SCRIPTS)
 
     useEffect(() => {
         if (window.history && 'scrollRestoration' in window.history) {
