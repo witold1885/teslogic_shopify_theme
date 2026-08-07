@@ -1,48 +1,48 @@
 const externalUrls: Record<string, string> = {
     // bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/e844591cfe6b4ff38cdba0979cbb5254.mp4',
-    bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/b866bbcdcbc44961ac4991f384fbac72.mp4',
+    bannerDesktop: 'https://cdn.shopify.com/videos/c/o/v/76afa7d5a0f246f1b1917cedc1319757.mp4',
     // bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/4e5a56ce184549368a5e391aaba75205.mp4',
-    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/ef2bb101f4de433cbed447d8919e7aa8.mp4',
+    bannerMobile: 'https://cdn.shopify.com/videos/c/o/v/cd44b72fea20410ba570e4b0225cd25c.mp4',
 
     // beyondBasicControlsDesktop: 'https://cdn.shopify.com/videos/c/o/v/8373787401d0407a8187fc788e973661.mp4',
-    beyondBasicControlsDesktop: 'https://cdn.shopify.com/videos/c/o/v/01b2a410dbfd4563be56d0e4b2dd1cbe.mp4',
+    beyondBasicControlsDesktop: 'https://cdn.shopify.com/videos/c/o/v/c934fdc8378e47cdab8c16173de3b2dd.mp4',
     // beyondBasicControlsMobile: 'https://cdn.shopify.com/videos/c/o/v/978aff40f5c645d599e36daabf76585a.mp4',
-    beyondBasicControlsMobile: 'https://cdn.shopify.com/videos/c/o/v/2762fe054ef04bcab8f0b41cb867b266.mp4',
+    beyondBasicControlsMobile: 'https://cdn.shopify.com/videos/c/o/v/f93109fb48ba40738b6a55831f8f5823.mp4',
 
     // carPlayAndAndroidAutoDesktop: 'https://cdn.shopify.com/videos/c/o/v/03a53abb1046411b9a1c1828765a94a1.mp4',
-    carPlayAndAndroidAutoDesktop: 'https://cdn.shopify.com/videos/c/o/v/b3b4f042f8054ff3b9fe4d13ac778ad0.mp4',
+    carPlayAndAndroidAutoDesktop: 'https://cdn.shopify.com/videos/c/o/v/ad373295e1414eb684d1887cd2d7b93a.mp4',
     // carPlayAndAndroidAutoMobile: 'https://cdn.shopify.com/videos/c/o/v/91ae2ac7bec249ac8bbb1f1ac8aee96b.mp4',
-    carPlayAndAndroidAutoMobile: 'https://cdn.shopify.com/videos/c/o/v/a55ae704f44249b0be0c059bb314fdd6.mp4',
+    carPlayAndAndroidAutoMobile: 'https://cdn.shopify.com/videos/c/o/v/00f9b703080a4b09b4cb9811ef82a69c.mp4',
 
     // connectConsolesDesktop: 'https://cdn.shopify.com/videos/c/o/v/2fcc7c5f78a14caf938806bdce41972a.mp4',
-    connectConsolesDesktop: 'https://cdn.shopify.com/videos/c/o/v/d8f124219f0241e08350f845bbeaa66a.mp4',
+    connectConsolesDesktop: 'https://cdn.shopify.com/videos/c/o/v/5ce255ace5174691bec5915850a7f1a2.mp4',
     // connectConsolesMobile: 'https://cdn.shopify.com/videos/c/o/v/cdbc8c6f1cca451fa6530ef3f3daa99a.mp4',
-    connectConsolesMobile: 'https://cdn.shopify.com/videos/c/o/v/433a6d29ac10494e9bdd7d53c089bf31.mp4',
+    connectConsolesMobile: 'https://cdn.shopify.com/videos/c/o/v/71c241e2bb524527a61693a1bff8565e.mp4',
 
     // dualViewModeDesktop: 'https://cdn.shopify.com/videos/c/o/v/8e794f7b730744ab85a72503ad8f869f.mp4',
-    dualViewModeDesktop: 'https://cdn.shopify.com/videos/c/o/v/b16923b6dbb044abbd3851178639f53f.mp4',
+    dualViewModeDesktop: 'https://cdn.shopify.com/videos/c/o/v/b64205c13a1b4e46abf2d4c43ad94c40.mp4',
     // dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/a785ec13d29e48d9922e1b0a64c68df6.mp4',
-    dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/ec9fbc82e31a4c45ad19cc5e0261cdc0.mp4',
+    dualViewModeMobile: 'https://cdn.shopify.com/videos/c/o/v/8530d6846dc04f0b92017eca1df23804.mp4',
 
     // gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/c5ca80ab75a74c58b6effe22d99d461a.mp4',
-    gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/21cba75f3cf74e22a7247a6f8f529cbe.mp4',
+    gamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/5bddaed7556d49ccb34e095bc25f0ec8.mp4',
     // gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/ee2f4bcce53a4a888f033c2f607377a0.mp4',
-    gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/92b81f82ac05423596f65e34d60f8e76.mp4',
+    gamingMobile: 'https://cdn.shopify.com/videos/c/o/v/8063b2dd13ae401a8dad3359d90a5cc3.mp4',
 
     // navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/7f713217611b494dabd63f9c8a3d8eac.mp4',
-    navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/a3b0f588b2064c3196e695a0a8f0a63b.mp4',
+    navigationDesktop: 'https://cdn.shopify.com/videos/c/o/v/fbafc781db85480882c9b87b0012af41.mp4',
     // navigationMobile: 'https://cdn.shopify.com/videos/c/o/v/47ba5020c3454261a34371661175bff9.mp4',
-    navigationMobile: 'https://cdn.shopify.com/videos/c/o/v/4bc2ac99685f4f64aca90114675b83fd.mp4',
+    navigationMobile: 'https://cdn.shopify.com/videos/c/o/v/48be1bcb10ca42aa9fe9f8521c09f7a8.mp4',
 
     // socialDesktop: 'https://cdn.shopify.com/videos/c/o/v/75239955719549bb99e73700f4acdf86.mp4',
-    socialDesktop: 'https://cdn.shopify.com/videos/c/o/v/78d952ebf4cf4b1bac66833d3190c33d.mp4',
+    socialDesktop: 'https://cdn.shopify.com/videos/c/o/v/84bd734ff2c64cefa6d60b8c10db2e5f.mp4',
     // socialMobile: 'https://cdn.shopify.com/videos/c/o/v/8bde54067a384bbcbc54f277f2a9e3f4.mp4',
-    socialMobile: 'https://cdn.shopify.com/videos/c/o/v/cbe5fa75bf3e41868b51c23e8358e741.mp4',
+    socialMobile: 'https://cdn.shopify.com/videos/c/o/v/14ae50ad3dce4c8f90816e37d6f5d744.mp4',
 
     // streamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/3a994b55a1b444f0ba3b96ee2d90dff7.mp4',
-    streamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/e3a4e360b60a4b598e9ef3df9407d04b.mp4',
+    streamingDesktop: 'https://cdn.shopify.com/videos/c/o/v/b16bdf37aae44d94b0eaf956af127f51.mp4',
     // streamingMobile: 'https://cdn.shopify.com/videos/c/o/v/3d0512c1e70140f89cf732cd46e4c3da.mp4',
-    streamingMobile: 'https://cdn.shopify.com/videos/c/o/v/4054fbd514e843a19bf6defecfa24f8f.mp4',
+    streamingMobile: 'https://cdn.shopify.com/videos/c/o/v/81b90629e0e44a7c8ae1362d3ff4986c.mp4',
 }
 
 const isProd: boolean = import.meta.env.PROD
