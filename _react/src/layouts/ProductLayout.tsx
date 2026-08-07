@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 // import '@/assets/styles/cookies-banner.scss'
+import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
 
@@ -13,7 +14,9 @@ interface ProductLayoutProps {
     children?: ReactNode
 }
 
-const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {    
+const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {   
+    useExternalScripts(EXTERNAL_SCRIPTS)
+
     useEffect(() => {
         if (window.history && 'scrollRestoration' in window.history) {
             window.history.scrollRestoration = 'manual'
