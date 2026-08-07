@@ -1,6 +1,7 @@
 export interface Model {
     id: number,
     title: string
+    sku?: string
     price?: number
     oldPrice?: number
 }

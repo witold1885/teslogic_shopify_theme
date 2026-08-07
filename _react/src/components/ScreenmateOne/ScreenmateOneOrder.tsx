@@ -74,7 +74,6 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const handleModelSelect = (modelId: number) => {
         setError(false)
         const model = product?.models?.find(({ id }) => id === modelId) || null
-        console.log({ model })
         setSelectedModel(model)
     }
 
@@ -209,9 +208,11 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                         </span>
                                     </div>
                                 ))}
-                                <div className="screenmate-one__order-form-details-delivery">
-                                    Delivery timeline: <span>September</span>
-                                </div>
+                                {selectedModel?.sku === 'TS12' && (
+                                    <div className="screenmate-one__order-form-details-delivery">
+                                        Delivery timeline: <span>September</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
