@@ -74,6 +74,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const handleModelSelect = (modelId: number) => {
         setError(false)
         const model = product?.models?.find(({ id }) => id === modelId) || null
+        console.log({ model })
         setSelectedModel(model)
     }
 
@@ -98,7 +99,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     }
 
     const details = useMemo(() => [
-        { icon: shipping, main: 'Free shipping', add: !isMobile ? 'within the United States & Europe' : 'for the U.S. & Europe' },
+        { icon: shipping, main: 'Free shipping', add: !isMobile ? 'within the United States' : 'for the U.S.' },
         { icon: warranty, main: '3-year full warranty', add: 'for Screenmate ONE' },
     ], [isMobile])
 
@@ -200,7 +201,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             </Button>
                             <div {...anime('details')} className="screenmate-one__order-form-details">
                                 {details.map(({ icon, main, add }, index) => (
-                                    <div key={index}>
+                                    <div className="screenmate-one__order-form-details-item" key={index}>
                                         <Icon {...{icon}} />
                                         <span>
                                             <span>{main}</span>&nbsp;
@@ -208,6 +209,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                         </span>
                                     </div>
                                 ))}
+                                <div className="screenmate-one__order-form-details-delivery">
+                                    Delivery timeline: <span>September</span>
+                                </div>
                             </div>
                         </div>
                     </div>

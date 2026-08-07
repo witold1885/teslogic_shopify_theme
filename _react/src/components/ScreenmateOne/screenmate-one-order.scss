@@ -199,7 +199,7 @@
             &-details {
                 @extend %flex-column, %gap-12;
 
-                & > div {
+                &-item {
                     @extend %flex, %gap-8;
 
                     & .icon {
@@ -219,6 +219,15 @@
                                 @extend %font-500;
                             }
                         }
+                    }
+                }
+
+                &-delivery {
+                    @extend %font-manrope-16, %font-500;
+                    @include responsive(margin-top, 12px);
+
+                    & span {
+                        @extend %text-blue, %font-600;
                     }
                 }
             }
