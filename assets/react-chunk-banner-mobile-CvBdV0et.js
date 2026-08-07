@@ -1,1 +1,0 @@
-var e=``+new URL(`react-banner-mobile-FcIjOkg8.mp4`,import.meta.url).href;export{e as default};

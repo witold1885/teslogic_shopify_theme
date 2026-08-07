@@ -1,1 +1,0 @@
-var e=``+new URL(`react-streaming-mobile-BNZ6n93Z.mp4`,import.meta.url).href;export{e as default};

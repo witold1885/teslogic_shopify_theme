@@ -1,1 +1,0 @@
-var e=``+new URL(`react-navigation-mobile-QZ4vgUHH.mp4`,import.meta.url).href;export{e as default};

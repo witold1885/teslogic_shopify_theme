@@ -1,1 +1,0 @@
-var e=``+new URL(`react-connect-consoles-desktop-BcCdxRq-.mp4`,import.meta.url).href;export{e as default};

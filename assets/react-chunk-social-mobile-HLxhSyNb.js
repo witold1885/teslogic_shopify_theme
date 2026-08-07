@@ -1,1 +1,0 @@
-var e=``+new URL(`react-social-mobile-DSwTc0yJ.mp4`,import.meta.url).href;export{e as default};
