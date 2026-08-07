@@ -23,18 +23,6 @@ body {
     box-sizing: border-box;
 }
 
-// @include flexbox.generate-flex-classes();
-// @include layout.generate-base-classes();
-// @include fonts.generate-font-classes();
-// @include text.generate-text-classes();
-
-// @include m.mobile() {
-//     @include flexbox.generate-flex-classes("mob");
-//     @include layout.generate-base-classes("mob");
-//     @include fonts.generate-font-classes("mob");
-//     @include text.generate-text-classes("mob");
-// }
-
 .hidden {
     display: none !important;
 }

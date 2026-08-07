@@ -30,7 +30,3 @@ $textColors: (
 @include mobile() {
     @include render-text-core("placeholder", "mob");
 }
-
-@mixin generate-text-classes($prefix: "") {
-    @include render-text-core("class", $prefix);
-}

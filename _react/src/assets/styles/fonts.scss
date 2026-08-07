@@ -65,7 +65,3 @@ $weights: 400, 500, 600, 700, 800, 900;
 @include mobile() {
     @include render-font-core("placeholder", "mob");
 }
-
-@mixin generate-font-classes($prefix: "") {
-    @include render-font-core("class", $prefix);
-}

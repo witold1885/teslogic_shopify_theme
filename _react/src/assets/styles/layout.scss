@@ -69,7 +69,3 @@ $positionMap: (
 @include mobile() {
     @include render-base-core("placeholder", "mob");
 }
-
-@mixin generate-base-classes($prefix: "") {
-    @include render-base-core("class", $prefix);
-}
