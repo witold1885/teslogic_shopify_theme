@@ -85,7 +85,6 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 current = selectedModel.price, old = selectedModel.oldPrice
             }
         }
-        console.log({ product, selectedModel, current, old })
         return { current, old }
     }, [product, selectedModel])
 
@@ -160,9 +159,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         <div>
                             <div {...anime('name')} className="screenmate-one__order-form-name">{product.title}</div>
                             <div {...anime('prices')} className="screenmate-one__order-form-prices">
-                                <span>{prices.current} USD</span>
+                                <span className="screenmate-one__order-form-prices-current">{prices.current} USD</span>
                                 {(prices.old || 0) > (prices.current || 0) && (
-                                    <span>{prices.old} USD</span>
+                                    <span className="screenmate-one__order-form-prices-old">{prices.old} USD</span>
                                 )}
                             </div>
                         </div>

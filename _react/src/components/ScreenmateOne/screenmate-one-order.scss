@@ -143,15 +143,16 @@
             &-prices {
                 @extend %flex-start-center, %gap-12;
 
+                &-current {
+                    @extend %font-manrope-36, %text-blue;
+                }
+
+                &-old {
+                    @extend %font-manrope-32, %text-grey, %line-through;
+                }
+
                 & span {
-
-                    &:first-child {
-                        @extend %font-manrope-36, %mob\:font-manrope-24, %font-600, %text-blue;
-                    }
-
-                    &:last-child {
-                        @extend %font-manrope-32, %mob\:font-manrope-24, %font-600, %text-grey, %line-through;
-                    }
+                    @extend %mob\:font-manrope-24, %font-600;
                 }
             }
 
