@@ -41,20 +41,20 @@
             &-wrap {
                 @extend %mob\:gap-32, %relative;
 
-                .dual-view-mode &, .key-driving-info & {
-                    @extend %flex-column;
-                }
-
                 .dual-view-mode & {
                     @extend %gap-56;
                 }
 
+                .dual-view-mode &, .key-driving-info & {
+                    @extend %flex-column, %mob\:gap-32;
+                }
+
                 .beyond-basic-control & {
-                    @extend %flex-between-end, %flex-wrap, %gap-60;
+                    @extend %flex-between-end, %flex-wrap, %gap-60, %mob\:gap-32;
                 }
 
                 .front-camera-integration & {
-                    @extend %flex-between, %mob\:flex-column;
+                    @extend %flex-between, %mob\:flex-column, %mob\:gap-32;
                 }
             }
 
