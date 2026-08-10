@@ -16,12 +16,15 @@ const cleanOldChunksPlugin = () => {
       if (fs.existsSync(outDir)) {
         const files = fs.readdirSync(outDir)
         files.forEach((file) => {
-          if (file.startsWith('react-chunk-')) {
+          const isOldChunk = file.startsWith('react-chunk-')
+          const isOldStyle = file.startsWith('react-style-')
+          const isOldAsset = file.startsWith('react-') && /-[a-zA-Z0-9]{8,}\.[a-zA-Z0-9]+$/.test(file)
+          if (isOldChunk || isOldStyle || isOldAsset) {
             const filePath = path.join(outDir, file)
             try {
               fs.unlinkSync(filePath)
             } catch (err) {
-              console.error(`Can not delete old chunk ${file}:`, err)
+              console.error(`Can not delete old asset ${file}:`, err)
             }
           }
         })
@@ -52,12 +55,28 @@ const inputEntry = currentPage && entryPoints[currentPage]
   ? { [currentPage]: entryPoints[currentPage] }
   : entryPoints
 
+const manualChunksMap = {
+  "react-dom": "react-dom",
+  "react": "react",
+  "@reduxjs": "redux",
+  "react-redux": "redux",
+  "animejs": "anime",
+  "react-slick": "slick",
+  "slick-carousel": "slick",
+  "macy": "macy",
+  "yup": "yup",
+  "react-intersection-observer": "observer",
+}
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     cleanOldChunksPlugin(),
     react(),
-    babel({ presets: [reactCompilerPreset()] }),
+    babel({ 
+      presets: [reactCompilerPreset()],
+      exclude: 'node_modules/**'
+    }),
     visualizer({
       filename: 'stats.html',
       open: false,
@@ -75,14 +94,20 @@ export default defineConfig({
     outDir, 
     emptyOutDir: false,
     sourcemap: false,
+    // target: 'esnext',
+    target: ['ios15', 'chrome89', 'edge89', 'firefox89', 'safari15'],
     rollupOptions: {
       input: inputEntry,
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: 'react-chunk-[name]-[hash].js',
         assetFileNames: (assetInfo) => {
-          if (assetInfo?.name?.endsWith('.css')) return '[name].css'
-          return 'react-[name].[ext]'
+          if (assetInfo?.name?.endsWith('.css')) {
+            // const isPageCss = Object.keys(entryPoints).includes(assetInfo.name.replace('.css', ''))
+            // return `react-style-[name]${!isPageCss ? '-[hash]' : ''}.css`
+            return `react-style-[name]-[hash].css`
+          }
+          return 'react-[name]-[hash].[ext]'
         },
         format: 'esm',
         // inlineDynamicImports: !!currentPage
@@ -91,8 +116,17 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             return 'vendor' 
           }
+          // if (!id.includes('node_modules')) return
+
+          // for (const [slug, chunk] of Object.entries(manualChunksMap)) {
+          //   if (id.includes(slug)) return chunk
+          // }
+
+          // return 'vendor'
         }
-      }
+      },
+      preserveEntrySignatures: 'exports-only'
     }
   }
 })
+
