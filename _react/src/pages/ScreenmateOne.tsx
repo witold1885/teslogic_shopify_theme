@@ -5,7 +5,7 @@ import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
-import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
+// import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
 import {
     bannerDesktop as bannerDesktopBackground,
@@ -74,6 +74,7 @@ const preloadVideos: PreloadVideo[] = [
 ]
 
 const ScreenmateOneFeatures = lazy(() => import('../components/ScreenmateOne/ScreenmateOneFeatures'))
+const ScreenmateOneOrder = lazy(() => import('../components/ScreenmateOne/ScreenmateOneOrder'))
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
@@ -140,7 +141,11 @@ const ScreenmateOne: React.FC = () => {
                     </Suspense>
                 </LazySection>
             ))}
-            <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
+            <LazySection>
+                <Suspense>
+                    <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
+                </Suspense>
+            </LazySection>
         </ProductLayout>
     )
 }
