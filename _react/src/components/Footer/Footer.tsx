@@ -50,7 +50,7 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
                 <div>
                     {children?.map((child, i) => (
                         <div key={i}>
-                            <a href={child.url} target="_blank">{child.title}</a>
+                            <a href={child.url} target={child.url !== window.location.pathname ? '_blank' : '_self'}>{child.title}</a>
                         </div>
                     ))}
                 </div>
