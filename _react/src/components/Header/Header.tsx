@@ -118,7 +118,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                                 >
                                     {children?.map((child, i) => (
                                         <li key={i}>
-                                            <a href={child.url} target="_blank">{child.title}</a>
+                                            <a href={child.url} target={child.url !== window.location.pathname ? '_blank' : '_self'}>{child.title}</a>
                                         </li>
                                     ))}
                                 </ul>
