@@ -128,11 +128,11 @@ const getGroups = (
                     </>
                 },
                 splitter: {
-                    id: additionalProductsData['Splitter'].id,
+                    id: additionalProductsData['Connection Splitter'].id,
                     name: 'Connection Splitter',
                     image: screenmateSplitter,
-                    price: additionalProductsData['Splitter'].price,
-                    oldPrice: additionalProductsData['Splitter'].oldPrice,
+                    price: additionalProductsData['Connection Splitter'].price,
+                    oldPrice: additionalProductsData['Connection Splitter'].oldPrice,
                     description: <>
                         The Connection Splitter lets you <br />
                         connect two devices simultaneously <br />
@@ -161,7 +161,7 @@ const ScreenmateOneComplectation: React.FC = () => {
 
     const { additionalProducts } = useAppSelector(state => state.products)
 
-    const additionalProductTitles: string[] = ['Wireless Charger', 'Splitter']
+    const additionalProductTitles: string[] = ['Wireless Charger', 'Connection Splitter']
     const additionalProductsData: Record<string, AdditionalProduct> = useMemo(() => {
         const data: Record<string, AdditionalProduct> = {}
         if (additionalProducts) {
