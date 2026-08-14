@@ -325,3 +325,25 @@
 	color: #1A1A1A;
 	text-decoration: none;
 }
+.store_block-product-order-delivery {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	margin-top: 20px;
+}
+.store_block-product-order-delivery > div {
+	color: #000;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-family: Manrope;
+	font-size: 16px;
+	font-style: normal;
+	line-height: 20px; /* 125% */
+}
+.store_block-product-order-delivery > div:first-child {
+	color: #666;
+	font-weight: 500;
+}
+.store_block-product-order-delivery > div > span {
+	color: #1657FC;
+	font-weight: 600;
+}
