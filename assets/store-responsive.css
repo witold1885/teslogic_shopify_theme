@@ -323,4 +323,12 @@
 	.store_block-product-add-mobile.store_block-product-add-add:hover {
 		padding: calc(23 * 100vw / 375) calc(43 * 100vw / 375);
 	}
+	.store_block-product-order-delivery {
+		row-gap: calc(8 * 100vw / 375);
+		margin-top: calc(20 * 100vw / 375);
+	}
+	.store_block-product-order-delivery > div {
+		font-size: calc(16 * 100vw / 375);
+		line-height: calc(20 * 100vw / 375);
+	}
 }
