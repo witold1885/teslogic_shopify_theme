@@ -337,11 +337,8 @@
 	font-family: Manrope;
 	font-size: 16px;
 	font-style: normal;
-	line-height: 20px; /* 125% */
-}
-.store_block-product-order-delivery > div:first-child {
-	color: #666;
 	font-weight: 500;
+	line-height: 20px; /* 125% */
 }
 .store_block-product-order-delivery > div > span {
 	color: #1657FC;
