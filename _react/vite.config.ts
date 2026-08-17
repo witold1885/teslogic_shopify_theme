@@ -55,18 +55,18 @@ const inputEntry = currentPage && entryPoints[currentPage]
   ? { [currentPage]: entryPoints[currentPage] }
   : entryPoints
 
-// const manualChunksMap = {
-//   "react-dom": "react-dom",
-//   "react": "react",
-//   "@reduxjs": "redux",
-//   "react-redux": "redux",
-//   "animejs": "anime",
-//   "react-slick": "slick",
-//   "slick-carousel": "slick",
-//   "macy": "macy",
-//   "yup": "yup",
-//   "react-intersection-observer": "observer",
-// }
+const manualChunksMap = {
+  "react-dom": "react-dom",
+  "react": "react",
+  "@reduxjs": "redux",
+  "react-redux": "redux",
+  "animejs": "anime",
+  "react-slick": "slick",
+  "slick-carousel": "slick",
+  "macy": "macy",
+  "yup": "yup",
+  "react-intersection-observer": "observer",
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -113,16 +113,16 @@ export default defineConfig({
         // inlineDynamicImports: !!currentPage
         inlineDynamicImports: false,
         manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor' 
-          }
-          // if (!id.includes('node_modules')) return
-
-          // for (const [slug, chunk] of Object.entries(manualChunksMap)) {
-          //   if (id.includes(slug)) return chunk
+          // if (id.includes('node_modules')) {
+          //   return 'vendor' 
           // }
+          if (!id.includes('node_modules')) return
 
-          // return 'vendor'
+          for (const [slug, chunk] of Object.entries(manualChunksMap)) {
+            if (id.includes(slug)) return chunk
+          }
+
+          return 'vendor'
         }
       },
       preserveEntrySignatures: 'exports-only'
