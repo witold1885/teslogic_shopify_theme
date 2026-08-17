@@ -124,7 +124,7 @@ const ScreenmateOne: React.FC = () => {
         <ProductLayout className="screenmate-one" onOrder={() => scrollTo('Order')}>
             <ScreenmateOneBanner
                 onExpand={() => scrollTo('Features')}
-                onOrder={() => scrollTo('Order')}
+                // onOrder={() => scrollTo('Order')}
             />
             <LazySection>
                 <Suspense>
