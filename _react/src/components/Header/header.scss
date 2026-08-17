@@ -209,6 +209,7 @@
 
             &:hover {
                 background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+                color: #FFF !important;
             }
 
             @include mobile() {
@@ -222,7 +223,6 @@
                 &:hover {
                     border: none;
                     background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
-                    color: #FFF !important;
                 }
             }
         }

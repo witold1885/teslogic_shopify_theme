@@ -31,9 +31,10 @@ interface HeaderProps {
 
 interface HeaderMenuProps extends HeaderProps {
     mode: 'desktop' | 'mobile'
+    onMobileMenuClose?: () => void
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onMobileMenuClose }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
 
     const activeMenuIndex = useMemo(() => menu.findIndex(
@@ -131,7 +132,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) =
                 // <Button className="header-menu-button" onClick={onOrder}>
                 //     <span>ORDER NOW</span>
                 // </Button>
-                <a className="header-menu-button" href="#order-now">
+                <a className="header-menu-button" href="#order-now" onClick={onMobileMenuClose}>
                     <span>ORDER NOW</span>
                 </a>
             ) : (
@@ -189,7 +190,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({ className = '', menu, onOrd
             <Image className="header-logo" src={logoBlack} alt="Screenmate" />
             <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
         </div>
-        <HeaderMenu className="header-menu-mobile" mode="mobile" {...{menu, onOrder}} />
+        <HeaderMenu className="header-menu-mobile" mode="mobile" {...{menu, onOrder, onMobileMenuClose}} />
     </div>
 )
 
