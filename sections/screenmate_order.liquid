@@ -99,7 +99,7 @@
 			<div class="store_block-product-gallery-main">
 				{% assign counter = 0 %}  
 				{% for image in product.images %}
-					<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+					<img data-imgnum="{{ counter }}" src="{{ image | image_url: '1052x1052' }}">
 					{% assign counter = counter | plus: 1 %}
 				{% endfor %}
 			</div>
@@ -121,7 +121,7 @@
 				<div class="store_block-product-gallery-main">
 					{% assign counter = 0 %}  
 					{% for image in product.images %}
-						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+						<img data-imgnum="{{ counter }}" src="{{ image | image_url: '1052x1052' }}">
 						{% assign counter = counter | plus: 1 %}
 					{% endfor %}
 				</div>
