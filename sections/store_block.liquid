@@ -43,7 +43,7 @@
                     {% assign parts = image | split: thumb %}
                     {% if parts.size > 1 %}
     					<div class="store_block-product-gallery-item {% if counter == 0 %}active{% endif %}" data-imgnum="{{ counter }}">
-    						<img class="store_block-product-gallery-item-image" src="{{ image | img_url: '86x86' }}">
+    						<img class="store_block-product-gallery-item-image" src="{{ image | image_url: '86x86' }}">
     					</div>
     					{% assign counter = counter | plus: 1 %}
 					{% endif %}
@@ -55,7 +55,7 @@
 				{% for image in product.images %}
                     {% assign parts = image | split: full %}
                     {% if parts.size > 1 %}
-						<img data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+						<img data-imgnum="{{ counter }}" src="{{ image | image_url: '1052x1052' }}">
     					{% assign counter = counter | plus: 1 %}
 					{% endif %}
 				{% endfor %}
@@ -78,7 +78,7 @@
 					{% for image in product.images %}
 	                    {% assign parts = image | split: full %}
 	                    {% if parts.size > 1 %}
-							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | img_url: '1052x1052' }}">
+							<img draggable="false" data-imgnum="{{ counter }}" src="{{ image | image_url: '1052x1052' }}">
 	    					{% assign counter = counter | plus: 1 %}
 						{% endif %}
 					{% endfor %}
