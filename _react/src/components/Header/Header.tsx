@@ -131,7 +131,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) =
                 // <Button className="header-menu-button" onClick={onOrder}>
                 //     <span>ORDER NOW</span>
                 // </Button>
-                <a className="header-menu-button" href="/#order-now">
+                <a className="header-menu-button" href="#order-now">
                     <span>ORDER NOW</span>
                 </a>
             ) : (

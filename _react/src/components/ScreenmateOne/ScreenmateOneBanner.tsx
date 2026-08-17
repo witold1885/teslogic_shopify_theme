@@ -45,7 +45,7 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
                         {/* <Button onClick={onOrder}>
                             <span>order now</span>
                         </Button> */}
-                        <a href="/#order-now">
+                        <a href="#order-now">
                             <span>order now</span>
                         </a>
                     </div>
