@@ -33,7 +33,7 @@ interface HeaderMenuProps extends HeaderProps {
     mode: 'desktop' | 'mobile'
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onOrder }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
 
     const activeMenuIndex = useMemo(() => menu.findIndex(
@@ -128,9 +128,12 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onO
                 })}
             </div>
             {(cartItemCount === 0 || mode === 'mobile') ? (
-                <Button className="header-menu-button" onClick={onOrder}>
+                // <Button className="header-menu-button" onClick={onOrder}>
+                //     <span>ORDER NOW</span>
+                // </Button>
+                <a className="header-menu-button" href="/#order-now">
                     <span>ORDER NOW</span>
-                </Button>
+                </a>
             ) : (
                 <a className="header-menu-cart" href="/cart" target="_blank">
                     <div>

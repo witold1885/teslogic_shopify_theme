@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import './screenmate-one-banner.scss'
-import { Button, Icon } from '../Common'
+// import { Button, Icon } from '../Common'
+import { Icon } from '../Common'
 import Video from '../Common/Video'
 
 import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
@@ -20,7 +21,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     kickstarter: { yFrom: '20px' },
 }
 
-const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand, onOrder }) => {
+const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand }) => {
     const { isMobile } = useInlineStyles()
 
     const videoParams: { src: string; background: string } = useMemo(() => {
@@ -41,9 +42,12 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
                     <h1 {...anime('title')}>The ultimate Tesla multimedia upgrade</h1>
                     <div className="screenmate-one__banner-inner-buttons">
-                        <Button onClick={onOrder}>
+                        {/* <Button onClick={onOrder}>
                             <span>order now</span>
-                        </Button>
+                        </Button> */}
+                        <a href="/#order-now">
+                            <span>order now</span>
+                        </a>
                     </div>
                 </div>
                 <div {...anime('kickstarter')} className="screenmate-one__banner-kickstarter">

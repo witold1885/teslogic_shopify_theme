@@ -46,7 +46,7 @@ const externalUrls: Record<string, string> = {
 }
 
 const isProd: boolean = import.meta.env.PROD
-const getProdUrl = (name: string) => import(`./${name}.mp4`)
+// const getProdUrl = (name: string) => import(`./${name}.mp4`)
 const getDevUrl = (name: string, dir?: string) => new URL(`./${dir ? `${dir}/` : ''}${name}.mp4`, import.meta.url).href
 
 // export const bannerDesktop = isProd ? externalUrls.bannerDesktop : getDevUrl('banner-desktop')

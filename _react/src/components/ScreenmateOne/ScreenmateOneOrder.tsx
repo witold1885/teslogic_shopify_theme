@@ -127,7 +127,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <div className="screenmate-one__order" ref={ref}>
+        <div className="screenmate-one__order" id="order-now" ref={ref}>
             <div className="screenmate-one__order-gallery">
                 {galleryImages.map((image, index) => (
                     <img

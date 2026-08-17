@@ -55,18 +55,18 @@ const inputEntry = currentPage && entryPoints[currentPage]
   ? { [currentPage]: entryPoints[currentPage] }
   : entryPoints
 
-const manualChunksMap = {
-  "react-dom": "react-dom",
-  "react": "react",
-  "@reduxjs": "redux",
-  "react-redux": "redux",
-  "animejs": "anime",
-  "react-slick": "slick",
-  "slick-carousel": "slick",
-  "macy": "macy",
-  "yup": "yup",
-  "react-intersection-observer": "observer",
-}
+// const manualChunksMap = {
+//   "react-dom": "react-dom",
+//   "react": "react",
+//   "@reduxjs": "redux",
+//   "react-redux": "redux",
+//   "animejs": "anime",
+//   "react-slick": "slick",
+//   "slick-carousel": "slick",
+//   "macy": "macy",
+//   "yup": "yup",
+//   "react-intersection-observer": "observer",
+// }
 
 // https://vite.dev/config/
 export default defineConfig({
