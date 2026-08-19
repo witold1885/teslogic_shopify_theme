@@ -284,6 +284,15 @@
                 @include responsive(border-radius, 12px);
                 background: #1D1D1F;
                 box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+                @include responsive(scrollbar-width, 6px);
+
+                &::-webkit-scrollbar {
+                    background: #4D4D4D;
+
+                    &-thumb {
+                        background: #0465FD;
+                    }
+                }
 
                 &-list {
                     @extend %flex-column;
