@@ -6,7 +6,7 @@
   {% render 'countries-json' %}
 {%- endcapture -%}
 
-{%- capture country -%}
+{%- capture localization_country -%}
   {% render 'country-json', country: localization.country %}
 {%- endcapture -%}
 
@@ -32,11 +32,14 @@
 
 <script>
   {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  const countries = {{ countries }}
+  const localization_country = {{ localization_country }}
+  const country = countries.some(({ iso_code }) => iso_code === localization_country.iso_code) ? localization_country : countries[0]
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
-      country: {{ country }},
-      countries: {{ countries }},
+      country,
+      countries,
       main_menu: {{ main_menu }},
       footer_menu: []
     },
