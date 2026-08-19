@@ -1,4 +1,15 @@
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+
+{%- assign currency_code = country.currency.iso_code -%}
+{%- assign currency_symbol = country.currency.symbol -%}
+{%- if eu_codes contains country.iso_code -%}
+    {%- assign currency_code = 'EUR' -%}
+    {%- assign currency_symbol = '€' -%}
+{%- endif -%}
+
 {
     "name": {{ country.name | json }},
-    "iso_code": {{ country.iso_code | json }}
+    "iso_code": {{ country.iso_code | json }},
+    "currency_code": {{ currency_code | json }},
+    "currency_symbol": {{ currency_symbol | json }}
 }
