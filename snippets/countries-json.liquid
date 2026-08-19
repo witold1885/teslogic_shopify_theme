@@ -1,8 +1,15 @@
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+
 [
     {% for country in localization.available_countries %}
+        {%- assign currency = country.currency.iso_code -%}
+        {%- if eu_codes contains country.iso_code -%}
+            {%- assign currency = 'EUR' -%}
+        {%- endif -%}
         {
             "name": {{ country.name | json }},
-            "iso_code": {{ country.iso_code | json }}
+            "iso_code": {{ country.iso_code | json }},
+            "currency": {{ currency | json }}
         }{%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
 ]
