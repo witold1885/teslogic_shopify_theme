@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import './header.scss'
 import { useAppSelector } from '../../redux/hooks'
-import type { MenuItem } from '../../types/shopify'
+import type { Country, MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
@@ -36,7 +36,7 @@ interface HeaderMenuProps extends HeaderProps {
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onMobileMenuClose }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
-    const { country, countries } = useAppSelector(state => state.content)
+    const { country: currentCountry, countries } = useAppSelector(state => state.content)
 
     const activeMenuIndex = useMemo(() => menu.findIndex(
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
@@ -81,6 +81,12 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
     const { anime } = useAnime(animationConfigs)
 
     const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
+    const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountry)
+
+    const handleSelectCountry = (country: Country) => {
+        setSelectedCountry(country)
+        setCountriesDropdownOpen(false)
+    }
 
     return (
         <div className="header-menu">
@@ -144,10 +150,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                     <span>Cart</span>
                 </a>
             )}
-            {mode === 'desktop' && country && (
+            {mode === 'desktop' && selectedCountry && (
                 <div className="header-menu-country">
                     <div className="header-menu-country-button" onClick={() => setCountriesDropdownOpen(prev => !prev)}>
-                        <span>{country.iso_code}&nbsp;{country.currency_symbol}</span>
+                        <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
                         <div className="header-menu-item-chevron">
                             <Icon svg={<ChevronDownIcon />} />
                         </div>
@@ -155,10 +161,14 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                     {countriesDropdownOpen && (
                         <div className="header-menu-country-dropdown">
                             <div className="header-menu-country-dropdown-list">
-                                {countries?.map(({ name, iso_code, currency_code, currency_symbol }) => (
-                                    <div className="header-menu-country-dropdown-item" key={iso_code}>
-                                        <span>{name}</span>
-                                        <span>{currency_code}&nbsp;{currency_symbol}</span>
+                                {countries?.map(country => (
+                                    <div
+                                        key={country.iso_code}
+                                        className="header-menu-country-dropdown-item"
+                                        onClick={() => handleSelectCountry(country)}
+                                    >
+                                        <span>{country.name}</span>
+                                        <span>{country.currency_code}&nbsp;{country.currency_symbol}</span>
                                     </div>
                                 ))}
                             </div>

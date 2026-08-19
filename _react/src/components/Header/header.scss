@@ -287,10 +287,11 @@
                 &-list {
                     @extend %flex-column;
                     @include responsive(gap, 12px);
+                    @include responsive(padding, 18px, 0);
                 }
 
                 &-item {
-                    @extend %flex-between-center, %font-manrope-14, %font-500;
+                    @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
                 }
             }
         }
