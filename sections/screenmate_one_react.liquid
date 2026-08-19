@@ -31,6 +31,7 @@
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
+      country: {{ localization.country | json }},
       countries: {{ countries }},
       main_menu: {{ main_menu }},
       footer_menu: []
