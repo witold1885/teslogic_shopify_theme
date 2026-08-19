@@ -36,6 +36,7 @@ interface HeaderMenuProps extends HeaderProps {
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onMobileMenuClose }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
+    const { country, countries } = useAppSelector(state => state.content)
 
     const activeMenuIndex = useMemo(() => menu.findIndex(
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
@@ -129,9 +130,6 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                 })}
             </div>
             {(cartItemCount === 0 || mode === 'mobile') ? (
-                // <Button className="header-menu-button" onClick={onOrder}>
-                //     <span>ORDER NOW</span>
-                // </Button>
                 <a className="header-menu-button" href="/#order-now" onClick={onMobileMenuClose}>
                     <span>ORDER NOW</span>
                 </a>
@@ -143,6 +141,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                     </div>
                     <span>Cart</span>
                 </a>
+            )}
+            {mode === 'desktop' && country && (
+                <div className="header-menu-country">
+                    <span>{country.iso_code}&nbsp;{country.currency_symbol}</span>
+                </div>
             )}
         </div>
     )
@@ -200,11 +203,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
-    const { country, countries, main_menu } = useAppSelector(state => state.content)
-
-    useEffect(() => {
-        console.log({ country, countries })
-    }, [country, countries])
+    const { main_menu } = useAppSelector(state => state.content)
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []

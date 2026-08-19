@@ -43,10 +43,10 @@
     }
 
     &-menu {
-        @extend %flex-end-start, %gap-28, %mob\:flex-column-between, %mob\:flex-1, %mob\:gap-0;
+        @extend %flex-end-start, %gap-16, %mob\:flex-column-between, %mob\:flex-1, %mob\:gap-0;
 
         &-desktop {
-            @extend %flex-end-start, %gap-20, %text-white;
+            @extend %flex-end-start, %gap-16, %text-white;
         }
 
         &-mobile {
@@ -252,6 +252,20 @@
             }
 
             & > span {
+                @extend %font-manrope-16, %font-600, %text-white;
+            }
+        }
+
+        &-country {
+            @extend %flex;
+            @include responsive(gap, 2px);
+            @include responsive(margin-top, 4px);
+            @include responsive(padding, 4px, 2px, 4px, 6px);
+            @include responsive(border-radius, 6px);
+            background: rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(8px);
+
+            & span {
                 @extend %font-manrope-16, %font-600, %text-white;
             }
         }

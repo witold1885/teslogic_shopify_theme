@@ -46,6 +46,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { isMobile } = useInlineStyles()
 
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
+    const { country } = useAppSelector(state => state.content)
 
     useEffect(() => {
         dispatch(getRate('USD/EUR'))

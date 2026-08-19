@@ -4,6 +4,8 @@ import type { Product } from './product'
 export interface Country {
     name: string
     iso_code: string
+    currency_code: string
+    currency_symbol: string
 }
 
 interface MenuItem {
