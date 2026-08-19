@@ -80,6 +80,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
 
     const { anime } = useAnime(animationConfigs)
 
+    const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
+
     return (
         <div className="header-menu">
             <div {...{className}}>
@@ -100,7 +102,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                             <span className="header-menu-item-title">
                                 {title}
                                 {index === 0 && <span className="header-menu-item-new">NEW</span>}
-                            </span>                        
+                            </span>
                             <div className="header-menu-item-chevron">
                                 <Icon svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
                             </div>
@@ -144,7 +146,24 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
             )}
             {mode === 'desktop' && country && (
                 <div className="header-menu-country">
-                    <span>{country.iso_code}&nbsp;{country.currency_symbol}</span>
+                    <div className="header-menu-country-button" onClick={() => setCountriesDropdownOpen(prev => !prev)}>
+                        <span>{country.iso_code}&nbsp;{country.currency_symbol}</span>
+                        <div className="header-menu-item-chevron">
+                            <Icon svg={<ChevronDownIcon />} />
+                        </div>
+                    </div>
+                    {countriesDropdownOpen && (
+                        <div className="header-menu-country-dropdown">
+                            <div className="header-menu-country-dropdown-list">
+                                {countries?.map(({ name, iso_code, currency_code, currency_symbol }) => (
+                                    <div className="header-menu-country-dropdown-item" key={iso_code}>
+                                        <span>{name}</span>
+                                        <span>{currency_code}&nbsp;{currency_symbol}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

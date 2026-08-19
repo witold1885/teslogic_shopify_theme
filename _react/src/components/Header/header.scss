@@ -257,16 +257,41 @@
         }
 
         &-country {
-            @extend %flex;
-            @include responsive(gap, 2px);
-            @include responsive(margin-top, 4px);
-            @include responsive(padding, 4px, 2px, 4px, 6px);
-            @include responsive(border-radius, 6px);
-            background: rgba(0, 0, 0, 0.32);
-            backdrop-filter: blur(8px);
+            @extend %relative;
 
-            & span {
-                @extend %font-manrope-16, %font-600, %text-white;
+            &-button {
+                @extend %flex-center, %cursor-pointer;
+                @include responsive(gap, 2px);
+                @include responsive(margin-top, 4px);
+                @include responsive(padding, 4px, 2px, 4px, 6px);
+                @include responsive(border-radius, 6px);
+                background: rgba(0, 0, 0, 0.32);
+                backdrop-filter: blur(8px);
+
+                & span {
+                    @extend %font-manrope-16, %font-600, %text-white;
+                }
+            }
+
+            &-dropdown {
+                @extend %absolute, %overflow-scroll-y;
+                @include responsive(top, 48px);
+                right: 0;
+                @include responsive(width, 248px);
+                @include responsive(height, 336px);
+                @include responsive(padding, 0, 24px);
+                @include responsive(border-radius, 12px);
+                background: #1D1D1F;
+                box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+
+                &-list {
+                    @extend %flex-column;
+                    @include responsive(gap, 12px);
+                }
+
+                &-item {
+                    @extend %flex-between-center, %font-manrope-14, %font-500;
+                }
             }
         }
     }
