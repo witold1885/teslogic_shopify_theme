@@ -119,7 +119,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                                 >
                                     {children?.map((child, i) => (
                                         <li key={i}>
-                                            <a href={child.url} target={child.url !== window.location.pathname ? '_blank' : '_self'}>{child.title}</a>
+                                            <a href={child.url}>{child.title}</a>
                                         </li>
                                     ))}
                                 </ul>
@@ -167,7 +167,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
             {...anime(headerKey, mode)}
             className={`header ${className}`}
         >
-            <a href="/" target="_blank">
+            <a href="/">
                 <Image className="header-logo" src={logo} alt="Screenmate" />
             </a>
             {!isMobile 
