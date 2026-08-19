@@ -9,7 +9,7 @@
   
   {%- if country.iso_code == 'US' -%}
     {%- assign usa_group = usa_group | concat: country_array -%}
-  {%- elif eu_codes contains country.iso_code -%}
+  {%- elsif eu_codes contains country.iso_code -%}
     {%- assign eu_group = eu_group | concat: country_array -%}
   {%- else -%}
     {%- assign other_group = other_group | concat: country_array -%}
