@@ -20,7 +20,7 @@
         {%- capture country -%}
             {% render 'country-json', country: item %}
         {%- endcapture -%}
-        country
+        {{ country }}
         {%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
 ]
