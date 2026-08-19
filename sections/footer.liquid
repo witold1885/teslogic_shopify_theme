@@ -173,9 +173,12 @@
   <div class="custom-localization-wrapper">
     <select name="country_code" onchange="this.form.submit()" style="padding: 5px; cursor: pointer;">
       {% for country in localization.available_countries %}
-        <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-          {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
-        </option>
+        {% if country.continent == 'Europe' %}
+          <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+            {{ country.name }} ({{ country.iso_code }})
+            {% comment %} {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }}) {% endcomment %}
+          </option>
+        {% endif %}
       {% endfor %}
     </select>
   </div>
