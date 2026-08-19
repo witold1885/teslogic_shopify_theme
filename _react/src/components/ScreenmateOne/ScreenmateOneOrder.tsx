@@ -1,7 +1,7 @@
 import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { addToCart } from '../../redux/slices/products'
+import { getRate, addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
 
 const Slider = lazy(() =>
@@ -45,7 +45,15 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const { isMobile } = useInlineStyles()
 
-    const { product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
+    const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
+
+    useEffect(() => {
+        dispatch(getRate('USD/EUR'))
+    }, [dispatch])
+
+    useEffect(() => {
+        console.log({ rate })
+    }, [rate])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     

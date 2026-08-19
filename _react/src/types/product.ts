@@ -15,6 +15,12 @@ export interface Product {
     models?: Model[]
 }
 
+export interface RateResponse {
+    success: boolean
+    rate: number | null
+    error?: string
+}
+
 export interface CartPayloadItem {
     id: number
     quantity?: number

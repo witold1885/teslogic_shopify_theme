@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { CartResponse, CartPayload, Product } from '../../types/product'
+import { type Product, type RateResponse, type CartResponse, type CartPayload } from '../../types/product'
 import shopify from '../shopify'
 
 interface ProductsState {
+    rate: number | null
     cartItemCount?: number
     products?: Product[]
     product?: Product | null
@@ -13,6 +14,7 @@ interface ProductsState {
 }
 
 const initialState: ProductsState = {
+    rate: 1,
     cartItemCount: 0,
     products: [],
     product: null,
@@ -21,6 +23,20 @@ const initialState: ProductsState = {
     addedToCart: false,
     error: null
 }
+
+export const getRate = createAsyncThunk(
+    'products/getRate',
+    async (symbol: string, { rejectWithValue }) => {
+        const { default: api } = await import('../api')
+        const result = await api.get<RateResponse>(`api/rate/${symbol}`)
+        
+        if (!result.success) {
+            return rejectWithValue(result.message)
+        }
+        
+        return result.data
+    }
+)
 
 export const addToCart = createAsyncThunk(
     'products/addToCart',
@@ -41,6 +57,15 @@ export const productsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(getRate.pending, (state) => {
+                state.error = null
+            })
+            .addCase(getRate.fulfilled, (state, action) => {
+                state.rate = action.payload.rate
+            })
+            .addCase(getRate.rejected, (state, action) => {
+                state.error = action.payload as string
+            })
             .addCase(addToCart.pending, (state) => {
                 state.loading = true
                 state.addedToCart = false
