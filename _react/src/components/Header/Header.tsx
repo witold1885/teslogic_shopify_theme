@@ -200,7 +200,11 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
-    const { main_menu } = useAppSelector(state => state.content)
+    const { countries, main_menu } = useAppSelector(state => state.content)
+
+    useEffect(() => {
+        console.log({ countries })
+    }, [countries])
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []

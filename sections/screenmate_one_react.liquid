@@ -2,6 +2,10 @@
 
 {{ 'react-style-ScreenmateOne-DkDdrrjM.css' | asset_url | stylesheet_tag }}
 
+{%- capture countries -%}
+  {% render 'countries-json' %}
+{%- endcapture -%}
+
 {%- capture main_menu -%}
   {% render 'menu-json', menu_handle: 'main-menu' %}
 {%- endcapture -%}
@@ -27,6 +31,7 @@
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
+      countries: {{ countries }},
       main_menu: {{ main_menu }},
       footer_menu: []
     },

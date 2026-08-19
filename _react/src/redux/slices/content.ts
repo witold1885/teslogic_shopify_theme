@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { MenuItem } from '../../types/shopify'
+import type { Country, MenuItem } from '../../types/shopify'
 
 interface ContentState {
+    countries?: Country[]
     main_menu?: MenuItem[]
     footer_menu?: MenuItem[]
     loading: boolean
@@ -9,6 +10,7 @@ interface ContentState {
 }
 
 const initialState: ContentState = {
+    countries: [],
     main_menu: [],
     footer_menu: [],
     loading: false,

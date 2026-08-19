@@ -1,0 +1,8 @@
+[
+    {% for country in localization.available_countries %}
+        {
+            "name": {{ country.title | json }},
+            "iso_code": {{ country.title | json }}
+        }
+    {% endfor %}
+]

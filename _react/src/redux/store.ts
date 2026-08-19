@@ -13,6 +13,8 @@ const getInitialState = () => {
       loading: false
     },
     products: {
+      currency: 'USD',
+      rate: 1,
       cartItemCount: data?.cart?.item_count || 0,
       products: [],
       product: data?.product,
