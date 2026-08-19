@@ -161,9 +161,17 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                     {countriesDropdownOpen && (
                         <div className="header-menu-country-dropdown">
                             <div className="header-menu-country-dropdown-list">
-                                <div className="header-menu-country-dropdown-item selected">
+                                <div
+                                    className="header-menu-country-dropdown-item selected"
+                                    onClick={() => setCountriesDropdownOpen(false)}
+                                >
                                     <span>{selectedCountry.name}</span>
                                     <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
+                                    {selectedCountry.iso_code === 'US' && (
+                                        <span className="header-menu-country-dropdown-item-note">
+                                            Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+                                        </span>
+                                    )}
                                 </div>
                                 {countries?.filter(({ iso_code }) => iso_code !== selectedCountry?.iso_code).map(country => (
                                     <div

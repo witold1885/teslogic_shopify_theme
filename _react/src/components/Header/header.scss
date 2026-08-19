@@ -295,9 +295,17 @@
                     @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
 
                     &.selected {
+                        @extend %flex-wrap;
+                        @include responsive(row-gap, 4px);
                         @include responsive(margin-bottom, 16px);
                         @include responsive(padding-bottom, 16px);
                         border-bottom: 1px solid #888;
+                    }
+
+                    &-note {
+                        @extend %w-full, %font-500;
+                        @include text(12px, 18px);
+                        color: #999;
                     }
                 }
             }
