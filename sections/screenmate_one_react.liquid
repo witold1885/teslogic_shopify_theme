@@ -6,6 +6,10 @@
   {% render 'countries-json' %}
 {%- endcapture -%}
 
+{%- capture eu_countries -%}
+  {% render 'eu-countries-json' %}
+{%- endcapture -%}
+
 {%- capture main_menu -%}
   {% render 'menu-json', menu_handle: 'main-menu' %}
 {%- endcapture -%}
@@ -32,6 +36,7 @@
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
       countries: {{ countries }},
+      eu_countries: {{ eu_countries }},
       main_menu: {{ main_menu }},
       footer_menu: []
     },
