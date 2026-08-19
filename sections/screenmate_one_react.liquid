@@ -6,6 +6,10 @@
   {% render 'countries-json' %}
 {%- endcapture -%}
 
+{%- capture country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
 {%- capture main_menu -%}
   {% render 'menu-json', menu_handle: 'main-menu' %}
 {%- endcapture -%}
@@ -31,7 +35,7 @@
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
-      country: {{ localization.country | json }},
+      country: {{ country }},
       countries: {{ countries }},
       main_menu: {{ main_menu }},
       footer_menu: []
