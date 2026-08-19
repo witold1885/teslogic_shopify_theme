@@ -260,8 +260,9 @@
             @extend %relative;
 
             &-button {
-                @extend %flex-center, %cursor-pointer;
-                @include responsive(gap, 2px);
+                @extend %flex-between-center, %cursor-pointer;
+                @include responsive(width, 65px);
+                @include responsive(height, 28px);
                 @include responsive(margin-top, 4px);
                 @include responsive(padding, 4px, 2px, 4px, 6px);
                 @include responsive(border-radius, 6px);
@@ -292,6 +293,12 @@
 
                 &-item {
                     @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
+
+                    &.selected {
+                        @include responsive(margin-bottom, 16px);
+                        @include responsive(padding-bottom, 16px);
+                        border-bottom: 1px solid #888;
+                    }
                 }
             }
         }

@@ -161,7 +161,11 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                     {countriesDropdownOpen && (
                         <div className="header-menu-country-dropdown">
                             <div className="header-menu-country-dropdown-list">
-                                {countries?.map(country => (
+                                <div className="header-menu-country-dropdown-item selected">
+                                    <span>{selectedCountry.name}</span>
+                                    <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
+                                </div>
+                                {countries?.filter(({ iso_code }) => iso_code !== selectedCountry?.iso_code).map(country => (
                                     <div
                                         key={country.iso_code}
                                         className="header-menu-country-dropdown-item"
