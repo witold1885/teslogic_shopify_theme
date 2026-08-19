@@ -16,6 +16,7 @@ declare global {
     interface Window {
         ShopifyReactData?: {
             content: {
+                country: Country
                 countries: Country[]
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
