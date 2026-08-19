@@ -3,6 +3,6 @@
         {
             "name": {{ country.name | json }},
             "iso_code": {{ country.iso_code | json }}
-        }
+        }{%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
 ]
