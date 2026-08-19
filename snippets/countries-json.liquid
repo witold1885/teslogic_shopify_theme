@@ -1,8 +1,8 @@
 [
     {% for country in localization.available_countries %}
         {
-            "name": {{ country.title | json }},
-            "iso_code": {{ country.title | json }}
+            "name": {{ country.name | json }},
+            "iso_code": {{ country.iso_code | json }}
         }
     {% endfor %}
 ]
