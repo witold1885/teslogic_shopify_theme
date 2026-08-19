@@ -16,7 +16,7 @@
   {%- endif -%}
 {%- endfor -%}
 
-{%- assign countries = usa_group | concat: eu_group | concat: other_group -%}
+{%- assign countries = usa_group | concat: eu_group -%}
 
 [
     {% for country in countries %}
