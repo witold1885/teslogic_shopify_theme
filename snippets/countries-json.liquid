@@ -16,10 +16,11 @@
 {%- assign countries = us_group | concat: eu_group -%}
 
 [
-    {% for country in countries %}
+    {% for item in countries %}
         {%- capture country -%}
-            {% render 'country-json', country: country %}
+            {% render 'country-json', country: item %}
         {%- endcapture -%}
+        country
         {%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
 ]
