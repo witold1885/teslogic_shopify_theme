@@ -175,7 +175,7 @@
       {% for country in localization.available_countries %}
         {% if country.continent == 'Europe' %}
           <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-            {{ country.name }} ({{ country.iso_code }})
+            {{ country.name }} ({{ country.iso_code }}) ({{ country.currency.iso_code }})
             {% comment %} {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }}) {% endcomment %}
           </option>
         {% endif %}
