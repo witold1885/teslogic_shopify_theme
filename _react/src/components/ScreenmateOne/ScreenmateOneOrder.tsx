@@ -14,14 +14,16 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import { Button, Dropdown, Icon, Image } from '../Common'
+import type { DropdownOption } from '../Common/Dropdown'
 import chevronLeft from '@/assets/icons/chevron-white-left.svg'
 import chevronRight from '@/assets/icons/chevron-white-right.svg'
+import global from '@/assets/icons/global.svg'
+import eu from '@/assets/icons/eu.svg'
 import shipping from '@/assets/icons/shipping.svg'
 import warranty from '@/assets/icons/warranty.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import type { DropdownOption } from '../Common/Dropdown'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
@@ -169,11 +171,23 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         <div>
                             <div {...anime('name')} className="screenmate-one__order-form-name">{product.title}</div>
                             <div {...anime('prices')} className="screenmate-one__order-form-prices">
-                                <span className="screenmate-one__order-form-prices-current">{prices.current} {currency}</span>
+                                <span className="screenmate-one__order-form-prices-current">{prices.current?.toFixed(0) || 0} {currency}</span>
                                 {(prices.old || 0) > (prices.current || 0) && (
-                                    <span className="screenmate-one__order-form-prices-old">{prices.old} {currency}</span>
+                                    <span className="screenmate-one__order-form-prices-old">{prices.old?.toFixed(0) || 0} {currency}</span>
                                 )}
                             </div>
+                            {currency === 'USD' && (
+                                <div className="screenmate-one__order-form-notes">
+                                    <div>
+                                        <Icon icon={global} />
+                                        <span>Global prices are shown in USD, VAT not included</span>
+                                    </div>
+                                    <div>
+                                        <Icon icon={eu} />
+                                        <span>To see VAT-inclusive pricing select your EU country in the Menu</span>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                         <div>
                             <Dropdown

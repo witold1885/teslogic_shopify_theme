@@ -156,6 +156,20 @@
                 }
             }
 
+            &-notes {
+                @extend %flex-column, %gap-12;
+                @include responsive(margin-top, 4px);
+
+                & > div {
+                    @extend %flex-start-center, %gap-8, %font-manrope-16, %font-500;
+                    color: #888;
+
+                    & .icon {
+                        @include square(24px);
+                    }
+                }
+            }
+
             &-additionals {
                 @extend %flex-column, %gap-16;
 
