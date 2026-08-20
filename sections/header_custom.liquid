@@ -271,7 +271,7 @@
       $('.button-menu').show()
       $(this).hide()
     })
-    
+
     if (window.innerWidth >= 575) {
       $('.menu__item').on('mouseover', function() {
         let dropdown = $(this).find('.menu__item-dropdown')
@@ -341,7 +341,7 @@
           $(this).parent('.menu__item').removeClass('menu__item-opened')
         })
       }
-      if (!$target.closest('.header-country-dropdown').length) {
+      if (!$target.closest('.header-country').length) {
         $('.header-country-dropdown').hide()
       }
     })
