@@ -14,7 +14,6 @@
     align-items: center;
     width: 65px;
     height: 28px;
-    margin-top: 4px;
     padding: 4px 2px 4px 6px;
     border-radius: 6px;
     background: rgba(0, 0, 0, 0.32);
@@ -97,7 +96,6 @@
     .header-country-button {
         width: calc(65 * 100vw / 1440);
         height: calc(28 * 100vw / 1440);
-        margin-top: calc(4 * 100vw / 1440);
         padding: calc(4 * 100vw / 1440) calc(2 * 100vw / 1440) calc(4 * 100vw / 1440) calc(6 * 100vw / 1440);
         border-radius: calc(6 * 100vw / 1440);
     }
@@ -145,7 +143,6 @@
     .header-country-button {
         width: calc(65 * 100vw / 375);
         height: calc(28 * 100vw / 375);
-        margin-top: 0;
         padding: calc(4 * 100vw / 375) calc(2 * 100vw / 375) calc(4 * 100vw / 375) calc(6 * 100vw / 375);
         border-radius: calc(6 * 100vw / 375);
     }
