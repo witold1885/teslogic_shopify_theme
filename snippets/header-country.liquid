@@ -60,7 +60,7 @@
     const id = '{{ id }}'
 
     $(`#${id} .header-country-button`).on('click', function() {
-      console.log({ id })
+      console.log({ id, dropdown: $(`#${id}`).find('.header-country-dropdown') })
       $(`#${id}`).find('.header-country-dropdown').toggle()
     })
 
