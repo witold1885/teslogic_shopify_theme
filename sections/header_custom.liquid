@@ -87,6 +87,37 @@
           <span href="#">Cart</span>
         </a> -->
       </div>
+      {%- capture localization_country -%}
+        {% render 'country-json', country: localization.country %}
+      {%- endcapture -%}
+      {%- capture countries -%}
+        {% render 'countries-json' %}
+      {%- endcapture -%}
+      {% comment %} <div class="header-country">
+        <div class="header-country-button">
+          <span>US&nbsp;$</span>
+          <div class="header-menu-item-chevron">
+            <div class="icon  ">
+              <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+            </div>
+          </div>
+        </div>
+        <div class="header-country-dropdown">
+          <div class="header-country-dropdown-list">
+            <div class="header-country-dropdown-item selected">
+              <span>{{ localization_country.name }}</span>
+              <span>{{ localization_country.currency_code }}&nbsp;{{ localization_country.currency_symbol }}</span>
+              <span class="header-country-dropdown-item-note">Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.</span>
+            </div>
+            {% for country in countries %}
+              <div class="header-country-dropdown-item">
+                <span>{{ country.name }}</span>
+                <span>{{ country.currency_code }}&nbsp;{{ country.currency_symbol }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div> {% endcomment %}
       <div class="buttons">
         <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
