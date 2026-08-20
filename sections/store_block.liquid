@@ -64,7 +64,9 @@
 		<div class="store_block-product-info">
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
-					<div class="store_block-product-price-new">{{ product.price | divided_by: 100 }} USD</div>
+					<div class="store_block-product-price-new">
+						{% comment %} {{ product.price | divided_by: 100 }} USD {% endcomment %}
+					</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
 				<div class="store_block-product-title">{{ product.title }}</div>
@@ -228,10 +230,6 @@
 			setGalleryImage()
 		})
 
-		/*$('.store_block-product-gallery-mobile-nav').on('click', function() {
-			let direction = $(this).data('direction')
-		})*/
-
 		function handleDirection(direction) {
 			console.log(direction)
 			if (direction == 'prev') {
@@ -262,8 +260,32 @@
 			})
 		}
 
+		const currencyCode = '{{ currency_code }}'
+		const countryCode = '{{ localization.country.iso_code }}'
+		const euTaxes = {{ eu_taxes }}
+
+		const response = await fetch('https://api.teslogic.co/api/rate/USD/EUR')
+		const data = await response.json()
+		const coef = currencyCode === 'EUR' ? (data.rate || 1) : 1
+
+		const setPrice = (usdPrice, type = 'new') => {
+			const price = usdPrice * coef
+			const priceText = `${price.toFixed(0)} ${currencyCode}`
+			let vatText = ''
+
+			if (currencyCode === 'EUR') {
+				const tax = euTaxes[countryCode] || 20
+				const vat = price * tax / 100
+				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+			}
+			
+			$(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
+		}
+
+		setPrice({{ product.price | divided_by: 100 }})
+
 		var model_id = null
-		// selectModel('TT22')
+		
 		$('.store_block-product-select-dropdown-select').on('click', function() {
 			$(this).parents('.store_block-product-select').removeClass('store_block-product-select-error')
 			let dropdown = $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown')
@@ -273,7 +295,6 @@
 			else {
 				$(dropdown).css('display', 'flex')
 			}
-			// $(this).parents('.store_block-product-select').find('.store_block-product-select-dropdown').toggle()
 		})
 		$('.store_block-product-select-dropdown-item').on('click', function() {
 			let sku = $(this).data('sku')
@@ -296,11 +317,12 @@
 					else $(this).removeClass('store_block-product-select-dropdown-item-selected')
 			})
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())
-			$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
+			
 			price = model.data('price') / 100
+			setPrice(price)
 			setTotalPrice(price, charger_selected)
 			if (model.data('compare_at_price')) {
-				$('.store_block-product-price-old').text((model.data('compare_at_price') / 100) + ' USD')
+				setPrice(model.data('compare_at_price') / 100, 'old')
 			}
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
