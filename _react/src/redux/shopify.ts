@@ -24,12 +24,14 @@ class Shopify
         }
     }
 
-    async post<T>(endpoint: string, payload: Payload = {}): Promise<ShopifyResponse<T>> {
+    async post<T>(endpoint: string, payload: Payload | URLSearchParams, formData: boolean = false): Promise<ShopifyResponse<T>> {
         try {
             const response: Response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                headers: {
+                    'Content-Type': formData ? 'application/x-www-form-urlencoded' : 'application/json',
+                },
+                body: formData ? payload?.toString() : JSON.stringify(payload)
             })
 
             return this.handleResponse<T>(endpoint, response)

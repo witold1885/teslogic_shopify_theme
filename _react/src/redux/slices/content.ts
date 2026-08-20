@@ -23,13 +23,20 @@ const initialState: ContentState = {
 export const setCountry = createAsyncThunk(
     'content/setCountry',
     async (country: Country, { rejectWithValue }) => {
-        const result = await shopify.post('localization', { country_code: country.iso_code })
+        const formData = new URLSearchParams()
+
+        formData.append('form_type', 'localization')
+        formData.append('utf8', '✓')
+        formData.append('_method', 'put')
+        formData.append('country_code', country.iso_code)
+
+        const result = await shopify.post('localization', formData, true)
 
         if (!result.success) {
             return rejectWithValue(result.message)
         }
 
-        localStorage.setItem('country', JSON.stringify(country))
+        // localStorage.setItem('country', JSON.stringify(country))
         return result.data
     }
 )

@@ -7,13 +7,13 @@ import subscribeReducer from './slices/subscribe'
 const getInitialState = () => {
   const data: Window['ShopifyReactData'] = window.ShopifyReactData
 
-  const shopifyCountry = data?.content?.country || null
-  const storedCountry = localStorage.getItem('country') || null
+  // const shopifyCountry = data?.content?.country || null
+  // const storedCountry = localStorage.getItem('country') || null
   
   return {
     content: {
       ...data?.content,
-      country: storedCountry ? JSON.parse(storedCountry) : shopifyCountry,
+      // country: storedCountry ? JSON.parse(storedCountry) : shopifyCountry,
       loading: false
     },
     products: {
