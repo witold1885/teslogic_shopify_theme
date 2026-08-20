@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { Country, MenuItem } from '../../types/shopify'
 import shopify from '../shopify'
 
@@ -36,7 +36,8 @@ export const setCountry = createAsyncThunk(
             return rejectWithValue(result.message)
         }
 
-        // localStorage.setItem('country', JSON.stringify(country))
+        console.log({ ...result.data as any, country })
+
         return result.data
     }
 )
