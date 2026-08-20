@@ -346,18 +346,19 @@
 
     $('.header-country-dropdown-item:not(.selected)').on('click', async function() {
       const country_code = $(this).data('country_code')
-      console.log({ country_code })
       const formData = new URLSearchParams()
       formData.append('form_type', 'localization')
       formData.append('utf8', '✓')
       formData.append('_method', 'put')
       formData.append('country_code', country_code)
-      await fetch('/localization', {
+      const response = await fetch('/localization', {
         method: 'post',
         body: formData.toString(),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
-      window.location.reload(true)
+      const data = await response.body()
+      console.log({ country_code, formData, data })
+      // window.location.reload(true)
     })
   })
 </script>
