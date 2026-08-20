@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import './header.scss'
-import { useAppSelector } from '../../redux/hooks'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { setCountry } from '../../redux/slices/content'
 import type { Country, MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
@@ -272,6 +273,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
 )
 
 const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
+    const dispatch = useAppDispatch()
     const { isMobile } = useInlineStyles()
     const scrollOffset = useScroll()
 
@@ -297,6 +299,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const onCountrySelect = (country: Country) => {
         setSelectedCountry(country)
         setCountriesDropdownOpen(false)
+        dispatch(setCountry(country))
     }
 
     const headerParams = { menu: menu as MenuItem[], onOrder, countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect }
