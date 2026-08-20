@@ -134,7 +134,9 @@
 					<button class="store_block-product-add product_block-product-add" data-redirect="true">Order now</button>
 					<button class="store_block-product-add-mobile product_block-product-add" data-redirect="true">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 }} {{ currency_code }}</div>
+						<div class="store_block-product-add-mobile-total">
+							{% comment %} {{ product.price | divided_by: 100 }} {{ currency_code }} {% endcomment %}
+						</div>
 					</button>
 					<button class="store_block-product-add-mobile store_block-product-add-add product_block-product-add">
 						Add to Cart
@@ -265,11 +267,17 @@
 				const vat = price * tax / 100
 				vatText = `<br><div class="store_block-product-price-vat">+${vat.toFixed(0)} EUR (VAT ${tax}%)</div>`
 			}
+
+			let selector = `.store_block-product-price-${type}`
+			if (type === 'total') selector = '.store_block-product-add-mobile-total'
 			
-			$(`.store_block-product-price-${type}`).empty().html(`${priceText} ${vatText}`)
+			$(selector).empty().html(type === 'total' ? priceText : `${priceText} ${vatText}`)
 		}
 
-		setPrice({{ product.price | divided_by: 100 }})
+		const productPrice = {{ product.price | divided_by: 100 }}
+
+		setPrice(productPrice)
+		setPrice(productPrice, 'total')
 
 		var model_id = null
 		var models_ids = [];
