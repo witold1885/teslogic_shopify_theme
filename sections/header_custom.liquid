@@ -77,10 +77,9 @@
             <span>Cart</span>
           </a>
         </div>
-        {% render 'header-country', id: 'header-custom-country' %}
+        {% render 'header-country', id: 'header-custom-desktop-country' %}
       </div>
       <div class="buttons">
-        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
           class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -92,7 +91,7 @@
             </div>
           </a>
         </div>
-        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        {% render 'header-country', id: 'header-custom-mobile-country' %}
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
       </div>
@@ -148,23 +147,6 @@
         </div>
       {% endif %}
       {% endfor %}
-      <!-- <div class="menu__item menu__item-button"><a href="/#shop-now">Shop Now</a></div>
-      <div class="menu__item"><a href="/#features">Features</a></div>
-      <div class="menu__item"><a href="/manuals">Manuals</a></div>
-      <div class="menu__item"><a href="/faq">FAQ</a></div>
-      <div class="menu__item"><a href="/contacts">Contacts</a></div>
-      <div 
-        class="menu__item cart-link"
-        {% if cart.item_count == 0 %} style="display: none;" {% endif %}
-      >
-        <a href="/cart">
-          <div class="cart-icon-wrap">
-            <img src="{{ 'cart-black.svg' | asset_url }}">
-            <div class="cart-qty">{{ cart.item_count }}</div>
-          </div>
-          <span>Cart</span>
-        </a>
-      </div> -->
     </div>
   </div>
 </header>
