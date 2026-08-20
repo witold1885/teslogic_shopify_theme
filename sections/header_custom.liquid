@@ -109,10 +109,12 @@
                 {% endif %}
               </div>
               {% for country in countries %}
-                <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
-                  <span>{{ country.name }}</span>
-                  <span>{{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }}</span>
-                </div>
+                {% if country.iso_code != localization.country.iso_code %}
+                  <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
+                    <span>{{ country.name }}</span>
+                    <span>{{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }}</span>
+                  </div>
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -344,6 +346,10 @@
       if (!$target.closest('.header-country').length) {
         $('.header-country-dropdown').hide()
       }
+    })
+
+    $('.header-country-dropdown-item.selected').on('click', function() {
+      $('.header-country-dropdown').hide()
     })
 
     $('.header-country-dropdown-item:not(.selected)').on('click', function() {
