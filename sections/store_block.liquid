@@ -291,14 +291,14 @@
 			if (currencyCode === 'EUR') {
 				const tax = euTaxes[countryCode] || 20
 				const vat = price * tax / 100
-				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+				vatText = `<br><div class="store_block-product-price-vat">+${vat.toFixed(0)} EUR (VAT ${tax}%)</div>`
 			}
 
 			let selector = `.store_block-product-price-${type}`
 			if (type === 'add') selector = '.store_block-add-wireless-price'
 			else if (type === 'total') selector = '.store_block-product-add-mobile-total'
 			
-			$(selector).empty().text(type === 'total' ? priceText : `${priceText} ${vatText}`)
+			$(selector).empty().html(type === 'total' ? priceText : `${priceText} ${vatText}`)
 		}
 
 		const productPrice = {{ product.price | divided_by: 100 }}
