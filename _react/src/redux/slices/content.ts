@@ -1,5 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { Country, MenuItem } from '../../types/shopify'
+import shopify from '../shopify'
 
 interface ContentState {
     country?: Country | null
@@ -19,16 +20,36 @@ const initialState: ContentState = {
     error: null
 }
 
+export const setCountry = createAsyncThunk(
+    'content/setCountry',
+    async (country: Country, { rejectWithValue }) => {
+        const result = await shopify.post('localization', { country_code: country.iso_code })
+
+        if (!result.success) {
+            return rejectWithValue(result.message)
+        }
+
+        localStorage.setItem('country', JSON.stringify(country))
+        return result.data
+    }
+)
+
 export const contentSlice = createSlice({
     name: 'content',
     initialState,
-    reducers: {
-        setCountry: (state, action: PayloadAction<Country>) => {
-            state.country = action.payload
-            localStorage.setItem('country', JSON.stringify(action.payload))
-        },
-    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(setCountry.pending, (state) => {
+                state.error = null
+            })
+            .addCase(setCountry.fulfilled, (state) => {
+
+            })
+            .addCase(setCountry.rejected, (state, action) => {
+                state.error = action.payload as string
+            })
+    }
 })
 
-export const { setCountry } = contentSlice.actions
 export default contentSlice.reducer
