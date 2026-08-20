@@ -19,7 +19,7 @@
     {%- assign currency_symbol = '€' -%}
 {%- endif -%}
 
-<div class="header-country">
+<div class="header-country" id="{{ id }}">
     <div class="header-country-button">
         <span>{{ localization.country.iso_code }}&nbsp;{{ currency_symbol }}</span>
         <div class="header-menu-item-chevron">
@@ -57,22 +57,24 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.header-country-button').on('click', function() {
-      $(this).parent().find('.header-country-dropdown').toggle()
+    const id = '{{ id }}'
+    
+    $(`#${id} .header-country-button`).on('click', function() {
+      $(`#${id}`).find('.header-country-dropdown').toggle()
     })
 
     $(document).click(function(event) { 
       var $target = $(event.target)
-      if (!$target.closest('.header-country').length) {
-        $('.header-country-dropdown').hide()
+      if (!$target.closest(`#${id} .header-country`).length) {
+        $(`#${id} .header-country-dropdown`).hide()
       }
     })
 
-    $('.header-country-dropdown-item.selected').on('click', function() {
-      $('.header-country-dropdown').hide()
+    $(`#${id} .header-country-dropdown-item.selected`).on('click', function() {
+      $(`#${id} .header-country-dropdown`).hide()
     })
 
-    $('.header-country-dropdown-item:not(.selected)').on('click', function() {
+    $(`#${id} .header-country-dropdown-item:not(.selected)`).on('click', function() {
       const country_code = $(this).data('country_code')
       const formData = new URLSearchParams()
       formData.append('form_type', 'localization')
