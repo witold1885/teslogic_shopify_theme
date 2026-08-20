@@ -254,7 +254,14 @@
 
 		const eu_taxes = {{ eu_taxes }}
 
-		fetch('https://api.teslogic.co/api/rate/USD/EUR').then(response => console.log(response.json()))
+		fetch('https://api.teslogic.co/api/rate/USD/EUR')
+			.then(response => response.json())
+			.then(data => {
+				console.log(data)
+			})
+			.catch(error => {
+				console.error('Failed to fetch data:', error)
+			})
 
 		/*var amount = Number($('#amount').text())
 		$('.product_block-product-amount-button-minus').on('click', function() {
