@@ -55,10 +55,6 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         dispatch(getRate('USD/EUR'))
     }, [dispatch])
 
-    useEffect(() => {
-        console.log({ country })
-    }, [country])
-
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
     const SlickSlider = (Slider as any).default || Slider
