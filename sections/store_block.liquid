@@ -128,7 +128,7 @@
 				<div class="store_block-add-wireless">
 					<input type="checkbox" id="select-charger" class="store_block-add-wireless-checkbox" checked>
 					<label for="select-charger" class="store_block-add-wireless-title">
-						With Additional Wireless Charger <span class="store_block-add-wireless-price">+ 40 USD</span>
+						With Additional Wireless Charger <span class="store_block-add-wireless-price"></span>
 					</label>					
 				</div>
 				<div class="store_block-product-order">
@@ -167,7 +167,7 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(document).ready(async function() {
 		var imgnum = 0
 		setGalleryImage()
 		
@@ -279,10 +279,12 @@
 				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
 			}
 			
-			$(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
+			if (type !== 'add') $(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
+			else $('.store_block-add-wireless-price').empty().text(`${priceText} ${vatText}`)
 		}
 
 		setPrice({{ product.price | divided_by: 100 }})
+		setPrice({{ charger.price | divided_by: 100 }}, 'add')
 
 		var model_id = null
 		
