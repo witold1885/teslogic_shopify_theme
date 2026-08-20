@@ -768,7 +768,7 @@
 							</div>
 							<div class="order-product-data-add">
 								<input type="checkbox" id="select-charger-1" class="order-product-data-add-checkbox" checked>
-								<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ 40 USD</span></label>
+								<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price"></span></label>
 							</div>
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
 								<div class="order-product-data-preorder-features-item">
@@ -818,7 +818,7 @@
 							</div>
 							<div class="order-product-data-add">
 								<input type="checkbox" id="select-charger-2" class="order-product-data-add-checkbox" checked>
-								<label for="select-charger-2" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price">+ 40 USD</span></label>
+								<label for="select-charger-2" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price"></span></label>
 							</div>
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
 								<div class="order-product-data-preorder-features-item">
@@ -871,7 +871,7 @@
 		const data = await response.json()
 		const coef = currencyCode === 'EUR' ? (data.rate || 1) : 1
 
-		const setPrice = (usdPrice, num) => {
+		const setPrice = (usdPrice, num, add = false) => {
 			const price = usdPrice * coef
 			const priceText = `${price.toFixed(0)} ${currencyCode}`
 			let vatText = ''
@@ -882,11 +882,17 @@
 				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
 			}
 			
-			$(`.order-product-${num} .order-product-data-info-price-main`).empty().text(`${priceText} ${vatText}`)
+			if (!add) $(`.order-product-${num} .order-product-data-info-price-main`).empty().text(`${priceText} ${vatText}`)
+			else $(`.order-product-${num} .order-product-data-add-price`).empty().text(`${priceText} ${vatText}`)
 		}
 
-		setPrice({{ product1.price | divided_by: 100 }}, 1)
-		setPrice({{ product2.price | divided_by: 100 }}, 2)
+		Object.entries({
+			"1": {{ product1.price | divided_by: 100 }},
+			"2": {{ product2.price | divided_by: 100 }}
+		}).forEach(([num, price]) => {
+			setPrice(price, num)
+			setPrice({{ charger.price | divided_by: 100 }}, num, true)
+		})
 
 		var num
 		$('.order-product-data-preorder-button.preorder-performance').on('click', function () {
