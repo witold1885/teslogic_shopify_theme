@@ -6,60 +6,61 @@
 {%- for country in localization.available_countries -%}
 {%- assign country_array = country | sort -%}
 {%- if country.iso_code == 'US' -%}
-    {%- assign us_group = us_group | concat: country_array -%}
+  {%- assign us_group = us_group | concat: country_array -%}
 {%- elsif eu_codes contains country.iso_code -%}
-    {%- assign eu_group = eu_group | concat: country_array -%}
+  {%- assign eu_group = eu_group | concat: country_array -%}
 {%- endif -%}
 {%- endfor -%}
 {%- assign countries = us_group | concat: eu_group -%}
 {%- assign currency_code = localization.country.currency.iso_code -%}
 {%- assign currency_symbol = localization.country.currency.symbol -%}
 {%- if eu_codes contains localization.country.iso_code -%}
-    {%- assign currency_code = 'EUR' -%}
-    {%- assign currency_symbol = '€' -%}
+  {%- assign currency_code = 'EUR' -%}
+  {%- assign currency_symbol = '€' -%}
 {%- endif -%}
 
 <div class="header-country" id="{{ id }}">
-    <div class="header-country-button">
-        <span>{{ localization.country.iso_code }}&nbsp;{{ currency_symbol }}</span>
-        <div class="header-menu-item-chevron">
-            <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
-        </div>
+  <div class="header-country-button">
+    <span>{{ localization.country.iso_code }}&nbsp;{{ currency_symbol }}</span>
+    <div class="header-menu-item-chevron">
+      <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
     </div>
-    <div class="header-country-dropdown" style="display: none;">
-        <div class="header-country-dropdown-list">
-            <div class="header-country-dropdown-item selected">
-                <span>{{ localization.country.name }}</span>
-                <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
-                {% if localization.country.iso_code == 'US' %}
-                    <span class="header-country-dropdown-item-note">
-                        Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
-                    </span>
-                {% endif %}
-            </div>
-            {% for country in countries %}
-                {% if country.iso_code != localization.country.iso_code %}
-                    {%- assign currency_code = country.currency.iso_code -%}
-                    {%- assign currency_symbol = country.currency.symbol -%}
-                    {%- if eu_codes contains country.iso_code -%}
-                        {%- assign currency_code = 'EUR' -%}
-                        {%- assign currency_symbol = '€' -%}
-                    {%- endif -%}
-                    <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
-                        <span>{{ country.name }}</span>
-                        <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+  </div>
+  <div class="header-country-dropdown" style="display: none;">
+    <div class="header-country-dropdown-list">
+      <div class="header-country-dropdown-item selected">
+        <span>{{ localization.country.name }}</span>
+        <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
+        {% if localization.country.iso_code == 'US' %}
+          <span class="header-country-dropdown-item-note">
+            Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+          </span>
+        {% endif %}
+      </div>
+      {% for country in countries %}
+        {% if country.iso_code != localization.country.iso_code %}
+          {%- assign currency_code = country.currency.iso_code -%}
+          {%- assign currency_symbol = country.currency.symbol -%}
+          {%- if eu_codes contains country.iso_code -%}
+            {%- assign currency_code = 'EUR' -%}
+            {%- assign currency_symbol = '€' -%}
+          {%- endif -%}
+          <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
+            <span>{{ country.name }}</span>
+            <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
+  </div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function() {
     const id = '{{ id }}'
-    
+
     $(`#${id} .header-country-button`).on('click', function() {
+      console.log({ id })
       $(`#${id}`).find('.header-country-dropdown').toggle()
     })
 
