@@ -52,10 +52,6 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         dispatch(getRate('USD/EUR'))
     }, [dispatch])
 
-    useEffect(() => {
-        console.log({ country, rate })
-    }, [country, rate])
-
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
     const SlickSlider = (Slider as any).default || Slider
@@ -88,6 +84,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const prices: { current?: number | null; old?: number | null } = useMemo(() => {
         let current = null, old = null
+        const coef: number = country?.currency_code === 'EUR' ? (rate || 1) : 1
         if (product) {
             current = product.maxPrice
             old = product.oldPrice
@@ -96,8 +93,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 old = selectedModel.oldPrice
             }
         }
-        return { current, old }
-    }, [product, selectedModel])
+        return { current: (current || 0) * coef, old: (old || 0) * coef }
+    }, [product, selectedModel, country, rate])
+
+    const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
@@ -170,9 +169,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         <div>
                             <div {...anime('name')} className="screenmate-one__order-form-name">{product.title}</div>
                             <div {...anime('prices')} className="screenmate-one__order-form-prices">
-                                <span className="screenmate-one__order-form-prices-current">{prices.current} USD</span>
+                                <span className="screenmate-one__order-form-prices-current">{prices.current} {currency}</span>
                                 {(prices.old || 0) > (prices.current || 0) && (
-                                    <span className="screenmate-one__order-form-prices-old">{prices.old} USD</span>
+                                    <span className="screenmate-one__order-form-prices-old">{prices.old} {currency}</span>
                                 )}
                             </div>
                         </div>

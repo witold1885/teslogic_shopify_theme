@@ -284,6 +284,7 @@
                 @include responsive(border-radius, 12px);
                 background: #1D1D1F;
                 box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+                scrollbar-width: thin;
                 scrollbar-color: #0465FD #4D4D4D;
 
                 &::-webkit-scrollbar {
@@ -292,6 +293,7 @@
 
                 &::-webkit-scrollbar-thumb {
                     background: #0465FD;
+                    border-radius: 0;
                 }
 
                 &::-webkit-scrollbar-track {

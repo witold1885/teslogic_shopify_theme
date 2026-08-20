@@ -302,7 +302,14 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         dispatch(setCountry(country))
     }
 
-    const headerParams = { menu: menu as MenuItem[], onOrder, countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect }
+    const headerParams = {
+        menu: menu as MenuItem[],
+        onOrder,
+        countriesDropdownOpen,
+        onCountriesDropdownToggle,
+        selectedCountry,
+        onCountrySelect
+    }
 
     const headerComponentParams = {
         ...headerParams,
