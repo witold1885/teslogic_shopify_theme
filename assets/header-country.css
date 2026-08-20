@@ -145,7 +145,7 @@
     .header-country-button {
         width: calc(65 * 100vw / 375);
         height: calc(28 * 100vw / 375);
-        margin-top: calc(4 * 100vw / 375);
+        margin-top: 0;
         padding: calc(4 * 100vw / 375) calc(2 * 100vw / 375) calc(4 * 100vw / 375) calc(6 * 100vw / 375);
         border-radius: calc(6 * 100vw / 375);
     }
@@ -156,7 +156,7 @@
     }
     
     .header-country-dropdown {
-        top: calc(52 * 100vw / 375);
+        top: calc(40 * 100vw / 375);
         left: calc(-1 * 100vw / 2);
         right: unset;
         width: calc(335 * 100vw / 375);
