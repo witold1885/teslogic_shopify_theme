@@ -714,6 +714,19 @@
 {% assign product2 = all_products['powermate-performace-kit'] %}
 {% assign charger = all_products['screenmate-wireless-charger'] %}
 
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+
+{%- assign currency_code = localization.country.currency.iso_code -%}
+{%- assign currency_symbol = localization.country.currency.symbol -%}
+{%- if eu_codes contains localization.country.iso_code -%}
+    {%- assign currency_code = 'EUR' -%}
+    {%- assign currency_symbol = '€' -%}
+{%- endif -%}
+
+{%- capture eu_taxes -%}
+  {% render 'eu-taxes-json' %}
+{%- endcapture -%}
+
 <div id="shop-now" class="order-container">
 	<div class="order-wrap">
 		<div id="pro-order" class="order">
@@ -730,7 +743,9 @@
 						<div class="order-product-data">
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
-									<div class="order-product-data-info-price-main">{{ product1.price | divided_by: 100 }} USD</div>
+									<div class="order-product-data-info-price-main">
+										{% comment %} {{ product1.price | divided_by: 100 }} USD {% endcomment %}
+									</div>
 									<!-- <div class="order-product-data-info-price-old">$ {{ product1.compare_at_price | divided_by: 100 }}</div> -->
 								</div>
 								<div class="order-product-data-info-title">{{ product1.title }}</div>								
@@ -778,7 +793,9 @@
 						<div class="order-product-data">
 							<div class="order-product-data-info">
 								<div class="order-product-data-info-price">
-									<div class="order-product-data-info-price-main">{{ product2.price | divided_by: 100 }} USD</div>
+									<div class="order-product-data-info-price-main">
+										{% comment %} {{ product2.price | divided_by: 100 }} USD {% endcomment %}
+									</div>
 									<!-- <div class="order-product-data-info-price-old">$ {{ product2.compare_at_price | divided_by: 100 }}</div> -->
 								</div>
 								<div class="order-product-data-info-title">{{ product2.title }}</div>								
@@ -846,6 +863,31 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
+		const currencyCode = '{{ currency_code }}'
+		const countryCode = '{{ localization.country.iso_code }}'
+		const euTaxes = {{ eu_taxes }}
+
+		const response = await fetch('https://api.teslogic.co/api/rate/USD/EUR')
+		const data = await response.json()
+		const coef = currencyCode === 'EUR' ? (data.rate || 1) : 1
+
+		const setPrice = (usdPrice, num) => {
+			const price = usdPrice * coef
+			const priceText = `${price.toFixed(0)} ${currencyCode}`
+			let vatText = ''
+
+			if (currencyCode === 'EUR') {
+				const tax = euTaxes[countryCode] || 20
+				const vat = price * tax / 100
+				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+			}
+			
+			$(`.order-product-${num} .order-product-data-info-price-main`).empty().text(`${priceText} ${vatText}`)
+		}
+
+		setPrice({{ product1.price | divided_by: 100 }}, 1)
+		setPrice({{ product2.price | divided_by: 100 }}, 2)
+
 		var num
 		$('.order-product-data-preorder-button.preorder-performance').on('click', function () {
 			num = $(this).data('num')
