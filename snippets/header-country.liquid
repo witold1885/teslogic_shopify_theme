@@ -1,0 +1,95 @@
+<link rel="stylesheet" type="text/css" href="{{ 'header-country.css' | asset_url }}">
+
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+{%- assign us_group = '' | split: '' -%}
+{%- assign eu_group = '' | split: '' -%}
+{%- for country in localization.available_countries -%}
+{%- assign country_array = country | sort -%}
+{%- if country.iso_code == 'US' -%}
+    {%- assign us_group = us_group | concat: country_array -%}
+{%- elsif eu_codes contains country.iso_code -%}
+    {%- assign eu_group = eu_group | concat: country_array -%}
+{%- endif -%}
+{%- endfor -%}
+{%- assign countries = us_group | concat: eu_group -%}
+{%- assign currency_code = localization.country.currency.iso_code -%}
+{%- assign currency_symbol = localization.country.currency.symbol -%}
+{%- if eu_codes contains localization.country.iso_code -%}
+    {%- assign currency_code = 'EUR' -%}
+    {%- assign currency_symbol = '€' -%}
+{%- endif -%}
+
+<div class="header-country">
+    <div class="header-country-button">
+        <span>{{ localization.country.iso_code }}&nbsp;{{ currency_symbol }}</span>
+        <div class="header-menu-item-chevron">
+            <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+        </div>
+    </div>
+    <div class="header-country-dropdown" style="display: none;">
+        <div class="header-country-dropdown-list">
+            <div class="header-country-dropdown-item selected">
+                <span>{{ localization.country.name }}</span>
+                <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
+                {% if localization.country.iso_code == 'US' %}
+                    <span class="header-country-dropdown-item-note">
+                        Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+                    </span>
+                {% endif %}
+            </div>
+            {% for country in countries %}
+                {% if country.iso_code != localization.country.iso_code %}
+                    {%- assign currency_code = country.currency.iso_code -%}
+                    {%- assign currency_symbol = country.currency.symbol -%}
+                    {%- if eu_codes contains country.iso_code -%}
+                        {%- assign currency_code = 'EUR' -%}
+                        {%- assign currency_symbol = '€' -%}
+                    {%- endif -%}
+                    <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
+                        <span>{{ country.name }}</span>
+                        <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.header-country-button').on('click', function() {
+      $(this).parent().find('.header-country-dropdown').toggle()
+    })
+
+    $(document).click(function(event) { 
+      var $target = $(event.target)
+      if (!$target.closest('.header-country').length) {
+        $('.header-country-dropdown').hide()
+      }
+    })
+
+    $('.header-country-dropdown-item.selected').on('click', function() {
+      $('.header-country-dropdown').hide()
+    })
+
+    $('.header-country-dropdown-item:not(.selected)').on('click', function() {
+      const country_code = $(this).data('country_code')
+      const formData = new URLSearchParams()
+      formData.append('form_type', 'localization')
+      formData.append('utf8', '✓')
+      formData.append('_method', 'put')
+      formData.append('country_code', country_code)
+      fetch('/localization', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString()
+      }).then(response => {
+        if (response.ok) {
+          window.location.reload()
+        }
+      }).catch(error => console.error('Error changing country:', error))
+    })
+  })
+</script>
