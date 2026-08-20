@@ -35,6 +35,10 @@
 		font-size: calc(32 * 100vw / 1440);
 		line-height: calc(36 * 100vw / 1440);
 	}
+	.store_block-product-price-vat {
+		font-size: calc(24 * 100vw / 1440);
+		line-height: calc(32 * 100vw / 1440);
+	}
 	.store_block-product-title {
 		/* width: calc(486 * 100vw / 1440); */
 		margin-bottom: calc(8 * 100vw / 1440);
@@ -178,6 +182,10 @@
 	.store_block-product-price-old {
 		font-size: calc(32 * 100vw / 375);
 		line-height: calc(40 * 100vw / 375);
+	}
+	.store_block-product-price-vat {
+		font-size: calc(20 * 100vw / 375);
+		line-height: calc(28 * 100vw / 375);
 	}
 	.store_block-product-gallery-mobile {
 		display: block;
