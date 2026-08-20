@@ -356,7 +356,7 @@
         body: formData.toString(),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       })
-      const data = await response.body()
+      const data = await response.text()
       console.log({ country_code, formData, data })
       // window.location.reload(true)
     })
