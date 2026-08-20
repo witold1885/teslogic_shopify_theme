@@ -64,12 +64,12 @@
       $(`#${id}`).find('.header-country-dropdown').toggle()
     })
 
-    $(document).click(function(event) { 
-      var $target = $(event.target)
-      if (!$target.closest(`#${id} .header-country`).length) {
-        $(`#${id} .header-country-dropdown`).hide()
-      }
-    })
+    // $(document).click(function(event) { 
+    //   var $target = $(event.target)
+    //   if (!$target.closest(`#${id} .header-country`).length) {
+    //     $(`#${id} .header-country-dropdown`).hide()
+    //   }
+    // })
 
     $(`#${id} .header-country-dropdown-item.selected`).on('click', function() {
       $(`#${id} .header-country-dropdown`).hide()
