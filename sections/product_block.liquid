@@ -264,7 +264,7 @@
 			const price = usdPrice * rate
 			const tax = euTaxes[countryCode] || 20
 			const vat = price * tax / 100
-			const priceText = `${price} ${currencyCode}`
+			const priceText = `${price.toFixed(0)} ${currencyCode}`
 			const vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
 			$('.store_block-product-price-new').empty().text(`${priceText} ${vatText}`)
 		}		
