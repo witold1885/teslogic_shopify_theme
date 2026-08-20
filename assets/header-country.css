@@ -118,6 +118,11 @@
         gap: calc(12 * 100vw / 1440);
         padding: calc(18 * 100vw / 1440) 0;
     }
+
+    .header-country-dropdown-item {
+        font-size: calc(14 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+    }
     
     .header-country-dropdown-item.selected {
         row-gap: calc(4 * 100vw / 1440);
@@ -157,6 +162,11 @@
     .header-country-dropdown-list {
         gap: calc(12 * 100vw / 375);
         padding: calc(18 * 100vw / 375) 0;
+    }
+
+    .header-country-dropdown-item {
+        font-size: calc(14 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
     }
     
     .header-country-dropdown-item.selected {
