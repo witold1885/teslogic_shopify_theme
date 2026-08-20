@@ -28,10 +28,6 @@ interface HeaderProps {
     className?: string
     menu: MenuItem[]
     onOrder?: () => void
-    countriesDropdownOpen: boolean
-    onCountriesDropdownToggle: (open?: boolean) => void
-    selectedCountry?: Country | null
-    onCountrySelect: (country: Country) => void
 }
 
 interface HeaderMenuProps extends HeaderProps {
@@ -43,14 +39,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
     className = '',
     menu,
     mode,
-    onMobileMenuClose,
-    countriesDropdownOpen,
-    onCountriesDropdownToggle,
-    selectedCountry,
-    onCountrySelect
+    onMobileMenuClose
 }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
-    const { countries } = useAppSelector(state => state.content)
 
     const activeMenuIndex = useMemo(() => menu.findIndex(
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
@@ -156,49 +147,66 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
                     <span>Cart</span>
                 </a>
             )}
-            {mode === 'desktop' && selectedCountry && (
-                <div className="header-menu-country">
-                    <div className="header-menu-country-button" onClick={() => onCountriesDropdownToggle()}>
-                        <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
-                        <div className="header-menu-item-chevron">
-                            <Icon svg={<ChevronDownIcon />} />
-                        </div>
-                    </div>
-                    {countriesDropdownOpen && (
-                        <div className="header-menu-country-dropdown">
-                            <div className="header-menu-country-dropdown-list">
-                                <div
-                                    className="header-menu-country-dropdown-item selected"
-                                    onClick={() => onCountriesDropdownToggle(false)}
-                                >
-                                    <span>{selectedCountry.name}</span>
-                                    <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
-                                    {selectedCountry.iso_code === 'US' && (
-                                        <span className="header-menu-country-dropdown-item-note">
-                                            Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
-                                        </span>
-                                    )}
-                                </div>
-                                {countries?.filter(({ iso_code }) => iso_code !== selectedCountry?.iso_code).map(country => (
-                                    <div
-                                        key={country.iso_code}
-                                        className="header-menu-country-dropdown-item"
-                                        onClick={() => onCountrySelect(country)}
-                                    >
-                                        <span>{country.name}</span>
-                                        <span>{country.currency_code}&nbsp;{country.currency_symbol}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            )}
         </div>
     )
 }
 
-interface HeaderComponentProps extends HeaderProps {
+interface HeaderCountrySelectorProps {
+    countriesDropdownOpen: boolean
+    onCountriesDropdownToggle: (open?: boolean) => void
+    selectedCountry?: Country | null
+    onCountrySelect: (country: Country) => void
+}
+
+const HeaderCountrySelector: React.FC<HeaderCountrySelectorProps> = ({ 
+    countriesDropdownOpen,
+    onCountriesDropdownToggle,
+    selectedCountry,
+    onCountrySelect
+}) => {
+    const { countries } = useAppSelector(state => state.content)
+
+    return selectedCountry ? (
+        <div className="header-menu-country">
+            <div className="header-menu-country-button" onClick={() => onCountriesDropdownToggle()}>
+                <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
+                <div className="header-menu-item-chevron">
+                    <Icon svg={<ChevronDownIcon />} />
+                </div>
+            </div>
+            {countriesDropdownOpen && (
+                <div className="header-menu-country-dropdown">
+                    <div className="header-menu-country-dropdown-list">
+                        <div
+                            className="header-menu-country-dropdown-item selected"
+                            onClick={() => onCountriesDropdownToggle(false)}
+                        >
+                            <span>{selectedCountry.name}</span>
+                            <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
+                            {selectedCountry.iso_code === 'US' && (
+                                <span className="header-menu-country-dropdown-item-note">
+                                    Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+                                </span>
+                            )}
+                        </div>
+                        {countries?.filter(({ iso_code }) => iso_code !== selectedCountry?.iso_code).map(country => (
+                            <div
+                                key={country.iso_code}
+                                className="header-menu-country-dropdown-item"
+                                onClick={() => onCountrySelect(country)}
+                            >
+                                <span>{country.name}</span>
+                                <span>{country.currency_code}&nbsp;{country.currency_symbol}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    ) : null
+}
+
+interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
     position: 'absolute' | 'sticky'
     isMobile: boolean
     onMobileMenuOpen: () => void
@@ -231,16 +239,15 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
             <a href="/">
                 <Image className="header-logo" src={logo} alt="Screenmate" />
             </a>
-            {!isMobile 
-                ? <HeaderMenu
-                    className="header-menu-desktop"
-                    mode="desktop"
-                    {...{menu, onOrder, countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
-                  />
-                : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
+            {!isMobile && (
+                <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
+            )}
+            <HeaderCountrySelector {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}} />
+            {isMobile && (
+                <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
                     <Icon icon={burgerIcon} />
-                  </Button>
-            }
+                </Button>
+            )}
         </header>
     )
 }
@@ -253,11 +260,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
     className = '',
     menu,
     onOrder,
-    onMobileMenuClose,
-    countriesDropdownOpen,
-    onCountriesDropdownToggle,
-    selectedCountry,
-    onCountrySelect
+    onMobileMenuClose
 }) => (
     <div className={`header-menu-mobile-wrap ${className}`}>
         <div>
@@ -267,7 +270,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
         <HeaderMenu
             className="header-menu-mobile"
             mode="mobile"
-            {...{menu, onOrder, onMobileMenuClose, countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
+            {...{menu, onOrder}}
         />
     </div>
 )
@@ -302,19 +305,16 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         dispatch(setCountry(country))
     }
 
-    const headerParams = {
-        menu: menu as MenuItem[],
-        onOrder,
-        countriesDropdownOpen,
-        onCountriesDropdownToggle,
-        selectedCountry,
-        onCountrySelect
-    }
+    const headerParams = { menu: menu as MenuItem[], onOrder }
 
     const headerComponentParams = {
         ...headerParams,
         isMobile,
-        onMobileMenuOpen: () => setOpenMobileMenu(true)
+        onMobileMenuOpen: () => setOpenMobileMenu(true),
+        countriesDropdownOpen,
+        onCountriesDropdownToggle,
+        selectedCountry,
+        onCountrySelect
     }
 
     const headerMobileParams = {

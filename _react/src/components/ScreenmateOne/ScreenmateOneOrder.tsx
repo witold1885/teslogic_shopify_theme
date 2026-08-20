@@ -29,6 +29,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
     name: { yFrom: '40px', duration: 666 },
     prices: { yFrom: '20px', duration: 333 },
+    notes: { yFrom: '20px', duration: 333 },
+    vat: { yFrom: '20px', duration: 333 },
     models: { yFrom: '20px', duration: 333 },
     additionals: { yFrom: '20px', duration: 333 },
     button: { yFrom: '40px', duration: 666 },
@@ -177,7 +179,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 )}
                             </div>
                             {currency === 'USD' && (
-                                <div className="screenmate-one__order-form-notes">
+                                <div {...anime('notes')} className="screenmate-one__order-form-notes">
                                     <div>
                                         <Icon icon={global} />
                                         <span>Global prices are shown in USD, VAT not included</span>
@@ -189,7 +191,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 </div>
                             )}
                             {currency === 'EUR' && (
-                                <div className="screenmate-one__order-form-vat">
+                                <div {...anime('vat')} className="screenmate-one__order-form-vat">
                                     +{((prices.current || 0) * 0.2).toFixed(0)} EUR (VAT 20%)
                                 </div>
                             )}

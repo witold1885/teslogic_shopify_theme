@@ -3,7 +3,6 @@ import { type Product, type RateResponse, type CartResponse, type CartPayload } 
 import shopify from '../shopify'
 
 interface ProductsState {
-    currency: string
     rate: number | null
     cartItemCount?: number
     products?: Product[]
@@ -15,7 +14,6 @@ interface ProductsState {
 }
 
 const initialState: ProductsState = {
-    currency: 'USD',
     rate: 1,
     cartItemCount: 0,
     products: [],

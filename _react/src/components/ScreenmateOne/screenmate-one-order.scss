@@ -171,7 +171,7 @@
             }
 
             &-vat {
-                @extend %font-manrope-24, %font-600, %text-blue;
+                @extend %font-manrope-24, %mob\:font-manrope-20, %font-600, %text-blue;
             }
 
             &-additionals {
