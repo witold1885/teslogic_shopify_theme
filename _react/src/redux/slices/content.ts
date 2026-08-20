@@ -25,20 +25,20 @@ const initialState: ContentState = {
 export const setCountry = createAsyncThunk(
     'content/setCountry',
     async (country: Country, { rejectWithValue }) => {
-        const formData = new URLSearchParams()
+        try {
+            const formData = new URLSearchParams()
 
-        formData.append('form_type', 'localization')
-        formData.append('utf8', '✓')
-        formData.append('_method', 'put')
-        formData.append('country_code', country.iso_code)
+            formData.append('form_type', 'localization')
+            formData.append('utf8', '✓')
+            formData.append('_method', 'put')
+            formData.append('country_code', country.iso_code)
 
-        const result = await shopify.post('localization', formData, true)
+            await shopify.post('localization', formData, true)
 
-        if (!result.success) {
-            return rejectWithValue(result.message)
+            return country
+        } catch (err: any) {
+            return rejectWithValue(err.message || 'Network error')
         }
-
-        return country
     }
 )
 
