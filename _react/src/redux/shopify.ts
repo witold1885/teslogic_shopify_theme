@@ -3,7 +3,7 @@ const baseUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:51
 export type Payload = Record<string, string | number | boolean | any[] | undefined | null> | null
 
 export type ShopifyResponse<T> = 
-    | { success: true; data: T }
+    | { success: true; data?: T }
     | { success: false; error: string; message: string }
 
 class Shopify
@@ -34,7 +34,7 @@ class Shopify
                 body: formData ? payload?.toString() : JSON.stringify(payload)
             })
 
-            return this.handleResponse<T>(endpoint, response)
+            return formData ? { success: true } : this.handleResponse<T>(endpoint, response)
         } catch (e: any) {
             return this.handleError<T>(e)
         }
