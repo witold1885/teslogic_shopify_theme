@@ -274,6 +274,8 @@
 			$(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
 		}
 
+		setPrice(usdPrice)
+
 		var model_id = null
 		var models_ids = [];
 		{%- for model in product.variants -%}
@@ -310,21 +312,8 @@
 			$('.store_block-product-selected').find('.store_block-product-select-value').text(model.text())	
 			setPrice(model.data('price') / 100)		
 			if (model.data('compare_at_price')) {
-				setPrice(model.data('compare_at_price') / 100)
+				setPrice(model.data('compare_at_price') / 100, 'old')
 			}
-			// if (model.data('compare_at_price')) {
-			// 	$('.store_block-product-price-old span').text('$' + (model.data('compare_at_price') / 100))
-			// 	$('.store_block-product-price-new').text((model.data('price') / 100) + ' USD')
-			// 	$('.store_block-product-price-current').hide()
-			// 	$('.store_block-product-price-old').show()
-			// 	$('.store_block-product-price-new').show()
-			// }
-			// else {
-			// 	$('.store_block-product-price-current').text((model.data('price') / 100) + ' USD')
-			// 	$('.store_block-product-price-old').hide()
-			// 	$('.store_block-product-price-new').hide()
-			// 	$('.store_block-product-price-current').show()
-			// }
 			$('.store_block-product-select').find('.store_block-product-select-dropdown').hide()
 		}
 		var cart_qty = Number({{ cart.item_count }})
