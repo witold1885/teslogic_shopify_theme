@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense } from 'react'
+import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense, useCallback } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRate, addToCart } from '../../redux/slices/products'
@@ -49,7 +49,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { isMobile } = useInlineStyles()
 
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
-    const { country } = useAppSelector(state => state.content)
+    const { country, eu_taxes } = useAppSelector(state => state.content)
 
     useEffect(() => {
         dispatch(getRate('USD/EUR'))
@@ -85,9 +85,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         setSelectedModel(model)
     }
 
+    const coef: number = useMemo(() => country?.currency_code === 'EUR' ? (rate || 1) : 1, [country, rate])
+
     const prices: { current?: number | null; old?: number | null } = useMemo(() => {
         let current = null, old = null
-        const coef: number = country?.currency_code === 'EUR' ? (rate || 1) : 1
         if (product) {
             current = product.maxPrice
             old = product.oldPrice
@@ -97,9 +98,16 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             }
         }
         return { current: (current || 0) * coef, old: (old || 0) * coef }
-    }, [product, selectedModel, country, rate])
+    }, [product, selectedModel, coef])
 
     const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
+
+    const tax: number = useMemo(() => eu_taxes[country?.iso_code as string] || 20, [country, eu_taxes])
+
+    const additionals = useMemo(() => additionalProducts?.map(({ price, ...item }) => ({
+        ...item,
+        price: (price || 0) * coef
+    })), [additionalProducts, coef])
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
@@ -109,6 +117,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
             setSelectedAdditionals(prev => checked ? [ ...prev, additionalId ] : prev.filter(id => id !== additionalId))
         }
     }
+
+    const showVAT = useCallback((price?: number | null) => currency === 'EUR' ? (
+        <>+{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)</>
+    ) : <></>, [currency, tax])
 
     const details = useMemo(() => [
         { icon: shipping, main: 'Free shipping', add: !isMobile ? 'within the United States' : 'for the U.S.' },
@@ -191,9 +203,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                     </div>
                                 )}
                                 {currency === 'EUR' && (
-                                    <div className="screenmate-one__order-form-vat">
-                                        +{((prices.current || 0) * 0.2).toFixed(0)} EUR (VAT 20%)
-                                    </div>
+                                    <div className="screenmate-one__order-form-vat">{showVAT(prices.current)}</div>
                                 )}
                             </div>
                         </div>
@@ -204,9 +214,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 {...{options, error}}
                                 onSelect={(modelId) => handleModelSelect(modelId as number)}
                             />
-                            {additionalProducts && (
+                            {additionals && (
                                 <div {...anime('additionals')} className="screenmate-one__order-form-additionals">
-                                    {additionalProducts.map(({ id, title, price, models }) => {
+                                    {additionals.map(({ id, title, price, models }) => {
                                         const modelId = models ? models[0].id : null
                                         return (
                                             <div key={id}>
@@ -218,7 +228,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                                 />
                                                 <label htmlFor={`additional-product-${id}`}>
                                                     <span>Add {title}</span>&nbsp;
-                                                    <span>{price} USD</span>
+                                                    <span>{price} {currency} {showVAT(price)}</span>
                                                 </label>
                                             </div>
                                         )

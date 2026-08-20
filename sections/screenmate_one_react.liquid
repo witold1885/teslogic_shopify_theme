@@ -2,12 +2,16 @@
 
 {{ 'react-style-ScreenmateOne-BiZvlVqI.css' | asset_url | stylesheet_tag }}
 
+{%- capture localization_country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
 {%- capture countries -%}
   {% render 'countries-json' %}
 {%- endcapture -%}
 
-{%- capture localization_country -%}
-  {% render 'country-json', country: localization.country %}
+{%- capture eu_taxes -%}
+  {% render 'eu-taxes-json' %}
 {%- endcapture -%}
 
 {%- capture main_menu -%}
@@ -40,6 +44,7 @@
     content: {
       country,
       countries,
+      eu_taxes: {{ eu_taxes }},
       main_menu: {{ main_menu }},
       footer_menu: []
     },

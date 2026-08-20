@@ -5,6 +5,7 @@ import shopify from '../shopify'
 interface ContentState {
     country?: Country | null
     countries?: Country[]
+    eu_taxes: Record<string, number>
     main_menu?: MenuItem[]
     footer_menu?: MenuItem[]
     loading: boolean
@@ -14,6 +15,7 @@ interface ContentState {
 const initialState: ContentState = {
     country: null,
     countries: [],
+    eu_taxes: {},
     main_menu: [],
     footer_menu: [],
     loading: false,
@@ -36,9 +38,7 @@ export const setCountry = createAsyncThunk(
             return rejectWithValue(result.message)
         }
 
-        console.log({ ...result.data as any, country })
-
-        return result.data
+        return { country }
     }
 )
 
@@ -51,8 +51,8 @@ export const contentSlice = createSlice({
             .addCase(setCountry.pending, (state) => {
                 state.error = null
             })
-            .addCase(setCountry.fulfilled, (state) => {
-
+            .addCase(setCountry.fulfilled, (state, action) => {
+                state.country = action.payload.country
             })
             .addCase(setCountry.rejected, (state, action) => {
                 state.error = action.payload as string

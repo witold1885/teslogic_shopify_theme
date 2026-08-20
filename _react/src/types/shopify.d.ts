@@ -20,6 +20,7 @@ declare global {
             content: {
                 country: Country
                 countries: Country[]
+                eu_taxes: Record<string, number>
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
             }
