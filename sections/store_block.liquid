@@ -148,7 +148,9 @@
 					<button class="store_block-product-add">Order now</button>
 					<button class="store_block-product-add-mobile">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 | plus: 40 }} USD</div>
+						<div class="store_block-product-add-mobile-total">
+							{% comment %} {{ product.price | divided_by: 100 | plus: 40 }} USD {% endcomment %}
+						</div>
 					</button>
 					<div class="store_block-product-order-features">
 						<div class="store_block-product-order-feature">
@@ -291,13 +293,20 @@
 				const vat = price * tax / 100
 				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
 			}
+
+			let selector = `.store_block-product-price-${type}`
+			if (type === 'add') selector = '.store_block-add-wireless-price'
+			else if (type === 'total') selector = '.store_block-product-add-mobile-total'
 			
-			if (type !== 'add') $(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
-			else $('.store_block-add-wireless-price').empty().text(`${priceText} ${vatText}`)
+			$(selector).empty().text(`${priceText} ${vatText}`)
 		}
 
-		setPrice({{ product.price | divided_by: 100 }})
-		setPrice({{ charger.price | divided_by: 100 }}, 'add')
+		const productPrice = {{ product.price | divided_by: 100 }}
+		const chargerPrice = {{ charger.price | divided_by: 100 }}
+
+		setPrice(productPrice)
+		setPrice(chargerPrice, 'add')
+		setPrice(productPrice + chargerPrice, 'total')
 
 		var model_id = null
 		
@@ -347,10 +356,8 @@
 		})
 		function setTotalPrice(price, charger_selected) {
 			if (price) {
-				const totalPrice = charger_selected ? (Number(price) + 40) : Number(price)
-				$('.store_block-product-add-mobile-total').text(totalPrice + ' USD')
-			}
-			else {
+				setPrice(charger_selected ? (Number(price) + chargerPrice) : Number(price), 'total')
+			} else {
 				$('.store_block-product-add-mobile-total').text('')
 			}
 		}
