@@ -69,7 +69,7 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
 					<div class="store_block-product-price-new">
-						{{ product.price | divided_by: 100 }} {{ currency_code }}
+						{% comment %} {{ product.price | divided_by: 100 }} {{ currency_code }} {% endcomment %}
 					</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
@@ -258,16 +258,19 @@
 
 		const response = await fetch('https://api.teslogic.co/api/rate/USD/EUR')
 		const data = await response.json()
-		const rate = data.rate || 1
+		const coef = currencyCode === 'EUR' ? (data.rate || 1) : 1
+
+		const price = usdPrice * coef
+		const priceText = `${price.toFixed(0)} ${currencyCode}`
+		let vatText = ''
 
 		if (currencyCode === 'EUR') {
-			const price = usdPrice * rate
 			const tax = euTaxes[countryCode] || 20
 			const vat = price * tax / 100
-			const priceText = `${price.toFixed(0)} ${currencyCode}`
-			const vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
-			$('.store_block-product-price-new').empty().text(`${priceText} ${vatText}`)
-		}		
+			vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+		}
+		
+		$('.store_block-product-price-new').empty().text(`${priceText} ${vatText}`)
 
 		var model_id = null
 		var models_ids = [];
