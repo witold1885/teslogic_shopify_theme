@@ -217,10 +217,6 @@
 			setGalleryImage()
 		})
 
-		/*$('.store_block-product-gallery-mobile-nav').on('click', function() {
-			let direction = $(this).data('direction')
-		})*/
-
 		function handleDirection(direction) {
 			console.log(direction)
 			if (direction == 'prev') {
@@ -251,7 +247,6 @@
 			})
 		}
 
-		const usdPrice = {{ product.price | divided_by: 100 }}
 		const currencyCode = '{{ currency_code }}'
 		const countryCode = '{{ localization.country.iso_code }}'
 		const euTaxes = {{ eu_taxes }}
@@ -274,7 +269,7 @@
 			$(`.store_block-product-price-${type}`).empty().text(`${priceText} ${vatText}`)
 		}
 
-		setPrice(usdPrice)
+		setPrice({{ product.price | divided_by: 100 }})
 
 		var model_id = null
 		var models_ids = [];
