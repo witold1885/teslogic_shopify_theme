@@ -116,6 +116,12 @@
 		line-height: 24px;
 		text-decoration: line-through;
 	}
+	.order-product-data-info-price-vat {
+		color: #1657FC;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 28px;
+	}
 	.order-product-data-info-title {
 		color: #FFF;
 		font-family: Manrope;
@@ -416,6 +422,10 @@
 			font-size: calc(18 * 100vw / 1440);
 			line-height: calc(24 * 100vw / 1440);
 		}
+		.order-product-data-info-price-vat {
+			font-size: calc(20 * 100vw / 1440);
+			line-height: calc(28 * 100vw / 1440);
+		}
 		.order-product-data-info-title {
 			font-size: calc(32 * 100vw / 1440);
 			line-height: calc(40 * 100vw / 1440);
@@ -588,6 +598,10 @@
 		.order-product-data-info-price-old {
 			font-size: calc(18 * 100vw / 375);
 			line-height: calc(24 * 100vw / 375);
+		}
+		.order-product-data-info-price-vat {
+			font-size: calc(20 * 100vw / 375);
+			line-height: calc(28 * 100vw / 375);
 		}
 		.order-product-data-info-title {
 			font-size: calc(32 * 100vw / 375);
@@ -871,7 +885,7 @@
 		const data = await response.json()
 		const coef = currencyCode === 'EUR' ? (data.rate || 1) : 1
 
-		const setPrice = (usdPrice, num, add = false) => {
+		const setPrice = (usdPrice, num, type = 'new') => {
 			const price = usdPrice * coef
 			const priceText = `${price.toFixed(0)} ${currencyCode}`
 			let vatText = ''
@@ -879,11 +893,16 @@
 			if (currencyCode === 'EUR') {
 				const tax = euTaxes[countryCode] || 20
 				const vat = price * tax / 100
-				vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+				if (type === 'new' || type === 'add') {
+					vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+					if (type === 'new') vatText = `<br><div class="order-product-data-info-price-vat">${vatText}</div>`
+				}
 			}
+
+			let selector = `.order-product-${num} .order-product-data-info-price-main`
+			if (type === 'add') selector = `.order-product-${num} .order-product-data-add-price`
 			
-			if (!add) $(`.order-product-${num} .order-product-data-info-price-main`).empty().text(`${priceText} ${vatText}`)
-			else $(`.order-product-${num} .order-product-data-add-price`).empty().text(`${priceText} ${vatText}`)
+			$(selector).empty().html(`${priceText} ${vatText}`)
 		}
 
 		Object.entries({
@@ -891,7 +910,7 @@
 			"2": {{ product2.price | divided_by: 100 }}
 		}).forEach(([num, price]) => {
 			setPrice(price, num)
-			setPrice({{ charger.price | divided_by: 100 }}, num, true)
+			setPrice({{ charger.price | divided_by: 100 }}, num, 'add')
 		})
 
 		var num
