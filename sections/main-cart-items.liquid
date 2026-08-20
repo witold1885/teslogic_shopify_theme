@@ -487,15 +487,6 @@
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
   </form>
-
-  {% if cart.total_tax > 0 %}
-    <div class="cart-tax-breakdown">
-      <span>Included VAT:</span>
-      <span class="cart-tax-amount" data-tax-cents="{{ cart.total_tax }}">
-        {{ cart.total_tax | money }}
-      </span>
-    </div>
-  {% endif %}
 </cart-items>
 
 <script type="text/javascript">
