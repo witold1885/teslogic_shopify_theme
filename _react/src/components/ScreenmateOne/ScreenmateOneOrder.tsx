@@ -53,8 +53,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     }, [dispatch])
 
     useEffect(() => {
-        console.log({ rate })
-    }, [rate])
+        console.log({ country, rate })
+    }, [country, rate])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     

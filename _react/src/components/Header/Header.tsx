@@ -27,6 +27,8 @@ interface HeaderProps {
     className?: string
     menu: MenuItem[]
     onOrder?: () => void
+    countriesDropdownOpen: boolean
+    onCountriesDropdownToggle: (value?: boolean) => void
 }
 
 interface HeaderMenuProps extends HeaderProps {
@@ -34,7 +36,7 @@ interface HeaderMenuProps extends HeaderProps {
     onMobileMenuClose?: () => void
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onMobileMenuClose }) => {
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onMobileMenuClose, countriesDropdownOpen, onCountriesDropdownToggle }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
     const { country: currentCountry, countries } = useAppSelector(state => state.content)
 
@@ -80,12 +82,12 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
 
     const { anime } = useAnime(animationConfigs)
 
-    const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
+    // const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
     const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountry)
 
     const handleSelectCountry = (country: Country) => {
         setSelectedCountry(country)
-        setCountriesDropdownOpen(false)
+        onCountriesDropdownToggle(false)
     }
 
     return (
@@ -152,7 +154,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
             )}
             {mode === 'desktop' && selectedCountry && (
                 <div className="header-menu-country">
-                    <div className="header-menu-country-button" onClick={() => setCountriesDropdownOpen(prev => !prev)}>
+                    <div className="header-menu-country-button" onClick={() => onCountriesDropdownToggle()}>
                         <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
                         <div className="header-menu-item-chevron">
                             <Icon svg={<ChevronDownIcon />} />
@@ -163,7 +165,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ className = '', menu, mode, onM
                             <div className="header-menu-country-dropdown-list">
                                 <div
                                     className="header-menu-country-dropdown-item selected"
-                                    onClick={() => setCountriesDropdownOpen(false)}
+                                    onClick={() => onCountriesDropdownToggle(false)}
                                 >
                                     <span>{selectedCountry.name}</span>
                                     <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
@@ -198,7 +200,7 @@ interface HeaderComponentProps extends HeaderProps {
     onMobileMenuOpen: () => void
 }
 
-const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, menu, isMobile, onOrder, onMobileMenuOpen }) => {
+const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, menu, isMobile, onOrder, onMobileMenuOpen, countriesDropdownOpen, onCountriesDropdownToggle }) => {
     const headerKey = `header-${position}-${className}`
     const mode = className === 'transparent' ? 'hide' : 'show'
     const direction = position === 'sticky' ? 'top' : 'bottom'
@@ -215,7 +217,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ position, className, 
                 <Image className="header-logo" src={logo} alt="Screenmate" />
             </a>
             {!isMobile 
-                ? <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
+                ? <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder, countriesDropdownOpen, onCountriesDropdownToggle}} />
                 : <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
                     <Icon icon={burgerIcon} />
                 </Button>
@@ -228,13 +230,13 @@ interface HeaderMobileProps extends HeaderProps {
     onMobileMenuClose: () => void
 }
 
-const HeaderMobile: React.FC<HeaderMobileProps> = ({ className = '', menu, onOrder, onMobileMenuClose }) => (
+const HeaderMobile: React.FC<HeaderMobileProps> = ({ className = '', menu, onOrder, onMobileMenuClose, countriesDropdownOpen, onCountriesDropdownToggle }) => (
     <div className={`header-menu-mobile-wrap ${className}`}>
         <div>
             <Image className="header-logo" src={logoBlack} alt="Screenmate" />
             <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
         </div>
-        <HeaderMenu className="header-menu-mobile" mode="mobile" {...{menu, onOrder, onMobileMenuClose}} />
+        <HeaderMenu className="header-menu-mobile" mode="mobile" {...{menu, onOrder, onMobileMenuClose, countriesDropdownOpen, onCountriesDropdownToggle}} />
     </div>
 )
 
@@ -244,7 +246,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
-    const { main_menu } = useAppSelector(state => state.content)
+    const { /*country: currentCountry, */main_menu } = useAppSelector(state => state.content)
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
@@ -253,7 +255,15 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const isScrolling = scrollOffset.y > 0 && scrollOffset.direction === 'up'
     const isAtTop = scrollOffset.y <= 0
 
-    const headerParams = { menu: menu as MenuItem[], onOrder }
+    const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
+    // const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountry)
+
+    const onCountriesDropdownToggle = (value?: boolean) => {
+        if (value) setCountriesDropdownOpen(value)
+        else setCountriesDropdownOpen(prev => !prev)
+    }
+
+    const headerParams = { menu: menu as MenuItem[], onOrder, countriesDropdownOpen, onCountriesDropdownToggle }
 
     const headerComponentParams = {
         ...headerParams,
