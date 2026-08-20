@@ -80,7 +80,7 @@
         </div>
         <div class="header-country">
           <div class="header-country-button">
-            <span>US&nbsp;$</span>
+            <span>{{ localization.country.iso_code }}&nbsp;{{ localization.country.currency.symbol }}</span>
             <div class="header-menu-item-chevron">
               <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
             </div>
@@ -102,9 +102,11 @@
               <div class="header-country-dropdown-item selected">
                 <span>{{ localization.country.name }}</span>
                 <span>{{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }}</span>
-                <span class="header-country-dropdown-item-note">
-                  Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
-                </span>
+                {% if localization.country.iso_code == 'US' %}
+                  <span class="header-country-dropdown-item-note">
+                    Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+                  </span>
+                {% endif %}
               </div>
               {% for country in countries %}
                 <div class="header-country-dropdown-item" data-country_code="{{ country.iso_code }}">
