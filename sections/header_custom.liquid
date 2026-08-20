@@ -93,7 +93,7 @@
       {%- capture countries -%}
         {% render 'countries-json' %}
       {%- endcapture -%}
-      {% comment %} <div class="header-country">
+      <div class="header-country" style="display: none;">
         <div class="header-country-button">
           <span>US&nbsp;$</span>
           <div class="header-menu-item-chevron">
@@ -117,7 +117,7 @@
             {% endfor %}
           </div>
         </div>
-      </div> {% endcomment %}
+      </div>
       <div class="buttons">
         <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
