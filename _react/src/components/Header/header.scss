@@ -42,6 +42,10 @@
         @include block(196px, 36px);
     }
 
+    &-nav {
+        @extend %flex-end-start, %gap-16;
+    }
+
     &-menu {
         @extend %flex-end-start, %gap-16, %mob\:flex-column-between, %mob\:flex-1, %mob\:gap-0;
 
@@ -255,73 +259,73 @@
                 @extend %font-manrope-16, %font-600, %text-white;
             }
         }
+    }
 
-        &-country {
-            @extend %relative;
+    &-country {
+        @extend %relative;
 
-            &-button {
-                @extend %flex-between-center, %cursor-pointer;
-                @include responsive(width, 65px);
-                @include responsive(height, 28px);
-                @include responsive(margin-top, 4px);
-                @include responsive(padding, 4px, 2px, 4px, 6px);
-                @include responsive(border-radius, 6px);
-                background: rgba(0, 0, 0, 0.32);
-                backdrop-filter: blur(8px);
+        &-button {
+            @extend %flex-between-center, %cursor-pointer;
+            @include responsive(width, 65px);
+            @include responsive(height, 28px);
+            @include responsive(margin-top, 4px);
+            @include responsive(padding, 4px, 2px, 4px, 6px);
+            @include responsive(border-radius, 6px);
+            background: rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(8px);
 
-                & span {
-                    @extend %font-manrope-16, %font-600, %text-white;
-                }
+            & span {
+                @extend %font-manrope-16, %font-600, %text-white;
+            }
+        }
+
+        &-dropdown {
+            @extend %absolute, %overflow-scroll-y;
+            @include responsive(top, 48px);
+            right: 0;
+            @include responsive(width, 248px);
+            @include responsive(height, 336px);
+            @include responsive(padding, 0, 24px);
+            @include responsive(border-radius, 12px);
+            background: #1D1D1F;
+            box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+            scrollbar-width: thin;
+            scrollbar-color: #0465FD #4D4D4D;
+
+            &::-webkit-scrollbar {
+                @include responsive(width, 6px);
             }
 
-            &-dropdown {
-                @extend %absolute, %overflow-scroll-y;
-                @include responsive(top, 48px);
-                right: 0;
-                @include responsive(width, 248px);
-                @include responsive(height, 336px);
-                @include responsive(padding, 0, 24px);
-                @include responsive(border-radius, 12px);
-                background: #1D1D1F;
-                box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
-                scrollbar-width: thin;
-                scrollbar-color: #0465FD #4D4D4D;
+            &::-webkit-scrollbar-thumb {
+                background: #0465FD;
+                border-radius: 0;
+            }
 
-                &::-webkit-scrollbar {
-                    @include responsive(width, 6px);
+            &::-webkit-scrollbar-track {
+                background: #4D4D4D;
+            }
+
+            &-list {
+                @extend %flex-column;
+                @include responsive(gap, 12px);
+                @include responsive(padding, 18px, 0);
+            }
+
+            &-item {
+                @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
+
+                &.selected {
+                    @extend %flex-wrap;
+                    @include responsive(row-gap, 4px);
+                    @include responsive(margin-bottom, 16px);
+                    @include responsive(padding-bottom, 16px);
+                    border-bottom: 1px solid #888;
                 }
 
-                &::-webkit-scrollbar-thumb {
-                    background: #0465FD;
-                    border-radius: 0;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: #4D4D4D;
-                }
-
-                &-list {
-                    @extend %flex-column;
-                    @include responsive(gap, 12px);
-                    @include responsive(padding, 18px, 0);
-                }
-
-                &-item {
-                    @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
-
-                    &.selected {
-                        @extend %flex-wrap;
-                        @include responsive(row-gap, 4px);
-                        @include responsive(margin-bottom, 16px);
-                        @include responsive(padding-bottom, 16px);
-                        border-bottom: 1px solid #888;
-                    }
-
-                    &-note {
-                        @extend %w-full, %font-500;
-                        @include text(12px, 18px);
-                        color: #999;
-                    }
+                &-note {
+                    @extend %w-full, %font-500;
+                    @include text(12px, 18px);
+                    color: #999;
                 }
             }
         }
