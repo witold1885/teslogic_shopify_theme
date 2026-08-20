@@ -49,12 +49,17 @@ export const contentSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(setCountry.pending, (state) => {
+                console.log('pending')
                 state.error = null
             })
             .addCase(setCountry.fulfilled, (state, action: PayloadAction<Country>) => {
+                console.log('fulfilled')
+                console.log(action.payload)
                 state.country = action.payload
             })
             .addCase(setCountry.rejected, (state, action) => {
+                console.log('rejected')
+                console.log(action.payload)
                 state.error = action.payload as string
             })
     }
