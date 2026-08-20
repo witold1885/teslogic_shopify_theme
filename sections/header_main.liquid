@@ -317,7 +317,6 @@
         <img class="logo-black" src="{{ 'screenmate_logo_black.svg' | asset_url }}">
       </a>
       <div class="buttons">
-        <!-- <div class="mob-button button-cart"><img src="{{ 'cart.png' | asset_url }}"></div> -->
         <div 
           class="menu__item menu__item-cart"
           {% if cart.item_count == 0 %} style="display: none;" {% endif %}
@@ -329,8 +328,8 @@
               <div class="cart-qty">{{ cart.item_count }}</div>
             </div>
           </a>
-        </div>      
-        <!-- <div class="mob-button button-burger"><img src="{{ 'burger.svg' | asset_url }}"></div> -->
+        </div>
+        {% render 'header-country', id: 'header-dash-mobile-country' %}
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
       </div>
