@@ -327,7 +327,6 @@
         <img class="logo-white" src="{{ 'screenmate_logo_white.svg' | asset_url }}">
         <img class="logo-black" src="{{ 'screenmate_logo_black.svg' | asset_url }}">
       </a>
-      {% render 'header-country', id: 'header-pro-mobile-country' %}
       <div class="buttons">
         <div 
           class="menu__item menu__item-cart"
@@ -341,6 +340,7 @@
             </div>
           </a>
         </div>
+        {% render 'header-country', id: 'header-pro-mobile-country' %}
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
       </div>
