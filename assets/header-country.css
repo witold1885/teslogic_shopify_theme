@@ -142,7 +142,7 @@
     
     .header-country-dropdown {
         top: calc(52 * 100vw / 375);
-        left: calc(-1 * 100vw / 2 - (40 * 100vw / 375));
+        left: calc(-1 * 100vw / 2);
         right: unset;
         width: calc(335 * 100vw / 375);
         height: calc(489 * 100vw / 375);
