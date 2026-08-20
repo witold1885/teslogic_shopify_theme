@@ -298,7 +298,7 @@
 			if (type === 'add') selector = '.store_block-add-wireless-price'
 			else if (type === 'total') selector = '.store_block-product-add-mobile-total'
 			
-			$(selector).empty().text(`${priceText} ${vatText}`)
+			$(selector).empty().text(type === 'total' ? priceText : `${priceText} ${vatText}`)
 		}
 
 		const productPrice = {{ product.price | divided_by: 100 }}
