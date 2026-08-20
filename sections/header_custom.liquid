@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header_custom.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'header_custom-responsive.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'header-country.css' | asset_url }}">
 
 {%- style -%}  
   .burger-menu-wrap {
@@ -87,13 +88,7 @@
           <span href="#">Cart</span>
         </a> -->
       </div>
-      {%- capture localization_country -%}
-        {% render 'country-json', country: localization.country %}
-      {%- endcapture -%}
-      {%- capture countries -%}
-        {% render 'countries-json' %}
-      {%- endcapture -%}
-      <div class="header-country" style="display: none;">
+      <div class="header-country">
         <div class="header-country-button">
           <span>US&nbsp;$</span>
           <div class="header-menu-item-chevron">
@@ -102,17 +97,29 @@
             </div>
           </div>
         </div>
+        {%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+        {%- assign us_group = '' | split: '' -%}
+        {%- assign eu_group = '' | split: '' -%}
+        {%- for country in localization.available_countries -%}
+          {%- assign country_array = country | sort -%}
+          {%- if country.iso_code == 'US' -%}
+            {%- assign us_group = us_group | concat: country_array -%}
+          {%- elsif eu_codes contains country.iso_code -%}
+            {%- assign eu_group = eu_group | concat: country_array -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign countries = us_group | concat: eu_group -%}
         <div class="header-country-dropdown">
           <div class="header-country-dropdown-list">
             <div class="header-country-dropdown-item selected">
-              <span>{{ localization_country.name }}</span>
-              <span>{{ localization_country.currency_code }}&nbsp;{{ localization_country.currency_symbol }}</span>
+              <span>{{ localization.country.name }}</span>
+              <span>{{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }}</span>
               <span class="header-country-dropdown-item-note">Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.</span>
             </div>
             {% for country in countries %}
               <div class="header-country-dropdown-item">
                 <span>{{ country.name }}</span>
-                <span>{{ country.currency_code }}&nbsp;{{ country.currency_symbol }}</span>
+                <span>{{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }}</span>
               </div>
             {% endfor %}
           </div>
