@@ -101,6 +101,11 @@
         padding: calc(4 * 100vw / 1440) calc(2 * 100vw / 1440) calc(4 * 100vw / 1440) calc(6 * 100vw / 1440);
         border-radius: calc(6 * 100vw / 1440);
     }
+
+    .header-country-button span {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+    }
     
     .header-country-dropdown {
         top: calc(48 * 100vw / 1440);
@@ -143,6 +148,11 @@
         margin-top: calc(4 * 100vw / 375);
         padding: calc(4 * 100vw / 375) calc(2 * 100vw / 375) calc(4 * 100vw / 375) calc(6 * 100vw / 375);
         border-radius: calc(6 * 100vw / 375);
+    }
+
+    .header-country-button span {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(24 * 100vw / 375);
     }
     
     .header-country-dropdown {
