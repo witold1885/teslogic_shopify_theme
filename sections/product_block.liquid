@@ -153,8 +153,7 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-
+	$(document).ready(async function() {
 		var imgnum = 0
 		setGalleryImage()
 		
@@ -252,16 +251,23 @@
 			})
 		}
 
-		const eu_taxes = {{ eu_taxes }}
+		const usdPrice = {{ product.price | divided_by: 100 }}
+		const currency = {{ localization.country.currency.iso_code }}
+		const countryCode = {{ localization.country.iso_code }}
+		const euTaxes = {{ eu_taxes }}
 
-		fetch('https://api.teslogic.co/api/rate/USD/EUR')
-			.then(response => response.json())
-			.then(data => {
-				console.log(data)
-			})
-			.catch(error => {
-				console.error('Failed to fetch data:', error)
-			})
+		const response = await fetch('https://api.teslogic.co/api/rate/USD/EUR')
+		const data = await response.json()
+		const rate = data.rate || 1
+
+		if (currency === 'EUR') {
+			const price = usdPrice * rate
+			const tax = euTaxes[countryCode] || 20
+			const vat = price * tax / 100
+			const priceText = `${price} ${currency}`
+			const vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
+			$('.store_block-product-price-new').empty().text(`${priceText} ${vatText}`)
+		}		
 
 		/*var amount = Number($('#amount').text())
 		$('.product_block-product-amount-button-minus').on('click', function() {
