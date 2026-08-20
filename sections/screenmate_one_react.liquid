@@ -1,6 +1,6 @@
 <div id="react-screenmate-one-root"></div>
 
-{{ 'react-style-ScreenmateOne-CZUcvUbI.css' | asset_url | stylesheet_tag }}
+{{ 'react-style-ScreenmateOne-BiZvlVqI.css' | asset_url | stylesheet_tag }}
 
 {%- capture countries -%}
   {% render 'countries-json' %}
@@ -35,6 +35,7 @@
   const countries = {{ countries }}
   const localization_country = {{ localization_country }}
   const country = countries.some(({ iso_code }) => iso_code === localization_country.iso_code) ? localization_country : countries[0]
+  console.log({ localization_country, country })
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {

@@ -161,11 +161,15 @@
                 @include responsive(margin-top, 4px);
 
                 & > div {
-                    @extend %flex-start-center, %gap-8, %font-manrope-16, %font-500;
-                    color: #888;
+                    @extend %flex-start-center, %gap-8;
 
                     & .icon {
                         @include square(24px);
+                    }
+
+                    & span {
+                        @extend %font-manrope-16, %font-500, %whitespace-nowrap;
+                        color: #888;
                     }
                 }
             }
