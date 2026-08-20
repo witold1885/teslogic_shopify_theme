@@ -170,6 +170,10 @@
                 }
             }
 
+            &-vat {
+                @extend %font-manrope-24, %font-600, %text-blue;
+            }
+
             &-additionals {
                 @extend %flex-column, %gap-16;
 

@@ -188,6 +188,11 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                     </div>
                                 </div>
                             )}
+                            {currency === 'EUR' && (
+                                <div className="screenmate-one__order-form-vat">
+                                    +{((prices.current || 0) * 0.2).toFixed(0)} EUR (VAT 20%)
+                                </div>
+                            )}
                         </div>
                         <div>
                             <Dropdown
