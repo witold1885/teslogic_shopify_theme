@@ -55,6 +55,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         dispatch(getRate('USD/EUR'))
     }, [dispatch])
 
+    useEffect(() => {
+        console.log({ country })
+    }, [country])
+
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
     const SlickSlider = (Slider as any).default || Slider
@@ -228,7 +232,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                                 />
                                                 <label htmlFor={`additional-product-${id}`}>
                                                     <span>Add {title}</span>&nbsp;
-                                                    <span>{price} {currency} {showVAT(price)}</span>
+                                                    <span>{price?.toFixed(0) || 0} {currency} {showVAT(price)}</span>
                                                 </label>
                                             </div>
                                         )

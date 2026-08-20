@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { Country, MenuItem } from '../../types/shopify'
 import shopify from '../shopify'
 
@@ -38,7 +38,7 @@ export const setCountry = createAsyncThunk(
             return rejectWithValue(result.message)
         }
 
-        return { country }
+        return country
     }
 )
 
@@ -51,8 +51,8 @@ export const contentSlice = createSlice({
             .addCase(setCountry.pending, (state) => {
                 state.error = null
             })
-            .addCase(setCountry.fulfilled, (state, action) => {
-                state.country = action.payload.country
+            .addCase(setCountry.fulfilled, (state, action: PayloadAction<Country>) => {
+                state.country = action.payload
             })
             .addCase(setCountry.rejected, (state, action) => {
                 state.error = action.payload as string
