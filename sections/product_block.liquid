@@ -32,6 +32,19 @@
 
 {% assign product = all_products[handle] %}
 
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+
+{%- assign currency_code = localization.country.currency.iso_code -%}
+{%- assign currency_symbol = localization.country.currency.symbol -%}
+{%- if eu_codes contains localization.country.iso_code -%}
+    {%- assign currency_code = 'EUR' -%}
+    {%- assign currency_symbol = '€' -%}
+{%- endif -%}
+
+{%- capture eu_taxes -%}
+  {% render 'eu-taxes-json' %}
+{%- endcapture -%}
+
 <div class="store_block" id="shop-now">
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
@@ -56,7 +69,7 @@
 			<div class="store_block-product-info-main">
 				<div class="store_block-product-price">  
 					<div class="store_block-product-price-new">
-						{{ product.price | divided_by: 100 }} USD
+						{{ product.price | divided_by: 100 }} {{ currency_code }}
 					</div>
 					<div class="store_block-product-price-old"></div>
 				</div>
@@ -116,17 +129,12 @@
 					</div>
 				</div>
 				{% endif %}
-				<!-- <div class="store_block-add-wireless-charger">
-					<input type="checkbox" id="select-charger" class="store_block-add-wireless-charger-checkbox" checked>
-					<label for="select-charger" class="store_block-add-wireless-charger-title">With Additional Wireless Charger</label>
-					<span class="store_block-add-wireless-charger-price">+ 40 USD</span>
-				</div> -->
 				<div class="store_block-product-order">
 					<button class="store_block-product-add store_block-product-add-add product_block-product-add">Add to Cart</button>
 					<button class="store_block-product-add product_block-product-add" data-redirect="true">Order now</button>
 					<button class="store_block-product-add-mobile product_block-product-add" data-redirect="true">
 						<div class="store_block-product-add-mobile-text">Order now</div>
-						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 }} USD</div>
+						<div class="store_block-product-add-mobile-total">{{ product.price | divided_by: 100 }} {{ currency_code }}</div>
 					</button>
 					<button class="store_block-product-add-mobile store_block-product-add-add product_block-product-add">
 						Add to Cart
@@ -143,103 +151,6 @@
 	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
 	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
 </div>
-
-<!-- <div class="product_block" id="shop-now">
-	<div class="block_title product_block-title">{{ product.title }}</div>
-	<div class="product_block-product">
-		<div class="product_block-product-gallery">
-			<div class="product_block-product-gallery-image">
-				<img src="{{ product.featured_media | img_url }}">
-			</div>
-		</div>
-		<div class="product_block-product-info">
-				<div class="product_block-product-price">${{ product.price | divided_by: 100 }}</div>
-				<div class="product_block-product-subtitle">
-					{{ product.description }}
-				</div>
-				{% if product.variants.size > 1 %}
-				<div class="product_block-product-select">
-					<div class="product_block-product-select-dropdown-select product_block-product-selected">
-						<span class="product_block-product-select-value">Select model</span>
-						<div class="product_block-product-select-arrow">
-							<img src="{{ 'select_arrow.png' | asset_url }}">
-						</div>
-					</div>
-					<div class="product_block-product-select-dropdown">
-						<div class="product_block-product-select-dropdown-select">
-							<span class="product_block-product-select-value">Select model</span>
-							<div class="product_block-product-select-arrow">
-								<img src="{{ 'select_arrow.png' | asset_url }}">
-							</div>
-						</div>
-						{%- for model in product.variants -%}
-							<div 
-								class="product_block-product-select-dropdown-item" 
-								data-model_id="{{ model.id }}"
-								data-sku="{{ model.sku }}" 
-								data-price="{{ model.price }}"
-								data-compare_at_price="{{ model.compare_at_price }}"
-							>
-								{{ model.title }}
-							</div>
-						{%- endfor -%}
-					</div>
-				</div>
-				{% endif %}
-				<button class="product_block-product-add" id="add">Add to cart</button>
-		</div>
-	</div>								
-	<div class="product_block-product-mobile">
-		<div class="product_block-product-price">
-			${{ product.price | divided_by: 100 }}
-		</div>
-		<div class="product_block-product-gallery">
-			<div class="product_block-product-gallery-image">
-				<img src="{{ product.featured_media | img_url }}">
-			</div>
-		</div>
-		<div class="product_block-product-info">
-			<div class="product_block-product-subtitle">
-				{{ product.description }}
-			</div>
-			<div class="product_block-product-info-bottom">
-				{% if product.variants.size > 1 %}
-				<div class="product_block-product-select-text">Select your Tesla model and year:</div>
-				<div class="product_block-product-select">
-					<div class="product_block-product-select-dropdown-select product_block-product-selected">
-						<span class="product_block-product-select-value">Select model</span>
-						<div class="product_block-product-select-arrow">
-							<img src="{{ 'select_arrow.png' | asset_url }}">
-						</div>
-					</div>
-					<div class="product_block-product-select-dropdown">
-						<div class="product_block-product-select-dropdown-select">
-							<span class="product_block-product-select-value">Select model</span>
-							<div class="product_block-product-select-arrow">
-								<img src="{{ 'select_arrow.png' | asset_url }}">
-							</div>
-						</div>
-						{%- for model in product.variants -%}
-							<div 
-								class="product_block-product-select-dropdown-item"  
-								data-model_id="{{ model.id }}"
-								data-sku="{{ model.sku }}" 
-								data-price="{{ model.price }}"
-								data-compare_at_price="{{ model.compare_at_price }}"
-							>
-								{{ model.title }}
-							</div>
-						{%- endfor -%}
-					</div>
-				</div>
-				{% endif %}
-				<button class="product_block-product-add" id="add">Add to cart</button>
-			</div>
-		</div>
-	</div>
-	<input type="hidden" id="charger-id" value="{{ charger.id }}">				
-	<input type="hidden" id="charger-variant-id" value="{{ charger.variants[0].id }}">				
-</div> -->
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -341,6 +252,10 @@
 			})
 		}
 
+		const eu_taxes = {{ eu_taxes }}
+
+		fetch('https://api.teslogic.co/api/rate/USD/EUR').then(response => console.log(response.json))
+
 		/*var amount = Number($('#amount').text())
 		$('.product_block-product-amount-button-minus').on('click', function() {
 			if (amount <= 1) return
@@ -356,7 +271,6 @@
 		{%- for model in product.variants -%}
 			models_ids.push({{ model.id }});
 		{%- endfor -%}
-		console.log('models_ids', models_ids)
 		if (models_ids.length == 1) {
 			model_id = models_ids[0]
 		}
