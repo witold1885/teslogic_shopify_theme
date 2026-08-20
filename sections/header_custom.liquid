@@ -104,7 +104,9 @@
               <div class="header-country-dropdown-item selected">
                 <span>{{ localization.country.name }}</span>
                 <span>{{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }}</span>
-                <span class="header-country-dropdown-item-note">Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.</span>
+                <span class="header-country-dropdown-item-note">
+                  Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
+                </span>
               </div>
               {% for country in countries %}
                 <div class="header-country-dropdown-item">
@@ -269,6 +271,7 @@
       $('.button-menu').show()
       $(this).hide()
     })
+    
     if (window.innerWidth >= 575) {
       $('.menu__item').on('mouseover', function() {
         let dropdown = $(this).find('.menu__item-dropdown')
@@ -297,8 +300,7 @@
           e.preventDefault()
         }
       })
-    }
-    else {
+    } else {
       $('.menu__item-title').on('click', function(e) {
         e.preventDefault()
         let dropdown = $(this).parent('.menu__item').find('.menu__item-dropdown')
@@ -322,6 +324,11 @@
         }
       })
     }
+
+    $('.header-country-button').on('click', function() {
+      $(this).parent().find('.header-country-dropdown').toggle()
+    })
+
     $(document).click(function(event) { 
       var $target = $(event.target)
       if (!$target.closest('.menu__item-opened').length) {
@@ -333,6 +340,9 @@
           $(chevron_up).hide()
           $(this).parent('.menu__item').removeClass('menu__item-opened')
         })
+      }
+      if (!$target.closest('.header-country-dropdown').length) {
+        $('.header-country-dropdown').hide()
       }
     })
   })
