@@ -252,7 +252,7 @@
 		}
 
 		const usdPrice = {{ product.price | divided_by: 100 }}
-		const currency = '{{ localization.country.currency.iso_code }}'
+		const currencyCode = '{{ currency_code }}'
 		const countryCode = '{{ localization.country.iso_code }}'
 		const euTaxes = {{ eu_taxes }}
 
@@ -260,11 +260,11 @@
 		const data = await response.json()
 		const rate = data.rate || 1
 
-		if (currency === 'EUR') {
+		if (currencyCode === 'EUR') {
 			const price = usdPrice * rate
 			const tax = euTaxes[countryCode] || 20
 			const vat = price * tax / 100
-			const priceText = `${price} ${currency}`
+			const priceText = `${price} ${currencyCode}`
 			const vatText = `+${vat.toFixed(0)} EUR (VAT ${tax}%)`
 			$('.store_block-product-price-new').empty().text(`${priceText} ${vatText}`)
 		}		
