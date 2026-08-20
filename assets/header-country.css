@@ -4,6 +4,10 @@
     font-style: normal;
 }
 
+.header-country * {
+    box-sizing: border-box;
+}
+
 .header-country-button {
     display: flex;
     justify-content: space-between;
