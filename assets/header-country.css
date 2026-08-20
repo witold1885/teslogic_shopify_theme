@@ -140,7 +140,7 @@
         top: calc(52 * 100vw / 375);
         left: calc(-1 * 100vw / 2 - (40 * 100vw / 375));
         right: unset;
-        width: calc(350 * 100vw / 375);
+        width: calc(335 * 100vw / 375);
         height: calc(489 * 100vw / 375);
         padding: 0 calc(24 * 100vw / 375);
         border-radius: calc(12 * 100vw / 375);
