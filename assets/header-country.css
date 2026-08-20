@@ -29,7 +29,7 @@
 
 .header-country-dropdown {
     position: absolute;
-    top: 48px;
+    top: 32px;
     right: 0;
     width: 248px;
     height: 336px;
@@ -106,7 +106,7 @@
     }
     
     .header-country-dropdown {
-        top: calc(48 * 100vw / 1440);
+        top: calc(32 * 100vw / 1440);
         width: calc(248 * 100vw / 1440);
         height: calc(336 * 100vw / 1440);
         padding: 0 calc(24 * 100vw / 1440);
