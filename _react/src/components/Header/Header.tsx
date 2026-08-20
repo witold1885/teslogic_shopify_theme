@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useMemo, forwardRef, type RefObject } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { setCountry } from '../../redux/slices/content'
@@ -15,6 +15,7 @@ import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptio
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
+import { useOutsideClick } from '../../hooks/outside-click'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },
@@ -158,16 +159,16 @@ interface HeaderCountrySelectorProps {
     onCountrySelect: (country: Country) => void
 }
 
-const HeaderCountrySelector: React.FC<HeaderCountrySelectorProps> = ({ 
+const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorProps>(({ 
     countriesDropdownOpen,
     onCountriesDropdownToggle,
     selectedCountry,
     onCountrySelect
-}) => {
+}, ref) => {
     const { countries } = useAppSelector(state => state.content)
 
     return selectedCountry ? (
-        <div className="header-country">
+        <div className="header-country" ref={ref}>
             <div className="header-country-button" onClick={() => onCountriesDropdownToggle()}>
                 <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
                 <div className="header-menu-item-chevron">
@@ -204,12 +205,13 @@ const HeaderCountrySelector: React.FC<HeaderCountrySelectorProps> = ({
             )}
         </div>
     ) : null
-}
+})
 
 interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
     position: 'absolute' | 'sticky'
     isMobile: boolean
     onMobileMenuOpen: () => void
+    countriesDropdownRef: RefObject<HTMLDivElement | null>
 }
 
 const HeaderComponent: React.FC<HeaderComponentProps> = ({
@@ -219,6 +221,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
     isMobile,
     onOrder,
     onMobileMenuOpen,
+    countriesDropdownRef,
     countriesDropdownOpen,
     onCountriesDropdownToggle,
     selectedCountry,
@@ -243,7 +246,10 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
                 {!isMobile && (
                     <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
                 )}
-                <HeaderCountrySelector {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}} />
+                <HeaderCountrySelector
+                    ref={countriesDropdownRef}
+                    {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
+                />
                 {isMobile && (
                     <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
                         <Icon icon={burgerIcon} />
@@ -293,6 +299,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const isScrolling = scrollOffset.y > 0 && scrollOffset.direction === 'up'
     const isAtTop = scrollOffset.y <= 0
 
+    const countriesDropdownRef = useRef<HTMLDivElement | null>(null)
     const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
     const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountry)
 
@@ -300,6 +307,10 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         if (open) setCountriesDropdownOpen(open)
         else setCountriesDropdownOpen(prev => !prev)
     }
+
+    useOutsideClick(countriesDropdownRef, () => {
+        if (countriesDropdownOpen) setCountriesDropdownOpen(false)
+    })
 
     const onCountrySelect = (country: Country) => {
         setSelectedCountry(country)
@@ -313,6 +324,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         ...headerParams,
         isMobile,
         onMobileMenuOpen: () => setOpenMobileMenu(true),
+        countriesDropdownRef,
         countriesDropdownOpen,
         onCountriesDropdownToggle,
         selectedCountry,
