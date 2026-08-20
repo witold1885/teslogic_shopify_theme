@@ -82,9 +82,7 @@
           <div class="header-country-button">
             <span>US&nbsp;$</span>
             <div class="header-menu-item-chevron">
-              <div class="icon  ">
-                <img class="menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
-              </div>
+              <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
             </div>
           </div>
           {%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
@@ -237,7 +235,7 @@
         }
         else {
           $('#header_custom').removeClass('sticky')
-          $('.menu__item-chevron-down').attr('src', chevron_back)
+          $('.menu__item-chevron-down:not(.header-menu-item-chevron-img)').attr('src', chevron_back)
           $('.logo img').attr('src', logo_back)
         }
       }
