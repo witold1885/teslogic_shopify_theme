@@ -33,6 +33,19 @@
 {% assign product = all_products['screenmate-dash-kit'] %}
 {% assign charger = all_products['screenmate-wireless-charger'] %}
 
+{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
+
+{%- assign currency_code = localization.country.currency.iso_code -%}
+{%- assign currency_symbol = localization.country.currency.symbol -%}
+{%- if eu_codes contains localization.country.iso_code -%}
+    {%- assign currency_code = 'EUR' -%}
+    {%- assign currency_symbol = '€' -%}
+{%- endif -%}
+
+{%- capture eu_taxes -%}
+  {% render 'eu-taxes-json' %}
+{%- endcapture -%}
+
 <div class="store_block" id="shop-now">
 	<div class="store_block-product">
 		<div class="store_block-product-gallery">
