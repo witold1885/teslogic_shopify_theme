@@ -63,7 +63,7 @@
 </div>
 
 <script type="text/javascript">
-  const setLocalization = (country_code, action = 'changing') => {
+  function setLocalization (country_code, action = 'changing') {
     const formData = new URLSearchParams()
     formData.append('form_type', 'localization')
     formData.append('utf8', '✓')
@@ -84,7 +84,7 @@
       }
     }).catch(error => console.error(`Error ${action} country:`, error))
   }
-  
+
   $(document).ready(function() {
     const serverCountryCode = '{{ localization.country.iso_code }}'
     const savedCountryCode = localStorage.getItem('user_selected_country')
