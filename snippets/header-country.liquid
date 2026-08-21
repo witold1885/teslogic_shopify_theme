@@ -65,6 +65,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     const id = '{{ id }}'
+    const countries = {{ countries }}
 
     $(`#${id} .header-country-button`).on('click', function() {
       $(`#${id} .header-country-dropdown`).toggle()
@@ -96,6 +97,10 @@
         body: formData.toString()
       }).then(response => {
         if (response.ok) {
+          const country = countries.find(({ iso_code }) => iso_code === country_code)
+          if (country) {
+            localStorage.setItem('country', country)
+          }
           window.location.reload()
         }
       }).catch(error => console.error('Error changing country:', error))
