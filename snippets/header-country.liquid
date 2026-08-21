@@ -65,7 +65,14 @@
 <script type="text/javascript">
   $(document).ready(function() {
     const id = '{{ id }}'
-    const countries = {{ countries | json }}
+    const countries = []
+    {% for country in countries %}
+      {%- capture country_item -%}
+        {% render 'country-json', country: country %}
+      {%- endcapture -%}
+      countries.push({{ country_item }})
+    {% endfor %}
+    console.log({ countries})
 
     $(`#${id} .header-country-button`).on('click', function() {
       $(`#${id} .header-country-dropdown`).toggle()
