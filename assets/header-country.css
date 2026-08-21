@@ -70,6 +70,7 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+    color: #FFF !important;
     cursor: pointer;
 }
 
@@ -82,7 +83,7 @@
 }
 
 .header-country-dropdown-item:not(.selected):hover {
-    color: #888;
+    color: #888 !important;
 }
 
 .header-country-dropdown-item-note {
@@ -90,7 +91,7 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    color: #999;
+    color: #999 !important;
 }
 
 @media (max-width: 1440px) and (min-width: 577px) {
