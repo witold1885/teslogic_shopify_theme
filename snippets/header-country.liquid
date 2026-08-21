@@ -65,7 +65,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     const id = '{{ id }}'
-    const countries = {{ countries }}
+    const countries = {{ countries | json }}
 
     $(`#${id} .header-country-button`).on('click', function() {
       $(`#${id} .header-country-dropdown`).toggle()
