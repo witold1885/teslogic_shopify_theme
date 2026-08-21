@@ -72,7 +72,6 @@
       {%- endcapture -%}
       countries.push({{ country_item }})
     {% endfor %}
-    console.log({ countries})
 
     $(`#${id} .header-country-button`).on('click', function() {
       $(`#${id} .header-country-dropdown`).toggle()
@@ -106,7 +105,7 @@
         if (response.ok) {
           const country = countries.find(({ iso_code }) => iso_code === country_code)
           if (country) {
-            localStorage.setItem('country', country)
+            localStorage.setItem('country', JSON.stringify(country))
           }
           window.location.reload()
         }
