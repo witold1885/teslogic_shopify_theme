@@ -63,15 +63,38 @@
 </div>
 
 <script type="text/javascript">
+  const setLocalization = (country_code, action = 'changing') => {
+    const formData = new URLSearchParams()
+    formData.append('form_type', 'localization')
+    formData.append('utf8', '✓')
+    formData.append('_method', 'put')
+    formData.append('country_code', country_code)
+    fetch('/localization', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString()
+    }).then(response => {
+      if (response.ok) {
+        if (action === 'changing') {
+          localStorage.setItem('user_selected_country', country_code)
+        }
+        window.location.reload()
+      }
+    }).catch(error => console.error(`Error ${action} country:`, error))
+  }
+  
   $(document).ready(function() {
+    const serverCountryCode = '{{ localization.country.iso_code }}'
+    const savedCountryCode = localStorage.getItem('user_selected_country')
+
+    if (savedCountryCode && savedCountryCode !== serverCountryCode) {
+      setLocalization(savedCountryCode, 'syncing')
+      return
+    }
+
     const id = '{{ id }}'
-    const countries = []
-    {% for country in countries %}
-      {%- capture country_item -%}
-        {% render 'country-json', country: country %}
-      {%- endcapture -%}
-      countries.push({{ country_item }})
-    {% endfor %}
 
     $(`#${id} .header-country-button`).on('click', function() {
       $(`#${id} .header-country-dropdown`).toggle()
@@ -90,26 +113,7 @@
 
     $(`#${id} .header-country-dropdown-item:not(.selected)`).on('click', function() {
       const country_code = $(this).data('country_code')
-      const formData = new URLSearchParams()
-      formData.append('form_type', 'localization')
-      formData.append('utf8', '✓')
-      formData.append('_method', 'put')
-      formData.append('country_code', country_code)
-      fetch('/localization', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString()
-      }).then(response => {
-        if (response.ok) {
-          const country = countries.find(({ iso_code }) => iso_code === country_code)
-          if (country) {
-            localStorage.setItem('country', JSON.stringify(country))
-          }
-          window.location.reload()
-        }
-      }).catch(error => console.error('Error changing country:', error))
+      setLocalization(country_code)
     })
   })
 </script>
