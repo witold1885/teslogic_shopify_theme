@@ -767,10 +767,12 @@
 							<div class="order-product-data-preorder">
 								<button type="button" class="order-product-data-preorder-button preorder-boost" data-num="1">Order Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
-									<div class="order-product-data-preorder-features-item">
-										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
-									</div>
+									{% if localization.country.iso_code == 'US' %}
+										<div class="order-product-data-preorder-features-item">
+											<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
+											<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
+										</div>
+									{% endif %}
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
 										<div class="order-product-data-preorder-features-item-text"><span>Duties & taxes</span> included in most countries*</div>
@@ -785,10 +787,12 @@
 								<label for="select-charger-1" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price"></span></label>
 							</div>
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
-								<div class="order-product-data-preorder-features-item">
-									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
-								</div>
+								{% if localization.country.iso_code == 'US' %}
+									<div class="order-product-data-preorder-features-item">
+										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
+										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
+									</div>
+								{% endif %}
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
 									<div class="order-product-data-preorder-features-item-text"><span>Duties & taxes</span> included in most countries*</div>
@@ -817,10 +821,12 @@
 							<div class="order-product-data-preorder">
 								<button type="button" class="order-product-data-preorder-button preorder-performance" data-num="2">Order Now</button>
 								<div class="order-product-data-preorder-features order-product-data-preorder-features-desktop">
-									<div class="order-product-data-preorder-features-item">
-										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
-									</div>
+									{% if localization.country.iso_code == 'US' %}
+										<div class="order-product-data-preorder-features-item">
+											<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
+											<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
+										</div>
+									{% endif %}
 									<div class="order-product-data-preorder-features-item">
 										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
 										<div class="order-product-data-preorder-features-item-text"><span>Duties & taxes</span> included in most countries*</div>
@@ -835,10 +841,12 @@
 								<label for="select-charger-2" class="order-product-data-add-title">Add Additional Wireless Charger <span class="order-product-data-add-price"></span></label>
 							</div>
 							<div class="order-product-data-preorder-features order-product-data-preorder-features-mobile">
-								<div class="order-product-data-preorder-features-item">
-									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
-									<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
-								</div>
+								{% if localization.country.iso_code == 'US' %}
+									<div class="order-product-data-preorder-features-item">
+										<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_free_shipping.svg' | asset_url }}">
+										<div class="order-product-data-preorder-features-item-text"><span>Free shipping</span> within the US</div>
+									</div>
+								{% endif %}
 								<div class="order-product-data-preorder-features-item">
 									<img class="order-product-data-preorder-features-item-icon" src="{{ 'pro_order_no_tax.svg' | asset_url }}">
 									<div class="order-product-data-preorder-features-item-text"><span>Duties & taxes</span> included in most countries*</div>

@@ -153,14 +153,16 @@
 						</div>
 					</button>
 					<div class="store_block-product-order-features">
-						<div class="store_block-product-order-feature">
-							<div class="store_block-product-order-feature-icon">
-								<img src="{{ 'feature_free_shipping.svg' | asset_url }}">
+						{% if localization.country.iso_code == 'US' %}
+							<div class="store_block-product-order-feature">
+								<div class="store_block-product-order-feature-icon">
+									<img src="{{ 'feature_free_shipping.svg' | asset_url }}">
+								</div>
+								<div class="store_block-product-order-feature-text">
+									<span class="store_block-product-order-feature-text-main">Free shipping</span> within the US
+								</div>
 							</div>
-							<div class="store_block-product-order-feature-text">
-								<span class="store_block-product-order-feature-text-main">Free shipping</span> within the US
-							</div>
-						</div>
+						{% endif %}
 						<div class="store_block-product-order-feature">
 							<div class="store_block-product-order-feature-icon">
 								<img src="{{ 'feature_no_import.svg' | asset_url }}">
