@@ -246,10 +246,10 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
                 {!isMobile && (
                     <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
                 )}
-                <HeaderCountrySelector
+                {/* <HeaderCountrySelector
                     ref={countriesDropdownRef}
                     {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
-                />
+                /> */}
                 {isMobile && (
                     <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
                         <Icon icon={burgerIcon} />
