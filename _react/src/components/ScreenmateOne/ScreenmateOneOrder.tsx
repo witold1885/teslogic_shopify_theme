@@ -123,10 +123,12 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         <>+{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)</>
     ) : <></>, [currency, tax])
 
-    const details = useMemo(() => [
-        { icon: shipping, main: 'Free shipping', add: !isMobile ? 'within the United States' : 'for the U.S.' },
+    const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => [
+        country?.iso_code === 'US' ? {
+            icon: shipping, main: 'Free shipping', add: !isMobile ? 'within the United States' : 'for the U.S.'
+        } : {},
         { icon: warranty, main: '3-year full warranty', add: 'for Screenmate ONE' },
-    ], [isMobile])
+    ].filter(({ icon, main, add }) => !!icon && !!main && !!add), [country, isMobile])
 
     const handleSubmit = () => {
         if (selectedModel) {
@@ -192,16 +194,19 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             </div>
                             <div {...anime('info')}>
                                 {currency === 'USD' && (
-                                    <div className="screenmate-one__order-form-notes">
-                                        <div>
-                                            <Icon icon={global} />
-                                            <span>Global prices are shown in USD, VAT not included</span>
-                                        </div>
-                                        <div>
-                                            <Icon icon={eu} />
-                                            <span>To see VAT-inclusive pricing select your EU country in the Menu</span>
-                                        </div>
+                                    <div className="screenmate-one__order-form-note">
+                                        Taxes and shipping calculated at checkout
                                     </div>
+                                    // <div className="screenmate-one__order-form-notes">
+                                    //     <div>
+                                    //         <Icon icon={global} />
+                                    //         <span>Global prices are shown in USD, VAT not included</span>
+                                    //     </div>
+                                    //     <div>
+                                    //         <Icon icon={eu} />
+                                    //         <span>To see VAT-inclusive pricing select your EU country in the Menu</span>
+                                    //     </div>
+                                    // </div>
                                 )}
                                 {currency === 'EUR' && (
                                     <div className="screenmate-one__order-form-vat">{showVAT(prices.current)}</div>

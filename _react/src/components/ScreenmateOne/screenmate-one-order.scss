@@ -156,6 +156,12 @@
                 }
             }
 
+            &-note {
+                @include responsive(margin-top, 4px);
+                @extend %font-manrope-14, %font-500;
+                color: #888;
+            }
+
             &-notes {
                 @extend %flex-column, %gap-12;
                 @include responsive(margin-top, 4px);
