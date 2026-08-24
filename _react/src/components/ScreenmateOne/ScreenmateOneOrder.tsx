@@ -85,7 +85,10 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         setSelectedModel(model)
     }
 
-    const coef: number = useMemo(() => country?.currency_code === 'EUR' ? (rate || 1) : 1, [country, rate])
+    // const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
+    const currency: string = 'USD'
+
+    const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
     const prices: { current?: number | null; old?: number | null } = useMemo(() => {
         let current = null, old = null
@@ -99,9 +102,6 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         }
         return { current: (current || 0) * coef, old: (old || 0) * coef }
     }, [product, selectedModel, coef])
-
-    // const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
-    const currency: string = 'USD'
 
     const tax: number = useMemo(() => eu_taxes[country?.iso_code as string] || 20, [country, eu_taxes])
 
