@@ -101,13 +101,23 @@
       let dropdownHtml = ''
 
       for (const region of regions) {
+        let listHtml = ''
+        for (const subregion of region.subregions) {
+          listHtml += `
+            <div class="header-country-dropdown-region-list-item">
+              ${subregion.name}
+            </div>
+          `
+        }
         dropdownHtml += `
           <div class="header-country-dropdown-region">
-            <div class="header-country-dropdown-region-title">${region.name}</div>
-            <div class="header-menu-item-chevron">
-              <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+            <div class="header-country-dropdown-region-title">
+              <span>${region.name}</span>
+              <div class="header-menu-item-chevron">
+                <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+              </div>
             </div>
-            <div class="header-country-dropdown-region-list"></div>
+            <div class="header-country-dropdown-region-list">${listHtml}</div>
           </div>
         `
       }
