@@ -101,23 +101,36 @@
       let dropdownHtml = ''
 
       for (const region of regions) {
-        let listHtml = ''
+        let subregionsHtml = ''
         for (const subregion of region.subregions) {
-          listHtml += `
-            <div class="header-country-dropdown-region-list-item">
-              <div class="header-country-dropdown-subregion-title">${subregion.name}</div>
+          let countriesHtml = ''
+          for (const country of subregion.countries) {
+            countriesHtml += `
+              <div class="header-country-dropdown-country">
+                <div>
+                  <img src="${country.flag}" alt="${country.iso_code}" />
+                  <span>${country.name}</span>
+                </div>
+                <div>${country.currency_symbol}</div>
+              </div>
+            `
+          }
+          subregionsHtml += `
+            <div class="header-country-dropdown-subregion">
+              <div class="header-country-dropdown-subregion-name">${subregion.name}</div>
+              <div class="header-country-dropdown-countries">${countriesHtml}</div>
             </div>
           `
         }
         dropdownHtml += `
           <div class="header-country-dropdown-region">
-            <div class="header-country-dropdown-region-title">
+            <div class="header-country-dropdown-region-name">
               <span>${region.name}</span>
               <div class="header-menu-item-chevron">
                 <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
               </div>
             </div>
-            <div class="header-country-dropdown-region-list">${listHtml}</div>
+            <div class="header-country-dropdown-subregions">${subregionsHtml}</div>
           </div>
         `
       }
@@ -129,7 +142,7 @@
 
       if (country) {
         $('.header-country-button').html(`
-          <img src="${country.flag}" alt="${country.name}" />
+          <img src="${country.flag}" alt="${country.iso_code}" />
           <span>${country.currency_symbol}</span>
         `).css('display', 'flex')
       }
