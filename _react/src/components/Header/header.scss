@@ -264,13 +264,13 @@
 
     &-country {
         @extend %relative;
-        @include responsive(margin-top, 8px);
 
         &-button {
             @extend %flex-between-center, %cursor-pointer;
             @include responsive(gap, 6px);
             @include responsive(width, 54px);
             @include responsive(height, 32px);
+            @include responsive(margin-top, 4px);
             @include responsive(padding, 6px, 10px, 6px, 8px);
             @include responsive(border-radius, 6px);
             background: rgba(0, 0, 0, 0.32);
