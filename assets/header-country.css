@@ -73,14 +73,14 @@
     border-bottom: 1px solid #888;
 }
 
-.header-country-dropdown-region-title {
+.header-country-dropdown-region-name {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
 }
 
-.header-country-dropdown-region-title span {
+.header-country-dropdown-region-name span {
     color: #FFF;
     font-size: 20px;
     font-weight: 500;
@@ -89,26 +89,67 @@
     text-transform: uppercase;
 }
 
-.header-country-dropdown-region-list {
-    /* display: none; */
+.header-country-dropdown-subregions {
+    display: flex;
     flex-direction: column;
     gap: 16px;
     width: 100%;
 }
 
-.header-country-dropdown-region-list-item {
+.header-country-dropdown-subregion {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
 }
 
-.header-country-dropdown-subregion-title {
+.header-country-dropdown-subregion-name {
     color: #999;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.252px;
     text-transform: uppercase;
+}
+
+.header-country-dropdown-countries {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.header-country-dropdown-country {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.header-country-dropdown-country > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-country-dropdown-country > div:first-child img {
+    width: 20px;
+    height: 20px;
+}
+
+.header-country-dropdown-country > div:first-child span {
+    color: #FFF;
+    font-size: 14px;
+}
+
+.header-country-dropdown-country > div:last-child {
+    color: #999;
+    font-size: 16px;
+}
+
+.header-country-dropdown-country > div:first-child span,
+.header-country-dropdown-country > div:last-child {
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-weight: 500;
+    line-height: 20px;
 }
 
 .header-country-dropdown-item {
@@ -179,28 +220,58 @@
         padding-bottom: calc(16 * 100vw / 1440);
     }
 
-    .header-country-dropdown-region-title {
+    .header-country-dropdown-region-name {
         gap: calc(8 * 100vw / 1440);
     }
 
-    .header-country-dropdown-region-title span {
+    .header-country-dropdown-region-name span {
         font-size: calc(20 * 100vw / 1440);
         line-height: calc(24 * 100vw / 1440);
         letter-spacing: calc(0.36 * 100vw / 1440);
     }
 
-    .header-country-dropdown-region-list {
+    .header-country-dropdown-subregions {
         gap: calc(16 * 100vw / 1440);
     }
 
-    .header-country-dropdown-region-list-item {
+    .header-country-dropdown-subregion {
         gap: calc(12 * 100vw / 1440);
     }
 
-    .header-country-dropdown-subregion-title {
+    .header-country-dropdown-subregion-name {
         font-size: calc(14 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440);
         letter-spacing: calc(0.252 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-countries {
+        gap: calc(8 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-country {
+        padding: calc(4 * 100vw / 1440) 0;
+    }
+
+    .header-country-dropdown-country > div:first-child {
+        gap: calc(12 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-country > div:first-child img {
+        width: calc(20 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-country > div:first-child span {
+        font-size: calc(14 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-country > div:last-child {
+        font-size: calc(16 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-country > div:first-child span,
+    .header-country-dropdown-country > div:last-child {
+        line-height: calc(20 * 100vw / 1440);
     }
 
     .header-country-dropdown-item {
