@@ -34,7 +34,7 @@
     top: 32px;
     right: 0;
     width: 380px;
-    padding: 0 20px;
+    padding: 20px;
     border-radius: 12px;
     background: #1D1D1F;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
@@ -65,7 +65,10 @@
 .header-country-dropdown-region {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 16px 8px;
+    padding-bottom: 16px;
+    border: 1px solid #888;
 }
 
 .header-country-dropdown-region-title {
@@ -129,7 +132,7 @@
     .header-country-dropdown {
         top: calc(32 * 100vw / 1440);
         width: calc(380 * 100vw / 1440);
-        padding: 0 calc(20 * 100vw / 1440);
+        padding: calc(20 * 100vw / 1440);
         border-radius: calc(12 * 100vw / 1440);
     }
     
@@ -143,6 +146,7 @@
 
     .header-country-dropdown-region {
         gap: calc(16 * 100vw / 1440) calc(8 * 100vw / 1440);
+        padding-bottom: calc(16 * 100vw / 1440);
     }
 
     .header-country-dropdown-region-title {
