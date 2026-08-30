@@ -102,7 +102,8 @@
 
     const regions = await fetchRegions()
     const countries = regions.flatMap(region => region.subregions.flatMap(subregion => subregion.countries))
-    console.log({ countries })
+    const country = countries.find(({ iso_code }) => iso_code === serverCountryCode)
+    console.log({ country })
 
     const id = '{{ id }}'
 
