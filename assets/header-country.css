@@ -31,9 +31,10 @@
 
 .header-country-dropdown {
     position: absolute;
-    top: 32px;
+    top: 46px;
     right: 0;
     width: 380px;
+    max-height: 691px;
     padding: 20px;
     border-radius: 12px;
     background: #1D1D1F;
@@ -186,8 +187,9 @@
     }
     
     .header-country-dropdown {
-        top: calc(32 * 100vw / 1440);
+        top: calc(46 * 100vw / 1440);
         width: calc(380 * 100vw / 1440);
+        max-height: calc(691 * 100vw / 1440);
         padding: calc(20 * 100vw / 1440);
         border-radius: calc(12 * 100vw / 1440);
     }
