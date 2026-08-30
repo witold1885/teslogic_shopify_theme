@@ -77,6 +77,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .header-country-dropdown-region-title span {
@@ -93,6 +94,21 @@
     flex-direction: column;
     gap: 16px;
     width: 100%;
+}
+
+.header-country-dropdown-region-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.header-country-dropdown-subregion-title {
+    color: #999;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.252px;
+    text-transform: uppercase;
 }
 
 .header-country-dropdown-item {
@@ -174,7 +190,17 @@
     }
 
     .header-country-dropdown-region-list {
-        width: 100%;
+        gap: calc(16 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-region-list-item {
+        gap: calc(12 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-subregion-title {
+        font-size: calc(14 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+        letter-spacing: calc(0.252 * 100vw / 1440);
     }
 
     .header-country-dropdown-item {
