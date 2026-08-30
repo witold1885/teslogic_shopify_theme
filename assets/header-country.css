@@ -78,10 +78,14 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    color: #FFF !important;
+}
+
+.header-country-dropdown-region-name:hover {
+    color: #888 !important;
 }
 
 .header-country-dropdown-region-name span {
-    color: #FFF !important;
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
@@ -90,7 +94,7 @@
 }
 
 .header-country-dropdown-subregions {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 16px;
     width: 100%;
