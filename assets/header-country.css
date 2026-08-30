@@ -25,7 +25,7 @@
 .header-country-button span {
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 20px;
     color: #FFF !important;
 }
 
@@ -33,23 +33,22 @@
     position: absolute;
     top: 32px;
     right: 0;
-    width: 248px;
-    height: 336px;
-    padding: 0 24px;
+    width: 380px;
+    padding: 0 20px;
     border-radius: 12px;
     background: #1D1D1F;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: #0465FD #4D4D4D;
+    scrollbar-color: #FFF #4D4D4D;
 }
 
 .header-country-dropdown::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
 }
 
 .header-country-dropdown::-webkit-scrollbar-thumb {
-    background: #0465FD;
+    background: #FFF;
     border-radius: 0;
 }
 
@@ -60,8 +59,26 @@
 .header-country-dropdown-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 18px 0;
+    gap: 16px;
+}
+
+.header-country-dropdown-region {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 8px;
+}
+
+.header-country-dropdown-region-title {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+}
+
+.header-country-dropdown-region-list {
+    width: 100%;
 }
 
 .header-country-dropdown-item {
@@ -111,19 +128,31 @@
     
     .header-country-dropdown {
         top: calc(32 * 100vw / 1440);
-        width: calc(248 * 100vw / 1440);
-        height: calc(336 * 100vw / 1440);
-        padding: 0 calc(24 * 100vw / 1440);
+        width: calc(380 * 100vw / 1440);
+        padding: 0 calc(20 * 100vw / 1440);
         border-radius: calc(12 * 100vw / 1440);
     }
     
     .header-country-dropdown::-webkit-scrollbar {
-        width: calc(6 * 100vw / 1440);
+        width: calc(3 * 100vw / 1440);
     }
     
     .header-country-dropdown-list {
-        gap: calc(12 * 100vw / 1440);
-        padding: calc(18 * 100vw / 1440) 0;
+        gap: calc(16 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-region {
+        gap: calc(16 * 100vw / 1440) calc(8 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-region-title {
+        font-size: calc(20 * 100vw / 1440);
+        line-height: calc(24 * 100vw / 1440);
+        letter-spacing: calc(0.36 * 100vw / 1440);
+    }
+
+    .header-country-dropdown-region-list {
+        width: 100%;
     }
 
     .header-country-dropdown-item {
