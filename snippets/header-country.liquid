@@ -140,6 +140,15 @@
       }
     })
 
+    $(`#${id} .header-country-dropdown-region-name`).on('click', function() {
+      const subregions = $(this).next('.header-country-dropdown-subregions')
+      if ($(subregions).is(':visible')) {
+        $(subregions).hide()
+      } else {
+        $(subregions).css('display', 'flex')
+      }
+    })
+
     $(`#${id} .header-country-dropdown-country.selected`).on('click', function() {
       $(`#${id} .header-country-dropdown`).hide()
     })
