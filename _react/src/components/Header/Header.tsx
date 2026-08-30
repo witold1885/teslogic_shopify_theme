@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, forwardRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo, forwardRef, useCallback } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRegions, setCountry } from '../../redux/slices/content'
@@ -343,28 +343,28 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>({})
     const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountryWithFlag)
 
-    const onCountriesDropdownToggle = (open?: boolean) => {
+    const onCountriesDropdownToggle = useCallback((open?: boolean) => {
         if (open) setCountriesDropdownOpen(open)
         else setCountriesDropdownOpen(prev => !prev)
-    }
+    }, [setCountriesDropdownOpen])
 
-    const onRegionToggle = (regionName: string) => {
+    const onRegionToggle = useCallback((regionName: string) => {
         setRegionsOpen(prev => ({ ...prev, [regionName]: !prev[regionName] }))
-    }
+    }, [setRegionsOpen])
 
     useOutsideClick(countriesDropdownRefs, () => {
         if (countriesDropdownOpen) setCountriesDropdownOpen(false)
     })
 
-    const onCountrySelect = (country: Country) => {
+    const onCountrySelect = useCallback((country: Country) => {
         setSelectedCountry(country)
         setCountriesDropdownOpen(false)
         dispatch(setCountry(country))
-    }
+    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen])
 
-    const headerParams = { menu: menu as MenuItem[], onOrder }
+    const headerParams = useMemo(() => ({ menu: menu as MenuItem[], onOrder }), [menu, onOrder])
 
-    const headerComponentParams = {
+    const headerComponentParams = useMemo(() => ({
         ...headerParams,
         isMobile,
         onMobileMenuOpen: () => setOpenMobileMenu(true),
@@ -374,12 +374,22 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         onRegionToggle,
         selectedCountry,
         onCountrySelect
-    }
+    }), [
+        headerParams,
+        isMobile,
+        setOpenMobileMenu,
+        countriesDropdownOpen,
+        onCountriesDropdownToggle,
+        regionsOpen,
+        onRegionToggle,
+        selectedCountry,
+        onCountrySelect
+    ])
 
-    const headerMobileParams = {
+    const headerMobileParams = useMemo(() => ({
         ...headerParams,
         onMobileMenuClose: () => setOpenMobileMenu(false)
-    }
+    }), [headerParams, setOpenMobileMenu])
 
     useLockBodyScroll(openMobileMenu)
 
