@@ -1,31 +1,5 @@
 <link rel="stylesheet" type="text/css" href="{{ 'header-country.css' | asset_url }}">
 
-{%- assign eu_codes = 'AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE' | split: ',' -%}
-{%- assign us_group = '' | split: '' -%}
-{%- assign eu_group = '' | split: '' -%}
-
-{%- for country in localization.available_countries -%}
-  {%- assign country_array = country | sort -%}
-  {%- if country.iso_code == 'US' -%}
-    {%- assign us_group = us_group | concat: country_array -%}
-  {%- elsif eu_codes contains country.iso_code -%}
-    {%- assign eu_group = eu_group | concat: country_array -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- assign countries = us_group | concat: eu_group -%}
-
-{%- assign current_country = countries | first -%}
-{%- if eu_codes contains localization.country.iso_code -%}
-  {%- assign current_country = localization.country -%}
-{%- endif -%}
-
-{%- assign currency_code = current_country.currency.iso_code -%}
-{%- assign currency_symbol = current_country.currency.symbol -%}
-{%- if eu_codes contains current_country.iso_code -%}
-  {%- assign currency_code = 'EUR' -%}
-  {%- assign currency_symbol = '€' -%}
-{%- endif -%}
-
 <div class="header-country" id="{{ id }}">
   <div class="header-country-button"></div>
   <div class="header-country-dropdown" style="display: none;">
@@ -105,7 +79,9 @@
           <div class="header-country-dropdown-region">
             <div class="header-country-dropdown-region-name">
               <span>${region.name}</span>
-              <img src="{{ 'chevron-down.svg' | asset_url }}">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6L8 10L12 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
             <div class="header-country-dropdown-subregions">${subregionsHtml}</div>
           </div>
@@ -147,11 +123,11 @@
       }
     })
 
-    $(`#${id} .header-country-dropdown-country.selected`).on('click', function() {
+    $(document).on('click', `#${id} .header-country-dropdown-country.selected`, function() {
       $(`#${id} .header-country-dropdown`).hide()
     })
 
-    $(`#${id} .header-country-dropdown-country:not(.selected)`).on('click', function() {
+    $(document).on('click', `#${id} .header-country-dropdown-country:not(.selected)`, function() {
       const country_code = $(this).data('country_code')
       setLocalization(country_code)
     })
