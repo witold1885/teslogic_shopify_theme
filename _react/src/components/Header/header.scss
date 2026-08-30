@@ -264,6 +264,7 @@
 
     &-country {
         @extend %relative;
+        @include responsive(margin-top, 8px);
 
         &-button {
             @extend %flex-between-center, %cursor-pointer;

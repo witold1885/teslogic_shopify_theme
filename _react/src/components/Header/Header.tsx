@@ -318,13 +318,6 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     }, [dispatch])
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
-    const currentCountryWithFlag: Country | null = useMemo(() => {
-        if (currentCountry && countries?.length) {
-            const country = countries.find(({ iso_code }) => iso_code === currentCountry.iso_code)
-            return { ...currentCountry, flag: country?.flag || '' }
-        }
-        return null
-    }, [currentCountry, countries])
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
@@ -341,7 +334,14 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
     const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>({})
-    const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountryWithFlag)
+    const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(null)
+
+    useEffect(() => {
+        if (currentCountry && countries?.length) {
+            const country = countries.find(({ iso_code }) => iso_code === currentCountry.iso_code)
+            setSelectedCountry({ ...currentCountry, flag: country?.flag || '' })
+        }
+    }, [currentCountry, countries])
 
     const onCountriesDropdownToggle = useCallback((open?: boolean) => {
         if (open) setCountriesDropdownOpen(open)
