@@ -63,6 +63,12 @@
 </div>
 
 <script type="text/javascript">
+  async function fetchRegions () {
+    const response = await fetch('https://api.teslogic.co/api/regions')
+    const data = await response.json()
+    console.log(data)
+  }
+
   function setLocalization (country_code, action = 'changing') {
     const formData = new URLSearchParams()
     formData.append('form_type', 'localization')
@@ -85,7 +91,9 @@
     }).catch(error => console.error(`Error ${action} country:`, error))
   }
 
-  $(document).ready(function() {
+  $(document).ready(async function() {
+    await fetchRegions()
+    
     const serverCountryCode = '{{ localization.country.iso_code }}'
     const savedCountryCode = localStorage.getItem('user_selected_country')
 
