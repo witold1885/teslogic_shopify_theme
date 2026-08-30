@@ -9,12 +9,13 @@
 }
 
 .header-country-button {
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
-    width: 65px;
-    height: 28px;
-    padding: 4px 2px 4px 6px;
+    gap: 6px;
+    width: 54px;
+    height: 32px;
+    padding: 6px 10px 6px 8px;
     border-radius: 6px;
     background: rgba(0, 0, 0, 0.32);
     backdrop-filter: blur(8px);
@@ -96,9 +97,10 @@
 
 @media (max-width: 1440px) and (min-width: 577px) {
     .header-country-button {
-        width: calc(65 * 100vw / 1440);
-        height: calc(28 * 100vw / 1440);
-        padding: calc(4 * 100vw / 1440) calc(2 * 100vw / 1440) calc(4 * 100vw / 1440) calc(6 * 100vw / 1440);
+        gap: calc(6 * 100vw / 1440);
+        width: calc(54 * 100vw / 1440);
+        height: calc(32 * 100vw / 1440);
+        padding: calc(6 * 100vw / 1440) calc(10 * 100vw / 1440) calc(6 * 100vw / 1440) calc(8 * 100vw / 1440);
         border-radius: calc(6 * 100vw / 1440);
     }
 
