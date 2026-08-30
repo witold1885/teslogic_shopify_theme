@@ -81,7 +81,7 @@
 }
 
 .header-country-dropdown-region-name span {
-    color: #FFF;
+    color: #FFF !important;
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
@@ -104,7 +104,7 @@
 }
 
 .header-country-dropdown-subregion-name {
-    color: #999;
+    color: #999 !important;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.252px;
@@ -122,6 +122,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 4px 0;
+    cursor: pointer;
 }
 
 .header-country-dropdown-country > div:first-child {
@@ -136,12 +137,17 @@
 }
 
 .header-country-dropdown-country > div:first-child span {
-    color: #FFF;
+    color: #FFF !important;
     font-size: 14px;
 }
 
+.header-country-dropdown-country.selected > div:first-child span,
+.header-country-dropdown-country:hover > div:first-child span {
+    color: #888 !important;
+}
+
 .header-country-dropdown-country > div:last-child {
-    color: #999;
+    color: #999 !important;
     font-size: 16px;
 }
 
@@ -150,37 +156,6 @@
     font-feature-settings: 'liga' off, 'clig' off;
     font-weight: 500;
     line-height: 20px;
-}
-
-.header-country-dropdown-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #FFF !important;
-    cursor: pointer;
-}
-
-.header-country-dropdown-item.selected {
-    flex-wrap: wrap;
-    row-gap: 4px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #888;
-}
-
-.header-country-dropdown-item:not(.selected):hover {
-    color: #888 !important;
-}
-
-.header-country-dropdown-item-note {
-    width: 100%;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    color: #999 !important;
 }
 
 @media (max-width: 1440px) and (min-width: 577px) {
@@ -273,22 +248,6 @@
     .header-country-dropdown-country > div:last-child {
         line-height: calc(20 * 100vw / 1440);
     }
-
-    .header-country-dropdown-item {
-        font-size: calc(14 * 100vw / 1440);
-        line-height: calc(20 * 100vw / 1440);
-    }
-    
-    .header-country-dropdown-item.selected {
-        row-gap: calc(4 * 100vw / 1440);
-        margin-bottom: calc(16 * 100vw / 1440);
-        padding-bottom: calc(16 * 100vw / 1440);
-    }
-
-    .header-country-dropdown-item-note {
-        font-size: calc(12 * 100vw / 1440);
-        line-height: calc(18 * 100vw / 1440);
-    }
 }
 
 @media (max-width: 576px) {
@@ -321,21 +280,5 @@
     .header-country-dropdown-list {
         gap: calc(12 * 100vw / 375);
         padding: calc(18 * 100vw / 375) 0;
-    }
-
-    .header-country-dropdown-item {
-        font-size: calc(14 * 100vw / 375);
-        line-height: calc(20 * 100vw / 375);
-    }
-    
-    .header-country-dropdown-item.selected {
-        row-gap: calc(4 * 100vw / 375);
-        margin-bottom: calc(16 * 100vw / 375);
-        padding-bottom: calc(16 * 100vw / 375);
-    }
-
-    .header-country-dropdown-item-note {
-        font-size: calc(12 * 100vw / 375);
-        line-height: calc(18 * 100vw / 375);
     }
 }
