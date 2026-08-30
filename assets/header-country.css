@@ -93,7 +93,7 @@
     text-transform: uppercase;
 }
 
-.header-country-dropdown-region-name img {
+.header-country-dropdown-region-name svg {
     width: 20px;
     height: 20px;
     color: currentColor;
@@ -215,7 +215,7 @@
         letter-spacing: calc(0.36 * 100vw / 1440);
     }
 
-    .header-country-dropdown-region-name img {
+    .header-country-dropdown-region-name svg {
         width: calc(20 * 100vw / 1440);
         height: calc(20 * 100vw / 1440);
     }
