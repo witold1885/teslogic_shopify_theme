@@ -319,7 +319,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
     const currentCountryWithFlag: Country | null = useMemo(() => {
-        if (currentCountry) {
+        if (currentCountry && countries?.length) {
             const country = countries.find(({ iso_code }) => iso_code === currentCountry.iso_code)
             return { ...currentCountry, flag: country?.flag || '' }
         }
