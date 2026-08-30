@@ -101,7 +101,7 @@
     }
 
     const regions = await fetchRegions()
-    const countries = regions.reduce((acc, region) => [ ...acc, ...region.subregions.flatMap(subregion => subregion.countries) ], [])
+    const countries = regions.flatMap(region => region.subregions.flatMap(subregion => subregion.countries))
     console.log({ countries })
 
     const id = '{{ id }}'
