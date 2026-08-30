@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, forwardRef, type RefObject } from 'react'
+import React, { useState, useEffect, useRef, useMemo, forwardRef } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRegions, setCountry } from '../../redux/slices/content'
@@ -155,6 +155,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
 interface HeaderCountrySelectorProps {
     countriesDropdownOpen: boolean
     onCountriesDropdownToggle: (open?: boolean) => void
+    regionsOpen: Record<string, boolean>
+    onRegionToggle: (regionName: string) => void
     selectedCountry?: Country | null
     onCountrySelect: (country: Country) => void
 }
@@ -162,11 +164,12 @@ interface HeaderCountrySelectorProps {
 const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorProps>(({ 
     countriesDropdownOpen,
     onCountriesDropdownToggle,
+    regionsOpen,
+    onRegionToggle,
     selectedCountry,
     onCountrySelect
 }, ref) => {
     const { regions } = useAppSelector(state => state.content)
-    const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>(regions?.reduce((acc, { name }) => ({ ...acc, [name]: false }), {}) || {})
 
     return (
         <div className="header-country" ref={ref}>
@@ -181,11 +184,11 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
                             <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
                                 <div
                                     className="header-country-dropdown-region-name"
-                                    onClick={() => setRegionsOpen(prev => ({ ...prev, [region.name]: !regionsOpen[region.name] }))}
+                                    onClick={() => onRegionToggle(region.name)}
                                 >
                                     <span>{region.name}</span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 6L8 10L12 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
                                 {regionsOpen[region.name] && (
@@ -227,7 +230,7 @@ interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
     position: 'absolute' | 'sticky'
     isMobile: boolean
     onMobileMenuOpen: () => void
-    countriesDropdownRef: RefObject<HTMLDivElement | null>
+    countriesDropdownRef: (el: HTMLDivElement | null) => void
 }
 
 const HeaderComponent: React.FC<HeaderComponentProps> = ({
@@ -240,6 +243,8 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
     countriesDropdownRef,
     countriesDropdownOpen,
     onCountriesDropdownToggle,
+    regionsOpen,
+    onRegionToggle,
     selectedCountry,
     onCountrySelect
 }) => {
@@ -264,7 +269,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
                 )}
                 <HeaderCountrySelector
                     ref={countriesDropdownRef}
-                    {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
+                    {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
                 />
                 {isMobile && (
                     <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
@@ -306,11 +311,20 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
 
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
-    const { country: currentCountry, main_menu } = useAppSelector(state => state.content)
+    const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
 
     useEffect(() => {
         dispatch(getRegions())
     }, [dispatch])
+
+    const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
+    const currentCountryWithFlag: Country | null = useMemo(() => {
+        if (currentCountry) {
+            const country = countries.find(({ iso_code }) => iso_code === currentCountry.iso_code)
+            return { ...currentCountry, flag: country?.flag || '' }
+        }
+        return null
+    }, [currentCountry, countries])
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
@@ -319,16 +333,26 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const isScrolling = scrollOffset.y > 0 && scrollOffset.direction === 'up'
     const isAtTop = scrollOffset.y <= 0
 
-    const countriesDropdownRef = useRef<HTMLDivElement | null>(null)
+    const countriesDropdownRefs = useRef<(HTMLDivElement | null)[]>([])
+
+    const setCountriesDropdownRef = (index: number) => (el: HTMLDivElement | null) => {
+        countriesDropdownRefs.current[index] = el
+    }
+
     const [countriesDropdownOpen, setCountriesDropdownOpen] = useState<boolean>(false)
-    const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountry)
+    const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>({})
+    const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(currentCountryWithFlag)
 
     const onCountriesDropdownToggle = (open?: boolean) => {
         if (open) setCountriesDropdownOpen(open)
         else setCountriesDropdownOpen(prev => !prev)
     }
 
-    useOutsideClick(countriesDropdownRef, () => {
+    const onRegionToggle = (regionName: string) => {
+        setRegionsOpen(prev => ({ ...prev, [regionName]: !prev[regionName] }))
+    }
+
+    useOutsideClick(countriesDropdownRefs, () => {
         if (countriesDropdownOpen) setCountriesDropdownOpen(false)
     })
 
@@ -344,9 +368,10 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         ...headerParams,
         isMobile,
         onMobileMenuOpen: () => setOpenMobileMenu(true),
-        countriesDropdownRef,
         countriesDropdownOpen,
         onCountriesDropdownToggle,
+        regionsOpen,
+        onRegionToggle,
         selectedCountry,
         onCountrySelect
     }
@@ -359,8 +384,18 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     useLockBodyScroll(openMobileMenu)
 
     return (<>
-        <HeaderComponent position="absolute" className="absolute" {...headerComponentParams} />
-        <HeaderComponent position="sticky" className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')} {...headerComponentParams} />
+        <HeaderComponent
+            position="absolute"
+            className="absolute"
+            {...headerComponentParams}
+            countriesDropdownRef={setCountriesDropdownRef(0)}
+        />
+        <HeaderComponent
+            position="sticky"
+            className={isAtTop ? 'hidden' : (isScrolling ? 'sticky' : 'transparent')}
+            {...headerComponentParams}
+            countriesDropdownRef={setCountriesDropdownRef(1)}
+        />
         <HeaderMobile className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
     </>)
 }
