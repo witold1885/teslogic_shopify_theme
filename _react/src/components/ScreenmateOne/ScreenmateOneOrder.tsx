@@ -85,8 +85,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         setSelectedModel(model)
     }
 
-    // const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
-    const currency: string = 'USD'
+    const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
+    // const currency: string = 'USD'
 
     const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
@@ -194,19 +194,19 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             </div>
                             <div {...anime('info')}>
                                 {currency === 'USD' && (
-                                    <div className="screenmate-one__order-form-note">
-                                        Taxes and shipping calculated at checkout
-                                    </div>
-                                    // <div className="screenmate-one__order-form-notes">
-                                    //     <div>
-                                    //         <Icon icon={global} />
-                                    //         <span>Global prices are shown in USD, VAT not included</span>
-                                    //     </div>
-                                    //     <div>
-                                    //         <Icon icon={eu} />
-                                    //         <span>To see VAT-inclusive pricing select your EU country in the Menu</span>
-                                    //     </div>
+                                    // <div className="screenmate-one__order-form-note">
+                                    //     Taxes and shipping calculated at checkout
                                     // </div>
+                                    <div className="screenmate-one__order-form-notes">
+                                        <div>
+                                            <Icon icon={global} />
+                                            <span>Global prices are shown in USD, VAT not included</span>
+                                        </div>
+                                        <div>
+                                            <Icon icon={eu} />
+                                            <span>To see VAT-inclusive pricing select your EU country in the Menu</span>
+                                        </div>
+                                    </div>
                                 )}
                                 {currency === 'EUR' && (
                                     <div className="screenmate-one__order-form-vat">{showVAT(prices.current)}</div>
