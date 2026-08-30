@@ -68,7 +68,7 @@
     align-items: center;
     gap: 16px 8px;
     padding-bottom: 16px;
-    border: 1px solid #888;
+    border-bottom: 1px solid #888;
 }
 
 .header-country-dropdown-region-title {
