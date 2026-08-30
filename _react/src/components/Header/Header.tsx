@@ -166,7 +166,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     onCountrySelect
 }, ref) => {
     const { regions } = useAppSelector(state => state.content)
-    const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>(regions.reduce((acc, { name }) => ({ ...acc, [name]: false }), {}))
+    const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>(regions?.reduce((acc, { name }) => ({ ...acc, [name]: false }), {}) || {})
 
     return (
         <div className="header-country" ref={ref}>
