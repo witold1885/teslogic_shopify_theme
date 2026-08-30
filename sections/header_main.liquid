@@ -137,7 +137,7 @@
             <span>Cart</span>
           </a>
         </div>
-        {% comment %} {% render 'header-country', id: 'header-dash-main-country' %} {% endcomment %}
+        {% render 'header-country', id: 'header-dash-main-country' %}
       </div>
     </div>
   </div>
@@ -256,17 +256,13 @@
             <span>Cart</span>
           </a>
         </div>
-        {% comment %} {% render 'header-country', id: 'header-dash-sticky-country' %} {% endcomment %}
+        {% render 'header-country', id: 'header-dash-sticky-country' %}
       </div>
     </div>
   </div>
 </header>
 
 <header id="header_mobile">
-  {% comment %} <a class="top-link" href="/pages/screenmate">
-    <div>New Product: Screenmate</div>
-    <div>Learn more</div>
-  </a> {% endcomment %}
   <div class="promo-bg">
     <div class="promo-wrap">
       <div class="promo-close">
@@ -329,7 +325,7 @@
             </div>
           </a>
         </div>
-        {% comment %} {% render 'header-country', id: 'header-dash-mobile-country' %} {% endcomment %}
+        {% render 'header-country', id: 'header-dash-mobile-country' %}
         <button type="button" class="mob-button button-menu">Menu</button>
         <div class="mob-button button-close"><img src="{{ 'close-review-form.svg' | asset_url }}"></div>
       </div>
