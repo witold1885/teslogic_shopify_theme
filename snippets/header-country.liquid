@@ -30,7 +30,7 @@
   <div class="header-country-button"></div>
   <div class="header-country-dropdown" style="display: none;">
     <div class="header-country-dropdown-list">
-      <div class="header-country-dropdown-item selected">
+      {% comment %} <div class="header-country-dropdown-item selected">
         <span>{{ current_country.name }}</span>
         <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
         {% if current_country.iso_code == 'US' %}
@@ -52,7 +52,7 @@
             <span>{{ currency_code }}&nbsp;{{ currency_symbol }}</span>
           </div>
         {% endif %}
-      {% endfor %}
+      {% endfor %} {% endcomment %}
     </div>
   </div>
 </div>
@@ -96,14 +96,29 @@
     }
 
     const regions = await fetchRegions()
-    const countries = regions.flatMap(region => region.subregions.flatMap(subregion => subregion.countries))
-    const country = countries.find(({ iso_code }) => iso_code === serverCountryCode)
 
-    if (country) {
-      $('.header-country-button').html(`
-        <img src="${country.flag}" alt="${country.name}" />
-        <span>${country.currency_symbol}</span>
-      `).css('display', 'flex')
+    if (regions.length) {
+      let dropdownHtml = ''
+
+      for (const region of regions) {
+        dropdownHtml += `
+          <div class="header-country-dropdown-region">
+            ${region.name}
+          </div>
+        `
+      }
+
+      $('.header-country-dropdown-list').html(dropdownHtml)
+
+      const countries = regions.flatMap(region => region.subregions.flatMap(subregion => subregion.countries))
+      const country = countries.find(({ iso_code }) => iso_code === serverCountryCode)
+
+      if (country) {
+        $('.header-country-button').html(`
+          <img src="${country.flag}" alt="${country.name}" />
+          <span>${country.currency_symbol}</span>
+        `).css('display', 'flex')
+      }
     }
 
     const id = '{{ id }}'
