@@ -105,9 +105,7 @@
           <div class="header-country-dropdown-region">
             <div class="header-country-dropdown-region-name">
               <span>${region.name}</span>
-              <div class="header-menu-item-chevron">
-                <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
-              </div>
+              <img src="{{ 'chevron-down.svg' | asset_url }}">
             </div>
             <div class="header-country-dropdown-subregions">${subregionsHtml}</div>
           </div>
@@ -140,7 +138,7 @@
       }
     })
 
-    $(`#${id} .header-country-dropdown-region-name`).on('click', function() {
+    $(document).on('click', `#${id} .header-country-dropdown-region-name`, function() {
       const subregions = $(this).next('.header-country-dropdown-subregions')
       if ($(subregions).is(':visible')) {
         $(subregions).hide()
