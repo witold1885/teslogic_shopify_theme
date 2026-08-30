@@ -27,12 +27,7 @@
 {%- endif -%}
 
 <div class="header-country" id="{{ id }}">
-  <div class="header-country-button">
-    <span>{{ current_country.iso_code }}&nbsp;{{ currency_symbol }}</span>
-    <div class="header-menu-item-chevron">
-      <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
-    </div>
-  </div>
+  <div class="header-country-button"></div>
   <div class="header-country-dropdown" style="display: none;">
     <div class="header-country-dropdown-list">
       <div class="header-country-dropdown-item selected">
@@ -103,7 +98,13 @@
     const regions = await fetchRegions()
     const countries = regions.flatMap(region => region.subregions.flatMap(subregion => subregion.countries))
     const country = countries.find(({ iso_code }) => iso_code === serverCountryCode)
-    console.log({ country })
+
+    if (country) {
+      $('.header-country-button').html(`
+        <img src="${country.flag}" alt="${country.name}" />
+        <span>${coumtry.currency_symbol}</span>
+      `).css('display', 'flex')
+    }
 
     const id = '{{ id }}'
 
