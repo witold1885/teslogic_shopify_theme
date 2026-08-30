@@ -732,10 +732,10 @@
 
 {%- assign currency_code = localization.country.currency.iso_code -%}
 {%- assign currency_symbol = localization.country.currency.symbol -%}
-{% comment %} {%- if eu_codes contains localization.country.iso_code -%}
+{%- if eu_codes contains localization.country.iso_code -%}
     {%- assign currency_code = 'EUR' -%}
     {%- assign currency_symbol = '€' -%}
-{%- endif -%} {% endcomment %}
+{%- endif -%}
 
 {%- capture eu_taxes -%}
   {% render 'eu-taxes-json' %}
