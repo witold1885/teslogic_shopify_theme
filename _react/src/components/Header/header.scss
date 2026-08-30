@@ -267,10 +267,10 @@
 
         &-button {
             @extend %flex-between-center, %cursor-pointer;
-            @include responsive(width, 65px);
-            @include responsive(height, 28px);
-            @include responsive(margin-top, 4px);
-            @include responsive(padding, 4px, 2px, 4px, 6px);
+            @include responsive(gap, 6px);
+            @include responsive(width, 54px);
+            @include responsive(height, 32px);
+            @include responsive(padding, 6px, 10px, 6px, 8px);
             @include responsive(border-radius, 6px);
             background: rgba(0, 0, 0, 0.32);
             backdrop-filter: blur(8px);
@@ -282,23 +282,23 @@
 
         &-dropdown {
             @extend %absolute, %overflow-scroll-y;
-            @include responsive(top, 48px);
+            @include responsive(top, 46px);
             right: 0;
-            @include responsive(width, 248px);
-            @include responsive(height, 336px);
-            @include responsive(padding, 0, 24px);
+            @include responsive(width, 380px);
+            @include responsive(max-height, 691px);
+            @include responsive(padding, 20px);
             @include responsive(border-radius, 12px);
             background: #1D1D1F;
             box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
             scrollbar-width: thin;
-            scrollbar-color: #0465FD #4D4D4D;
+            scrollbar-color: #FFF #4D4D4D;
 
             &::-webkit-scrollbar {
-                @include responsive(width, 6px);
+                @include responsive(width, 3px);
             }
 
             &::-webkit-scrollbar-thumb {
-                background: #0465FD;
+                background: #FFF;
                 border-radius: 0;
             }
 
@@ -307,38 +307,107 @@
             }
 
             @include mobile() {
-                @include responsive(top, 52px);
+                @include responsive(top, 46px);
                 left: calc(-1 * 100vw / 2 - (40 * 100vw / 390));
                 right: unset;
                 @include responsive(width, 350px);
-                @include responsive(height, 489px);
+                @include responsive(max-height, 691px);
             }
 
             &-list {
                 @extend %flex-column;
-                @include responsive(gap, 12px);
-                @include responsive(padding, 18px, 0);
+                @include responsive(gap, 16px);
             }
 
-            &-item {
-                @extend %flex-between-center, %font-manrope-14, %font-500, %cursor-pointer;
+            &-region {
+                @extend %flex-column;
+                @include responsive(gap, 16px);
 
-                &.selected {
-                    @extend %flex-wrap;
-                    @include responsive(row-gap, 4px);
-                    @include responsive(margin-bottom, 16px);
+                &:not(:last-child) {
                     @include responsive(padding-bottom, 16px);
                     border-bottom: 1px solid #888;
                 }
 
-                &:not(.selected):hover {
-                    color: #888;
+                &-name {
+                    @extend %flex-start-center, %text-white, %cursor-pointer;
+                    @include responsive(gap, 8px);
+
+                    &:hover {
+                        color: #888 !important;
+
+                        & svg path {
+                            stroke: #888;
+                        }
+                    }
+
+                    & span {
+                        @extend %font-manrope-20, %font-500, %uppercase;
+                        @include responsive(letter-spacing, 0.36px);
+                    }
+
+                    & svg {
+                        @include square(20px);
+
+                        .opened & {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            &-subregions {
+                @extend %flex-column, %w-full;
+                @include responsive(gap, 16px);
+            }
+
+            &-subregion {
+                @extend %flex-column, %w-full;
+                @include responsive(gap, 12px);
+
+                &-name {
+                    @extend %font-manrope-14, %text-darkgrey, %uppercase;
+                    @include responsive(letter-spacing, 0.252px);
+                }
+            }
+
+            &-countries {
+                @extend %flex-column;
+                @include responsive(gap, 8px);
+            }
+
+            &-country {
+                @extend %flex-between-center, %cursor-pointer;
+                @include responsive(padding, 4px, 0);
+
+                & > div:first-child {
+                    @extend %flex-center;
+                    @include responsive(gap, 12px);
+
+                    & img {
+                        @include square(20px);
+                    }
+
+                    & span {
+                        @extend %font-manrope-14, %text-white;
+                    }
                 }
 
-                &-note {
-                    @extend %w-full, %font-500;
-                    @include text(12px, 18px);
-                    color: #999;
+                &.selected,
+                &:hover {
+                    & > div:first-child span {
+                        color: #888 !important;
+                    }
+                }
+
+                & > div:last-child {
+                    @extend %font-manrope-16, %text-darkgrey;
+                }
+
+                & > div:first-child span,
+                & > div:last-child {
+                    @extend %font-500;
+                    @include responsive(line-height, 20px);
+                    font-feature-settings: 'liga' off, 'clig' off;
                 }
             }
         }

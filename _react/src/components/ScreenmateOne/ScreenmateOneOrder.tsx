@@ -49,7 +49,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { isMobile } = useInlineStyles()
 
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
-    const { country, eu_taxes } = useAppSelector(state => state.content)
+    const { country } = useAppSelector(state => state.content)
 
     useEffect(() => {
         dispatch(getRate('USD/EUR'))
@@ -103,7 +103,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         return { current: (current || 0) * coef, old: (old || 0) * coef }
     }, [product, selectedModel, coef])
 
-    const tax: number = useMemo(() => eu_taxes[country?.iso_code as string] || 20, [country, eu_taxes])
+    const tax: number = useMemo(() => country?.vat_percent || 20, [country])
 
     const additionals = useMemo(() => additionalProducts?.map(({ price, ...item }) => ({
         ...item,

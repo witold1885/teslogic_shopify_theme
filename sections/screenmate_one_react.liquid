@@ -1,6 +1,6 @@
 <div id="react-screenmate-one-root"></div>
 
-{{ 'react-style-ScreenmateOne-CtX28YrT.css' | asset_url | stylesheet_tag }}
+{{ 'react-style-ScreenmateOne-MUk84rxr.css' | asset_url | stylesheet_tag }}
 
 {%- capture localization_country -%}
   {% render 'country-json', country: localization.country %}
@@ -8,10 +8,6 @@
 
 {%- capture countries -%}
   {% render 'countries-json' %}
-{%- endcapture -%}
-
-{%- capture eu_taxes -%}
-  {% render 'eu-taxes-json' %}
 {%- endcapture -%}
 
 {%- capture main_menu -%}
@@ -43,8 +39,6 @@
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
       country,
-      countries,
-      eu_taxes: {{ eu_taxes }},
       main_menu: {{ main_menu }},
       footer_menu: []
     },

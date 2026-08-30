@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, forwardRef, type RefObject } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { setCountry } from '../../redux/slices/content'
+import { getRegions, setCountry } from '../../redux/slices/content'
 import type { Country, MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
@@ -165,46 +165,62 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     selectedCountry,
     onCountrySelect
 }, ref) => {
-    const { countries } = useAppSelector(state => state.content)
+    const { regions } = useAppSelector(state => state.content)
+    const [regionsOpen, setRegionsOpen] = useState<Record<string, boolean>>(regions.reduce((acc, { name }) => ({ ...acc, [name]: false }), {}))
 
-    return selectedCountry ? (
+    return (
         <div className="header-country" ref={ref}>
             <div className="header-country-button" onClick={() => onCountriesDropdownToggle()}>
-                <span>{selectedCountry.iso_code}&nbsp;{selectedCountry.currency_symbol}</span>
-                <div className="header-menu-item-chevron">
-                    <Icon svg={<ChevronDownIcon />} />
-                </div>
+                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code} />
+                <span>{selectedCountry?.currency_symbol}</span>
             </div>
             {countriesDropdownOpen && (
                 <div className="header-country-dropdown">
                     <div className="header-country-dropdown-list">
-                        <div
-                            className="header-country-dropdown-item selected"
-                            onClick={() => onCountriesDropdownToggle(false)}
-                        >
-                            <span>{selectedCountry.name}</span>
-                            <span>{selectedCountry.currency_code}&nbsp;{selectedCountry.currency_symbol}</span>
-                            {selectedCountry.iso_code === 'US' && (
-                                <span className="header-country-dropdown-item-note">
-                                    Non-EU prices are shown in USD $. Select your EU country to see VAT-inclusive pricing.
-                                </span>
-                            )}
-                        </div>
-                        {countries?.filter(({ iso_code }) => iso_code !== selectedCountry?.iso_code).map(country => (
-                            <div
-                                key={country.iso_code}
-                                className="header-country-dropdown-item"
-                                onClick={() => onCountrySelect(country)}
-                            >
-                                <span>{country.name}</span>
-                                <span>{country.currency_code}&nbsp;{country.currency_symbol}</span>
+                        {regions.map((region, ri) => (
+                            <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
+                                <div
+                                    className="header-country-dropdown-region-name"
+                                    onClick={() => setRegionsOpen(prev => ({ ...prev, [region.name]: !regionsOpen[region.name] }))}
+                                >
+                                    <span>{region.name}</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 6L8 10L12 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                {regionsOpen[region.name] && (
+                                    <div className="header-country-dropdown-subregions">
+                                        {region.subregions.map((subregion, si) => (
+                                            <div className="header-country-dropdown-subregion" key={si}>
+                                                <div className="header-country-dropdown-subregion-name">{subregion.name}</div>
+                                                <div className="header-country-dropdown-countries">
+                                                    {subregion.countries.map(country => (
+                                                        <div
+                                                            key={country.iso_code}
+                                                            className={`header-country-dropdown-country ${
+                                                                country.iso_code === selectedCountry?.iso_code ? 'selected' : ''
+                                                            }`}
+                                                            onClick={() => onCountrySelect(country)}
+                                                        >
+                                                            <div>
+                                                                <img src={country.flag} alt={country.iso_code} />
+                                                                <span>{country.name}</span>
+                                                            </div>
+                                                            <div>{country.currency_symbol}</div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
                 </div>
             )}
         </div>
-    ) : null
+    )
 })
 
 interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
@@ -246,10 +262,10 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
                 {!isMobile && (
                     <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
                 )}
-                {/* <HeaderCountrySelector
+                <HeaderCountrySelector
                     ref={countriesDropdownRef}
                     {...{countriesDropdownOpen, onCountriesDropdownToggle, selectedCountry, onCountrySelect}}
-                /> */}
+                />
                 {isMobile && (
                     <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
                         <Icon icon={burgerIcon} />
@@ -291,6 +307,10 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { country: currentCountry, main_menu } = useAppSelector(state => state.content)
+
+    useEffect(() => {
+        dispatch(getRegions())
+    }, [dispatch])
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
