@@ -103,7 +103,11 @@
       for (const region of regions) {
         dropdownHtml += `
           <div class="header-country-dropdown-region">
-            ${region.name}
+            <div class="header-country-dropdown-region-title">${region.name}</div>
+            <div class="header-menu-item-chevron">
+              <img class="header-menu-item-chevron-img menu__item-chevron menu__item-chevron-down" src="{{ 'chevron-down.svg' | asset_url }}">
+            </div>
+            <div class="header-country-dropdown-region-list">
           </div>
         `
       }
