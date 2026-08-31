@@ -177,51 +177,47 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
                 <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code} />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
-            {countriesDropdownOpen && (
-                <div className="header-country-dropdown">
-                    <div className="header-country-dropdown-list">
-                        {regions.map((region, ri) => (
-                            <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
-                                <div
-                                    className="header-country-dropdown-region-name"
-                                    onClick={() => onRegionToggle(region.name)}
-                                >
-                                    <span>{region.name}</span>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                                {regionsOpen[region.name] && (
-                                    <div className="header-country-dropdown-subregions">
-                                        {region.subregions.map((subregion, si) => (
-                                            <div className="header-country-dropdown-subregion" key={si}>
-                                                <div className="header-country-dropdown-subregion-name">{subregion.name}</div>
-                                                <div className="header-country-dropdown-countries">
-                                                    {subregion.countries.map(country => (
-                                                        <div
-                                                            key={country.iso_code}
-                                                            className={`header-country-dropdown-country ${
-                                                                country.iso_code === selectedCountry?.iso_code ? 'selected' : ''
-                                                            }`}
-                                                            onClick={() => onCountrySelect(country)}
-                                                        >
-                                                            <div>
-                                                                <img src={country.flag} alt={country.iso_code} />
-                                                                <span>{country.name}</span>
-                                                            </div>
-                                                            <div>{country.currency_symbol}</div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
+            <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
+                <div className="header-country-dropdown-list">
+                    {regions.map((region, ri) => (
+                        <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
+                            <div
+                                className="header-country-dropdown-region-name"
+                                onClick={() => onRegionToggle(region.name)}
+                            >
+                                <span>{region.name}</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                             </div>
-                        ))}
-                    </div>
+                            <div className={`header-country-dropdown-subregions ${regionsOpen[region.name] ? '' : 'hidden'}`}>
+                                {region.subregions.map((subregion, si) => (
+                                    <div className="header-country-dropdown-subregion" key={si}>
+                                        <div className="header-country-dropdown-subregion-name">{subregion.name}</div>
+                                        <div className="header-country-dropdown-countries">
+                                            {subregion.countries.map(country => (
+                                                <div
+                                                    key={country.iso_code}
+                                                    className={`header-country-dropdown-country ${
+                                                        country.iso_code === selectedCountry?.iso_code ? 'selected' : ''
+                                                    }`}
+                                                    onClick={() => onCountrySelect(country)}
+                                                >
+                                                    <div>
+                                                        <img src={country.flag} alt={country.iso_code} />
+                                                        <span>{country.name}</span>
+                                                    </div>
+                                                    <div>{country.currency_symbol}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            )}
+            </div>
         </div>
     )
 })
