@@ -309,7 +309,7 @@
 
             @include mobile() {
                 @include responsive(top, 46px);
-                left: calc(-1 * 100vw / 2 - (40 * 100vw / 390));
+                left: calc(-1 * 100vw / 2 - (46 * 100vw / 390));
                 right: unset;
                 @include responsive(width, 350px);
                 @include responsive(max-height, 691px);
