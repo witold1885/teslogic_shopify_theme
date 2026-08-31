@@ -547,5 +547,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       LeadDyno.recordVisit();
     </script>
     {% endunless %}
+
+    <script type="text/javascript">
+      const serverCountryCode = '{{ localization.country.iso_code }}'
+      console.log(`Country by Shopify: ${serverCountryCode}`)
+      fetch('https://ipapi.co')
+        .then(response => response.json())
+        .then(data => {
+          console.log(`Country by IP: ${data.country_code}`)
+        })
+        .catch(error => console.error('Error fetching IP data:', error))
+    </script>
   </body>
 </html>
