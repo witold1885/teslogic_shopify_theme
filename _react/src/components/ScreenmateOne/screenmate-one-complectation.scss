@@ -164,16 +164,16 @@
 
                         &-prices {
                             @extend %flex, %gap-8, %font-manrope-20, %mob\:font-manrope-18, %font-600;
+                        }
 
-                            & span {
+                        &-price {
 
-                                &:first-child {
-                                    @extend %text-blue;
-                                }
+                            &-new {
+                                @extend %text-blue;
+                            }
 
-                                &:last-child {
-                                    @extend %text-grey, %line-through;
-                                }
+                            &-old {
+                                @extend %text-grey, %line-through;
                             }
                         }
 

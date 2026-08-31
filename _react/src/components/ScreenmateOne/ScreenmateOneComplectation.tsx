@@ -59,8 +59,10 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
                 <div>
                     <div className="screenmate-one__complectation-group-grid-item-info-name">{name}</div>
                     <div className="screenmate-one__complectation-group-grid-item-info-prices">
-                        <span>{price} USD</span>
-                        {!!oldPrice && oldPrice !== price && <span>{oldPrice} USD</span>}
+                        <span className="screenmate-one__complectation-group-grid-item-info-price-new">{price} USD</span>
+                        {!!oldPrice && oldPrice !== price && (
+                            <span className="screenmate-one__complectation-group-grid-item-info-price-old">{oldPrice} USD</span>
+                        )}
                     </div>
                 </div>
                 <div>
