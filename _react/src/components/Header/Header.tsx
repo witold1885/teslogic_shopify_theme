@@ -179,7 +179,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
             </div>
             <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
                 <div className="header-country-dropdown-list">
-                    {regions.map((region, ri) => (
+                    {regions?.map((region, ri) => (
                         <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
                             <div
                                 className="header-country-dropdown-region-name"
