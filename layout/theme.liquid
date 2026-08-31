@@ -551,7 +551,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="text/javascript">
       const serverCountryCode = '{{ localization.country.iso_code }}'
       console.log(`Country by Shopify: ${serverCountryCode}`)
-      fetch('https://ipapi.co')
+      fetch('https://ipapi.co/json')
         .then(response => response.json())
         .then(data => {
           console.log(`Country by IP: ${data.country_code}`)
