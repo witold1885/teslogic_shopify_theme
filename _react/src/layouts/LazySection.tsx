@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react'
+import React, { Suspense, type ReactNode } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 interface LazySectionProps {
@@ -13,9 +13,11 @@ const LazySection: React.FC<LazySectionProps> = ({ rootMargin = '400px 0px', chi
     })
 
     return import.meta.env.SSR ? (
-        <div ref={ref}>
-            {inView ? children : <div style={{ height: '300px' }} />}
-        </div>
+        <Suspense>
+            <div ref={ref}>
+                {inView ? children : <div style={{ height: '300px' }} />}
+            </div>
+        </Suspense>
     ) : children
 }
 

@@ -180,18 +180,18 @@ const ScreenmateOne: React.FC = () => {
                 // onOrder={() => scrollTo('Order')}
             />
             <LazySection>
-                <Suspense>
+                {/* <Suspense> */}
                     <ScreenmateOneFeatures
                         ref={(el: HTMLDivElement) => setRef(el, 'Features')}
                         scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
                     />
-                </Suspense>
+                {/* </Suspense> */}
             </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
                 <LazySection key={slug}>
-                    <Suspense>
+                    {/* <Suspense> */}
                         <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
-                    </Suspense>
+                    {/* </Suspense> */}
                 </LazySection>
             ))}
             {/* <LazySection> */}
