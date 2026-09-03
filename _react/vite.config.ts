@@ -69,8 +69,8 @@ export default defineConfig({
     outDir, 
     emptyOutDir: false,
     sourcemap: false,
-    // target: 'esnext',
     target: ['ios15', 'chrome89', 'edge89', 'firefox89', 'safari15'],
+    cssCodeSplit: false,
     rollupOptions: {
       input: inputEntry,
       output: {
@@ -78,9 +78,8 @@ export default defineConfig({
         chunkFileNames: 'react-chunk-[name]-[hash].js',
         assetFileNames: (assetInfo) => {
           if (assetInfo?.name?.endsWith('.css')) {
-            // const isPageCss = Object.keys(entryPoints).includes(assetInfo.name.replace('.css', ''))
-            // return `react-style-[name]${!isPageCss ? '-[hash]' : ''}.css`
-            return `react-style-[name]-[hash].css`
+            // return `react-style-[name]-[hash].css`
+            return `react-style-${currentPage}-[hash].css`
           }
           return 'react-[name]-[hash].[ext]'
         },
