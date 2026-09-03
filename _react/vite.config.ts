@@ -9,30 +9,6 @@ const outDir = path.resolve(__dirname, '../assets')
 
 const currentPage = process.env.PAGE
 
-const cleanOldChunksPlugin = () => {
-  return {
-    name: 'clean-old-chunks',
-    buildStart() {
-      if (fs.existsSync(outDir)) {
-        const files = fs.readdirSync(outDir)
-        files.forEach((file) => {
-          const isOldChunk = file.startsWith('react-chunk-')
-          const isOldStyle = file.startsWith('react-style-')
-          const isOldAsset = file.startsWith('react-') && /-[a-zA-Z0-9]{8,}\.[a-zA-Z0-9]+$/.test(file)
-          if (isOldChunk || isOldStyle || isOldAsset) {
-            const filePath = path.join(outDir, file)
-            try {
-              fs.unlinkSync(filePath)
-            } catch (err) {
-              console.error(`Can not delete old asset ${file}:`, err)
-            }
-          }
-        })
-      }
-    }
-  }
-}
-
 const getEntryPoints = (): Record<string, string> => {
   const pagesDir = path.resolve(__dirname, 'src/pages')
   const entries: Record<string, string> = {}
@@ -71,7 +47,6 @@ const inputEntry = currentPage && entryPoints[currentPage]
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    cleanOldChunksPlugin(),
     react(),
     babel({ 
       presets: [reactCompilerPreset()],
