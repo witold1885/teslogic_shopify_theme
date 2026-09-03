@@ -77,26 +77,20 @@ const ssrModules = import.meta.env.SSR
   ? import.meta.glob<any>('../components/ScreenmateOne/ScreenmateOne*.tsx', { eager: true })
   : {}
 
-const clientModules = !import.meta.env.SSR
-  ? import.meta.glob<any>('../components/ScreenmateOne/ScreenmateOne*.tsx')
-  : {}
-
-const sectionModules = import.meta.env.SSR ? ssrModules : clientModules
-
 function getSectionComponent(filename: string) {
-    const pathKey = Object.keys(sectionModules).find((key) => key.endsWith(`/${filename}.tsx`))
-
-    if (!pathKey) {
-        console.error(`[SSR/Client] Module not found: ${filename}`)
-        return () => null
-    }
-    
     if (import.meta.env.SSR) {
-        const mod = sectionModules[pathKey] as any
+        const pathKey = Object.keys(ssrModules).find((key) => key.endsWith(`/${filename}.tsx`))
+
+        if (!pathKey) {
+            console.error(`[SSR/Client] Module not found: ${filename}`)
+            return () => null
+        }
+
+        const mod = ssrModules[pathKey] as any
         return mod?.default || mod
     }
 
-    return lazy(sectionModules[pathKey] as () => Promise<any>)
+    return lazy(() => import(`../components/ScreenmateOne/${filename}.tsx`))
 }
 
 const ScreenmateOneFeatures = getSectionComponent('ScreenmateOneFeatures')
