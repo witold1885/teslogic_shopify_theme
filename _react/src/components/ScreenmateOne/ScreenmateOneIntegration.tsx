@@ -38,6 +38,7 @@ interface Block {
     heading: ReactNode
     title: ReactNode
     text: ReactNode
+    alt?: string
     video?: string
     background?: string
     sketch?: string
@@ -54,6 +55,7 @@ const getBlocks = (isMobile: boolean) => {
                 Connect once and enjoy a familiar<br />
                 interface every time you drive.
             </>,
+            alt: 'Apple CarPlay and Android Auto on a Tesla display',
             video: !isMobile ? carPlayAndAndroidAutoVideoDesktop : carPlayAndAndroidAutoVideoMobile,
             background: !isMobile ? carPlayAndAndroidAutoBackgroundDesktop : carPlayAndAndroidAutoBackgroundMobile
         },
@@ -65,6 +67,7 @@ const getBlocks = (isMobile: boolean) => {
                 Enjoy smooth Android gaming powered by Qualcomm, <br />
                 or connect a compatible console through USB-C Video In.
             </>,
+            alt: 'Gaming console connected through Screenmate ONE USB-C Video In',
             video: !isMobile ? connectConsolesVideoDesktop : connectConsolesVideoMobile,
             background: !isMobile ? connectConsolesBackgroundDesktop : connectConsolesBackgroundMobile,
             sketch: !isMobile ? consoleGamingDesktop : consoleGamingMobile,
@@ -92,7 +95,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
 
     return (
         <div className="screenmate-one__integration">
-            {Object.entries(blocks).map(([blockKey, { heading, title, text, video, background, sketch, info }]) => (
+            {Object.entries(blocks).map(([blockKey, { heading, title, text, alt, video, background, sketch, info }]) => (
                 <div className={`screenmate-one__integration-block ${blockKey}`} key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
                     <div ref={(el) => {
@@ -107,7 +110,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                             {sketch && info && (
                                 <div className="screenmate-one__integration-block-info">
                                     <div {...anime(`${blockKey}-sketch`)} className="screenmate-one__integration-block-info-sketch">
-                                        <img src={sketch} alt="" />
+                                        <img src={sketch} alt={alt} />
                                     </div>
                                     <div className="screenmate-one__integration-block-info-items">
                                         {info.map(({ title, text }, index) => (
@@ -124,7 +127,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                                 </div>
                             )}
                             {video && (
-                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__integration-block-video" src={video} background={background} />
+                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__integration-block-video" src={video} alt={alt} background={background} />
                             )}
                         </div>
                     </div>

@@ -17,6 +17,7 @@ interface Feature {
     title: string | ReactNode
     image?: string
     backgroundImage?: string
+    alt?: string
     imageStyle?: Record<string, any>
     anchor?: string
 }
@@ -34,6 +35,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
     title,
     image,
     backgroundImage,
+    alt,
     imageStyle = {},
     position,
     onClick
@@ -49,6 +51,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
                 ...(backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : { backgroundColor }),
                 ...style
             }}
+            aria-label={backgroundImage ? alt : ''}
         >
             <div className="screenmate-one__features-item-header">
                 <div className="screenmate-one__features-item-header-title">{title}</div>
@@ -56,7 +59,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
             </div>
             {image && (
                 <div className="screenmate-one__features-item-image" style={imageStyle}>
-                    <img src={image} loading="lazy" />
+                    <img src={image} alt={alt} loading="lazy" />
                 </div>
             )}
         </div>
@@ -69,14 +72,14 @@ const getFeatures = (
     absoluteImageStyle: CSSProperties
 ) => {
     return [
-        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, imageStyle: responsive(
+        { title: <>Run any<br />Android apps</>, image: runAnyAndroidApps, alt: 'Android apps available on Tesla with Screenmate ONE', imageStyle: responsive(
             !isMobile ? { height: '248px' } : { width: '310px', height: '218px', position: 'absolute', left: '5px', right: '5px', bottom: 0 } as CSSProperties
         ), anchor: 'Setup' },
-        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
-        { title: <>CarPlay &<br />Android Auto for Tesla</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
-        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
-        { title: <>Console Gaming<br />on Your Tesla</>, backgroundImage: consolesAndAnyHdmiDevices, anchor: 'Integration.bigger-entertainment' },
-        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, anchor: 'Dash' },
+        { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, alt: 'Screenmate ONE customizable Tesla control panel', imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
+        { title: <>CarPlay &<br />Android Auto for Tesla</>, image: carPlayAndAndroidAuto, alt: 'Apple CarPlay on a Tesla display with Screenmate ONE', imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
+        { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, alt: 'Screenmate ONE Dual View mode on a Tesla display', anchor: 'Convenience.dual-view-mode' },
+        { title: <>Console Gaming<br />on Your Tesla</>, backgroundImage: consolesAndAnyHdmiDevices, alt: 'Gaming console connected to a Tesla display through Screenmate ONE', anchor: 'Integration.bigger-entertainment' },
+        { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, alt: 'Screenmate Dash driver display for Tesla', anchor: 'Dash' },
     ]
 }
 

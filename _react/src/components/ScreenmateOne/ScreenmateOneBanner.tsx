@@ -21,13 +21,15 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     kickstarter: { yFrom: '20px' },
 }
 
+const alt: string = 'Screenmate ONE multimedia system on a Tesla display'
+
 const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand }) => {
     const { isMobile } = useInlineStyles()
 
     const videoParams: { src: string; background: string } = useMemo(() => {
         return !isMobile 
-            ? { src: bannerDesktopVideo, background: bannerDesktopBackground} 
-            : { src: bannerMobileVideo, background: bannerMobileBackground }
+            ? { src: bannerDesktopVideo, alt, background: bannerDesktopBackground} 
+            : { src: bannerMobileVideo, alt, background: bannerMobileBackground }
     }, [isMobile])
 
     const animationConfigs = useMemo(() => ({ ...mapSimpleConfigs(animatedObjects), rootMargin: '0px' } as AnimationConfig), [])

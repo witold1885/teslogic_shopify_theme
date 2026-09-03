@@ -172,7 +172,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         key={index}
                         className={`object-cover ${index === currentImageIndex ? '' : 'hidden'}`}
                         src={image}
-                        alt=""
+                        alt={`Screenmate ONE device and installation cables${index !== 0 ? ` ${index}` : ''}`}
                     />
                 ))}
                 <div {...anime('slider')} className="screenmate-one__order-gallery-slider-wrap">

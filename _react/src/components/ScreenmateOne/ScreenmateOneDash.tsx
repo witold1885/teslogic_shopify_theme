@@ -46,7 +46,12 @@ const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         <Icon svg={<ArrowTopRightBlueIcon />} />
                     </a>
                 </div>
-                <Image {...anime('image')} className="screenmate-one__dash-body-image" src={dashImage} />
+                <Image
+                    {...anime('image')}
+                    className="screenmate-one__dash-body-image"
+                    src={dashImage}
+                    alt="Screenmate Dash showing driving information for Tesla"
+                />
             </div>
         </div>
     )

@@ -15,7 +15,6 @@ import {
     beyondBasicControlsDesktop as beyondBasicControlsBackgroundDesktop,
     beyondBasicControlsMobile as beyondBasicControlsBackgroundMobile
 } from '../../assets/videos/screenmate-one/web/screenshots'
-// import frontCameraIntegration from '../../assets/images/screenmate-one/front-camera-integration.png'
 
 import pointerTopLeftDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-left-desktop.svg'
 import pointerTopRightDesktop from '../../assets/images/screenmate-one/pointers/pointer-top-right-desktop.svg'
@@ -51,6 +50,7 @@ interface Block {
     title: ReactNode
     text: ReactNode
     additional?: ReactNode
+    alt?: string
     image?: string
     video?: string
     background?: string
@@ -133,6 +133,7 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
                 side and an app on the other. Resize and rearrange elements freely <br />
                 for a layout optimized for comfort, clarity, and ease of use.
             </>,
+            alt: 'Two apps displayed side by side with Screenmate ONE Dual View',
             video: !isMobile ? dualViewModeVideoDesktop : dualViewModeVideoMobile,
             background: !isMobile ? dualViewModeBackgroundDesktop : dualViewModeBackgroundMobile
         },
@@ -143,6 +144,7 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
                 you run apps, so you can check current speed, speed <br />
                 limit, blind-spot warnings, battery charge, and more.
             </>,
+            alt: 'Screenmate ONE dashboard with speed, battery and blind spot information',
             pointers: {
                 'top-left': {
                     title: 'Cruise & Speed Limit',
@@ -188,19 +190,10 @@ const getBlocks = (isMobile: boolean, setCommandsPopupOpen: (commandsPopupOpen: 
                     <Icon svg={<ArrowTopRightBlueIcon />} />
                 </a>
             </>,
+            alt: 'Tesla vehicle controls in the Screenmate ONE Control Panel',
             video: !isMobile ? beyondBasicControlsVideoDesktop : beyondBasicControlsVideoMobile,
             background: !isMobile ? beyondBasicControlsBackgroundDesktop : beyondBasicControlsBackgroundMobile
         },
-        // 'front-camera-integration': {
-        //     title: <>Front Camera <br />Integration</>,
-        //     text: <>
-        //         Bring a live front camera view to your <br />
-        //         Tesla screen for added confidence <br />
-        //         when parking, maneuvering in tight <br />
-        //         spaces, or approaching curbs.
-        //     </>,
-        //     image: frontCameraIntegration
-        // }
     }
 }
 
@@ -347,7 +340,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
         <div className="screenmate-one__convenience">
             <div className="screenmate-one__convenience-wrap">
                 <Heading {...anime('heading')} title="Built Around Everyday Convenience" />
-                {Object.entries(blocks).map(([blockKey, { title, text, additional, image, video, background, pointers }]) => (
+                {Object.entries(blocks).map(([blockKey, { title, text, additional, image, video, background, alt, pointers }]) => (
                     <div
                         key={blockKey}
                         ref={(el) => {
@@ -355,6 +348,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                             else delete blockRefs.current[blockKey]
                         }} 
                         className={`screenmate-one__convenience-block ${blockKey}`}
+                        aria-label={!image && !video ? alt : ''}
                     >
                         <div className="screenmate-one__convenience-block-wrap container">
                             <div className="screenmate-one__convenience-block-top">
@@ -367,10 +361,10 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                 </div>
                             )}
                             {image && (
-                                <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} />
+                                <Image {...anime(`${blockKey}-image`)} className="screenmate-one__convenience-block-image" src={image} alt={alt} />
                             )}
                             {video && (
-                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__convenience-block-video" src={video} background={background} />
+                                <Video {...anime(`${blockKey}-video`)} className="screenmate-one__convenience-block-video" src={video} alt={alt} background={background} />
                             )}
                             {pointers && (<>
                                 {Object.entries(pointers).map(([pointerKey, pointer]) => (

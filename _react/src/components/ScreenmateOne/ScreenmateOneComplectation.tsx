@@ -29,6 +29,7 @@ interface BoxItemProps {
     style: CSSProperties
     name: string
     image: string
+    alt?: string
     imageStyle?: CSSProperties
 }
 
@@ -37,6 +38,7 @@ interface AddItemProps {
     style: CSSProperties
     name: string
     image: string
+    alt?: string
     price: number
     oldPrice?: number
     description: ReactNode
@@ -44,16 +46,16 @@ interface AddItemProps {
     onAdd: () => void
 }
 
-const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, name, image, imageStyle }, ref) => (
+const BoxItem = forwardRef<HTMLDivElement, BoxItemProps>(({ className, style, name, image, alt, imageStyle }, ref) => (
     <div ref={ref} {...{className, style}}>
-        <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={name} />
+        <Image className="screenmate-one__complectation-group-grid-item-image" style={imageStyle || {}} src={image} alt={alt || name} />
         <div className="screenmate-one__complectation-group-grid-item-title">{name}</div>
     </div>
 ))
 
-const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, price, oldPrice, description, compatible, onAdd }, ref) => (
+const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, name, image, alt, price, oldPrice, description, compatible, onAdd }, ref) => (
     <div ref={ref} {...{className, style}}>
-        <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={name} />
+        <Image className="screenmate-one__complectation-group-grid-item-image" src={image} alt={alt || name} />
         <div className="screenmate-one__complectation-group-grid-item-info">
             <div>
                 <div>
@@ -101,6 +103,7 @@ const getGroups = (
                 device: {
                     name: 'Screenmate ONE Device',
                     image: screenmateOneDevice,
+                    alt: 'Screenmate ONE device with included cables and accessories',
                     imageStyle: responsive({ width: !isMobile ? '420px' : '257px', height: !isMobile ? '332.872px' : '203px' })
                 },
                 holder: { name: 'Phone Holder', image: phoneHolder },
@@ -118,6 +121,7 @@ const getGroups = (
                     id: additionalProductsData['Wireless Charger'].id,
                     name: 'Wireless Phone Charger',
                     image: wirelessPhoneCharger,
+                    alt: 'Screenmate wireless phone charger',
                     price: additionalProductsData['Wireless Charger'].price,
                     oldPrice: additionalProductsData['Wireless Charger'].oldPrice,
                     description: <>
@@ -133,6 +137,7 @@ const getGroups = (
                     id: additionalProductsData['Connection Splitter'].id,
                     name: 'Connection Splitter',
                     image: screenmateSplitter,
+                    alt: 'Screenmate Connection Splitter cable',
                     price: additionalProductsData['Connection Splitter'].price,
                     oldPrice: additionalProductsData['Connection Splitter'].oldPrice,
                     description: <>

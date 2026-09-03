@@ -151,7 +151,11 @@ const ScreenmateOneInstallation: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <Image className="screenmate-one__specifications-installation-image" src={installationImage} />
+            <Image
+                className="screenmate-one__specifications-installation-image"
+                src={installationImage}
+                alt="Screenmate ONE connection diagram for Tesla installation"
+            />
         </div>
     )
 }
@@ -261,7 +265,7 @@ const ScreenmateOneSpecifications: React.FC = () => {
                     <div {...anime('content')} className="screenmate-one__specifications-body-content">
                         {activeTab && tabs[activeTab]?.content && (
                             tabs[activeTab].content.type === 'image' ? (
-                                <Image {...tabs[activeTab].content as ImageProps} />
+                                <Image {...tabs[activeTab].content as ImageProps} alt="Screenmate ONE device dimensions" />
                             ) : (
                                 <Content {...tabs[activeTab].content as ContentProps} />
                             )

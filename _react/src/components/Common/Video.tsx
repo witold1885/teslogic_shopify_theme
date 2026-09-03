@@ -4,6 +4,7 @@ interface VideoProps {
     className?: string
     style?: CSSProperties
     src: string
+    alt?: string
     background?: string
     fetchpriority?: string
     autoPlay?: boolean
@@ -17,7 +18,7 @@ export interface VideoRefMethods {
     el: HTMLDivElement | null
 }
 
-const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, background, fetchpriority = 'auto', autoPlay = true, loop = true, isActive = true }, ref) => {
+const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, src, alt='', background, fetchpriority = 'auto', autoPlay = true, loop = true, isActive = true }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     // const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href + '#t=0.001'
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
@@ -119,6 +120,8 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 // @ts-ignore
                 webkit-playsinline="true"
                 // preload="metadata"
+                // @ts-ignore
+                aria-describedby={alt}
                 preload={isIntersecting ? 'metadata' : 'none'}
                 onCanPlay={() => {
                     if (isIntersecting && isActive && autoPlay) {
