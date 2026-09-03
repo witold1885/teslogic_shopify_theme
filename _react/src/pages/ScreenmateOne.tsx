@@ -79,7 +79,12 @@ const sectionModules: Record<string, any> = import.meta.glob(
 )
 
 function getSectionComponent(filename: string) {
-    const pathKey = `../components/ScreenmateOne/${filename}.tsx`
+    const pathKey = Object.keys(sectionModules).find((key) => key.endsWith(`/${filename}.tsx`))
+
+    if (!pathKey) {
+        console.error(`[SSR/Client] Module not found: ${filename}`)
+        return () => null
+    }
     
     if (import.meta.env.SSR) {
         const mod = sectionModules[pathKey] as any
