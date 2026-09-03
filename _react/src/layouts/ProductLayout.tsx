@@ -1,12 +1,29 @@
-import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
+import React, { lazy, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 // import '@/assets/styles/cookies-banner.scss'
 // import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
 
-const Reviews = lazy(() => import('../components/Reviews/Reviews'))
-const Footer = lazy(() => import('../components/Footer/Footer'))
+const ssrComponents = import.meta.env.SSR
+  ? import.meta.glob<any>('../components/**/*.tsx', { eager: true })
+  : {}
+
+const clientComponents = !import.meta.env.SSR
+  ? import.meta.glob<any>('../components/**/*.tsx')
+  : {}
+
+function getComponent(relativePath: string) {
+  if (import.meta.env.SSR) {
+    const mod = ssrComponents[relativePath]
+    return mod?.default || mod
+  }
+
+  return lazy(clientComponents[relativePath] as () => Promise<any>)
+}
+
+const Reviews = getComponent('../components/Reviews/Reviews.tsx')
+const Footer = getComponent('../components/Footer/Footer.tsx')
 
 interface ProductLayoutProps {
     className?: string
@@ -32,15 +49,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         <div {...{className}}>
             {children}
             <LazySection>
-                <Suspense>
-                    <Reviews />
-                </Suspense>
+                <Reviews />
             </LazySection>
         </div>
         <LazySection>
-            <Suspense>
-                <Footer />
-            </Suspense>
+            <Footer />
         </LazySection>
     </>)
 }

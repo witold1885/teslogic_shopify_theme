@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useMemo, useRef } from 'react'
+import React, { lazy, useEffect, useMemo, useRef } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -73,10 +73,15 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const sectionModules: Record<string, any> = import.meta.glob(
-    '../components/ScreenmateOne/ScreenmateOne*.tsx',
-    { eager: import.meta.env.SSR }
-)
+const ssrModules = import.meta.env.SSR
+  ? import.meta.glob<any>('../components/ScreenmateOne/ScreenmateOne*.tsx', { eager: true })
+  : {}
+
+const clientModules = !import.meta.env.SSR
+  ? import.meta.glob<any>('../components/ScreenmateOne/ScreenmateOne*.tsx')
+  : {}
+
+const sectionModules = import.meta.env.SSR ? ssrModules : clientModules
 
 function getSectionComponent(filename: string) {
     const pathKey = Object.keys(sectionModules).find((key) => key.endsWith(`/${filename}.tsx`))
@@ -180,24 +185,18 @@ const ScreenmateOne: React.FC = () => {
                 // onOrder={() => scrollTo('Order')}
             />
             <LazySection>
-                {/* <Suspense> */}
-                    <ScreenmateOneFeatures
-                        ref={(el: HTMLDivElement) => setRef(el, 'Features')}
-                        scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
-                    />
-                {/* </Suspense> */}
+                <ScreenmateOneFeatures
+                    ref={(el: HTMLDivElement) => setRef(el, 'Features')}
+                    scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
+                />
             </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
                 <LazySection key={slug}>
-                    {/* <Suspense> */}
-                        <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
-                    {/* </Suspense> */}
+                    <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
                 </LazySection>
             ))}
             {/* <LazySection> */}
-                {/* <Suspense> */}
-                    <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
-                {/* </Suspense> */}
+                <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             {/* </LazySection> */}
         </ProductLayout>
     )

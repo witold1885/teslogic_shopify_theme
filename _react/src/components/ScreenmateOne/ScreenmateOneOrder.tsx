@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense, useCallback } from 'react'
+import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense, useCallback, type ReactNode } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRate, addToCart } from '../../redux/slices/products'
@@ -152,6 +152,18 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         
     const { anime } = useAnime(animationConfigs)
 
+    const thumbsList: ReactNode = useMemo(() => galleryThumbs.map((image, index) => (
+        <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
+            <Image                                    
+                className={`screenmate-one__order-gallery-slider-item ${
+                    currentImageIndex === index ? 'active' : ''
+                }`}
+                src={image}
+                onClick={() => setCurrentImageIndex(index)}
+            />
+        </div>
+    )), [galleryThumbs, currentImageIndex, setCurrentImageIndex])
+
     return (
         <div className="screenmate-one__order" id="order-now" ref={ref}>
             <div className="screenmate-one__order-gallery">
@@ -164,21 +176,15 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                     />
                 ))}
                 <div {...anime('slider')} className="screenmate-one__order-gallery-slider-wrap">
-                    <Suspense>
-                        <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
-                            {galleryThumbs.map((image, index) => (
-                                <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
-                                    <Image                                    
-                                        className={`screenmate-one__order-gallery-slider-item ${
-                                            currentImageIndex === index ? 'active' : ''
-                                        }`}
-                                        src={image}
-                                        onClick={() => setCurrentImageIndex(index)}
-                                    />
-                                </div>
-                            ))}
-                        </SlickSlider>
-                    </Suspense>
+                    {import.meta.env.SSR ? (<>
+                        {thumbsList}
+                    </>) : (
+                        <Suspense>
+                            <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
+                                {thumbsList}
+                            </SlickSlider>
+                        </Suspense>
+                    )}
                 </div>
             </div>
             {product && (
