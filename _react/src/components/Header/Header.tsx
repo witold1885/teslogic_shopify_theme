@@ -174,7 +174,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     return (
         <div className="header-country" ref={ref}>
             <div className="header-country-button" onClick={() => onCountriesDropdownToggle()}>
-                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code} />
+                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code || ''} />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
             <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
