@@ -12,13 +12,13 @@ const LazySection: React.FC<LazySectionProps> = ({ rootMargin = '400px 0px', chi
         rootMargin,
     })
 
-    return import.meta.env.SSR ? (
+    return import.meta.env.SSR ? children : (
         <Suspense>
             <div ref={ref}>
                 {inView ? children : <div style={{ height: '300px' }} />}
             </div>
         </Suspense>
-    ) : children
+    )
 }
 
 export default LazySection
