@@ -73,32 +73,50 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const ScreenmateOneFeatures = lazy(() => import('../components/ScreenmateOne/ScreenmateOneFeatures'))
-// const ScreenmateOneOrder = lazy(() => import('../components/ScreenmateOne/ScreenmateOneOrder'))
+const sectionModules: Record<string, any> = import.meta.glob(
+    '../components/ScreenmateOne/ScreenmateOne*.tsx',
+    { eager: import.meta.env.SSR }
+)
+
+function getSectionComponent(filename: string) {
+    const pathKey = `../components/ScreenmateOne/${filename}.tsx`
+    
+    if (import.meta.env.SSR) {
+        const mod = sectionModules[pathKey] as any
+        return mod?.default || mod
+    }
+
+    return lazy(sectionModules[pathKey] as () => Promise<any>)
+}
+
+const ScreenmateOneFeatures = getSectionComponent('ScreenmateOneFeatures')
+// const ScreenmateOneOrder = getSectionComponent('ScreenmateOneOrder')
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control'],
     Integration: ['familiar-interfaces', 'bigger-entertainment']
 }
-const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => ({
-    ...acc,
-    [slug]: lazy(() => import(`../components/ScreenmateOne/ScreenmateOne${slug}.tsx`))
-}), {})
+const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
+  acc[slug] = getSectionComponent(`ScreenmateOne${slug}`)
+  return acc
+}, {} as Record<string, React.ComponentType<any>>)
 
 const ScreenmateOne: React.FC = () => {
 
-    preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-        as: 'image', 
-        fetchPriority,
-        ...(media && { media })
-    }))
+    if (typeof window !== 'undefined') {
+        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+            as: 'image', 
+            fetchPriority,
+            ...(media && { media })
+        }))
 
-    preloadVideos.forEach(({ video, fetchPriority, media }) => preload(video, { 
-        as: 'video', 
-        fetchPriority,
-        ...(media && { media })
-    }))
+        preloadVideos.forEach(({ video, fetchPriority, media }) => preload(video, { 
+            as: 'video', 
+            fetchPriority,
+            ...(media && { media })
+        }))
+    }
 
     const sectionRefs = useRef<Record <string, any>>({})
 
@@ -160,7 +178,7 @@ const ScreenmateOne: React.FC = () => {
                 <Suspense>
                     <ScreenmateOneFeatures
                         ref={(el: HTMLDivElement) => setRef(el, 'Features')}
-                        scrollTo={(anchor) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
+                        scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
                     />
                 </Suspense>
             </LazySection>
