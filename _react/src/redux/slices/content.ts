@@ -4,7 +4,7 @@ import shopify from '../shopify'
 
 interface ContentState {
     country?: Country | null
-    regions: Region[]
+    regions?: Region[]
     main_menu?: MenuItem[]
     footer_menu?: MenuItem[]
     loading: boolean

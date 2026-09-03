@@ -218,19 +218,19 @@
             &-legend {
                 @extend %flex-column, %gap-12, %absolute;
 
-                & span {
+                & > * {
                     @extend %text-white, %font-manrope;
                     text-align: inherit;
+                }
 
-                    &:first-child {
-                        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-                        @extend %font-manrope-24, %mob\:font-manrope-14, %font-600;
-                    }
+                & h4 {
+                    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+                    @extend %font-manrope-24, %mob\:font-manrope-14, %font-600;
+                }
 
-                    &:last-child {
-                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-                        @extend %font-manrope-20, %font-500, %mob\:hidden;
-                    }
+                & span {
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+                    @extend %font-manrope-20, %font-500, %mob\:hidden;
                 }
             }
         }

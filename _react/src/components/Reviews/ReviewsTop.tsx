@@ -16,6 +16,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ReviewsTop: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
+    const { product } = useAppSelector(state => state.products)
     const { totalCount, avgRating } = useAppSelector(state => state.reviews)
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
@@ -34,11 +35,9 @@ const ReviewsTop: React.FC = () => {
                 <Icon className="reviews-judgeme" icon={judgeMeLogo} alt="Judge.me" />
             </div>
             <div>
-                <div {...anime('title')} className="reviews-title">
-                    Positive feedback <br className="hidden mob:block" />
-                    from clients — <br />
-                    one of our main tasks
-                </div>
+                <h2 {...anime('title')} className="reviews-title">
+                    What {product?.title} Customers Say
+                </h2>
                 <div {...anime('summary')} className="reviews-summary">
                     {isMobile && <Icon className="reviews-star-big" icon={starIcon} />}
                     <div className="reviews-summary-info">

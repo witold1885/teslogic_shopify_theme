@@ -48,7 +48,7 @@ const getBlocks = (isMobile: boolean) => {
     return {
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
-            title: <>CarPlay & Android&nbsp;Auto</>,
+            title: <>CarPlay & Android&nbsp;Auto for Tesla</>,
             text: <>
                 Quick access to the apps you rely on.<br />
                 Connect once and enjoy a familiar<br />
@@ -100,7 +100,7 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                         else delete blockRefs.current[blockKey]
                     }} className="screenmate-one__integration-block-body">
                         <div>
-                            <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
+                            <h3 {...anime(`${blockKey}-title`)} className="block-title">{title}</h3>
                             <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                         </div>
                         <div>

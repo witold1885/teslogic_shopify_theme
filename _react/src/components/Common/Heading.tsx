@@ -14,14 +14,14 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
     aurora = true,
     style = {}
 }, ref) => (
-    <h1
+    <h2
         ref={ref}
         className={`heading ${className}`}
         style={style}
     >
         {title}
         {aurora && <Aurora />}
-    </h1>
+    </h2>
 ))
 
 export default Heading

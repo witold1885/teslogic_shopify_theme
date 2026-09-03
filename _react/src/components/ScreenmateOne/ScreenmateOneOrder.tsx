@@ -143,7 +143,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     }
 
     useEffect(() => {
-        if (addedToCart) {
+        if (addedToCart && typeof window !== 'undefined') {
             window.open(`${shopifyUrl}/cart`, '_blank')
         }
     }, [addedToCart])
@@ -185,7 +185,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 <div className="screenmate-one__order-form">
                     <div className="screenmate-one__order-form-wrap">
                         <div>
-                            <div {...anime('name')} className="screenmate-one__order-form-name">{product.title}</div>
+                            <h2 {...anime('name')} className="screenmate-one__order-form-name">{product.title}</h2>
                             <div {...anime('prices')} className="screenmate-one__order-form-prices">
                                 <span className="screenmate-one__order-form-prices-current">{prices.current?.toFixed(0) || 0} {currency}</span>
                                 {(prices.old || 0) > (prices.current || 0) && (

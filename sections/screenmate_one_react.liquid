@@ -1,6 +1,8 @@
 <div id="react-screenmate-one-root"></div>
 
-{{ 'react-style-ScreenmateOne-DJ-vrE5b.css' | asset_url | stylesheet_tag }}
+{% render 'seo-screenmate-one' %}
+
+{{ 'react-style-ScreenmateOne-BALbpJ4n.css' | asset_url | stylesheet_tag }}
 
 {%- capture localization_country -%}
   {% render 'country-json', country: localization.country %}

@@ -73,7 +73,7 @@ const getFeatures = (
             !isMobile ? { height: '248px' } : { width: '310px', height: '218px', position: 'absolute', left: '5px', right: '5px', bottom: 0 } as CSSProperties
         ), anchor: 'Setup' },
         { title: <>Control Panel<br />50+ Commands</>, image: controlPanel50Commands, imageStyle: { ...absoluteImageStyle, right: 0 }, anchor: 'Convenience.beyond-basic-control' },
-        { title: <>CarPlay &<br />Android Auto</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
+        { title: <>CarPlay &<br />Android Auto for Tesla</>, image: carPlayAndAndroidAuto, imageStyle: { ...absoluteImageStyle, left: 0 }, anchor: 'Integration.familiar-interfaces' },
         { title: <>Dual View<br />Mode</>, backgroundImage: dualViewMode, anchor: 'Convenience.dual-view-mode' },
         { title: <>Console Gaming<br />on Your Tesla</>, backgroundImage: consolesAndAnyHdmiDevices, anchor: 'Integration.bigger-entertainment' },
         { title: <>Screenmate™<br />Dash App support</>, backgroundImage: screenmateDashAppSupport, anchor: 'Dash' },

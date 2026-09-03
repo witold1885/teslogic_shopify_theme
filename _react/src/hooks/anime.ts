@@ -110,10 +110,12 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
                             if (delay === 0) {
                                 startAnimation()
                             } else {
-                                const timer = window.setTimeout(() => {
-                                    startAnimation()
-                                }, delay)
-                                timeoutsRef.current.push(timer)
+                                if (typeof window !== 'undefined') {
+                                    const timer = window.setTimeout(() => {
+                                        startAnimation()
+                                    }, delay)
+                                    timeoutsRef.current.push(timer)
+                                }
                             }
 
                             observer.unobserve(targetElement)

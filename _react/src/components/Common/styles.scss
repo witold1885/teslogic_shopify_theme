@@ -24,6 +24,8 @@
 
     &-item {
         @extend %flex-center, %relative, %cursor-pointer;
+        padding: 0;
+        background: transparent;
 
         @include mobile() {
             flex: 1;

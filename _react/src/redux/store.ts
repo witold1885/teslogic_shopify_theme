@@ -5,7 +5,7 @@ import reviewsReducer from './slices/reviews'
 import subscribeReducer from './slices/subscribe'
 
 const getInitialState = () => {
-  const data: Window['ShopifyReactData'] = window.ShopifyReactData
+  const data: Window['ShopifyReactData'] = typeof window !== 'undefined' ? window.ShopifyReactData : null
   
   return {
     content: {

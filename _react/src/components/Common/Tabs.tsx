@@ -101,7 +101,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
     return (
         <div ref={setRef} className="tabs">
             {Object.entries(tabs).map(([tab, { title }]) => (
-                <div
+                <button
                     key={tab}
                     className={`tabs-item ${activeTab === tab ? 'active': ''}`}
                     onClick={() => setActiveTab(tab)}
@@ -110,7 +110,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
                     {activeTab === tab && (
                         <div className="tabs-item-marker" style={{ width: `${progress}%` }}></div>
                     )}
-                </div>
+                </button>
             ))}
         </div>
     )

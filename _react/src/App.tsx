@@ -10,9 +10,9 @@ const routesMap: Record<string, React.FC> = {
 }
 
 function App() {
-  const path = window.location.pathname
+  const path = typeof window !== 'undefined' ? window.location.pathname : null
 
-  const Page = routesMap[path] || null
+  const Page = path ? routesMap[path] : null
 
   return Page ? <Page /> : <></>
 }

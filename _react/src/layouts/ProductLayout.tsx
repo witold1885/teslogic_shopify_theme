@@ -18,11 +18,13 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
     // useExternalScripts(EXTERNAL_SCRIPTS)
 
     useEffect(() => {
-        if (window.history && 'scrollRestoration' in window.history) {
-            window.history.scrollRestoration = 'manual'
-        }
+        if (typeof window !== 'undefined') {
+            if (window.history && 'scrollRestoration' in window.history) {
+                window.history.scrollRestoration = 'manual'
+            }
 
-        window.scrollTo(0, 0)
+            window.scrollTo(0, 0)
+        }
     }, [])
 
     return (<>

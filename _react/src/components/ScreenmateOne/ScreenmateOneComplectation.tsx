@@ -57,7 +57,7 @@ const AddItem = forwardRef<HTMLDivElement, AddItemProps>(({ className, style, na
         <div className="screenmate-one__complectation-group-grid-item-info">
             <div>
                 <div>
-                    <div className="screenmate-one__complectation-group-grid-item-info-name">{name}</div>
+                    <h3 className="screenmate-one__complectation-group-grid-item-info-name">{name}</h3>
                     <div className="screenmate-one__complectation-group-grid-item-info-prices">
                         <span className="screenmate-one__complectation-group-grid-item-info-price-new">{price} USD</span>
                         {!!oldPrice && oldPrice !== price && (
@@ -197,7 +197,7 @@ const ScreenmateOneComplectation: React.FC = () => {
         <div className="screenmate-one__complectation">
             {Object.entries(groups).map(([key, { title, items, itemComponent: Item }]) => (
                 <div className="screenmate-one__complectation-group" key={key}>
-                    <div {...anime(`${key}-title`)} className="screenmate-one__complectation-group-title">{title}</div>
+                    <h2 {...anime(`${key}-title`)} className="screenmate-one__complectation-group-title">{title}</h2>
                     <div
                         {...anime(`${key}-grid`)}
                         className={`screenmate-one__complectation-group-grid ${key}`}

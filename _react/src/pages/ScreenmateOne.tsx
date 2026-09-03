@@ -1,11 +1,11 @@
-import React, { lazy, Suspense, useRef } from 'react'
+import React, { lazy, Suspense, useEffect, useMemo, useRef } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
-// import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
+import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
 import {
     bannerDesktop as bannerDesktopBackground,
@@ -74,7 +74,7 @@ const preloadVideos: PreloadVideo[] = [
 ]
 
 const ScreenmateOneFeatures = lazy(() => import('../components/ScreenmateOne/ScreenmateOneFeatures'))
-const ScreenmateOneOrder = lazy(() => import('../components/ScreenmateOne/ScreenmateOneOrder'))
+// const ScreenmateOneOrder = lazy(() => import('../components/ScreenmateOne/ScreenmateOneOrder'))
 
 const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
@@ -120,6 +120,36 @@ const ScreenmateOne: React.FC = () => {
         }
     }
 
+    // const hash: string | null = useMemo(() => window.location.hash ? window.location.hash.replace('#', '') : null, [window.location.hash])
+
+    // useEffect(() => {
+    //     console.log({ hash })
+    //     if (hash === 'order-now') {
+    //         console.log('scrolling to order')
+    //         scrollTo('Order')
+    //     }
+    // }, [hash])
+
+    // useEffect(() => {
+    //     const handleScrollToHash = () => {
+    //         const currentHash = window.location.hash.replace('#', '')
+    //         console.log({ currentHash })
+    //         if (currentHash === 'order-now') {
+    //             requestAnimationFrame(() => {
+    //                 setTimeout(() => {
+    //                     scrollTo('Order')
+    //                 }, 1000)
+    //             })
+    //         }
+    //     }
+
+    //     handleScrollToHash()
+
+    //     window.addEventListener('hashchange', handleScrollToHash)
+
+    //     return () => window.removeEventListener('hashchange', handleScrollToHash)
+    // }, [])
+
     return (
         <ProductLayout className="screenmate-one" onOrder={() => scrollTo('Order')}>
             <ScreenmateOneBanner
@@ -141,11 +171,11 @@ const ScreenmateOne: React.FC = () => {
                     </Suspense>
                 </LazySection>
             ))}
-            <LazySection>
-                <Suspense>
+            {/* <LazySection> */}
+                {/* <Suspense> */}
                     <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
-                </Suspense>
-            </LazySection>
+                {/* </Suspense> */}
+            {/* </LazySection> */}
         </ProductLayout>
     )
 }

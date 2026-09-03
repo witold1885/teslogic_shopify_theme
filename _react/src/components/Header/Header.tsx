@@ -44,9 +44,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
 }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
 
-    const activeMenuIndex = useMemo(() => menu.findIndex(
+    const activeMenuIndex = typeof window !== 'undefined' ? useMemo(() => menu.findIndex(
         ({ title }) => pagesMap[title as string].includes(window.location.pathname)
-    ), [window.location.pathname])
+    ), [window.location.pathname]) : 0
 
     const [prevMenuIndex, setPrevMenuIndex] = useState<number | null>(null)
     const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(mode === 'mobile' && activeMenuIndex !== -1 ? activeMenuIndex : null)

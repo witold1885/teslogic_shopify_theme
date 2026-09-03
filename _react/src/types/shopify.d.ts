@@ -42,6 +42,6 @@ declare global {
             cart: { item_count: number }
             product: Product
             additionalProducts: Product[]
-        }
+        } | null
     }
 }

@@ -137,7 +137,7 @@ const ScreenmateOneInstallation: React.FC = () => {
         <div {...anime('body')} className="screenmate-one__specifications-installation">
             <div className="screenmate-one__specifications-installation-info">
                 <div>
-                    <div {...anime('title')} className="screenmate-one__specifications-installation-title">Effortless <br />Installation</div>
+                    <h2 {...anime('title')} className="screenmate-one__specifications-installation-title">Effortless <br />Installation</h2>
                     <div className="screenmate-one__specifications-installation-texts">
                         {installation.texts.map((text, index) => <div {...anime(`texts-${index}`)} key={index}>{text}</div>)}
                     </div>

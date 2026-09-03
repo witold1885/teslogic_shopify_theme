@@ -358,7 +358,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                     >
                         <div className="screenmate-one__convenience-block-wrap container">
                             <div className="screenmate-one__convenience-block-top">
-                                <div {...anime(`${blockKey}-title`)} className="block-title">{title}</div>
+                                <h3 {...anime(`${blockKey}-title`)} className="block-title">{title}</h3>
                                 <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
                             </div>
                             {additional && (
@@ -388,7 +388,7 @@ const ScreenmateOneConvenience = forwardRef<Section, {}>(({}, ref) => {
                                             className={`screenmate-one__convenience-block-legend text-${pointerKey.split('-')[1] || ''}`}
                                             style={responsive(pointer.legendStyle)}
                                         >
-                                            <span>{pointer.title}</span>
+                                            <h4>{pointer.title}</h4>
                                             <span>{pointer.text}</span>
                                         </div>
                                     </div>

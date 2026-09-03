@@ -29,9 +29,9 @@ const ScreenmateOneDash = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                     <div className="screenmate-one__dash-body-info-texts">
                         <div className="screenmate-one__dash-body-info-texts-heading">
                             <div {...anime('badge')} className="screenmate-one__dash-body-info-texts-heading-badge">
-                                <span>A Must-Have App for Tesla 3/Y Drivers</span>
+                                <span>A Must-Have App for Tesla Model 3/Y Drivers</span>
                             </div>
-                            <div {...anime('title')} className="screenmate-one__dash-body-info-texts-heading-title">A complete driver display setup</div>
+                            <h2 {...anime('title')} className="screenmate-one__dash-body-info-texts-heading-title">A complete driver display setup</h2>
                         </div>
                         <div {...anime('texts')} className="screenmate-one__dash-body-info-texts-description">
                             Screenmate ONE comes with native support for <br />

@@ -7,14 +7,16 @@ export const useInlineStyles = () => {
     const [isMobile, setIsMobile] = useState<boolean>(false)
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia(mediaMobile)
-        
-        setIsMobile(mediaQuery.matches)
+        if (typeof window !== 'undefined') {
+            const mediaQuery = window.matchMedia(mediaMobile)
+            
+            setIsMobile(mediaQuery.matches)
 
-        const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-        mediaQuery.addEventListener('change', handler)
-        
-        return () => mediaQuery.removeEventListener('change', handler)
+            const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+            mediaQuery.addEventListener('change', handler)
+            
+            return () => mediaQuery.removeEventListener('change', handler)
+        }
     }, [])
 
     const responsive = useCallback((styles?: CSSProperties) => {

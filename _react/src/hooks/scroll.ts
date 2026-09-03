@@ -14,32 +14,34 @@ export const useScroll = () => {
     const lastScrollY = useRef<number>(0)
 
     useEffect(() => {
-        lastScrollY.current = window.scrollY
+        if (typeof window !== 'undefined') {
+            lastScrollY.current = window.scrollY
 
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY
+            const handleScroll = () => {
+                const currentScrollY = window.scrollY
 
-            let direction: ScrollDirection = 'none'
+                let direction: ScrollDirection = 'none'
 
-            if (currentScrollY > lastScrollY.current) {
-                direction = 'down'
-            } else if (currentScrollY < lastScrollY.current) {
-                direction = 'up'
+                if (currentScrollY > lastScrollY.current) {
+                    direction = 'down'
+                } else if (currentScrollY < lastScrollY.current) {
+                    direction = 'up'
+                }
+
+                setScrollOffset({
+                    x: window.scrollX,
+                    y: window.scrollY,
+                    direction
+                })
+
+                lastScrollY.current = currentScrollY
             }
 
-            setScrollOffset({
-                x: window.scrollX,
-                y: window.scrollY,
-                direction
-            })
+            handleScroll()
 
-            lastScrollY.current = currentScrollY
+            window.addEventListener('scroll', handleScroll)
+            return () => window.removeEventListener('scroll', handleScroll)
         }
-
-        handleScroll()
-
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     return scrollOffset
