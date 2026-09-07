@@ -7,11 +7,6 @@
 .screenmate-one {
 
     &__setup {
-        @include responsive(padding-bottom, 180px);
-
-        @include mobile() {
-            @include responsive(padding-bottom, 96px);
-        }
 
         & .container {
             @extend %flex-column-center, %gap-64, %mob\:gap-28;
