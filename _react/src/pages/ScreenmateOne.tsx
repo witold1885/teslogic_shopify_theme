@@ -96,10 +96,9 @@ function getSectionComponent(filename: string) {
 const ScreenmateOneFeatures = getSectionComponent('ScreenmateOneFeatures')
 // const ScreenmateOneOrder = getSectionComponent('ScreenmateOneOrder')
 
-const slugs: string[] = ['Setup', 'Convenience', 'Integration', 'Dash', 'Specifications', 'Complectation']
+const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
-    Convenience: ['dual-view-mode', 'beyond-basic-control'],
-    Integration: ['familiar-interfaces', 'bigger-entertainment']
+    Convenience: ['dual-view-mode', 'beyond-basic-control']
 }
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getSectionComponent(`ScreenmateOne${slug}`)

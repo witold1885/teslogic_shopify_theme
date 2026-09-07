@@ -1,0 +1,1 @@
+var e=``+new URL(`react-console-gaming-desktop-4nT7gy5p.png`,import.meta.url).href,t=``+new URL(`react-console-gaming-mobile-D5nuHdVC.png`,import.meta.url).href;export{e as n,t};

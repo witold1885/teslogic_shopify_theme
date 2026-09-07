@@ -24,10 +24,6 @@
                 -webkit-text-fill-color: #0465FD;
             }
 
-            &:not(:first-child) .heading {
-                display: none;
-            }
-
             &-body {
                 @extend %w-full, %flex-wrap, %flex-between, %gap-60, %mob\:gap-32;
 
