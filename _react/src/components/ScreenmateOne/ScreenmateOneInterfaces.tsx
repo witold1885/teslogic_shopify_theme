@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useMemo, useRef, type ReactNode } from 'react'
+import { forwardRef, useMemo, type ReactNode } from 'react'
 import './screenmate-one-integration.scss'
 import { Heading } from '../Common'
 import Video from '../Common/Video'
@@ -22,10 +22,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     video: { yFrom: '40px', duration: 666 },
     sketch: { yFrom: '40px', duration: 666 },
     info: { yFrom: '20px', duration: 333 },
-}
-
-interface Section {
-    getBlock?: (key: string) => HTMLDivElement | null
 }
 
 interface Block {
@@ -56,30 +52,21 @@ const getBlocks = (isMobile: boolean) => {
     }
 }
 
-const ScreenmateOneInterfaces = forwardRef<Section, {}>(({}, ref) => {
+const ScreenmateOneInterfaces = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { isMobile } = useInlineStyles()
 
-    const blockRefs = useRef<Record <string, HTMLDivElement | null>>({})
-
     const blocks: Record<string, Block> = useMemo(() => getBlocks(isMobile), [isMobile])
-
-    useImperativeHandle(ref, () => ({
-        getBlock: (key: string) => blockRefs.current[key] || null
-    }))
 
     const animationConfigs = useMemo(() => mapBlocksConfigs(blocks, animatedObjects), [])
 
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <div className="screenmate-one__integration">
+        <div className="screenmate-one__integration" ref={ref}>
             {Object.entries(blocks).map(([blockKey, { heading, title, text, alt, video, background, sketch, info }]) => (
                 <div className={`screenmate-one__integration-block ${blockKey}`} key={blockKey}>
                     <Heading {...anime(`${blockKey}-heading`)} title={heading} />
-                    <div ref={(el) => {
-                        if (el) blockRefs.current[blockKey] = el
-                        else delete blockRefs.current[blockKey]
-                    }} className="screenmate-one__integration-block-body">
+                    <div className="screenmate-one__integration-block-body">
                         <div>
                             <h3 {...anime(`${blockKey}-title`)} className="block-title">{title}</h3>
                             <div {...anime(`${blockKey}-text`)} className="block-text">{text}</div>
