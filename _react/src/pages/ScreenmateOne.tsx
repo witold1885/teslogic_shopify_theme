@@ -131,7 +131,7 @@ const ScreenmateOne: React.FC = () => {
     const scrollTo = (slug: string | null, block?: string) => {
         if (slug) {
             let target = sectionRefs.current[slug]
-            if (block && blocks[slug].includes(block)) {
+            if (block && blocks[slug]?.includes(block)) {
                 target = sectionRefs.current[slug]?.getBlock(block)
             }
             target?.scrollIntoView({ 
