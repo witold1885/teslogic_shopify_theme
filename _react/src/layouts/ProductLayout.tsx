@@ -1,6 +1,6 @@
 import React, { lazy, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
-// import '@/assets/styles/cookies-banner.scss'
+import '@/assets/styles/cookies-banner.scss'
 // import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
