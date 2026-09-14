@@ -291,7 +291,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner.css' | asset_url }}">
         <link rel="stylesheet" type="text/css" href="{{ 'cookies-banner-responsive.css' | asset_url }}">
       {% endunless %}
-      {% if page.handle == 'dash' or page.handle == 'pro' %}
+      {% if page.handle == 'dash' or page.handle == 'pro' or page.handle == 'screenmate' %}
         <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
         <div id="subscription-popup" class="subscription-popup-shadow">
@@ -474,11 +474,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% section 'header_main' %}
       {% elsif page.handle == 'pro' %}
         {% section 'header_pro' %}
+      {% elsif page.handle == 'screenmate' %}
+        {% section 'header_screenmate' %}
       {% elsif page.handle == 'screenmate-subscription' or page.handle == 'screenmate-done' %}
         {% section 'header_screenmate_subscription' %}
       {% elsif page.handle == 'app-redirect' %}
         <div></div>
-      {% elsif template != 'index' and page.handle != 'screenmate' and page.handle != 'screenmate-one-react' %}
+      {% elsif template != 'index' and page.handle != 'screenmate-one-react' %}
         {% section 'header_custom' %}
       {% endif %}
 
