@@ -258,11 +258,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       
     {% endunless %}
 
-    {% comment %} {% if template == 'index' %}
+    {% if page.handle == 'screenmate' %}
       <script>
-        window.location.href = '/pages/screenmate';
+        window.location.replace('/');
       </script>
-    {% endif %} {% endcomment %}
+    {% endif %}
     
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
