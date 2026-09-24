@@ -15,6 +15,12 @@
   endif
 %}
 
+{% if if request.page_type == 'product' %}
+  {% if page.handle == 'screenmate-one' or page.handle == 'powermate-boost-kit' or page.handle == 'powermate-performance-kit' or page.handle == 'screenmate-dash-kit'%}
+    <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+{% endif %}
+
 <meta property="og:site_name" content="{{ shop.name }}">
 <meta property="og:url" content="{{ og_url }}">
 <meta property="og:title" content="{{ og_title | escape }}">
