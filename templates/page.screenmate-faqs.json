@@ -131,13 +131,6 @@
             "answer": "No, you can continue using any other third-part devices."
           }
         },
-        "q19": {
-          "type": "question",
-          "settings": {
-            "question": "Where can I choose my Tesla model?",
-            "answer": "We’ll be sending out a backer survey soon, where you can select your Tesla model. Before delivery, we’ll also reach out to confirm your model. If anything changes in the meantime, feel free to let us know."
-          }
-        },
         "q20": {
           "type": "question",
           "settings": {
@@ -192,7 +185,6 @@
         "q16",
         "q17",
         "q18",
-        "q19",
         "q20",
         "q21",
         "q22",
