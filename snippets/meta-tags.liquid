@@ -16,7 +16,7 @@
 %}
 
 {% if if request.page_type == 'product' %}
-  {% if page.handle == 'screenmate-one' or page.handle == 'powermate-boost-kit' or page.handle == 'powermate-performance-kit' or page.handle == 'screenmate-dash-kit'%}
+  {% if product.handle == 'screenmate-one' or product.handle == 'powermate-boost-kit' or product.handle == 'powermate-performance-kit' or product.handle == 'screenmate-dash-kit'%}
     <meta name="robots" content="noindex, nofollow">
   {% endif %}
 {% endif %}
