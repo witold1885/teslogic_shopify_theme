@@ -264,7 +264,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 ))}
                                 {selectedModel?.sku === 'TS12' && (
                                     <div className="screenmate-one__order-form-details-delivery">
-                                        Delivery timeline: <span>September</span>
+                                        Delivery timeline: <span>October</span>
                                     </div>
                                 )}
                             </div>
