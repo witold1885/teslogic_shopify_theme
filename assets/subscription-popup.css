@@ -387,6 +387,7 @@
 @media screen and (max-width: 575px) {
     .subscription-popup {
         width: calc(336 * 100vw / 375);
+        row-gap: calc(28 * 100vw / 375);
     }
     .success-popup {
         width: calc(315 * 100vw / 375);
@@ -404,7 +405,7 @@
     }
     .subscription-popup-head {
         row-gap: calc(24 * 100vw / 375);
-        padding: calc(36 * 100vw / 375) calc(36 * 100vw / 375) 0;
+        padding: calc(36 * 100vw / 375) calc(20 * 100vw / 375) 0;
     }
     .subscription-popup-logo {
         width: calc(131 * 100vw / 375);
@@ -434,8 +435,8 @@
         row-gap: calc(24 * 100vw / 375);
     }
     .subscription-popup-fields {
-        row-gap: calc(24 * 100vw / 375);
-        padding: 0 calc(36 * 100vw / 375);
+        row-gap: calc(16 * 100vw / 375);
+        padding: 0 calc(20 * 100vw / 375);
     }
     .subscription-popup-field {
         row-gap: calc(8 * 100vw / 375);
