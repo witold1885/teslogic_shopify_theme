@@ -64,7 +64,6 @@
 }
 .subscription-popup {
     width: 556px;
-    /* height: 392px; */
 }
 .success-popup {
     width: 343px;
@@ -72,7 +71,6 @@
     padding: 40px 48px 56px;
 }
 .subscription-popup, .success-popup {
-    border-radius: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -82,7 +80,6 @@
     font-family: Manrope;
     font-style: normal;
     box-sizing: border-box;
-    /* overflow: hidden; */
 }
 .subscription-popup-video {
     position: absolute;
@@ -93,6 +90,7 @@
     bottom: 0;
     width: 100%;
     height: 100%;
+    border-radius: 40px;
     object-fit: cover;
 }
 .subscription-popup-close, .success-popup-close {
@@ -244,7 +242,8 @@
 .subscription-popup-field-select-dropdown-item-selected {
     color: #1657FC;
 }
-.subscription-popup-field-error input {
+.subscription-popup-field-error input,
+.subscription-popup-field-error .subscription-popup-field-select {
     border: 1px solid #FC3E30;
 }
 .subscription-popup-field-error-message {
@@ -297,12 +296,13 @@
     .subscription-popup {
         width: calc(556 * 100vw / 1440);
         height: calc(392 * 100vw / 1440);
-        border-radius: calc(40 * 100vw / 1440);
     }
     .success-popup {
         width: calc(343 * 100vw / 1440);
         height: calc(272 * 100vw / 1440);
         padding: calc(40 * 100vw / 1440) calc(48 * 100vw / 1440) calc(56 * 100vw / 1440);
+    }
+    .subscription-popup-video {
         border-radius: calc(40 * 100vw / 1440);
     }
     .subscription-popup-close, .success-popup-close {
@@ -344,11 +344,28 @@
         font-size: calc(16 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440); 
     }
-    .subscription-popup-field input {
+    .subscription-popup-field input,
+    .subscription-popup-field-select {
         padding: calc(16 * 100vw / 1440);
         font-size: calc(16 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440);
         border-radius: calc(6 * 100vw / 1440);
+    }
+    .subscription-popup-field-select-arrow {
+        width: calc(12 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+    }
+    .subscription-popup-field-select-dropdown {
+        top: calc(-1 * 100vw / 1440);
+        left: calc(-1 * 100vw / 1440);
+        right: calc(-1 * 100vw / 1440);
+        gap: calc(20 * 100vw / 1440);
+        padding: calc(16 * 100vw / 1440) calc(16 * 100vw / 1440) calc(20 * 100vw / 1440) calc(16 * 100vw / 1440);
+        border-radius: calc(6 * 100vw / 1440);
+    }
+    .subscription-popup-field-select-dropdown-item {
+        font-size: calc(16 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
     }
     .subscription-popup-field-error-message {
         bottom: calc(-1 * 22 * 100vw / 1440);
