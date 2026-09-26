@@ -205,6 +205,14 @@
     justify-content: space-between;
     align-items: center;
 }
+.subscription-popup-field-select-arrow {
+    width: 12px;
+    height: 20px;
+}
+.subscription-popup-field-select-arrow-reverted {
+    transform: rotate(180deg);
+    transform-origin: center;
+}
 .subscription-popup-field-select-dropdown {
     position: absolute;
     top: 52px;

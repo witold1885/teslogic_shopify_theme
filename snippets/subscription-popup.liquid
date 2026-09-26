@@ -36,7 +36,7 @@
 					<div class="subscription-popup-field-select">
 						<span class="subscription-popup-field-select-value">Select your Tesla model and year</span>
 						<div class="subscription-popup-field-select-arrow">
-							<img src="{{ 'select_arrow_down.svg' | asset_url }}">
+							<img src="{{ 'select_arrow_down_white.svg' | asset_url }}">
 						</div>
                         <div class="subscription-popup-field-select-dropdown">
 
@@ -117,10 +117,13 @@
 
     $('.subscription-popup-field-select').on('click', function() {
         const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
+        const arrow = $(this).find('.subscription-popup-field-select-arrow')
         if ($(dropdown).is(':visible')) {
             $(dropdown).css('display', 'none')
+            $(arrow).removeClass('subscription-popup-field-select-arrow-reverted')
         } else {
             $(dropdown).css('display', 'flex')
+            $(arrow).addClass('subscription-popup-field-select-arrow-reverted')
         }
     })
 
