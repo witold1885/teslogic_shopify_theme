@@ -91,138 +91,138 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-    /* subscription popup script */
-    function checkSubscriptionCookie() {
-        const cookies = document.cookie.split('; ')
-        return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
-    }
+        /* subscription popup script */
+        function checkSubscriptionCookie() {
+            const cookies = document.cookie.split('; ')
+            return cookies.some(cookie => cookie.startsWith(`discount_subscription=`))
+        }
 
-    function setSubscriptionCookie(value) {
-        const date = new Date()
-        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
-        const expires = `expires=${date.toUTCString()}`
-        document.cookie = `discount_subscription=${value}; ${expires}; path=/`
-    }
+        function setSubscriptionCookie(value) {
+            const date = new Date()
+            date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
+            const expires = `expires=${date.toUTCString()}`
+            document.cookie = `discount_subscription=${value}; ${expires}; path=/`
+        }
 
-    function closePopup(popupId) {
-        const popup = $(popupId)
-        popup.addClass('is-hiding')
-        
+        function closePopup(popupId) {
+            const popup = $(popupId)
+            popup.addClass('is-hiding')
+            
+            setTimeout(() => {
+                popup.removeClass('is-visible is-hiding')
+            }, 500)
+        }
+
         setTimeout(() => {
-            popup.removeClass('is-visible is-hiding')
-        }, 500)
-    }
+            const cookieExists = checkSubscriptionCookie()
+            if (!cookieExists) {
+                $('#subscription-popup').addClass('is-visible')
+            }
+        }, 10000)
 
-    setTimeout(() => {
-        const cookieExists = checkSubscriptionCookie()
-        if (!cookieExists) {
-            $('#subscription-popup').addClass('is-visible')
-        }
-    }, 10000)
-
-    $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
-        setSubscriptionCookie(0)
-        closePopup('#subscription-popup')
-    })
-
-    let selectedModel = null
-
-    $('.subscription-popup-field-select').on('click', function() {
-        const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
-        if ($(dropdown).is(':visible')) {
-            $(dropdown).css('display', 'none')
-        } else {
-            $(dropdown).css('display', 'flex')
-        }
-    })
-
-    $('.subscription-popup-field-select-dropdown-item').on('click', function() {
-        selectedModel = $(this).data('model')
-        $('.subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
-        $('.subscription-popup-field-select-dropdown-item').each(function() {
-            $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
-        })
-        $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
-    })
-
-    // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
-    const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
-    const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
-
-    const errors = {
-        emptyField: 'Fill in the field',
-        emailNotValid: 'Email not valid',
-        emailRegistered: 'This email is already registered',
-        serverError: 'An error occurred try again'
-    }
-
-    $('.subscription-popup-submit').on('click', async function () {
-        $('.subscription-popup-field').each(function() {
-            $(this).removeClass('subscription-popup-field-error')
-            $(this).find('.subscription-popup-field-error-message').text('')
+        $('.subscription-popup-close, .subscription-popup-cancel').on('click', function() {
+            setSubscriptionCookie(0)
+            closePopup('#subscription-popup')
         })
 
-        // const name = $('.subscription-popup-name').val()
-        const email = $('.subscription-popup-email').val()
+        let selectedModel = null
 
-        // if (!name) {
-        //   $(nameField).addClass('subscription-popup-field-error')
-        //   $(nameField).find('.subscription-popup-field-error-message').text(errors.emptyField)
-        //   return
-        // }
-
-        if (!email) {
-            $(emailField).addClass('subscription-popup-field-error')
-            $(emailField).find('.subscription-popup-field-error-message').text(errors.emptyField)
-            return
-        }
-
-        if (!emailRegex.test(email)) {
-            $(emailField).addClass('subscription-popup-field-error')
-            $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
-            return
-        }
-
-        if (!selectedModel) {
-            $(modelField).addClass('subscription-popup-field-error')
-            $(modelField).find('.subscription-popup-field-error-message').text(errors.emptyField)
-            return
-        }
-
-        const response = await fetch(sendMailUrl, {
-            method: 'post',
-            body: JSON.stringify({ name: email, email, model: selectedModel }),
-            headers: {'Content-Type': 'application/json'}
-        })
-        const data = await response.json()
-        
-        console.log(data)
-        if (response.status == 200) {
-            if (data.success) {
-                setSubscriptionCookie(1)
-                $('#subscription-popup').addClass('is-hiding')
-
-                setTimeout(() => {
-                    $('#subscription-popup').removeClass('is-visible is-hiding')
-                    $('#success-popup').addClass('is-visible')
-                }, 500)
+        $('.subscription-popup-field-select').on('click', function() {
+            const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
+            if ($(dropdown).is(':visible')) {
+                $(dropdown).css('display', 'none')
             } else {
+                $(dropdown).css('display', 'flex')
+            }
+        })
+
+        $('.subscription-popup-field-select-dropdown-item').on('click', function() {
+            selectedModel = $(this).data('model')
+            $('.subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
+            $('.subscription-popup-field-select-dropdown-item').each(function() {
+                $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
+            })
+            $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
+        })
+
+        // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
+        const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
+        const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
+
+        const errors = {
+            emptyField: 'Fill in the field',
+            emailNotValid: 'Email not valid',
+            emailRegistered: 'This email is already registered',
+            serverError: 'An error occurred try again'
+        }
+
+        $('.subscription-popup-submit').on('click', async function () {
+            $('.subscription-popup-field').each(function() {
+                $(this).removeClass('subscription-popup-field-error')
+                $(this).find('.subscription-popup-field-error-message').text('')
+            })
+
+            // const name = $('.subscription-popup-name').val()
+            const email = $('.subscription-popup-email').val()
+
+            // if (!name) {
+            //   $(nameField).addClass('subscription-popup-field-error')
+            //   $(nameField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+            //   return
+            // }
+
+            if (!email) {
                 $(emailField).addClass('subscription-popup-field-error')
-                if (data.message == 'email_exists') {
-                    $(emailField).find('.subscription-popup-field-error-message').text(errors.emailRegistered)
+                $(emailField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+                return
+            }
+
+            if (!emailRegex.test(email)) {
+                $(emailField).addClass('subscription-popup-field-error')
+                $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
+                return
+            }
+
+            if (!selectedModel) {
+                $(modelField).addClass('subscription-popup-field-error')
+                $(modelField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+                return
+            }
+
+            const response = await fetch(sendMailUrl, {
+                method: 'post',
+                body: JSON.stringify({ name: email, email, tesla_models: JSON.stringify([selectedModel]) }),
+                headers: {'Content-Type': 'application/json'}
+            })
+            const data = await response.json()
+            
+            console.log(data)
+            if (response.status == 200) {
+                if (data.success) {
+                    setSubscriptionCookie(1)
+                    $('#subscription-popup').addClass('is-hiding')
+
+                    setTimeout(() => {
+                        $('#subscription-popup').removeClass('is-visible is-hiding')
+                        $('#success-popup').addClass('is-visible')
+                    }, 500)
                 } else {
-                    $(emailField).find('.subscription-popup-field-error-message').text(errors.serverError)
+                    $(emailField).addClass('subscription-popup-field-error')
+                    if (data.message == 'email_exists') {
+                        $(emailField).find('.subscription-popup-field-error-message').text(errors.emailRegistered)
+                    } else {
+                        $(emailField).find('.subscription-popup-field-error-message').text(errors.serverError)
+                    }
                 }
             }
-        }
-    })
+        })
 
-    $('.success-popup-close').on('click', function() {
-        closePopup('#success-popup')
-    })
-    /* subscription popup script */
+        $('.success-popup-close').on('click', function() {
+            closePopup('#success-popup')
+        })
+        /* subscription popup script */
     })
 </script>
