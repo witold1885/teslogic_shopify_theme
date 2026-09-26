@@ -125,6 +125,8 @@
         closePopup('#subscription-popup')
     })
 
+    let selectedModel = null
+
     $('.subscription-popup-field-select').on('click', function() {
         const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
         if ($(dropdown).is(':visible')) {
@@ -135,13 +137,17 @@
     })
 
     $('.subscription-popup-field-select-dropdown-item').on('click', function() {
-        const model = $(this).data('model')
-        $('.subscription-popup-field-select-value').text(model || 'Select your Tesla model and year')
-        // $(this).parent('.subscription-popup-field-select-dropdown').css('display', 'none')
+        selectedModel = $(this).data('model')
+        $('.subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
+        $('.subscription-popup-field-select-dropdown-item').each(function() {
+            $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
+        })
+        $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
     })
 
     // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
     const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
+    const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
@@ -177,6 +183,12 @@
         if (!emailRegex.test(email)) {
             $(emailField).addClass('subscription-popup-field-error')
             $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
+            return
+        }
+
+        if (!selectedModel) {
+            $(modelField).addClass('subscription-popup-field-error')
+            $(modelField).find('.subscription-popup-field-error-message').text(errors.emptyField)
             return
         }
 
