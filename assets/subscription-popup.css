@@ -64,6 +64,7 @@
 }
 .subscription-popup {
     width: 556px;
+    row-gap: 28px;
 }
 .success-popup {
     width: 343px;
@@ -163,7 +164,7 @@
 .subscription-popup-fields {
     display: flex;
     flex-direction: column;
-    row-gap: 24px;
+    row-gap: 16px;
     padding: 0 36px;
 }
 .subscription-popup-field {
@@ -206,6 +207,9 @@
     cursor: pointer;
 }
 .subscription-popup-field-select-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 12px;
     height: 20px;
 }
@@ -295,6 +299,7 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
     .subscription-popup {
         width: calc(556 * 100vw / 1440);
+        row-gap: calc(28 * 100vw / 1440);
     }
     .success-popup {
         width: calc(343 * 100vw / 1440);
@@ -333,7 +338,7 @@
         row-gap: calc(24 * 100vw / 1440);
     }
     .subscription-popup-fields {
-        row-gap: calc(24 * 100vw / 1440);
+        row-gap: calc(16 * 100vw / 1440);
         padding: 0 calc(36 * 100vw / 1440);
     }
     .subscription-popup-field {
