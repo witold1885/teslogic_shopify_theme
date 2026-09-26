@@ -194,7 +194,7 @@
 
         const response = await fetch(sendMailUrl, {
             method: 'post',
-            body: JSON.stringify({ name: email, email }),
+            body: JSON.stringify({ name: email, email, model: selectedModel }),
             headers: {'Content-Type': 'application/json'}
         })
         const data = await response.json()
