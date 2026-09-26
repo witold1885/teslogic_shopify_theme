@@ -39,14 +39,14 @@
 							<img src="{{ 'select_arrow_down_white.svg' | asset_url }}">
 						</div>
                         <div class="subscription-popup-field-select-dropdown">
-                            <div class="subscription-popup-field-select-dropdown-item">
+                            <div class="subscription-popup-field-select-dropdown-item" data-model="">
                                 <span>Select your Tesla model and year</span>
                                 <div class="subscription-popup-field-select-arrow">
                                     <img src="{{ 'select_arrow_up.svg' | asset_url }}">
                                 </div>
                             </div>
                             {%- for model in models -%}
-                                <div class="subscription-popup-field-select-dropdown-item">
+                                <div class="subscription-popup-field-select-dropdown-item" data-model="{{ model }}">
                                     <span>{{ model }}</span>
                                 </div>
                             {%- endfor -%}
@@ -132,6 +132,11 @@
         } else {
             $(dropdown).css('display', 'flex')
         }
+    })
+
+    $('.subscription-popup-field-select-dropdown-item').on('click', function() {
+        const model = $(this).data('model')
+        $('.subscription-popup-field-select-value').text(model || 'Select your Tesla model and year')
     })
 
     // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
