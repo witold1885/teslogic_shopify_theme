@@ -211,13 +211,9 @@
     width: 12px;
     height: 20px;
 }
-.subscription-popup-field-select-arrow-reverted {
-    transform: rotate(180deg);
-    transform-origin: center;
-}
 .subscription-popup-field-select-dropdown {
     position: absolute;
-    top: 52px;
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
@@ -231,6 +227,21 @@
     background: #FFF;
     box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
     box-sizing: border-box;
+}
+.subscription-popup-field-select-dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.subscription-popup-field-select-dropdown-item:first-child {
+    color: #B9B9B9;
+}
+.subscription-popup-field-select-dropdown-item-selected {
+    color: #1657FC;
 }
 .subscription-popup-field-error input {
     border: 1px solid #FC3E30;

@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
+{%  assign models = "Model 3 '17-20,Model 3 ‘21-23,Model 3 Highland,Model Y ‘21-24,Model Y Juniper,Model S ‘21+,Model X ‘21+"|split:',' %}
+
 <div id="subscription-popup" class="subscription-popup-shadow">
     <div class="subscription-popup">
         <video autoplay muted loop class="subscription-popup-video">
@@ -31,15 +33,23 @@
                 </div>
                 <div class="subscription-popup-field">
                     <label>Tesla model:</label>
-                    {% comment %} <input class="subscription-popup-email" type="email" placeholder="Select your Tesla model and year"> {% endcomment %}
-
 					<div class="subscription-popup-field-select">
 						<span class="subscription-popup-field-select-value">Select your Tesla model and year</span>
 						<div class="subscription-popup-field-select-arrow">
 							<img src="{{ 'select_arrow_down_white.svg' | asset_url }}">
 						</div>
                         <div class="subscription-popup-field-select-dropdown">
-
+                            <div class="subscription-popup-field-select-dropdown-item">
+                                <span>Select your Tesla model and year</span>
+                                <div class="subscription-popup-field-select-arrow">
+                                    <img src="{{ 'select_arrow_up.svg' | asset_url }}">
+                                </div>
+                            </div>
+                            {%- for model in models -%}
+                                <div class="subscription-popup-field-select-dropdown-item">
+                                    <span>{{ model }}</span>
+                                </div>
+                            {%- endfor -%}
                         </div>
 					</div>
                     <span class="subscription-popup-field-error-message"></span>
@@ -117,13 +127,10 @@
 
     $('.subscription-popup-field-select').on('click', function() {
         const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
-        const arrow = $(this).find('.subscription-popup-field-select-arrow')
         if ($(dropdown).is(':visible')) {
             $(dropdown).css('display', 'none')
-            $(arrow).removeClass('subscription-popup-field-select-arrow-reverted')
         } else {
             $(dropdown).css('display', 'flex')
-            $(arrow).addClass('subscription-popup-field-select-arrow-reverted')
         }
     })
 
