@@ -32,7 +32,7 @@
 
 .subscription-popup-shadow {
     position: fixed;
-    z-index: 100;
+    z-index: 3000000;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -82,7 +82,7 @@
     font-family: Manrope;
     font-style: normal;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .subscription-popup-video {
     position: absolute;
@@ -229,6 +229,7 @@
     box-sizing: border-box;
 }
 .subscription-popup-field-select-dropdown-item {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
