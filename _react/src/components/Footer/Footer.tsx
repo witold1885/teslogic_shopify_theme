@@ -11,7 +11,7 @@ import appStoreDesktop from '../../assets/images/app-store-desktop.svg'
 import appStoreMobile from '../../assets/images/app-store-mobile.svg'
 import googlePlayDesktop from '../../assets/images/google-play-desktop.svg'
 import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
-import type { SubscribePayload } from '../../types/subscribe'
+import type { CustomSubscribePayload } from '../../types/subscribe'
 
 import { getAnimationConfig, mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -25,7 +25,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     copyright: { yFrom: '20px', duration: 333 },
 }
 
-const subscribeSchema = yup.object<Record<keyof SubscribePayload, typeof yup>>({
+const subscribeSchema = yup.object<Record<keyof CustomSubscribePayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field')
 }).required()
 
@@ -105,13 +105,8 @@ const Footer: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const [data, setData] = useState<Record<keyof SubscribePayload, string>>({
-        email: ''
-    })
-
-    const [errors, setErrors] = useState<Record<keyof SubscribePayload, string | null>>({
-        email: null
-    })
+    const [data, setData] = useState<Record<keyof CustomSubscribePayload, string>>({ email: '' })
+    const [errors, setErrors] = useState<Record<keyof CustomSubscribePayload, string | null>>({ email: null })
 
     const { error: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
@@ -138,7 +133,7 @@ const Footer: React.FC = () => {
         setErrors(prev => ({ ...prev, [name]: null }))
     }
 
-    const validateForm = async (formData: SubscribePayload) => {
+    const validateForm = async (formData: CustomSubscribePayload) => {
         try {
             await subscribeSchema.validate(formData, { abortEarly: false })
             return true

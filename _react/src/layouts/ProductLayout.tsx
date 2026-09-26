@@ -1,9 +1,13 @@
-import React, { lazy, useEffect, type ReactNode } from 'react'
+import React, { lazy, useEffect, useState, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
+import '@/assets/styles/subscription-popup.scss'
+import Cookies from 'js-cookie'
 // import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
+import SubscriptionPopup from '../components/Popup/SubscriptionPopup'
+import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const ssrComponents = import.meta.env.SSR
   ? import.meta.glob<any>('../components/**/*.tsx', { eager: true })
@@ -31,7 +35,7 @@ interface ProductLayoutProps {
     children?: ReactNode
 }
 
-const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {   
+const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, children }) => {  
     // useExternalScripts(EXTERNAL_SCRIPTS)
 
     useEffect(() => {
@@ -44,7 +48,27 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         }
     }, [])
 
+    const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
+    const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
+
+    const discountSubscriptionCookies = Cookies.get('discount_subscription')
+
+    useEffect(() => {
+        if (!discountSubscriptionCookies) {
+            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
+        }
+    }, [discountSubscriptionCookies])
+
     return (<>
+        <SubscriptionPopup
+            open={subscriptionPopupOpen}
+            onSuccess={() => {
+                setSubscriptionPopupOpen(false)
+                setSuccessPopupOpen(true)
+            }}
+            onClose={() => setSubscriptionPopupOpen(false)}
+        />
+        <SuccessPopup open={successPopupOpen} onClose={() => setSuccessPopupOpen(false)} />
         <Header onOrder={onOrder} />
         <div {...{className}}>
             {children}
