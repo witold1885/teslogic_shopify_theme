@@ -64,7 +64,7 @@
 }
 .subscription-popup {
     width: 556px;
-    height: 392px;
+    /* height: 392px; */
 }
 .success-popup {
     width: 343px;
@@ -199,6 +199,11 @@
 .subscription-popup-field input:active,
 .subscription-popup-field input:focus {
     border: 1px solid #FFF;
+}
+.subscription-popup-field-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .subscription-popup-field-select-dropdown {
     position: absolute;
