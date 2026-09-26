@@ -137,6 +137,7 @@
     $('.subscription-popup-field-select-dropdown-item').on('click', function() {
         const model = $(this).data('model')
         $('.subscription-popup-field-select-value').text(model || 'Select your Tesla model and year')
+        $(this).parent('.subscription-popup-field-select-dropdown').css('display', 'none')
     })
 
     // const nameField = $('.subscription-popup-name').parent('.subscription-popup-field')
