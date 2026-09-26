@@ -295,7 +295,6 @@
 @media screen and (min-width: 576px) and (max-width: 1440px) {
     .subscription-popup {
         width: calc(556 * 100vw / 1440);
-        height: calc(392 * 100vw / 1440);
     }
     .success-popup {
         width: calc(343 * 100vw / 1440);
@@ -388,13 +387,13 @@
 @media screen and (max-width: 575px) {
     .subscription-popup {
         width: calc(336 * 100vw / 375);
-        height: calc(428 * 100vw / 375);
-        border-radius: calc(40 * 100vw / 375);
     }
     .success-popup {
         width: calc(315 * 100vw / 375);
         height: calc(240 * 100vw / 375);
         padding: calc(40 * 100vw / 375) calc(48 * 100vw / 375) calc(48 * 100vw / 375);
+    }
+    .subscription-popup-video {
         border-radius: calc(40 * 100vw / 375);
     }
     .subscription-popup-close, .success-popup-close {
@@ -445,11 +444,28 @@
         font-size: calc(16 * 100vw / 375);
         line-height: calc(20 * 100vw / 375); 
     }
-    .subscription-popup-field input {
+    .subscription-popup-field input,
+    .subscription-popup-field-select {
         padding: calc(16 * 100vw / 375);
         font-size: calc(16 * 100vw / 375);
         line-height: calc(20 * 100vw / 375);
         border-radius: calc(6 * 100vw / 375);
+    }
+    .subscription-popup-field-select-arrow {
+        width: calc(12 * 100vw / 375);
+        height: calc(20 * 100vw / 375);
+    }
+    .subscription-popup-field-select-dropdown {
+        top: calc(-1 * 100vw / 375);
+        left: calc(-1 * 100vw / 375);
+        right: calc(-1 * 100vw / 375);
+        gap: calc(20 * 100vw / 375);
+        padding: calc(16 * 100vw / 375) calc(16 * 100vw / 375) calc(20 * 100vw / 375) calc(16 * 100vw / 375);
+        border-radius: calc(6 * 100vw / 375);
+    }
+    .subscription-popup-field-select-dropdown-item {
+        font-size: calc(16 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
     }
     .subscription-popup-field-error-message {
         bottom: calc(-1 * 22 * 100vw / 375);
