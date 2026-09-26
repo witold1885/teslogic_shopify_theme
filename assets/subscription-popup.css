@@ -213,6 +213,9 @@
     width: 12px;
     height: 20px;
 }
+.subscription-popup-field-select-arrow img {
+    width: 100%;
+}
 .subscription-popup-field-select-dropdown {
     position: absolute;
     top: -1px;
