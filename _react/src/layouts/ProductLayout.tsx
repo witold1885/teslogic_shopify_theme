@@ -1,14 +1,10 @@
-import React, { lazy, useEffect, useState, type ReactNode } from 'react'
+import React, { lazy, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
-import '@/assets/styles/subscription-popup.scss'
-import Cookies from 'js-cookie'
 // import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
-import SubscriptionPopup from '../components/Popup/SubscriptionPopup'
-import SelectionPopup from '../components/Popup/SelectionPopup'
-import SuccessPopup from '../components/Popup/SuccessPopup'
+import Popups from './Popups'
 
 const ssrComponents = import.meta.env.SSR
   ? import.meta.glob<any>('../components/**/*.tsx', { eager: true })
@@ -49,45 +45,8 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         }
     }, [])
 
-    const [popupProcessData, setPopupProcessData] = useState<Record<string, string> | null>(null)
-    const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
-    const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
-    const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
-
-    const discountSubscriptionCookies = Cookies.get('discount_subscription')
-
-    useEffect(() => {
-        if (!discountSubscriptionCookies) {
-            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
-        }
-    }, [discountSubscriptionCookies])
-
     return (<>
-        <SubscriptionPopup
-            open={subscriptionPopupOpen}
-            onProceed={(data: Record<string, string> | null) => {
-                setPopupProcessData(data)
-                setSubscriptionPopupOpen(false)
-                setSelectionPopupOpen(true)
-            }}
-            onClose={() => setSubscriptionPopupOpen(false)}
-        />
-        <SelectionPopup
-            open={selectionPopupOpen}
-            popupProcessData={popupProcessData}
-            onSuccess={() => {
-                setSelectionPopupOpen(false)
-                setSuccessPopupOpen(true)
-            }}
-            onError={() => {
-                setSelectionPopupOpen(false)
-                setSubscriptionPopupOpen(true)
-            }}
-        />
-        <SuccessPopup
-            open={successPopupOpen}
-            onClose={() => setSuccessPopupOpen(false)}
-        />
+        <Popups />
         <Header onOrder={onOrder} />
         <div {...{className}}>
             {children}

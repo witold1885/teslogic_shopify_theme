@@ -58,6 +58,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
     const handleProceed = async () => {
         const formValid = await validateForm(data)
         if (formValid) {
+            setClosing(true)
             onProceed(data)
         }
     }

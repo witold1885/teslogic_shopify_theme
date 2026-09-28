@@ -56,7 +56,6 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     const { subscribed, error: apiError } = useAppSelector(state => state.subscribe)
 
     useEffect(() => {
-        console.log({ popupProcessData })
         if (popupProcessData) {
             setData(prev => ({ ...prev, ...popupProcessData }))
         }
@@ -105,7 +104,6 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
 
     const subscribe = async (withModel = true) => {
         const formValid = await validateForm(data)
-        console.log({ data, formValid })
         if (formValid) {
             const { email, model } = data
             dispatch(discountSubscribe({ name: email, email, tesla_models: model && withModel ? [model] : [] }))
