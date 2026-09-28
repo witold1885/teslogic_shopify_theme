@@ -246,13 +246,6 @@
                 $(this).find('.subscription-popup-field-error-message').text('')
             })
 
-            agree = $('#subscription-popup-agree').prop('checked')
-
-            if (!agree) {
-                $(agreeCheckbox).addClass('subscription-popup-checkbox-error')
-                return
-            }
-
             email = $('.subscription-popup-email').val()
 
             if (!email) {
@@ -264,6 +257,13 @@
             if (!emailRegex.test(email)) {
                 $(emailField).addClass('subscription-popup-field-error')
                 $(emailField).find('.subscription-popup-field-error-message').text(errors.emailNotValid)
+                return
+            }
+
+            agree = $('#subscription-popup-agree').prop('checked')
+
+            if (!agree) {
+                $(agreeCheckbox).addClass('subscription-popup-checkbox-error')
                 return
             }
 
