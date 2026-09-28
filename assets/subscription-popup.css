@@ -286,7 +286,7 @@
     color: #FC3E30;
 }
 .subscription-popup-checkbox label a {
-    color: inherit;
+    color: inherit !important;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: auto;
