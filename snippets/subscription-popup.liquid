@@ -42,8 +42,8 @@
                     <span class="subscription-popup-field-error-message"></span>
                 </div>
                 <div class="subscription-popup-checkbox">
-                    <input class="subscription-popup-agree" type="checkbox">
-                    <label>
+                    <input id="subscription-popup-agree" type="checkbox">
+                    <label for="subscription-popup-agree">
                         I have read and agree to the <a href="/pages/privacy-policy">Privacy Policy</a>
                     </label>
                 </div>
@@ -193,7 +193,7 @@
         })
 
         const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
-        const agreeCheckbox = $('.subscription-popup-agree').parent('.subscription-popup-checkbox')
+        const agreeCheckbox = $('#subscription-popup-agree').parent('.subscription-popup-checkbox')
         const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -237,7 +237,7 @@
                 $(this).find('.subscription-popup-field-error-message').text('')
             })
 
-            agree = $('.subscription-popup-agree').prop('checked')
+            agree = $('#subscription-popup-agree').prop('checked')
 
             if (!agree) {
                 $(agreeCheckbox).addClass('subscription-popup-checkbox-error')
