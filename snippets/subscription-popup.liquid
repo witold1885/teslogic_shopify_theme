@@ -178,7 +178,7 @@
 
         let email, agree, selectedModel = null
 
-        $('.subscription-popup-email').on('change', function() {
+        $('.subscription-popup-email').on('keydown', function() {
             $(emailField).removeClass('subscription-popup-field-error')
             $(emailField).find('.subscription-popup-field-error-message').empty()
         })
