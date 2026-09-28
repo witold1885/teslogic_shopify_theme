@@ -314,7 +314,7 @@
     font-family: Manrope !important;
     color: #FFF;
     text-align: center;
-    border: none;
+    border: none !important;
     outline: none;
     box-shadow: none;
     box-sizing: border-box;
