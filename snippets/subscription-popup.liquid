@@ -174,6 +174,10 @@
 
         let email, agree, selectedModel = null
 
+        $('.subscription-popup-email').on('change', function() {
+            $(this).parent('.subscription-popup-field').removeClass('subscription-popup-field-error')
+        })
+
         $('.subscription-popup-field-select').on('click', function() {
             const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
             if ($(dropdown).is(':visible')) {
@@ -190,6 +194,10 @@
                 $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
             })
             $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
+        })
+
+        $('#subscription-popup-agree').on('change', function() {
+            $(this).parent('.subscription-popup-checkbox').removeClass('subscription-popup-checkbox-error')
         })
 
         const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
