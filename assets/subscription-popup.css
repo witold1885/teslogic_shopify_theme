@@ -94,7 +94,7 @@
     border-radius: 40px;
     object-fit: cover;
 }
-.subscription-popup-close, .success-popup-close {
+.subscription-popup-close, .selection-popup-close, .success-popup-close {
     width: 24px;
     height: 24px;
     position: absolute;
@@ -271,13 +271,14 @@
     overflow: hidden;
 }
 .subscription-popup-buttons > * {
-    font-family: Manrope !important;
-    width: 50%;
+    width: 100%;
     height: 100%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent;
+    font-family: Manrope !important;
     color: #FFF;
     text-align: center;
     border: none;
