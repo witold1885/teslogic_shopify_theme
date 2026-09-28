@@ -59,9 +59,6 @@
 .subscription-popup-shadow.is-hiding .success-popup {
     animation: slideDownFade 0.5s ease forwards;
 }
-#success-popup {
-    display: none;
-}
 .subscription-popup, .selection-popup {
     width: 556px;
     row-gap: 28px;
@@ -219,7 +216,7 @@
     left: -1px;
     right: -1px;
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
