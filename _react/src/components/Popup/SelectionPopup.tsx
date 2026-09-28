@@ -29,7 +29,7 @@ type SubscriptionPayload = { email: string; model: string }
 
 const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field'),
-    model: yup.string().required('Fill in the field'),
+    model: yup.string(),
 }).required()
 
 const setSubscriptionCookie = (value: number): void => {
