@@ -29,6 +29,7 @@ type SubscriptionPayload = { email: string; model: string }
 
 const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field'),
+    model: yup.string().required('Fill in the field'),
 }).required()
 
 const setSubscriptionCookie = (value: number): void => {
@@ -100,6 +101,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
 
     const subscribe = async (withModel = true) => {
         const formValid = await validateForm(data)
+        console.log({ data, formValid })
         if (formValid) {
             const { email, model } = data
             dispatch(discountSubscribe({ name: email, email, tesla_models: model && withModel ? [model] : [] }))
