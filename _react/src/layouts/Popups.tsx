@@ -6,7 +6,7 @@ import SelectionPopup from '../components/Popup/SelectionPopup'
 import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const Popups: React.FC = () => {
-    const [popupProcessData, setPopupProcessData] = useState<Record<string, string> | null>(null)
+    const [popupProcessData, setPopupProcessData] = useState<Record<string, string | boolean> | null>(null)
     const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
@@ -22,7 +22,7 @@ const Popups: React.FC = () => {
     return (<>
         <SubscriptionPopup
             open={subscriptionPopupOpen}
-            onProceed={(data: Record<string, string> | null) => {
+            onProceed={(data: Record<string, string | boolean> | null) => {
                 setPopupProcessData(data)
                 setSubscriptionPopupOpen(false)
                 setSelectionPopupOpen(true)

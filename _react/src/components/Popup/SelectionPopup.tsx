@@ -20,7 +20,7 @@ const models: string[] = [
 
 interface SelectionPopupProps {
     open: boolean
-    popupProcessData: Record<string, string> | null
+    popupProcessData: Record<string, string | boolean> | null
     onSuccess?: () => void
     onError?: () => void
 }
@@ -52,7 +52,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     })
 
     const [modelsDropdownOpen, setModelsDropdownOpen] = useState<boolean>(false)
-    const [data, setData] = useState<SubscriptionPayload>({ email: popupProcessData?.email || '', model: '' })
+    const [data, setData] = useState<SubscriptionPayload>({ email: '', model: '' })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, model: null })
 
     const { subscribed, error: apiError } = useAppSelector(state => state.subscribe)

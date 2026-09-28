@@ -7,14 +7,15 @@ import logo from '../../assets/images/popup-logo-white.svg'
 
 interface SubscriptionPopupProps {
     open: boolean
-    onProceed?: (data: Record<string, string> | null) => void
+    onProceed?: (data: Record<string, string | boolean> | null) => void
     onClose?: () => void
 }
 
-type SubscriptionPayload = { email: string }
+type SubscriptionPayload = { email: string; agree: boolean }
 
 const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>>({
     email: yup.string().email('Email not valid').required('Fill in the field'),
+    agree: yup.boolean().oneOf([true])
 }).required()
 
 const setSubscriptionCookie = (value: number): void => {
@@ -24,12 +25,12 @@ const setSubscriptionCookie = (value: number): void => {
 const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed = () => {}, onClose = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
 
-    const [data, setData] = useState<SubscriptionPayload>({ email: '' })
-    const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null })
+    const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })
+    const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, agree: null })
 
     const { error: apiError } = useAppSelector(state => state.subscribe)
 
-    const handleChange = (param: keyof SubscriptionPayload, value: string) => {
+    const handleChange = (param: keyof SubscriptionPayload, value: string | boolean) => {
         setErrors(prev => ({ ...prev, [param]: null }))
         setData(prev => ({ ...prev, [param]: value }))
     }
@@ -76,7 +77,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
                 </div>
                 <div className="subscription-popup-info">
                     <div className="subscription-popup-title">
-                        Your first 5% discount <br className="mobile" />is on us!
+                        Your first 5% discount <br className="mobile" />is on Us!
                     </div>
                     <div className="subscription-popup-subtitle">
                         Join Screenmate Community <br className="mobile" />and get <br className="desktop" />
@@ -90,12 +91,25 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
                         <label>E-mail:</label>
                         <input
                             className="subscription-popup-email"
+                            name="email"
                             type="email"
                             placeholder="John.smith@example.com"
+                            autoComplete="email"
                             value={data.email}
                             onChange={(e) => handleChange('email', e.target.value)}
                         />
                         {errors.email && <span className="subscription-popup-field-error-message">{errors.email}</span>}
+                    </div>
+                    <div className={`subscription-popup-checkbox ${errors.agree ? 'subscription-popup-checkbox-error' : ''}`}>
+                        <input
+                            id="subscription-popup-agree"
+                            type="checkbox"
+                            checked={data.agree}
+                            onChange={(e) => handleChange('agree', e.target.checked)}
+                        />
+                        <label htmlFor="subscription-popup-agree">
+                            I have read and agree to the <a href="/pages/privacy" target="_blank">Privacy Policy</a>
+                        </label>
                     </div>
                 </div>
                 <div className="subscription-popup-buttons">
