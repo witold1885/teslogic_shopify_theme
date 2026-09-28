@@ -162,7 +162,7 @@
             }
         }, 10000)
 
-        let email, selectedModel = null
+        let email, agree, selectedModel = null
 
         $('.subscription-popup-field-select').on('click', function() {
             const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
@@ -183,6 +183,7 @@
         })
 
         const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
+        const agreeCheckbox = $('.subscription-popup-agree').parent('.subscription-popup-checkbox')
         const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -225,6 +226,13 @@
                 $(this).removeClass('subscription-popup-field-error')
                 $(this).find('.subscription-popup-field-error-message').text('')
             })
+
+            agree = $('.subscription-popup-agree').prop('checked')
+
+            if (!agree) {
+                $(agreeCheckbox).addClass('subscription-popup-checkbox-error')
+                return
+            }
 
             email = $('.subscription-popup-email').val()
 
