@@ -172,10 +172,19 @@
             }
         }, 10000)
 
+        const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
+        const agreeCheckbox = $('#subscription-popup-agree').parent('.subscription-popup-checkbox')
+        const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
+
         let email, agree, selectedModel = null
 
         $('.subscription-popup-email').on('change', function() {
-            $(this).parent('.subscription-popup-field').removeClass('subscription-popup-field-error')
+            $(emailField).removeClass('subscription-popup-field-error')
+            $(emailField).find('.subscription-popup-field-error-message').empty()
+        })
+
+        $('#subscription-popup-agree').on('change', function() {
+            $(agreeCheckbox).removeClass('subscription-popup-checkbox-error')
         })
 
         $('.subscription-popup-field-select').on('click', function() {
@@ -195,14 +204,6 @@
             })
             $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
         })
-
-        $('#subscription-popup-agree').on('change', function() {
-            $(this).parent('.subscription-popup-checkbox').removeClass('subscription-popup-checkbox-error')
-        })
-
-        const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
-        const agreeCheckbox = $('#subscription-popup-agree').parent('.subscription-popup-checkbox')
-        const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         const sendMailUrl = 'https://api.teslogic.co/mail/discount-subscribe'
