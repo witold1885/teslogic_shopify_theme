@@ -3,7 +3,7 @@ import * as yup from 'yup'
 import Cookies from 'js-cookie'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { discountSubscribe } from '../../redux/slices/subscribe'
-import PopupWrap from './PopupWrap'
+import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import { useOutsideClick } from '../../hooks/outside-click'
@@ -37,6 +37,8 @@ const setSubscriptionCookie = (value: number): void => {
 }
 
 const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData, onSuccess = () => {}, onError = () => {} }) => {
+    const wrap = useRef<PopupRefProps>(null)
+
     const dispatch = useAppDispatch()
 
     const popupDropdownRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -85,23 +87,6 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
         }
     }
 
-    useEffect(() => {
-        if (subscribed) {
-            setSubscriptionCookie(1)
-            onSuccess()
-        }
-    }, [subscribed])
-        
-    useEffect(() => {
-        if (apiError) {
-            if (apiError === 'email_exists') {
-                onError()
-            } else {
-                setErrors(prev => ({ ...prev, model: 'An error occurred, try again' }))
-            }
-        }
-    }, [apiError])
-
     const subscribe = async (withModel = true) => {
         const formValid = await validateForm(data)
         if (formValid) {
@@ -118,8 +103,25 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
         subscribe(false)
     }
 
+    useEffect(() => {
+        if (subscribed) {
+            setSubscriptionCookie(1)
+            wrap?.current?.close(() => onSuccess())
+        }
+    }, [subscribed])
+        
+    useEffect(() => {
+        if (apiError) {
+            if (apiError === 'email_exists') {
+                wrap?.current?.close(() => onError())
+            } else {
+                setErrors(prev => ({ ...prev, model: 'An error occurred, try again' }))
+            }
+        }
+    }, [apiError])
+
     return (
-        <PopupWrap id="selection-popup" className="selection-popup" open={open} onClose={handleCancel}>
+        <PopupWrap ref={wrap} id="selection-popup" className="selection-popup" open={open} onClose={handleCancel}>
             <div className="subscription-popup-head">
                 <div className="subscription-popup-logo">
                     <img src={logo} alt="SCREENMATE" />

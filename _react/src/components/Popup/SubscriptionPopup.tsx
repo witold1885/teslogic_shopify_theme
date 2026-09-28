@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as yup from 'yup'
 import Cookies from 'js-cookie'
 import { useAppSelector } from '../../redux/hooks'
-import PopupWrap from './PopupWrap'
+import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 
 interface SubscriptionPopupProps {
@@ -22,9 +22,10 @@ const setSubscriptionCookie = (value: number): void => {
 }
 
 const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed = () => {}, onClose = () => {} }) => {
+    const wrap = useRef<PopupRefProps>(null)
+
     const [data, setData] = useState<SubscriptionPayload>({ email: '' })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null })
-    const [closing, setClosing] = useState<boolean>(false)
 
     const { error: apiError } = useAppSelector(state => state.subscribe)
 
@@ -58,18 +59,17 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
     const handleProceed = async () => {
         const formValid = await validateForm(data)
         if (formValid) {
-            setClosing(true)
-            onProceed(data)
+            wrap?.current?.close(() => onProceed(data))
         }
     }
 
     const handleCancel = () => {
         setSubscriptionCookie(0)
-        onClose()
+        wrap?.current?.close(() => onClose())
     }
 
     return (
-        <PopupWrap id="subscription-popup" className="subscription-popup" {...{open, closing}} onClose={handleCancel}>
+        <PopupWrap ref={wrap} id="subscription-popup" className="subscription-popup" open={open} onClose={handleCancel}>
             <div className="subscription-popup-head">
                 <div className="subscription-popup-logo">
                     <img src={logo} alt="SCREENMATE" />
@@ -102,7 +102,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
                     <button className="subscription-popup-submit" onClick={handleProceed}>
                         I want 5% off
                     </button>
-                    <button className="subscription-popup-cancel" onClick={() => setClosing(true)}>
+                    <button className="subscription-popup-cancel" onClick={handleCancel}>
                         I'll pay in full
                     </button>
                 </div>

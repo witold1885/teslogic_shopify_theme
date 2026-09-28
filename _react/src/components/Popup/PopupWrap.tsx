@@ -1,7 +1,12 @@
-import React, { useEffect, useState, type ReactNode } from 'react'
+import React, { useState, useCallback, useImperativeHandle, type RefObject, type ReactNode } from 'react'
 import close from '../../assets/icons/close-white.svg'
 
+export interface PopupRefProps {
+    close: (callback?: CallableFunction) => void
+}
+
 interface PopupWrapProps {
+    ref: RefObject<PopupRefProps | null>
     id: string
     className: string
     open: boolean
@@ -10,22 +15,20 @@ interface PopupWrapProps {
     children: ReactNode
 }
 
-const PopupWrap: React.FC<PopupWrapProps> = ({ id, className, open, closing = false, onClose = () => {}, children }) => {
+const PopupWrap: React.FC<PopupWrapProps> = ({ ref, id, className, open, onClose = () => {}, children }) => {
     const [hiding, setHiding] = useState<boolean>(false)
 
-    useEffect(() => {
-        if (closing) {
-            handleClose()
-        }
-    }, [closing])
-
-    const handleClose = () => {
+    const handleClose = useCallback((callback?: CallableFunction) => {
         setHiding(true)
         setTimeout(() => {
-            onClose()
             setHiding(false)
+            callback ? callback() : onClose()
         }, 500)
-    }
+    }, [id, onClose])
+
+    useImperativeHandle(ref, () => ({
+        close: (callback?: CallableFunction) => handleClose(callback)
+    }), [handleClose])
 
     return (
         <div id={id} className={`subscription-popup-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
@@ -33,7 +36,7 @@ const PopupWrap: React.FC<PopupWrapProps> = ({ id, className, open, closing = fa
                 <video autoPlay muted loop className="subscription-popup-video">
                     <source src="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4" type="video/mp4" />
                 </video>
-                <div className={`${className}-close`} onClick={handleClose}>
+                <div className={`${className}-close`} onClick={onClose}>
                     <img src={close} alt="" />
                 </div>
                 {children}

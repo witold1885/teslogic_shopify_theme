@@ -52,10 +52,12 @@
     animation: fadeOutBg 0.25s ease forwards;
 }
 .subscription-popup-shadow.is-visible .subscription-popup,
+.subscription-popup-shadow.is-visible .selection-popup,
 .subscription-popup-shadow.is-visible .success-popup {
     animation: slideUpFade 0.5s ease forwards;
 }
 .subscription-popup-shadow.is-hiding .subscription-popup,
+.subscription-popup-shadow.is-hiding .selection-popup,
 .subscription-popup-shadow.is-hiding .success-popup {
     animation: slideDownFade 0.5s ease forwards;
 }
