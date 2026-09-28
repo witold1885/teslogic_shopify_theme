@@ -76,7 +76,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
                 </div>
                 <div className="subscription-popup-info">
                     <div className="subscription-popup-title">
-                        Your first 5% discount <br />is on us!
+                        Your first 5% discount <br className="mobile" />is on us!
                     </div>
                     <div className="subscription-popup-subtitle">
                         Join Screenmate Community <br className="mobile" />and get <br className="desktop" />

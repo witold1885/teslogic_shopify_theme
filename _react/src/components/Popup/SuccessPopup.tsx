@@ -24,7 +24,7 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ open, onClose = () => {} })
                     Thank you <br />for subscribing!
                 </div>
                 <div className="subscription-popup-subtitle">
-                    Your discount has justlanded <br />in your inbox.
+                    Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.
                 </div>
             </div>
         </PopupWrap>
