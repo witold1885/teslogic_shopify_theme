@@ -163,7 +163,7 @@
 .subscription-popup-fields {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 12px;
     padding: 0 36px;
 }
 .subscription-popup-field {
@@ -261,6 +261,34 @@
     font-weight: 400;
     line-height: 20px;
 }
+.subscription-popup-checkbox {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+.subscription-popup-checkbox input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+}
+.subscription-popup-checkbox label {
+    color: #B9B9B9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.subscription-popup-checkbox label a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 3%;
+    text-underline-offset: 14%;
+    text-underline-position: from-font;
+}
 .subscription-popup-buttons {
     display: flex;
     align-items: center;
@@ -344,7 +372,7 @@
         row-gap: calc(24 * 100vw / 1440);
     }
     .subscription-popup-fields {
-        row-gap: calc(16 * 100vw / 1440);
+        row-gap: calc(12 * 100vw / 1440);
         padding: 0 calc(36 * 100vw / 1440);
     }
     .subscription-popup-field {
@@ -379,6 +407,18 @@
     }
     .subscription-popup-field-error-message {
         bottom: calc(-1 * 22 * 100vw / 1440);
+        font-size: calc(14 * 100vw / 1440);
+        line-height: calc(20 * 100vw / 1440);
+    }
+    .subscription-popup-checkbox {
+        column-gap: calc(8 * 100vw / 1440);
+    }
+    .subscription-popup-checkbox input {
+        width: calc(20 * 100vw / 1440);
+        height: calc(20 * 100vw / 1440);
+        border-radius: calc(6 * 100vw / 1440);
+    }
+    .subscription-popup-checkbox label {
         font-size: calc(14 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440);
     }
@@ -444,7 +484,7 @@
         row-gap: calc(24 * 100vw / 375);
     }
     .subscription-popup-fields {
-        row-gap: calc(16 * 100vw / 375);
+        row-gap: calc(12 * 100vw / 375);
         padding: 0 calc(20 * 100vw / 375);
     }
     .subscription-popup-field {
@@ -479,6 +519,18 @@
     }
     .subscription-popup-field-error-message {
         bottom: calc(-1 * 22 * 100vw / 375);
+        font-size: calc(14 * 100vw / 375);
+        line-height: calc(20 * 100vw / 375);
+    }
+    .subscription-popup-checkbox {
+        column-gap: calc(8 * 100vw / 375);
+    }
+    .subscription-popup-checkbox input {
+        width: calc(20 * 100vw / 375);
+        height: calc(20 * 100vw / 375);
+        border-radius: calc(6 * 100vw / 375);
+    }
+    .subscription-popup-checkbox label {
         font-size: calc(14 * 100vw / 375);
         line-height: calc(20 * 100vw / 375);
     }
