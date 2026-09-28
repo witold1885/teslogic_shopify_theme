@@ -287,7 +287,7 @@
 .subscription-popup-buttons > *:hover {
     background: rgba(255, 255, 255, 0.20);
 }
-.subscription-popup-submit {
+.subscription-popup-submit, .selection-popup-submit {
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
@@ -383,7 +383,7 @@
         height: calc(88 * 100vw / 1440);
         border-radius: 0 0 calc(40 * 100vw / 1440) calc(40 * 100vw / 1440);
     }
-    .subscription-popup-submit {
+    .subscription-popup-submit, .selection-popup-submit {
         font-size: calc(18 * 100vw / 1440);
         line-height: calc(24 * 100vw / 1440);
     }
@@ -483,7 +483,7 @@
         height: calc(88 * 100vw / 375);
         border-radius: 0 0 calc(40 * 100vw / 375) calc(40 * 100vw / 375);
     }
-    .subscription-popup-submit {
+    .subscription-popup-submit, .selection-popup-submit {
         font-size: calc(18 * 100vw / 375);
         line-height: calc(24 * 100vw / 375);
     }
