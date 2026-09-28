@@ -62,7 +62,7 @@
 #success-popup {
     display: none;
 }
-.subscription-popup {
+.subscription-popup, .selection-popup {
     width: 556px;
     row-gap: 28px;
 }
@@ -71,7 +71,7 @@
     height: 272px;
     padding: 40px 48px 56px;
 }
-.subscription-popup, .success-popup {
+.subscription-popup, .selection-popup, .success-popup {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
