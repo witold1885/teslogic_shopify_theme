@@ -308,7 +308,7 @@
     font-family: Manrope !important;
     color: #FFF;
     text-align: center;
-    border: none !important;
+    border: none;
     outline: none;
     box-shadow: none;
     box-sizing: border-box;
@@ -321,6 +321,8 @@
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
+}
+.subscription-popup-submit {
     border-right: 1px solid rgba(255, 255, 255, 0.30);
 }
 .subscription-popup-cancel {
