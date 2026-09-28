@@ -55,6 +55,13 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
 
     const { subscribed, error: apiError } = useAppSelector(state => state.subscribe)
 
+    useEffect(() => {
+        console.log({ popupProcessData })
+        if (popupProcessData) {
+            setData(prev => ({ ...prev, ...popupProcessData }))
+        }
+    }, [popupProcessData])
+
     const handleChange = (param: keyof SubscriptionPayload, value: string) => {
         setErrors(prev => ({ ...prev, [param]: null }))
         setData(prev => ({ ...prev, [param]: value }))
@@ -87,9 +94,6 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     }, [subscribed])
         
     useEffect(() => {
-        if (apiError) {
-            onError()
-        }
         if (apiError) {
             if (apiError === 'email_exists') {
                 onError()
