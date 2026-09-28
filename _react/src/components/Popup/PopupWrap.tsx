@@ -10,7 +10,7 @@ interface PopupWrapProps {
     children: ReactNode
 }
 
-const PopupWrap: React.FC<PopupWrapProps> = ({ id, className, open, closing, onClose = () => {}, children }) => {
+const PopupWrap: React.FC<PopupWrapProps> = ({ id, className, open, closing = false, onClose = () => {}, children }) => {
     const [hiding, setHiding] = useState<boolean>(false)
 
     useEffect(() => {

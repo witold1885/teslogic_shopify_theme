@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
 import SubscriptionPopup from '../components/Popup/SubscriptionPopup'
+import SelectionPopup from '../components/Popup/SelectionPopup'
 import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const ssrComponents = import.meta.env.SSR
@@ -48,7 +49,9 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         }
     }, [])
 
+    const [popupProcessData, setPopupProcessData] = useState<Record<string, string> | null>(null)
     const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
+    const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
 
     const discountSubscriptionCookies = Cookies.get('discount_subscription')
@@ -62,13 +65,29 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
     return (<>
         <SubscriptionPopup
             open={subscriptionPopupOpen}
-            onSuccess={() => {
+            onProceed={(data: Record<string, string> | null) => {
+                setPopupProcessData(data)
                 setSubscriptionPopupOpen(false)
-                setSuccessPopupOpen(true)
+                setSelectionPopupOpen(true)
             }}
             onClose={() => setSubscriptionPopupOpen(false)}
         />
-        <SuccessPopup open={successPopupOpen} onClose={() => setSuccessPopupOpen(false)} />
+        <SelectionPopup
+            open={selectionPopupOpen}
+            popupProcessData={popupProcessData}
+            onSuccess={() => {
+                setSelectionPopupOpen(false)
+                setSuccessPopupOpen(true)
+            }}
+            onError={() => {
+                setSelectionPopupOpen(false)
+                setSubscriptionPopupOpen(true)
+            }}
+        />
+        <SuccessPopup
+            open={successPopupOpen}
+            onClose={() => setSuccessPopupOpen(false)}
+        />
         <Header onOrder={onOrder} />
         <div {...{className}}>
             {children}
