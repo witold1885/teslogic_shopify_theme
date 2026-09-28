@@ -420,7 +420,6 @@
     .subscription-popup-checkbox input {
         width: calc(20 * 100vw / 1440);
         height: calc(20 * 100vw / 1440);
-        border-radius: calc(6 * 100vw / 1440);
     }
     .subscription-popup-checkbox label {
         font-size: calc(14 * 100vw / 1440);
@@ -532,7 +531,6 @@
     .subscription-popup-checkbox input {
         width: calc(20 * 100vw / 375);
         height: calc(20 * 100vw / 375);
-        border-radius: calc(6 * 100vw / 375);
     }
     .subscription-popup-checkbox label {
         font-size: calc(14 * 100vw / 375);
