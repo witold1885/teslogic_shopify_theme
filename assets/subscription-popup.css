@@ -280,6 +280,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    cursor: pointer;
 }
 .subscription-popup-checkbox-error label {
     color: #FC3E30;
