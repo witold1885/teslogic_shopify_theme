@@ -205,6 +205,7 @@
                 } else {
                     $(emailField).addClass('subscription-popup-field-error')
                     if (data.message == 'email_exists') {
+                        closePopup('selection', 'subscription')
                         $(emailField).find('.subscription-popup-field-error-message').text(errors.emailRegistered)
                     } else {
                         $(emailField).find('.subscription-popup-field-error-message').text(errors.serverError)
