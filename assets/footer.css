@@ -97,6 +97,12 @@ footer {
     line-height: 20px;
 }
 
+.footer__form-checkbox {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
 .footer__form-checkbox input {
     width: 20px;
     height: 20px;
@@ -109,6 +115,8 @@ footer {
 
 .footer__form-checkbox label {
     color: #B9B9B9;
+    font-family: Manrope;
+    font-style: normal;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
