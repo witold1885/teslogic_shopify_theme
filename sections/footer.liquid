@@ -1,9 +1,16 @@
 <link rel="stylesheet" type="text/css" href="{{ 'footer.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'footer-responsive.css' | asset_url }}">
 
-{%- style -%}
-
-{%- endstyle -%}
+<style>
+  .footer__form-checkbox input {
+    background-image: url({{ 'popup_checkbox_inactive.svg' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+  .footer__form-checkbox input:checked {
+    background-image: url({{ 'popup_checkbox_active.svg' | asset_url }});
+  }
+</style>
 
 <footer id="contacts">
   <div class="footer__form">
