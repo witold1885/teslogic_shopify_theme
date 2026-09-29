@@ -61,7 +61,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     const [data, setData] = useState<SubscriptionPayload>({ email: '', model: '' })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, model: null })
 
-    const { subscribed, error: apiError } = useAppSelector(state => state.subscribe)
+    const { customSubscribed, discountSubscribed, error: apiError } = useAppSelector(state => state.subscribe)
 
     useEffect(() => {
         if (popupProcessData) {
@@ -118,11 +118,14 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     }
 
     useEffect(() => {
-        if (subscribed) {
-            setSubscriptionCookie(`${popupProcessData?.mode || 'custom'}_subscription`, 1)
-            wrap?.current?.close(() => onSuccess())
+        const mode = popupProcessData?.mode || null
+        if (mode) {
+            if (discountSubscribed || customSubscribed) {
+                setSubscriptionCookie(`${mode}_subscription`, 1)
+                wrap?.current?.close(() => onSuccess())
+            }
         }
-    }, [subscribed, popupProcessData])
+    }, [popupProcessData, discountSubscribed, customSubscribed])
         
     useEffect(() => {
         if (apiError) {

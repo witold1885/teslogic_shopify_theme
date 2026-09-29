@@ -3,7 +3,8 @@ import type { CustomSubscribePayload, DiscountSubscribePayload, SubscribeRespons
 
 interface SubscribeState {
     loading: boolean
-    subscribed: boolean
+    customSubscribed: boolean
+    discountSubscribed: boolean
     error: string|null
     customSubscribeError: string|null
     discountSubscribeError: string|null
@@ -11,7 +12,8 @@ interface SubscribeState {
 
 const initialState: SubscribeState = {
     loading: false,
-    subscribed: false,
+    customSubscribed: false,
+    discountSubscribed: false,
     error: null,
     customSubscribeError: null,
     discountSubscribeError: null
@@ -61,30 +63,34 @@ export const subscribeSlice = createSlice({
         builder
             .addCase(customSubscribe.pending, (state) => {
                 state.loading = true
-                state.subscribed = false
+                state.customSubscribed = false
+                state.error = null
                 state.customSubscribeError = null
             })
             .addCase(customSubscribe.fulfilled, (state) => {
                 state.loading = false
-                state.subscribed = true
+                state.customSubscribed = true
             })
             .addCase(customSubscribe.rejected, (state, action) => {
                 state.loading = false
-                state.subscribed = false
+                state.customSubscribed = false
+                state.error = action.payload as string
                 state.customSubscribeError = action.payload as string
             })
             .addCase(discountSubscribe.pending, (state) => {
                 state.loading = true
-                state.subscribed = false
+                state.discountSubscribed = false
+                state.error = null
                 state.discountSubscribeError = null
             })
             .addCase(discountSubscribe.fulfilled, (state) => {
                 state.loading = false
-                state.subscribed = true
+                state.discountSubscribed = true
             })
             .addCase(discountSubscribe.rejected, (state, action) => {
                 state.loading = false
-                state.subscribed = false
+                state.discountSubscribed = false
+                state.error = action.payload as string
                 state.discountSubscribeError = action.payload as string
             })
     }
