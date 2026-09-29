@@ -40,15 +40,21 @@ footer {
     display: none;
 }
 
-.footer__form-fields {
+.footer__form-fields-wrap {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     column-gap: 24px;
 }
 
-.footer__form-fields input,
-.footer__form-fields button {
+.footer__form-fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.footer__form-field input,
+.footer__form-fields-wrap button {
     background: transparent;
     box-sizing: border-box;
     font-family: Manrope;
@@ -91,7 +97,7 @@ footer {
     line-height: 20px;
 }
 
-.footer__form-fields button {
+.footer__form-fields-wrap button {
     width: 195px;
     padding: 14px 28px;
     display: flex;
@@ -107,7 +113,7 @@ footer {
     cursor: pointer;
 }
 
-.footer__form-fields button:hover {
+.footer__form-fields-wrap button:hover {
     padding: 17px 31px;
     border: none;
     color: #FFF;
