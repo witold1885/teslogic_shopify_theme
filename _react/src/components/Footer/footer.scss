@@ -27,7 +27,7 @@
             }
 
             &:last-child {
-                @extend %flex-end-center, %mob\:flex-column, %gap-24;
+                @extend %flex-end-start, %mob\:flex-column, %gap-24;
             }
         }
 
@@ -37,6 +37,10 @@
 
         &-subtitle {
             @extend %font-manrope-16;
+        }
+
+        &-fields {
+            @extend %flex-column, %gap-32;
         }
 
         &-field {

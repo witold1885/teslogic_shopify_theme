@@ -10,7 +10,6 @@ interface PopupWrapProps {
     id: string
     className: string
     open: boolean
-    closing?: boolean
     onClose: () => void
     children: ReactNode
 }

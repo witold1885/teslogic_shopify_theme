@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import * as yup from 'yup'
 import './footer.scss'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { customSubscribe } from '../../redux/slices/subscribe'
+import { useAppSelector } from '../../redux/hooks'
 import type { MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
+import PopupCheckbox from '../Popup/PopupCheckbox'
 import logoDesktop from '../../assets/images/logo-footer-desktop.svg'
 import logoMobile from '../../assets/images/logo-footer-mobile.svg'
 import appStoreDesktop from '../../assets/images/app-store-desktop.svg'
 import appStoreMobile from '../../assets/images/app-store-mobile.svg'
 import googlePlayDesktop from '../../assets/images/google-play-desktop.svg'
 import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
-import type { CustomSubscribePayload } from '../../types/subscribe'
 
 import { getAnimationConfig, mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -25,8 +24,11 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     copyright: { yFrom: '20px', duration: 333 },
 }
 
-const subscribeSchema = yup.object<Record<keyof CustomSubscribePayload, typeof yup>>({
-    email: yup.string().email('Email not valid').required('Fill in the field')
+type SubscriptionPayload = { email: string; agree: boolean }
+
+const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>>({
+    email: yup.string().email('Email not valid').required('Fill in the field'),
+    agree: yup.boolean().oneOf([true])
 }).required()
 
 const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
@@ -100,13 +102,16 @@ const getStores = (isMobile: boolean) => {
     ]
 }
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    onProceed?: (data: Record<string, string | boolean> | null) => void
+}
+
+const Footer: React.FC<FooterProps> = ({ onProceed = () => {} }) => {
     const { isMobile } = useInlineStyles()
 
-    const dispatch = useAppDispatch()
-
-    const [data, setData] = useState<Record<keyof CustomSubscribePayload, string>>({ email: '' })
-    const [errors, setErrors] = useState<Record<keyof CustomSubscribePayload, string | null>>({ email: null })
+    const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })
+    const defaultErrors: Record<keyof SubscriptionPayload, string | null> = { email: null, agree: null }
+    const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>(defaultErrors)
 
     const { error: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
@@ -126,14 +131,13 @@ const Footer: React.FC = () => {
     const menu = useMemo(() => getMenu(main_menu, forCustomersBlock, contactUsItem), [main_menu, forCustomersBlock, contactUsItem])        
 
     const stores = useMemo(() => getStores(isMobile), [isMobile])
-    
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setData(prev => ({ ...prev, [name]: value }))
-        setErrors(prev => ({ ...prev, [name]: null }))
+
+    const handleChange = (param: keyof SubscriptionPayload, value: string | boolean) => {
+        setErrors(prev => ({ ...prev, [param]: null }))
+        setData(prev => ({ ...prev, [param]: value }))
     }
 
-    const validateForm = async (formData: CustomSubscribePayload) => {
+    const validateForm = async (formData: SubscriptionPayload) => {
         try {
             await subscribeSchema.validate(formData, { abortEarly: false })
             return true
@@ -145,21 +149,21 @@ const Footer: React.FC = () => {
             return false
         }
     }
-
+        
     useEffect(() => {
         if (apiError) {
-            setErrors({
-                email: apiError === 'email_exists' 
-                    ? 'This email is already registered' 
-                    : 'An error occurred, try again'
-            })
+            setErrors(prev => ({ ...prev, email: apiError === 'email_exists' 
+                ? 'This email is already registered' 
+                : 'An error occurred, try again'
+            }))
         }
     }, [apiError])
 
     const handleSubscribe = async () => {
+        setErrors(defaultErrors)
         const formValid = await validateForm(data)
         if (formValid === true) {
-            dispatch(customSubscribe(data))
+            onProceed({ ...data, mode: 'custom' })
         }
     }
 
@@ -176,9 +180,24 @@ const Footer: React.FC = () => {
                         <div className="footer-form-subtitle">Stay informed about sales, updates and new products launches.</div>
                     </div>
                     <div>
-                        <div className="footer-form-field">
-                            <input name="email" type="email" placeholder="Enter your email adress" value={data.email} onChange={handleInputChange} />
-                            {errors.email && <span className="footer-form-field-error">{errors.email}</span>}
+                        <div className="footer-form-fields">
+                            <div className="footer-form-field">
+                                <input
+                                    name="email"
+                                    type="email"
+                                    placeholder="Enter your email adress"
+                                    autoComplete="email"
+                                    value={data.email}
+                                    onChange={(e) => handleChange('email', e.target.value)}
+                                />
+                                {errors.email && <span className="footer-form-field-error">{errors.email}</span>}
+                            </div>
+                            <PopupCheckbox
+                                id="footer-form-agree"
+                                checked={data.agree}
+                                onChange={(e) => handleChange('agree', e.target.checked)}
+                                error={errors.agree}
+                            />
                         </div>
                         <Button onClick={handleSubscribe}><span>Subscribe</span></Button>
                     </div>

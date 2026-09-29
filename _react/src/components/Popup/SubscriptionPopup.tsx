@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as yup from 'yup'
-import Cookies from 'js-cookie'
 import { useAppSelector } from '../../redux/hooks'
+import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
+import PopupCheckbox from './PopupCheckbox'
 import logo from '../../assets/images/popup-logo-white.svg'
 
 interface SubscriptionPopupProps {
@@ -17,10 +18,6 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
     email: yup.string().email('Email not valid').required('Fill in the field'),
     agree: yup.boolean().oneOf([true])
 }).required()
-
-const setSubscriptionCookie = (value: number): void => {
-    Cookies.set('discount_subscription', value.toString(), { expires: 365, path: '/' })
-}
 
 const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed = () => {}, onClose = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
@@ -60,12 +57,12 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
     const handleProceed = async () => {
         const formValid = await validateForm(data)
         if (formValid) {
-            wrap?.current?.close(() => onProceed(data))
+            wrap?.current?.close(() => onProceed({ ...data, mode: 'discount' }))
         }
     }
 
     const handleCancel = () => {
-        setSubscriptionCookie(0)
+        setSubscriptionCookie('discount_subscription', 0)
         wrap?.current?.close(() => onClose())
     }
 
@@ -100,17 +97,12 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
                         />
                         {errors.email && <span className="subscription-popup-field-error-message">{errors.email}</span>}
                     </div>
-                    <div className={`subscription-popup-checkbox ${errors.agree ? 'subscription-popup-checkbox-error' : ''}`}>
-                        <input
-                            id="subscription-popup-agree"
-                            type="checkbox"
-                            checked={data.agree}
-                            onChange={(e) => handleChange('agree', e.target.checked)}
-                        />
-                        <label htmlFor="subscription-popup-agree">
-                            I have read and agree to the <a href="/pages/privacy" target="_blank">Privacy Policy</a>
-                        </label>
-                    </div>
+                    <PopupCheckbox
+                        id="subscription-popup-agree"
+                        checked={data.agree}
+                        onChange={(e) => handleChange('agree', e.target.checked)}
+                        error={errors.agree}
+                    />
                 </div>
                 <div className="subscription-popup-buttons">
                     <button className="subscription-popup-submit" onClick={handleProceed}>

@@ -1,10 +1,14 @@
-import React, { lazy, useEffect, type ReactNode } from 'react'
+import React, { lazy, useState, useEffect, type ReactNode } from 'react'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
+import '@/assets/styles/subscription-popup.scss'
+import Cookies from 'js-cookie'
 // import { EXTERNAL_SCRIPTS, useExternalScripts } from '../hooks/external-scripts'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
-import Popups from './Popups'
+import SubscriptionPopup from '../components/Popup/SubscriptionPopup'
+import SelectionPopup from '../components/Popup/SelectionPopup'
+import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const ssrComponents = import.meta.env.SSR
   ? import.meta.glob<any>('../components/**/*.tsx', { eager: true })
@@ -45,8 +49,47 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         }
     }, [])
 
+    const [popupProcessData, setPopupProcessData] = useState<Record<string, string | boolean> | null>(null)
+    const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
+    const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
+    const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
+
+    const discountSubscriptionCookies = Cookies.get('discount_subscription')
+
+    useEffect(() => {
+        if (!discountSubscriptionCookies) {
+            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
+        }
+    }, [discountSubscriptionCookies])
+
+    const handleProceed = (data: Record<string, string | boolean> | null) => {
+        setPopupProcessData(data)
+        setSubscriptionPopupOpen(false)
+        setSelectionPopupOpen(true)
+    }
+
     return (<>
-        <Popups />
+        <SubscriptionPopup
+            open={subscriptionPopupOpen}
+            onProceed={handleProceed}
+            onClose={() => setSubscriptionPopupOpen(false)}
+        />
+        <SelectionPopup
+            open={selectionPopupOpen}
+            popupProcessData={popupProcessData}
+            onSuccess={() => {
+                setSelectionPopupOpen(false)
+                setSuccessPopupOpen(true)
+            }}
+            onError={() => {
+                setSelectionPopupOpen(false)
+                popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
+            }}
+        />
+        <SuccessPopup
+            open={successPopupOpen}
+            onClose={() => setSuccessPopupOpen(false)}
+        />
         <Header onOrder={onOrder} />
         <div {...{className}}>
             {children}
@@ -55,7 +98,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
             </LazySection>
         </div>
         <LazySection>
-            <Footer />
+            <Footer onProceed={handleProceed} />
         </LazySection>
     </>)
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as yup from 'yup'
-import Cookies from 'js-cookie'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { discountSubscribe } from '../../redux/slices/subscribe'
+import type { AsyncThunk, AsyncThunkConfig } from '@reduxjs/toolkit'
+import type { CustomSubscribePayload, DiscountSubscribePayload, SubscribeResponse } from '../../types/subscribe'
+import { discountSubscribe, customSubscribe } from '../../redux/slices/subscribe'
+import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
@@ -18,6 +20,14 @@ const models: string[] = [
     'Model X ‘21+'
 ]
 
+const subscriptionMethods: Record<
+    string,
+    AsyncThunk<SubscribeResponse, DiscountSubscribePayload | CustomSubscribePayload, AsyncThunkConfig>
+> = {
+    discount: discountSubscribe,
+    custom: customSubscribe
+}
+
 interface SelectionPopupProps {
     open: boolean
     popupProcessData: Record<string, string | boolean> | null
@@ -31,10 +41,6 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
     email: yup.string().email('Email not valid').required('Fill in the field'),
     model: yup.string(),
 }).required()
-
-const setSubscriptionCookie = (value: number): void => {
-    Cookies.set('discount_subscription', value.toString(), { expires: 365, path: '/' })
-}
 
 const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData, onSuccess = () => {}, onError = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
@@ -91,7 +97,15 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
         const formValid = await validateForm(data)
         if (formValid) {
             const { email, model } = data
-            dispatch(discountSubscribe({ name: email, email, tesla_models: model && withModel ? [model] : [] }))
+            const mode = popupProcessData?.mode || null
+            console.log({ mode })
+            if (mode) {
+                dispatch(subscriptionMethods[mode as string]({
+                    name: email,
+                    email,
+                    tesla_models: model && withModel ? [model] : []
+                }))
+            }
         }
     }
 
@@ -105,10 +119,10 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
 
     useEffect(() => {
         if (subscribed) {
-            setSubscriptionCookie(1)
+            setSubscriptionCookie(`${popupProcessData?.mode || 'custom'}_subscription`, 1)
             wrap?.current?.close(() => onSuccess())
         }
-    }, [subscribed])
+    }, [subscribed, popupProcessData])
         
     useEffect(() => {
         if (apiError) {

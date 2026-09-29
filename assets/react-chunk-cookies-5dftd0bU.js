@@ -1,0 +1,1 @@
+import{r as e}from"./react-chunk-vendor-ROhxccJ3.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};
