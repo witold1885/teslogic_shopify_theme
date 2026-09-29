@@ -163,7 +163,7 @@
 .subscription-popup-fields {
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 32px;
     padding: 0 36px;
 }
 .subscription-popup-field {
@@ -379,7 +379,7 @@
         row-gap: calc(24 * 100vw / 1440);
     }
     .subscription-popup-fields {
-        row-gap: calc(12 * 100vw / 1440);
+        row-gap: calc(32 * 100vw / 1440);
         padding: 0 calc(36 * 100vw / 1440);
     }
     .subscription-popup-field {
@@ -490,7 +490,7 @@
         row-gap: calc(24 * 100vw / 375);
     }
     .subscription-popup-fields {
-        row-gap: calc(12 * 100vw / 375);
+        row-gap: calc(32 * 100vw / 375);
         padding: 0 calc(20 * 100vw / 375);
     }
     .subscription-popup-field {
