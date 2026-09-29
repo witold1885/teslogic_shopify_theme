@@ -120,7 +120,11 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     useEffect(() => {
         const mode = popupProcessData?.mode || null
         if (mode) {
-            if (discountSubscribed || customSubscribed) {
+            const subscribed = {
+                discount: discountSubscribed,
+                custom: customSubscribed,
+            }[mode as string]
+            if (subscribed) {
                 setSubscriptionCookie(`${mode}_subscription`, 1)
                 wrap?.current?.close(() => onSuccess())
             }
