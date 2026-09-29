@@ -113,7 +113,7 @@ const Footer: React.FC<FooterProps> = ({ onProceed = () => {} }) => {
     const defaultErrors: Record<keyof SubscriptionPayload, string | null> = { email: null, agree: null }
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>(defaultErrors)
 
-    const { error: apiError } = useAppSelector(state => state.subscribe)
+    const { customSubscribeError: apiError } = useAppSelector(state => state.subscribe)
     const { main_menu } = useAppSelector(state => state.content)
 
     const forCustomersBlock: MenuItem | null = useMemo(() => {

@@ -25,7 +25,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
     const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, agree: null })
 
-    const { error: apiError } = useAppSelector(state => state.subscribe)
+    const { discountSubscribeError: apiError } = useAppSelector(state => state.subscribe)
 
     const handleChange = (param: keyof SubscriptionPayload, value: string | boolean) => {
         setErrors(prev => ({ ...prev, [param]: null }))
