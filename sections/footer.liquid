@@ -21,7 +21,7 @@
     <div class="footer__form-fields-wrap">
       <div class="footer__form-fields">
         <div class="footer__form-field">
-          <input class="footer__form-email" type="email" placeholder="Enter your e-mail adress">
+          <input class="footer__form-email" name="email" type="email" placeholder="Enter your e-mail adress" autocomplete="email">
           <span class="footer__form-field-error-message"></span>
         </div>
         <div class="footer__form-checkbox">
@@ -219,35 +219,39 @@
         return
       }
 
-      agree = $('#footer__form-agree').prop('checked')
+      const agree = $('#footer__form-agree').prop('checked')
+
+      console.log({ agree })
 
       if (!agree) {
-          $(agreeCheckbox).addClass('footer__form-checkbox-error')
-          return
+        $(agreeCheckbox).addClass('footer__form-checkbox-error')
+        return
       }
 
-      const response = await fetch(sendMailUrl, {
-          method: 'post',
-          body: JSON.stringify({ name, email }),
-          headers: {'Content-Type': 'application/json'}
-      })
-      const data = await response.json()
+      closePopup('subscription', 'selection')
+
+      // const response = await fetch(sendMailUrl, {
+      //     method: 'post',
+      //     body: JSON.stringify({ name, email }),
+      //     headers: {'Content-Type': 'application/json'}
+      // })
+      // const data = await response.json()
       
-      console.log(data)
-      if (response.status == 200) {
-        if (data.success) {
-          $('#success-popup').css('display', 'flex')
-        } else {
-          $(emailField).addClass('footer__form-field-error')
-          if (data.message == 'email_exists') {
-            $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
-          } else {
-            $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
-          }
-        }
-      } else {
-        $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
-      }
+      // console.log(data)
+      // if (response.status == 200) {
+      //   if (data.success) {
+      //     $('#success-popup').css('display', 'flex')
+      //   } else {
+      //     $(emailField).addClass('footer__form-field-error')
+      //     if (data.message == 'email_exists') {
+      //       $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
+      //     } else {
+      //       $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
+      //     }
+      //   }
+      // } else {
+      //   $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
+      // }
     })
   })
 </script>
