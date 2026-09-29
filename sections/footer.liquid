@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="{{ 'footer.css' | asset_url }}">
 <link rel="stylesheet" type="text/css" href="{{ 'footer-responsive.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="{{ 'subscription-popup.css' | asset_url }}">
 
 <style>
   .footer__form-checkbox input {
@@ -182,24 +183,113 @@
       </div>
     </div>
   </div>
+
+  {%  assign models = "Model 3 ‘17-20,Model 3 ‘21-23,Model 3 Highland,Model Y ‘21-24,Model Y Juniper,Model S ‘21+,Model X ‘21+"|split:',' %}
+
+  <div id="custom-selection-popup" class="subscription-popup-shadow">
+    <div class="selection-popup">
+      <video autoplay muted loop class="subscription-popup-video">
+        <source src="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4" type="video/mp4">
+      </video>
+      <div class="selection-popup-close">
+        <img src="{{ 'subscription_popup_close_white.svg' | asset_url }}" alt="">
+      </div>
+      <div class="subscription-popup-head">
+        <div class="subscription-popup-logo">
+          <img src="{{ 'subscription_popup_logo_white.svg' | asset_url }}" alt="">
+        </div>
+        <div class="subscription-popup-info">
+          <div class="subscription-popup-title">
+            We’d love to make <br class="mobile">our <br class="desktop">emails more <br class="mobile">useful for you.
+          </div>
+          <div class="subscription-popup-subtitle">
+            Tell us your Tesla model so we can send <br>you the updates that matter most.
+          </div>
+        </div>
+      </div>
+      <div class="subscription-popup-form">
+        <div class="subscription-popup-fields">
+          <div class="subscription-popup-field">
+            <label>Tesla model:</label>
+            <div class="subscription-popup-field-select">
+              <span class="subscription-popup-field-select-value">Select your Tesla model and year</span>
+              <div class="subscription-popup-field-select-arrow">
+                <img src="{{ 'select_arrow_down_white.svg' | asset_url }}">
+              </div>
+              <div class="subscription-popup-field-select-dropdown">
+                <div class="subscription-popup-field-select-dropdown-item" data-model="">
+                  <span>Select your Tesla model and year</span>
+                  <div class="subscription-popup-field-select-arrow">
+                    <img src="{{ 'select_arrow_up.svg' | asset_url }}">
+                  </div>
+                </div>
+                {%- for model in models -%}
+                  <div class="subscription-popup-field-select-dropdown-item" data-model="{{ model }}">
+                    <span>{{ model }}</span>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+            <span class="subscription-popup-field-error-message"></span>
+          </div>
+        </div>
+        <div class="subscription-popup-buttons">
+          <button class="selection-popup-submit">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="custom-success-popup" class="subscription-popup-shadow">
+    <div class="success-popup">
+      <video autoplay muted loop class="subscription-popup-video">
+        <source src="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4" type="video/mp4">
+      </video>
+      <div class="success-popup-close">
+        <img src="{{ 'subscription_popup_close_white.svg' | asset_url }}" alt="">
+      </div>
+      <div class="subscription-popup-logo">
+        <img src="{{ 'subscription_popup_logo_white.svg' | asset_url }}" alt="">
+      </div>
+      <div class="subscription-popup-info">
+        <div class="subscription-popup-title">
+          Thank you <br>for subscribing!
+        </div>
+        <div class="subscription-popup-subtitle">
+          Your discount has just <br class="mobile">landed <br class="desktop">in your inbox.
+        </div>
+      </div>
+    </div>
+  </div>
+
 </footer>
 
 <script type="text/javascript">
   $(document).ready(function() {
+    function setSubscriptionCookie(value) {
+      const date = new Date()
+      date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000)
+      const expires = `expires=${date.toUTCString()}`
+      document.cookie = `custom_subscription=${value}; ${expires}; path=/`
+    }
+
     function closePopup(current, next = null) {
-      $(`#${current}-popup`).addClass('is-hiding')
+      $(`#custom-${current}-popup`).addClass('is-hiding')
       
       setTimeout(() => {
-        $(`#${current}-popup`).removeClass('is-visible is-hiding')
+        $(`#custom-${current}-popup`).removeClass('is-visible is-hiding')
 
         if (next) {
-          $(`#${next}-popup`).addClass('is-visible')
+          $(`#custom-${next}-popup`).addClass('is-visible')
         }
       }, 500)
     }
 
     const emailField = $('.footer__form-email').parent('.footer__form-field')
     const agreeCheckbox = $('#footer__form-agree').parent('.footer__form-checkbox')
+    const modelField = $('#custom-selection-popup .subscription-popup-field-select').parent('.subscription-popup-field')
 
     let email, agree, selectedModel = null
 
@@ -212,6 +302,24 @@
       $(agreeCheckbox).removeClass('footer__form-checkbox-error')
     })
 
+    $('#custom-selection-popup .subscription-popup-field-select').on('click', function() {
+      const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
+      if ($(dropdown).is(':visible')) {
+        $(dropdown).css('display', 'none')
+      } else {
+        $(dropdown).css('display', 'flex')
+      }
+    })
+
+    $('#custom-selection-popup .subscription-popup-field-select-dropdown-item').on('click', function() {
+      selectedModel = $(this).data('model')
+      $('#custom-selection-popup .subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
+      $('#custom-selection-popup .subscription-popup-field-select-dropdown-item').each(function() {
+        $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
+      })
+      $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
+    })
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const sendMailUrl = 'https://api.teslogic.co/mail/custom-subscribe'
 
@@ -220,6 +328,31 @@
       emailNotValid: 'Email not valid',
       emailRegistered: 'This email is already registered',
       serverError: 'An error occurred try again'
+    }
+
+    async function subscribe () {
+      const response = await fetch(sendMailUrl, {
+        method: 'post',
+        body: JSON.stringify({ name: email, email, tesla_models: selectedModel ? [selectedModel] : [] }),
+        headers: {'Content-Type': 'application/json'}
+      })
+      const data = await response.json()
+      
+      console.log(data)
+      if (response.status == 200) {
+        if (data.success) {
+          setSubscriptionCookie(1)
+          closePopup('selection', 'success')
+        } else {
+          $(emailField).addClass('footer__form-field-error')
+          if (data.message == 'email_exists') {
+            closePopup('selection')
+            $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
+          } else {
+            $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
+          }
+        }
+      }
     }
 
     $('.footer__form-submit').on('click', async function () {
@@ -252,29 +385,29 @@
       }
 
       closePopup('subscription', 'selection')
+    })
 
-      // const response = await fetch(sendMailUrl, {
-      //     method: 'post',
-      //     body: JSON.stringify({ name, email }),
-      //     headers: {'Content-Type': 'application/json'}
-      // })
-      // const data = await response.json()
-      
-      // console.log(data)
-      // if (response.status == 200) {
-      //   if (data.success) {
-      //     $('#success-popup').css('display', 'flex')
-      //   } else {
-      //     $(emailField).addClass('footer__form-field-error')
-      //     if (data.message == 'email_exists') {
-      //       $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
-      //     } else {
-      //       $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
-      //     }
-      //   }
-      // } else {
-      //   $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
-      // }
+    $('#custom-selection-popup .selection-popup-submit').on('click', function () {
+      $('#custom-selection-popup .subscription-popup-field').each(function() {
+        $(this).removeClass('subscription-popup-field-error')
+        $(this).find('.subscription-popup-field-error-message').text('')
+      })
+
+      if (!selectedModel) {
+        $(modelField).addClass('subscription-popup-field-error')
+        $(modelField).find('.subscription-popup-field-error-message').text(errors.emptyField)
+        return
+      }
+
+      subscribe()
+    })
+
+    $('#custom-selection-popup .selection-popup-close').on('click', function() {
+      subscribe()
+    })
+
+    $('.success-popup-close').on('click', function() {
+      closePopup('success')
     })
   })
 </script>
