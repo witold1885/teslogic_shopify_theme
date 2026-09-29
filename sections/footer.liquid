@@ -362,7 +362,7 @@
         $(this).find('.footer__form-field-error-message').text('')
       })
 
-      const email = $('.footer__form-email').val()
+      email = $('.footer__form-email').val()
 
       if (!email) {
         $(emailField).addClass('footer__form-field-error')
@@ -376,9 +376,7 @@
         return
       }
 
-      const agree = $('#footer__form-agree').prop('checked')
-
-      console.log({ agree })
+      agree = $('#footer__form-agree').prop('checked')
 
       if (!agree) {
         $(agreeCheckbox).addClass('footer__form-checkbox-error')
