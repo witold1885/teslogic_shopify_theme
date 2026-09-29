@@ -30,6 +30,11 @@ function getComponent(relativePath: string) {
 const Reviews = getComponent('../components/Reviews/Reviews.tsx')
 const Footer = getComponent('../components/Footer/Footer.tsx')
 
+const successPopupSubtitles: Record<string, ReactNode> = {
+    discount: <>Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.</>,
+    custom: <>You are now subscribed <br />to our email newsletter.</>
+}
+
 interface ProductLayoutProps {
     className?: string
     onOrder?: () => void
@@ -88,6 +93,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({ className, onOrder, child
         />
         <SuccessPopup
             open={successPopupOpen}
+            subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
             onClose={() => setSuccessPopupOpen(false)}
         />
         <Header onOrder={onOrder} />

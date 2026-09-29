@@ -1,13 +1,20 @@
-import React, { useRef } from 'react'
+import React, { useRef, type ReactNode } from 'react'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 
 interface SuccessPopupProps {
     open: boolean
+    title?: ReactNode
+    subtitle?: ReactNode
     onClose?: () => void
 }
 
-const SuccessPopup: React.FC<SuccessPopupProps> = ({ open, onClose = () => {} }) => {
+const SuccessPopup: React.FC<SuccessPopupProps> = ({
+    open,
+    title = <>Thank you <br />for subscribing!</>,
+    subtitle = '',
+    onClose = () => {}
+}) => {
     const wrap = useRef<PopupRefProps>(null)
 
     const handleCancel = () => {
@@ -20,12 +27,8 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ open, onClose = () => {} })
                 <img src={logo} alt="SCREENMATE" />
             </div>
             <div className="subscription-popup-info">
-                <div className="subscription-popup-title">
-                    Thank you <br />for subscribing!
-                </div>
-                <div className="subscription-popup-subtitle">
-                    Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.
-                </div>
+                <div className="subscription-popup-title">{title}</div>
+                <div className="subscription-popup-subtitle">{subtitle}</div>
             </div>
         </PopupWrap>
     )
