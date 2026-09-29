@@ -186,8 +186,31 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    function closePopup(current, next = null) {
+      $(`#${current}-popup`).addClass('is-hiding')
+      
+      setTimeout(() => {
+        $(`#${current}-popup`).removeClass('is-visible is-hiding')
+
+        if (next) {
+          $(`#${next}-popup`).addClass('is-visible')
+        }
+      }, 500)
+    }
+
     const emailField = $('.footer__form-email').parent('.footer__form-field')
     const agreeCheckbox = $('#footer__form-agree').parent('.footer__form-checkbox')
+
+    let email, agree, selectedModel = null
+
+    $('.footer__form-email').on('keydown', function() {
+      $(emailField).removeClass('footer__form-field-error')
+      $(emailField).find('.footer__form-field-error-message').empty()
+    })
+
+    $('#footer__form-agree').on('change', function() {
+      $(agreeCheckbox).removeClass('footer__form-checkbox-error')
+    })
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const sendMailUrl = 'https://api.teslogic.co/mail/custom-subscribe'
