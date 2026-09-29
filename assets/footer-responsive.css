@@ -15,8 +15,11 @@
         font-size: calc(16 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440);
     }
-    .footer__form-fields {
+    .footer__form-fields-wrap {
         column-gap: calc(24 * 100vw / 1440);
+    }
+    .footer__form-fields {
+        row-gap: calc(32 * 100vw / 1440);
     }
     .footer__form-field {
         width: calc(416 * 100vw / 1440);
@@ -33,14 +36,14 @@
         font-size: calc(14 * 100vw / 1440);
         line-height: calc(20 * 100vw / 1440);
     }
-    .footer__form-fields button {
+    .footer__form-fields-wrap button {
         width: calc(195 * 100vw / 1440);
         padding: calc(14 * 100vw / 1440) calc(28 * 100vw / 1440);
         border-radius: calc(28 * 100vw / 1440);
         font-size: calc(18 * 100vw / 1440);
         line-height: calc(24 * 100vw / 1440);
     }
-    .footer__form-fields button:hover {
+    .footer__form-fields-wrap button:hover {
         padding: calc(17 * 100vw / 1440) calc(31 * 100vw / 1440);
     }
     .footer__delimiter {
@@ -141,9 +144,12 @@
     .footer__form-subtitle br {
         display: block;
     }
-    .footer__form-fields {
+    .footer__form-fields-wrap {
         flex-direction: column;
         row-gap: calc(24 * 100vw / 375);
+    }
+    .footer__form-fields {
+        row-gap: calc(32 * 100vw / 375);
     }
     .footer__form-field {
         width: calc(335 * 100vw / 375);
@@ -160,14 +166,14 @@
         font-size: calc(14 * 100vw / 375);
         line-height: calc(20 * 100vw / 375);
     }
-    .footer__form-fields button {
+    .footer__form-fields-wrap button {
         width: calc(335 * 100vw / 375);
         padding: calc(14 * 100vw / 375) calc(28 * 100vw / 375);
         border-radius: calc(26 * 100vw / 375);
         font-size: calc(18 * 100vw / 375);
         line-height: calc(24 * 100vw / 375);
     }
-    .footer__form-fields button:hover {
+    .footer__form-fields-wrap button:hover {
         padding: calc(17 * 100vw / 375) calc(31 * 100vw / 375);
     }
     .footer__delimiter {
