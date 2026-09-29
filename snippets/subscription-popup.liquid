@@ -174,7 +174,7 @@
 
         const emailField = $('.subscription-popup-email').parent('.subscription-popup-field')
         const agreeCheckbox = $('#subscription-popup-agree').parent('.subscription-popup-checkbox')
-        const modelField = $('.subscription-popup-field-select').parent('.subscription-popup-field')
+        const modelField = $('#selection-popup .subscription-popup-field-select').parent('.subscription-popup-field')
 
         let email, agree, selectedModel = null
 
@@ -187,7 +187,7 @@
             $(agreeCheckbox).removeClass('subscription-popup-checkbox-error')
         })
 
-        $('.subscription-popup-field-select').on('click', function() {
+        $('#selection-popup .subscription-popup-field-select').on('click', function() {
             const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
             if ($(dropdown).is(':visible')) {
                 $(dropdown).css('display', 'none')
@@ -196,10 +196,10 @@
             }
         })
 
-        $('.subscription-popup-field-select-dropdown-item').on('click', function() {
+        $('#selection-popup .subscription-popup-field-select-dropdown-item').on('click', function() {
             selectedModel = $(this).data('model')
-            $('.subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
-            $('.subscription-popup-field-select-dropdown-item').each(function() {
+            $('#selection-popup .subscription-popup-field-select-value').text(selectedModel || 'Select your Tesla model and year')
+            $('#selection-popup .subscription-popup-field-select-dropdown-item').each(function() {
                 $(this).removeClass('subscription-popup-field-select-dropdown-item-selected')
             })
             $(this).addClass('subscription-popup-field-select-dropdown-item-selected')
@@ -270,8 +270,8 @@
             closePopup('subscription', 'selection')
         })
 
-        $('.selection-popup-submit').on('click', function () {
-            $('.subscription-popup-field').each(function() {
+        $('#selection-popup .selection-popup-submit').on('click', function () {
+            $('#selection-popup .subscription-popup-field').each(function() {
                 $(this).removeClass('subscription-popup-field-error')
                 $(this).find('.subscription-popup-field-error-message').text('')
             })
@@ -290,7 +290,7 @@
             closePopup('subscription')
         })
 
-        $('.selection-popup-close').on('click', function() {
+        $('#selection-popup .selection-popup-close').on('click', function() {
             subscribe()
         })
 
