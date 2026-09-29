@@ -187,6 +187,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     const emailField = $('.footer__form-email').parent('.footer__form-field')
+    const agreeCheckbox = $('#footer__form-agree').parent('.footer__form-checkbox')
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const sendMailUrl = 'https://api.teslogic.co/mail/custom-subscribe'
@@ -216,6 +217,13 @@
         $(emailField).addClass('footer__form-field-error')
         $(emailField).find('.footer__form-field-error-message').text(errors.emailNotValid)
         return
+      }
+
+      agree = $('#footer__form-agree').prop('checked')
+
+      if (!agree) {
+          $(agreeCheckbox).addClass('footer__form-checkbox-error')
+          return
       }
 
       const response = await fetch(sendMailUrl, {
