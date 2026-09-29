@@ -43,7 +43,7 @@ footer {
 .footer__form-fields-wrap {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 24px;
 }
 
@@ -95,6 +95,38 @@ footer {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
+
+.footer__form-checkbox input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.footer__form-checkbox label {
+    color: #B9B9B9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.footer__form-checkbox-error label {
+    color: #FC3E30;
+}
+
+.footer__form-checkbox label a {
+    color: inherit !important;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 3%;
+    text-underline-offset: 14%;
+    text-underline-position: from-font;
 }
 
 .footer__form-fields-wrap button {
