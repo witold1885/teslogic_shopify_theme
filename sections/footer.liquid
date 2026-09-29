@@ -275,7 +275,7 @@
       document.cookie = `custom_subscription=${value}; ${expires}; path=/`
     }
 
-    function closePopup(current, next = null) {
+    function closeCustomPopup(current, next = null) {
       $(`#custom-${current}-popup`).addClass('is-hiding')
       
       setTimeout(() => {
@@ -331,7 +331,7 @@
       serverError: 'An error occurred try again'
     }
 
-    async function subscribe () {
+    async function customSubscribe () {
       const response = await fetch(sendMailUrl, {
         method: 'post',
         body: JSON.stringify({ name: email, email, tesla_models: selectedModel ? [selectedModel] : [] }),
@@ -343,11 +343,11 @@
       if (response.status == 200) {
         if (data.success) {
           setSubscriptionCookie(1)
-          closePopup('selection', 'success')
+          closeCustomPopup('selection', 'success')
         } else {
           $(emailField).addClass('footer__form-field-error')
           if (data.message == 'email_exists') {
-            closePopup('selection')
+            closeCustomPopup('selection')
             $(emailField).find('.footer__form-field-error-message').text(errors.emailRegistered)
           } else {
             $(emailField).find('.footer__form-field-error-message').text(errors.serverError)
@@ -385,7 +385,7 @@
         return
       }
 
-      closePopup('subscription', 'selection')
+      closeCustomPopup('subscription', 'selection')
     })
 
     $('#custom-selection-popup .selection-popup-submit').on('click', function () {
@@ -400,15 +400,15 @@
         return
       }
 
-      subscribe()
+      customSubscribe()
     })
 
     $('#custom-selection-popup .selection-popup-close').on('click', function() {
-      subscribe()
+      customSubscribe()
     })
 
     $('.success-popup-close').on('click', function() {
-      closePopup('success')
+      closeCustomPopup('success')
     })
   })
 </script>
