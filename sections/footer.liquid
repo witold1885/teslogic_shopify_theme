@@ -304,6 +304,7 @@
 
     $('#custom-selection-popup .subscription-popup-field-select').on('click', function() {
       const dropdown = $(this).find('.subscription-popup-field-select-dropdown')
+      console.log({ dropdown })
       if ($(dropdown).is(':visible')) {
         $(dropdown).css('display', 'none')
       } else {
