@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "installers_react": {
+      "type": "installers_react",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "installers_react"
+  ]
+}
