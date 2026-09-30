@@ -1,0 +1,32 @@
+<div id="react-installers-root"></div>
+
+{% render 'seo-installers' %}
+
+{{ 'react-style-Installers-CFWpxqdf.css' | asset_url | stylesheet_tag }}
+
+{%- capture localization_country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
+{%- capture main_menu -%}
+  {% render 'menu-json', menu_handle: 'main-menu' %}
+{%- endcapture -%}
+
+{%- capture cart -%}
+  {% render 'cart-json' %}
+{%- endcapture -%}
+
+<script>
+  {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  window.ShopifyReactData = {
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
+    content: {
+      country: {{ localization_country }},
+      main_menu: {{ main_menu }},
+      footer_menu: []
+    },
+    cart: {{ cart }}
+  }
+</script>
+
+<script src="{{ 'Installers.js' | asset_url }}" type="module" defer></script>

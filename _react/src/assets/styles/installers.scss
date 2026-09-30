@@ -1,0 +1,213 @@
+@use 'flexbox' as flexbox;
+@use 'fonts' as fonts;
+@use 'layout' as layout;
+@use 'text' as text;
+@use 'mixins' as *;
+
+body {
+    background-color: #FFF;
+}
+
+.installers {
+    background-color: #FFF;
+    color: #000;
+
+    &-banner {
+        @extend %flex, %container, %relative, %overflow-hidden;
+        @include responsive(padding, 150px, 0, 83px);
+
+        &-left {
+            @extend %flex-column, %gap-32;
+            @include responsive(width, 590px);
+        }
+
+        &-info {
+            @extend %flex-column, %gap-40;
+
+            & > div {
+                @extend %flex-column;
+
+                &:first-child {
+                    @extend %gap-12;
+
+                    & p {
+                        @include responsive(max-width, 554px);
+                    }
+                }
+
+                &:last-child {
+                    @extend %gap-8;
+
+                    & p {
+                        @include responsive(max-width, 418px);
+                    }
+                }
+
+                & p {
+                    @extend %font-manrope-20;
+                    opacity: 0.6;
+                }
+            }
+        }
+
+        & button {
+            @extend %flex-center, %text-center, %font-manrope-24, %font-600;
+            @include block(306px, 72px);
+            @include responsive(border-radius, 54px);
+            border: 3px solid #0068FD;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+            color: #0F51FD;
+            backdrop-filter: blur(8px);
+
+            &:hover {
+                border: none;
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                color: #FFF;
+            }
+        }
+
+        &-right {
+            @extend %w-full, %flex-1;
+        }
+
+        &-sketch {
+            @extend %absolute;
+            @include responsive(inset, -22px, 0, -83, auto);
+            @include block(751px, 746px);
+        }
+    }
+
+    &-delimiter {
+        @extend %w-full;
+        @include responsive(height, 1px);
+        background: #D9D9D9;
+    }
+
+    &-list {
+        @extend %flex-column, %gap-40;
+        @include responsive(padding, 80px, 0, 180px);
+
+        &-head {
+            @extend %flex-column, %gap-36;
+        }
+
+        &-tabs {
+            @extend %flex-start-center;
+            @include responsive(gap, 30px);
+
+            &-item {
+                @extend %font-manrope-24, %font-500, %cursor-pointer;
+                @include responsive(padding, 16px);
+                opacity: 0.5;
+
+                &.active {
+                    @extend %font-600;
+                    border-bottom: 2px solid #000;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &-items {
+            @extend %grid, %gap-24;
+            grid-template-columns: repeat(3, 1fr);
+
+            &.empty {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &-item {
+            @include responsive(padding, 32px);
+            @include responsive(border-radius, 32px);
+            border: 1px solid #E0E0E0;
+            background: #FFF;
+
+            &-block {
+
+                &:nth-child(1) {
+                    @extend %flex-between-center;
+                    @include responsive(height, 84px);
+                    @include responsive(padding-bottom, 20px);
+                    border-bottom: 1px solid #D9D9D9;
+                }
+
+                &:nth-child(2) {
+                    @extend %flex-column;
+                    @include responsive(gap, 20px);
+                    @include responsive(height, 148px);
+                    @include responsive(padding, 20px, 0, 24px);
+                }
+
+                &:nth-child(3) {
+                    @extend %flex-column;
+                    @include responsive(gap, 20px);
+                    @include responsive(padding-top, 20px);
+                    border-top: 1px solid #D9D9D9;
+                }
+
+                &-label {
+                    @extend %font-manrope-16, %font-500;
+                    opacity: 0.5;
+                    text-transform: capitalize;
+                }
+            }
+
+            &-contacts {
+                @extend %flex-column, %gap-16;
+
+                & > div {
+                    @extend %flex-start-center, %gap-12;
+
+                    & img {
+                        @include square(24px);
+                    }
+
+                    & a {
+                        @extend %font-manrope-18;
+                        color: #1657FC;
+                    }
+                }
+            }
+
+            &-address {
+                @extend %flex-column, %gap-12;
+
+                & > div:last-child {
+                    @extend %font-manrope-18;
+                }
+            }
+
+            &-map {
+                @extend %w-full, %overflow-hidden;
+                @include responsive(border-radius, 12px);
+                border: 1px solid rgba(0, 0, 0, 0.05);
+
+                & iframe {
+                    @include block(352px, 152px);
+                }
+            }
+
+            .empty & {
+                @extend %flex-center, %font-manrope-24;
+            }
+        }
+
+    }
+
+    & h1, h2, h3 {
+        @extend %font-600;
+    }
+
+    & h1 {
+        @extend %font-manrope-52;
+    }
+
+    & h2 {
+        @extend %font-manrope-32;
+    }
+
+    & h3 {
+        @extend %font-manrope-24;
+    }
+}

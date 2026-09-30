@@ -28,6 +28,7 @@ const pagesMap: Record<string, string[]> = {
 interface HeaderProps {
     className?: string
     menu: MenuItem[]
+    orderButton: boolean
     onOrder?: () => void
 }
 
@@ -40,6 +41,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
     className = '',
     menu,
     mode,
+    orderButton,
     onMobileMenuClose
 }) => {
     const { cartItemCount } = useAppSelector(state => state.products)
@@ -135,11 +137,13 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
                     )
                 })}
             </div>
-            {(cartItemCount === 0 || mode === 'mobile') ? (
-                <a className="header-menu-button" href="/#order-now" onClick={onMobileMenuClose}>
-                    <span>ORDER NOW</span>
-                </a>
-            ) : (
+            {(cartItemCount === 0 || mode === 'mobile') ? (<>
+                {orderButton && (
+                    <a className="header-menu-button" href="/#order-now" onClick={onMobileMenuClose}>
+                        <span>ORDER NOW</span>
+                    </a>
+                )}
+            </>) : (
                 <a className="header-menu-cart" href="/cart" target="_blank">
                     <div>
                         <Icon icon={cartIcon} />
@@ -223,6 +227,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
 })
 
 interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
+    theme: 'dark' | 'light'
     position: 'absolute' | 'sticky'
     isMobile: boolean
     onMobileMenuOpen: () => void
@@ -230,6 +235,8 @@ interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
 }
 
 const HeaderComponent: React.FC<HeaderComponentProps> = ({
+    theme = 'dark',
+    orderButton = true,
     position,
     className,
     menu,
@@ -257,11 +264,11 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
             className={`header ${className}`}
         >
             <a href="/">
-                <Image className="header-logo" src={logo} alt="Screenmate" />
+                <Image className="header-logo" src={theme === 'dark' ? logo : logoBlack} alt="Screenmate" />
             </a>
             <div className="header-nav">
                 {!isMobile && (
-                    <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, onOrder}} />
+                    <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, orderButton, onOrder}} />
                 )}
                 <HeaderCountrySelector
                     ref={countriesDropdownRef}
@@ -284,6 +291,7 @@ interface HeaderMobileProps extends HeaderProps {
 const HeaderMobile: React.FC<HeaderMobileProps> = ({
     className = '',
     menu,
+    orderButton,
     onOrder,
     onMobileMenuClose
 }) => (
@@ -295,12 +303,12 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
         <HeaderMenu
             className="header-menu-mobile"
             mode="mobile"
-            {...{menu, onOrder}}
+            {...{menu, orderButton, onOrder}}
         />
     </div>
 )
 
-const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
+const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({ theme = 'dark', orderButton = true, onOrder }) => {
     const dispatch = useAppDispatch()
     const { isMobile } = useInlineStyles()
     const scrollOffset = useScroll()
@@ -358,9 +366,10 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         dispatch(setCountry(country))
     }, [dispatch, setSelectedCountry, setCountriesDropdownOpen])
 
-    const headerParams = useMemo(() => ({ menu: menu as MenuItem[], onOrder }), [menu, onOrder])
+    const headerParams = useMemo(() => ({ menu: menu as MenuItem[], orderButton, onOrder }), [menu, orderButton, onOrder])
 
     const headerComponentParams = useMemo(() => ({
+        theme,
         ...headerParams,
         isMobile,
         onMobileMenuOpen: () => setOpenMobileMenu(true),
@@ -371,6 +380,7 @@ const Header: React.FC<{ onOrder?: () => void }> = ({ onOrder }) => {
         selectedCountry,
         onCountrySelect
     }), [
+        theme,
         headerParams,
         isMobile,
         setOpenMobileMenu,
