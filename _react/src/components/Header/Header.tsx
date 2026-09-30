@@ -23,6 +23,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 const pagesMap: Record<string, string[]> = {
     'Screenmate ONE': ['/', '/screenmate', '/pages/screenmate', '/pages/screenmate-one-react'],
+    'Installers': ['/installers', '/pages/installers'],
 }
 
 interface HeaderProps {
@@ -47,7 +48,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
     const { cartItemCount } = useAppSelector(state => state.products)
 
     const activeMenuIndex = typeof window !== 'undefined' ? useMemo(() => menu.findIndex(
-        ({ title }) => pagesMap[title as string].includes(window.location.pathname)
+        ({ title }) => pagesMap[title as string]?.includes(window.location.pathname)
     ), [window.location.pathname]) : 0
 
     const [prevMenuIndex, setPrevMenuIndex] = useState<number | null>(null)
