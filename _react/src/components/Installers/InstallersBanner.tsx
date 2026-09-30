@@ -14,7 +14,7 @@ const InstallersBanner: React.FC = () => (
                     <p>We're expanding our installer network. <br />Join Screenmate™ as an installation partner.</p>
                 </div>
             </div>
-            <button>Become a Partner</button>
+            <a href="/pages/partner">Become a Partner</a>
         </div>
         <div className="installers-banner-right">
             <div className="installers-banner-sketch">

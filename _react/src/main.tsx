@@ -1,5 +1,5 @@
 // @ts-ignore
-__webpack_public_path__ = window.ShopifyReactData?.publicPath || ''
+// __webpack_public_path__ = window.ShopifyReactData?.publicPath || ''
 // @ts-ignore
 export const __vite_public_path__ = window.ShopifyReactData?.publicPath || ''
 

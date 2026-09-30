@@ -50,19 +50,20 @@ body {
             }
         }
 
-        & button {
+        & a {
             @extend %flex-center, %text-center, %font-manrope-24, %font-600;
             @include block(306px, 72px);
             @include responsive(border-radius, 54px);
             border: 3px solid #0068FD;
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
-            color: #0F51FD;
+            color: #0F51FD !important;
             backdrop-filter: blur(8px);
+            text-decoration: none;
 
             &:hover {
                 border: none;
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
-                color: #FFF;
+                color: #FFF !important;
             }
         }
 

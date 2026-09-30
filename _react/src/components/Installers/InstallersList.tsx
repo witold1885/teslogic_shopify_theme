@@ -1,5 +1,5 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
-import tom from '../../assets/images/installers/tom.png'
+// import tom from '../../assets/images/installers/tom.png'
 import eas from '../../assets/images/installers/eas.png'
 import phoneIcon from '../../assets/icons/installers/phone.svg'
 import earthIcon from '../../assets/icons/installers/earth.svg'
@@ -15,15 +15,15 @@ interface Installer {
 }
 
 const installers: Installer[] = [
-    {
-        name: 'Tom\'s Automotive Service Center',
-        logo: tom,
-        phone: '+1 562 424 04 04',
-        website: 'tomstire.com',
-        address: <>4401 E Anaheim St, <br />Long Beach, CA 90804, USA</>,
-        coordinates: [33.7829121,-118.1412878],
-        tab: 'usa'
-    },
+    // {
+    //     name: 'Tom\'s Automotive Service Center',
+    //     logo: tom,
+    //     phone: '+1 562 424 04 04',
+    //     website: 'tomstire.com',
+    //     address: <>4401 E Anaheim St, <br />Long Beach, CA 90804, USA</>,
+    //     coordinates: [33.7829121,-118.1412878],
+    //     tab: 'usa'
+    // },
     {
         name: 'European Auto Source',
         logo: eas,
