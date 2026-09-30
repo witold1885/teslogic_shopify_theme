@@ -1,0 +1,140 @@
+@use 'flexbox' as flexbox;
+@use 'fonts' as fonts;
+@use 'layout' as layout;
+@use 'text' as text;
+@use 'mixins' as *;
+
+body {
+    background-color: #FFF;
+}
+
+.partner {
+    @include responsive(padding, 180px, 0, 150px);
+    background-color: #FFF;
+    color: #000;
+
+    &-wrap {
+        @extend %flex-column, %gap-40;
+        @include responsive(width, 856px);
+        margin: 0 auto;
+
+        @include mobile() {
+            @include responsive(width, 350px);
+        }
+    }
+
+    &-head {
+        @extend %flex-column, %gap-16;
+
+        & p {
+            @extend %font-manrope-24, %font-500;
+            color: #666;
+        }
+    }
+
+    &-content {
+        @extend %flex-column, %gap-40;
+        @include responsive(padding, 32px);
+        @include responsive(border-radius, 24px);
+        background: #F6F6F6;
+
+        @include mobile() {
+            @include responsive(padding, 20px);
+        }
+
+        &-list {
+            @extend %flex-column, %gap-20;
+
+            &-body, & ul, & ol {
+                @extend %flex-column, %gap-16;
+            }
+
+            & ul, & ol {
+                @include responsive(margin, 0, 0, 0, 18px);
+                padding: 0;
+                list-style-position: outside;
+            }
+        }
+
+        &-delimiter {
+            @extend %w-full;
+            @include responsive(height, 2px);
+            @include responsive(border-radius, 2px);
+            background: #D9D9D9;
+        }
+
+        &-form {
+            @extend %flex, %mob\:flex-column, %gap-20;
+
+            &-caption {
+                @extend %flex-column, %gap-20, %w-full, %flex-1;
+            }
+
+            &-fields {
+                @extend %flex-column, %gap-28;
+                @include responsive(width, 386px);
+
+                @include mobile() {
+                    @include responsive(width, 310px);
+                }
+            }
+
+            &-field {
+                @extend %flex-column, %gap-8;
+
+                & label {
+                    @extend %font-500;
+                }
+
+                & input {
+                    @include responsive(padding, 16px);
+                    @include responsive(border-radius, 6px);
+                    border: 1px solid #D9D9D9;
+                    background: #FFF;
+                    color: #000;
+
+                    &.error {
+                        border: 1px solid #FC3E30;
+                    }
+                }
+            }
+
+            & button {
+                @include responsive(padding, 14px, 28px);
+                @include responsive(border-radius, 26px);
+                background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+                @extend %font-manrope-18, %font-600, %text-center, %text-white;
+                text-transform: capitalize;
+
+                &:hover {
+                    background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+                }
+            }
+        }
+    }
+
+    & h1, h2, h3 {
+        @extend %font-600;
+    }
+
+    & h1 {
+        @extend %font-manrope-52;
+    }
+
+    & h2 {
+        @extend %font-manrope-32;
+    }
+
+    & h3 {
+        @extend %font-manrope-24;
+    }
+
+    & li, & p, & label {
+        @extend %font-manrope-16;
+        color: #404040;
+
+        & b {
+            @extend %font-600;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import ScreenmateOne from './pages/ScreenmateOne'
 import ScreenmateDash from './pages/ScreenmateDash'
 import Powermate from './pages/Powermate'
 import Installers from './pages/Installers'
+import Partner from './pages/Partner'
 
 const routesMap: Record<string, React.FC> = {
   '/screenmate': ScreenmateOne,
@@ -10,6 +11,7 @@ const routesMap: Record<string, React.FC> = {
   '/pro': Powermate,
 
   '/installers': Installers,
+  '/partner': Partner,
 }
 
 function App() {
