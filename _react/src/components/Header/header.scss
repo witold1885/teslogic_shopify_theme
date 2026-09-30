@@ -52,6 +52,10 @@
 
         &-desktop {
             @extend %flex-end-start, %gap-16, %text-white;
+
+            .absolute.light & {
+                @extend %text-black;
+            }
         }
 
         &-mobile {

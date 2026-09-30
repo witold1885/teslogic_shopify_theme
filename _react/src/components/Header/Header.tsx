@@ -262,10 +262,14 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
     return (
         <header
             {...anime(headerKey, mode)}
-            className={`header ${className}`}
+            className={`header ${className} ${theme}`}
         >
             <a href="/">
-                <Image className="header-logo" src={theme === 'dark' ? logo : logoBlack} alt="Screenmate" />
+                <Image
+                    className="header-logo"
+                    src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
+                    alt="Screenmate"
+                />
             </a>
             <div className="header-nav">
                 {!isMobile && (
