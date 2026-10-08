@@ -13,6 +13,10 @@ body {
     background-color: #FFF;
     color: #000;
 
+    @include mobile() {
+        @include responsive(padding, 76px, 0, 90px);
+    }
+
     &-wrap {
         @extend %flex-column, %gap-40;
         @include responsive(width, 856px);
@@ -24,26 +28,42 @@ body {
     }
 
     &-head {
-        @extend %flex-column, %gap-16;
+        @extend %flex-column, %gap-16, %mob\:gap-12;
+
+        @include mobile() {
+            & > * {
+                @include responsive(width, 335px);
+            }
+        }
 
         & p {
-            @extend %font-manrope-24, %font-500;
+            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
             color: #666;
+
+            @include mobile() {
+                color: #000;
+                opacity: 0.6;
+
+                & br {
+                    display: none;
+                }
+            }
         }
     }
 
     &-content {
-        @extend %flex-column, %gap-40;
+        @extend %flex-column, %gap-40, %mob\:gap-24;
         @include responsive(padding, 32px);
         @include responsive(border-radius, 24px);
         background: #F6F6F6;
 
         @include mobile() {
-            @include responsive(padding, 20px);
+            @include responsive(padding, 16px);
+            @include responsive(border-radius, 16px);
         }
 
         &-list {
-            @extend %flex-column, %gap-20;
+            @extend %flex-column, %gap-20, %mob\:gap-16;
 
             &-body, & ul, & ol {
                 @extend %flex-column, %gap-16;
@@ -64,10 +84,10 @@ body {
         }
 
         &-form {
-            @extend %flex, %mob\:flex-column, %gap-20;
+            @extend %flex, %mob\:flex-column, %gap-20, %mob\:gap-24;
 
             &-caption {
-                @extend %flex-column, %gap-20, %w-full, %flex-1;
+                @extend %flex-column, %gap-20, %mob\:gap-16, %w-full, %flex-1;
             }
 
             &-fields {
@@ -87,6 +107,7 @@ body {
                 }
 
                 & input {
+                    @extend %font-manrope-16;
                     @include responsive(padding, 16px);
                     @include responsive(border-radius, 6px);
                     border: 1px solid #D9D9D9;
@@ -118,15 +139,15 @@ body {
     }
 
     & h1 {
-        @extend %font-manrope-52;
+        @extend %font-manrope-52, %mob\:font-manrope-32;
     }
 
     & h2 {
-        @extend %font-manrope-32;
+        @extend %font-manrope-32, %mob\:font-manrope-24;
     }
 
     & h3 {
-        @extend %font-manrope-24;
+        @extend %font-manrope-24, %mob\:font-manrope-20;
     }
 
     & li, & p, & label {
