@@ -78,7 +78,7 @@ const InstallersList: React.FC = () => {
     return (
         <div className="installers-list container">
             <div className="installers-list-head">
-                <h2 {...anime('title')}>Screenmate™ Certified Installers List</h2>
+                <h2 {...anime('title')}>Screenmate™ Certified Installers</h2>
                 <div {...anime('tabs')} className="installers-list-tabs">
                     {tabs.map(({ text }, index) => (
                         <div 
@@ -119,8 +119,9 @@ const InstallersList: React.FC = () => {
                                             style={{ border: 0 }}
                                             loading="lazy"
                                             allowFullScreen
-                                            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&q=${coordinates.join(',')}&zoom=15`}>
-                                        </iframe>
+                                            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&q=${coordinates.join(',')}&zoom=15`}
+                                            title="Location of Screenmate certified installer"
+                                        />
                                     </div>
                                 )}
                             </div>

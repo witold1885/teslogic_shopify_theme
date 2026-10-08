@@ -23,11 +23,11 @@ const InstallersBanner: React.FC = () => {
             <div className="installers-banner-left">
                 <div className="installers-banner-info">
                     <div>
-                        <h1 {...anime('h1')}>Find a Certified Installer</h1>
+                        <h1 {...anime('h1')}>Find a Certified Tesla Installer</h1>
                         <p {...anime('p1')}>Screenmate™ devices are designed for straightforward installation, but if you prefer professional help, you can contact one of our trusted installation partners.</p>
                     </div>
                     <div>
-                        <h2 {...anime('h2')}>Become a Partner</h2>
+                        <h2 {...anime('h2')}>Become a Screenmate Partner</h2>
                         <p {...anime('p2')}>We're expanding our installer network. <br />Join Screenmate™ as an installation partner.</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const InstallersBanner: React.FC = () => {
             </div>
             <div className="installers-banner-right">
                 <div className="installers-banner-sketch">
-                    <img className="object-cover" src={sketch} alt="" />
+                    <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" />
                 </div>
             </div>
         </div>
