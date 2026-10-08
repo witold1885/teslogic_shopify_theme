@@ -23,7 +23,7 @@ const InstallersBanner: React.FC = () => {
             <div className="installers-banner-left">
                 <div className="installers-banner-info">
                     <div>
-                        <h1 {...anime('h1')}>Find a Certified Tesla Installer</h1>
+                        <h1 {...anime('h1')}>Find a Certified <br/>Tesla Installer</h1>
                         <p {...anime('p1')}>Screenmate™ devices are designed for straightforward installation, but if you prefer professional help, you can contact one of our trusted installation partners.</p>
                     </div>
                     <div>
