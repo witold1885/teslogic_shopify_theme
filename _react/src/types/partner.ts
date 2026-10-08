@@ -1,6 +1,6 @@
 export type PartnerPayload = {
     name: string
     location: string
-    phone: string
-    website: string
+    primary_contact: string
+    secondary_contact: string
 }
