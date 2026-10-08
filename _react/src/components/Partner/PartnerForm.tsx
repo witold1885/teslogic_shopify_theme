@@ -1,4 +1,6 @@
 import { forwardRef, useState, useMemo } from 'react'
+import { useAppDispatch } from '../../redux/hooks'
+import { partnerRequest } from '../../redux/slices/partner'
 import * as yup from 'yup'
 import type { PartnerPayload } from '../../types/partner'
 import { Button } from '../Common'
@@ -20,6 +22,8 @@ const partnerSchema = yup.object<Record<keyof PartnerPayload, typeof yup>>({
 }).required()
 
 const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => {
+    const dispatch = useAppDispatch()
+
     const [data, setData] = useState<PartnerPayload>({
         name: '',
         location: '',
@@ -68,7 +72,7 @@ const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => {
     const handleSubmit = async () => {
         const formValid = await validateForm(data)
         if (formValid) {
-            console.log({ data })
+            dispatch(partnerRequest(data))
         }
     }
 

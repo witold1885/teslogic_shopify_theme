@@ -4,3 +4,8 @@ export type PartnerPayload = {
     primary_contact: string
     secondary_contact: string
 }
+
+export interface PartnerResponse {
+    success: boolean
+    message?: string
+}
