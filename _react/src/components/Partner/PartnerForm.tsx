@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import { forwardRef, useState, useMemo } from 'react'
 import * as yup from 'yup'
 import type { PartnerPayload } from '../../types/partner'
 import { Button } from '../Common'
@@ -19,7 +19,7 @@ const partnerSchema = yup.object<Record<keyof PartnerPayload, typeof yup>>({
     secondary_contact: yup.string()
 }).required()
 
-const PartnerForm: React.FC = () => {
+const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => {
     const [data, setData] = useState<PartnerPayload>({
         name: '',
         location: '',
@@ -73,7 +73,7 @@ const PartnerForm: React.FC = () => {
     }
 
     return (
-        <div className="partner-content-form">
+        <div ref={ref} className="partner-content-form">
             <div className="partner-content-form-caption">
                 <h2>Ready to elevate <br />your shop?</h2>
                 <p>
@@ -97,6 +97,6 @@ const PartnerForm: React.FC = () => {
             </div>
         </div>
     )
-}
+})
 
 export default PartnerForm

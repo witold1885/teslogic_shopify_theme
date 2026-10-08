@@ -3,6 +3,13 @@ import React, { useMemo, useState, type ReactNode } from 'react'
 import eas from '../../assets/images/installers/eas.png'
 import phoneIcon from '../../assets/icons/installers/phone.svg'
 import earthIcon from '../../assets/icons/installers/earth.svg'
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '20px', duration: 333 },
+    tabs: { yFrom: '20px', duration: 333 },
+    grid: { yFrom: '20px', duration: 333 },
+}
 
 interface Installer {
     name: string
@@ -61,11 +68,18 @@ const InstallersList: React.FC = () => {
         }
     }, [activeTabIndex])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+
+    const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({
+        ...acc,
+        [key]: { ...config, delay: (config.duration || 0) * index }
+    }), {}))
+
     return (
         <div className="installers-list container">
             <div className="installers-list-head">
-                <h2>Screenmate™ Certified Installers List</h2>
-                <div className="installers-list-tabs">
+                <h2 {...anime('title')}>Screenmate™ Certified Installers List</h2>
+                <div {...anime('tabs')} className="installers-list-tabs">
                     {tabs.map(({ text }, index) => (
                         <div 
                             key={index}
@@ -77,7 +91,7 @@ const InstallersList: React.FC = () => {
                     ))}
                 </div>
             </div>  
-            <div className={`installers-list-items ${items.length === 0 ? 'empty' : ''}`}>
+            <div {...anime('grid')} className={`installers-list-items ${items.length === 0 ? 'empty' : ''}`}>
                 {items.length !== 0 ? (<>
                     {items.map(({ name, logo, phone, website, address, coordinates }, index) => (
                         <div className="installers-list-item" key={index}>
