@@ -84,47 +84,21 @@ body {
         }
 
         &-form {
-            @extend %flex, %mob\:flex-column, %gap-20, %mob\:gap-24;
+            @extend %flex-column, %gap-20, %mob\:gap-16;
+
+            & > * {
+                @extend %w-full;
+            }
 
             &-caption {
-                @extend %flex-column, %gap-20, %mob\:gap-16, %w-full, %flex-1;
-            }
-
-            &-fields {
-                @extend %flex-column, %gap-28;
-                @include responsive(width, 386px);
-
-                @include mobile() {
-                    @include responsive(width, 310px);
-                }
-            }
-
-            &-field {
-                @extend %flex-column, %gap-8;
-
-                & label {
-                    @extend %font-500;
-                }
-
-                & input {
-                    @extend %font-manrope-16;
-                    @include responsive(padding, 16px);
-                    @include responsive(border-radius, 6px);
-                    border: 1px solid #D9D9D9;
-                    background: #FFF;
-                    color: #000;
-
-                    &.error {
-                        border: 1px solid #FC3E30;
-                    }
-                }
+                @extend %flex-column, %gap-20, %mob\:gap-16;
             }
 
             &-submit {
                 @extend %flex-column-center, %gap-8;
             }
 
-            & button {
+            & a {
                 @extend %w-full;
                 @include responsive(padding, 14px, 28px);
                 @include responsive(border-radius, 26px);
