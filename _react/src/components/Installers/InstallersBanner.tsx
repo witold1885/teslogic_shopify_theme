@@ -31,7 +31,7 @@ const InstallersBanner: React.FC = () => {
                         <p {...anime('p2')}>We're expanding our installer network. <br />Join Screenmate™ as an installation partner.</p>
                     </div>
                 </div>
-                <a {...anime('button')} href="/pages/partner">Become a Partner</a>
+                <a {...anime('button')} href="/pages/partners">Become a Partner</a>
             </div>
             <div className="installers-banner-right">
                 <div className="installers-banner-sketch">
