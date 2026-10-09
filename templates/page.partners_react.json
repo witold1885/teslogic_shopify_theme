@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "partners_react": {
+      "type": "partners_react",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "partners_react"
+  ]
+}

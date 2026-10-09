@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import '../assets/styles/partner.scss'
+import '../assets/styles/partners.scss'
 import { mountForShopify } from './mount'
 import InfoLayout from '../layouts/InfoLayout'
 import PartnerSections from '../components/Partner/PartnerSections'
@@ -12,19 +12,22 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     form: { yFrom: '20px', duration: 333 },
 }
 
-const Partner: React.FC = () => {
+const Partners: React.FC = () => {
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
     
     const { anime } = useAnime(animationConfigs)
 
     return (
-        <InfoLayout className="partner">
-            <div className="partner-wrap">
-                <div className="partner-head">
-                    <h1 {...anime('title')}>Become an Authorized <br />Screenmate Partner</h1>
-                    <p {...anime('subtitle')}>Expand your business by joining the elite network <br />of installers transforming the Tesla driving experience.</p>
+        <InfoLayout className="partners">
+            <div className="partners-wrap">
+                <div className="partners-head">
+                    <h1 {...anime('title')}>Become a Screenmate Partner</h1>
+                    <p {...anime('subtitle')}>
+                        Grow your business by offering Screenmate products to Tesla owners.<br />
+                        Join our network of installers, retailers, and distributors.
+                    </p>
                 </div>
-                <div className="partner-content">
+                <div className="partners-content">
                     <PartnerSections />
                     <PartnerForm {...anime('form')} />
                 </div>
@@ -33,6 +36,6 @@ const Partner: React.FC = () => {
     )
 }
 
-mountForShopify('react-partner-root', Partner)
+mountForShopify('react-partners-root', Partners)
 
-export default Partner
+export default Partners

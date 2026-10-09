@@ -77,18 +77,18 @@ const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => {
     }
 
     return (
-        <div ref={ref} className="partner-content-form">
-            <div className="partner-content-form-caption">
-                <h2>Ready to elevate <br />your shop?</h2>
+        <div ref={ref} className="partners-content-form">
+            <div className="partners-content-form-caption">
+                <h2>Let’s Work Together</h2>
                 <p>
-                    Submit your application today, <br />
-                    and our partnership manager <br />
-                    will contact you within 2 business days.
+                    Tell us a little about your business, <br />
+                    and we'll get back to you with more <br />
+                    information about our partnership options.
                 </p>
             </div>
-            <div className="partner-content-form-fields">
+            <div className="partners-content-form-fields">
                 {fields.map(({ key, label, type, placeholder, value, error }) => (
-                    <div key={key} className="partner-content-form-field">
+                    <div key={key} className="partners-content-form-field">
                         <label>{label}</label>
                         <input
                             className={`input ${error ? 'error' : ''}`}
@@ -97,7 +97,10 @@ const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => {
                         />
                     </div>
                 ))}
-                <Button onClick={handleSubmit}>APPLY NOW</Button>
+                <div className="partners-content-form-submit">
+                    <Button onClick={handleSubmit}>Apply to Become a Partner</Button>
+                    <span className="partners-content-form-note">No purchase commitment when you apply.</span>
+                </div>
             </div>
         </div>
     )

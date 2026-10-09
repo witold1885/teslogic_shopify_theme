@@ -8,7 +8,7 @@ body {
     background-color: #FFF;
 }
 
-.partner {
+.partners {
     @include responsive(padding, 180px, 0, 150px);
     background-color: #FFF;
     color: #000;
@@ -120,7 +120,12 @@ body {
                 }
             }
 
+            &-submit {
+                @extend %flex-column-center, %gap-8;
+            }
+
             & button {
+                @extend %w-full;
                 @include responsive(padding, 14px, 28px);
                 @include responsive(border-radius, 26px);
                 background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
@@ -130,6 +135,10 @@ body {
                 &:hover {
                     background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
                 }
+            }
+
+            &-note {
+                @extend %font-manrope-14, %text-grey;
             }
         }
     }

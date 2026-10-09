@@ -1,0 +1,92 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.banner {
+    &-desktop {
+        @extend %w-full, %h-full, %flex-column-center-end, %relative;
+        margin: 0 auto;
+
+        &-wrap {
+            @extend %w-full;
+            height: 100vh;
+            height: 100dvh;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        & .suptitle, & .title, & .subtitle {
+            @extend %text-white;
+        }
+        
+        & .suptitle {
+            @extend %font-manrope-24, %font-500;
+            opacity: 0.6;
+            @include responsive(top, 295px);
+        }
+        
+        & .title {
+            @extend %font-manrope, %font-600;
+            @include text(64px, 72px);
+            @include responsive(top, 329px);
+        }
+        
+        & .subtitle {
+            @extend %font-manrope-24, %font-500;
+            @include responsive(top, 413px);
+        }
+
+        & .expand {
+            @extend %flex-center, %cursor-pointer;
+            @include square(64px);
+            @include responsive(margin-bottom, 26px);
+        }
+    }
+
+    &-desktop .suptitle,  &-desktop .title,  &-desktop .subtitle, &-buttons {
+        @extend %absolute;
+        @include responsive(left, 72px);
+    }
+
+    &-buttons {
+        @extend %flex-start-center, %gap-40, %font-manrope-24, %font-500;
+        @include responsive(top, 505px);
+
+        & > * {
+            @extend %text-white, %cursor-pointer;
+            text-decoration: none;
+
+            &:hover {
+                @extend %text-white;
+            }
+        }
+    }
+
+    &-button {
+
+        &-buy {
+            @extend %flex-center;
+            @include responsive(width, 175px);
+            @include responsive(height, 72px);
+            @include responsive(border-radius, 54px);
+            border: 3px solid #0068FD;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+
+            &:hover {
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                border: none;
+            }
+        }
+
+        &-learn {
+
+            &:hover {
+                color: #BFBFBD
+            }
+        }
+    }
+}

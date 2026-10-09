@@ -19,6 +19,7 @@ $flexSpecs: (
     "flex-column-end":           (display: flex, flex-direction: column, align-items: flex-end),
     "flex-column-reverse":       (display: flex, flex-direction: column-reverse, align-items: flex-start),
     "flex-center":               (display: flex, justify-content: center, align-items: center),
+    "flex-center-start":         (display: flex, justify-content: center, align-items: flex-start),
     "flex-start":                (display: flex, justify-content: flex-start, align-items: flex-start),
     "flex-start-center":         (display: flex, justify-content: flex-start, align-items: center),
     "flex-start-end":            (display: flex, justify-content: flex-start, align-items: flex-end),

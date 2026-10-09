@@ -1,0 +1,194 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+#using {
+	padding-bottom: 150px;
+}
+
+.using {
+	@extend %flex-column, %container, %relative;
+	@include responsive(margin, 0, auto, 180px);
+
+	&__title {
+		@extend %font-manrope-52, %font-500;
+		@include responsive(height, 64px);
+	}
+	&__subtitle {
+		@extend %flex-start-center, %gap-8, %font-manrope-24;
+		@include responsive(margin-top, 8px);
+		color: #4D4D4D;
+
+		& a {
+			@extend %flex-start-center, %gap-6;
+			color: #1657FC;
+
+			&:hover {
+				color: #0345ED;
+			}
+		}
+	}
+
+	&__video {
+		@include block(1206px, 670.888px);
+		@include responsive(border-radius, 11.0448px);
+		overflow: hidden;
+
+		@include mobile() {
+			@include block(353, 194);
+		}
+		
+		& iframe {
+			@extend %w-full, %h-full;
+		}
+
+		&-popup-close {
+			@extend %absolute, %cursor-pointer;
+			@include square(20px);
+			@include responsive(top, 20px);
+			@include responsive(right, 20px);
+		}
+	}
+
+	&__content {
+		@extend %w-full, %flex-center-start, %gap-24;
+		@include responsive(margin-top, 34px);
+	}
+	&__row {
+		@include responsive(width, 306px);
+		margin: 0;
+
+		&-block {
+			@extend %relative;
+			@include responsive(height, 220px);
+			@include responsive(border-radius, 24px);
+			background: #F6F6F6;
+		}
+
+		&-legend {
+
+			&-number {
+				@extend %flex-center, %absolute, %font-manrope, %font-700, %text-center;
+				@include square(32px);
+				@include responsive(top, 20px);
+				@include responsive(left, 20px);
+				@include text(20px, 20px);
+				background: #FFFFFF;
+				border-radius: 100%;
+				color: #336BF9;
+			}
+
+			&-text {
+				@extend %font-manrope-18;
+				@include responsive(margin-top, 12px);
+				color: #4D4D4D;
+			}
+		}
+
+		&-image {
+			@extend %absolute;
+
+			&-1 {
+				@include block(136px, 173px);
+				@include responsive(top, 32px);
+				@include responsive(left, 85px);
+			}
+			&-2 {
+				@include block(275.306px, 141.007px);
+				@include responsive(top, 39.11px);
+				@include responsive(left, 15.99px);
+			}
+			&-3 {
+				@include block(150.999px, 201px);
+				@include responsive(top, 19px);
+				@include responsive(left, 109px);
+			}
+			&-4 {
+				@include block(256px, 160.001px);
+				@include responsive(top, 30px);
+				@include responsive(left, 25px);
+			}
+		}
+	}
+}
+// .using__row-image-mobile {
+// 	display: none;
+// }
+// .using__row-image-desktop {
+// 	position: absolute;
+// 	display: block;
+// }
+
+// @media screen and (max-width: 575px) {
+// 	#using {
+// 		padding-bottom: calc(96 * 100vw / 375);
+// 	}
+// 	.using {
+// 		width: calc(335 * 100vw / 375);
+// 		margin: 0 auto calc(96 * 100vw / 375);
+// 	}
+// 	.using__title {
+// 		height: auto;
+// 		font-size: calc(32 * 100vw / 375);
+// 		line-height: calc(40 * 100vw / 375); 
+// 	}
+// 	.using__subtitle {
+// 		font-size: calc(18 * 100vw / 375);
+// 		line-height: calc(24 * 100vw / 375);
+// 		flex-direction: column;
+// 		align-items: flex-start;
+// 		grid-row-gap: calc(8 * 100vw / 375);
+// 	}
+// 	.using__subtitle a {
+// 		grid-column-gap: calc(4 * 100vw / 375);
+// 	}
+// 	.using__content {
+// 		width: 100%;
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: flex-start;
+// 		grid-row-gap: calc(40 * 100vw / 375);
+// 	}
+// 	.using__row {
+// 		width: 100%;
+// 	}
+// 	.using__row-block {
+// 		height: calc(240 * 100vw / 375);
+// 	}
+// 	.using__row-legend-text {
+// 		text-align: center;
+// 	}	
+// 	.using__row-image-desktop {
+// 		display: none;
+// 	}
+// 	.using__row-image-mobile {
+// 		position: absolute;
+// 		display: block;
+// 	}
+// 	.using__row-image-mobile-1 {
+// 		width: calc(136 * 100vw / 375);
+// 		height: calc(173 * 100vw / 375); 
+// 		top: calc(42 * 100vw / 375);
+// 		left: calc(100 * 100vw / 375);
+// 	}
+// 	.using__row-image-mobile-2 {
+// 		width: calc(275.306 * 100vw / 375);
+// 		height: calc(141.007 * 100vw / 375);
+// 		top: calc(49.11 * 100vw / 375);
+// 		left: calc(29.99 * 100vw / 375);
+// 	}
+// 	.using__row-image-mobile-3 {
+// 		width: calc(150.999 * 100vw / 375);
+// 		height: calc(201 * 100vw / 375);
+// 		top: calc(24 * 100vw / 375);
+// 		left: calc(109 * 100vw / 375);
+// 	}
+// 	.using__row-image-mobile-4 {
+// 		width: calc(256 * 100vw / 375);
+// 		height: calc(160.001 * 100vw / 375);
+// 		top: calc(40 * 100vw / 375);
+// 		left: calc(40 * 100vw / 375);
+// 	}
+// }

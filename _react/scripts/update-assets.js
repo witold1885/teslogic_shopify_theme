@@ -9,7 +9,7 @@ const files = fs.readdirSync(assetsDir)
 const cssMap = {
     ScreenmateOne: 'screenmate_one_react',
     Installers: 'installers_react',
-    Partner: 'partner_react',
+    Partners: 'partners_react',
 }
 
 for (const [pageName, liquidFileName] of Object.entries(cssMap)) {
