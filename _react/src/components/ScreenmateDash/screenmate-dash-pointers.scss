@@ -1,0 +1,275 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.pointer {
+	position: absolute;
+    @extend %absolute;
+
+    &-wrap {
+        @extend %w-full, %h-full, %relative;
+    }
+
+    &-top {
+        @include responsive(top, 80px);
+
+        @include mobile() {
+            @include responsive(top, 106.08px);
+        }
+    }
+
+    &-bottom {
+        @include responsive(bottom, 92px);
+
+        @include mobile() {
+            @include responsive(bottom, 131.04px);
+        }
+    }
+
+    &-left {
+        left: 0;
+    }
+
+    &-right {
+        right: 0;
+    }
+
+    &-legend, &-icon, &-point {
+        @extend %absolute;
+    }
+
+    &-legend {
+        @extend %font-manrope, %whitespace-nowrap;
+        @include text(16px, 20px);
+
+        @include mobile() {
+            width: 300% !important;
+            @include text(12px, 18px);
+        }
+
+        .light & {
+            color: #666;
+        }
+
+        .dark & {
+            color: #808080;
+        }
+
+        .pointer-top & {
+            @include responsive(top, -52px);
+
+            @include mobile() {
+                @include responsive(top, -64.48px);
+            }
+        }
+
+        .pointer-bottom & {
+            @include responsive(bottom, -52px);
+
+            @include mobile() {
+
+                &.lines-2 {
+                    @include responsive(bottom, -45.76px);
+                }
+                &.lines-3 {
+                    @include responsive(bottom, -64.48px);
+                }
+                &.lines-4 {
+                    @include responsive(bottom, -83.2px);
+                }
+                &.lines-5 {
+                    @include responsive(bottom, -101.92px);
+                }
+            }
+        }
+
+        .pointer-left & {
+            @extend %text-left;
+            left: 0;
+        }
+
+        .pointer-right & {
+            @extend %text-right;
+            right: 0;
+        }
+
+        .pointer-map-bottom-right & {
+            width: 110%;
+        }
+    }
+
+    &-icon {
+
+        .pointer-top & {
+            @include responsive(top, 4px);
+        }
+
+        .pointer-bottom & {
+            @include responsive(bottom, 10px);
+        }
+
+        .pointer-left & {
+            left: 0;
+        }
+
+        .pointer-right & {
+            right: 0;
+        }
+
+        .pointer-dashboard-bottom-right &, 
+        .pointer-performance-bottom-right &, 
+        .pointer-energy-screen-bottom-right & {
+            @include responsive(bottom, 18px);
+        }
+    }
+
+    &-point {
+
+        .pointer-top & {
+            @include responsive(bottom, 1px);
+        }
+        .pointer-bottom & {
+            @include responsive(top, 1px);
+        }
+        .pointer-left & {
+            @include responsive(right, -1px);
+        }
+        .pointer-right & {
+            @include responsive(left, -1px);
+        }
+    }
+
+    &-line {
+
+        .pointer-dashboard-top-left & {
+            @include responsive(width, 537px);
+        }
+        .pointer-dashboard-top-right & {
+            @include responsive(width, 330px);
+        }
+        .pointer-dashboard-bottom-left & {
+            @include responsive(width, 304px);
+        }
+        .pointer-dashboard-bottom-right & {
+            @include responsive(width, 539px);
+        }
+
+        .pointer-performance-top-left & {
+            @include responsive(width, 369px);
+        }
+        .pointer-performance-top-right & {
+            @include responsive(width, 527px);
+        }
+        .pointer-performance-bottom-left & {
+            @include responsive(width, 533px);
+        }
+        .pointer-performance-bottom-right & {
+            @include responsive(width, 349px);
+        }
+
+        .pointer-energy-screen-top-left & {
+            @include responsive(width, 364px);
+        }
+        .pointer-energy-screen-top-right & {
+            @include responsive(width, 526px);
+        }
+        .pointer-energy-screen-bottom-left & {
+            @include responsive(width, 546px);
+        }
+        .pointer-energy-screen-bottom-right & {
+            @include responsive(width, 464px);
+        }
+
+        .pointer-car-data-top-left & {
+            @include responsive(width, 390px);
+        }
+        .pointer-car-data-top-right & {
+            @include responsive(width, 264px);
+        }
+        .pointer-car-data-bottom-left & {
+            @include responsive(width, 311px);
+        }
+
+        .pointer-map-top-left & {
+            @include responsive(width, 526px);
+        }	
+        .pointer-map-bottom-left & {
+            @include responsive(width, 254px);
+        }
+        .pointer-map-bottom-right & {
+            @include responsive(width, 289px);
+        }
+
+        @include mobile() {
+
+            .pointer-dashboard-top-left & {
+                @include responsive(width, 176.8px);
+            }
+            .pointer-dashboard-top-right & {
+                @include responsive(width, 101.92px);
+            }
+            .pointer-dashboard-bottom-left & {
+                @include responsive(width, 85.3333px);
+            }
+            .pointer-dashboard-bottom-right & {
+                @include responsive(width, 176.8px);
+            }
+
+            .pointer-performance-top-left & {
+                @include responsive(width, 84.24px);
+            }
+            .pointer-performance-top-right & {
+                @include responsive(width, 169.52px);
+            }
+            .pointer-performance-bottom-left & {
+                @include responsive(width, 174.72px);
+            }
+            .pointer-performance-bottom-right & {
+                @include responsive(width, 71.76px);
+            }
+
+            .pointer-energy-screen-top-left & {
+                @include responsive(width, 80.08px);
+            }
+            .pointer-energy-screen-top-right & {
+                @include responsive(width, 170.56px);
+            }
+            .pointer-energy-screen-bottom-left & {
+                @include responsive(width, 183.04px);
+            }
+            .pointer-energy-screen-bottom-right & {
+                @include responsive(width, 147.68px);
+            }
+
+            .pointer-car-data-top-left & {
+                @include responsive(width, 80.08px);
+            }
+            .pointer-car-data-top-right & {
+                @include responsive(width, 46.8px);
+            }
+            .pointer-car-data-bottom-left & {
+                @include responsive(width, 64.48px);
+            }
+
+            .pointer-map-top-left & {
+                @include responsive(width, 180.96px);
+            }
+            .pointer-map-bottom-left & {
+                @include responsive(width, 131.04px);
+            }
+            .pointer-map-bottom-right & {
+                @include responsive(width, 69.68px);
+            }
+        }
+    }
+}
+.pointer-desktop {
+	display: block;
+}
+.pointer-mobile {
+	display: none;
+}
+
+
