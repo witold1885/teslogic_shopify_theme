@@ -118,6 +118,13 @@
         @include responsive(margin-bottom, 84px);
         @include responsive(padding, 12px, 8px);
         @include responsive(border-radius, 28px);
+		background-image: url(../../assets/images/screenmate-dash/shortcuts/shortcuts_features_bg.png);
+		background-size: cover;
+		background-position: center;
+
+        @include mobile() {
+		    background-image: url(../../assets/images/screenmate-dash/shortcuts/shortcuts_features_bg_mobile.png);            
+        }
 
         &-block {
             @extend %flex-column, %gap-20;
@@ -176,25 +183,6 @@
     }
 }
 
-.shortcuts-features-block-4 .shortcuts-features-block-item-1, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-2, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-6, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-7 {
-	@include responsive(width, 500px);
-}
-.shortcuts-features-block-4 .shortcuts-features-block-item-3, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-4, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-5 {
-	@include responsive(width, 329.3333px);
-}
-.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title, 
-.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title {
-	@include responsive(width, 274px);
-}
-.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
-	@include responsive(width, 312px);
-}
 // .shortcuts-features-block-item-title img {
 // 	display: none;
 // }

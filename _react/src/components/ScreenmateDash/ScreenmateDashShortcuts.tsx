@@ -4,6 +4,7 @@ import { useAppSelector } from '../../redux/hooks'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { Icon, Image } from '../Common'
 import topIcon from '../../assets/icons/screenmate-dash/shortcuts/shortcuts-top-icon.svg'
+import chevron from '../../assets/icons/screenmate-dash/shortcuts/shortcuts_mobile_chevron.svg'
 
 const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/shortcuts/shortcuts-*.png', { eager: true })
 const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [key, mod]) => ({
@@ -80,7 +81,7 @@ const ScreenmateDashShortcuts: React.FC = () => {
                                             <div className="shortcuts-features-block-item-top">
                                                 <div className="shortcuts-features-block-item-title">
                                                     <span>{item.title}</span>
-                                                    {/* <img src="{{ 'shortcuts_mobile_chevron.svg' | asset_url }}" alt=""> */}
+                                                    {/* <Icon icon={chevron} /> */}
                                                 </div>
                                                 <div className="shortcuts-features-block-item-icon">
                                                     <Icon icon={item.image} />
