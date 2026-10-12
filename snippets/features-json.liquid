@@ -7,7 +7,7 @@
         {% assign title = feature.title | replace: number, "" | trim %}
         {
             "title": {{ title | json }},
-            "image": {{ feature.image | img_url: '848x848' | json }},
+            "image": {{ feature.image | img_url: imageSize | json }},
             "content": {{ feature.content | html | json }}
         }{%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
