@@ -1,0 +1,53 @@
+<div id="react-screenmate-dash-root"></div>
+
+{% render 'seo-screenmate-dash' %}
+
+{{ 'react-style-ScreenmateDash-SH8aaZR0.css' | asset_url | stylesheet_tag }}
+
+{%- capture localization_country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
+{%- capture main_menu -%}
+  {% render 'menu-json', menu_handle: 'main-menu' %}
+{%- endcapture -%}
+
+{%- capture cart -%}
+  {% render 'cart-json' %}
+{%- endcapture -%}
+
+{%- capture significant_features -%}
+  {% render 'features-json', blog: 'significant-dashboard-features' %}
+{%- endcapture -%}
+
+{%- capture product -%}
+  {% render 'product-json', product: all_products['screenmate-dash-kit'] %}
+{%- endcapture -%}
+
+{%- capture charger -%}
+  {% render 'product-json', product: all_products['screenmate-wireless-charger'] %}
+{%- endcapture -%}
+
+{%- capture splitter -%}
+  {% render 'product-json', product: all_products['screenmate-splitter'] %}
+{%- endcapture -%}
+
+<script>
+  {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  window.ShopifyReactData = {
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
+    content: {
+      country: {{ localization_country }},
+      main_menu: {{ main_menu }},
+      footer_menu: [],
+      features: {
+        significant_features: {{ significant_features }}
+      }
+    },
+    cart: {{ cart }},
+    product: {{ product }},
+    additionalProducts: [{{ charger }}, {{ splitter }}]
+  }
+</script>
+
+<script src="{{ 'ScreenmateDash.js' | asset_url }}" type="module" defer></script>

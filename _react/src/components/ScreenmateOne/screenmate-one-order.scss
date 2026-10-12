@@ -176,6 +176,10 @@
                     & span {
                         @extend %font-manrope-16, %font-500, %whitespace-nowrap;
                         color: #888;
+
+                        @include mobile() {
+                            white-space: normal !important;
+                        }
                     }
                 }
             }

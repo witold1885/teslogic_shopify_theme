@@ -4,17 +4,18 @@ export interface ImageProps {
     className?: string
     style?: CSSProperties
     src: string
+    srcSet?: string
     alt?: string
     onClick?: () => void
 }
 
-const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, src, alt = '', onClick }, ref) => {
+const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, src, srcSet = null, alt = '', onClick }, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
     
     return (
         <div className={`image ${className}`} {...{ref, style, onClick}}>
-            <img className="object-cover" src={finalSrc} alt={alt} loading="lazy" />
+            <img className="object-cover" src={finalSrc} {...(srcSet ? { srcSet } : {})} alt={alt} loading="lazy" />
         </div>
     )
 })

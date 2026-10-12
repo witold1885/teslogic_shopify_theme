@@ -1,0 +1,107 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.devices_supporting {
+    @extend %flex-between-start, %mob\:flex-column-reverse, %container, %gap-24, %mob\:gap-0;
+    @include responsive(margin, 180px, auto);
+
+    @include mobile() {
+        @include responsive(margin, 96px, auto);
+        @include responsive(border-radius, 24px);
+		background: #F0F0F0;
+    }
+
+    & > div {
+        @include square(636px);
+
+        @include mobile() {
+            @include square(350px);
+        }
+    }
+
+    &-info {
+        @extend %flex-column-between;
+        @include responsive(padding, 60px);
+        @include responsive(border-radius, 40px);
+        background: url(../../assets/images/screenmate-dash/devices/devices_supporting-info-bg.png);
+        background-position: center;
+
+        @include mobile() {
+            @include responsive(padding, 24px);
+            @include responsive(border-radius, 24px);
+        }
+
+        &-suptext, &-title {
+            @extend %text-white;
+        }
+
+        &-suptext {
+            @extend %font-manrope, %mob\:font-manrope-14;
+            @include text(16px, 20px);
+            @include responsive(margin-bottom, 12px);
+
+            @include mobile() {
+                @include responsive(margin-bottom, 8px);
+            }
+        }
+
+        &-title {
+            @extend %font-manrope-52;
+            @include responsive(margin-bottom, 16px);
+
+            @include mobile() {
+                @include text(32px, 40px);
+                @include responsive(margin-bottom, 6px);
+            }
+        }
+
+        &-subtitle {
+            @extend %font-manrope-24;
+            color: #DAD6FC;
+
+            @include mobile() {
+                @include text(16px, 20px);
+            }
+        }
+
+        &-nouns {
+            @extend %flex-column;
+            @include responsive(row-gap, 26.08px);
+
+            @include mobile() {
+                @include responsive(row-gap, 12.49px);
+            }
+        }
+
+        &-noun-row {
+            @extend %flex-start-center;
+            @include responsive(column-gap, 25.9px);
+
+            @include mobile() {
+                @include responsive(column-gap, 12.68px);
+            }
+
+            & .icon {
+
+                &.noun-iphone {
+                    @include block(110.068px, 54.335px);
+
+                    @include mobile() {
+                        @include block(53.882px, 26.012px);
+                    }
+                }
+
+                &.noun-ipad {
+                    @include block(139.203px, 107.584px);
+
+                    @include mobile() {
+                        @include block(68.144px, 51.503px);
+                    }
+                }
+            }
+        }
+    }
+}

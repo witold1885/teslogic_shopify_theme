@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "screenmate_dash_react": {
+      "type": "screenmate_dash_react",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "screenmate_dash_react"
+  ]
+}

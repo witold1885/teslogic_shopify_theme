@@ -1,0 +1,14 @@
+{% assign features = blogs[blog].articles | sort: "title" %}
+
+[
+    {% for feature in features %}
+        {% assign title_array = feature.title | split: " " %}
+        {% assign number = title_array.first %}
+        {% assign title = feature.title | replace: number, "" %}
+        {
+            "title": {{ title | json }},
+            "image": {{ feature.image | img_url: '848x848' }},
+            "content": {{ feature.content | json }}
+        }
+    {% endfor %}
+]
