@@ -48,6 +48,7 @@
 
 <script>
   {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  const shortcuts = {{ shortcuts }}
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
@@ -56,7 +57,7 @@
       footer_menu: [],
       features: {
         significant_features: {{ significant_features }},
-        shortcuts: {{ shortcuts }}
+        ...shortcuts
       }
     },
     cart: {{ cart }},
