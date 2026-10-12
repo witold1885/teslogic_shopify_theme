@@ -9,6 +9,6 @@
             "title": {{ title | json }},
             "image": {{ feature.image | img_url: '848x848' }},
             "content": {{ feature.content | json }}
-        }
+        }{%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
 ]
