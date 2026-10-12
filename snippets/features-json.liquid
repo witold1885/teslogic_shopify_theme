@@ -1,5 +1,5 @@
 {
-    "title": {{ blogs[block].title | json }},
+    "title": {{ blogs[blog].title | json }},
     "items": [
         {% for feature in blogs[blog].articles | sort: "title" %}
             {% assign title_array = feature.title | split: " " %}
