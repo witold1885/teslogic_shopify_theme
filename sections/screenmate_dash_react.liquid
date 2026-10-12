@@ -17,7 +17,21 @@
 {%- endcapture -%}
 
 {%- capture significant_features -%}
-  {% render 'features-json', blog: 'significant-dashboard-features' %}
+  {% render 'features-json', blog: 'significant-dashboard-features', imageSize: '848x848' %}
+{%- endcapture -%}
+
+{% assign blocks = "performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
+
+{%- capture shortcuts -%}
+  {
+    {% for block in blocks %}
+      {%- capture blockFeatures -%}
+        {% render 'features-json', blog: block, imageSize: '48x48' %}
+      {%- endcapture -%}
+      "{{ block }}": {{ blockFeatures }}
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  }
 {%- endcapture -%}
 
 {%- capture product -%}
