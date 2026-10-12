@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './screenmate-dash-significant.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { Feature } from '../../types/shopify'
@@ -36,7 +36,7 @@ const ScreenmateDashSignificant: React.FC = () => {
                 <TrackSlider
                     className="significant__features-scroller"
                     items={features?.significant_features?.map(({ title, image, content }: Feature, index: number) => (
-                        <Fragment key={index}>
+                        <div className="significant__features-item" key={index}>
                             <div className="significant__features-item-title">{title}</div>
                             <div className="significant__features-item-image">
                                 <Image src={image} alt={title} />
@@ -45,7 +45,7 @@ const ScreenmateDashSignificant: React.FC = () => {
                                 className="significant__features-item-content"
                                 dangerouslySetInnerHTML={{ __html: content as TrustedHTML }}
                             />
-                        </Fragment>
+                        </div>
                     )) || []}
                     slidesToShow={5}
                 />
