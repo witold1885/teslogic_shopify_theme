@@ -8,6 +8,7 @@ const files = fs.readdirSync(assetsDir)
 
 const cssMap = {
     ScreenmateOne: 'screenmate_one_react',
+    ScreenmateDash: 'screenmate_dash_react',
     Installers: 'installers_react',
     Partners: 'partners_react',
 }
