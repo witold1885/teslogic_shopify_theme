@@ -6,12 +6,17 @@
 
 .shortcuts {
     @extend %w-full;
-	background: #F6F6F6; 
+	background: #F6F6F6;
 
     &-wrap {
         @include responsive(width, 1076px);
         @include responsive(padding, 180px, 0);
         margin: 0 auto;
+
+        @include mobile() {
+            @include responsive(width, 350px);
+            @include responsive(padding, 96px, 0);
+        }
     }
 
     &-title {
@@ -19,34 +24,74 @@
 
         &-icon {
             @include square(64px);
+
+            @include mobile() {
+                @include square(40px);
+            }
         }
 
         &-text {
-            @extend %font-manrope-52, %font-500;
 	        color: #1657FC;
-	        text-transform: capitalize; 
+	        text-transform: capitalize;
         }
     }
 
     &-subtitle {
-        @extend %font-manrope-52, %font-500;
         @include responsive(margin-bottom, 12px);
+
+        @include mobile() {
+            @include responsive(width, 300px);
+            @include responsive(margin-bottom, 24px);
+        }
+    }
+
+    &-title-text, &-subtitle {
+        @extend %font-manrope-52, %font-500;
+
+        @include mobile() {
+            @include text(32px, 40px);
+        }
     }
 
     &-info {
-        @extend %grid, %gap-24;
+        @extend %grid, %gap-24, %mob\:gap-0;
         grid-template-columns: repeat(2, 1fr);
+
+        @include mobile() {
+            grid-template-columns: 1fr;
+        }
 
         &-block {
             @include block(526px, 256px);
 
+            @include mobile() {
+                width: 100%;
+                height: auto;
+            }
+
             &:not(.shortcuts-info-block-text) {
                 @include responsive(border-radius, 28px);
                 background: #FFF; 
+
+                @include mobile() {
+                    border-radius: unset;
+                    background: transparent; 
+                }
             }
 
             &-text {
-                @extend %font-manrope-24, %font-500;
+                @extend %font-manrope-24, %mob\:font-manrope-14, %font-500;
+
+                @include mobile() {
+                    order: 2;
+                    @include responsive(width, 287px);
+                    @include responsive(margin, 28px, auto, 24px);
+
+                    &-primary, &-secondary {
+                        width: 100% !important;
+                        color: #000;
+                    }
+                }
 
                 &-primary {
                     @include responsive(width, 475px);
@@ -70,6 +115,12 @@
 
                 .shortcuts-info-block-car & {
                     @include block(526px, 318px);
+
+                    @include mobile() {
+                        @include block(336px, 216px);
+                        @include responsive(border-top-right-radius, 24px);
+                        overflow: hidden;
+                    }
                 }
             }
 
@@ -77,14 +128,53 @@
                 @include block(414px, 202px);
                 @include responsive(margin-top, 28px);
                 z-index: 2;
+
+                @include mobile() {
+                    @include block(264px, 128px);
+                    @include responsive(margin-top, 36px);
+                }
             }
 
             &-between {
                 @extend %flex-column-between;
                 @include responsive(padding, 32px);
 
+                @include mobile() {
+                    @include responsive(row-gap, 16px);
+                    @include responsive(padding, 0, 24px);
+                }
+
                 &-text {
-                    @extend %font-manrope-18;
+                    @extend %font-manrope-18, %mob\:font-manrope-14;
+
+                    @include mobile() {
+		                color: #666;
+                    }
+                }
+            }
+
+            &-car {
+
+                @include mobile() {
+                    order: 1;
+                    @include responsive(height, 200px);
+                    border-radius: calc(24 * 100vw / 390) !important;
+                    background: #FFF!important;
+                }
+            }
+
+            &-artboard {
+
+                @include mobile() {
+                    order: 3;
+                    @include responsive(margin-bottom, 20px);
+                }
+            }
+
+            &-info {
+
+                @include mobile() {
+                    order: 4;
                 }
             }
         }
@@ -93,10 +183,18 @@
 
             &-image {
                 @include block(148px, 60px);
+
+                @include mobile() {
+                    @include block(70px, 28px);
+                }
             }
 
             &-text {
                 @include responsive(width, 441px);
+
+                @include mobile() {
+                    @include responsive(width, 287px);
+                }
             }
         }
 
@@ -104,10 +202,18 @@
 
             &-image {
                 @include square(40px);
+                
+                @include mobile() {
+                    @include square(32px);
+                }
             }
 
             &-text {
                 @include responsive(width, 421px);
+                
+                @include mobile() {
+                    @include responsive(width, 287px);
+                }
             }
         }
     }
@@ -124,6 +230,11 @@
 		background-position: center;
 
         @include mobile() {
+            @include responsive(width, 350px);
+            @include responsive(margin-top, 48px);
+            margin-bottom: 0;
+            @include responsive(padding, 4px, 0, 12px);
+            @include responsive(border-radius, 24px);
 		    background-image: url(../../assets/images/screenmate-dash/shortcuts/shortcuts_features_bg_mobile.png);            
         }
 
@@ -133,6 +244,10 @@
             
             &-title {
                 @extend %font-manrope-18, %font-600, %text-white, %uppercase;
+
+                @include mobile() {
+                    @include text(16px, 20px);
+                }
             }
             
             &-items {
@@ -148,6 +263,10 @@
                 .shortcuts-features-block-4 & {
                     @extend %flex-wrap;
                 }
+
+                @include mobile() {
+                    grid-template-columns: 1fr;
+                }
             }
 
             &-item {
@@ -159,22 +278,58 @@
                 background: #FFF;
                 box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
 
+                @include mobile() {
+                    @include responsive(width, 288px);
+                    height: auto !important;
+                    @include responsive(padding, 20px);
+
+                    &.opened {
+                        @include responsive(height, 256px);
+                    }
+                }
+
                 &-top {
                     @extend %flex-between-center;
                 }
 
                 &-title {
-                    @extend %font-manrope-18, %font-600;
+                    @extend %mob\:flex-start-center, %mob\:gap-8, %font-manrope-18, %font-600, %mob\:cursor-pointer;
                     color: #111;
+
+                    @include mobile() {
+		                width: auto !important;
+                        @include text(16px, 20px);
+                    }
+
+                    & .icon {
+                        @extend %hidden, %mob\:block;
+
+                        @include mobile() {
+                            @include block(12px, 40px);
+
+                            .opened & {
+                                transform: rotate(180deg);
+                                transform-origin: center;
+                            }
+                        }
+                    }
                 }
 
                 &-icon {
                     @include square(48px);
+
+                    @include mobile() {
+                        @include square(40px);
+                    }
                 }
 
                 .shortcuts-features-block-item-content {
                     @extend %font-manrope-14, %font-500;
                     color: #666;
+
+                    @include mobile() {
+                        @include text(12px, 18px);
+                    }
 
                     & p {
                         margin: 0;

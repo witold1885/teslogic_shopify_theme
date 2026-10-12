@@ -81,7 +81,7 @@ const ScreenmateDashShortcuts: React.FC = () => {
                                             <div className="shortcuts-features-block-item-top">
                                                 <div className="shortcuts-features-block-item-title">
                                                     <span>{item.title}</span>
-                                                    {/* <Icon icon={chevron} /> */}
+                                                    <Icon icon={chevron} />
                                                 </div>
                                                 <div className="shortcuts-features-block-item-icon">
                                                     <Icon icon={item.image} />
