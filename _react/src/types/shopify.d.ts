@@ -31,10 +31,15 @@ interface MenuItem {
     children?: MenuItem[]
 }
 
+interface Blog {
+    title: string
+    items: Feature[]
+}
+
 interface Feature {
     title: string
     image: string
-    content: ReactNode
+    content: TrustedHTML
 }
 
 declare global {
@@ -44,7 +49,7 @@ declare global {
                 country: Country
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
-                features?: Record<string, Feature[]>
+                features?: Record<string, Blog>
             }
             cart: { item_count: number }
             product: Product

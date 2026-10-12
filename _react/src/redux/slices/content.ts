@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { Country, MenuItem, Feature, Region, RegionsResponse } from '../../types/shopify'
+import type { Country, MenuItem, Blog, Region, RegionsResponse } from '../../types/shopify'
 import shopify from '../shopify'
 
 interface ContentState {
@@ -7,7 +7,7 @@ interface ContentState {
     regions?: Region[]
     main_menu?: MenuItem[]
     footer_menu?: MenuItem[]
-    features?: Record<string, Feature[]>
+    features?: Record<string, Blog>
     loading: boolean
     error?: string|null
 }

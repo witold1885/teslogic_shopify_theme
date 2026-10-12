@@ -1,0 +1,200 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.shortcuts {
+    @extend %w-full;
+	background: #F6F6F6; 
+
+    &-wrap {
+        @include responsive(width, 1076px);
+        @include responsive(padding, 180px, 0);
+        margin: 0 auto;
+    }
+
+    &-title {
+        @extend %flex-between-center;
+
+        &-icon {
+            @include square(64px);
+        }
+
+        &-text {
+            @extend %font-manrope-52, %font-500;
+	        color: #1657FC;
+	        text-transform: capitalize; 
+        }
+    }
+
+    &-subtitle {
+        @extend %font-manrope-52, %font-500;
+        @include responsive(margin-bottom, 12px);
+    }
+
+    &-info {
+        @extend %flex-wrap, %gap-24;
+
+        &-block {
+            @include block(526px, 256px);
+
+            &:not(.shortcuts-info-block-text) {
+                @include responsive(border-radius, 28px);
+                background: #FFF; 
+            }
+
+            &-text {
+                @extend %font-manrope-24, %font-500;
+
+                &-primary {
+                    @include responsive(width, 475px);
+                    @include responsive(margin-bottom, 12px);                    
+                }
+
+                &-secondary {
+                    @include responsive(width, 416px);
+                    color: #4D4D4D;
+                }
+            }
+
+            &-relative {
+                @extend %flex-column-center, %relative;
+            }
+
+            &-background {
+                @extend %absolute;
+                top: 0;
+                left: 0;
+
+                .shortcuts-info-block-car & {
+                    @include block(526px, 318px);
+                }
+            }
+
+            &-image {
+                @include block(414px, 202px);
+                @include responsive(margin-top, 28px);
+                z-index: 2;
+            }
+
+            &-between {
+                @extend %flex-column-between;
+                @include responsive(padding, 32px);
+
+                &-text {
+                    @extend %font-manrope-18;
+                }
+            }
+        }
+
+        &-artboard {
+
+            &-image {
+                @include block(148px, 60px);
+            }
+
+            &-text {
+                @include responsive(width, 441px);
+            }
+        }
+
+        &-info {
+
+            &-image {
+                @include square(40px);
+            }
+
+            &-text {
+                @include responsive(width, 421px);
+            }
+        }
+    }
+
+    &-features {
+        @extend %flex-column;
+        @include responsive(width, 1076px);
+        @include responsive(margin-top, 24px);
+        @include responsive(margin-bottom, 84px);
+        @include responsive(padding, 12px, 8px);
+        @include responsive(border-radius, 28px);
+
+        &-block {
+            @extend %flex-column, %gap-20;
+            @include responsive(padding, 20px, 24px);
+            
+            &-title {
+                @extend %font-manrope-18, %font-600, %text-white, %uppercase;
+            }
+            
+            &-items {
+                @extend %w-full, %grid, %gap-12;
+
+                .shortcuts-features-block-1 &,
+                .shortcuts-features-block-2 & {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                .shortcuts-features-block-3 & {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .shortcuts-features-block-4 & {
+                    @extend %flex-wrap;
+                }
+            }
+
+            &-item {
+                @extend %flex-column-between;
+                @include responsive(height, 256px);
+                @include responsive(padding, 12px, 24px, 24px);
+                border: 2px solid #E7EDFE;
+                background: #FFF;
+                box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
+
+                &-top {
+                    @extend %flex-between-center;
+                }
+
+                &-title {
+                    @extend %font-manrope-18, %font-600;
+                    color: #111;
+                }
+
+                &-icon {
+                    @include square(48px);
+                }
+
+                .shortcuts-features-block-item-content {
+                    @extend %font-manrope-14, %font-500;
+                    color: #666;
+
+                    & p {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.shortcuts-features-block-4 .shortcuts-features-block-item-1, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-2, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-6, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-7 {
+	@include responsive(width, 500px);
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-3, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-4, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-5 {
+	@include responsive(width, 329.3333px);
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-1 .shortcuts-features-block-item-title, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-6 .shortcuts-features-block-item-title, 
+.shortcuts-features-block-4 .shortcuts-features-block-item-7 .shortcuts-features-block-item-title {
+	@include responsive(width, 274px);
+}
+.shortcuts-features-block-4 .shortcuts-features-block-item-2 .shortcuts-features-block-item-title {
+	@include responsive(width, 312px);
+}
+// .shortcuts-features-block-item-title img {
+// 	display: none;
+// }

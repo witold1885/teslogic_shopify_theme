@@ -21,7 +21,7 @@ const ScreenmateDashSignificant: React.FC = () => {
                         </div>
                         <div
                             className="significant__features-item-content"
-                            dangerouslySetInnerHTML={{ __html: content as TrustedHTML }}
+                            dangerouslySetInnerHTML={{ __html: content }}
                         />
                     </div>
                 )) || []}

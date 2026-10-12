@@ -26,8 +26,10 @@
         @extend %flex-column-between;
         @include responsive(padding, 60px);
         @include responsive(border-radius, 40px);
-        background: url(../../assets/images/screenmate-dash/devices/devices_supporting-info-bg.png);
+        background-image: url(../../assets/images/screenmate-dash/devices/devices_supporting-info-bg.png);
+        background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
 
         @include mobile() {
             @include responsive(padding, 24px);
