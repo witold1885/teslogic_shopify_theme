@@ -15,7 +15,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, s
     
     return (
         <div className={`image ${className}`} {...{ref, style, onClick}}>
-            <img className="object-cover" src={finalSrc} {...(srcSet ? { srcSet } : {})} alt={alt} loading="lazy" />
+            <img className="object-cover" draggable="false" src={finalSrc} {...(srcSet ? { srcSet } : {})} alt={alt} loading="lazy" />
         </div>
     )
 })
