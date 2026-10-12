@@ -6,7 +6,7 @@
         {% for feature in articles %}
             {% assign title_array = feature.title | split: " " %}
             {% assign number = title_array.first %}
-            {% assign title = feature.title | replace: number, "" | replace: " ", "" %}
+            {% assign title = feature.title | replace: number, "" | strip %}
             {
                 "title": {{ title | json }},
                 "image": {{ feature.image | img_url: imageSize | json }},
