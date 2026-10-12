@@ -16,13 +16,9 @@
   {% render 'cart-json' %}
 {%- endcapture -%}
 
-{%- capture significant_features -%}
-  {% render 'features-json', blog: 'significant-dashboard-features', imageSize: '848x848' %}
-{%- endcapture -%}
+{% assign blocks = "significant-dashboard-feature,performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
 
-{% assign blocks = "performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
-
-{%- capture shortcuts -%}
+{%- capture features -%}
   {
     {% for block in blocks %}
       {%- capture blockFeatures -%}
@@ -48,17 +44,13 @@
 
 <script>
   {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
-  const shortcuts = {{ shortcuts }}
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
       country: {{ localization_country }},
       main_menu: {{ main_menu }},
       footer_menu: [],
-      features: {
-        significant_features: {{ significant_features }},
-        ...shortcuts
-      }
+      features: {{ features }}
     },
     cart: {{ cart }},
     product: {{ product }},
