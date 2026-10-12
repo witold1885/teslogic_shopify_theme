@@ -16,15 +16,19 @@
   {% render 'cart-json' %}
 {%- endcapture -%}
 
-{% assign blocks = "significant-dashboard-features,performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
+{% assign blogs = "significant-dashboard-features,performance-driv-ing-modes,safety-stability-features,convenien-ce-comfort,autopilot-tweaks-beta" | split: ',' %}
+{% assign imageSize = '48x48' %}
 
 {%- capture features -%}
   {
-    {% for block in blocks %}
+    {% for blog in blogs %}
+      {% if blog == 'significant-dashboard-features' %}
+        {% assign imageSize = '848x848' %}
+      {% endif %}
       {%- capture blockFeatures -%}
-        {% render 'features-json', blog: block, imageSize: '48x48' %}
+        {% render 'features-json', blog: blog, imageSize: imageSize %}
       {%- endcapture -%}
-      "{{ block }}": {{ blockFeatures }}
+      "{{ blog }}": {{ blockFeatures }}
       {%- unless forloop.last -%},{%- endunless -%}
     {% endfor %}
   }
