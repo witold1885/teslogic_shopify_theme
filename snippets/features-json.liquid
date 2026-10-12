@@ -1,14 +1,16 @@
+{% assign articles = blogs[blog].articles | sort: "title" %}
+
 {
     "title": {{ blogs[blog].title | json }},
     "items": [
-        {% for feature in blogs[blog].articles | sort: "title" %}
+        {% for feature in articles %}
             {% assign title_array = feature.title | split: " " %}
             {% assign number = title_array.first %}
             {% assign title = feature.title | replace: number, "" | replace: " ", "" %}
             {
                 "title": {{ title | json }},
                 "image": {{ feature.image | img_url: imageSize | json }},
-                "content": {{ feature.content | html | json }}
+                "content": {{ feature.content | json }}
             }{%- unless forloop.last -%},{%- endunless -%}
         {% endfor %}
     ]
