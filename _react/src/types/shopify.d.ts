@@ -31,6 +31,12 @@ interface MenuItem {
     children?: MenuItem[]
 }
 
+interface Feature {
+    title: string
+    image: string
+    content: ReactNode
+}
+
 declare global {
     interface Window {
         ShopifyReactData?: {
@@ -38,6 +44,7 @@ declare global {
                 country: Country
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
+                features?: Record<string, Feature[]>
             }
             cart: { item_count: number }
             product: Product
