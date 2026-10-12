@@ -1,14 +1,15 @@
-{% assign features = blogs[blog].articles | sort: "title" %}
-
-[
-    {% for feature in features %}
-        {% assign title_array = feature.title | split: " " %}
-        {% assign number = title_array.first %}
-        {% assign title = feature.title | replace: number, "" | trim %}
-        {
-            "title": {{ title | json }},
-            "image": {{ feature.image | img_url: imageSize | json }},
-            "content": {{ feature.content | html | json }}
-        }{%- unless forloop.last -%},{%- endunless -%}
-    {% endfor %}
-]
+{
+    "title": {{ blogs[block].title | json }},
+    "items": [
+        {% for feature in blogs[blog].articles | sort: "title" %}
+            {% assign title_array = feature.title | split: " " %}
+            {% assign number = title_array.first %}
+            {% assign title = feature.title | replace: number, "" | trim %}
+            {
+                "title": {{ title | json }},
+                "image": {{ feature.image | img_url: imageSize | json }},
+                "content": {{ feature.content | html | json }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+    ]
+}
