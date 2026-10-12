@@ -4,7 +4,7 @@
         {% for feature in blogs[blog].articles | sort: "title" %}
             {% assign title_array = feature.title | split: " " %}
             {% assign number = title_array.first %}
-            {% assign title = feature.title | replace: number, "" | trim %}
+            {% assign title = feature.title | replace: number, "" | replace: " ", "" %}
             {
                 "title": {{ title | json }},
                 "image": {{ feature.image | img_url: imageSize | json }},
