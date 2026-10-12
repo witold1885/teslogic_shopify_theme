@@ -33,13 +33,17 @@ const ScreenmateDashSignificant: React.FC = () => {
                     <div className="significant__features-scrollbar-thumb"></div>
                 </div> */}
                 <TrackSlider
+                    className="significant__features-scroller"
                     items={features?.significant_features?.map(({ title, image, content }: Feature, index: number) => (
                         <Fragment key={index}>
                             <div className="significant__features-item-title">{title}</div>
                             <div className="significant__features-item-image">
                                 <img draggable="false" src={image} />
                             </div>
-                            <div className="significant__features-item-content">{content}</div>
+                            <div
+                                className="significant__features-item-content"
+                                dangerouslySetInnerHTML={{ __html: content as TrustedHTML }}
+                            />
                         </Fragment>
                     )) || []}
                     slidesToShow={5}
