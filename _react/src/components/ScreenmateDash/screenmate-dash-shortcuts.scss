@@ -34,7 +34,8 @@
     }
 
     &-info {
-        @extend %flex-wrap, %gap-24;
+        @extend %grid, %gap-24;
+        grid-template-columns: repeat(2, 1fr);
 
         &-block {
             @include block(526px, 256px);
@@ -153,6 +154,7 @@
                 @extend %flex-column-between;
                 @include responsive(height, 256px);
                 @include responsive(padding, 12px, 24px, 24px);
+                @include responsive(border-radius, 24px);
                 border: 2px solid #E7EDFE;
                 background: #FFF;
                 box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.08);
