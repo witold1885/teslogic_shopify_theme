@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import './screenmate-dash-shortcuts.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -29,9 +29,9 @@ const ScreenmateDashShortcuts: React.FC = () => {
 
     const [contentOpened, setContentOpened] = useState<string[]>([])
 
-    const handleContentToggle = useCallback((code: string) => {
+    const handleContentToggle = useCallback((slug: string) => {
         if (isMobile) {
-            setContentOpened(prev => prev.includes(code) ? prev.filter(item => item !== code) : [ ...prev, code ])
+            setContentOpened(prev => prev.includes(slug) ? prev.filter(item => item !== slug) : [ ...prev, slug ])
         }
     }, [isMobile])
 
