@@ -251,7 +251,7 @@
             }
             
             &-items {
-                @extend %w-full, %grid, %gap-12;
+                @extend %w-full, %grid, %mob\:flex-column, %gap-12;
 
                 .shortcuts-features-block-1 &,
                 .shortcuts-features-block-2 & {
@@ -323,12 +323,17 @@
                     }
                 }
 
-                .shortcuts-features-block-item-content {
+                &-content {
                     @extend %font-manrope-14, %font-500;
                     color: #666;
 
                     @include mobile() {
                         @include text(12px, 18px);
+                        display: none;
+
+                        .opened & {
+                            display: block !important;
+                        }
                     }
 
                     & p {

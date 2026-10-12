@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import './screenmate-dash-shortcuts.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -23,9 +23,17 @@ const blogs: string[] = ['performance-driv-ing-modes', 'safety-stability-feature
 const ScreenmateDashShortcuts: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
+    const { features } = useAppSelector(state => state.content)
+
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 
-    const { features } = useAppSelector(state => state.content)
+    const [contentOpened, setContentOpened] = useState<string[]>([])
+
+    const handleContentToggle = useCallback((code: string) => {
+        if (isMobile) {
+            setContentOpened(prev => prev.includes(code) ? prev.filter(item => item !== code) : [ ...prev, code ])
+        }
+    }, [isMobile])
 
     return (
         <div id="shortcuts" className="shortcuts">
@@ -77,9 +85,17 @@ const ScreenmateDashShortcuts: React.FC = () => {
                                 <div className="shortcuts-features-block-title">{title}</div>
                                 <div className="shortcuts-features-block-items">
                                     {items?.map((item, i) => (
-                                        <div className={`shortcuts-features-block-item shortcuts-features-block-item-${i}`}>
+                                        <div
+                                            key={i}
+                                            className={`shortcuts-features-block-item shortcuts-features-block-item-${i} ${
+                                                contentOpened.includes(`${key}-${i}`) ? 'opened' : ''
+                                            }`}
+                                        >
                                             <div className="shortcuts-features-block-item-top">
-                                                <div className="shortcuts-features-block-item-title">
+                                                <div
+                                                    className="shortcuts-features-block-item-title"
+                                                    onClick={() => handleContentToggle(`${key}-${i}`)}
+                                                >
                                                     <span>{item.title}</span>
                                                     <Icon icon={chevron} />
                                                 </div>
