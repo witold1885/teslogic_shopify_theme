@@ -13,7 +13,7 @@ const ScreenmateDashSignificant: React.FC = () => {
             <div className="significant__title">Significant <br />dashboard features</div>
             <TrackSlider
                 className="significant__features"
-                items={features?.significant_features?.map(({ title, image, content }: Feature, index: number) => (
+                items={features?.['significant-dashboard-features']?.items?.map(({ title, image, content }: Feature, index: number) => (
                     <div className="significant__features-item" key={index}>
                         <div className="significant__features-item-title">{title}</div>
                         <div className="significant__features-item-image">
