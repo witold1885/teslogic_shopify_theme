@@ -1,5 +1,6 @@
 import type React from 'react'
 import '../assets/styles/screenmate-dash.scss'
+import { mountForShopify } from './mount'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
 import ScreenmateDashUsing from '../components/ScreenmateDash/ScreenmateDashUsing'
@@ -16,5 +17,7 @@ const ScreenmateDash: React.FC = () => (
         <ScreenmateDashSignificant />
     </ProductLayout>
 )
+
+mountForShopify('react-screenmate-dash-root', ScreenmateDash)
 
 export default ScreenmateDash
