@@ -7,12 +7,22 @@
 .significant {
     @include responsive(margin, 180px, 0);
 
+	@include mobile() {
+		@include responsive(width, 350px);
+    	@include responsive(margin, 80px, auto, 104px);
+	}
+
     &__title {
-        @extend %container, %font-manrope-52, %font-500;
+        @extend %container, %mob\:w-full, %font-manrope-52, %font-500;
         @include responsive(margin, 0, auto, 56px);
 
+		@include mobile() {
+        	@include responsive(margin, 0, auto, 28px);
+			@include text(32px, 40px);
+		}
+
         & br {
-            @extend %hidden;
+            @extend %hidden, %mob\:block;
         }
     }
 
@@ -25,6 +35,10 @@
 			@include responsive(row-gap, 72px);
 			padding-left: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
 			padding-right: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
+
+			@include mobile() {
+				@include responsive(row-gap, 60px);
+			}
 		}
 
 		&-scrollbar {

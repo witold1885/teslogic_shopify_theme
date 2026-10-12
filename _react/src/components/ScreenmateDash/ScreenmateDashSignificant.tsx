@@ -2,10 +2,13 @@ import React from 'react'
 import './screenmate-dash-significant.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { Feature } from '../../types/shopify'
+import { useInlineStyles } from '../../hooks/inline-styles'
 import TrackSlider from '../Common/TrackSlider'
 import { Image } from '../Common'
 
 const ScreenmateDashSignificant: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+
     const { features } = useAppSelector(state => state.content)
 
     return (
@@ -25,7 +28,7 @@ const ScreenmateDashSignificant: React.FC = () => {
                         />
                     </div>
                 )) || []}
-                slidesToShow={4}
+                slidesToShow={!isMobile ? 4 : 1.1438}
             />
         </div>
     )
