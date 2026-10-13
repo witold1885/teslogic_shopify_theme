@@ -1,0 +1,214 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.box_block {
+    @extend %w-full;
+	background: #FFF;
+
+    &-wrap {
+        @include responsive(width, 1076px);
+        margin: 0 auto;
+        @include responsive(padding, 180px, 0);
+    }
+
+    &-top {
+        @extend %flex-between;
+        @include responsive(height, 166px);
+        @include responsive(margin-bottom, 48px);
+    }
+
+    &-info {
+        @extend %flex-column-between;
+
+        &-title {
+            @extend %font-manrope-52, %font-500;
+
+            &-what {
+                color: #1657FC; 
+            }
+        }
+
+        &-description {
+            @extend %font-manrope-24;
+            @include responsive(width, 691px);
+            color: #4D4D4D;
+        }
+    }
+
+    &-image {
+        @extend %relative;
+        @include block(306px, 247px);
+
+        & img {
+            @extend %absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-items {
+        @extend %w-full, %flex-between-center, %gap-40;
+        @include responsive(margin-bottom, 60px);
+    }
+
+    &-item {
+        @extend %flex-column-between-center, %gap-20;
+        @include block(170px, 210px);
+
+        &-big {
+            @include block(234px, 314px);
+            @include responsive(gap, 16px);
+        }
+
+        &-top {
+            @extend %relative;
+            @include square(170px);
+
+            .box_block-item-big & {
+                @include square(234px);
+            }
+        }
+
+        &-image {
+            @extend %absolute;
+            top: 0;
+            left: 0;
+	        z-index: 2;
+
+            .box_block-item-big & {
+                @include block(166px, 143px);
+                @include responsive(top, 40.5px);
+                @include responsive(left, 32px);
+            }
+        }
+
+        &-name {
+            @extend %font-manrope, %text-center;
+            @include text(16px, 20px);
+	        color: #666;
+
+            .box_block-item-big & {
+                @include text(20px, 32px);
+            }
+        }
+    }
+
+    &-charger {
+        @extend %flex-end;
+        @include responsive(width, 1117px);
+        @include responsive(gap, 85px);
+
+        &-images {
+            @extend %relative;
+            @include square(355px);
+
+            &-ellipse {
+                @extend %absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &-image {
+                @extend %absolute;
+                @include block(226px, 287px);
+                @include responsive(left, 66px);
+                bottom: 0;
+                z-index: 2;
+            }
+
+            &-photo {
+                @extend %absolute;
+                @include square(120px);
+                @include responsive(top, -22px);
+                @include responsive(right, -11px);
+                z-index: 3;
+            }
+        }
+
+        &-info {
+            @extend %flex-column;
+
+            &-title {
+                @extend %font-manrope-52, %font-500;
+            }
+
+            &-description {
+                @extend %font-manrope-18;
+                @include responsive(width, 660px); 
+                @include responsive(margin-top, 6px);
+                color: #666;
+            }
+        }
+        
+        &-items {
+            @extend %flex-column;
+            @include responsive(row-gap, 31px);
+            @include responsive(margin-top, 32px);
+        }
+        
+        &-item {
+            @extend %flex-center, %gap-24;
+
+            &-image {
+                @extend %relative;
+                @include square(86px);
+
+                &-ellipse {
+                    @extend %absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &-image {
+                    @extend %absolute;
+                    z-index: 2;
+
+                    &-1 {
+                        @include block(69px, 67px);
+                        @include responsive(top, 9px);
+                        @include responsive(left, 12px);
+                    }
+
+                    &-2 {
+                        @include block(61px, 53px);
+                        @include responsive(top, 17px);
+                        @include responsive(left, 12px);
+                    }
+                }
+            }
+
+            &-description {
+                @extend %font-manrope;
+                @include responsive(width, 345px);
+                @include text(16px, 20px);
+                color: #666;
+            }
+        }
+    }
+}
+
+// .box_block-info-description-mobile {
+// 	display: none;
+// }
+
+.box_block-item-top .box_block-item-ellipse {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+// .box_block-charger-images-mobile {
+// 	display: none;
+// }
+// .box_block-charger-info-description-mobile {
+// 	display: none;
+// }
+
+// .box_block-charger-item-image-image-mobile {
+// 	display: none;
+// }

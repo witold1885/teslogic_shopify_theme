@@ -8,6 +8,7 @@ import ScreenmateDashScreens from '../components/ScreenmateDash/ScreenmateDashSc
 import ScreenmateDashDevicesSupporting from '../components/ScreenmateDash/ScreenmateDashDevicesSupporting'
 import ScreenmateDashSignificant from '../components/ScreenmateDash/ScreenmateDashSignificant'
 import ScreenmateDashShortcuts from '../components/ScreenmateDash/ScreenmateDashShortcuts'
+import ScreenmateDashBox from '../components/ScreenmateDash/ScreenmateDashBox'
 
 const ScreenmateDash: React.FC = () => (
     <ProductLayout className="screenmate-dash">
@@ -17,6 +18,7 @@ const ScreenmateDash: React.FC = () => (
         <ScreenmateDashDevicesSupporting />
         <ScreenmateDashSignificant />
         <ScreenmateDashShortcuts />
+        <ScreenmateDashBox />
     </ProductLayout>
 )
 
