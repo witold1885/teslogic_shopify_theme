@@ -12,12 +12,22 @@
         @include responsive(width, 1076px);
         margin: 0 auto;
         @include responsive(padding, 180px, 0);
+
+        @include mobile() {
+            @include responsive(width, 350px);
+            @include responsive(padding, 96px, 0);
+        }
     }
 
     &-top {
-        @extend %flex-between;
+        @extend %flex-between, %mob\:flex-column;
         @include responsive(height, 166px);
         @include responsive(margin-bottom, 48px);
+
+        @include mobile() {
+            height: auto;
+            @include responsive(margin-bottom, 32px);
+        }
     }
 
     &-info {
@@ -26,20 +36,30 @@
         &-title {
             @extend %font-manrope-52, %font-500;
 
+            @include mobile() {
+                @include text(32px, 40px);
+                @include responsive(margin-bottom, 20px);
+            }
+
             &-what {
                 color: #1657FC; 
             }
         }
 
         &-description {
-            @extend %font-manrope-24;
+            @extend %font-manrope-24, %mob\:flex-column, %mob\:gap-16;
             @include responsive(width, 691px);
             color: #4D4D4D;
+
+            @include mobile() {
+                width: 100%;
+                @include text(16px, 20px);
+            }
         }
     }
 
     &-image {
-        @extend %relative;
+        @extend %relative, %mob\:hidden;
         @include block(306px, 247px);
 
         & img {
@@ -50,13 +70,22 @@
     }
 
     &-items {
-        @extend %w-full, %flex-between-center, %gap-40;
+        @extend %w-full, %flex-between-center, %mob\:flex-center, %mob\:flex-wrap, %gap-40;
         @include responsive(margin-bottom, 60px);
+
+        @include mobile() {
+            @include responsive(gap, 32px, 24px);
+            @include responsive(margin-bottom, 52px);
+        }
     }
 
     &-item {
         @extend %flex-column-between-center, %gap-20;
         @include block(170px, 210px);
+
+        @include mobile() {
+            @include block(148px, 188px);
+        }
 
         &-big {
             @include block(234px, 314px);
@@ -66,6 +95,10 @@
         &-top {
             @extend %relative;
             @include square(170px);
+
+            @include mobile() {
+                @include square(148px);
+            }
 
             .box_block-item-big & {
                 @include square(234px);
@@ -97,73 +130,138 @@
     }
 
     &-charger {
-        @extend %flex-end;
+        @extend %flex-end, %mob\:flex-column-start;
         @include responsive(width, 1117px);
         @include responsive(gap, 85px);
 
+        @include mobile() {
+            width: 100%;
+        }
+
         &-images {
-            @extend %relative;
+            @extend %relative, %mob\:flex-center;
             @include square(355px);
 
-            &-ellipse {
+            @include mobile() {
+                width: auto;
+                height: auto;
+                aspect-ratio: unset;
+                @include responsive(gap, 23px);
+                @include responsive(margin, 32px, auto);
+            }
+
+            &-item {
+                @extend %mob\:relative;
+
+                @include mobile() {
+                    @include square(148px);
+                }
+            }
+
+            &-ellipse, &-image, &-photo {
                 @extend %absolute;
+            }
+
+            &-ellipse {
+                @extend %mob\:h-full;
                 top: 0;
                 left: 0;
             }
 
             &-image {
-                @extend %absolute;
                 @include block(226px, 287px);
                 @include responsive(left, 66px);
                 bottom: 0;
                 z-index: 2;
+
+                @include mobile() {
+                    @include block(93.854px, 119.122px);
+                    @include responsive(top, 27.98px);
+                    @include responsive(left, 27.98px);
+                }
             }
 
             &-photo {
-                @extend %absolute;
                 @include square(120px);
                 @include responsive(top, -22px);
                 @include responsive(right, -11px);
                 z-index: 3;
+
+                @include mobile() {
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
             }
         }
 
         &-info {
-            @extend %flex-column;
+            @extend %flex-column, %gap-6, %mob\:gap-0, %mob\:w-full;
 
             &-title {
                 @extend %font-manrope-52, %font-500;
+
+                @include mobile() {
+                    @include text(32px, 40px);
+                    @include responsive(margin-bottom, 20px);
+                }
             }
 
             &-description {
-                @extend %font-manrope-18;
-                @include responsive(width, 660px); 
-                @include responsive(margin-top, 6px);
+                @extend %font-manrope-18, %mob\:flex-column, %mob\:gap-12;
+                @include responsive(width, 660px);
                 color: #666;
+
+                @include mobile() {
+                    width: 100%;
+                    @include text(16px, 20px);
+                }
             }
         }
         
         &-items {
-            @extend %flex-column;
+            @extend %flex-column, %mob\:flex-row, %mob\:gap-8;
             @include responsive(row-gap, 31px);
             @include responsive(margin-top, 32px);
+
+            @include mobile() {
+                margin-top: 0;
+            }
         }
         
         &-item {
-            @extend %flex-center, %gap-24;
+            @extend %flex-start-center, %mob\:flex-column-center, %gap-24, %mob\:gap-12;
+
+            @include mobile() {
+                @include responsive(width, 164px);
+            }
 
             &-image {
                 @extend %relative;
                 @include square(86px);
 
-                &-ellipse {
+                @include mobile() {
+                    @include square(60px);
+                }
+
+                &-ellipse, &-image {
                     @extend %absolute;
+
+                    @include mobile() {
+                        width: 100% !important;
+                        height: 100% !important;
+                        top: 0 !important;
+                        left: 0 !important;
+                    }
+                }
+
+                &-ellipse {
                     top: 0;
                     left: 0;
                 }
 
                 &-image {
-                    @extend %absolute;
                     z-index: 2;
 
                     &-1 {
@@ -181,34 +279,16 @@
             }
 
             &-description {
-                @extend %font-manrope;
+                @extend %font-manrope, %mob\:text-center;
                 @include responsive(width, 345px);
                 @include text(16px, 20px);
                 color: #666;
+
+                @include mobile() {
+                    width: 100%;
+                    @include text(12px, 18px);
+                }
             }
         }
     }
 }
-
-// .box_block-info-description-mobile {
-// 	display: none;
-// }
-
-.box_block-item-top .box_block-item-ellipse {
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-
-// .box_block-charger-images-mobile {
-// 	display: none;
-// }
-// .box_block-charger-info-description-mobile {
-// 	display: none;
-// }
-
-// .box_block-charger-item-image-image-mobile {
-// 	display: none;
-// }

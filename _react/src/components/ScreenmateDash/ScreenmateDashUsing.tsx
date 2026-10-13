@@ -47,13 +47,12 @@ const ScreenmateDashUsing: React.FC = () => {
             </Popup>
             <div className="using__content">
                 {steps.map(({ text }, index) => (
-                    <div className={`using__row using__row-${index + 1}`}>
+                    <div className={`using__row using__row-${index + 1}`} key={index}>
                         <div className="using__row-block">
                             <div className="using__row-legend-number">{index + 1}</div>
                             <div className={`using__row-image using__row-image-desktop using__row-image-${index + 1}`}>
                                 <img className="w-full" src={stepImages[index]} alt="" />
                             </div>
-                            {/* <div className="using__row-image using__row-image-mobile using__row-image-mobile-1"><img src="{{ 'using_1.svg' | asset_url }}" /></div> */}
                         </div>
                         <div className="using__row-legend-text">{text}</div>
                     </div>
