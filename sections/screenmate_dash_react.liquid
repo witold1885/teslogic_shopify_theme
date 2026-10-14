@@ -52,6 +52,7 @@
 
 <script>
   {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  const videos = {{ videos }}
   window.ShopifyReactData = {
     publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
     content: {
@@ -59,7 +60,7 @@
       main_menu: {{ main_menu }},
       footer_menu: [],
       features: {{ features }},
-      videos: {{ videos }}
+      videos: videos.map(({ body_html, summary_html }) => ({ url: body_html.trim(), html: summary_html }))
     },
     cart: {{ cart }},
     product: {{ product }},
