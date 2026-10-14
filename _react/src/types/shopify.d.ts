@@ -43,8 +43,17 @@ interface Feature {
 }
 
 interface Video {
+    id?: string | null
     url: string
-    html: TrustedHTML
+    html: string
+}
+
+interface VideoItem {
+    id: string
+    url: string
+    snippet: any
+    channelSnippet: any
+    html: string
 }
 
 declare global {
