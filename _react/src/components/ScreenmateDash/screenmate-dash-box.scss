@@ -92,13 +92,16 @@
             @include responsive(gap, 16px);
         }
 
-        &-top {
-            @extend %relative;
+        &-top, &-image {
             @include square(170px);
 
             @include mobile() {
                 @include square(148px);
             }
+        }
+
+        &-top {
+            @extend %relative;
 
             .box_block-item-big & {
                 @include square(234px);
@@ -163,7 +166,7 @@
             }
 
             &-ellipse {
-                @extend %mob\:h-full;
+                @extend %w-full, %h-full;
                 top: 0;
                 left: 0;
             }
@@ -257,6 +260,7 @@
                 }
 
                 &-ellipse {
+                    @extend %w-full, %h-full;
                     top: 0;
                     left: 0;
                 }
