@@ -34,6 +34,10 @@
   }
 {%- endcapture -%}
 
+{%- capture videos -%}
+  {% render 'videos-json', blog: 'bloggers-about-teslogic' %}
+{%- endcapture -%}
+
 {%- capture product -%}
   {% render 'product-json', product: all_products['screenmate-dash-kit'] %}
 {%- endcapture -%}
@@ -54,7 +58,8 @@
       country: {{ localization_country }},
       main_menu: {{ main_menu }},
       footer_menu: [],
-      features: {{ features }}
+      features: {{ features }},
+      videos: {{ videos }}
     },
     cart: {{ cart }},
     product: {{ product }},
