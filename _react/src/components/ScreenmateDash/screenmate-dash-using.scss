@@ -112,6 +112,10 @@
 		&-image {
 			@extend %absolute;
 
+			& img {
+				object-fit: unset;
+			}
+
 			&-1 {
 				@include block(136px, 173px);
 				@include responsive(top, 32px);
