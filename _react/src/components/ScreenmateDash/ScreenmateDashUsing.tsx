@@ -1,8 +1,8 @@
 import React, { useState, type ReactNode } from 'react'
 import './screenmate-dash-using.scss'
+import { Icon, Image, Popup } from '../Common'
 import chevron from '../../assets/icons/chevron-right-blue.svg'
 import close from '../../assets/icons/close-white.svg'
-import { Icon, Popup } from '../Common'
 
 const stepImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/using/using_*.svg', { eager: true })
 const stepImages: string[] = Object.values(stepImageModules).map(mod => mod.default)
@@ -50,9 +50,10 @@ const ScreenmateDashUsing: React.FC = () => {
                     <div className={`using__row using__row-${index + 1}`} key={index}>
                         <div className="using__row-block">
                             <div className="using__row-legend-number">{index + 1}</div>
-                            <div className={`using__row-image using__row-image-desktop using__row-image-${index + 1}`}>
-                                <img className="w-full" src={stepImages[index]} alt="" />
-                            </div>
+                            <Image
+                                className={`using__row-image using__row-image-${index + 1}`}
+                                src={stepImages[index]}
+                            />
                         </div>
                         <div className="using__row-legend-text">{text}</div>
                     </div>
