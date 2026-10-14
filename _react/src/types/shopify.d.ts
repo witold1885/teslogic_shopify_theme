@@ -42,6 +42,11 @@ interface Feature {
     content: TrustedHTML
 }
 
+interface Video {
+    url: string
+    html: TrustedHTML
+}
+
 declare global {
     interface Window {
         ShopifyReactData?: {
@@ -50,6 +55,7 @@ declare global {
                 main_menu: MenuItem[]
                 footer_menu: MenuItem[]
                 features?: Record<string, Blog>
+                videos?: Video[]
             }
             cart: { item_count: number }
             product: Product
