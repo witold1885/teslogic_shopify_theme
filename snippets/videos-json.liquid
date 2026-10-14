@@ -1,0 +1,10 @@
+{% assign videos = blogs[blog].articles | sort: "title" %}
+
+[
+    {% for video in videos %}
+        {
+            "url": {{ video.body_html | json | strip }},
+            "html": {{ video.summary_html | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+]
