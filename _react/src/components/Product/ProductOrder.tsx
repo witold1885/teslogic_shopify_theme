@@ -98,40 +98,15 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs }) 
                         <div className="store_block-product-title">{product.title}</div>
                     </div>
                     <div>
+                        {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
                             placeholder="Select your Tesla model and year"
                             {...{options, error}}
                             onSelect={(modelId) => handleModelSelect(modelId as number)}
                         />
-                        {/* <div class="store_block-product-select">
-                            <div class="store_block-product-select-dropdown-select store_block-product-selected">
-                                <span class="store_block-product-select-value">Select your Tesla model and year</span>
-                                <div class="store_block-product-select-arrow">
-                                    <img src="{{ 'select_arrow_down.svg' | asset_url }}">
-                                </div>
-                            </div>
-                            <div class="store_block-product-select-dropdown">
-                                <div class="store_block-product-select-dropdown-select">
-                                    <span class="store_block-product-select-value">Select your Tesla model and year</span>
-                                    <div class="store_block-product-select-arrow">
-                                        <img src="{{ 'select_arrow_up.svg' | asset_url }}">
-                                    </div>
-                                </div>
-                                {%- for model in product.variants -%}
-                                    <div 
-                                        class="store_block-product-select-dropdown-item" 
-                                        data-model_id="{{ model.id }}"
-                                        data-sku="{{ model.sku }}" 
-                                        data-price="{{ model.price }}"
-                                        data-compare_at_price="{{ model.compare_at_price }}"
-                                        data-stock="{{ model.inventory_quantity }}"
-                                    >
-                                        <span>{{ model.title }}</span>
-                                        <img src="{{ 'store_model_selected.svg' | asset_url }}">
-                                    </div>
-                                {%- endfor -%}
-                            </div>
-                        </div> */}
+                        <div className="store_block-product-order">
+					        <button className="store_block-product-add">Order now</button>
+                        </div>
                     </div>
                 </div>
             </div>

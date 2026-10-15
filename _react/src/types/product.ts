@@ -14,6 +14,7 @@ export interface ProductImage {
 export interface Product {
     id: number
     title: string
+    description?: string
     price?: number
     maxPrice?: number
     oldPrice?: number

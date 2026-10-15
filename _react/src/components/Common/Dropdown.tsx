@@ -24,13 +24,14 @@ const DropdownItem: React.FC<DropdownItemProps> = ({ className, label, icon, onC
 )
 
 interface DropdownProps {
+    theme?: 'dark' | 'light'
     placeholder?: string
     options: DropdownOption[]
     onSelect?: (value: DropdownOption['value']) => void
     error?: boolean
 }
 
-const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, options, onSelect, error }, ref) => {
+const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', placeholder, options, onSelect, error }, ref) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
     const [selectedlabel, setSelectedLabel] = useState<string|null>(null)
 
@@ -41,7 +42,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ placeholder, optio
     }
 
     return (
-        <div ref={ref} className="dropdown">
+        <div ref={ref} className={`dropdown ${theme}`}>
             <DropdownItem
                 className={`dropdown-field ${error ? 'dropdown-field-error' : ''}`}
                 label={selectedlabel || placeholder}

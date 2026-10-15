@@ -155,9 +155,16 @@ input, textarea {
     &-field {
         @include m.responsive(padding, 20px);
         @include m.responsive(border-radius, 12px);
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        background: #191919;
         @extend %cursor-pointer;
+
+        .dark & {
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: #191919;
+        }
+
+        .light & {
+            background: #E6E6E6;
+        }
 
         &-error {
             border: 1px solid #FC3E30;
@@ -169,8 +176,15 @@ input, textarea {
         }
 
         & span {
-            color: #FAFAFA;
             @extend %font-manrope-20, %mob\:font-manrope-16, %font-500;
+
+            .dark & {
+                color: #FAFAFA;
+            }
+
+            .light & {
+                color: #000;
+            }
 
             @include m.mobile() {
                 @include m.responsive(line-height, 20px);
@@ -190,9 +204,17 @@ input, textarea {
         z-index: 1;
         @include m.responsive(padding, 22px, 20px, 24px, 20px);
         @include m.responsive(border-radius, 12px);
-        border: 1px solid rgba(255, 255, 255, 0.10);
-        background: #191919;
         box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
+
+        .dark & {
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: #191919;
+        }
+
+        .light & {
+            border: 1px solid #E6E6E6;
+            background: #FFF;
+        }
 
         @include m.mobile() {
             @include m.responsive(padding, 12px, 16px, 24px);
@@ -207,7 +229,14 @@ input, textarea {
             @extend %w-full;
 
             &:hover {
-                color: #B3B3B3;
+
+                .dark & {
+                    color: #B3B3B3;
+                }
+
+                .light & {
+                    color: #1657FC;
+                }
             }
 
             & .icon {
