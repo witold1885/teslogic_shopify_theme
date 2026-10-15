@@ -58,6 +58,8 @@
 				@extend %flex-center;
 				@include block(416px, 234px);
 				@include responsive(border-radius, 24px);
+				background-size: cover;
+				background-position: center;
 
 				&-yt-icon {
 					@include block(74px, 52px);
@@ -65,7 +67,7 @@
 			}
 			
 			&-channel {
-				@extend %flex-column, %gap-12;
+				@extend %flex-column-start, %gap-12;
 
 				&-top {
 					@extend %flex-center, %gap-12;
