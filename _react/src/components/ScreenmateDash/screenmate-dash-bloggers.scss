@@ -35,12 +35,9 @@
 		&-wrap {
 			@extend %flex-column;
 			@include responsive(row-gap, 58px);
-			padding-left: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
-			padding-right: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
 
 			@include mobile() {
 				@include responsive(row-gap, 60px);
-				padding: 0;
 			}
 		}
 
