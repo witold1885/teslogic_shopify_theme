@@ -3,8 +3,14 @@ import './screenmate-dash-bloggers.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { parseYoutubeVideos } from '../../redux/slices/content'
 import { getVideoId } from '../../redux/yt'
+import { useInlineStyles } from '../../hooks/inline-styles'
+import { Icon, Image } from '../Common'
+import TrackSlider from '../Common/TrackSlider'
+import ytPlayIcon from '../../assets/icons/yt-play.svg'
 
 const ScreenmateDashBloggers: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+
     const dispatch = useAppDispatch()
 
     const { videos, videoItems: items } = useAppSelector(state => state.content)
@@ -17,8 +23,6 @@ const ScreenmateDashBloggers: React.FC = () => {
         dispatch(parseYoutubeVideos(data))
     }, [data])
 
-    console.log({ items })
-
     return (
         <div className="bloggers_block">
             <div className="bloggers_block__wrap">
@@ -29,22 +33,21 @@ const ScreenmateDashBloggers: React.FC = () => {
                     Watch video reviews from popular influencers
                 </div>
                 <div className="bloggers_block__list">
-                    <div className="bloggers_block__list-scroller">
-                        {items?.map((item, index) => (
+                    <TrackSlider
+                        className="bloggers_block__list"
+                        items={items?.map((item, index) => (
                             <div className="bloggers_block__list-item" key={index}>
                                 <a
                                     href={item.url}
                                     target="_blank"
                                     className="bloggers_block__list-item-thumbnail"
                                     style={{ backgroundImage: `url(${item.snippet.thumbnails.high.url})` }}
-                                >                                    
-                                    <img draggable="false" className="bloggers_block__list-item-thumbnail-yt-icon" src="{{ 'YT.svg' | asset_url }}" />
+                                >
+                                    <Icon className="bloggers_block__list-item-thumbnail-yt-icon" icon={ytPlayIcon} />
                                 </a>
                                 <div className="bloggers_block__list-item-channel">
                                     <div className="bloggers_block__list-item-channel-top">
-                                        <div className="bloggers_block__list-item-channel-thumbnail">
-                                            <img src={item.channelSnippet.thumbnails.default.url} />
-                                        </div>
+                                        <Image className="bloggers_block__list-item-channel-thumbnail" src={item.channelSnippet.thumbnails.default.url} />
                                         <span className="bloggers_block__list-item-channel-title">{item.channelSnippet.title}: </span>
                                     </div>
                                     <div className="bloggers_block__list-item-channel-info">						
@@ -52,11 +55,9 @@ const ScreenmateDashBloggers: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                    <div className="bloggers_block__list-scrollbar">
-                        <div className="bloggers_block__list-scrollbar-thumb"></div>
-                    </div>
+                        )) || []}
+                        slidesToShow={!isMobile ? 3 : 1.2745}
+                    />
                 </div>
             </div>
         </div>

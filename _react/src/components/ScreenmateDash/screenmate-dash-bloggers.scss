@@ -27,119 +27,186 @@
         @include responsive(margin, 0, auto, 47px);
 	    color: #4D4D4D;
     }
+
+	&__list {
+		@extend %flex, %gap-24;
+		cursor: grab;
+
+		&-wrap {
+			@extend %flex-column;
+			@include responsive(row-gap, 58px);
+			padding-left: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
+			padding-right: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
+
+			@include mobile() {
+				@include responsive(row-gap, 60px);
+				padding: 0;
+			}
+		}
+
+		&-scrollbar {
+			background: #E3E3E3;
+			
+			&-thumb {
+				background: #1657FC;
+			}
+		}
+
+		&-item {
+			display: inline-flex !important;
+			@extend %flex-column, %gap-20;
+			@include responsive(width, 416px);
+
+			&-thumbnail {
+				@extend %flex-center;
+				@include block(416px, 234px);
+				@include responsive(border-radius, 24px);
+
+				&-yt-icon {
+					@include block(74px, 52px);
+				}
+			}
+			
+			&-channel {
+				@extend %flex-column, %gap-12;
+
+				&-top {
+					@extend %flex-center, %gap-12;
+				}
+
+				&-thumbnail {
+					@include square(32px);
+					@include responsive(border-radius, 32px);
+				}
+
+				&-info {
+					@extend %w-full;
+				}
+
+				&-title {
+					@extend %font-manrope-24, %font-500;
+				}
+
+				&-excerpt {
+					@extend %font-manrope-18;
+					color: #666;
+				}
+			}
+		}
+	}
 }
-.bloggers_block__list {
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 58px;
-	user-select: none;
-	overflow-x: visible;
-	margin-left: calc(-1 * (100vw - 1296px) / 2);
-  	margin-right: calc(-1 * (100vw - 1296px) / 2);
-}
-.bloggers_block__list-scroller {
-	height: 394px;
-	overflow-x: scroll;
-	display: flex;
-	grid-column-gap: 24px;
-	padding-left: calc((100vw - 1296px) / 2);
-	padding-right: calc((100vw - 1296px) / 2);
-	cursor: grab;
-	scrollbar-color: transparent transparent;
-	scrollbar-visibility: hidden;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-.bloggers_block__list-scroller::-webkit-scrollbar {
-  display: none;
-}
-.bloggers_block__list-scrollbar {
-	position: relative;
-	margin-left: calc((100vw - 1296px) / 2);
-	width: 1296px;
-	height: 4px;
-	border-radius: 2px;
-	background-color: #E3E3E3;
-	cursor: pointer;
-}
-.bloggers_block__list-scrollbar-thumb {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 106px;
-	height: 100%;
-	border-radius: 2px;
-	background-color: #1657FC;
-}
-.bloggers_block__list-item {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 20px;
-	width: 416px;
-}
-.bloggers_block__list-item-thumbnail {
-	width: 416px;
-	height: 234px;
-	border-radius: 24px; 
-	overflow: hidden;
-	background-size: cover;
-	background-position: center;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.bloggers_block__list-item-thumbnail-yt-icon {
-	width: 74px;
-	height: 52px; 
-}
-.bloggers_block__list-item-duration {
-	position: absolute;
-}
-.bloggers_block__list-item-video-desktop {
-	display: block;
-}
-.bloggers_block__list-item-video-mobile {
-	display: none;
-}
-.bloggers_block__list-item-channel {
-	display: flex;
-	flex-direction: column;
-	grid-row-gap: 12px;
-}
-.bloggers_block__list-item-channel-top {
-	display: flex;
-	align-items: center;
-	grid-column-gap: 12px;
-}
-.bloggers_block__list-item-channel-thumbnail {
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-	overflow: hidden;
-}
-.bloggers_block__list-item-channel-thumbnail img {
-	width: 100%;
-	height: 100%;
-}
-.bloggers_block__list-item-channel-info {
-	width: 100%;
-}
-.bloggers_block__list-item-channel-title {
-	color: #000;
-	font-family: Manrope;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 32px;
-}
-.bloggers_block__list-item-channel-excerpt {
-	color: #666;
-	font-family: Manrope;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 24px;
-}
+// .bloggers_block__list {
+// 	width: 100vw;
+// 	display: flex;
+// 	flex-direction: column;
+// 	grid-row-gap: 58px;
+// 	user-select: none;
+// 	overflow-x: visible;
+// 	margin-left: calc(-1 * (100vw - 1296px) / 2);
+//   	margin-right: calc(-1 * (100vw - 1296px) / 2);
+// }
+// .bloggers_block__list-scroller {
+// 	height: 394px;
+// 	overflow-x: scroll;
+// 	display: flex;
+// 	grid-column-gap: 24px;
+// 	padding-left: calc((100vw - 1296px) / 2);
+// 	padding-right: calc((100vw - 1296px) / 2);
+// 	cursor: grab;
+// 	scrollbar-color: transparent transparent;
+// 	scrollbar-visibility: hidden;
+// 	-webkit-overflow-scrolling: touch;
+// 	-ms-overflow-style: none;
+// 	scrollbar-width: none;
+// }
+// .bloggers_block__list-scroller::-webkit-scrollbar {
+//   display: none;
+// }
+// .bloggers_block__list-scrollbar {
+// 	position: relative;
+// 	margin-left: calc((100vw - 1296px) / 2);
+// 	width: 1296px;
+// 	height: 4px;
+// 	border-radius: 2px;
+// 	background-color: #E3E3E3;
+// 	cursor: pointer;
+// }
+// .bloggers_block__list-scrollbar-thumb {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 106px;
+// 	height: 100%;
+// 	border-radius: 2px;
+// 	background-color: #1657FC;
+// }
+// .bloggers_block__list-item {
+// 	display: flex;
+// 	flex-direction: column;
+// 	grid-row-gap: 20px;
+// 	width: 416px;
+// }
+// .bloggers_block__list-item-thumbnail {
+// 	width: 416px;
+// 	height: 234px;
+// 	border-radius: 24px; 
+// 	overflow: hidden;
+// 	background-size: cover;
+// 	background-position: center;
+// 	position: relative;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+// .bloggers_block__list-item-thumbnail-yt-icon {
+// 	width: 74px;
+// 	height: 52px; 
+// }
+// .bloggers_block__list-item-duration {
+// 	position: absolute;
+// }
+// .bloggers_block__list-item-video-desktop {
+// 	display: block;
+// }
+// .bloggers_block__list-item-video-mobile {
+// 	display: none;
+// }
+// .bloggers_block__list-item-channel {
+// 	display: flex;
+// 	flex-direction: column;
+// 	grid-row-gap: 12px;
+// }
+// .bloggers_block__list-item-channel-top {
+// 	display: flex;
+// 	align-items: center;
+// 	grid-column-gap: 12px;
+// }
+// .bloggers_block__list-item-channel-thumbnail {
+// 	width: 32px;
+// 	height: 32px;
+// 	border-radius: 32px;
+// 	overflow: hidden;
+// }
+// .bloggers_block__list-item-channel-thumbnail img {
+// 	width: 100%;
+// 	height: 100%;
+// }
+// .bloggers_block__list-item-channel-info {
+// 	width: 100%;
+// }
+// .bloggers_block__list-item-channel-title {
+// 	color: #000;
+// 	font-family: Manrope;
+// 	font-size: 24px;
+// 	font-style: normal;
+// 	font-weight: 500;
+// 	line-height: 32px;
+// }
+// .bloggers_block__list-item-channel-excerpt {
+// 	color: #666;
+// 	font-family: Manrope;
+// 	font-size: 18px;
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	line-height: 24px;
+// }
