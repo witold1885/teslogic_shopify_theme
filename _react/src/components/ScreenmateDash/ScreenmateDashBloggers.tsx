@@ -32,33 +32,31 @@ const ScreenmateDashBloggers: React.FC = () => {
                 <div className="bloggers_block__subtitle">
                     Watch video reviews from popular influencers
                 </div>
-                <div className="bloggers_block__list">
-                    <TrackSlider
-                        className="bloggers_block__list"
-                        items={items?.map((item, index) => (
-                            <div className="bloggers_block__list-item" key={index}>
-                                <a
-                                    href={item.url}
-                                    target="_blank"
-                                    className="bloggers_block__list-item-thumbnail"
-                                    style={{ backgroundImage: `url(${item.snippet.thumbnails.high.url})` }}
-                                >
-                                    <Icon className="bloggers_block__list-item-thumbnail-yt-icon" icon={ytPlayIcon} />
-                                </a>
-                                <div className="bloggers_block__list-item-channel">
-                                    <div className="bloggers_block__list-item-channel-top">
-                                        <Image className="bloggers_block__list-item-channel-thumbnail" src={item.channelSnippet.thumbnails.default.url} />
-                                        <span className="bloggers_block__list-item-channel-title">{item.channelSnippet.title}: </span>
-                                    </div>
-                                    <div className="bloggers_block__list-item-channel-info">						
-                                        <span className="bloggers_block__list-item-channel-excerpt">“{item.html}”</span>
-                                    </div>
+                <TrackSlider
+                    className="bloggers_block__list"
+                    items={items?.map((item, index) => (
+                        <div className="bloggers_block__list-item" key={index}>
+                            <a
+                                href={item.url}
+                                target="_blank"
+                                className="bloggers_block__list-item-thumbnail"
+                                style={{ backgroundImage: `url(${item.snippet.thumbnails.high.url})` }}
+                            >
+                                <Icon className="bloggers_block__list-item-thumbnail-yt-icon" icon={ytPlayIcon} />
+                            </a>
+                            <div className="bloggers_block__list-item-channel">
+                                <div className="bloggers_block__list-item-channel-top">
+                                    <Image className="bloggers_block__list-item-channel-thumbnail" src={item.channelSnippet.thumbnails.default.url} />
+                                    <span className="bloggers_block__list-item-channel-title">{item.channelSnippet.title}: </span>
+                                </div>
+                                <div className="bloggers_block__list-item-channel-info">						
+                                    <span className="bloggers_block__list-item-channel-excerpt">“{item.html}”</span>
                                 </div>
                             </div>
-                        )) || []}
-                        slidesToShow={!isMobile ? 3 : 1.2745}
-                    />
-                </div>
+                        </div>
+                    )) || []}
+                    slidesToShow={!isMobile ? 3 : 1.2745}
+                />
             </div>
         </div>
     )
