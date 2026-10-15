@@ -1,28 +1,63 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import './product-order.scss'
-import type { Product } from '../../types/product'
-import { Image } from '../Common'
+import { useAppSelector } from '../../redux/hooks'
+import type { Model, Product } from '../../types/product'
+import { Dropdown, Image } from '../Common'
+import type { DropdownOption } from '../Common/Dropdown'
 
 interface ProductOrderProps {
     product?: Product | null
     images?: string[]
     thumbs?: string[]
-    prices?: PricesProps
-    currency?: string
-    tax?: number
 }
 
 interface PricesProps { current?: number | null; old?: number | null }
 
-const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs, prices, currency, tax }) => {
+const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs }) => {
+    const { country } = useAppSelector(state => state.content)
+    const { rate } = useAppSelector(state => state.products)
+
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
+    
+    const options: DropdownOption[] = (product?.models || []).flatMap(({ id, title }) =>
+        title.split('|').map((model) => ({ label: model.trim(), value: id }))
+    )
+
+    const [selectedModel, setSelectedModel] = useState<Model | null>(null)
+    const [error, setError] = useState<boolean>(false)
+
+    const handleModelSelect = (modelId: number) => {
+        setError(false)
+        const model = product?.models?.find(({ id }) => id === modelId) || null
+        setSelectedModel(model)
+    }
+    
+    const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
+    // const currency: string = 'USD'
+
+    const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
+
+    const prices: { current?: number | null; old?: number | null } = useMemo(() => {
+        let current = null, old = null
+        if (product) {
+            current = product.maxPrice
+            old = product.oldPrice
+            if (selectedModel) {
+                current = selectedModel.price
+                old = selectedModel.oldPrice
+            }
+        }
+        return { current: (current || 0) * coef, old: (old || 0) * coef }
+    }, [product, selectedModel, coef])
+
+    const tax: number = useMemo(() => country?.vat_percent || 20, [country])
     
     const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
         <>
             <br />
-            <div className="store_block-product-price-vat">
+            <span className="store_block-product-price-vat">
                 +{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)
-            </div>
+            </span>
         </>
     ) : <></>, [currency, tax])
     
@@ -61,6 +96,42 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs, pr
                             )}
                         </div>
                         <div className="store_block-product-title">{product.title}</div>
+                    </div>
+                    <div>
+                        <Dropdown
+                            placeholder="Select your Tesla model and year"
+                            {...{options, error}}
+                            onSelect={(modelId) => handleModelSelect(modelId as number)}
+                        />
+                        {/* <div class="store_block-product-select">
+                            <div class="store_block-product-select-dropdown-select store_block-product-selected">
+                                <span class="store_block-product-select-value">Select your Tesla model and year</span>
+                                <div class="store_block-product-select-arrow">
+                                    <img src="{{ 'select_arrow_down.svg' | asset_url }}">
+                                </div>
+                            </div>
+                            <div class="store_block-product-select-dropdown">
+                                <div class="store_block-product-select-dropdown-select">
+                                    <span class="store_block-product-select-value">Select your Tesla model and year</span>
+                                    <div class="store_block-product-select-arrow">
+                                        <img src="{{ 'select_arrow_up.svg' | asset_url }}">
+                                    </div>
+                                </div>
+                                {%- for model in product.variants -%}
+                                    <div 
+                                        class="store_block-product-select-dropdown-item" 
+                                        data-model_id="{{ model.id }}"
+                                        data-sku="{{ model.sku }}" 
+                                        data-price="{{ model.price }}"
+                                        data-compare_at_price="{{ model.compare_at_price }}"
+                                        data-stock="{{ model.inventory_quantity }}"
+                                    >
+                                        <span>{{ model.title }}</span>
+                                        <img src="{{ 'store_model_selected.svg' | asset_url }}">
+                                    </div>
+                                {%- endfor -%}
+                            </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -49,23 +49,19 @@
             @extend %flex-start-center, %gap-8;
             @include responsive(margin-bottom, 8px);
 
-            & > * {
-                @extend %font-600;
-            }
-
             &-new {
-                @extend %font-manrope-36;
+                @extend %font-manrope-36, %font-600;
                 color: #1657FC;
             }
 
             &-old {
-                @extend %font-manrope-32;
+                @extend %font-manrope-32, %font-600;
                 color: #D1D1D1;
                 text-decoration: line-through;
             }
 
             &-vat {
-                @extend %font-manrope-24;
+                @extend %font-manrope-24, %font-600;
                 color: #1657FC;
             }
         }
