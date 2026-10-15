@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRate } from '../../redux/slices/products'
 import { useInlineStyles } from '../../hooks/inline-styles'
@@ -15,8 +15,13 @@ const ScreenmateDashOrder: React.FC = () => {
     useEffect(() => {
         dispatch(getRate('USD/EUR'))
     }, [dispatch])
+    console.log({ product })
 
-    return <ProductOrder {...{product}} />
+    const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
+    const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
+    console.log({ images, thumbs })
+
+    return <ProductOrder {...{product, images, thumbs}} />
 }
 
 export default ScreenmateDashOrder

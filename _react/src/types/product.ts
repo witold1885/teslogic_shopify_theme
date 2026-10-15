@@ -6,6 +6,11 @@ export interface Model {
     oldPrice?: number
 }
 
+export interface ProductImage {
+    main: string
+    thumb: string
+}
+
 export interface Product {
     id: number
     title: string
@@ -13,6 +18,7 @@ export interface Product {
     maxPrice?: number
     oldPrice?: number
     models?: Model[]
+    images?: ProductImage[]
 }
 
 export interface RateResponse {
