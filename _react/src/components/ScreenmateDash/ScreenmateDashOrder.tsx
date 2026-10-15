@@ -20,7 +20,7 @@ const ScreenmateDashOrder: React.FC = () => {
     const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
     const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
 
-    return <ProductOrder {...{product, images, thumbs}} />
+    return <ProductOrder {...{product, images, thumbs}} withDetails={true} />
 }
 
 export default ScreenmateDashOrder

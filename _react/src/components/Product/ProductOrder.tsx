@@ -2,18 +2,21 @@ import React, { useState, useMemo, useCallback } from 'react'
 import './product-order.scss'
 import { useAppSelector } from '../../redux/hooks'
 import type { Model, Product } from '../../types/product'
-import { Dropdown, Image } from '../Common'
+import { Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
+import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
+import noImportIcon from '../../assets/icons/feature_no_import.svg'
 
 interface ProductOrderProps {
     product?: Product | null
     images?: string[]
     thumbs?: string[]
+    withDetails?: boolean
 }
 
 interface PricesProps { current?: number | null; old?: number | null }
 
-const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs }) => {
+const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs, withDetails = false }) => {
     const { country } = useAppSelector(state => state.content)
     const { rate } = useAppSelector(state => state.products)
 
@@ -61,6 +64,13 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs }) 
         </>
     ) : <></>, [currency, tax])
     
+    const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => withDetails ? [
+        country?.iso_code === 'US' ? {
+            icon: shippingIcon, main: 'Free shipping', add: 'within the US'
+        } : {},
+        { icon: noImportIcon, main: 'Duties and taxes', add: 'included in most countries*' },
+    ].filter(({ icon, main, add }) => !!icon && !!main && !!add) : [], [withDetails, country])
+
     return product ? (
         <div className="store_block" id="shop-now">
             <div className="store_block-product">
@@ -100,12 +110,28 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs }) 
                     <div>
                         {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
+                            theme="light"
                             placeholder="Select your Tesla model and year"
                             {...{options, error}}
                             onSelect={(modelId) => handleModelSelect(modelId as number)}
                         />
                         <div className="store_block-product-order">
-					        <button className="store_block-product-add">Order now</button>
+					        <button className="store_block-product-order-add">Order now</button>
+
+                            <div className="store_block-product-order-details">
+                                {details.map(({ icon, main, add }, index) => (
+                                    <div className="store_block-product-order-detail" key={index}>
+                                        <Icon {...{icon}} />
+                                        <span className="store_block-product-order-detail-text">
+                                            <span className="store_block-product-order-detail-text-main">{main}</span>&nbsp;
+                                            <span>{add}</span>
+                                        </span>
+                                    </div>
+                                ))}
+                                <div className="store_block-product-order-details-subtext">
+                                    *See <a href="/shipping-delivery" target="_blank">Shipping page</a> for details. 
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
