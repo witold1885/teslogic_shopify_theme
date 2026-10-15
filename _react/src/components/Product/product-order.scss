@@ -46,8 +46,12 @@
         }
 
         &-price {
-            @extend %flex-center, %gap-8, %font-600;
+            @extend %flex-start-center, %gap-8;
             @include responsive(margin-bottom, 8px);
+
+            & > * {
+                @extend %font-600;
+            }
 
             &-new {
                 @extend %font-manrope-36;

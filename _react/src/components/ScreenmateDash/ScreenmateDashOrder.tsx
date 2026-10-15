@@ -41,8 +41,9 @@ const ScreenmateDashOrder: React.FC = () => {
         return { current: (current || 0) * coef, old: (old || 0) * coef }
     }, [product, selectedModel, coef])
     
+    const tax: number = useMemo(() => country?.vat_percent || 20, [country])
 
-    return <ProductOrder {...{product, images, thumbs, prices, currency}} />
+    return <ProductOrder {...{product, images, thumbs, prices, currency, tax}} />
 }
 
 export default ScreenmateDashOrder
