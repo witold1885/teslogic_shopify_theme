@@ -1,10 +1,20 @@
-import React, { useState, useMemo, Children, type ReactNode, type ReactElement, useRef } from 'react'
+import React, { useState, useMemo, Children, type ReactNode, type ReactElement, useRef, forwardRef } from 'react'
 import './screenmate-dash-screens.scss'
 import './screenmate-dash-pointers.scss'
 import Slider, { type Settings } from 'react-slick'
-import { useInlineStyles } from '../../hooks/inline-styles'
 import { countReactNodeLines } from '../../utils/helpers'
 import { Icon } from '../Common'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+	title: { yFrom: '40px', duration: 666 },
+	switcher: { yFrom: '20px', duration: 333 },
+	screen: { yFrom: '40px', duration: 666 },
+	pointer: { yFrom: '20px', duration: 333 },
+	tab: { yFrom: '20px', duration: 333 },
+}
 
 const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
 const screenImages: Record<string, any> = Object.entries(screenImageModules).reduce((acc, [key, mod]) => ({
@@ -117,7 +127,12 @@ const screens: Record<string, Screen> = {
 	}
 }
 
-const ScreenSwitcher: React.FC<{ theme: Theme, onChangeTheme: (key: Theme) => void }> = ({ theme, onChangeTheme }) => {
+interface ScreenSwitcherProps {
+	theme: Theme
+	onChangeTheme: (key: Theme) => void
+}
+
+const ScreenSwitcher = forwardRef<HTMLDivElement, ScreenSwitcherProps>(({ theme, onChangeTheme }, ref) => {
 	const switcher = useMemo(() => (['light', 'dark'] as Theme[]).map(key => ({
 		key,
 		className: `screens__top-switcher-item screens__top-switcher-item-${key} ${key === theme ? 'active': ''}`,
@@ -126,14 +141,19 @@ const ScreenSwitcher: React.FC<{ theme: Theme, onChangeTheme: (key: Theme) => vo
 	})), [theme, onChangeTheme])
 	
 	return (
-		<div className="screens__top-switcher">
+		<div ref={ref} className="screens__top-switcher">
 			{switcher.map(({ key, label, ...item }) => <div key={key} {...item}>{label}</div>)}
 		</div>
 	)
+})
+
+interface ScreenDotsProps {
+	dots: ReactNode
+	theme: Theme
 }
 
-const ScreenDots: React.FC<{ dots: ReactNode; theme: Theme }> = ({ dots, theme }) => (
-	<div className="screens__select">
+const ScreenDots = forwardRef<HTMLDivElement, ScreenDotsProps>(({ dots, theme }, ref) => (
+	<div ref={ref} className="screens__select">
 		{(Children.toArray(dots) as ReactElement[]).map(({ props }, i) => {
 			const { className, children } = props as any
 			const isActive = className?.includes('active')
@@ -155,13 +175,14 @@ const ScreenDots: React.FC<{ dots: ReactNode; theme: Theme }> = ({ dots, theme }
 			)
 		})}
 	</div>
-)
+))
 
 const ScreenmateDashScreens: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
     const [theme, setTheme] = useState<Theme>('light')
 	const mode: Mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
+	const [currentScreenIndex, setCurrentScreenIndex] = useState<number>(0)
 
 	const blocks = useMemo(() => Object.entries(screens).reduce<Record<string, Block>>((acc, [type, { pointers }], index) => {
 		acc[type] = {
@@ -175,10 +196,22 @@ const ScreenmateDashScreens: React.FC = () => {
 		return acc
 	}, {}), [theme, mode])
 
-	const [currentScreenIndex, setCurrentScreenIndex] = useState<number>(0)
+	const animationConfigs = useMemo(() => mapSimpleConfigs({
+		...animatedObjects,
+		...Object.entries(screens).reduce((acc, [key, { pointers }]) => ({
+			...acc,
+			[`screen-${key}`]: animatedObjects.screen,
+			...pointers.reduce((obj, { position }) => ({
+				...obj,
+				[`pointer-${key}-${position}`]: animatedObjects.pointer
+			}), {}),
+			[`tab-${key}`]: animatedObjects.tab
+		}), {})
+	}), [])
+
+	const { anime } = useAnime(animationConfigs)
 
 	const SlickSlider = (Slider as any).default || Slider
-
 	const sliderRef = useRef<any>(null)
 	
 	const sliderSettings: Settings = useMemo(() => ({
@@ -192,7 +225,7 @@ const ScreenmateDashScreens: React.FC = () => {
 		swipeToSlide: true,
 		waitForAnimate: false,
 		dotsClass: 'screens__select',
-		appendDots: dots => <ScreenDots {...{dots, theme}} />,
+		appendDots: dots => <ScreenDots {...anime('tab')} {...{dots, theme}} />,
         beforeChange: (_, next) => setCurrentScreenIndex(next)
 	}), [theme])
 
@@ -201,17 +234,17 @@ const ScreenmateDashScreens: React.FC = () => {
 			<div className="screens__bg"></div>
 			<div className="screens__wrap">
 				<div className="screens__top">
-					<div className="screens__top-title">
+					<div {...anime('title')} className="screens__top-title">
 						<span className="screens__top-title-primary">Switch between five screens</span>{isMobile && <>&nbsp;</>}
 						<span className="screens__top-title-secondary">and explore your car</span>{isMobile && <>&nbsp;</>}
 						<span className="screens__top-title-secondary">with Screenmate Dash</span>
 					</div>
-					{!isMobile && <ScreenSwitcher theme={theme} onChangeTheme={setTheme} />}
+					{!isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
 				</div>
 				<SlickSlider ref={sliderRef} {...sliderSettings}>
 					{Object.entries(blocks).map(([key, { image, retina, pointers }]) => (
 						<div className="screens__features-block" key={key}>
-							<div className="screens__features-image-wrap">
+							<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
 								<img
 									draggable="false"
 									className={`screens__features-image ${theme} ${mode}`}
@@ -225,7 +258,7 @@ const ScreenmateDashScreens: React.FC = () => {
 								const classNames = [...(position?.split('-') || []), slug].map(suffix => `pointer-${suffix}`).join(' ')
 								const lines = countReactNodeLines(legend, mode)
 								return (
-									<div className={`pointer ${classNames}`} key={slug}>
+									<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
 										<div className="pointer-wrap">
 											<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
 											<img className={`pointer-line ${mode}`} src={line} />
@@ -239,7 +272,7 @@ const ScreenmateDashScreens: React.FC = () => {
 					))}
 				</SlickSlider>
 				{isMobile && currentScreenIndex !== undefined && (
-					<div className="screens__selected">
+					<div {...anime(`tab-${screenTypes[currentScreenIndex]}`)} className="screens__selected">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />
 						<div className="screens__selected-item">
 							<div className="screens__selected-item-title">{screens[screenTypes[currentScreenIndex]].title}</div>
@@ -248,7 +281,7 @@ const ScreenmateDashScreens: React.FC = () => {
 						<Icon className="screens__selected-nav screens__selected-nav-next" icon={chevrons[`next-${theme}`]} onClick={() => sliderRef?.current?.slickNext()} />
 					</div>
 				)}
-				{isMobile && <ScreenSwitcher theme={theme} onChangeTheme={setTheme} />}
+				{isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
 			</div>
 		</div>
 	)

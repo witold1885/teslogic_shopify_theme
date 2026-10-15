@@ -154,6 +154,7 @@
             }
 
             &-car {
+                z-index: 1;
 
                 @include mobile() {
                     order: 1;

@@ -1,13 +1,35 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './screenmate-dash-banner.scss'
-import { useInlineStyles } from '../../hooks/inline-styles'
 import { Icon } from '../Common'
 import bannerDesktop from '../../assets/images/screenmate-dash/banner_desktop.png'
 import bannerMobile from '../../assets/images/screenmate-dash/banner_mobile.png'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    subtitle: { yFrom: '20px', duration: 333 },
+    button: { yFrom: '20px', duration: 333 },
+}
+
+const buttons = {
+    buy: { href: '#shop-now', text: 'Buy now'},
+    learn: { href: '#using', text: 'Learn mor'},
+}
+
 const ScreenmateDashBanner: React.FC = () => {
     const { isMobile } = useInlineStyles()
+
+    const animationConfigs = useMemo(() => ({
+        ...mapSimpleConfigs({
+            ...animatedObjects,
+            ...Object.keys(buttons).reduce((acc, key) => ({ ...acc, [`button-${key}`]: animatedObjects.button }), {})
+        }), rootMargin: '0px'
+    } as AnimationConfig), [])
+
+    const { anime } = useAnime(animationConfigs)
 
     return (
         <div
@@ -15,15 +37,16 @@ const ScreenmateDashBanner: React.FC = () => {
             style={{ backgroundImage: `url(${!isMobile ? bannerDesktop : bannerMobile})` }}
         >
             <div className="banner">
-                <div className="title">Screenmate Dash</div>
-                <div className="subtitle">
+                <h1 {...anime('title')} className="title">Screenmate Dash</h1>
+                <div {...anime('subtitle')} className="subtitle">
                     Powerful Dashboard for Model 3/Y <br />
                     with access to advanced Tesla features
                 </div>
                 <div className="banner-separator" />
                 <div className="banner-buttons">
-                    <a href="#shop-now" className="banner-button-buy">Buy now</a>
-                    <a href="#using" className="banner-button-learn">Learn more</a>
+                    {Object.entries(buttons).map(([key, { href, text}]) => (
+                        <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} href={href}>{text}</a>
+                    ))}
                 </div>
                 <a className="expand" href="#using">
                     <Icon icon={chevronIcon} />

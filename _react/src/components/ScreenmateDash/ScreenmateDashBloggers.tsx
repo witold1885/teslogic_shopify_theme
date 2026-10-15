@@ -3,10 +3,18 @@ import './screenmate-dash-bloggers.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { parseYoutubeVideos } from '../../redux/slices/content'
 import { getVideoId } from '../../redux/yt'
-import { useInlineStyles } from '../../hooks/inline-styles'
 import { Icon, Image } from '../Common'
 import TrackSlider from '../Common/TrackSlider'
 import ytPlayIcon from '../../assets/icons/yt-play.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    subtitle: { yFrom: '20px', duration: 333 },
+    item: { yFrom: '20px', duration: 333 },
+}
 
 const ScreenmateDashBloggers: React.FC = () => {
     const { isMobile } = useInlineStyles()
@@ -22,21 +30,31 @@ const ScreenmateDashBloggers: React.FC = () => {
     useEffect(() => {
         dispatch(parseYoutubeVideos(data))
     }, [data])
+    
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...(items?.reduce((acc, _, index) => ({
+            ...acc,
+            [`item-${index}`]: animatedObjects.item
+        }), {}) || [])
+    }), [items])
+
+    const { anime } = useAnime(animationConfigs)
 
     return (
         <div className="bloggers_block">
             <div className="bloggers_block__wrap">
-                <div className="bloggers_block__title">
+                <div {...anime('title')} className="bloggers_block__title">
                     <span className="bloggers_block__title-bloggers">Bloggers’</span> Verdict
                 </div>
-                <div className="bloggers_block__subtitle">
+                <div {...anime('subtitle')} className="bloggers_block__subtitle">
                     Watch video reviews from popular influencers
                 </div>
                 {items && (
                     <TrackSlider
                         className="bloggers_block__list"
                         items={items.map((item, index) => (
-                            <div className="bloggers_block__list-item" key={index}>
+                            <div {...anime(`item-${index}`)} className="bloggers_block__list-item" key={index}>
                                 <a
                                     href={item.url}
                                     target="_blank"

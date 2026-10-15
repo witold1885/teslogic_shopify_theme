@@ -1,8 +1,15 @@
-import React, { useState, type ReactNode } from 'react'
+import React, { useMemo, useState, type ReactNode } from 'react'
 import './screenmate-dash-using.scss'
 import { Icon, Image, Popup } from '../Common'
 import chevron from '../../assets/icons/chevron-right-blue.svg'
 import close from '../../assets/icons/close-white.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    item: { yFrom: '20px', duration: 333 },
+}
 
 const stepImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/using/using_*.svg', { eager: true })
 const stepImages: string[] = Object.values(stepImageModules).map(mod => mod.default)
@@ -20,10 +27,18 @@ const steps: UsingStep[] = [
 
 const ScreenmateDashUsing: React.FC = () => {
     const [videoPopupOpen, setVideoPopupOpen] = useState<boolean>(false)
+    
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...steps.reduce((acc, _, index) => ({ ...acc, [`item-${index}`]: animatedObjects.item }), {})
+    }), [])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (<>
         <div id="using"></div>
         <div className="using">
-            <div className="using__title">How to use Screenmate Dash</div>
+            <div {...anime('title')} className="using__title">How to use Screenmate Dash</div>
             <div className="using__subtitle">
                 <span>Smooth start with soft installation.</span>
                 <a onClick={() => setVideoPopupOpen(true)}>
@@ -47,7 +62,7 @@ const ScreenmateDashUsing: React.FC = () => {
             </Popup>
             <div className="using__content">
                 {steps.map(({ text }, index) => (
-                    <div className={`using__row using__row-${index + 1}`} key={index}>
+                    <div {...anime(`item-${index}`)} className={`using__row using__row-${index + 1}`} key={index}>
                         <div className="using__row-block">
                             <div className="using__row-legend-number">{index + 1}</div>
                             <Image

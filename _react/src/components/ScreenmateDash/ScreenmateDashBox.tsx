@@ -1,9 +1,19 @@
 import React, { useMemo } from 'react'
 import './screenmate-dash-box.scss'
-import { useInlineStyles } from '../../hooks/inline-styles'
 import { Image } from '../Common'
 import boxImageDesktop from '../../assets/images/screenmate-dash/box/box-image-desktop.png'
 import boxImageRetina from '../../assets/images/screenmate-dash/box/box-image-retina.png'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    top: { yFrom: '40px', duration: 666 },
+    title: { yFrom: '40px', duration: 666 },
+    description: { yFrom: '40px', duration: 666 },
+    image: { yFrom: '40px', duration: 666 },
+    item: { yFrom: '20px', duration: 333 },
+}
 
 const ellipseModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/box/box-ellipse-*.png', { eager: true })
 const ellipses: Record<string, any> = Object.entries(ellipseModules).reduce((acc, [key, mod]) => ({
@@ -78,10 +88,18 @@ const ScreenmateDashBox: React.FC = () => {
         retina: chargerItemImages[`${index + 1}-${mode}-retina`]
     })), [mode])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...items.reduce((acc, _, index) => ({ ...acc, [`item-${index}`]: animatedObjects.item }), {}),
+        ...chargerItems.reduce((acc, _, index) => ({ ...acc, [`charger-item-${index}`]: animatedObjects.item }), {})
+    }), [chargerItems])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="box_block" id="box_block">
             <div className="box_block-wrap">
-                <div className="box_block-top">
+                <div {...anime('top')} className="box_block-top">
                     <div className="box_block-info">
                         <div className="box_block-info-title">
                             <span className="box_block-info-title-what">What’s</span> in the box
@@ -99,7 +117,7 @@ const ScreenmateDashBox: React.FC = () => {
                 </div>
                 <div className="box_block-items">
                     {items.map(({ name, big, ellipseSize, image, retina }, index) => (
-                        <div className={`box_block-item ${big ? 'box_block-item-big' : ''}`} key={index}>
+                        <div {...anime(`item-${index}`)} className={`box_block-item ${big ? 'box_block-item-big' : ''}`} key={index}>
                             <div className="box_block-item-top">
                                 <Image
                                     className="box_block-item-ellipse"
@@ -119,8 +137,8 @@ const ScreenmateDashBox: React.FC = () => {
                 <div className="box_block-charger">
                     {!isMobile && <ChargerImages />}
                     <div className="box_block-charger-info">
-                        <div className="box_block-charger-info-title">Additional Wireless Charger</div>
-                        <div className="box_block-charger-info-description">
+                        <div {...anime('title')} className="box_block-charger-info-title">Additional Wireless Charger</div>
+                        <div {...anime('description')} className="box_block-charger-info-description">
                             {!isMobile ? (<>
                                 This magnetic charger installs on a phone holder instead of a magnet. It is compatible with the iPhone 12 and above, as well as any phone that supports wireless charging (when using the included magnetic ring).
                             </>) : (<>
@@ -131,7 +149,7 @@ const ScreenmateDashBox: React.FC = () => {
                         {isMobile && <ChargerImages />}
                         <div className="box_block-charger-items">
                             {chargerItems.map(({ description, image, retina }, index) => (
-                                <div className="box_block-charger-item" key={index}>
+                                <div {...anime(`charger-item-${index}`)} className="box_block-charger-item" key={index}>
                                     <div className="box_block-charger-item-image">
                                         <Image
                                             className="box_block-charger-item-image-ellipse"
