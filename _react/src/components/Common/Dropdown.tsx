@@ -1,7 +1,9 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, useMemo, useState } from 'react'
 import Icon from './Icon'
-import chevronUp from '@/assets/icons/chevron-white-up.svg'
-import chevronDown from '@/assets/icons/chevron-white-down.svg'
+import chevronWhiteUp from '@/assets/icons/chevron-white-up.svg'
+import chevronWhiteDown from '@/assets/icons/chevron-white-down.svg'
+import chevronGreyUp from '@/assets/icons/chevron-grey-up.svg'
+import chevronBlackDown from '@/assets/icons/chevron-black-down.svg'
 import selectedIcon from '@/assets/icons/selected.svg'
 
 export interface DropdownOption {
@@ -40,6 +42,9 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', pl
         onSelect && onSelect(value)
         setMenuOpen(false)
     }
+
+    const chevronDown = useMemo(() => theme === 'dark' ? chevronWhiteDown : chevronBlackDown, [theme])
+    const chevronUp = useMemo(() => theme === 'dark' ? chevronWhiteUp : chevronGreyUp, [theme])
 
     return (
         <div ref={ref} className={`dropdown ${theme}`}>

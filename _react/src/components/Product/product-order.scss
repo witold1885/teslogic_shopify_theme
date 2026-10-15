@@ -150,7 +150,7 @@
             }
 
             &-details {
-                @extend %flex-column-center, %gap-8;
+                @extend %flex-column, %gap-8;
 
                 &-subtext {
                     @extend %font-manrope, %font-500;
@@ -166,9 +166,8 @@
             }
 
             &-detail {
-                @extend %flex;
-                @include responsive(gap, 4px, 8px);
-
+                @extend %flex-start-center, %gap-8;
+                
                 & .icon {
                     @include square(20px);
                 }
