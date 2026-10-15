@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { getRate } from '../../redux/slices/products'
+import { addToCart, getRate } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
 import { Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
@@ -12,6 +12,8 @@ interface ProductOrderProps {
     withDetails?: boolean
 }
 
+const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
+
 const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const dispatch = useAppDispatch()
     
@@ -21,8 +23,6 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     useEffect(() => {
         dispatch(getRate('USD/EUR'))
     }, [dispatch])
-
-    console.log({ product, additionalProducts })
 
     const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
     const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
@@ -62,6 +62,20 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
 
     const tax: number = useMemo(() => country?.vat_percent || 20, [country])
     
+    const additionals = useMemo(() => additionalProducts?.map(({ price, ...item }) => ({
+        ...item,
+        price: (price || 0) * coef
+    })), [additionalProducts, coef])
+
+    const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
+
+    const handleAdditionalSelect = (e: React.ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
+        if (additionalId) {
+            const { checked } = e.target
+            setSelectedAdditionals(prev => checked ? [ ...prev, additionalId ] : prev.filter(id => id !== additionalId))
+        }
+    }
+    
     const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
         <>
             <br />
@@ -77,6 +91,24 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         } : {},
         { icon: noImportIcon, main: 'Duties and taxes', add: 'included in most countries*' },
     ].filter(({ icon, main, add }) => !!icon && !!main && !!add) : [], [withDetails, country])
+    
+    const handleSubmit = () => {
+        if (selectedModel) {
+            const items = [
+                { id: selectedModel.id, quantity: 1 },
+                ...selectedAdditionals.filter(Boolean).map(id => ({ id, quantity: 1 }))
+            ]
+            dispatch(addToCart({ items }))
+        } else {
+            setError(true)
+        }
+    }
+
+    useEffect(() => {
+        if (addedToCart && typeof window !== 'undefined') {
+            window.open(`${shopifyUrl}/cart`, '_blank')
+        }
+    }, [addedToCart])
 
     return product ? (
         <div className="store_block" id="shop-now">
@@ -122,14 +154,30 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                             {...{options, error}}
                             onSelect={(modelId) => handleModelSelect(modelId as number)}
                         />
-                        <div className="store_block-product-add">
-                            <input type="checkbox" id="select-charger" className="store_block-product-add-checkbox" checked />
-                            <label htmlFor="select-charger" className="store_block-product-add-title">
-                                With Additional Wireless Charger <span className="store_block-product-add-price"></span>
-                            </label>
-                        </div>
+                        {additionals && (<>
+                            {additionals.map(({ id, title, price, models }) => {
+                                const modelId = models ? models[0].id : null
+                                return (
+                                    <div key={id} className="store_block-product-add">
+                                        <input
+                                            type="checkbox"
+                                            id={`select-${id}`}
+                                            className="store_block-product-add-checkbox"
+                                            checked={modelId !== null && selectedAdditionals.includes(modelId)}
+                                            onChange={(e) => handleAdditionalSelect(e, modelId)}
+                                        />
+                                        <label htmlFor={`select-${id}`} className="store_block-product-add-title">
+                                            With Additional {title}&nbsp;
+                                            <span className="store_block-product-add-price">
+                                                {price?.toFixed(0) || 0} {currency} {showVAT(price)}
+                                            </span>
+                                        </label>
+                                    </div>
+                                )
+                            })}
+                        </>)}
                         <div className="store_block-product-order">
-					        <button className="store_block-product-order-add">Order now</button>
+					        <button className="store_block-product-order-add" onClick={handleSubmit}>Order now</button>
 
                             {details.length !== 0 && (
                                 <div className="store_block-product-order-details">
