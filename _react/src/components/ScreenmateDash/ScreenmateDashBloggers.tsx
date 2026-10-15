@@ -56,7 +56,7 @@ const ScreenmateDashBloggers: React.FC = () => {
                             </div>
                         </div>
                     )) || []}
-                    slidesToShow={!isMobile ? 3 : 1.2745}
+                    slidesToShow={!isMobile ? 3 : 1.1438}
                 />
             </div>
         </div>

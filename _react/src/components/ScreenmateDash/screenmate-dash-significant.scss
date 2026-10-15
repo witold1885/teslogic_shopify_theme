@@ -27,7 +27,7 @@
     }
 
 	&__features {
-		@extend %flex, %gap-24;
+		// @extend %flex, %gap-24;
 		cursor: grab;
 
 		&-wrap {
