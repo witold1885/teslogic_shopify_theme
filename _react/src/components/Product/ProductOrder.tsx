@@ -77,12 +77,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     }
     
     const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
-        <>
-            <br />
-            <span className="store_block-product-price-vat">
-                +{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)
-            </span>
-        </>
+        <>+{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)</>
     ) : <></>, [currency, tax])
     
     const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => withDetails ? [
@@ -136,14 +131,12 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
                         <div className="store_block-product-price">
-                            <span className="store_block-product-price-new">
-                                {prices?.current?.toFixed(0) || 0} {currency}
-                                {showVAT(prices?.current)}
-                            </span>
+                            <span className="store_block-product-price-new">{prices?.current?.toFixed(0) || 0} {currency}</span>
                             {(prices?.old || 0) > (prices?.current || 0) && (
                                 <span className="store_block-product-price-old">{prices?.old?.toFixed(0) || 0} {currency}</span>
                             )}
                         </div>
+                        <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
                         <div className="store_block-product-title">{product.title}</div>
                     </div>
                     <div>
