@@ -29,7 +29,7 @@
     }
 
 	&__list {
-		@extend %flex, %gap-24;
+		// @extend %flex, %gap-24;
 		cursor: grab;
 
 		&-wrap {
@@ -76,6 +76,7 @@
 				&-thumbnail {
 					@include square(32px);
 					@include responsive(border-radius, 32px);
+					overflow: hidden;
 				}
 
 				&-info {
