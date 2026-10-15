@@ -1,24 +1,31 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import './product-order.scss'
-import { useAppSelector } from '../../redux/hooks'
-import type { Model, Product } from '../../types/product'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { getRate } from '../../redux/slices/products'
+import type { Model } from '../../types/product'
 import { Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
 import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
 import noImportIcon from '../../assets/icons/feature_no_import.svg'
 
 interface ProductOrderProps {
-    product?: Product | null
-    images?: string[]
-    thumbs?: string[]
     withDetails?: boolean
 }
 
-interface PricesProps { current?: number | null; old?: number | null }
-
-const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs, withDetails = false }) => {
+const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
+    const dispatch = useAppDispatch()
+    
+    const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
-    const { rate } = useAppSelector(state => state.products)
+
+    useEffect(() => {
+        dispatch(getRate('USD/EUR'))
+    }, [dispatch])
+
+    console.log({ product, additionalProducts })
+
+    const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
+    const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
@@ -115,23 +122,31 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ product, images, thumbs, wi
                             {...{options, error}}
                             onSelect={(modelId) => handleModelSelect(modelId as number)}
                         />
+                        <div className="store_block-product-add">
+                            <input type="checkbox" id="select-charger" className="store_block-product-add-checkbox" checked />
+                            <label htmlFor="select-charger" className="store_block-product-add-title">
+                                With Additional Wireless Charger <span className="store_block-product-add-price"></span>
+                            </label>
+                        </div>
                         <div className="store_block-product-order">
 					        <button className="store_block-product-order-add">Order now</button>
 
-                            <div className="store_block-product-order-details">
-                                {details.map(({ icon, main, add }, index) => (
-                                    <div className="store_block-product-order-detail" key={index}>
-                                        <Icon {...{icon}} />
-                                        <span className="store_block-product-order-detail-text">
-                                            <span className="store_block-product-order-detail-text-main">{main}</span>&nbsp;
-                                            <span>{add}</span>
-                                        </span>
+                            {details.length !== 0 && (
+                                <div className="store_block-product-order-details">
+                                    {details.map(({ icon, main, add }, index) => (
+                                        <div className="store_block-product-order-detail" key={index}>
+                                            <Icon {...{icon}} />
+                                            <span className="store_block-product-order-detail-text">
+                                                <span className="store_block-product-order-detail-text-main">{main}</span>&nbsp;
+                                                <span>{add}</span>
+                                            </span>
+                                        </div>
+                                    ))}
+                                    <div className="store_block-product-order-details-subtext">
+                                        *See <a href="/shipping-delivery" target="_blank">Shipping page</a> for details. 
                                     </div>
-                                ))}
-                                <div className="store_block-product-order-details-subtext">
-                                    *See <a href="/shipping-delivery" target="_blank">Shipping page</a> for details. 
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>

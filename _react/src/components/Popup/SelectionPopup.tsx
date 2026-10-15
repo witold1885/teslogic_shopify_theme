@@ -52,7 +52,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     const setPopupDropdownRef = (index: number) => (el: HTMLDivElement | null) => {
         popupDropdownRefs.current[index] = el
     }
-        
+    
     useOutsideClick(popupDropdownRefs, () => {
         if (modelsDropdownOpen) setModelsDropdownOpen(false)
     })

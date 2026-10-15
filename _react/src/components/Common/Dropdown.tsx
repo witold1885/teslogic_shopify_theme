@@ -1,5 +1,6 @@
-import React, { forwardRef, useMemo, useState } from 'react'
+import React, { forwardRef, useState, useRef } from 'react'
 import Icon from './Icon'
+import { useOutsideClick } from '../../hooks/outside-click'
 import chevronWhiteUp from '@/assets/icons/chevron-white-up.svg'
 import chevronWhiteDown from '@/assets/icons/chevron-white-down.svg'
 import chevronGreyUp from '@/assets/icons/chevron-grey-up.svg'
@@ -34,6 +35,12 @@ interface DropdownProps {
 }
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', placeholder, options, onSelect, error }, ref) => {
+    const menuRefs = useRef<(HTMLDivElement | null)[]>([])
+
+    const setMenuRef = (index: number) => (el: HTMLDivElement | null) => {
+        menuRefs.current[index] = el
+    }        
+
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
     const [selectedlabel, setSelectedLabel] = useState<string|null>(null)
 
@@ -43,20 +50,26 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', pl
         setMenuOpen(false)
     }
 
-    const chevronDown = useMemo(() => theme === 'dark' ? chevronWhiteDown : chevronBlackDown, [theme])
-    const chevronUp = useMemo(() => theme === 'dark' ? chevronWhiteUp : chevronGreyUp, [theme])
+    useOutsideClick(menuRefs, () => {
+        if (menuOpen) setMenuOpen(false)
+    })
 
     return (
         <div ref={ref} className={`dropdown ${theme}`}>
             <DropdownItem
                 className={`dropdown-field ${error ? 'dropdown-field-error' : ''}`}
                 label={selectedlabel || placeholder}
-                icon={chevronDown}
+                icon={theme === 'dark' ? chevronWhiteDown : chevronBlackDown}
                 onClick={() => setMenuOpen(true)}
             />
             {menuOpen && (
-                <div className="dropdown-menu">
-                    <DropdownItem className="dropdown-menu-placeholder" label={placeholder} icon={chevronUp} onClick={() => setMenuOpen(false)}/>
+                <div ref={setMenuRef(0)} className="dropdown-menu">
+                    <DropdownItem
+                        className="dropdown-menu-placeholder"
+                        label={placeholder}
+                        icon={theme === 'dark' ? chevronWhiteUp : chevronGreyUp}
+                        onClick={() => setMenuOpen(false)}
+                    />
                     {options.map((option, index) => (
                         <DropdownItem
                             key={index}
