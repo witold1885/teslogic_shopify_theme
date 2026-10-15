@@ -87,7 +87,7 @@
             }
         }
 
-        &-add-{
+        &-add {
             @extend %flex-start-center, %gap-8;
             @include responsive(margin-top, 8px);
 
