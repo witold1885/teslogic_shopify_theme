@@ -41,6 +41,7 @@ const ScreenmateDashBloggers: React.FC = () => {
                                 target="_blank"
                                 className="bloggers_block__list-item-thumbnail"
                                 style={{ backgroundImage: `url(${item.snippet.thumbnails.high.url})` }}
+                                draggable="false"
                             >
                                 <Icon className="bloggers_block__list-item-thumbnail-yt-icon" icon={ytPlayIcon} />
                             </a>

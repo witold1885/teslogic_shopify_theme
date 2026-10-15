@@ -11,11 +11,20 @@
     &__wrap {
         @extend %container;
         @include responsive(padding, 180px, 0);
+
+		@include mobile() {
+			@include responsive(padding, 96px, 0, 108px);
+		}
     }
 
     &__title {
         @extend %w-full, %font-manrope-52, %font-500;
         @include responsive(margin, 0, auto, 6px);
+
+		@include mobile() {
+        	@include responsive(margin, 0, auto, 8px);
+			@include text(32px, 40px);
+		}
 
         &-bloggers {
             color: #1657FC; 
@@ -23,9 +32,13 @@
     }
 
     &__subtitle {
-        @extend %w-full, %font-manrope-24;
+        @extend %w-full, %font-manrope-24, %mob\:font-manrope-18;
         @include responsive(margin, 0, auto, 47px);
 	    color: #4D4D4D;
+
+		@include mobile() {
+        	@include responsive(margin, 0, auto, 38px);
+		}
     }
 
 	&__list {
@@ -37,7 +50,7 @@
 			@include responsive(row-gap, 58px);
 
 			@include mobile() {
-				@include responsive(row-gap, 60px);
+				@include responsive(row-gap, 41px);
 			}
 		}
 
@@ -51,8 +64,12 @@
 
 		&-item {
 			display: inline-flex !important;
-			@extend %flex-column, %gap-20;
+			@extend %flex-column, %gap-20, %mob\:gap-12;
 			@include responsive(width, 416px);
+
+			@include mobile() {
+				@include responsive(width, 306px);
+			}
 
 			&-thumbnail {
 				@extend %flex-center;
@@ -60,6 +77,10 @@
 				@include responsive(border-radius, 24px);
 				background-size: cover;
 				background-position: center;
+
+				@include mobile() {
+					@include block(306px, 172px);
+				}
 
 				&-yt-icon {
 					@include block(74px, 52px);
@@ -70,13 +91,18 @@
 				@extend %flex-column-start, %gap-12;
 
 				&-top {
-					@extend %flex-center, %gap-12;
+					@extend %flex-center, %gap-12, %mob\:gap-8;
 				}
 
 				&-thumbnail {
 					@include square(32px);
 					@include responsive(border-radius, 32px);
 					overflow: hidden;
+
+					@include mobile() {
+						@include square(24px);
+						@include responsive(border-radius, 24px);
+					}
 				}
 
 				&-info {
@@ -84,12 +110,16 @@
 				}
 
 				&-title {
-					@extend %font-manrope-24, %font-500;
+					@extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
 				}
 
 				&-excerpt {
 					@extend %font-manrope-18;
 					color: #666;
+
+					@include mobile() {
+						@include text(16px, 20px);
+					}
 				}
 			}
 		}
