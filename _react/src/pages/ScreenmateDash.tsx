@@ -4,6 +4,7 @@ import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
+import ScreenmateDashOrder from '../components/ScreenmateDash/ScreenmateDashOrder'
 
 const ssrModules = import.meta.env.SSR
   ? import.meta.glob<any>('../components/ScreenmateDash/ScreenmateDash*.tsx', { eager: true })
@@ -44,6 +45,7 @@ const ScreenmateDash: React.FC = () => (
                 <Component />
             </LazySection>
         ))}
+        <ScreenmateDashOrder />
     </ProductLayout>
 )
 
