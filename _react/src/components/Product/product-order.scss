@@ -47,7 +47,6 @@
 
         &-price {
             @extend %flex-start-center, %gap-8;
-            @include responsive(margin-bottom, 8px);
 
             &-new {
                 @extend %font-manrope-36, %font-600;
@@ -62,6 +61,7 @@
 
             &-vat {
                 @extend %font-manrope-24, %font-600;
+                @include responsive(margin-bottom, 8px);
                 color: #1657FC;
             }
         }
@@ -88,11 +88,11 @@
         }
 
         &-add {
-            @extend %flex-start-center, %gap-8;
+            @extend %flex-start-center, %gap-8, %cursor-pointer;
             @include responsive(margin-top, 8px);
 
             &-checkbox {
-                @extend %relative, %cursor-pointer;
+                @extend %relative;
                 @include square(20px);
                 margin: 0;
                 @include responsive(padding, 6.67px, 5px);
@@ -104,7 +104,6 @@
 
                 &:checked:after {
                     @extend %absolute;
-                    position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
