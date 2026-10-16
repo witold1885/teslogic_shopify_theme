@@ -17,6 +17,10 @@
         @extend %container, %flex-start-center, %mob\:flex-column, %gap-36;
         margin: 0 auto;
 
+        &-gallery, &-info {
+            @extend %mob\:w-full;
+        }
+
         &-gallery {
             @extend %flex, %gap-24;
 
@@ -46,6 +50,29 @@
 
                     @include mobile() {
                         @include square(350px);
+                    }
+                }
+
+                & .slick-dots {
+                    @extend %w-full, %flex-center, %gap-6, %absolute;
+                    @include responsive(bottom, 12px);
+
+                    & > * {
+                        @include square(6px);
+                        margin: 0;
+
+                        & button {
+                            @extend %w-full, %h-full;
+                            padding: 0;
+
+                            &:before {
+                                color: #666;
+
+                                .slick-active & {
+                                    color: #1657FC;
+                                }
+                            }
+                        }
                     }
                 }
             }
