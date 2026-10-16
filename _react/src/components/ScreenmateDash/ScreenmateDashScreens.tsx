@@ -66,6 +66,7 @@ interface Screen {
 }
 
 interface Block {
+	alt: string
     image: string
     retina: string
     pointers: Pointer[]
@@ -168,6 +169,7 @@ const ScreenDots = forwardRef<HTMLDivElement, ScreenDotsProps>(({ dots, theme },
 					<img
 						className={`screens__select-item-marker`}
 						src={markers[`${theme}${isActive ? '-active' : ''}`]}
+						alt=""
 					/>
 					<div className="screens__select-item-title">{title}</div>
 					<div className="screens__select-item-text">{text}</div>             
@@ -184,8 +186,9 @@ const ScreenmateDashScreens: React.FC = () => {
 	const mode: Mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 	const [currentScreenIndex, setCurrentScreenIndex] = useState<number>(0)
 
-	const blocks = useMemo(() => Object.entries(screens).reduce<Record<string, Block>>((acc, [type, { pointers }], index) => {
+	const blocks = useMemo(() => Object.entries(screens).reduce<Record<string, Block>>((acc, [type, { title, pointers }], index) => {
 		acc[type] = {
+			alt: title,
             image: screenImages[`${index + 1}-${mode}-${theme}`],
             retina: screenImages[`${index + 1}-${mode}-retina-${theme}`],
 			pointers: pointers.map(({ position, legend }) => {
@@ -242,7 +245,7 @@ const ScreenmateDashScreens: React.FC = () => {
 					{!isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
 				</div>
 				<SlickSlider ref={sliderRef} {...sliderSettings}>
-					{Object.entries(blocks).map(([key, { image, retina, pointers }]) => (
+					{Object.entries(blocks).map(([key, { alt, image, retina, pointers }]) => (
 						<div className="screens__features-block" key={key}>
 							<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
 								<img
@@ -250,6 +253,7 @@ const ScreenmateDashScreens: React.FC = () => {
 									className={`screens__features-image ${theme} ${mode}`}
 									src={image}
 									srcSet={`${retina} 2x`}
+									alt={alt}
 									loading="lazy"
 								/>
 							</div>
@@ -261,9 +265,9 @@ const ScreenmateDashScreens: React.FC = () => {
 									<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
 										<div className="pointer-wrap">
 											<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
-											<img className={`pointer-line ${mode}`} src={line} />
-											<img className={`pointer-icon ${mode}`} src={icon} />
-											<img className="pointer-point" src={pointIcons[`point-${theme}`]} />
+											<img className={`pointer-line ${mode}`} src={line} alt="" />
+											<img className={`pointer-icon ${mode}`} src={icon} alt="" />
+											<img className="pointer-point" src={pointIcons[`point-${theme}`]} alt="" />
 										</div>
 									</div>
 								)

@@ -48,7 +48,7 @@ const ScreenmateDashBanner: React.FC = () => {
                         <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} href={href}>{text}</a>
                     ))}
                 </div>
-                <a className="expand" href="#using">
+                <a className="expand" href="#using" aria-label="Expand">
                     <Icon icon={chevronIcon} />
                 </a>
             </div>
