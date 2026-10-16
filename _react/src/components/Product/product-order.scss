@@ -40,6 +40,7 @@
             }
 
             &-slider {
+                @extend %relative;
 
                 &-wrap {
                     @extend %overflow-hidden;
@@ -50,6 +51,7 @@
 
                     @include mobile() {
                         @include square(350px);
+                        @include responsive(border-radius, 24px);
                     }
                 }
 
@@ -72,7 +74,7 @@
                             }
                         }
 
-                        &.slick-active button::before {
+                        & button:hover::before, &.slick-active button::before {
                             color: #1657FC !important;
                             opacity: 1;
                         }
@@ -90,7 +92,7 @@
         }
 
         &-price {
-            @extend %flex-start-center, %gap-8;
+            @extend %flex-start-center, %mob\:flex-column, %gap-8;
 
             &-new {
                 @extend %font-manrope-36, %font-600;
@@ -104,15 +106,31 @@
             }
 
             &-vat {
-                @extend %font-manrope-24, %font-600;
+                @extend %font-manrope-24, %mob\:font-manrope-20, %font-600;
                 @include responsive(margin-bottom, 8px);
                 color: #1657FC;
+            }
+
+            @include mobile() {
+
+                &-new, &-old {
+                    @include text(32px, 40px);
+                }
+
+                &-vat {
+                    margin-bottom: 0;
+                }
             }
         }
 
         &-title {
             @extend %font-manrope-52, %font-500;
             @include responsive(margin-bottom, 8px);
+
+            @include mobile() {
+                @include responsive(width, 208px);
+                @include text(32px, 40px);
+            }
         }
 
         &-subtitle {
@@ -134,6 +152,10 @@
         &-add {
             @extend %flex-start-center, %gap-8, %cursor-pointer;
             @include responsive(margin-top, 8px);
+
+            @include mobile() {
+                @include responsive(margin-top, 12px);
+            }
 
             &-checkbox {
                 @extend %relative;
