@@ -108,10 +108,7 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     @include block(12px, 10px);
-                    background: url(../../assets/icons/ok.svg) !important;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
+                    background: url(../../assets/icons/ok.svg) contain center no-repeat !important;
                     content: "";
                 }
             }
