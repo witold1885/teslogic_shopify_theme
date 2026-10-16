@@ -149,17 +149,19 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                             ))}
                         </div>
                     )}
-                    <Suspense>
-                        <SlickSlider {...sliderSettings}>
-                            {images?.map((image, index) => (
-                                <Image
-                                    key={`image-${index}`}
-                                    className="store_block-product-gallery-main"
-                                    src={image}
-                                />
-                            ))}
-                        </SlickSlider>
-                    </Suspense>
+                    <div className="store_block-product-gallery-slider-wrap">
+                        <Suspense>
+                            <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
+                                {images?.map((image, index) => (
+                                    <Image
+                                        key={`image-${index}`}
+                                        className="store_block-product-gallery-main"
+                                        src={image}
+                                    />
+                                ))}
+                            </SlickSlider>
+                        </Suspense>
+                    </div>
                 </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
