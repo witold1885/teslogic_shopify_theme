@@ -23,6 +23,7 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     gallery: { yFrom: '20px', duration: 333 },
+    slider: { yFrom: '20px', duration: 333 },
     title: { yFrom: '40px', duration: 666 },
     prices: { yFrom: '20px', duration: 333 },
     models: { yFrom: '20px', duration: 333 },
@@ -216,7 +217,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                         </div>
                         <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
-                    {isMobile && <GallerySlider {...anime('gallery')} {...{sliderSettings, images}} />}
+                    {isMobile && <GallerySlider {...anime('slider')} {...{sliderSettings, images}} />}
                     <div>
                         {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
