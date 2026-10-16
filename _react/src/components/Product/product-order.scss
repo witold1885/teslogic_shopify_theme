@@ -92,7 +92,7 @@
         }
 
         &-price {
-            @extend %flex-start-center, %mob\:flex-column, %gap-8;
+            @extend %flex-start-center, %mob\:flex-column-start, %gap-8;
 
             &-new {
                 @extend %font-manrope-36, %font-600;

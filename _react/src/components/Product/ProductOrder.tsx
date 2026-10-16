@@ -23,6 +23,31 @@ interface ProductOrderProps {
     withDetails?: boolean
 }
 
+interface GallerySliderProps {
+    sliderSettings: Settings
+    images?: string[]
+}
+
+const GallerySlider: React.FC<GallerySliderProps> = ({ sliderSettings, images }) => {    
+    const SlickSlider = (Slider as any).default || Slider
+    
+    return (
+        <div className="store_block-product-gallery-slider-wrap">
+            <Suspense>
+                <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
+                    {images?.map((image, index) => (
+                        <Image
+                            key={`image-${index}`}
+                            className="store_block-product-gallery-main"
+                            src={image}
+                        />
+                    ))}
+                </SlickSlider>
+            </Suspense>
+        </div>
+    )
+}
+
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
 const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
@@ -41,8 +66,6 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
-    
-    const SlickSlider = (Slider as any).default || Slider
     
     const sliderSettings: Settings = useMemo(() => ({
         dots: isMobile,
@@ -134,8 +157,8 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     return product ? (
         <div className="store_block" id="shop-now">
             <div className="store_block-product">
-                <div className="store_block-product-gallery">
-                    {!isMobile && (
+                {!isMobile && (
+                    <div className="store_block-product-gallery">
                         <div className="store_block-product-gallery-items">
                             {thumbs?.map((thumb, index) => (
                                 <Image
@@ -148,21 +171,9 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                                 />
                             ))}
                         </div>
-                    )}
-                    <div className="store_block-product-gallery-slider-wrap">
-                        <Suspense>
-                            <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
-                                {images?.map((image, index) => (
-                                    <Image
-                                        key={`image-${index}`}
-                                        className="store_block-product-gallery-main"
-                                        src={image}
-                                    />
-                                ))}
-                            </SlickSlider>
-                        </Suspense>
+                        <GallerySlider {...{sliderSettings, images}} />
                     </div>
-                </div>
+                )}
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
                         <div className="store_block-product-price">
@@ -174,6 +185,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
                         <div className="store_block-product-title">{product.title}</div>
                     </div>
+                    {isMobile && <GallerySlider {...{sliderSettings, images}} />}
                     <div>
                         {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
