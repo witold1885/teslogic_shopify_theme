@@ -4,7 +4,6 @@ import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
-import ScreenmateDashOrder from '../components/ScreenmateDash/ScreenmateDashOrder'
 
 const ssrModules = import.meta.env.SSR
   ? import.meta.glob<any>('../components/ScreenmateDash/ScreenmateDash*.tsx', { eager: true })
@@ -28,7 +27,7 @@ function getSectionComponent(filename: string) {
 
 const ScreenmateDashUsing = getSectionComponent('ScreenmateDashUsing')
 
-const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
+const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers', 'Order']
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getSectionComponent(`ScreenmateDash${slug}`)
   return acc
@@ -45,7 +44,6 @@ const ScreenmateDash: React.FC = () => (
                 <Component />
             </LazySection>
         ))}
-        <ScreenmateDashOrder />
     </ProductLayout>
 )
 
