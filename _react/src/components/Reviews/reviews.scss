@@ -6,6 +6,7 @@
 
 .reviews {
     @include responsive(padding, 180px, 0);
+    color: #FFF;
 
     @include mobile() {
         @include responsive(padding, 96px, 0);

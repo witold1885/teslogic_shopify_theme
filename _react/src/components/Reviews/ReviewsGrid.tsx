@@ -32,7 +32,7 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
         <div ref={ref} className={`${className} reviews-item`} style={open ? { height: 'auto', maxHeight: 'unset' } : {}}>
             <div className="reviews-item-top">
                 <div>
-                    <div className="reviews-item-author">{reviewer_name}</div>
+                    <div className="reviews-item-author">{reviewer_name.replace('@', '@ ')}</div>
                     <div className="reviews-item-stars">
                         {[...Array(5).keys()].map((_, index) => (
                             <Icon icon={index < rating ? starBlue : starGrey} key={index} />
