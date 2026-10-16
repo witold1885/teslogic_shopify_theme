@@ -14,7 +14,7 @@
     }
 
     &-product {
-        @extend %container, %flex-start-center, %gap-36;
+        @extend %container, %flex-start-center, %mob\:flex-column, %gap-36;
         margin: 0 auto;
 
         &-gallery {
@@ -38,15 +38,20 @@
             &-slider {
 
                 &-wrap {
+                    @extend %overflow-hidden;
                     @include square(526px);
                     @include responsive(border-radius, 40px);
                     border: 1px solid #E6E6E6;
                     background: lightgray 9645092305.627px 19216960579.022px / -5810110298.921% -4458015880.035% no-repeat;
+
+                    @include mobile() {
+                        @include square(350px);
+                    }
                 }
             }
 
             &-main {
-                @extend %w-full, %h-full, %flex-center, %overflow-hidden;
+                @extend %w-full, %h-full, %flex-center;
             }
         }
 
