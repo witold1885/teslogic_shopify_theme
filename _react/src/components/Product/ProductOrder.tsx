@@ -83,7 +83,6 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     )
 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
-    const [total, setTotal] = useState<number>(0)
     const [error, setError] = useState<boolean>(false)
 
     const handleModelSelect = (modelId: number) => {
@@ -126,6 +125,8 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         }
     }
 
+    const [total, setTotal] = useState<number | string | null>(null)
+
     useEffect(() => {
         let total = prices?.current || 0
         if (additionals && selectedAdditionals.length !== 0) {
@@ -133,7 +134,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                 if (selectedAdditionals.includes(id)) total += price
             }
         }
-        setTotal(total)
+        setTotal(total.toFixed(0))
     }, [prices, additionals, selectedAdditionals])
     
     const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
@@ -230,7 +231,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div className="store_block-product-order">
 					        <button className="store_block-product-order-add" onClick={handleSubmit}>
                                 <div className="store_block-product-order-add-text">Order now</div>
-                                <div className="store_block-product-order-add-total">{total} {currency}</div>
+                                {total && <div className="store_block-product-order-add-total">{total} {currency}</div>}
                             </button>
 
                             {details.length !== 0 && (
