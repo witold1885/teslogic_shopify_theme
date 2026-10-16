@@ -17,12 +17,12 @@
         @extend %container, %flex-start-center, %mob\:flex-column, %gap-36;
         margin: 0 auto;
 
-        &-gallery, &-info {
+        &-gallery, &-slider, &-info {
             @extend %mob\:w-full;
         }
 
         &-gallery {
-            @extend %flex, %gap-24;
+            @extend %flex, %gap-24, %mob\:hidden;
 
             &-items {
                 @extend %flex-column, %gap-12;
@@ -85,6 +85,10 @@
             &-main {
                 @extend %w-full, %h-full, %flex-center;
             }
+        }
+
+        &-slider {
+            @extend %hidden, %mob\:block;
         }
 
         &-info {

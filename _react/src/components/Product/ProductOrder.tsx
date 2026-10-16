@@ -187,23 +187,21 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     return product ? (
         <div className="store_block" id="shop-now">
             <div className="store_block-product">
-                {!isMobile && (
-                    <div {...anime('gallery')} className="store_block-product-gallery">
-                        <div className="store_block-product-gallery-items">
-                            {thumbs?.map((thumb, index) => (
-                                <Image
-                                    key={`thumb-${index}`}
-                                    className={`store_block-product-gallery-item ${
-                                        index === currentImageIndex ? 'active' : ''
-                                    }`}
-                                    src={thumb}
-                                    onClick={() => setCurrentImageIndex(index)}
-                                />
-                            ))}
-                        </div>
-                        <GallerySlider {...{sliderSettings, images}} />
+                <div {...anime('gallery')} className="store_block-product-gallery">
+                    <div className="store_block-product-gallery-items">
+                        {thumbs?.map((thumb, index) => (
+                            <Image
+                                key={`thumb-${index}`}
+                                className={`store_block-product-gallery-item ${
+                                    index === currentImageIndex ? 'active' : ''
+                                }`}
+                                src={thumb}
+                                onClick={() => setCurrentImageIndex(index)}
+                            />
+                        ))}
                     </div>
-                )}
+                    <GallerySlider {...{sliderSettings, images}} />
+                </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
                         <div {...anime('prices')}>
@@ -217,7 +215,9 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                         </div>
                         <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
-                    {isMobile && <GallerySlider {...anime('slider')} {...{sliderSettings, images}} />}
+                    <div {...anime('slider')} className="store_block-product-slider">
+                        <GallerySlider {...{sliderSettings, images}} />
+                    </div>
                     <div>
                         {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
