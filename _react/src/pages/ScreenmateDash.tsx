@@ -1,9 +1,29 @@
 import React, { lazy } from 'react'
+import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
+
+import bannerDesktop from '../assets/images/screenmate-dash/banner_desktop.png'
+import bannerMobile from '../assets/images/screenmate-dash/banner_mobile.png'
+
+import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+
+interface PreloadContent {
+    fetchPriority?: "high" | "low" | "auto"
+    media?: string
+}
+
+interface PreloadImage extends PreloadContent {
+    image: string
+}
+
+const preloadImages: PreloadImage[] = [
+    { image: bannerDesktop, fetchPriority: 'high', media: mediaDesktop },
+    { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
+]
 
 const ssrModules = import.meta.env.SSR
   ? import.meta.glob<any>('../components/ScreenmateDash/ScreenmateDash*.tsx', { eager: true })
@@ -33,19 +53,29 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
   return acc
 }, {} as Record<string, React.ComponentType<any>>)
 
-const ScreenmateDash: React.FC = () => (
-    <ProductLayout className="screenmate-dash">
-        <ScreenmateDashBanner />
-        <LazySection>
-            <ScreenmateDashUsing />
-        </LazySection>
-        {Object.entries(sections).map(([slug, Component]) => (
-            <LazySection key={slug}>
-                <Component />
+const ScreenmateDash: React.FC = () => {
+    if (typeof window !== 'undefined') {
+        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+            as: 'image', 
+            fetchPriority,
+            ...(media && { media })
+        }))
+    }
+
+    return (
+        <ProductLayout className="screenmate-dash">
+            <ScreenmateDashBanner />
+            <LazySection>
+                <ScreenmateDashUsing />
             </LazySection>
-        ))}
-    </ProductLayout>
-)
+            {Object.entries(sections).map(([slug, Component]) => (
+                <LazySection key={slug}>
+                    <Component />
+                </LazySection>
+            ))}
+        </ProductLayout>
+    )
+}
 
 mountForShopify('react-screenmate-dash-root', ScreenmateDash)
 
