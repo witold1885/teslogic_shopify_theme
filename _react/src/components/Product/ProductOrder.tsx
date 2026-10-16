@@ -129,10 +129,9 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
 
     useEffect(() => {
         let total = prices?.current || 0
-        console.log({ additionals, selectedAdditionals })
-        if (additionals && selectedAdditionals.length !== 0) {
-            for (const { id, price } of additionals) {
-                if (selectedAdditionals.includes(id)) total += price
+        if (additionals && additionals[0]?.models && selectedAdditionals.length !== 0) {
+            for (const { id, price } of additionals[0].models) {
+                if (selectedAdditionals.includes(id)) total += price || 0
             }
         }
         setTotal(total.toFixed(0))

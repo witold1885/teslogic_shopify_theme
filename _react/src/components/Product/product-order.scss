@@ -184,6 +184,10 @@
                 @include text(16px, 20px);
             }
 
+            &-title {
+                @extend %mob\:flex-column-start;
+            }
+
             &-price {
                 @extend %font-500;
                 color: #1657FC;
