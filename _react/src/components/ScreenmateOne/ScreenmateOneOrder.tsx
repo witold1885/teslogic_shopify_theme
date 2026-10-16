@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useState, useMemo, useEffect, Suspense, useCallback, type ReactNode } from 'react'
+import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRate, addToCart } from '../../redux/slices/products'

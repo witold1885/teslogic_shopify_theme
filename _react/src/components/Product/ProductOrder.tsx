@@ -1,12 +1,23 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { lazy, useState, useEffect, useMemo, useCallback, Suspense } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart, getRate } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
+
+const Slider = lazy(() =>
+    import('react-slick').then(module => ({
+        default: (module.default as any).default
+    }))
+)
+import { type Settings } from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 import { Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
 import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
 import noImportIcon from '../../assets/icons/feature_no_import.svg'
+import { useInlineStyles } from '../../hooks/inline-styles'
 
 interface ProductOrderProps {
     withDetails?: boolean
@@ -16,6 +27,8 @@ const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost
 
 const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const dispatch = useAppDispatch()
+    
+    const { isMobile } = useInlineStyles()
     
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
@@ -29,6 +42,19 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
+    const SlickSlider = (Slider as any).default || Slider
+    
+    const sliderSettings: Settings = useMemo(() => ({
+        dots: isMobile,
+        infinite: true,
+        arrows: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        beforeChange: (_, next) => setCurrentImageIndex(next)
+    }), [isMobile])
+
     const options: DropdownOption[] = (product?.models || []).flatMap(({ id, title }) =>
         title.split('|').map((model) => ({ label: model.trim(), value: id }))
     )
@@ -109,24 +135,31 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         <div className="store_block" id="shop-now">
             <div className="store_block-product">
                 <div className="store_block-product-gallery">
-                    <div className="store_block-product-gallery-items">
-                        {thumbs?.map((thumb, index) => (
-                            <Image
-                                key={index}
-                                className={`store_block-product-gallery-item ${
-                                    index === currentImageIndex ? 'active' : ''
-                                }`}
-                                src={thumb}
-                                onClick={() => setCurrentImageIndex(index)}
-                            />
-                        ))}
-                    </div>
-                    {images?.[currentImageIndex] && (
-                        <Image
-                            className="store_block-product-gallery-main"
-                            src={images[currentImageIndex]}
-                        />
+                    {!isMobile && (
+                        <div className="store_block-product-gallery-items">
+                            {thumbs?.map((thumb, index) => (
+                                <Image
+                                    key={`thumb-${index}`}
+                                    className={`store_block-product-gallery-item ${
+                                        index === currentImageIndex ? 'active' : ''
+                                    }`}
+                                    src={thumb}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            ))}
+                        </div>
                     )}
+                    <Suspense>
+                        <SlickSlider {...sliderSettings}>
+                            {images?.map((image, index) => (
+                                <Image
+                                    key={`image-${index}`}
+                                    className="store_block-product-gallery-main"
+                                    src={image}
+                                />
+                            ))}
+                        </SlickSlider>
+                    </Suspense>
                 </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
