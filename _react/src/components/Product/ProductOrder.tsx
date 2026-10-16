@@ -1,4 +1,4 @@
-import React, { lazy, useState, useEffect, useMemo, useCallback, Suspense } from 'react'
+import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart, getRate } from '../../redux/slices/products'
@@ -13,11 +13,23 @@ import { type Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import { Dropdown, Icon, Image } from '../Common'
+import { Button, Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
 import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
 import noImportIcon from '../../assets/icons/feature_no_import.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    gallery: { yFrom: '20px', duration: 333 },
+    title: { yFrom: '40px', duration: 666 },
+    prices: { yFrom: '20px', duration: 333 },
+    models: { yFrom: '20px', duration: 333 },
+    additionals: { yFrom: '20px', duration: 333 },
+    button: { yFrom: '40px', duration: 666 },
+    details: { yFrom: '20px', duration: 333 },
+}
 
 interface ProductOrderProps {
     withDetails?: boolean
@@ -28,11 +40,11 @@ interface GallerySliderProps {
     images?: string[]
 }
 
-const GallerySlider: React.FC<GallerySliderProps> = ({ sliderSettings, images }) => {    
+const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSettings, images }, ref) => {    
     const SlickSlider = (Slider as any).default || Slider
     
     return (
-        <div className="store_block-product-gallery-slider-wrap">
+        <div ref={ref} className="store_block-product-gallery-slider-wrap">
             <Suspense>
                 <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
                     {images?.map((image, index) => (
@@ -46,7 +58,7 @@ const GallerySlider: React.FC<GallerySliderProps> = ({ sliderSettings, images })
             </Suspense>
         </div>
     )
-}
+})
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
@@ -167,11 +179,15 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         }
     }, [addedToCart])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+        
+    const { anime } = useAnime(animationConfigs)
+
     return product ? (
         <div className="store_block" id="shop-now">
             <div className="store_block-product">
                 {!isMobile && (
-                    <div className="store_block-product-gallery">
+                    <div {...anime('gallery')} className="store_block-product-gallery">
                         <div className="store_block-product-gallery-items">
                             {thumbs?.map((thumb, index) => (
                                 <Image
@@ -189,54 +205,59 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
                 )}
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
-                        <div className="store_block-product-price">
-                            <span className="store_block-product-price-new">{prices?.current?.toFixed(0) || 0} {currency}</span>
-                            {(prices?.old || 0) > (prices?.current || 0) && (
-                                <span className="store_block-product-price-old">{prices?.old?.toFixed(0) || 0} {currency}</span>
-                            )}
+                        <div {...anime('prices')}>
+                            <div className="store_block-product-price">
+                                <span className="store_block-product-price-new">{prices?.current?.toFixed(0) || 0} {currency}</span>
+                                {(prices?.old || 0) > (prices?.current || 0) && (
+                                    <span className="store_block-product-price-old">{prices?.old?.toFixed(0) || 0} {currency}</span>
+                                )}
+                            </div>
+                            <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
                         </div>
-                        <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
-                        <div className="store_block-product-title">{product.title}</div>
+                        <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
-                    {isMobile && <GallerySlider {...{sliderSettings, images}} />}
+                    {isMobile && <GallerySlider {...anime('gallery')} {...{sliderSettings, images}} />}
                     <div>
                         {product.description && <div className="store_block-product-description">{product.description}</div>}
                         <Dropdown
+                            {...anime('models')}
                             theme="light"
                             placeholder="Select your Tesla model and year"
                             {...{options, error}}
                             onSelect={(modelId) => handleModelSelect(modelId as number)}
                         />
-                        {additionals && (<>
-                            {additionals.map(({ id, title, price, models }) => {
-                                const modelId = models ? models[0].id : null
-                                return (
-                                    <div key={id} className="store_block-product-add">
-                                        <input
-                                            type="checkbox"
-                                            id={`select-${id}`}
-                                            className="store_block-product-add-checkbox"
-                                            checked={modelId !== null && selectedAdditionals.includes(modelId)}
-                                            onChange={(e) => handleAdditionalSelect(e, modelId)}
-                                        />
-                                        <label htmlFor={`select-${id}`} className="store_block-product-add-title">
-                                            With Additional {title}&nbsp;
-                                            <span className="store_block-product-add-price">
-                                                {price?.toFixed(0) || 0} {currency} {showVAT(price)}
-                                            </span>
-                                        </label>
-                                    </div>
-                                )
-                            })}
-                        </>)}
+                        {additionals && (
+                            <div {...anime('additionals')}>
+                                {additionals.map(({ id, title, price, models }) => {
+                                    const modelId = models ? models[0].id : null
+                                    return (
+                                        <div key={id} className="store_block-product-add">
+                                            <input
+                                                type="checkbox"
+                                                id={`select-${id}`}
+                                                className="store_block-product-add-checkbox"
+                                                checked={modelId !== null && selectedAdditionals.includes(modelId)}
+                                                onChange={(e) => handleAdditionalSelect(e, modelId)}
+                                            />
+                                            <label htmlFor={`select-${id}`} className="store_block-product-add-title">
+                                                With Additional {title}&nbsp;
+                                                <span className="store_block-product-add-price">
+                                                    {price?.toFixed(0) || 0} {currency} {showVAT(price)}
+                                                </span>
+                                            </label>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        )}
                         <div className="store_block-product-order">
-					        <button className="store_block-product-order-add" onClick={handleSubmit}>
+					        <Button {...anime('button')} className="store_block-product-order-add" onClick={handleSubmit}>
                                 <div className="store_block-product-order-add-text">Order now</div>
                                 {total && <div className="store_block-product-order-add-total">{total} {currency}</div>}
-                            </button>
+                            </Button>
 
                             {details.length !== 0 && (
-                                <div className="store_block-product-order-details">
+                                <div {...anime('details')} className="store_block-product-order-details">
                                     {details.map(({ icon, main, add }, index) => (
                                         <div className="store_block-product-order-detail" key={index}>
                                             <Icon {...{icon}} />
