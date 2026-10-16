@@ -54,6 +54,7 @@
                 }
 
                 & .slick-dots {
+                    display: flex !important;
                     @extend %w-full, %flex-center, %gap-6, %absolute;
                     @include responsive(bottom, 12px);
 
@@ -65,15 +66,15 @@
                             @extend %w-full, %h-full;
                             padding: 0;
 
-                            &:before {
+                            &::before {
                                 @extend %w-full, %h-full;
                                 line-height: 100%;
-
-                                .slick-active & {
-                                    color: #1657FC !important;
-                                    opacity: 1;
-                                }
                             }
+                        }
+
+                        &.slick-active button::before {
+                            color: #1657FC !important;
+                            opacity: 1;
                         }
                     }
                 }
