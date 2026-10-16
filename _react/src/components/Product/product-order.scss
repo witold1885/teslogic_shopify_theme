@@ -88,7 +88,7 @@
         }
 
         &-info {
-            @extend %flex-column;
+            @extend %flex-column, %mob\:gap-12;
         }
 
         &-price {
@@ -191,11 +191,11 @@
         }
 
         &-order {
-            @extend %flex-start-center, %gap-16;
+            @extend %flex-start-center, %gap-16, %mob\:flex-column-start, %mob\:gap-12;
             @include responsive(margin-top, 24px);
 
             &-add {
-                @extend %font-manrope-24, %font-500, %text-white, %whitespace-nowrap;
+                @extend %mob\:w-full, %mob\:flex;
                 @include responsive(height, 72px);
                 @include responsive(padding, 20px, 40px);
                 @include responsive(border-radius, 54px);
@@ -204,6 +204,37 @@
 
                 &:hover {
                     background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+                }
+
+                &-text, &-total {
+                    @extend %font-manrope-24, %mob\:font-manrope-18, %font-500, %text-white, %whitespace-nowrap;
+                }
+
+                &-text {
+                    @extend %mob\:text-right;
+                }
+
+                &-total {
+                    @extend %h-full, %hidden, %mob\:flex-center, %mob\:text-left;
+                }
+
+                @include mobile() {
+                    @include responsive(height, 56px);
+                    padding: 0;
+                    @include responsive(border-radius, 100px);
+
+                    &-text {
+                        @include responsive(width, 233px);
+                        @include responsive(padding, 16px, 32px, 16px, 0);
+                        background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+                        backdrop-filter: blur(8px);
+                    }
+
+                    &-total {
+                        display: flex !important;
+                        @include responsive(width, 102px);
+                        background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.16) 100%), linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                    }
                 }
             }
 
