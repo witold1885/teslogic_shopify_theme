@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense } from 'react'
+import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { addToCart, getRate } from '../../redux/slices/products'
@@ -22,13 +22,13 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    gallery: { yFrom: '20px', duration: 333 },
-    slider: { yFrom: '20px', duration: 333 },
+    gallery: { yFrom: '40px', duration: 666 },
+    slider: { yFrom: '40px', duration: 666 },
     title: { yFrom: '40px', duration: 666 },
     prices: { yFrom: '20px', duration: 333 },
     models: { yFrom: '20px', duration: 333 },
     additionals: { yFrom: '20px', duration: 333 },
-    button: { yFrom: '40px', duration: 666 },
+    button: { yFrom: '20px', duration: 333 },
     details: { yFrom: '20px', duration: 333 },
 }
 
@@ -43,20 +43,26 @@ interface GallerySliderProps {
 
 const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSettings, images }, ref) => {    
     const SlickSlider = (Slider as any).default || Slider
+
+    const imagesList: ReactNode = useMemo(() => images?.map((image, index) => (
+        <Image
+            key={`image-${index}`}
+            className="store_block-product-gallery-main"
+            src={image}
+        />
+    )) || [], [images])
     
     return (
         <div ref={ref} className="store_block-product-gallery-slider-wrap">
-            <Suspense>
-                <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
-                    {images?.map((image, index) => (
-                        <Image
-                            key={`image-${index}`}
-                            className="store_block-product-gallery-main"
-                            src={image}
-                        />
-                    ))}
-                </SlickSlider>
-            </Suspense>
+            {import.meta.env.SSR ? (<>
+                {imagesList}
+            </>) : (
+                <Suspense>
+                    <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
+                        {imagesList}
+                    </SlickSlider>
+                </Suspense>
+            )}
         </div>
     )
 })
