@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import './reviews.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchReviews } from '../../redux/slices/reviews'
@@ -7,17 +7,24 @@ import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
 
-const Reviews: React.FC = () => {
+const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     const dispatch = useAppDispatch()
     
     const { product } = useAppSelector(state => state.products)
+
+    const source: string = useMemo(() => {
+        if (typeof window !== 'undefined' && !allSources) {
+            return window.location.host
+        }
+        return ''
+    }, [allSources])
 
     useEffect(() => {
         if (!product) return
 
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                dispatch(fetchReviews({ product_id: product.id, source: typeof window !== 'undefined' ? window.location.host : '' }))
+                dispatch(fetchReviews({ product_id: product.id, source }))
                 observer.disconnect()
             }
         }, { rootMargin: '810px' })
@@ -26,7 +33,7 @@ const Reviews: React.FC = () => {
         if (element) observer.observe(element)
 
         return () => observer.disconnect()
-    }, [product, dispatch])
+    }, [product, source, dispatch])
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>

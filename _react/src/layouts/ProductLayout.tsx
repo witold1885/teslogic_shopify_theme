@@ -10,7 +10,7 @@ const ProductLayout: React.FC<LayoutProps> = ({ className, onOrder, children }) 
         <div {...{className}}>
             {children}
             <LazySection>
-                <Reviews />
+                <Reviews allSources={className === 'screenmate-dash'} />
             </LazySection>
         </div>
     </Layout>
