@@ -45,7 +45,7 @@
 
     {% render 'meta-tags' %}
 
-    {% unless template == 'index' or page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' or page.handle == 'installers' or page.handle == 'partners' %}
+    {% unless page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' %}
     {{ content_for_header }}
     {%- endunless -%}
 
