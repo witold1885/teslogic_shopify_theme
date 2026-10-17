@@ -25,7 +25,7 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
     
     const lazyParams = useMemo(() => ({
         condition: !!product && sliceLoaded,
-        action: product 
+        action: product && sliceLoaded 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
         selector: '.reviews'
@@ -33,7 +33,7 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
     
     useLazyData(lazyParams)
 
-    console.log({ reviews, totalCount, avgRating })
+    console.log({ sliceLoaded, reviews, totalCount, avgRating })
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
