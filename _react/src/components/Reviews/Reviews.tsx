@@ -17,7 +17,7 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
         }
         return ''
     }, [allSources])
-        
+    
     const lazyParams = useMemo(() => ({
         condition: !!product,
         action: product 

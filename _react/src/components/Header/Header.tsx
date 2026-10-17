@@ -174,11 +174,22 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     selectedCountry,
     onCountrySelect
 }, ref) => {
+    const dispatch = useAppDispatch()
+
     const { regions } = useAppSelector(state => state.content)
+
+    const [isRegionsLoaded, setIsRegionsLoaded] = useState(false)
+
+    const handleFetchRegions = useCallback(() => {
+        if (!isRegionsLoaded) {
+            dispatch(getRegions())
+            setIsRegionsLoaded(true)
+        }
+    }, [isRegionsLoaded, dispatch])
 
     return (
         <div className="header-country" ref={ref}>
-            <div className="header-country-button" onClick={() => onCountriesDropdownToggle()}>
+            <div className="header-country-button" onMouseEnter={handleFetchRegions} onClick={() => onCountriesDropdownToggle()}>
                 <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code || ''} />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
@@ -321,19 +332,6 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
-
-    useEffect(() => {
-        const task = () => {
-            setTimeout(() => dispatch(getRegions()), 1000)
-        }
-
-        if (document.readyState === 'complete') {
-            task()
-        } else {
-            window.addEventListener('load', task, { once: true })
-            return () => window.removeEventListener('load', task)
-        }
-    }, [dispatch])
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
 
