@@ -244,9 +244,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ 'shopify-policy.css' | asset_url }}">
 
-    {% comment %} <link rel="stylesheet" type="text/css" href="{{ 'ellipses.css' | asset_url }}"> {% endcomment %}
-    {% comment %} <link rel="stylesheet" type="text/css" href="{{ 'ellipses-responsive.css' | asset_url }}"> {% endcomment %}
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
       
@@ -264,18 +261,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    {% comment %} <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM54HXMV7K"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-LM54HXMV7K');
-    </script> {% endcomment %}
-
-{% render 'analyzify-product-datalayer.liquid' %}
+    {% render 'analyzify-product-datalayer.liquid' %}
     
   </head>
 
@@ -367,7 +354,7 @@
     </script>
     {% endunless %}
 
-    <script type="text/javascript">
+    {% comment %} <script type="text/javascript">
       const serverCountryCode = '{{ localization.country.iso_code }}'
       const savedCountryCode = localStorage.getItem('user_selected_country')
       fetch('https://ipapi.co/json')
@@ -378,6 +365,6 @@
           console.log(`Country by IP: ${data.country_code}`)
         })
         .catch(error => console.error('Error fetching IP data:', error))
-    </script>
+    </script> {% endcomment %}
   </body>
 </html>
