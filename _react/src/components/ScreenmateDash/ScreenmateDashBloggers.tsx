@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import './screenmate-dash-bloggers.scss'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { useAppSelector } from '../../redux/hooks'
 import { parseYoutubeVideos } from '../../redux/slices/content'
 import { getVideoId } from '../../redux/yt'
 import { Icon, Image } from '../Common'
@@ -9,6 +9,7 @@ import ytPlayIcon from '../../assets/icons/yt-play.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -19,29 +20,18 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ScreenmateDashBloggers: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const dispatch = useAppDispatch()
-
     const { videos, videoItems: items } = useAppSelector(state => state.content)
 
     const data = useMemo(() => videos?.map(({ url, html }) => ({
         id: getVideoId(url), url, html
     })).filter(({ id }) => !!id) || [], [videos])
     
-    useEffect(() => {
-        if (data.length === 0) return
-
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                dispatch(parseYoutubeVideos(data))
-                observer.disconnect()
-            }
-        }, { rootMargin: '405px' })
-
-        const element = document.querySelector('.bloggers_block')
-        if (element) observer.observe(element)
-
-        return () => observer.disconnect()
-    }, [data, dispatch])
+    useLazyData({
+        condition: data.length !== 0,
+        action: () => parseYoutubeVideos(data),
+        selector: '.bloggers_block',
+        rootMargin: '405px'
+    })
     
     const animationConfigs = useMemo(() => mapSimpleConfigs({
         ...animatedObjects,

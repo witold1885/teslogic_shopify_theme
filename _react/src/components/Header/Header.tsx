@@ -13,6 +13,7 @@ import closeIcon from '@/assets/icons/close-black.svg'
 
 import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useLazyData } from '../../hooks/lazy-data'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
@@ -321,20 +322,13 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
-        
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                dispatch(getRegions())
-                observer.disconnect()
-            }
-        })
 
-        const element = document.querySelector('.header')
-        if (element) observer.observe(element)
-
-        return () => observer.disconnect()
-    }, [dispatch])
+    useLazyData({
+        condition: true,
+        action: () => getRegions(),
+        selector: '.header',
+        rootMargin: '0px'
+    })
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
 

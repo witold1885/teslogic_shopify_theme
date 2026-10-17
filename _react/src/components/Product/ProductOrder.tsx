@@ -20,6 +20,7 @@ import noImportIcon from '../../assets/icons/feature_no_import.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     gallery: { yFrom: '40px', duration: 666 },
@@ -77,19 +78,12 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
     
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                dispatch(getRate('USD/EUR'))
-                observer.disconnect()
-            }
-        }, { rootMargin: '810px' })
-
-        const element = document.querySelector('.store_block')
-        if (element) observer.observe(element)
-
-        return () => observer.disconnect()
-    }, [dispatch])
+    useLazyData({
+        condition: true,
+        action: () => getRate('USD/EUR'),
+        selector: '.store_block',
+        rootMargin: '810px'
+    })
 
     const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
     const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
