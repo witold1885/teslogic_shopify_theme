@@ -12,7 +12,7 @@ import SelectionPopup from '../components/Popup/SelectionPopup'
 import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
-const apiEndpoints: string[] = ['rate/USD/EUR', 'regions']
+const apiEndpoints: string[] = ['regions']
 
 const Footer = getComponent('../components/Footer/Footer.tsx')
 
