@@ -1,6 +1,8 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit'
 import contentReducer from './slices/content'
 import productsReducer from './slices/products'
+import reviewsReducer from './slices/reviews'
+import subscribeReducer from './slices/subscribe'
 
 const getInitialState = () => {
   const data: Window['ShopifyReactData'] = typeof window !== 'undefined' ? window.ShopifyReactData : null
@@ -24,6 +26,8 @@ const getInitialState = () => {
 export const rootReducer = combineSlices({
   content: contentReducer,
   products: productsReducer,
+  reviews: reviewsReducer,
+  subscribe: subscribeReducer,
 }).withLazyLoadedSlices()
 
 const store = configureStore({

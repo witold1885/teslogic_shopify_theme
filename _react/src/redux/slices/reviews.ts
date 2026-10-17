@@ -53,7 +53,6 @@ export const reviewsSlice = createSlice({
                 state.error = null
             })
             .addCase(fetchReviews.fulfilled, (state, action) => {
-                console.log('fetchReviews FULFILLED PAYLOAD:', action.payload)
                 state.loading = false
                 state.reviews = action.payload.reviews
                 state.totalCount = action.payload.totalCount

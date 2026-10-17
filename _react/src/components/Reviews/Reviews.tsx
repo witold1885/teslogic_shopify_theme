@@ -33,8 +33,6 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
     
     useLazyData(lazyParams)
 
-    console.log({ fetchReviews, sliceLoaded, reviews, totalCount, avgRating })
-
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
             <div className="container">

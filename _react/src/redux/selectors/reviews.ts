@@ -1,10 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { initialState, type ReviewsState } from '../slices/reviews'
 
-const selectState = (state: any) => {
-    console.log({ state })
-    return state.reviews || initialState
-}
+const selectState = (state: any) => state.reviews || initialState
 const keys = Object.keys(initialState) as (keyof ReviewsState)[]
 
 export const selectReviews = createSelector(
