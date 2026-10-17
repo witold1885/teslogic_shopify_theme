@@ -12,7 +12,7 @@ import SelectionPopup from '../components/Popup/SelectionPopup'
 import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
-const apiEndpoints: string[] = ['regions']
+// const apiEndpoints: string[] = ['regions']
 
 const Footer = getComponent('../components/Footer/Footer.tsx')
 
@@ -33,10 +33,10 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     // useExternalScripts(EXTERNAL_SCRIPTS)
     if (apiUrl) {
         preconnect(apiUrl)
-        apiEndpoints.forEach(endpoint => preload(`${apiUrl}/api/${endpoint}`, { 
-            as: 'fetch',
-            crossOrigin: 'anonymous'
-        }))
+        // apiEndpoints.forEach(endpoint => preload(`${apiUrl}/api/${endpoint}`, { 
+        //     as: 'fetch',
+        //     crossOrigin: 'anonymous'
+        // }))
     }
 
     useEffect(() => {
