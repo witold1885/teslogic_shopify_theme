@@ -76,7 +76,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
-        
+    
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {

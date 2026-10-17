@@ -321,9 +321,19 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
-
+        
     useEffect(() => {
-        dispatch(getRegions())
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                dispatch(getRegions())
+                observer.disconnect()
+            }
+        })
+
+        const element = document.querySelector('.header')
+        if (element) observer.observe(element)
+
+        return () => observer.disconnect()
     }, [dispatch])
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
