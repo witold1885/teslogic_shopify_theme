@@ -45,26 +45,9 @@
 
     {% render 'meta-tags' %}
 
-    {%- capture header_content -%}
-      {{ content_for_header }}
-    {%- endcapture -%}
-
-    {%- unless request.page_type == 'cart' or request.page_type == 'checkout' -%}
-      {%- if header_content contains 'accelerated-checkout-backwards-compat' -%}
-        {%- assign parts = header_content | split: '<link id="shopify-accelerated-checkout-styles"' -%}
-        {%- assign after_link = parts[1] | split: '>' -%}
-        
-        {%- capture after_link_clean -%}
-          {%- for chunk in after_link offset: 1 -%}
-            {{ chunk }}{% unless forloop.last %}>{% endunless %}
-          {%- endfor -%}
-        {%- endcapture -%}
-        
-        {%- assign header_content = parts[0] | append: after_link_clean -%}
-      {%- endif -%}  
+    {% unless template == 'index' or page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' or page.handle == 'installers' or page.handle == 'partners' %}
+    {{ content_for_header }}
     {%- endunless -%}
-
-    {{ header_content }}
 
     {% unless template == 'index' or page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' or page.handle == 'installers' or page.handle == 'partners' %}
 
