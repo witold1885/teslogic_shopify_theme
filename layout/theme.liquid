@@ -38,14 +38,6 @@
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
-
-    <!-- Google Tag Manager -->
-{% comment %} <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MBF5GH8');</script> {% endcomment %}
-<!-- End Google Tag Manager -->
     
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
@@ -53,7 +45,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% render 'meta-tags' %}
 
-    {{ content_for_header }}
+    {%- capture header_content -%}
+      {{ content_for_header }}
+    {%- endcapture -%}
+
+    {%- unless request.page_type == 'cart' or request.page_type == 'checkout' -%}
+      {%- assign header_content = header_content | remove: '<link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="https://screenmate.co/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">' -%}
+    {%- endunless -%}
+
+    {{ header_content }}
 
     {% unless template == 'index' or page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' or page.handle == 'installers' or page.handle == 'partners' %}
 
