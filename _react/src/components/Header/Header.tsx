@@ -322,13 +322,15 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
-
-    useLazyData({
+    
+    const lazyParams = useMemo(() => ({
         condition: true,
         action: () => getRegions(),
         selector: '.header',
         rootMargin: '0px'
-    })
+    }), [])
+
+    useLazyData(lazyParams)
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
 

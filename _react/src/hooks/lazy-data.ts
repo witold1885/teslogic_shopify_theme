@@ -3,27 +3,27 @@ import { useAppDispatch } from '../redux/hooks'
 
 interface LazyDataParams {
     condition: boolean
-    action: any
+    action: () => any
     selector: string
     rootMargin: string
 }
 
-export function useLazyData (params: LazyDataParams) {
+export function useLazyData ({ condition, action, selector, rootMargin }: LazyDataParams) {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        if (!params || !params?.condition) return
+        if (!condition) return
 
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                dispatch(params.action())
+                dispatch(action())
                 observer.disconnect()
             }
-        }, { rootMargin: params.rootMargin })
+        }, { rootMargin })
 
-        const element = document.querySelector(params.selector)
+        const element = document.querySelector(selector)
         if (element) observer.observe(element)
 
         return () => observer.disconnect()
-    }, [params, dispatch])
+    }, [condition, action, selector, rootMargin, dispatch])
 }

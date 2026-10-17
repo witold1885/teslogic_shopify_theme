@@ -26,12 +26,14 @@ const ScreenmateDashBloggers: React.FC = () => {
         id: getVideoId(url), url, html
     })).filter(({ id }) => !!id) || [], [videos])
     
-    useLazyData({
+    const lazyParams = useMemo(() => ({
         condition: data.length !== 0,
         action: () => parseYoutubeVideos(data),
         selector: '.bloggers_block',
         rootMargin: '405px'
-    })
+    }), [data])
+    
+    useLazyData(lazyParams)
     
     const animationConfigs = useMemo(() => mapSimpleConfigs({
         ...animatedObjects,

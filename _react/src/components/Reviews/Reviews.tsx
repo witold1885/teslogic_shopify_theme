@@ -17,15 +17,17 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
         }
         return ''
     }, [allSources])
-    
-    useLazyData({
+        
+    const lazyParams = useMemo(() => ({
         condition: !!product,
         action: product 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
         selector: '.reviews',
         rootMargin: '810px'
-    })
+    }), [product])
+    
+    useLazyData(lazyParams)
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>

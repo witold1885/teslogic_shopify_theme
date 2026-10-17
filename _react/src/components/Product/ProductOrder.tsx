@@ -77,13 +77,15 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
-    
-    useLazyData({
+
+    const lazyParams = useMemo(() => ({
         condition: true,
         action: () => getRate('USD/EUR'),
         selector: '.store_block',
         rootMargin: '810px'
-    })
+    }), [])
+    
+    useLazyData(lazyParams)
 
     const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
     const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
