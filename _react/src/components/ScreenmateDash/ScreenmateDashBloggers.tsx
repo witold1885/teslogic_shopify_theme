@@ -26,10 +26,22 @@ const ScreenmateDashBloggers: React.FC = () => {
     const data = useMemo(() => videos?.map(({ url, html }) => ({
         id: getVideoId(url), url, html
     })).filter(({ id }) => !!id) || [], [videos])
-
+    
     useEffect(() => {
-        dispatch(parseYoutubeVideos(data))
-    }, [data])
+        if (data.length === 0) return
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                dispatch(parseYoutubeVideos(data))
+                observer.disconnect()
+            }
+        }, { rootMargin: '405px' })
+
+        const element = document.querySelector('.bloggers_block')
+        if (element) observer.observe(element)
+
+        return () => observer.disconnect()
+    }, [data, dispatch])
     
     const animationConfigs = useMemo(() => mapSimpleConfigs({
         ...animatedObjects,
