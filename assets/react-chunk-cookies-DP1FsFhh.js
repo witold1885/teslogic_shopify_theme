@@ -1,0 +1,1 @@
+import{n as e}from"./react-chunk-vendor-CHaPhVky.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

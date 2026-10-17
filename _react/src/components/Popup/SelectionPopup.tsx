@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import * as yup from 'yup'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import type { AsyncThunk, AsyncThunkConfig } from '@reduxjs/toolkit'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
 import type { CustomSubscribePayload, DiscountSubscribePayload, SubscribeResponse } from '../../types/subscribe'
 import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
@@ -10,7 +11,6 @@ import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useOutsideClick } from '../../hooks/outside-click'
-import { fetchSubscribe } from '../../redux/selectors/subscribe'
 
 const models: string[] = [
     'Model 3 ‘17-20',

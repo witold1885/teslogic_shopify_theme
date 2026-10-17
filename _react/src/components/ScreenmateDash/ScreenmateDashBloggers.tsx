@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import './screenmate-dash-bloggers.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { getVideoId } from '../../redux/yt'
+import { fetchContent } from '../../redux/selectors/content'
 import { Icon, Image } from '../Common'
 import TrackSlider from '../Common/TrackSlider'
 import ytPlayIcon from '../../assets/icons/yt-play.svg'
@@ -10,7 +11,6 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
-import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

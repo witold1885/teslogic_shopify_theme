@@ -1,6 +1,8 @@
 import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { fetchProducts } from '../../redux/selectors/products'
+import { fetchContent } from '../../redux/selectors/content'
 import type { Model } from '../../types/product'
 
 const Slider = lazy(() =>
@@ -25,8 +27,6 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
-import { fetchProducts } from '../../redux/selectors/products'
-import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },

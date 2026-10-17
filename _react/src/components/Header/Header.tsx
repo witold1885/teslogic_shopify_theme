@@ -1,6 +1,8 @@
 import React, { forwardRef, useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { fetchContent } from '../../redux/selectors/content'
+import { fetchProducts } from '../../redux/selectors/products'
 import type { Country, MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
@@ -16,8 +18,6 @@ import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
-import { fetchContent } from '../../redux/selectors/content'
-import { fetchProducts } from '../../redux/selectors/products'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     header: { yFrom: '40px', duration: 666 },

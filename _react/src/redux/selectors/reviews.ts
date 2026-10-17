@@ -4,7 +4,7 @@ import { initialState, type ReviewsState } from '../slices/reviews'
 const selectState = (state: any) => state.reviews || initialState
 const keys = Object.keys(initialState) as (keyof ReviewsState)[]
 
-export const fetchReviews = createSelector(
+export const selectReviews = createSelector(
     [selectState],
     (reviews): ReviewsState => {
         const acc = {} as Record<keyof ReviewsState, any>

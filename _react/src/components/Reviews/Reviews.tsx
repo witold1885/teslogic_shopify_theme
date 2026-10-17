@@ -1,18 +1,20 @@
 import React, { useMemo } from 'react'
 import './reviews.scss'
 import { useAppSelector } from '../../redux/hooks'
+import { fetchProducts } from '../../redux/selectors/products'
+import { selectReviews } from '../../redux/selectors/reviews'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 import ReviewsTop from './ReviewsTop'
 import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
-import { fetchProducts } from '../../redux/selectors/products'
 
 const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     const { fetchReviews } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
     const { product } = useAppSelector(fetchProducts)
+    const { reviews, totalCount, avgRating } = useAppSelector(selectReviews)
 
     const source: string = useMemo(() => {
         if (typeof window !== 'undefined' && !allSources) {
@@ -35,10 +37,10 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
             <div className="container">
                 <div>
-                    <ReviewsTop />
-                    <ReviewsGrid />
+                    <ReviewsTop {...{product, totalCount, avgRating}} />
+                    <ReviewsGrid {...{reviews, totalCount}} />
                 </div>
-                <ReviewsForm />
+                <ReviewsForm {...{product}} />
             </div>
         </div>
     )

@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { useAppSelector } from '../../redux/hooks'
 import macy, { type MacyInstance } from 'macy'
-
+import type { Review } from '../../types/review'
 import Icon from '../Common/Icon'
+import TrackSlider from '../Common/TrackSlider'
 import starBlue from '@/assets/icons/star-blue.svg'
 import starGrey from '@/assets/icons/star-grey.svg'
 import chevronActiveLeft from '@/assets/icons/chevron-active-left.svg'
@@ -12,8 +12,6 @@ import chevronInactiveRight from '@/assets/icons/chevron-inactive-right.svg'
 
 import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import TrackSlider from '../Common/TrackSlider'
-import { fetchReviews } from '../../redux/selectors/reviews'
 
 const PER_PAGE: number = 7
 
@@ -72,9 +70,8 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
     )
 })
 
-const ReviewsGrid: React.FC = () => {
+const ReviewsGrid: React.FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, totalCount }) => {
     const { isMobile } = useInlineStyles()
-    const { reviews, totalCount } = useAppSelector(fetchReviews)
 
     const containerRef = useRef<HTMLDivElement>(null)
     const macyInstance = useRef<MacyInstance>(null)

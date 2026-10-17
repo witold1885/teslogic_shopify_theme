@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import './screenmate-dash-shortcuts.scss'
 import { useAppSelector } from '../../redux/hooks'
+import { fetchContent } from '../../redux/selectors/content'
 import { Icon, Image } from '../Common'
 import topIcon from '../../assets/icons/screenmate-dash/shortcuts/shortcuts-top-icon.svg'
 import chevron from '../../assets/icons/screenmate-dash/shortcuts/shortcuts_mobile_chevron.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

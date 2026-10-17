@@ -1,6 +1,8 @@
 import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { fetchContent } from '../../redux/selectors/content'
+import { fetchProducts } from '../../redux/selectors/products'
 import type { Model } from '../../types/product'
 
 const Slider = lazy(() =>
@@ -21,8 +23,6 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
-import { fetchContent } from '../../redux/selectors/content'
-import { fetchProducts } from '../../redux/selectors/products'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     gallery: { yFrom: '40px', duration: 666 },

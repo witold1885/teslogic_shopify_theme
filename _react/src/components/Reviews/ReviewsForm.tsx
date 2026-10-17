@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useCallback, Fragment } from 'react'
 import * as yup from 'yup'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { useAppDispatch } from '../../redux/hooks'
 import type { ReviewPayload } from '../../types/review'
+import type { Product } from '../../types/product'
 import Button from '../Common/Button'
 import Popup from '../Common/Popup'
 import Icon from '../Common/Icon'
@@ -9,7 +10,6 @@ import closeIcon from '@/assets/icons/close-white.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
-import { fetchProducts } from '../../redux/selectors/products'
 
 const reviewSchema = yup.object<Record<keyof ReviewPayload, typeof yup>>({
     shop_url: yup.string().required(),
@@ -51,12 +51,10 @@ interface FormFieldProps {
 
 const FormField: React.FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) => <Tag {...params} />
 
-const ReviewsForm: React.FC = () => {
+const ReviewsForm: React.FC<{ product?: Product | null }> = ({ product }) => {
     const dispatch = useAppDispatch()
 
     const { sendReview } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
-
-    const { product } = useAppSelector(fetchProducts)
 
     const [popupOpen, setPopupOpen] = useState<boolean>(false)
     const [data, setData] = useState<ReviewPayload>({

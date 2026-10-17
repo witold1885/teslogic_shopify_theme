@@ -1,13 +1,11 @@
 import React, { useMemo } from 'react'
-import { useAppSelector } from '../../redux/hooks'
+import type { Product } from '../../types/product'
 import Icon from '../Common/Icon'
 import starIcon from '@/assets/icons/star.svg'
 import judgeMeLogo from '@/assets/images/logo-judgeme.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { fetchProducts } from '../../redux/selectors/products'
-import { fetchReviews } from '../../redux/selectors/reviews'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     top: { yFrom: '20px', duration: 333 },
@@ -15,11 +13,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     summary: { yFrom: '40px', duration: 666 },
 }
 
-const ReviewsTop: React.FC = () => {
+const ReviewsTop: React.FC<{ product?: Product | null; totalCount: number; avgRating: number }> = ({ product, totalCount, avgRating }) => {
     const { isMobile } = useInlineStyles()
-
-    const { product } = useAppSelector(fetchProducts)
-    const { totalCount, avgRating } = useAppSelector(fetchReviews)
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         

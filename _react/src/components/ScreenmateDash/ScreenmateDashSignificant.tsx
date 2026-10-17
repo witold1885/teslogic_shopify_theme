@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react'
 import './screenmate-dash-significant.scss'
 import { useAppSelector } from '../../redux/hooks'
+import { fetchContent } from '../../redux/selectors/content'
 import type { Feature } from '../../types/shopify'
 import TrackSlider from '../Common/TrackSlider'
 import { Image } from '../Common'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

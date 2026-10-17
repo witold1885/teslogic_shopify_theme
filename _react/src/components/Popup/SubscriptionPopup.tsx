@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as yup from 'yup'
 import { useAppSelector } from '../../redux/hooks'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
 import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import PopupCheckbox from './PopupCheckbox'
 import logo from '../../assets/images/popup-logo-white.svg'
-import { fetchSubscribe } from '../../redux/selectors/subscribe'
 
 interface SubscriptionPopupProps {
     open: boolean

@@ -1,6 +1,7 @@
 import React, { forwardRef, Fragment, useCallback, useMemo, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-complectation.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { fetchProducts } from '../../redux/selectors/products'
 
 import { Icon, Image } from '../Common'
 import screenmateOneDevice from '../../assets/images/screenmate-one/products/screenmate-one-device.png'
@@ -15,7 +16,6 @@ import CartBlueIcon from '../../assets/icons/CartBlueIcon'
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
-import { fetchProducts } from '../../redux/selectors/products'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

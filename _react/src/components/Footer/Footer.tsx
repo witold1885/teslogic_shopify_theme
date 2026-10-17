@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react'
 import * as yup from 'yup'
 import './footer.scss'
 import { useAppSelector } from '../../redux/hooks'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
+import { fetchContent } from '../../redux/selectors/content'
 import type { MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import PopupCheckbox from '../Popup/PopupCheckbox'
@@ -14,8 +16,6 @@ import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
 
 import { getAnimationConfig, mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { fetchSubscribe } from '../../redux/selectors/subscribe'
-import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     form: { yFrom: '40px', duration: 666 },
