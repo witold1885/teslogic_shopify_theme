@@ -13,7 +13,6 @@ import closeIcon from '@/assets/icons/close-black.svg'
 
 import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { useLazyData } from '../../hooks/lazy-data'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
@@ -322,15 +321,23 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
     const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
-    
-    const lazyParams = useMemo(() => ({
-        condition: true,
-        action: () => getRegions(),
-        selector: '.header',
-        rootMargin: '0px'
-    }), [])
 
-    useLazyData(lazyParams)
+    useEffect(() => {
+        const task = () => {
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(() => dispatch(getRegions()))
+            } else {
+                setTimeout(() => dispatch(getRegions()), 2000)
+            }
+        }
+
+        if (document.readyState === 'complete') {
+            task()
+        } else {
+            window.addEventListener('load', task, { once: true })
+            return () => window.removeEventListener('load', task)
+        }
+    }, [dispatch])
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
 
