@@ -29,9 +29,11 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
         selector: '.reviews'
-    }), [product, fetchReviews])
+    }), [product, source, fetchReviews])
     
     useLazyData(lazyParams)
+
+    console.log({ reviews, totalCount, avgRating })
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>

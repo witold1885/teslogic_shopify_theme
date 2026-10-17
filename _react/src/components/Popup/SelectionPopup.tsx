@@ -102,7 +102,6 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
         if (formValid) {
             const { email, model } = data
             const mode = popupProcessData?.mode || null
-            console.log({ mode })
             if (mode) {
                 dispatch(subscriptionMethods[mode as string]({
                     name: email,
