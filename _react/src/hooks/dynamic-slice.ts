@@ -22,13 +22,14 @@ export const useDynamicSlice = (
 ): any => {
     const store = useStore()
 
-    const [actions, setActions] = useState({})
+    const [actions, setActions] = useState<any>({})
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
     const importFnRef = useRef(importFn)
     importFnRef.current = importFn
 
     useEffect(() => {
-        if (!condition || Object.keys(actions).length !== 0) return
+        if (!condition || isLoaded) return
         
         let isMounted = true
 
@@ -47,6 +48,7 @@ export const useDynamicSlice = (
             }
             
             setActions(extractedActions)
+            setIsLoaded(true)
         }).catch((e: any) => {
             console.error('Dynamic slice loading error:', e.toString())
         })
@@ -54,7 +56,7 @@ export const useDynamicSlice = (
         return () => {
             isMounted = false
         }
-    }, [condition, actions, store, sliceName])
+    }, [condition, isLoaded, actions, store, sliceName])
 
-    return Object.keys(actions).length !== 0 ? actions : NO_OP_PROXY
+    return { ...(Object.keys(actions).length !== 0 ? actions : NO_OP_PROXY), isLoaded }
 }

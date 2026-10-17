@@ -11,7 +11,7 @@ import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
 
 const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
-    const { fetchReviews } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
+    const { fetchReviews, isLoaded: sliceLoaded } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
     const { product } = useAppSelector(fetchProducts)
     const { reviews, totalCount, avgRating } = useAppSelector(selectReviews)
@@ -24,12 +24,12 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
     }, [allSources])
     
     const lazyParams = useMemo(() => ({
-        condition: !!product,
+        condition: !!product && sliceLoaded,
         action: product 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
         selector: '.reviews'
-    }), [product, source, fetchReviews])
+    }), [sliceLoaded, product, source, fetchReviews])
     
     useLazyData(lazyParams)
 
