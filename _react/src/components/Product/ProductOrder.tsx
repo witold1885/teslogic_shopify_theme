@@ -1,7 +1,6 @@
 import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { addToCart, getRate } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
 
 const Slider = lazy(() =>
@@ -20,6 +19,7 @@ import noImportIcon from '../../assets/icons/feature_no_import.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
@@ -75,13 +75,14 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     
     const { isMobile } = useInlineStyles()
     
+    const { getRate, addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
 
     const lazyParams = useMemo(() => ({
         action: () => getRate('USD/EUR'),
         selector: '.store_block'
-    }), [])
+    }), [getRate])
     
     useLazyData(lazyParams)
 
@@ -172,7 +173,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         { icon: noImportIcon, main: 'Duties and taxes', add: 'included in most countries*' },
     ].filter(({ icon, main, add }) => !!icon && !!main && !!add) : [], [withDetails, country])
     
-    const handleSubmit = () => {
+    const handleSubmit = useCallback(() => {
         if (selectedModel) {
             const items = [
                 { id: selectedModel.id, quantity: 1 },
@@ -182,7 +183,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
         } else {
             setError(true)
         }
-    }
+    }, [selectedModel, selectedAdditionals, dispatch, addToCart])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {

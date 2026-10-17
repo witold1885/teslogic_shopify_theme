@@ -1,7 +1,6 @@
 import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { getRate, addToCart } from '../../redux/slices/products'
 import type { Model } from '../../types/product'
 
 const Slider = lazy(() =>
@@ -24,6 +23,8 @@ import warranty from '@/assets/icons/warranty.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
+import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
@@ -48,12 +49,16 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const { isMobile } = useInlineStyles()
 
+    const { getRate, addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
     const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
     const { country } = useAppSelector(state => state.content)
-
-    useEffect(() => {
-        dispatch(getRate('USD/EUR'))
-    }, [dispatch])
+    
+    const lazyParams = useMemo(() => ({
+        action: () => getRate('USD/EUR'),
+        selector: '.screenmate-one__order'
+    }), [getRate])
+    
+    useLazyData(lazyParams)
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
@@ -130,7 +135,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         { icon: warranty, main: '3-year full warranty', add: 'for Screenmate ONE' },
     ].filter(({ icon, main, add }) => !!icon && !!main && !!add), [country, isMobile])
 
-    const handleSubmit = () => {
+    const handleSubmit = useCallback(() => {
         if (selectedModel) {
             const items = [
                 { id: selectedModel.id, quantity: 1 },
@@ -140,7 +145,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         } else {
             setError(true)
         }
-    }
+    }, [selectedModel, selectedAdditionals, dispatch, addToCart])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {

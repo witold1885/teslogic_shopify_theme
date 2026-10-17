@@ -1,1 +1,0 @@
-import{_ as e,v as t}from"./react-chunk-vendor-AmfLaxmZ.js";var n=e.withTypes(),r=t.withTypes();export{r as n,n as t};

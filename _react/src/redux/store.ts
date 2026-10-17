@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineSlices, configureStore } from '@reduxjs/toolkit'
 import contentReducer from './slices/content'
 import productsReducer from './slices/products'
 import reviewsReducer from './slices/reviews'
@@ -23,13 +23,15 @@ const getInitialState = () => {
   }
 }
 
+export const rootReducer = combineSlices({
+  content: contentReducer,
+  products: productsReducer,
+  reviews: reviewsReducer,
+  subscribe: subscribeReducer,
+}).withLazyLoadedSlices()
+
 const store = configureStore({
-  reducer: {
-    content: contentReducer,
-    products: productsReducer,
-    reviews: reviewsReducer,
-    subscribe: subscribeReducer,
-  },
+  reducer: rootReducer,
   preloadedState: getInitialState()
 })
 

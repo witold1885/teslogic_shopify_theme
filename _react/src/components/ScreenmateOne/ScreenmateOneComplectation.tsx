@@ -1,7 +1,6 @@
-import React, { forwardRef, Fragment, useMemo, type CSSProperties, type ReactNode } from 'react'
+import React, { forwardRef, Fragment, useCallback, useMemo, type CSSProperties, type ReactNode } from 'react'
 import './screenmate-one-complectation.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { addToCart } from '../../redux/slices/products'
 
 import { Icon, Image } from '../Common'
 import screenmateOneDevice from '../../assets/images/screenmate-one/products/screenmate-one-device.png'
@@ -15,6 +14,7 @@ import CartBlueIcon from '../../assets/icons/CartBlueIcon'
 
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -166,6 +166,7 @@ const ScreenmateOneComplectation: React.FC = () => {
     const dispatch = useAppDispatch()
     const { isMobile, responsive } = useInlineStyles()
 
+    const { addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
     const { additionalProducts } = useAppSelector(state => state.products)
 
     const additionalProductTitles: string[] = ['Wireless Charger', 'Connection Splitter']
@@ -188,11 +189,11 @@ const ScreenmateOneComplectation: React.FC = () => {
         [additionalProductsData, isMobile, responsive]
     )
 
-    const handleAddToCart = (id: number | null) => {
+    const handleAddToCart = useCallback((id: number | null) => {
         if (id) {
             dispatch(addToCart({ items: [{ id, quantity: 1 }] }))
         }
-    }
+    }, [dispatch, addToCart])
 
     const animationConfigs = useMemo(() => mapBlocksConfigs(groups, animatedObjects), [groups])
 

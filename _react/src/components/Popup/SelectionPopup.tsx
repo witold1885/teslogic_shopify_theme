@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 import * as yup from 'yup'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import type { AsyncThunk, AsyncThunkConfig } from '@reduxjs/toolkit'
 import type { CustomSubscribePayload, DiscountSubscribePayload, SubscribeResponse } from '../../types/subscribe'
-import { discountSubscribe, customSubscribe } from '../../redux/slices/subscribe'
 import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
+
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useOutsideClick } from '../../hooks/outside-click'
 
 const models: string[] = [
@@ -19,14 +20,6 @@ const models: string[] = [
     'Model S ‘21+',
     'Model X ‘21+'
 ]
-
-const subscriptionMethods: Record<
-    string,
-    AsyncThunk<SubscribeResponse, DiscountSubscribePayload | CustomSubscribePayload, AsyncThunkConfig>
-> = {
-    discount: discountSubscribe,
-    custom: customSubscribe
-}
 
 interface SelectionPopupProps {
     open: boolean
@@ -46,6 +39,16 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     const wrap = useRef<PopupRefProps>(null)
 
     const dispatch = useAppDispatch()
+
+    const { discountSubscribe, customSubscribe } = useDynamicSlice('subscribe', () => import('../../redux/slices/subscribe'))
+
+    const subscriptionMethods: Record<
+        string,
+        AsyncThunk<SubscribeResponse, DiscountSubscribePayload | CustomSubscribePayload, AsyncThunkConfig>
+    > = useMemo(() => ({
+        discount: discountSubscribe,
+        custom: customSubscribe
+    }), [discountSubscribe, customSubscribe])
 
     const popupDropdownRefs = useRef<(HTMLDivElement | null)[]>([])
 

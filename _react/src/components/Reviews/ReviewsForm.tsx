@@ -1,7 +1,6 @@
-import React, { Fragment, useMemo, useState } from 'react'
+import React, { useState, useMemo, useCallback, Fragment } from 'react'
 import * as yup from 'yup'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { sendReview } from '../../redux/slices/reviews'
 import type { ReviewPayload } from '../../types/review'
 import Button from '../Common/Button'
 import Popup from '../Common/Popup'
@@ -9,6 +8,7 @@ import Icon from '../Common/Icon'
 import closeIcon from '@/assets/icons/close-white.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 
 const reviewSchema = yup.object<Record<keyof ReviewPayload, typeof yup>>({
     shop_url: yup.string().required(),
@@ -53,6 +53,8 @@ const FormField: React.FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) =
 const ReviewsForm: React.FC = () => {
     const dispatch = useAppDispatch()
 
+    const { sendReview } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
+
     const { product } = useAppSelector(state => state.products)
 
     const [popupOpen, setPopupOpen] = useState<boolean>(false)
@@ -83,7 +85,7 @@ const ReviewsForm: React.FC = () => {
         setErrors(prev => ({ ...prev, [name]: null }))
     }
 
-    const validateForm = async (formData: ReviewPayload) => {
+    const validateForm = useCallback(async (formData: ReviewPayload) => {
         try {
             await reviewSchema.validate(formData, { abortEarly: false })
             return true
@@ -94,16 +96,16 @@ const ReviewsForm: React.FC = () => {
             })
             return false
         }
-    }
+    }, [errors])
 
-    const handleSubmit = async () => {
+    const handleSubmit = useCallback(async () => {
         const formData = { ...data, shop_url: window.location.host, id: product?.id }
         const formValid = await validateForm(formData)
         if (formValid === true) {
             dispatch(sendReview(formData))
             setPopupOpen(false)
         }
-    }
+    }, [data, product, validateForm, dispatch, sendReview])
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         

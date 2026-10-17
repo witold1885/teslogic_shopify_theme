@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import './reviews.scss'
 import { useAppSelector } from '../../redux/hooks'
-import { fetchReviews } from '../../redux/slices/reviews'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 import ReviewsTop from './ReviewsTop'
 import ReviewsGrid from './ReviewsGrid'
@@ -9,6 +9,8 @@ import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
 
 const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
+    const { fetchReviews } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
+
     const { product } = useAppSelector(state => state.products)
 
     const source: string = useMemo(() => {
@@ -24,7 +26,7 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
         selector: '.reviews'
-    }), [product])
+    }), [product, fetchReviews])
     
     useLazyData(lazyParams)
 

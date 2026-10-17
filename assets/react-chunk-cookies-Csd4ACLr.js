@@ -1,1 +1,0 @@
-import{a as e}from"./react-chunk-vendor-BH-CsdpL.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

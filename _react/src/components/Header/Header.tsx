@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef, useMemo, forwardRef, useCallback } from 'react'
+import React, { forwardRef, useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { getRegions, setCountry } from '../../redux/slices/content'
 import type { Country, MenuItem } from '../../types/shopify'
 import { Button, Icon, Image } from '../Common'
 import logo from '../../assets/images/logo-white.svg'
@@ -13,6 +12,7 @@ import closeIcon from '@/assets/icons/close-black.svg'
 
 import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
@@ -176,6 +176,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
 }, ref) => {
     const dispatch = useAppDispatch()
 
+    const { getRegions } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions } = useAppSelector(state => state.content)
 
     const [isRegionsLoaded, setIsRegionsLoaded] = useState(false)
@@ -185,7 +186,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
             dispatch(getRegions())
             setIsRegionsLoaded(true)
         }
-    }, [isRegionsLoaded, dispatch])
+    }, [isRegionsLoaded, dispatch, getRegions])
 
     return (
         <div className="header-country" ref={ref}>
@@ -291,7 +292,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
                     {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
                 />
                 {isMobile && (
-                    <Button className="header-menu-mobile-open" onClick={onMobileMenuOpen}>
+                    <Button className="header-menu-mobile-open" label="Menu" onClick={onMobileMenuOpen}>
                         <Icon icon={burgerIcon} />
                     </Button>
                 )}
@@ -325,15 +326,18 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
 )
 
 const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({ theme = 'dark', orderButton = true, onOrder }) => {
-    const dispatch = useAppDispatch()
     const { isMobile } = useInlineStyles()
-    const scrollOffset = useScroll()
+    
+    const dispatch = useAppDispatch()
 
-    const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
-
+    const { setCountry } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions, country: currentCountry, main_menu } = useAppSelector(state => state.content)
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
+
+    const scrollOffset = useScroll()
+
+    const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false)
 
     const menu = useMemo(() => {
         return main_menu ? main_menu.filter(({ title }) => title !== 'Buy Now') : []
@@ -376,7 +380,7 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
         setSelectedCountry(country)
         setCountriesDropdownOpen(false)
         dispatch(setCountry(country))
-    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen])
+    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen, setCountry])
 
     const headerParams = useMemo(() => ({ menu: menu as MenuItem[], orderButton, onOrder }), [menu, orderButton, onOrder])
 
