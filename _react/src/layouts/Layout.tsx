@@ -1,5 +1,5 @@
 import React, { useEffect, type ReactNode } from 'react'
-import { preconnect } from 'react-dom'
+import { preconnect, preload } from 'react-dom'
 import { getComponent } from './components'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
@@ -32,6 +32,10 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     // useExternalScripts(EXTERNAL_SCRIPTS)
     if (apiUrl) {
         preconnect(apiUrl)
+        preload(`${apiUrl}/api/rate/USD/EUR`, {
+            as: 'fetch',
+            crossOrigin: 'anonymous'
+        })
     }
 
     useEffect(() => {
