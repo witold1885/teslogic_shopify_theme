@@ -324,7 +324,7 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
 
     useEffect(() => {
         const task = () => {
-            setTimeout(() => dispatch(getRegions()), 2000)
+            setTimeout(() => dispatch(getRegions()), 1000)
         }
 
         if (document.readyState === 'complete') {

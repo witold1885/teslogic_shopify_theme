@@ -1,5 +1,5 @@
 import React, { useEffect, type ReactNode } from 'react'
-import { preconnect, preload } from 'react-dom'
+import { preconnect } from 'react-dom'
 import { getComponent } from './components'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
@@ -12,7 +12,6 @@ import SelectionPopup from '../components/Popup/SelectionPopup'
 import SuccessPopup from '../components/Popup/SuccessPopup'
 
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
-// const apiEndpoints: string[] = ['regions']
 
 const Footer = getComponent('../components/Footer/Footer.tsx')
 
@@ -31,13 +30,7 @@ export interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder = () => {}, children }) => {
     // useExternalScripts(EXTERNAL_SCRIPTS)
-    if (apiUrl) {
-        preconnect(apiUrl)
-        // apiEndpoints.forEach(endpoint => preload(`${apiUrl}/api/${endpoint}`, { 
-        //     as: 'fetch',
-        //     crossOrigin: 'anonymous'
-        // }))
-    }
+    if (apiUrl) preconnect(apiUrl)
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

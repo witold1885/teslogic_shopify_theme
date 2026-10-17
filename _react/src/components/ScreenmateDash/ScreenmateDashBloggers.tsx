@@ -29,8 +29,7 @@ const ScreenmateDashBloggers: React.FC = () => {
     const lazyParams = useMemo(() => ({
         condition: data.length !== 0,
         action: () => parseYoutubeVideos(data),
-        selector: '.bloggers_block',
-        rootMargin: '405px'
+        selector: '.bloggers_block'
     }), [data])
     
     useLazyData(lazyParams)

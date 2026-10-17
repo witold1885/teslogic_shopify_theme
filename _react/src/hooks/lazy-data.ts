@@ -2,13 +2,13 @@ import { useEffect } from 'react'
 import { useAppDispatch } from '../redux/hooks'
 
 interface LazyDataParams {
-    condition: boolean
+    condition?: boolean
     action: () => any
     selector: string
-    rootMargin: string
+    rootMargin?: string
 }
 
-export function useLazyData ({ condition, action, selector, rootMargin }: LazyDataParams) {
+export function useLazyData ({ condition = true, action, selector, rootMargin = '810px' }: LazyDataParams) {
     const dispatch = useAppDispatch()
 
     useEffect(() => {

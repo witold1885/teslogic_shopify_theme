@@ -79,10 +79,8 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const { country } = useAppSelector(state => state.content)
 
     const lazyParams = useMemo(() => ({
-        condition: true,
         action: () => getRate('USD/EUR'),
-        selector: '.store_block',
-        rootMargin: '810px'
+        selector: '.store_block'
     }), [])
     
     useLazyData(lazyParams)

@@ -23,8 +23,7 @@ const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => 
         action: product 
               ? () => fetchReviews({ product_id: product.id, source }) 
               : () => {},
-        selector: '.reviews',
-        rootMargin: '810px'
+        selector: '.reviews'
     }), [product])
     
     useLazyData(lazyParams)
