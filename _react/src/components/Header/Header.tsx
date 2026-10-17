@@ -324,11 +324,7 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
 
     useEffect(() => {
         const task = () => {
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(() => dispatch(getRegions()))
-            } else {
-                setTimeout(() => dispatch(getRegions()), 2000)
-            }
+            setTimeout(() => dispatch(getRegions()), 2000)
         }
 
         if (document.readyState === 'complete') {
