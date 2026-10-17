@@ -50,7 +50,18 @@
     {%- endcapture -%}
 
     {%- unless request.page_type == 'cart' or request.page_type == 'checkout' -%}
-      {%- assign header_content = header_content | remove: '<link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="https://screenmate.co/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">' -%}
+      {%- if header_content contains 'accelerated-checkout-backwards-compat' -%}
+        {%- assign parts = header_content | split: '<link id="shopify-accelerated-checkout-styles"' -%}
+        {%- assign after_link = parts[1] | split: '>' -%}
+        
+        {%- capture after_link_clean -%}
+          {%- for chunk in after_link offset: 1 -%}
+            {{ chunk }}{% unless forloop.last %}>{% endunless %}
+          {%- endfor -%}
+        {%- endcapture -%}
+        
+        {%- assign header_content = parts[0] | append: after_link_clean -%}
+      {%- endif -%}  
     {%- endunless -%}
 
     {{ header_content }}
