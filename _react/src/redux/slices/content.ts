@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { Country, MenuItem, Blog, Region, RegionsResponse, Video, VideoItem } from '../../types/shopify'
-import shopify from '../shopify'
 import { parseChannelSnippet, parseVideoInfos } from '../yt'
 
 interface ContentState {
@@ -49,6 +48,8 @@ export const setCountry = createAsyncThunk(
     'content/setCountry',
     async (country: Country, { rejectWithValue }) => {
         try {
+            const { default: shopify } = await import('../shopify')
+
             const formData = new URLSearchParams()
 
             formData.append('form_type', 'localization')

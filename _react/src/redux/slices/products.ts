@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { type Product, type RateResponse, type CartResponse, type CartPayload } from '../../types/product'
-import shopify from '../shopify'
 
 interface ProductsState {
     rate: number | null
@@ -41,6 +40,7 @@ export const getRate = createAsyncThunk(
 export const addToCart = createAsyncThunk(
     'products/addToCart',
     async (data: CartPayload, { rejectWithValue }) => {
+        const { default: shopify } = await import('../shopify')
         const result = await shopify.post<CartResponse>('cart/add.js', data)
 
         if (!result.success) {
