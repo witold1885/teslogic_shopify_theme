@@ -7,6 +7,7 @@ import { Image } from '../Common'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -16,7 +17,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ScreenmateDashSignificant: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const { features } = useAppSelector(state => state.content)
+    const { features } = useAppSelector(fetchContent)
 
     const animationConfigs = useMemo(() => mapSimpleConfigs({
         ...animatedObjects,

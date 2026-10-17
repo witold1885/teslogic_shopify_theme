@@ -6,6 +6,8 @@ import judgeMeLogo from '@/assets/images/logo-judgeme.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { fetchProducts } from '../../redux/selectors/products'
+import { fetchReviews } from '../../redux/selectors/reviews'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     top: { yFrom: '20px', duration: 333 },
@@ -16,8 +18,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ReviewsTop: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const { product } = useAppSelector(state => state.products)
-    const { totalCount, avgRating } = useAppSelector(state => state.reviews)
+    const { product } = useAppSelector(fetchProducts)
+    const { totalCount, avgRating } = useAppSelector(fetchReviews)
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         

@@ -10,6 +10,7 @@ import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useOutsideClick } from '../../hooks/outside-click'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
 
 const models: string[] = [
     'Model 3 ‘17-20',
@@ -64,7 +65,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
     const [data, setData] = useState<SubscriptionPayload>({ email: '', model: '' })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, model: null })
 
-    const { customSubscribed, discountSubscribed, error: apiError } = useAppSelector(state => state.subscribe)
+    const { customSubscribed, discountSubscribed, error: apiError } = useAppSelector(fetchSubscribe)
 
     useEffect(() => {
         if (popupProcessData) {

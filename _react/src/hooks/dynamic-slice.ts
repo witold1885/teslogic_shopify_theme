@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useStore } from 'react-redux'
-import { rootReducer, type RootState } from '../redux/store'
+import { rootReducer } from '../redux/store'
 
 
 const NO_OP_ACTION = { type: '@@DYNAMIC_SLICE/NO_OP' }
@@ -13,8 +13,10 @@ const NO_OP_PROXY = new Proxy({}, {
     }
 })
 
+type Slice = 'content' | 'products' | 'reviews' | 'subscribe'
+
 export const useDynamicSlice = (
-    sliceName: keyof RootState,
+    sliceName: Slice,
     importFn: () => any,
     condition: boolean = true
 ): any => {
@@ -36,7 +38,7 @@ export const useDynamicSlice = (
             const { default: slice, ...extractedActions } = module
 
             if (slice && slice.injectInto) {
-                const currentState = store.getState() as RootState
+                const currentState = store.getState() as any
                 const hasServerState = sliceName && currentState[sliceName] !== undefined
 
                 slice.injectInto(rootReducer, {

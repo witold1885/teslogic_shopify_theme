@@ -1,0 +1,1 @@
+import{h as e}from"./react-chunk-vendor-n4LK7iVJ.js";import{t}from"./react-chunk-reviews-lhd23-TA.js";var n=e=>e.reviews||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{i as t};

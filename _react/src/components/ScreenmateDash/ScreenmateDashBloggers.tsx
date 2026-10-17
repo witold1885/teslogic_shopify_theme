@@ -10,6 +10,7 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
+import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -21,7 +22,7 @@ const ScreenmateDashBloggers: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
     const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))
-    const { videos, videoItems: items } = useAppSelector(state => state.content)
+    const { videos, videoItems: items } = useAppSelector(fetchContent)
 
     const data = useMemo(() => videos?.map(({ url, html }) => ({
         id: getVideoId(url), url, html

@@ -5,6 +5,7 @@ import { setSubscriptionCookie } from '../../utils/cookies'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import PopupCheckbox from './PopupCheckbox'
 import logo from '../../assets/images/popup-logo-white.svg'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
 
 interface SubscriptionPopupProps {
     open: boolean
@@ -25,7 +26,7 @@ const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed =
     const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, agree: null })
 
-    const { discountSubscribeError: apiError } = useAppSelector(state => state.subscribe)
+    const { discountSubscribeError: apiError } = useAppSelector(fetchSubscribe)
 
     const handleChange = (param: keyof SubscriptionPayload, value: string | boolean) => {
         setErrors(prev => ({ ...prev, [param]: null }))

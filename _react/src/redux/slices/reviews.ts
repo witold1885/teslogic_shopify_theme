@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { ReviewsResponse, ReviewsPayload, ReviewPayload } from '../../types/review'
 
-interface ReviewsState extends ReviewsResponse {
+export interface ReviewsState extends ReviewsResponse {
     loading: boolean
     error?: string|null
 }
 
-const initialState: ReviewsState = {
+export const initialState: ReviewsState = {
     reviews: [],
     totalCount: 0,
     avgRating: 0.00,

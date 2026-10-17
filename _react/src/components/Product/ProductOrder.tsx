@@ -21,6 +21,8 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
+import { fetchContent } from '../../redux/selectors/content'
+import { fetchProducts } from '../../redux/selectors/products'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     gallery: { yFrom: '40px', duration: 666 },
@@ -76,8 +78,8 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const { isMobile } = useInlineStyles()
     
     const { getRate, addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
-    const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
-    const { country } = useAppSelector(state => state.content)
+    const { rate, product, additionalProducts, addedToCart } = useAppSelector(fetchProducts)
+    const { country } = useAppSelector(fetchContent)
 
     const lazyParams = useMemo(() => ({
         action: () => getRate('USD/EUR'),

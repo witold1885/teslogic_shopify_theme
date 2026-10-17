@@ -14,6 +14,8 @@ import googlePlayMobile from '../../assets/images/google-play-mobile.svg'
 
 import { getAnimationConfig, mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { fetchSubscribe } from '../../redux/selectors/subscribe'
+import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     form: { yFrom: '40px', duration: 666 },
@@ -50,7 +52,7 @@ const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
             >
                 <div>{title}</div>
                 <div>
-                    {children?.map((child, i) => (
+                    {children?.filter(Boolean).map((child, i) => (
                         <div key={i}>
                             <a href={child.url}>{child.title}</a>
                         </div>
@@ -113,8 +115,8 @@ const Footer: React.FC<FooterProps> = ({ onProceed = () => {} }) => {
     const defaultErrors: Record<keyof SubscriptionPayload, string | null> = { email: null, agree: null }
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>(defaultErrors)
 
-    const { customSubscribeError: apiError } = useAppSelector(state => state.subscribe)
-    const { main_menu } = useAppSelector(state => state.content)
+    const { customSubscribeError: apiError } = useAppSelector(fetchSubscribe)
+    const { main_menu } = useAppSelector(fetchContent)
 
     const forCustomersBlock: MenuItem | null = useMemo(() => {
         if (main_menu) {

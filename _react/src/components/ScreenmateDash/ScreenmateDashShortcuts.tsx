@@ -7,6 +7,7 @@ import chevron from '../../assets/icons/screenmate-dash/shortcuts/shortcuts_mobi
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -33,7 +34,7 @@ const blogs: string[] = ['performance-driv-ing-modes', 'safety-stability-feature
 const ScreenmateDashShortcuts: React.FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const { features } = useAppSelector(state => state.content)
+    const { features } = useAppSelector(fetchContent)
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 

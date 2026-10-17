@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { type Product, type RateResponse, type CartResponse, type CartPayload } from '../../types/product'
 
-interface ProductsState {
+export interface ProductsState {
     rate: number | null
     cartItemCount?: number
     products?: Product[]
@@ -12,7 +12,7 @@ interface ProductsState {
     error?: string|null
 }
 
-const initialState: ProductsState = {
+export const initialState: ProductsState = {
     rate: 1,
     cartItemCount: 0,
     products: [],

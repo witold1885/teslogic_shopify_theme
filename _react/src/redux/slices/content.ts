@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/tool
 import type { Country, MenuItem, Blog, Region, RegionsResponse, Video, VideoItem } from '../../types/shopify'
 import { parseChannelSnippet, parseVideoInfos } from '../yt'
 
-interface ContentState {
+export interface ContentState {
     country?: Country | null
     regions?: Region[]
     main_menu?: MenuItem[]
@@ -14,7 +14,7 @@ interface ContentState {
     error?: string|null
 }
 
-const initialState: ContentState = {
+export const initialState: ContentState = {
     country: null,
     regions: [],
     main_menu: [],

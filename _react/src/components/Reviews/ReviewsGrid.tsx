@@ -13,6 +13,7 @@ import chevronInactiveRight from '@/assets/icons/chevron-inactive-right.svg'
 import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import TrackSlider from '../Common/TrackSlider'
+import { fetchReviews } from '../../redux/selectors/reviews'
 
 const PER_PAGE: number = 7
 
@@ -73,7 +74,7 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
 
 const ReviewsGrid: React.FC = () => {
     const { isMobile } = useInlineStyles()
-    const { reviews, totalCount } = useAppSelector(state => state.reviews)
+    const { reviews, totalCount } = useAppSelector(fetchReviews)
 
     const containerRef = useRef<HTMLDivElement>(null)
     const macyInstance = useRef<MacyInstance>(null)

@@ -7,11 +7,12 @@ import ReviewsTop from './ReviewsTop'
 import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
+import { fetchProducts } from '../../redux/selectors/products'
 
 const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     const { fetchReviews } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
-    const { product } = useAppSelector(state => state.products)
+    const { product } = useAppSelector(fetchProducts)
 
     const source: string = useMemo(() => {
         if (typeof window !== 'undefined' && !allSources) {

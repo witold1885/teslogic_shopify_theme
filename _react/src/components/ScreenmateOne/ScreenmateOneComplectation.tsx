@@ -15,6 +15,7 @@ import CartBlueIcon from '../../assets/icons/CartBlueIcon'
 import { mapBlocksConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
+import { fetchProducts } from '../../redux/selectors/products'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -113,52 +114,58 @@ const getGroups = (
             },
             itemComponent: BoxItem
         },
-        add: {
-            title: 'Additional products',
-            grid: true,
-            items: {
-                charger: {
-                    id: additionalProductsData['Wireless Charger'].id,
-                    name: 'Wireless Phone Charger',
-                    image: wirelessPhoneCharger,
-                    alt: 'Screenmate wireless phone charger',
-                    price: additionalProductsData['Wireless Charger'].price,
-                    oldPrice: additionalProductsData['Wireless Charger'].oldPrice,
-                    description: <>
-                        This magnetic charger installs on <br />
-                        a Phone Holder instead of a magnet. 
-                    </>,
-                    compatible: <>
-                        iPhone 12 and above, or any phone with wireless <br />
-                        charging (using the included magnetic ring).
-                    </>
+        ...(additionalProductsData ? {
+            add: {
+                title: 'Additional products',
+                grid: true,
+                items: {
+                    ...(additionalProductsData['Wireless Charger'] ? {
+                        charger: {
+                            id: additionalProductsData['Wireless Charger'].id,
+                            name: 'Wireless Phone Charger',
+                            image: wirelessPhoneCharger,
+                            alt: 'Screenmate wireless phone charger',
+                            price: additionalProductsData['Wireless Charger'].price,
+                            oldPrice: additionalProductsData['Wireless Charger'].oldPrice,
+                            description: <>
+                                This magnetic charger installs on <br />
+                                a Phone Holder instead of a magnet. 
+                            </>,
+                            compatible: <>
+                                iPhone 12 and above, or any phone with wireless <br />
+                                charging (using the included magnetic ring).
+                            </>
+                        }
+                    } : {}),
+                    ...(additionalProductsData['Connection Splitter'] ? {
+                        splitter: {
+                            id: additionalProductsData['Connection Splitter'].id,
+                            name: 'Connection Splitter',
+                            image: screenmateSplitter,
+                            alt: 'Screenmate Connection Splitter cable',
+                            price: additionalProductsData['Connection Splitter'].price,
+                            oldPrice: additionalProductsData['Connection Splitter'].oldPrice,
+                            description: <>
+                                The Connection Splitter lets you <br />
+                                connect two devices simultaneously <br />
+                                through one connector.
+                            </>,
+                            compatible: <div className="screenmate-one__complectation-group-grid-item-info-compatible">
+                                {['Model 3 ‘21+', 'Model Y', 'Model S', 'Model X'].map((model, index, array) => (
+                                    <Fragment key={index}>
+                                        <span>{model}</span>
+                                        {index < array.length - 1 && (
+                                            <span style={{ width: '1px', background: 'rgba(255, 255, 255, 0.15)' }} />
+                                        )}
+                                    </Fragment>
+                                ))}
+                            </div>
+                        }
+                    } : {})
                 },
-                splitter: {
-                    id: additionalProductsData['Connection Splitter'].id,
-                    name: 'Connection Splitter',
-                    image: screenmateSplitter,
-                    alt: 'Screenmate Connection Splitter cable',
-                    price: additionalProductsData['Connection Splitter'].price,
-                    oldPrice: additionalProductsData['Connection Splitter'].oldPrice,
-                    description: <>
-                        The Connection Splitter lets you <br />
-                        connect two devices simultaneously <br />
-                        through one connector.
-                    </>,
-                    compatible: <div className="screenmate-one__complectation-group-grid-item-info-compatible">
-                        {['Model 3 ‘21+', 'Model Y', 'Model S', 'Model X'].map((model, index, array) => (
-                            <Fragment key={index}>
-                                <span>{model}</span>
-                                {index < array.length - 1 && (
-                                    <span style={{ width: '1px', background: 'rgba(255, 255, 255, 0.15)' }} />
-                                )}
-                            </Fragment>
-                        ))}
-                    </div>
-                }
-            },
-            itemComponent: AddItem
-        }
+                itemComponent: AddItem
+            }
+        } : {})
     }
 }
 
@@ -167,7 +174,7 @@ const ScreenmateOneComplectation: React.FC = () => {
     const { isMobile, responsive } = useInlineStyles()
 
     const { addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
-    const { additionalProducts } = useAppSelector(state => state.products)
+    const { additionalProducts } = useAppSelector(fetchProducts)
 
     const additionalProductTitles: string[] = ['Wireless Charger', 'Connection Splitter']
     const additionalProductsData: Record<string, AdditionalProduct> = useMemo(() => {

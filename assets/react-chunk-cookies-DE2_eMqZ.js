@@ -1,1 +1,0 @@
-import{r as e}from"./react-chunk-vendor-js5j_WQK.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

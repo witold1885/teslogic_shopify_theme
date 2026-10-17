@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { CustomSubscribePayload, DiscountSubscribePayload, SubscribeResponse } from '../../types/subscribe'
 
-interface SubscribeState {
+export interface SubscribeState {
     loading: boolean
     customSubscribed: boolean
     discountSubscribed: boolean
@@ -10,7 +10,7 @@ interface SubscribeState {
     discountSubscribeError: string|null
 }
 
-const initialState: SubscribeState = {
+export const initialState: SubscribeState = {
     loading: false,
     customSubscribed: false,
     discountSubscribed: false,

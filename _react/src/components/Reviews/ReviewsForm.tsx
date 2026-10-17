@@ -9,6 +9,7 @@ import closeIcon from '@/assets/icons/close-white.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
+import { fetchProducts } from '../../redux/selectors/products'
 
 const reviewSchema = yup.object<Record<keyof ReviewPayload, typeof yup>>({
     shop_url: yup.string().required(),
@@ -55,7 +56,7 @@ const ReviewsForm: React.FC = () => {
 
     const { sendReview } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
-    const { product } = useAppSelector(state => state.products)
+    const { product } = useAppSelector(fetchProducts)
 
     const [popupOpen, setPopupOpen] = useState<boolean>(false)
     const [data, setData] = useState<ReviewPayload>({

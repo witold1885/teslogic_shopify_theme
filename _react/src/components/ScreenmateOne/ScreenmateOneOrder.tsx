@@ -25,6 +25,8 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
+import { fetchProducts } from '../../redux/selectors/products'
+import { fetchContent } from '../../redux/selectors/content'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
@@ -50,8 +52,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { isMobile } = useInlineStyles()
 
     const { getRate, addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
-    const { rate, product, additionalProducts, addedToCart } = useAppSelector(state => state.products)
-    const { country } = useAppSelector(state => state.content)
+    const { rate, product, additionalProducts, addedToCart } = useAppSelector(fetchProducts)
+    const { country } = useAppSelector(fetchContent)
     
     const lazyParams = useMemo(() => ({
         action: () => getRate('USD/EUR'),
