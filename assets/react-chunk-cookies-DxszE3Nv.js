@@ -1,1 +1,0 @@
-import{i as e}from"./react-chunk-vendor-CYAKeUtF.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

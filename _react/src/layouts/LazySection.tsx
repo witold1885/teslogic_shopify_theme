@@ -7,15 +7,23 @@ interface LazySectionProps {
 }
 
 const LazySection: React.FC<LazySectionProps> = ({ rootMargin = '400px 0px', children }) => {
-    const { ref } = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin,
     })
 
-    return import.meta.env.SSR ? children : (
-        <Suspense>
-            <div ref={ref}>{children}</div>
-        </Suspense>
+    if (import.meta.env.SSR) {
+        return <>{children}</>
+    }
+
+    return (
+        <div ref={ref} style={{ minHeight: '1px' }}>
+            {inView ? (
+                <Suspense fallback={null}>
+                    {children}
+                </Suspense>
+            ) : null}
+        </div>
     )
 }
 
