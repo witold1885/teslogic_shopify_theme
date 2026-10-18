@@ -1,4 +1,4 @@
-import React, { useEffect, type ReactNode } from 'react'
+import React, { lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { preconnect } from 'react-dom'
 import { getComponent } from './components'
 import '@/assets/styles/common.scss'
@@ -11,9 +11,12 @@ import LazySection from './LazySection'
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
 
 const Footer = getComponent('../components/Footer/Footer.tsx')
-const SubscriptionPopup = getComponent('../components/Popup/SubscriptionPopup.tsx')
-const SelectionPopup = getComponent('../components/Popup/SelectionPopup.tsx')
-const SuccessPopup = getComponent('../components/Popup/SuccessPopup.tsx')
+// const SubscriptionPopup = getComponent('../components/Popup/SubscriptionPopup.tsx')
+// const SelectionPopup = getComponent('../components/Popup/SelectionPopup.tsx')
+// const SuccessPopup = getComponent('../components/Popup/SuccessPopup.tsx')
+const SubscriptionPopup = lazy(() => import('../components/Popup/SubscriptionPopup.tsx'))
+const SelectionPopup = lazy(() => import('../components/Popup/SelectionPopup.tsx'))
+const SuccessPopup = lazy(() => import('../components/Popup/SuccessPopup.tsx'))
 
 const successPopupSubtitles: Record<string, ReactNode> = {
     discount: <>Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.</>,
@@ -50,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     } = useSubscriptionPopups()
 
     return (<>
-        <LazySection>
+        <Suspense>
             <SubscriptionPopup
                 open={subscriptionPopupOpen}
                 onProceed={handleProceed}
@@ -73,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
                 subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
                 onClose={() => setSuccessPopupOpen(false)}
             />
-        </LazySection>
+        </Suspense>
         <Header {...{theme, orderButton, onOrder}} />
         {children}
         <LazySection>
