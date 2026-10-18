@@ -10,10 +10,10 @@ import LazySection from './LazySection'
 
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
 
-const Footer = getComponent('../components/Footer/Footer.tsx')
-const SubscriptionPopup = getComponent('../components/Popup/SubscriptionPopup.tsx')
-const SelectionPopup = getComponent('../components/Popup/SelectionPopup.tsx')
-const SuccessPopup = getComponent('../components/Popup/SuccessPopup.tsx')
+const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
+const SubscriptionPopup = getComponent(() => import('../components/Popup/SubscriptionPopup.tsx'))
+const SelectionPopup = getComponent(() => import('../components/Popup/SelectionPopup.tsx'))
+const SuccessPopup = getComponent(() => import('../components/Popup/SuccessPopup.tsx'))
 
 const successPopupSubtitles: Record<string, ReactNode> = {
     discount: <>Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.</>,

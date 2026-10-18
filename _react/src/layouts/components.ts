@@ -1,18 +1,19 @@
-import { lazy } from 'react'
+import { createElement, lazy, type ComponentType } from 'react'
 
-const ssrComponents = import.meta.env.SSR
-  ? import.meta.glob<any>('../components/**/*.tsx', { eager: true })
-  : {}
-
-const clientComponents = !import.meta.env.SSR
-  ? import.meta.glob<any>('../components/**/*.tsx')
-  : {}
-
-export const getComponent = (relativePath: string) => {
+export function getComponent<T extends ComponentType<any> = ComponentType<any>>(
+  clientImport: () => Promise<{ default: T } | any>
+): T {
   if (import.meta.env.SSR) {
-    const mod = ssrComponents[relativePath]
-    return mod?.default || mod
+    let mod: any = null
+
+    clientImport().then(m => {
+      mod = m.default || m
+    })
+
+    return ((props: any) => {
+      return mod ? createElement(mod, props) : null
+    }) as unknown as T
   }
 
-  return lazy(clientComponents[relativePath] as () => Promise<any>)
+  return lazy(clientImport) as unknown as T
 }
