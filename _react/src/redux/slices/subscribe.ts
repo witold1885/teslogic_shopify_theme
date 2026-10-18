@@ -96,4 +96,4 @@ export const subscribeSlice = createSlice({
     }
 })
 
-export default subscribeSlice.reducer
+export default subscribeSlice

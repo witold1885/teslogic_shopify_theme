@@ -26,10 +26,10 @@ const getInitialState = () => {
 export const rootReducer = combineSlices({
   content: contentReducer,
   products: productsReducer,
-  reviews: reviewsReducer,
-  subscribe: subscribeReducer,
+  // reviews: reviewsReducer,
+  // subscribe: subscribeReducer,
 }).withLazyLoadedSlices()
-
+// Need export the whole slice, not only reducer to use dynamic slices loading
 const store = configureStore({
   reducer: rootReducer,
   preloadedState: getInitialState()

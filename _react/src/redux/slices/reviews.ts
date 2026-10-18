@@ -79,4 +79,4 @@ export const reviewsSlice = createSlice({
     }
 })
 
-export default reviewsSlice.reducer
+export default reviewsSlice
