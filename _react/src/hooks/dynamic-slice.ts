@@ -13,7 +13,7 @@ const NO_OP_PROXY = new Proxy({}, {
     }
 })
 
-type Slice = 'content' | 'products' | 'reviews' | 'subscribe'
+type Slice = 'content' | 'products' | 'order' | 'reviews' | 'subscribe'
 
 export const useDynamicSlice = (
     sliceName: Slice,

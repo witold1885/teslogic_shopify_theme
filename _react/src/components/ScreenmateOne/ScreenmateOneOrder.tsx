@@ -2,6 +2,7 @@ import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Sus
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
+import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
 import type { Model } from '../../types/product'
 
@@ -51,8 +52,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const { isMobile } = useInlineStyles()
 
-    const { getRate, addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
-    const { rate, product, additionalProducts, addedToCart } = useAppSelector(fetchProducts)
+    const { getRate, addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
+    const { product, additionalProducts } = useAppSelector(fetchProducts)
+    const { rate, addedToCart } = useAppSelector(fetchOrder)
     const { country } = useAppSelector(fetchContent)
     
     const lazyParams = useMemo(() => ({

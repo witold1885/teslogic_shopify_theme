@@ -1,1 +1,0 @@
-import{d as e}from"./react-chunk-vendor-D-oaUo6r.js";import{t}from"./react-chunk-products-DoonWRLf.js";var n=e=>e.products||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{i as t};

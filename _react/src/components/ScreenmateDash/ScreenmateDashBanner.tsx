@@ -16,7 +16,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 const buttons = {
     buy: { href: '#shop-now', text: 'Buy now'},
-    learn: { href: '#using', text: 'Learn mor'},
+    learn: { href: '#using', text: 'Learn more'},
 }
 
 const ScreenmateDashBanner: React.FC = () => {

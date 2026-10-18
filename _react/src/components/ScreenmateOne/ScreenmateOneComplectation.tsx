@@ -173,7 +173,7 @@ const ScreenmateOneComplectation: React.FC = () => {
     const dispatch = useAppDispatch()
     const { isMobile, responsive } = useInlineStyles()
 
-    const { addToCart } = useDynamicSlice('products', () => import('../../redux/slices/products'))
+    const { addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { additionalProducts } = useAppSelector(fetchProducts)
 
     const additionalProductTitles: string[] = ['Wireless Charger', 'Connection Splitter']

@@ -1,0 +1,1 @@
+import{g as e}from"./react-chunk-vendor-Cu-r7HRt.js";import{t}from"./react-chunk-order-BNZrBTeV.js";var n=e=>e.order||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{i as t};
