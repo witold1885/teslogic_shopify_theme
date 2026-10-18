@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react'
 import './screenmate-dash-banner.scss'
 import { Icon } from '../Common'
-import bannerDesktop from '../../assets/images/screenmate-dash/banner_desktop.png'
-import bannerMobile from '../../assets/images/screenmate-dash/banner_mobile.png'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'
@@ -19,7 +17,12 @@ const buttons = {
     learn: { href: '#using', text: 'Learn more'},
 }
 
-const ScreenmateDashBanner: React.FC = () => {
+interface ScreenmateDashBannerProps {
+    bannerDesktop: string
+    bannerMobile: string
+}
+
+const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDesktop, bannerMobile }) => {
     const { isMobile } = useInlineStyles()
 
     const animationConfigs = useMemo(() => ({

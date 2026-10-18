@@ -11,9 +11,9 @@ import LazySection from './LazySection'
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
 
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
-const SubscriptionPopup = getComponent(() => import('../components/Popup/SubscriptionPopup.tsx'))
-const SelectionPopup = getComponent(() => import('../components/Popup/SelectionPopup.tsx'))
-const SuccessPopup = getComponent(() => import('../components/Popup/SuccessPopup.tsx'))
+const SubscriptionPopup = getComponent(() => import('../components/Popup/SubscriptionPopup.tsx'), true)
+const SelectionPopup = getComponent(() => import('../components/Popup/SelectionPopup.tsx'), true)
+const SuccessPopup = getComponent(() => import('../components/Popup/SuccessPopup.tsx'), true)
 
 const successPopupSubtitles: Record<string, ReactNode> = {
     discount: <>Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.</>,
@@ -50,30 +50,32 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     } = useSubscriptionPopups()
 
     return (<>
-        <LazySection>
-            <SubscriptionPopup
-                open={subscriptionPopupOpen}
-                onProceed={handleProceed}
-                onClose={() => setSubscriptionPopupOpen(false)}
-            />
-            <SelectionPopup
-                open={selectionPopupOpen}
-                popupProcessData={popupProcessData}
-                onSuccess={() => {
-                    setSelectionPopupOpen(false)
-                    setSuccessPopupOpen(true)
-                }}
-                onError={() => {
-                    setSelectionPopupOpen(false)
-                    popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
-                }}
-            />
-            <SuccessPopup
-                open={successPopupOpen}
-                subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
-                onClose={() => setSuccessPopupOpen(false)}
-            />
-        </LazySection>
+        {SubscriptionPopup && SelectionPopup && SuccessPopup && (
+            <LazySection>
+                <SubscriptionPopup
+                    open={subscriptionPopupOpen}
+                    onProceed={handleProceed}
+                    onClose={() => setSubscriptionPopupOpen(false)}
+                />
+                <SelectionPopup
+                    open={selectionPopupOpen}
+                    popupProcessData={popupProcessData}
+                    onSuccess={() => {
+                        setSelectionPopupOpen(false)
+                        setSuccessPopupOpen(true)
+                    }}
+                    onError={() => {
+                        setSelectionPopupOpen(false)
+                        popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
+                    }}
+                />
+                <SuccessPopup
+                    open={successPopupOpen}
+                    subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
+                    onClose={() => setSuccessPopupOpen(false)}
+                />
+            </LazySection>
+        )}
         <Header {...{theme, orderButton, onOrder}} />
         {children}
         <LazySection>

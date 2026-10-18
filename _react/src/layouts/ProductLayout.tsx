@@ -3,15 +3,15 @@ import { getComponent } from './components'
 import Layout, { type LayoutProps } from './Layout'
 import LazySection from './LazySection'
 
-const Reviews = getComponent(() => import('../components/Reviews/Reviews.tsx'))
+const Reviews = getComponent(() => import('../components/Reviews/Reviews.tsx'), true)
 
 const ProductLayout: React.FC<LayoutProps> = ({ className, onOrder, children }) => (
     <Layout theme="dark" orderButton={true} onOrder={onOrder}>
         <div {...{className}}>
             {children}
-            <LazySection>
+            {Reviews && <LazySection>
                 <Reviews allSources={className === 'screenmate-dash'} />
-            </LazySection>
+            </LazySection>}
         </div>
     </Layout>
 )

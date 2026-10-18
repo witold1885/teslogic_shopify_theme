@@ -1,7 +1,8 @@
-import React, { lazy, useEffect, useMemo, useRef } from 'react'
+import React, { useRef } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
+import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
@@ -73,35 +74,15 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const ssrModules = import.meta.env.SSR
-  ? import.meta.glob<any>('../components/ScreenmateOne/ScreenmateOne*.tsx', { eager: true })
-  : {}
-
-function getSectionComponent(filename: string) {
-    if (import.meta.env.SSR) {
-        const pathKey = Object.keys(ssrModules).find((key) => key.endsWith(`/${filename}.tsx`))
-
-        if (!pathKey) {
-            console.error(`[SSR/Client] Module not found: ${filename}`)
-            return () => null
-        }
-
-        const mod = ssrModules[pathKey] as any
-        return mod?.default || mod
-    }
-
-    return lazy(() => import(`../components/ScreenmateOne/${filename}.tsx`))
-}
-
-const ScreenmateOneFeatures = getSectionComponent('ScreenmateOneFeatures')
-// const ScreenmateOneOrder = getSectionComponent('ScreenmateOneOrder')
+const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
+// const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
 const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
 }
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
-  acc[slug] = getSectionComponent(`ScreenmateOne${slug}`)
+  acc[slug] = getComponent(() => import(`../components/ScreenmateOne/ScreenmateOne${slug}.tsx`))
   return acc
 }, {} as Record<string, React.ComponentType<any>>)
 
