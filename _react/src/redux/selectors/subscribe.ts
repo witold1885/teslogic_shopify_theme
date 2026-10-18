@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit'
+import type { RootState } from '../store'
 import { initialState, type SubscribeState } from '../states/subscribe'
 
-const selectState = (state: any) => state.subscribe || initialState
+const selectState = (state: RootState) => state.subscribe || initialState
 const keys = Object.keys(initialState) as (keyof SubscribeState)[]
 
 export const fetchSubscribe = createSelector(

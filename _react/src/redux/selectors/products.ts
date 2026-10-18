@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit'
+import type { RootState } from '../store'
 import { initialState, type ProductsState } from '../states/products'
 
-const selectState = (state: any) => state.products || initialState
+const selectState = (state: RootState) => state.products || initialState
 const keys = Object.keys(initialState) as (keyof ProductsState)[]
 
 export const fetchProducts = createSelector(
