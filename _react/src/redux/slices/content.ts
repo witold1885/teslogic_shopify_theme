@@ -1,30 +1,7 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { Country, MenuItem, Blog, Region, RegionsResponse, Video, VideoItem } from '../../types/shopify'
+import type { Country, Region, RegionsResponse, Video, VideoItem } from '../../types/shopify'
 import { parseChannelSnippet, parseVideoInfos } from '../yt'
-
-export interface ContentState {
-    country?: Country | null
-    regions?: Region[]
-    main_menu?: MenuItem[]
-    footer_menu?: MenuItem[]
-    features?: Record<string, Blog>
-    videos?: Video[]
-    videoItems?: VideoItem[]
-    loading: boolean
-    error?: string|null
-}
-
-export const initialState: ContentState = {
-    country: null,
-    regions: [],
-    main_menu: [],
-    footer_menu: [],
-    features: {},
-    videos: [],
-    videoItems: [],
-    loading: false,
-    error: null
-}
+import { initialState } from '../states/content'
 
 export const getRegions = createAsyncThunk(
     'content/getRegions',

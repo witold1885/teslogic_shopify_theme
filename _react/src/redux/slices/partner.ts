@@ -1,19 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PartnerPayload, PartnerResponse } from '../../types/partner'
-
-interface PartnerState {
-    loading: boolean
-    partnerRequested: Boolean
-    error: string|null
-    partnerRequestError: string|null
-}
-
-const initialState: PartnerState = {
-    loading: false,
-    partnerRequested: false,
-    error: null,
-    partnerRequestError: null
-}
+import { initialState } from '../states/partner'
 
 export const partnerRequest = createAsyncThunk(
     'partner/partnerRequest',

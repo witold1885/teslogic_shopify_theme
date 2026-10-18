@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { initialState, type ProductsState } from '../slices/products'
+import { initialState, type ProductsState } from '../states/products'
 
 const selectState = (state: any) => state.products || initialState
 const keys = Object.keys(initialState) as (keyof ProductsState)[]
