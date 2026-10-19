@@ -1,0 +1,1 @@
+import{c as e}from"./react-chunk-vendor-D7C43BPz.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

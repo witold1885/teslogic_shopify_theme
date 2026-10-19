@@ -1,5 +1,7 @@
 import { forwardRef, type CSSProperties, type ReactNode } from 'react'
-import Aurora from './Aurora'
+import { getComponent } from '../../layouts/components'
+
+const Aurora = getComponent(() => import('./Aurora'))
 
 interface HeadingProps {
     className?: string
@@ -20,7 +22,7 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
         style={style}
     >
         {title}
-        {aurora && <Aurora />}
+        {aurora && Aurora && <Aurora />}
     </h2>
 ))
 
