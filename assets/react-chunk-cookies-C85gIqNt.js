@@ -1,1 +1,0 @@
-import{l as e}from"./react-chunk-vendor-D_edgoCT.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

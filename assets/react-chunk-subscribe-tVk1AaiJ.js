@@ -1,1 +1,0 @@
-import{h as e}from"./react-chunk-vendor-B-chDIDG.js";var t={loading:!1,customSubscribed:!1,discountSubscribed:!1,error:null,customSubscribeError:null,discountSubscribeError:null},n=e=>e.subscribe||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{t as n,i as t};

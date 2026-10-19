@@ -1,5 +1,4 @@
 import { useEffect, useRef, useCallback, isValidElement } from 'react'
-import { animate } from 'animejs'
 import type { VideoRefMethods } from '../components/Common'
 
 export interface AnimatedObjectOptions {
@@ -53,83 +52,89 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
 
         if (validElements.length === 0) return
 
-        const animations: Record<string, any> = {}
+        let isCancelled = false
+        const observers: IntersectionObserver[] = []
 
-        validElements.forEach(({ key, el, config }) => {
-            animations[key] = animate(el, {
-                autoplay: false,
-                ...config
+        import('animejs').then(({ animate }) => {
+            if (isCancelled) return
+
+            const animations: Record<string, any> = {}
+
+            validElements.forEach(({ key, el, config }) => {
+                animations[key] = animate(el, {
+                    autoplay: false,
+                    ...config
+                })
+            })
+
+            const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
+                const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
+                if (!acc[rootMargin]) acc[rootMargin] = []
+                acc[rootMargin].push(item)
+                return acc
+            }, {})
+
+            Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const targetElement = entry.target as HTMLElement
+
+                                const found = validElements.find(item => item.el === targetElement)
+                                if (!found) return
+
+                                const { key, config } = found
+                                const currentAnim = animations[key]
+                                if (!currentAnim) return
+
+                                const now = performance.now()
+                                const duration = config.duration || defaultDuration
+
+                                const timePassedSinceLastStart = now - lastAnimationStartRef.current
+                                const halfOfLastDuration = lastAnimationDurationRef.current / 2
+
+                                let delay = config.delay || 0
+
+                                if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
+                                    delay = halfOfLastDuration - timePassedSinceLastStart
+                                }
+
+                                const startAnimation = () => {
+                                    currentAnim.play().then(() => {
+                                        targetElement?.classList?.add('anime-finished')
+                                        targetElement.style.setProperty('--is-finished', '1')
+                                    }).catch(() => {})
+
+                                    lastAnimationStartRef.current = performance.now()
+                                    lastAnimationDurationRef.current = duration
+                                }
+
+                                if (delay === 0) {
+                                    startAnimation()
+                                } else {
+                                    if (typeof window !== 'undefined') {
+                                        const timer = window.setTimeout(() => {
+                                            startAnimation()
+                                        }, delay)
+                                        timeoutsRef.current.push(timer)
+                                    }
+                                }
+
+                                observer.unobserve(targetElement)
+                            }
+                        })
+                    },
+                    { root: null, rootMargin, threshold: 0.1 }
+                )
+
+                elements.forEach(({ el }) => observer.observe(el))
+                observers.push(observer)
             })
         })
 
-        const groupedByMargin = validElements.reduce<Record<string, ValidElement[]>>((acc, item) => {
-            const rootMargin = item.config.rootMargin || '0px 0px -10% 0px'
-            if (!acc[rootMargin]) acc[rootMargin] = []
-            acc[rootMargin].push(item)
-            return acc
-        }, {})
-
-        const observers: IntersectionObserver[] = []        
-
-        Object.entries(groupedByMargin).forEach(([rootMargin, elements]) => {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            const targetElement = entry.target as HTMLElement
-
-                            const found = validElements.find(item => item.el === targetElement)
-                            if (!found) return
-
-                            const { key, config } = found
-                            const currentAnim = animations[key]
-                            if (!currentAnim) return
-
-                            const now = performance.now()
-                            const duration = config.duration || defaultDuration
-
-                            const timePassedSinceLastStart = now - lastAnimationStartRef.current
-                            const halfOfLastDuration = lastAnimationDurationRef.current / 2
-
-                            let delay = config.delay || 0
-
-                            if (config.stagger !== false && timePassedSinceLastStart < halfOfLastDuration) {
-                                delay = halfOfLastDuration - timePassedSinceLastStart
-                            }
-
-                            const startAnimation = () => {
-                                currentAnim.play().then(() => {
-                                    targetElement?.classList?.add('anime-finished')
-                                    targetElement.style.setProperty('--is-finished', '1')
-                                }).catch(() => {})
-
-                                lastAnimationStartRef.current = performance.now()
-                                lastAnimationDurationRef.current = duration
-                            }
-
-                            if (delay === 0) {
-                                startAnimation()
-                            } else {
-                                if (typeof window !== 'undefined') {
-                                    const timer = window.setTimeout(() => {
-                                        startAnimation()
-                                    }, delay)
-                                    timeoutsRef.current.push(timer)
-                                }
-                            }
-
-                            observer.unobserve(targetElement)
-                        }
-                    })
-                },
-                { root: null, rootMargin, threshold: 0.1 }
-            )
-
-            elements.forEach(({ el }) => observer.observe(el))
-            observers.push(observer)
-        })
-
         return () => {
+            isCancelled = true
             observers.forEach(observer => observer.disconnect())
             timeoutsRef.current.forEach(clearTimeout)
         }
