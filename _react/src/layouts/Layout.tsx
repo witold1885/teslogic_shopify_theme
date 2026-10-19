@@ -1,5 +1,5 @@
 import React, { useEffect, type ReactNode } from 'react'
-import { preconnect } from 'react-dom'
+import { preconnect, preload } from 'react-dom'
 import { getComponent } from './components'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
@@ -14,6 +14,9 @@ const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopup = getComponent(() => import('../components/Popup/SubscriptionPopup.tsx'), true)
 const SelectionPopup = getComponent(() => import('../components/Popup/SelectionPopup.tsx'), true)
 const SuccessPopup = getComponent(() => import('../components/Popup/SuccessPopup.tsx'), true)
+
+const fontModules: Record<string, any> = import.meta.glob('@/assets/fonts/Manrope/Manrope-{Regular,Medium,SemiBold,Bold}.woff2', { eager: true })
+const fonts: string[] = Object.values(fontModules).map(mod => mod.default)
 
 const successPopupSubtitles: Record<string, ReactNode> = {
     discount: <>Your discount has just <br className="mobile" />landed <br className="desktop" />in your inbox.</>,
@@ -31,6 +34,10 @@ export interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder = () => {}, children }) => {
     // useExternalScripts(EXTERNAL_SCRIPTS)
     if (apiUrl) preconnect(apiUrl)
+
+    if (typeof window !== 'undefined') {
+        fonts.forEach(font => preload(font, { as: 'font' }))
+    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

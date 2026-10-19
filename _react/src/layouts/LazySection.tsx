@@ -12,13 +12,11 @@ interface LazySectionProps {
 const LazySection: React.FC<LazySectionProps> = ({ id = null, minHeight = '405px', rootMargin = '202.5px', forceRender = false, children }) => {
     const { ref, inView } = useInView({ triggerOnce: true, rootMargin })
 
-    const isVisible = inView || forceRender
-
     if (import.meta.env.SSR) return <>{children}</>
 
     return (
         <div ref={ref} {...(id ? { id } : {})} style={{ minHeight }}>
-            {isVisible ? (
+            {(inView || forceRender) ? (
                 <Suspense fallback={null}>{children}</Suspense>
             ) : null}
         </div>
