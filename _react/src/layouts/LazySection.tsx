@@ -7,7 +7,7 @@ interface LazySectionProps {
     children: ReactNode
 }
 
-const LazySection: React.FC<LazySectionProps> = ({ minHeight = '200px', rootMargin = '400px 0px', children }) => {
+const LazySection: React.FC<LazySectionProps> = ({ minHeight = '405px', rootMargin = '405px', children }) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin,

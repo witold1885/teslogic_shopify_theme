@@ -6,6 +6,7 @@ import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
+import ScreenmateDashOrder from '../components/ScreenmateDash/ScreenmateDashOrder'
 
 import bannerDesktop from '../assets/images/screenmate-dash/banner_desktop.png'
 import bannerMobile from '../assets/images/screenmate-dash/banner_mobile.png'
@@ -26,7 +27,7 @@ const preloadImages: PreloadImage[] = [
     { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
 ]
 
-const slugs: string[] = ['Using', 'Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers', 'Order']
+const slugs: string[] = ['Using', 'Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
   return acc
@@ -49,6 +50,7 @@ const ScreenmateDash: React.FC = () => {
                     <Component />
                 </LazySection>
             ))}
+            <ScreenmateDashOrder />
         </ProductLayout>
     )
 }
