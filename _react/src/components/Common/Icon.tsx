@@ -1,4 +1,5 @@
 import React, { type CSSProperties, type ReactNode } from 'react'
+import './styles.scss'
 
 interface IconProps {
     className?: string
