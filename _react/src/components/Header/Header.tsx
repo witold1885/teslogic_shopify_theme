@@ -1,6 +1,7 @@
 import React, { forwardRef, useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { getRegions, setCountry } from '../../redux/slices/content'
 import { fetchContent } from '../../redux/selectors/content'
 import { fetchProducts } from '../../redux/selectors/products'
 import type { Country, MenuItem } from '../../types/shopify'
@@ -14,7 +15,7 @@ import closeIcon from '@/assets/icons/close-black.svg'
 
 import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { useDynamicSlice } from '../../hooks/dynamic-slice'
+// import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
@@ -178,7 +179,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
 }, ref) => {
     const dispatch = useAppDispatch()
 
-    const { getRegions } = useDynamicSlice('content', () => import('../../redux/slices/content'))
+    // const { getRegions } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions } = useAppSelector(fetchContent)
 
     const [isRegionsLoaded, setIsRegionsLoaded] = useState(false)
@@ -332,7 +333,7 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
 
     const dispatch = useAppDispatch()
 
-    const { setCountry } = useDynamicSlice('content', () => import('../../redux/slices/content'))
+    // const { setCountry } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions, country: currentCountry, main_menu } = useAppSelector(fetchContent)
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
