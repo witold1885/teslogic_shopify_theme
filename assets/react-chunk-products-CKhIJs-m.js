@@ -1,0 +1,1 @@
+import{a as e}from"./react-chunk-redux-toolkit.modern-rv_5e37d.js";import{r as t}from"./react-chunk-dynamic-slice-B7UDzN2b.js";var n=e=>e.products||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{i as t};
