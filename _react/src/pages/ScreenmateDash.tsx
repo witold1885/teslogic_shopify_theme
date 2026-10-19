@@ -31,7 +31,7 @@ const slugs: string[] = ['Using', 'Screens', 'DevicesSupporting', 'Significant',
 const sectionHeights: Record<string, any> = {
     Using: { desktop: 748, mobile: 1698 },
     Screens: { desktop: 1240, mobile: 1054 },
-    DevicesSupporting: { desktop: 996, mobile: 892 },
+    DevicesSupporting: { desktop: 636, mobile: 700 },
     Significant: { desktop: 760, mobile: 660 },
     Shortcuts: { desktop: 2252, mobile: 2127.5 },
     Box: { desktop: 1331, mobile: 1814 },
