@@ -179,7 +179,6 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
 }, ref) => {
     const dispatch = useAppDispatch()
 
-    // const { getRegions } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions } = useAppSelector(fetchContent)
 
     const [isRegionsLoaded, setIsRegionsLoaded] = useState(false)
@@ -189,7 +188,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
             dispatch(getRegions())
             setIsRegionsLoaded(true)
         }
-    }, [isRegionsLoaded, dispatch, getRegions])
+    }, [isRegionsLoaded, dispatch])
 
     return (
         <div className="header-country" ref={ref}>
@@ -333,7 +332,6 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
 
     const dispatch = useAppDispatch()
 
-    // const { setCountry } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { regions, country: currentCountry, main_menu } = useAppSelector(fetchContent)
 
     const countries: Country[] = useMemo(() => regions?.flatMap(region => region.subregions.flatMap(subregion => subregion.countries)) || [], [regions])
@@ -383,7 +381,7 @@ const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?
         setSelectedCountry(country)
         setCountriesDropdownOpen(false)
         dispatch(setCountry(country))
-    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen, setCountry])
+    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen])
 
     const headerParams = useMemo(() => ({ menu: menu as MenuItem[], orderButton, onOrder }), [menu, orderButton, onOrder])
 
