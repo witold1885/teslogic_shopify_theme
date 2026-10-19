@@ -63,7 +63,7 @@ const ScreenmateDash: React.FC = () => {
         <ProductLayout className="screenmate-dash">
             <ScreenmateDashBanner
                 {...{bannerDesktop, bannerMobile}}
-                onOrder={() => scrollToElementLazy('shop-now', () => setForceRenderOrder(true), 80)}
+                onOrder={() => scrollToElementLazy('shop-now', () => setForceRenderOrder(true))}
             />
             {Object.entries(sections).map(([slug, Component], index) => (
                 <LazySection
