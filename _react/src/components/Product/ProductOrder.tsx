@@ -200,7 +200,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
     const { anime } = useAnime(animationConfigs)
 
     return product ? (
-        <div className="store_block" id="shop-now">
+        <div className="store_block">
             <div className="store_block-product">
                 <div {...anime('gallery')} className="store_block-product-gallery">
                     <div className="store_block-product-gallery-items">

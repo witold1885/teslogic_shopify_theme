@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
@@ -6,12 +6,12 @@ import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
-import ScreenmateDashOrder from '../components/ScreenmateDash/ScreenmateDashOrder'
 
 import bannerDesktop from '../assets/images/screenmate-dash/banner_desktop.png'
 import bannerMobile from '../assets/images/screenmate-dash/banner_mobile.png'
 
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+import { scrollToElementLazy } from '../utils/scroll'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"
@@ -33,6 +33,8 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
   return acc
 }, {} as Record<string, React.ComponentType<any>>)
 
+const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
+
 const ScreenmateDash: React.FC = () => {
     if (typeof window !== 'undefined') {
         preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
@@ -42,15 +44,22 @@ const ScreenmateDash: React.FC = () => {
         }))
     }
 
+    const [forceRenderOrder, setForceRenderOrder] = useState(false)
+
     return (
         <ProductLayout className="screenmate-dash">
-            <ScreenmateDashBanner {...{bannerDesktop, bannerMobile}} />
+            <ScreenmateDashBanner
+                {...{bannerDesktop, bannerMobile}}
+                onOrder={() => scrollToElementLazy('shop-now', () => setForceRenderOrder(true), 80)}
+            />
             {Object.entries(sections).map(([slug, Component], index) => (
                 <LazySection key={slug} {...(index === 0 ? { rootMargin: '-10px' } : {})}>
                     <Component />
                 </LazySection>
             ))}
-            <ScreenmateDashOrder />
+            <LazySection id="shop-now" minHeight="810px" forceRender={forceRenderOrder}>
+                <ScreenmateDashOrder />
+            </LazySection>
         </ProductLayout>
     )
 }

@@ -12,18 +12,25 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     button: { yFrom: '20px', duration: 333 },
 }
 
-const buttons = {
-    buy: { href: '#shop-now', text: 'Buy now'},
-    learn: { href: '#using', text: 'Learn more'},
+interface BannerButton {
+    text: string
+    href?: string
+    onClick?: () => void
 }
 
 interface ScreenmateDashBannerProps {
     bannerDesktop: string
     bannerMobile: string
+    onOrder: () => void
 }
 
-const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDesktop, bannerMobile }) => {
+const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDesktop, bannerMobile, onOrder }) => {
     const { isMobile } = useInlineStyles()
+
+    const buttons: Record<string, BannerButton> = useMemo(() => ({
+        buy: { text: 'Buy now', onClick: onOrder },
+        learn: { text: 'Learn more', href: '#using' },
+    }), [onOrder])
 
     const animationConfigs = useMemo(() => ({
         ...mapSimpleConfigs({
@@ -47,8 +54,8 @@ const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDeskt
                 </div>
                 <div className="banner-separator" />
                 <div className="banner-buttons">
-                    {Object.entries(buttons).map(([key, { href, text}]) => (
-                        <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} href={href}>{text}</a>
+                    {Object.entries(buttons).map(([key, { text, href, onClick }]) => (
+                        <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} {...{href, onClick}}>{text}</a>
                     ))}
                 </div>
                 <a className="expand" href="#using" aria-label="Expand">
