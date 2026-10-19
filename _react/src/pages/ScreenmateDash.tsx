@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
@@ -10,7 +10,7 @@ import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBan
 import bannerDesktop from '../assets/images/screenmate-dash/banner_desktop.png'
 import bannerMobile from '../assets/images/screenmate-dash/banner_mobile.png'
 
-import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
 
 interface PreloadContent {
@@ -28,6 +28,15 @@ const preloadImages: PreloadImage[] = [
 ]
 
 const slugs: string[] = ['Using', 'Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
+const sectionHeights: Record<string, any> = {
+    Using: { desktop: 748, mobile: 1698 },
+    Screens: { desktop: 1240, mobile: 1054 },
+    DevicesSupporting: { desktop: 996, mobile: 892 },
+    Significant: { desktop: 760, mobile: 660 },
+    Shortcuts: { desktop: 2252, mobile: 2127.5 },
+    Box: { desktop: 1331, mobile: 1814 },
+    Bloggers: { desktop: 965, mobile: 715 }
+}
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
   return acc
@@ -36,6 +45,10 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
 const ScreenmateDash: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+
+    const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
+
     if (typeof window !== 'undefined') {
         preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
             as: 'image', 
@@ -53,7 +66,15 @@ const ScreenmateDash: React.FC = () => {
                 onOrder={() => scrollToElementLazy('shop-now', () => setForceRenderOrder(true), 80)}
             />
             {Object.entries(sections).map(([slug, Component], index) => (
-                <LazySection key={slug} {...(index === 0 ? { rootMargin: '-10px' } : {})}>
+                <LazySection
+                    key={slug}
+                    minHeight={
+                        sectionHeights[slug][mode] 
+                            ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
+                            : undefined
+                    }
+                    {...(index === 0 ? { rootMargin: '-10px' } : {})}
+                >
                     <Component />
                 </LazySection>
             ))}
