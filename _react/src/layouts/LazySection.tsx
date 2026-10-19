@@ -24,7 +24,7 @@ const LazySection: React.FC<LazySectionProps> = ({ name = null, rootMargin = '40
     }
 
     return (
-        <div ref={ref}>
+        <div ref={ref} style={{ minHeight: '200px' }}>
             {inView ? (
                 <Suspense fallback={null}>
                     {children}
