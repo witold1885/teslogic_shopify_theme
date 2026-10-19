@@ -144,6 +144,14 @@ input, textarea {
     cursor: pointer;
 }
 
+.icon {
+    @extend %flex-center;
+    
+    & img, & svg {
+        @extend %w-full, %h-full;
+    }
+}
+
 .dropdown {
     @extend %w-full, %relative;
     z-index: 1;

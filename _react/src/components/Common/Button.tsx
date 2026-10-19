@@ -1,5 +1,4 @@
 import { forwardRef } from 'react'
-import './styles.scss'
 import type { CSSProperties, ReactNode } from 'react'
 
 interface ButtonProps {

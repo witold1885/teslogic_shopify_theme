@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 import './screenmate-one-setup.scss'
-import { Heading, Tabs, type TabProps } from '../Common'
+import { Heading } from '../Common'
+import type { TabProps } from '../Common/Tabs'
 import Video, { type VideoRefMethods } from '../Common/Video'
 
 import {
@@ -26,6 +27,9 @@ import {
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
+import { getComponent } from '../../layouts/components'
+
+const Tabs = getComponent(() => import('../Common/Tabs'))
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

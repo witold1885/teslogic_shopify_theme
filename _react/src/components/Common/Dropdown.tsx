@@ -1,5 +1,4 @@
 import React, { forwardRef, useState, useRef } from 'react'
-import './styles.scss'
 import Icon from './Icon'
 import { useOutsideClick } from '../../hooks/outside-click'
 import chevronWhiteUp from '@/assets/icons/chevron-white-up.svg'

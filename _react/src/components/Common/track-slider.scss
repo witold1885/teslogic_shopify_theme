@@ -1,0 +1,41 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.track-slider {
+    @extend %mob\:overflow-scroll-x, %mob\:overflow-hidden-y;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & .slick-list {
+        @include responsive(margin, 0, -10px)
+    }
+
+    & .slick-slide > div {
+        @include responsive(padding, 0, 10px)
+    }
+
+    &-wrap {
+        @extend %flex-column, %gap-40;
+    }
+
+    &-scrollbar {
+        @extend %w-full, %relative, %cursor-pointer;
+        @include responsive(height, 4px);
+        @include responsive(border-radius, 2px);
+        
+        &-thumb {
+            @extend %h-full, %absolute, %cursor-grab;
+            top: 0;
+            left: 0;
+            @include responsive(border-radius, 2px);
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    }
+}

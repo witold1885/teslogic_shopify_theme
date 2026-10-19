@@ -1,6 +1,7 @@
 import React, { useMemo, useState, type ReactNode } from 'react'
 import './screenmate-one-specifications.scss'
-import { Heading, Icon, Image, Tabs, type ImageProps, type TabProps } from '../Common'
+import { Heading, Icon, Image, type ImageProps } from '../Common'
+import type { TabProps } from '../Common/Tabs'
 
 import dimensionsSketchDesktop from '../../assets/images/screenmate-one/dimensions-sketch-desktop.png'
 import dimensionsSketchMobile from '../../assets/images/screenmate-one/dimensions-sketch-mobile.png'
@@ -31,6 +32,9 @@ import ArrowTopRightBlueIcon from '../../assets/icons/ArrowTopRightBlueIcon'
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useHorizontalScroll } from '../../hooks/horizontal-scroll'
+import { getComponent } from '../../layouts/components'
+
+const Tabs = getComponent(() => import('../Common/Tabs'))
 
 const specificationsAnimatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },

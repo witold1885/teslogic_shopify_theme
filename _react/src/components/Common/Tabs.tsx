@@ -1,5 +1,5 @@
 import { forwardRef, useState, useEffect, useRef, type ReactNode } from 'react'
-import './styles.scss'
+import './tabs.scss'
 
 export interface TabProps {
     title: ReactNode

@@ -1,0 +1,50 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.tabs {
+    @extend %flex-center, %gap-64, %mob\:gap-8;
+    border-bottom: 1px solid #666;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &-item {
+        @extend %flex-center, %relative, %cursor-pointer;
+        padding: 0;
+        background: transparent;
+
+        @include mobile() {
+            flex: 1;
+            @include responsive(height, 72px);
+        }
+
+        &-title {
+            @include responsive(padding, 24px, 0);
+            @extend %font-manrope-24, %font-500, %text-center, %text-white, %mob\:font-manrope-14;
+            opacity: .6;
+
+            .active & {
+                @extend %font-600;
+                opacity: 1;
+            }
+
+            @include mobile() {
+                word-break: break-word;
+            }
+        }
+
+        &-marker {
+            @extend %absolute;
+            left: 0;
+            bottom: -1px;
+            height: 3px;
+            background: #FFF;
+        }
+    }
+}

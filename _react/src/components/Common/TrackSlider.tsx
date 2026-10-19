@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef, useMemo } from 'react'
-import './styles.scss'
+import './track-slider.scss'
 import Slider, { type Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
