@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
@@ -27,7 +27,7 @@ const preloadImages: PreloadImage[] = [
     { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
 ]
 
-const slugs: string[] = ['Using', 'Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
+const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
 const sectionHeights: Record<string, any> = {
     Using: { desktop: 748, mobile: 1698 },
     Screens: { desktop: 1240, mobile: 1054 },
@@ -35,13 +35,15 @@ const sectionHeights: Record<string, any> = {
     Significant: { desktop: 760, mobile: 660 },
     Shortcuts: { desktop: 2252, mobile: 2127.5 },
     Box: { desktop: 1331, mobile: 1814 },
-    Bloggers: { desktop: 965, mobile: 715 }
+    Bloggers: { desktop: 965, mobile: 715 },
+    Order: { desktop: 976, mobile: 970 }
 }
 const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
   return acc
 }, {} as Record<string, React.ComponentType<any>>)
 
+const ScreenmateDashUsing = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashUsing.tsx'))
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
 const ScreenmateDash: React.FC = () => {
@@ -57,28 +59,30 @@ const ScreenmateDash: React.FC = () => {
         }))
     }
 
-    const [forceRenderOrder, setForceRenderOrder] = useState(false)
+    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
+
+    const getMinHeight = useCallback((slug: string) => {
+        return sectionHeights[slug][mode] 
+             ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
+             : undefined
+    }, [mode])
 
     return (
         <ProductLayout className="screenmate-dash">
             <ScreenmateDashBanner
                 {...{bannerDesktop, bannerMobile}}
-                onOrder={() => scrollToElementLazy('shop-now', () => setForceRenderOrder(true))}
+                onExpand={() => scrollToElementLazy('using', () => setForceRender(prev => ({ ...prev, using: true })))}
+                onOrder={() => scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))}
             />
-            {Object.entries(sections).map(([slug, Component], index) => (
-                <LazySection
-                    key={slug}
-                    minHeight={
-                        sectionHeights[slug][mode] 
-                            ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
-                            : undefined
-                    }
-                    {...(index === 0 ? { rootMargin: '-10px' } : {})}
-                >
+            <LazySection id="using" minHeight={getMinHeight('Using')} forceRender={forceRender.using} rootMargin="-10px">
+                <ScreenmateDashUsing />
+            </LazySection>
+            {Object.entries(sections).map(([slug, Component]) => (
+                <LazySection key={slug} minHeight={getMinHeight(slug)}>
                     <Component />
                 </LazySection>
             ))}
-            <LazySection id="shop-now" minHeight="810px" forceRender={forceRenderOrder}>
+            <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
                 <ScreenmateDashOrder />
             </LazySection>
         </ProductLayout>
