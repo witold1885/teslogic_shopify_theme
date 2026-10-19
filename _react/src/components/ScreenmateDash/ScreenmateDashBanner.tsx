@@ -37,7 +37,7 @@ const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDeskt
     return (
         <div
             className="banner-wrap"
-            style={{ backgroundImage: `url(${!isMobile ? bannerDesktop : bannerMobile})` }}
+            style={{ minHeight: '100vh', backgroundImage: `url(${!isMobile ? bannerDesktop : bannerMobile})` }}
         >
             <div className="banner">
                 <h1 {...anime('title')} className="title">Screenmate Dash</h1>
