@@ -36,27 +36,29 @@ const ScreenmateDashDevicesSupporting: React.FC = () => {
     
     return (
         <div className="devices_supporting">
-            <div {...anime('block-left')} className="devices_supporting-info">
-                <div className="devices_supporting-info-texts">
-                    <div className="devices_supporting-info-suptext">Screenmate Dash new feature avaliable</div>
-                    <div className="devices_supporting-info-title">Multiple devices support</div>
-                    <div className="devices_supporting-info-subtitle">
-                        You can easily connect<br />
-                        2+ cross platform devices<br />
-                        simultaneously
-                    </div>			
+            <div className="devices_supporting-wrap">
+                <div {...anime('block-left')} className="devices_supporting-info">
+                    <div className="devices_supporting-info-texts">
+                        <div className="devices_supporting-info-suptext">Screenmate Dash new feature avaliable</div>
+                        <div className="devices_supporting-info-title">Multiple devices support</div>
+                        <div className="devices_supporting-info-subtitle">
+                            You can easily connect<br />
+                            2+ cross platform devices<br />
+                            simultaneously
+                        </div>			
+                    </div>
+                    <div className="devices_supporting-info-nouns">
+                        {nouns.map(({ key, icons }) => (
+                            <div className="devices_supporting-info-noun-row" key={key}>
+                                {icons.map((icon, index) => <Icon className={`noun-${key}`} icon={icon} key={`${key}-${index}`} />)}
+                            </div>
+                        ))}
+                    </div>
+                    
                 </div>
-                <div className="devices_supporting-info-nouns">
-                    {nouns.map(({ key, icons }) => (
-                        <div className="devices_supporting-info-noun-row" key={key}>
-                            {icons.map((icon, index) => <Icon className={`noun-${key}`} icon={icon} key={`${key}-${index}`} />)}
-                        </div>
-                    ))}
+                <div {...anime('block-right')} className="devices_supporting-image">
+                    <Image src={images[mode]} srcSet={`${images[`${mode}-retina`]} 2x`} />
                 </div>
-                
-            </div>
-            <div {...anime('block-right')} className="devices_supporting-image">
-                <Image src={images[mode]} srcSet={`${images[`${mode}-retina`]} 2x`} />
             </div>
         </div>
     )

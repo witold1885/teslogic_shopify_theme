@@ -14,10 +14,11 @@
 
 .using {
 	@extend %flex-column, %container, %relative;
-	@include responsive(margin, 0, auto, 180px);
+	margin: 0 auto;
+	@include responsive(padding-bottom, 180px);
 
 	@include mobile() {
-		@include responsive(margin, 0, auto, 96px);
+		@include responsive(padding-bottom, 96px);
 	}
 
 	&__title {

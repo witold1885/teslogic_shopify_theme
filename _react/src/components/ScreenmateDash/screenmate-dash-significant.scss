@@ -5,11 +5,12 @@
 @use '../../assets/styles/mixins' as *;
 
 .significant {
-    @include responsive(margin, 180px, 0);
+    @include responsive(padding, 0, 0, 180px);
 
 	@include mobile() {
 		@include responsive(width, 350px);
-    	@include responsive(margin, 80px, auto, 104px);
+		margin: 0 auto;
+    	@include responsive(padding, 0, 0, 104px);
 	}
 
     &__title {
@@ -27,7 +28,6 @@
     }
 
 	&__features {
-		// @extend %flex, %gap-24;
 		cursor: grab;
 
 		&-wrap {
