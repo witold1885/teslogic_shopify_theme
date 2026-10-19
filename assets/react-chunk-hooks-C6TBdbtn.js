@@ -1,1 +1,0 @@
-import{v as e,y as t}from"./react-chunk-vendor-DxV3oQ20.js";var n=e.withTypes(),r=t.withTypes();export{r as n,n as t};
