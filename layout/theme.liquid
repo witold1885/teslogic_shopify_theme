@@ -255,14 +255,14 @@
       </script>
     {% endif %}
     
+    {% unless page.handle == 'screenmate-one-react' or page.handle == 'screenmate-dash-react' %}
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      if (Shopify !== undefined) {
-        if (Shopify.designMode) {
-          document.documentElement.classList.add('shopify-design-mode');
-        }
+      if (Shopify?.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% endunless %}
 
     {% render 'analyzify-product-datalayer.liquid' %}
     
