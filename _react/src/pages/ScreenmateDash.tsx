@@ -45,8 +45,8 @@ const ScreenmateDash: React.FC = () => {
     return (
         <ProductLayout className="screenmate-dash">
             <ScreenmateDashBanner {...{bannerDesktop, bannerMobile}} />
-            {Object.entries(sections).map(([slug, Component]) => (
-                <LazySection key={slug}>
+            {Object.entries(sections).map(([slug, Component], index) => (
+                <LazySection key={slug} {...(index === 0 ? { rootMargin: '0px' } : {})}>
                     <Component />
                 </LazySection>
             ))}
