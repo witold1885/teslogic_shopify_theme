@@ -50,8 +50,13 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     } = useSubscriptionPopups()
 
     return (<>
+        <Header {...{theme, orderButton, onOrder}} />
+        {children}
+        <LazySection>
+            <Footer onProceed={handleProceed} />
+        </LazySection>
         {SubscriptionPopup && SelectionPopup && SuccessPopup && (
-            <LazySection>
+            <LazySection minHeight="0px">
                 {subscriptionPopupOpen && (
                     <SubscriptionPopup
                         open={subscriptionPopupOpen}
@@ -82,11 +87,6 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
                 )}
             </LazySection>
         )}
-        <Header {...{theme, orderButton, onOrder}} />
-        {children}
-        <LazySection>
-            <Footer onProceed={handleProceed} />
-        </LazySection>
     </>)
 
 }

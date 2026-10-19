@@ -1,30 +1,24 @@
-import React, { Suspense, useEffect, type ReactNode } from 'react'
+import React, { Suspense, type ReactNode } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 interface LazySectionProps {
-    name?: string
+    minHeight?: string
     rootMargin?: string
     children: ReactNode
 }
 
-const LazySection: React.FC<LazySectionProps> = ({ name = null, rootMargin = '400px 0px', children }) => {
+const LazySection: React.FC<LazySectionProps> = ({ minHeight = '200px', rootMargin = '400px 0px', children }) => {
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin,
     })
-
-    useEffect(() => {
-        if (name) {
-            console.log(`${name}: ${inView}`)
-        }
-    }, [name, inView])
 
     if (import.meta.env.SSR) {
         return <>{children}</>
     }
 
     return (
-        <div ref={ref} style={{ minHeight: '200px' }}>
+        <div ref={ref} style={{ minHeight }}>
             {inView ? (
                 <Suspense fallback={null}>
                     {children}
