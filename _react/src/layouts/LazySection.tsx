@@ -16,7 +16,7 @@ const LazySection: React.FC<LazySectionProps> = ({ minHeight = '405px', rootMarg
             if ('requestIdleCallback' in window) {
                 window.requestIdleCallback(() => setShouldRender(true))
             } else {
-                setTimeout(() => setShouldRender(true), 200)
+                setTimeout(() => setShouldRender(true), 1000)
             }
         }
     }, [inView])
