@@ -52,28 +52,34 @@ const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onO
     return (<>
         {SubscriptionPopup && SelectionPopup && SuccessPopup && (
             <LazySection>
-                <SubscriptionPopup
-                    open={subscriptionPopupOpen}
-                    onProceed={handleProceed}
-                    onClose={() => setSubscriptionPopupOpen(false)}
-                />
-                <SelectionPopup
-                    open={selectionPopupOpen}
-                    popupProcessData={popupProcessData}
-                    onSuccess={() => {
-                        setSelectionPopupOpen(false)
-                        setSuccessPopupOpen(true)
-                    }}
-                    onError={() => {
-                        setSelectionPopupOpen(false)
-                        popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
-                    }}
-                />
-                <SuccessPopup
-                    open={successPopupOpen}
-                    subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
-                    onClose={() => setSuccessPopupOpen(false)}
-                />
+                {subscriptionPopupOpen && (
+                    <SubscriptionPopup
+                        open={subscriptionPopupOpen}
+                        onProceed={handleProceed}
+                        onClose={() => setSubscriptionPopupOpen(false)}
+                    />
+                )}
+                {selectionPopupOpen && (
+                    <SelectionPopup
+                        open={selectionPopupOpen}
+                        popupProcessData={popupProcessData}
+                        onSuccess={() => {
+                            setSelectionPopupOpen(false)
+                            setSuccessPopupOpen(true)
+                        }}
+                        onError={() => {
+                            setSelectionPopupOpen(false)
+                            popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
+                        }}
+                    />
+                )}
+                {successPopupOpen && (
+                    <SuccessPopup
+                        open={successPopupOpen}
+                        subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
+                        onClose={() => setSuccessPopupOpen(false)}
+                    />
+                )}
             </LazySection>
         )}
         <Header {...{theme, orderButton, onOrder}} />
