@@ -21,6 +21,10 @@ const LazySection: React.FC<LazySectionProps> = ({ minHeight = '405px', rootMarg
         }
     }, [inView])
 
+    useEffect(() => {
+        console.log({ shouldRender })
+    }, [shouldRender])
+
     if (import.meta.env.SSR) return <>{children}</>
 
     return (
