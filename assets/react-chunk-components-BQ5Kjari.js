@@ -1,1 +1,0 @@
-import{a as e}from"./react-chunk-rolldown-runtime-Cyuzqnbw.js";import{a as t}from"./react-chunk-react-core-LF13RSn5.js";var n=e(t(),1);function r(e,t=!1){return(0,n.lazy)(e)}export{r as t};

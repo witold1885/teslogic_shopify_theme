@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./react-style-chunk-vendor-slick--ezNbZ_a.css"])))=>i.map(i=>d[i]);
-import{a as e}from"./react-chunk-rolldown-runtime-Cyuzqnbw.js";import{a as t}from"./react-chunk-react-core-LF13RSn5.js";import{t as n}from"./react-chunk-preload-helper-DMavx1dx.js";import"./react-chunk-vendor-slick-CmCsiGIN.js";var r=(0,e(t(),1).lazy)(()=>n(()=>import(`./react-chunk-vendor-slick-CmCsiGIN.js`).then(t=>e(t.t(),1)).then(e=>({default:e.default.default})),__vite__mapDeps([0]),import.meta.url)),i=r.default||r;export{i as t};
