@@ -71,6 +71,7 @@ const getMenu = (main_menu: MenuItem[] | undefined, forCustomersBlock: MenuItem 
         top: main_menu.filter(({ title }) => title !== forCustomersBlockTitle && title !== 'Buy Now'),
         bottom: [
             { title: 'Contacts', url: '#', children: [
+                { title: 'For Partners', url: '/partners' },
                 contactUsItem,
                 { title: 'info@screenmate.co', url: 'mailto:info@screenmate.co' }
             ]},
