@@ -1,0 +1,1 @@
+import{u as e}from"./react-chunk-vendor-helpers-BeZEepSQ.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

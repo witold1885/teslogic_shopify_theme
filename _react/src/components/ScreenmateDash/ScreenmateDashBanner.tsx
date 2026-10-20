@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import './screenmate-dash-banner.scss'
+import Button from '../Common/Button'
 import Icon from '../Common/Icon'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
@@ -55,7 +56,7 @@ const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDeskt
                 <div className="banner-separator" />
                 <div className="banner-buttons">
                     {Object.entries(buttons).map(([key, { text, onClick }]) => (
-                        <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} onClick={onClick}>{text}</a>
+                        <Button {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} onClick={onClick}>{text}</Button>
                     ))}
                 </div>
                 <div className="expand" onClick={onExpand}>
