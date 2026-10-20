@@ -57,7 +57,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     } = useSubscriptionPopups()
 
     return (<>
-        <Header {...{theme, orderButton, onOrder}} />
+        <Header {...{apiUrl, theme, orderButton, onOrder}} />
         {children}
         <LazySection>
             <Footer onProceed={handleProceed} />

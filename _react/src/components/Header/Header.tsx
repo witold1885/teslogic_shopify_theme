@@ -327,7 +327,12 @@ const HeaderMobile: FC<HeaderMobileProps> = ({
     </div>
 )
 
-const Header: FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({ theme = 'dark', orderButton = true, onOrder }) => {
+const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({
+    apiUrl = '',
+    theme = 'dark',
+    orderButton = true,
+    onOrder
+}) => {
     const { isMobile } = useInlineStyles()
 
     const dispatch = useAppDispatch()
@@ -358,9 +363,12 @@ const Header: FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () =
     const [selectedCountry, setSelectedCountry] = useState<Country | null | undefined>(null)
 
     useEffect(() => {
-        if (currentCountry && countries?.length) {
-            const country = countries.find(({ iso_code }) => iso_code === currentCountry.iso_code)
-            setSelectedCountry({ ...currentCountry, flag: country?.flag || '' })
+        if (currentCountry) {
+            const country = countries?.find(({ iso_code }) => iso_code === currentCountry.iso_code)
+            setSelectedCountry({
+                ...currentCountry,
+                flag: country?.flag || (apiUrl ? `${apiUrl}/storage/CountryFlags/all/${currentCountry.iso_code}.svg` : '')
+            })
         }
     }, [currentCountry, countries])
 
