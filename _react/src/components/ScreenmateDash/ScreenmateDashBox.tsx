@@ -1,6 +1,6 @@
 import { useMemo, type FC } from 'react'
 import './screenmate-dash-box.scss'
-import { Image } from '../Common'
+import Image from '../Common/Image'
 import boxImageDesktop from '../../assets/images/screenmate-dash/box/box-image-desktop.png'
 import boxImageRetina from '../../assets/images/screenmate-dash/box/box-image-retina.png'
 

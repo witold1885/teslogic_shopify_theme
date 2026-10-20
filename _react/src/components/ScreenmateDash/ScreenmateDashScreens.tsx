@@ -3,7 +3,7 @@ import './screenmate-dash-screens.scss'
 import './screenmate-dash-pointers.scss'
 import SlickSlider, { type Settings } from '../Common/SlickSlider'
 import { countReactNodeLines } from '../../utils/helpers'
-import { Icon } from '../Common'
+import Icon from '../Common/Icon'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'

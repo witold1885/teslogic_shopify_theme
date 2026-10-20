@@ -143,9 +143,9 @@ const HeaderMenu: FC<HeaderMenuProps> = ({
             </div>
             {(cartItemCount === 0 || mode === 'mobile') ? (<>
                 {orderButton && (
-                    <a className="header-menu-button" onClick={onOrder}>
+                    <Button className="header-menu-button" onClick={onOrder}>
                         <span>ORDER NOW</span>
-                    </a>
+                    </Button>
                 )}
             </>) : (
                 <a className="header-menu-cart" href="/cart" target="_blank">

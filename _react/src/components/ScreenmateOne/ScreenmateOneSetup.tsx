@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 import './screenmate-one-setup.scss'
-import { Heading } from '../Common'
+import Heading from '../Common/Heading'
 import type { TabProps } from '../Common/Tabs'
 import Video, { type VideoRefMethods } from '../Common/Video'
 

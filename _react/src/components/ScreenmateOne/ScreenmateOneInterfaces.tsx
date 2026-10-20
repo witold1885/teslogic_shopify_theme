@@ -1,6 +1,6 @@
 import { forwardRef, useMemo, type ReactNode } from 'react'
 import './screenmate-one-integration.scss'
-import { Heading } from '../Common'
+import Heading from '../Common/Heading'
 import Video from '../Common/Video'
 
 import {

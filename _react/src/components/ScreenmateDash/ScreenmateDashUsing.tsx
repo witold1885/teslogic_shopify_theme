@@ -1,6 +1,8 @@
 import { useMemo, useState, type ReactNode, type FC } from 'react'
 import './screenmate-dash-using.scss'
-import { Icon, Image, Popup } from '../Common'
+import Icon from '../Common/Icon'
+import Image from '../Common/Image'
+import Popup from '../Common/Popup'
 import chevron from '../../assets/icons/chevron-right-blue.svg'
 import close from '../../assets/icons/close-white.svg'
 

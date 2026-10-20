@@ -1,7 +1,8 @@
 import { useMemo, type FC } from 'react'
 import './screenmate-dash-devices-supporting.scss'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { Icon, Image } from '../Common'
+import Icon from '../Common/Icon'
+import Image from '../Common/Image'
 import { mapSimpleConfigs, useAnime } from '../../hooks/anime'
 
 const nounIconModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-dash/devices/noun-*.svg', { eager: true })

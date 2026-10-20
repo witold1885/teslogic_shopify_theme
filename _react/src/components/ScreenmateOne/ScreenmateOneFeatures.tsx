@@ -1,7 +1,7 @@
 import { forwardRef, useMemo, type CSSProperties, type ReactNode, type FC } from 'react'
 import './screenmate-one-features.scss'
 
-import { Icon } from '../Common'
+import Icon from '../Common/Icon'
 import arrowIcon from '../../assets/icons/arrow-top-right.svg'
 import runAnyAndroidApps from '../../assets/images/screenmate-one/features/run-any-android-apps.png'
 import controlPanel50Commands from '../../assets/images/screenmate-one/features/control-panel-50-commands.png'

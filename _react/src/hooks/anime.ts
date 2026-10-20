@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, isValidElement } from 'react'
-import type { VideoRefMethods } from '../components/Common'
+import type { VideoRefMethods } from '../components/Common/Video'
 
 export interface AnimatedObjectOptions {
     yFrom: string

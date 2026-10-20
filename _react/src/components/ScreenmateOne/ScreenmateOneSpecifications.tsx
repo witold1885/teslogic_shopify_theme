@@ -1,6 +1,8 @@
 import { useMemo, useState, type ReactNode, type FC } from 'react'
 import './screenmate-one-specifications.scss'
-import { Heading, Icon, Image, type ImageProps } from '../Common'
+import Heading from '../Common/Heading'
+import Icon from '../Common/Icon'
+import Image, { type ImageProps } from '../Common/Image'
 import type { TabProps } from '../Common/Tabs'
 
 import dimensionsSketchDesktop from '../../assets/images/screenmate-one/dimensions-sketch-desktop.png'

@@ -7,8 +7,10 @@ import { fetchContent } from '../../redux/selectors/content'
 import type { Model } from '../../types/product'
 
 import SlickSlider, { type Settings } from '../Common/SlickSlider'
-import { Button, Dropdown, Icon, Image } from '../Common'
-import type { DropdownOption } from '../Common/Dropdown'
+import Button from '../Common/Button'
+import Icon from '../Common/Icon'
+import Image from '../Common/Image'
+import Dropdown, { type DropdownOption } from '../Common/Dropdown'
 import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
 import noImportIcon from '../../assets/icons/feature_no_import.svg'
 

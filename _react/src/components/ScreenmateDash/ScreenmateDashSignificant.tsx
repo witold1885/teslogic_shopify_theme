@@ -4,7 +4,7 @@ import { useAppSelector } from '../../redux/hooks'
 import { fetchContent } from '../../redux/selectors/content'
 import type { Feature } from '../../types/shopify'
 import TrackSlider from '../Common/TrackSlider'
-import { Image } from '../Common'
+import Image from '../Common/Image'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'

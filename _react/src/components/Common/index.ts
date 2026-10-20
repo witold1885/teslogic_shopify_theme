@@ -1,7 +1,0 @@
-export { default as Button } from './Button'
-export { default as Dropdown } from './Dropdown'
-export { default as Heading } from './Heading'
-export { default as Icon } from './Icon'
-export { default as Image, type ImageProps } from './Image'
-export { default as Popup } from './Popup'
-export { default as Video, type VideoRefMethods } from './Video'
