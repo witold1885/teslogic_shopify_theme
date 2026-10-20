@@ -116,10 +116,10 @@ const ScreenmateOne: FC = () => {
         }))
     }
 
-    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
+    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false })
 
     const onExpand = () => {
-        scrollTo('Features')
+        scrollToElementLazy('features', () => setForceRender(prev => ({ ...prev, features: true })))
     }
 
     const onOrder = () => {
@@ -159,7 +159,7 @@ const ScreenmateOne: FC = () => {
                 bannerMobileVideo={bannerMobile}
                 {...{bannerDesktopBackground, bannerMobileBackground, onExpand, onOrder}}
             />
-            <LazySection minHeight={getMinHeight('Features')}>
+            <LazySection id="features" minHeight={getMinHeight('Features')} forceRender={forceRender.features} rootMargin="-10px">
                 <ScreenmateOneFeatures
                     ref={(el: HTMLDivElement) => setRef(el, 'Features')}
                     scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
