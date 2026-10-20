@@ -58,9 +58,9 @@ const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDeskt
                         <a {...anime(`button-${key}`)} key={key} className={`banner-button-${key}`} onClick={onClick}>{text}</a>
                     ))}
                 </div>
-                <a className="expand" aria-label="Expand" onClick={onExpand}>
+                <div className="expand" onClick={onExpand}>
                     <Icon icon={chevronIcon} />
-                </a>
+                </div>
             </div>
         </div>
     )

@@ -164,7 +164,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     )), [galleryThumbs, currentImageIndex, setCurrentImageIndex])
 
     return (
-        <div className="screenmate-one__order" id="order-now" ref={ref}>
+        <div ref={ref} className="screenmate-one__order">
             <div className="screenmate-one__order-gallery">
                 {galleryImages.map((image, index) => (
                     <img

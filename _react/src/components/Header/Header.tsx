@@ -39,7 +39,6 @@ interface HeaderProps {
 
 interface HeaderMenuProps extends HeaderProps {
     mode: 'desktop' | 'mobile'
-    onMobileMenuClose?: () => void
 }
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({
@@ -47,7 +46,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
     menu,
     mode,
     orderButton,
-    onMobileMenuClose
+    onOrder
 }) => {
     const { cartItemCount } = useAppSelector(fetchProducts)
 
@@ -144,7 +143,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
             </div>
             {(cartItemCount === 0 || mode === 'mobile') ? (<>
                 {orderButton && (
-                    <a className="header-menu-button" href="/#order-now" onClick={onMobileMenuClose}>
+                    <a className="header-menu-button" onClick={onOrder}>
                         <span>ORDER NOW</span>
                     </a>
                 )}

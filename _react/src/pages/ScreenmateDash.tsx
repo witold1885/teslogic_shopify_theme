@@ -61,6 +61,14 @@ const ScreenmateDash: React.FC = () => {
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
 
+    const onExpand = () => {
+        scrollToElementLazy('using', () => setForceRender(prev => ({ ...prev, using: true })))
+    }
+
+    const onOrder = () => {
+        scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
+    }
+
     const getMinHeight = useCallback((slug: string) => {
         return sectionHeights[slug][mode] 
              ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
@@ -68,12 +76,8 @@ const ScreenmateDash: React.FC = () => {
     }, [mode])
 
     return (
-        <ProductLayout className="screenmate-dash">
-            <ScreenmateDashBanner
-                {...{bannerDesktop, bannerMobile}}
-                onExpand={() => scrollToElementLazy('using', () => setForceRender(prev => ({ ...prev, using: true })))}
-                onOrder={() => scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))}
-            />
+        <ProductLayout className="screenmate-dash" onOrder={onOrder}>
+            <ScreenmateDashBanner {...{bannerDesktop, bannerMobile}} onExpand={onExpand} onOrder={onOrder} />
             <LazySection id="using" minHeight={getMinHeight('Using')} forceRender={forceRender.using} rootMargin="-10px">
                 <ScreenmateDashUsing />
             </LazySection>

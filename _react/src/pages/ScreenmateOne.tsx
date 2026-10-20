@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -6,7 +6,6 @@ import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
-import ScreenmateOneOrder from '../components/ScreenmateOne/ScreenmateOneOrder'
 
 import {
     bannerDesktop as bannerDesktopBackground,
@@ -34,6 +33,7 @@ import {
 } from '../assets/videos/screenmate-one'
 
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+import { scrollToElementLazy } from '../utils/scroll'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"
@@ -74,9 +74,6 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
-// const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
-
 const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
@@ -85,6 +82,9 @@ const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, sl
   acc[slug] = getComponent(() => import(`../components/ScreenmateOne/ScreenmateOne${slug}.tsx`))
   return acc
 }, {} as Record<string, React.ComponentType<any>>)
+
+const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
+const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
 const ScreenmateOne: React.FC = () => {
 
@@ -100,6 +100,16 @@ const ScreenmateOne: React.FC = () => {
             fetchPriority,
             ...(media && { media })
         }))
+    }
+
+    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
+
+    const onExpand = () => {
+        scrollTo('Features')
+    }
+
+    const onOrder = () => {
+        scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
 
     const sectionRefs = useRef<Record <string, any>>({})
@@ -122,41 +132,12 @@ const ScreenmateOne: React.FC = () => {
         }
     }
 
-    // const hash: string | null = useMemo(() => window.location.hash ? window.location.hash.replace('#', '') : null, [window.location.hash])
-
-    // useEffect(() => {
-    //     console.log({ hash })
-    //     if (hash === 'order-now') {
-    //         console.log('scrolling to order')
-    //         scrollTo('Order')
-    //     }
-    // }, [hash])
-
-    // useEffect(() => {
-    //     const handleScrollToHash = () => {
-    //         const currentHash = window.location.hash.replace('#', '')
-    //         console.log({ currentHash })
-    //         if (currentHash === 'order-now') {
-    //             requestAnimationFrame(() => {
-    //                 setTimeout(() => {
-    //                     scrollTo('Order')
-    //                 }, 1000)
-    //             })
-    //         }
-    //     }
-
-    //     handleScrollToHash()
-
-    //     window.addEventListener('hashchange', handleScrollToHash)
-
-    //     return () => window.removeEventListener('hashchange', handleScrollToHash)
-    // }, [])
-
     return (
         <ProductLayout className="screenmate-one" onOrder={() => scrollTo('Order')}>
             <ScreenmateOneBanner
-                onExpand={() => scrollTo('Features')}
-                // onOrder={() => scrollTo('Order')}
+                bannerDesktopVideo={bannerDesktop}
+                bannerMobileVideo={bannerMobile}
+                {...{bannerDesktopBackground, bannerMobileBackground, onExpand, onOrder}}
             />
             <LazySection>
                 <ScreenmateOneFeatures
@@ -169,9 +150,9 @@ const ScreenmateOne: React.FC = () => {
                     <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
                 </LazySection>
             ))}
-            {/* <LazySection> */}
+            <LazySection id="order-now" forceRender={forceRender.order}>
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
-            {/* </LazySection> */}
+            </LazySection>
         </ProductLayout>
     )
 }

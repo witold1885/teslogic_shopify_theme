@@ -1,11 +1,9 @@
 import React, { useMemo } from 'react'
 import './screenmate-one-banner.scss'
-// import { Button, Icon } from '../Common'
-import { Icon } from '../Common'
+import Button from '../Common/Button'
+import Icon from '../Common/Icon'
 import Video from '../Common/Video'
 
-import { bannerDesktop as bannerDesktopVideo, bannerMobile as bannerMobileVideo } from '../../assets/videos/screenmate-one'
-import { bannerDesktop as bannerDesktopBackground, bannerMobile as bannerMobileBackground } from '../../assets/videos/screenmate-one/web/screenshots'
 import logoImage from '../../assets/images/screenmate-one/screenmate-one-logo.svg'
 import kickstarterImage from '../../assets/images/screenmate-one/kickstarter.svg'
 import heartIcon from '../../assets/icons/heart-fill.svg'
@@ -23,7 +21,23 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 const alt: string = 'Screenmate ONE multimedia system on a Tesla display'
 
-const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => void }> = ({ onExpand }) => {
+interface ScreenmateOneBannerProps {
+    bannerDesktopVideo: string
+    bannerMobileVideo: string
+    bannerDesktopBackground: string
+    bannerMobileBackground: string
+    onExpand: () => void
+    onOrder: () => void
+}
+
+const ScreenmateOneBanner: React.FC<ScreenmateOneBannerProps> = ({
+    bannerDesktopVideo,
+    bannerMobileVideo,
+    bannerDesktopBackground,
+    bannerMobileBackground,
+    onExpand,
+    onOrder
+}) => {
     const { isMobile } = useInlineStyles()
 
     const videoParams: { src: string; background: string } = useMemo(() => {
@@ -44,12 +58,9 @@ const ScreenmateOneBanner: React.FC<{ onExpand?: () => void, onOrder?: () => voi
                     <img {...anime('logo')} src={logoImage} alt="Screenmate One" fetchPriority="high" />
                     <h1 {...anime('title')}>The ultimate Tesla multimedia upgrade</h1>
                     <div className="screenmate-one__banner-inner-buttons">
-                        {/* <Button onClick={onOrder}>
+                        <Button onClick={onOrder}>
                             <span>order now</span>
-                        </Button> */}
-                        <a href="/#order-now">
-                            <span>order now</span>
-                        </a>
+                        </Button>
                     </div>
                 </div>
                 <div {...anime('kickstarter')} className="screenmate-one__banner-kickstarter">
