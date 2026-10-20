@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useMemo, useCallback } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -32,7 +32,7 @@ import {
     connectConsolesMobile
 } from '../assets/videos/screenmate-one'
 
-import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
 
 interface PreloadContent {
@@ -75,6 +75,17 @@ const preloadVideos: PreloadVideo[] = [
 ]
 
 const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
+const sectionHeights: Record<string, any> = {
+    Features: { desktop: 1186, mobile: 502 },
+    Setup: { desktop: 1003, mobile: 655 },
+    Interfaces: { desktop: 1414, mobile: 984 },
+    Convenience: { desktop: 3248, mobile: 2186 },
+    Experience: { desktop: 1394, mobile: 1244 },
+    Dash: { desktop: 852, mobile: 898 },
+    Specifications: { desktop: 2031, mobile: 1517 },
+    Complectation: { desktop: 1484, mobile: 2187 },
+    Order: { desktop: 810, mobile: 1044 }
+}
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
 }
@@ -87,6 +98,9 @@ const ScreenmateOneFeatures = getComponent(() => import('../components/Screenmat
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
 const ScreenmateOne: React.FC = () => {
+    const { isMobile } = useInlineStyles()
+    
+    const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 
     if (typeof window !== 'undefined') {
         preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
@@ -111,6 +125,12 @@ const ScreenmateOne: React.FC = () => {
     const onOrder = () => {
         scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
+    
+    const getMinHeight = useCallback((slug: string) => {
+        return sectionHeights[slug][mode] 
+             ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
+             : undefined
+    }, [mode])
 
     const sectionRefs = useRef<Record <string, any>>({})
 
@@ -133,24 +153,24 @@ const ScreenmateOne: React.FC = () => {
     }
 
     return (
-        <ProductLayout className="screenmate-one" onOrder={() => scrollTo('Order')}>
+        <ProductLayout className="screenmate-one" onOrder={onOrder}>
             <ScreenmateOneBanner
                 bannerDesktopVideo={bannerDesktop}
                 bannerMobileVideo={bannerMobile}
                 {...{bannerDesktopBackground, bannerMobileBackground, onExpand, onOrder}}
             />
-            <LazySection>
+            <LazySection minHeight={getMinHeight('Features')}>
                 <ScreenmateOneFeatures
                     ref={(el: HTMLDivElement) => setRef(el, 'Features')}
                     scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
                 />
             </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
-                <LazySection key={slug}>
+                <LazySection key={slug} minHeight={getMinHeight(slug)}>
                     <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
                 </LazySection>
             ))}
-            <LazySection id="order-now" forceRender={forceRender.order}>
+            <LazySection id="order-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
         </ProductLayout>
