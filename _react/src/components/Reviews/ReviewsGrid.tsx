@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode, type FC } from 'react'
 import macy, { type MacyInstance } from 'macy'
 import type { Review } from '../../types/review'
 import Icon from '../Common/Icon'
@@ -70,7 +70,7 @@ const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = ''
     )
 })
 
-const ReviewsGrid: React.FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, totalCount }) => {
+const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, totalCount }) => {
     const { isMobile } = useInlineStyles()
 
     const containerRef = useRef<HTMLDivElement>(null)

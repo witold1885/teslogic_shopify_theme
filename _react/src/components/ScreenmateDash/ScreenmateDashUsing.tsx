@@ -1,4 +1,4 @@
-import React, { useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode, type FC } from 'react'
 import './screenmate-dash-using.scss'
 import { Icon, Image, Popup } from '../Common'
 import chevron from '../../assets/icons/chevron-right-blue.svg'
@@ -26,7 +26,7 @@ const steps: UsingStep[] = [
     { text: <>Turn your phone into a convenient <br />and functional dashboard.</> },
 ]
 
-const ScreenmateDashUsing: React.FC = () => {
+const ScreenmateDashUsing: FC = () => {
     const [videoPopupOpen, setVideoPopupOpen] = useState<boolean>(false)
     
     const animationConfigs = useMemo(() => mapSimpleConfigs({

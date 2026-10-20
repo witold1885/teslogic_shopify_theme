@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, Fragment } from 'react'
+import { useState, useMemo, useCallback, Fragment, type FC, type ChangeEvent } from 'react'
 import * as yup from 'yup'
 import { useAppDispatch } from '../../redux/hooks'
 import type { ReviewPayload } from '../../types/review'
@@ -37,7 +37,7 @@ interface FormFieldParams {
     size?: string
 }
 
-type FormFieldEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+type FormFieldEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
 interface FormFieldProps {
     as: FormFieldTag
@@ -49,9 +49,9 @@ interface FormFieldProps {
     onChange: (e: FormFieldEvent) => void
 }
 
-const FormField: React.FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) => <Tag {...params} />
+const FormField: FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) => <Tag {...params} />
 
-const ReviewsForm: React.FC<{ product?: Product | null }> = ({ product }) => {
+const ReviewsForm: FC<{ product?: Product | null }> = ({ product }) => {
     const dispatch = useAppDispatch()
 
     const { sendReview } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))

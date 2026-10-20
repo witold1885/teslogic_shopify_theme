@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, type FC } from 'react'
 import './screenmate-dash-shortcuts.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { fetchContent } from '../../redux/selectors/content'
@@ -31,7 +31,7 @@ const icons: Record<string, any> = Object.entries(iconModules).reduce((acc, [key
 
 const blogs: string[] = ['performance-driv-ing-modes', 'safety-stability-features', 'convenien-ce-comfort', 'autopilot-tweaks-beta']
 
-const ScreenmateDashShortcuts: React.FC = () => {
+const ScreenmateDashShortcuts: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const { features } = useAppSelector(fetchContent)

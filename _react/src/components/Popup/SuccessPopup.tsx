@@ -1,4 +1,4 @@
-import React, { useRef, type ReactNode } from 'react'
+import { useRef, type ReactNode, type FC } from 'react'
 import PopupWrap, { type PopupRefProps } from './PopupWrap'
 import logo from '../../assets/images/popup-logo-white.svg'
 
@@ -9,7 +9,7 @@ interface SuccessPopupProps {
     onClose?: () => void
 }
 
-const SuccessPopup: React.FC<SuccessPopupProps> = ({
+const SuccessPopup: FC<SuccessPopupProps> = ({
     open,
     title = <>Thank you <br />for subscribing!</>,
     subtitle = '',

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef } from 'react'
+import { forwardRef, useState, useRef, type FC } from 'react'
 import Icon from './Icon'
 import { useOutsideClick } from '../../hooks/outside-click'
 import chevronWhiteUp from '@/assets/icons/chevron-white-up.svg'
@@ -19,7 +19,7 @@ interface DropdownItemProps {
     onClick?: () => void
 }
 
-const DropdownItem: React.FC<DropdownItemProps> = ({ className, label, icon, onClick }) => (
+const DropdownItem: FC<DropdownItemProps> = ({ className, label, icon, onClick }) => (
     <div className={`${className} dropdown-item`} onClick={onClick}>
         <span>{label}</span>
         {icon && <Icon icon={icon} />}

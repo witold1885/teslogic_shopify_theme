@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useMemo, Suspense } from 'react'
+import { forwardRef, useState, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
 import './track-slider.scss'
 import SlickSlider, { type Settings } from './SlickSlider'
 
@@ -32,7 +32,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
         }
     }
 
-    const handleWheel = (e: React.WheelEvent) => {
+    const handleWheel = (e: WheelEvent) => {
         if (!sliderRef.current) return
         
         if (e.deltaX !== 0 || e.shiftKey) {
@@ -48,7 +48,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     
     const scrollWidth: number = useMemo(() => 100 / items.length, [items])
 
-    const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleTrackClick = (e: ReactMouseEvent<HTMLDivElement>) => {
         if (!trackRef.current || !sliderRef.current || items.length <= 1) return
         if ((e.target as HTMLElement).classList.contains('reviews-slider-scrollbar-thumb')) return
 
@@ -64,7 +64,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
         sliderRef.current.slickGoTo(targetSlide)
     }
     
-    const handleThumbMouseDown = (e: React.MouseEvent) => {
+    const handleThumbMouseDown = (e: ReactMouseEvent) => {
         e.preventDefault()
         if (!trackRef.current || !sliderRef.current || items.length <= 1) return
 

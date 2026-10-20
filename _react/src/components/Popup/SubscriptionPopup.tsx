@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, type FC } from 'react'
 import * as yup from 'yup'
 import { useAppSelector } from '../../redux/hooks'
 import { fetchSubscribe } from '../../redux/selectors/subscribe'
@@ -20,7 +20,7 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
     agree: yup.boolean().oneOf([true])
 }).required()
 
-const SubscriptionPopup: React.FC<SubscriptionPopupProps> = ({ open, onProceed = () => {}, onClose = () => {} }) => {
+const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ open, onProceed = () => {}, onClose = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
 
     const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })

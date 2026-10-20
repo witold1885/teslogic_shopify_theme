@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type ReactNode } from 'react'
+import { type CSSProperties, type ReactNode, type FC } from 'react'
 
 interface IconProps {
     className?: string
@@ -9,7 +9,7 @@ interface IconProps {
     onClick?: () => void
 }
 
-const Icon: React.FC<IconProps> = ({ className = '', style, icon, svg, alt = '', onClick }) => (
+const Icon: FC<IconProps> = ({ className = '', style, icon, svg, alt = '', onClick }) => (
     <div className={`icon ${className} ${onClick ? 'cursor-pointer' : ''}`} {...{style, onClick}}>
         {icon && <img src={icon} alt={alt} />}
         {svg}

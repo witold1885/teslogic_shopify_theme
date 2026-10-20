@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
-import React from 'react'
+import { createElement} from 'react'
 import { renderToString } from 'react-dom/server'
 
 if (typeof globalThis.Element === 'undefined') {
@@ -83,10 +83,10 @@ for (const page of pages) {
     const AppProviders = providersModule.AppProviders || providersModule.default
 
     const htmlContent = renderToString(
-      React.createElement(
+      createElement(
         AppProviders,
         null,
-        React.createElement(PageComponent)
+        createElement(PageComponent)
       )
     )
 

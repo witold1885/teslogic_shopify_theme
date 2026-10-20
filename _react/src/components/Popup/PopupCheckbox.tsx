@@ -1,4 +1,4 @@
-import React from 'react'
+import type { FC } from 'react'
 
 interface PopupCheckboxProps {
     id: string
@@ -7,7 +7,7 @@ interface PopupCheckboxProps {
     error: string | null
 }
 
-const PopupCheckbox: React.FC<PopupCheckboxProps> = ({ id, checked, onChange, error }) => (
+const PopupCheckbox: FC<PopupCheckboxProps> = ({ id, checked, onChange, error }) => (
     <div className={`subscription-popup-checkbox ${error ? 'subscription-popup-checkbox-error' : ''}`}>
         <input type="checkbox" {...{id, checked, onChange}} />
         <label htmlFor={id}>

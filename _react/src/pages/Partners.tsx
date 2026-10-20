@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import '../assets/styles/partners.scss'
 import { mountForShopify } from './mount'
 import InfoLayout from '../layouts/InfoLayout'
@@ -12,7 +12,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     form: { yFrom: '20px', duration: 333 },
 }
 
-const Partners: React.FC = () => {
+const Partners: FC = () => {
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
     
     const { anime } = useAnime(animationConfigs)

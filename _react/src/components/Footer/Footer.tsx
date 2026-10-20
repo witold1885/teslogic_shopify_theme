@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, type FC } from 'react'
 import * as yup from 'yup'
 import './footer.scss'
 import { useAppSelector } from '../../redux/hooks'
@@ -38,7 +38,7 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
 const paymentIconModules: Record<string, any> = import.meta.glob('@/assets/icons/payment-icons/*.svg', { eager: true })
 const paymentIcons: string[] = Object.values(paymentIconModules).map(mod => mod.default)
 
-const FooterMenuGroup: React.FC<{ group?: MenuItem[] }> = ({ group }) => {
+const FooterMenuGroup: FC<{ group?: MenuItem[] }> = ({ group }) => {
     const animationConfigs = useMemo(() => group?.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
         ...acc, [`group_${index}`]: getAnimationConfig('20px', 333)
     }), {}), [])
@@ -111,7 +111,7 @@ interface FooterProps {
     onProceed?: (data: Record<string, string | boolean> | null) => void
 }
 
-const Footer: React.FC<FooterProps> = ({ onProceed = () => {} }) => {
+const Footer: FC<FooterProps> = ({ onProceed = () => {} }) => {
     const { isMobile } = useInlineStyles()
 
     const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-dash-significant.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { fetchContent } from '../../redux/selectors/content'
@@ -14,7 +14,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     item: { yFrom: '20px', duration: 333 },
 }
 
-const ScreenmateDashSignificant: React.FC = () => {
+const ScreenmateDashSignificant: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const { features } = useAppSelector(fetchContent)

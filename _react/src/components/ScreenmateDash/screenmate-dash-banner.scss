@@ -107,6 +107,7 @@
 
         &-learn {
             @extend %mob\:hidden;
+            background: transparent;
 
             &:hover {
                 color: #BFBFBD

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import sketch from '../../assets/images/installers/sketch.png'
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
@@ -10,7 +10,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     button: { yFrom: '20px', duration: 333 },
 }
 
-const InstallersBanner: React.FC = () => {
+const InstallersBanner: FC = () => {
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
     const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({

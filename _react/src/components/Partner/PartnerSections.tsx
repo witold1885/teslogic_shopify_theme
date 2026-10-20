@@ -1,4 +1,4 @@
-import React, { useMemo, Fragment, type ReactNode } from 'react'
+import { useMemo, Fragment, type ReactNode, type FC } from 'react'
 import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
 
 interface PartnerSection {
@@ -12,7 +12,7 @@ interface PartnerSectionListProps {
     items: ReactNode[]
 }
 
-const PartnerSectionList: React.FC<PartnerSectionListProps> = ({ tag: Tag, items }) => (
+const PartnerSectionList: FC<PartnerSectionListProps> = ({ tag: Tag, items }) => (
     <Tag>{items.map((item, i) => <li key={i}>{item}</li>)}</Tag>
 )
 
@@ -53,7 +53,7 @@ const sections: PartnerSection[] = [
     }
 ]
 
-const PartnerSections: React.FC = () => {
+const PartnerSections: FC = () => {
     const animationConfigs = useMemo(() => sections.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
         ...acc, [`section_${index}`]: getAnimationConfig('20px', 333)
     }), {}), [])

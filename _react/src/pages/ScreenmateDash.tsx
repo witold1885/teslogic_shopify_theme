@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
@@ -38,15 +38,15 @@ const sectionHeights: Record<string, any> = {
     Bloggers: { desktop: 965, mobile: 715 },
     Order: { desktop: 976, mobile: 970 }
 }
-const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
+const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
   return acc
-}, {} as Record<string, React.ComponentType<any>>)
+}, {} as Record<string, ComponentType<any>>)
 
 const ScreenmateDashUsing = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashUsing.tsx'))
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
-const ScreenmateDash: React.FC = () => {
+const ScreenmateDash: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])

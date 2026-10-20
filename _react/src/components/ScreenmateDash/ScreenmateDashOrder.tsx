@@ -1,6 +1,6 @@
-import React from 'react'
+import type { FC } from 'react'
 import ProductOrder from '../Product/ProductOrder'
 
-const ScreenmateDashOrder: React.FC = () => <ProductOrder withDetails={true} />
+const ScreenmateDashOrder: FC = () => <ProductOrder withDetails={true} />
 
 export default ScreenmateDashOrder

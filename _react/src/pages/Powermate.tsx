@@ -1,8 +1,8 @@
-import type React from 'react'
+import type { FC } from 'react'
 import '../assets/styles/powermate.scss'
 import ProductLayout from '../layouts/ProductLayout'
 
-const Powermate: React.FC = () => (
+const Powermate: FC = () => (
     <ProductLayout className="powermate" />
 )
 

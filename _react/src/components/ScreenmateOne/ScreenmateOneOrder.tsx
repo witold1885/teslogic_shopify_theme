@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
+import { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode, type ChangeEvent } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -111,7 +111,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
-    const handleAdditionalSelect = (e: React.ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
+    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
         if (additionalId) {
             const { checked } = e.target
             setSelectedAdditionals(prev => checked ? [ ...prev, additionalId ] : prev.filter(id => id !== additionalId))

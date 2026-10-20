@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect, useRef, type ReactNode } from 'react'
+import { forwardRef, useState, useEffect, useRef, type ReactNode, type RefObject } from 'react'
 import './tabs.scss'
 
 export interface TabProps {
@@ -32,7 +32,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(({ tabs, activeTab, setActive
         if (typeof ref === 'function') {
             ref(node)
         } else {
-            (ref as React.RefObject<HTMLDivElement | null>).current = node
+            (ref as RefObject<HTMLDivElement | null>).current = node
         }
     }
 

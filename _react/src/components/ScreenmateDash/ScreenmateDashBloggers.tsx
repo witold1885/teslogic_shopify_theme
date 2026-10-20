@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-dash-bloggers.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { getVideoId } from '../../redux/yt'
@@ -18,7 +18,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     item: { yFrom: '20px', duration: 333 },
 }
 
-const ScreenmateDashBloggers: React.FC = () => {
+const ScreenmateDashBloggers: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { forwardRef, useState, useEffect, useRef, useMemo, useCallback, type FC } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { getRegions, setCountry } from '../../redux/slices/content'
@@ -41,7 +41,7 @@ interface HeaderMenuProps extends HeaderProps {
     mode: 'desktop' | 'mobile'
 }
 
-const HeaderMenu: React.FC<HeaderMenuProps> = ({
+const HeaderMenu: FC<HeaderMenuProps> = ({
     className = '',
     menu,
     mode,
@@ -249,7 +249,7 @@ interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
     countriesDropdownRef: (el: HTMLDivElement | null) => void
 }
 
-const HeaderComponent: React.FC<HeaderComponentProps> = ({
+const HeaderComponent: FC<HeaderComponentProps> = ({
     theme = 'dark',
     orderButton = true,
     position,
@@ -307,7 +307,7 @@ interface HeaderMobileProps extends HeaderProps {
     onMobileMenuClose: () => void
 }
 
-const HeaderMobile: React.FC<HeaderMobileProps> = ({
+const HeaderMobile: FC<HeaderMobileProps> = ({
     className = '',
     menu,
     orderButton,
@@ -327,7 +327,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = ({
     </div>
 )
 
-const Header: React.FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({ theme = 'dark', orderButton = true, onOrder }) => {
+const Header: FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({ theme = 'dark', orderButton = true, onOrder }) => {
     const { isMobile } = useInlineStyles()
 
     const dispatch = useAppDispatch()

@@ -1,7 +1,7 @@
-import React from 'react'
+import type { FC } from 'react'
 import Layout, { type LayoutProps } from './Layout'
 
-const InfoLayout: React.FC<LayoutProps> = ({ className, children }) => (
+const InfoLayout: FC<LayoutProps> = ({ className, children }) => (
     <Layout theme="light" orderButton={false}>
         <div {...{className}}>
             {children}

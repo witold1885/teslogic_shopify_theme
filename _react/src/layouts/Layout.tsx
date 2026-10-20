@@ -1,4 +1,4 @@
-import React, { useEffect, type ReactNode } from 'react'
+import { useEffect, type ReactNode , type FC} from 'react'
 import { preconnect } from 'react-dom'
 import { getComponent } from './components'
 import '@/assets/styles/common.scss'
@@ -31,7 +31,7 @@ export interface LayoutProps {
     children?: ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder = () => {}, children }) => {
+const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder = () => {}, children }) => {
     // useExternalScripts(EXTERNAL_SCRIPTS)
     if (apiUrl) preconnect(apiUrl)
 

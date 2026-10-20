@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-dash-banner.scss'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
@@ -25,7 +25,7 @@ interface ScreenmateDashBannerProps {
     onOrder: () => void
 }
 
-const ScreenmateDashBanner: React.FC<ScreenmateDashBannerProps> = ({ bannerDesktop, bannerMobile, onExpand, onOrder }) => {
+const ScreenmateDashBanner: FC<ScreenmateDashBannerProps> = ({ bannerDesktop, bannerMobile, onExpand, onOrder }) => {
     const { isMobile } = useInlineStyles()
 
     const buttons: Record<string, BannerButton> = useMemo(() => ({

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, type FC, type MouseEvent } from 'react'
 import * as yup from 'yup'
 import type { AsyncThunk, AsyncThunkConfig } from '@reduxjs/toolkit'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
@@ -36,7 +36,7 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
     model: yup.string(),
 }).required()
 
-const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData, onSuccess = () => {}, onError = () => {} }) => {
+const SelectionPopup: FC<SelectionPopupProps> = ({ open, popupProcessData, onSuccess = () => {}, onError = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
 
     const dispatch = useAppDispatch()
@@ -78,7 +78,7 @@ const SelectionPopup: React.FC<SelectionPopupProps> = ({ open, popupProcessData,
         setData(prev => ({ ...prev, [param]: value }))
     }
 
-    const handleModelSelect = (e: React.MouseEvent<HTMLDivElement>, model: string | null | undefined = null) => {
+    const handleModelSelect = (e: MouseEvent<HTMLDivElement>, model: string | null | undefined = null) => {
         e.stopPropagation()
         handleChange('model', model || '')
         setModelsDropdownOpen(false)

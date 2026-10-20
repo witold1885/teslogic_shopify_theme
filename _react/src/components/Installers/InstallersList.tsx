@@ -1,4 +1,4 @@
-import React, { useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode, type FC } from 'react'
 // import tom from '../../assets/images/installers/tom.png'
 import eas from '../../assets/images/installers/eas.png'
 import phoneIcon from '../../assets/icons/installers/phone.svg'
@@ -49,7 +49,7 @@ const installers: Installer[] = [
     },
 ]
 
-const InstallersList: React.FC = () => {
+const InstallersList: FC = () => {
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0)
 
     const tabs = [

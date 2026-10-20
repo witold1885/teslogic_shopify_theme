@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-dash-box.scss'
 import { Image } from '../Common'
 import boxImageDesktop from '../../assets/images/screenmate-dash/box/box-image-desktop.png'
@@ -39,7 +39,7 @@ const chargerItemImages: Record<string, any> = Object.entries(chargerItemImageMo
     [key.replace('/src/assets/images/screenmate-dash/box/box-charger-item-', '').replace('.png', '')]: mod.default
 }), {})
 
-const ChargerImages: React.FC = () => (
+const ChargerImages: FC = () => (
     <div className="box_block-charger-images">
         {['image', 'photo'].map(type => (
             <div className="box_block-charger-images-item" key={type}>
@@ -60,7 +60,7 @@ const ChargerImages: React.FC = () => (
     </div>
 )
 
-const ScreenmateDashBox: React.FC = () => {
+const ScreenmateDashBox: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])

@@ -1,11 +1,11 @@
-import React from 'react'
+import type { FC } from 'react'
 import ScreenmateOne from './pages/ScreenmateOne'
 import ScreenmateDash from './pages/ScreenmateDash'
 import Powermate from './pages/Powermate'
 import Installers from './pages/Installers'
 import Partners from './pages/Partners'
 
-const routesMap: Record<string, React.FC> = {
+const routesMap: Record<string, FC> = {
   '/screenmate': ScreenmateOne,
   '/dash': ScreenmateDash,
   '/pro': Powermate,

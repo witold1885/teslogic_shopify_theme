@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type FC, type ReactNode } from 'react'
 
 interface PopupProps {
     open: boolean
@@ -6,7 +6,7 @@ interface PopupProps {
     onClose: () => void
 }
 
-const Popup: React.FC<PopupProps> = ({ open, children, onClose }) => {
+const Popup: FC<PopupProps> = ({ open, children, onClose }) => {
     const popupRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

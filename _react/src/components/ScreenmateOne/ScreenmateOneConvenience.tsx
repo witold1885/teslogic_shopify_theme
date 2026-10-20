@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, Fragment, useImperativeHandle, useMemo, useRef, useState, type CSSProperties, type ReactNode, type FC } from 'react'
 import './screenmate-one-convenience.scss'
 import { Heading, Icon, Image, Popup } from '../Common'
 import Video from '../Common/Video'
@@ -74,7 +74,7 @@ const commandIcons: Record<string, any> = Object.entries(commandIconModules).red
     [key.replace('/src/assets/icons/screenmate-one/commands/', '').replace('.svg', '')]: mod.default
 }), {})
 
-const CommandItem: React.FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
+const CommandItem: FC<Command> = ({ type, icon, text, content, options, title, num, typeCount }) => {
     const { isMobile, responsive } = useInlineStyles()
     const isLastOdd = type === 'button' && typeCount as number % 2 === 1 && num === typeCount as number - 1
     const itemStyle = isMobile && isLastOdd ? { gridColumn: 'span 2' } : {}

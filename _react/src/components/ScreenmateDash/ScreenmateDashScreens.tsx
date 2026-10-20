@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useMemo, Children, Suspense, type ReactNode, type ReactElement } from 'react'
+import { forwardRef, useState, useRef, useMemo, Children, Suspense, type ReactNode, type ReactElement, type FC } from 'react'
 import './screenmate-dash-screens.scss'
 import './screenmate-dash-pointers.scss'
 import SlickSlider, { type Settings } from '../Common/SlickSlider'
@@ -179,7 +179,7 @@ const ScreenDots = forwardRef<HTMLDivElement, ScreenDotsProps>(({ dots, theme },
 	</div>
 ))
 
-const ScreenmateDashScreens: React.FC = () => {
+const ScreenmateDashScreens: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const [theme, setTheme] = useState<Theme>('light')

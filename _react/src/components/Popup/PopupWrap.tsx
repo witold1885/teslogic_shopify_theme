@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useImperativeHandle, type RefObject, type ReactNode } from 'react'
+import { useState, useCallback, useImperativeHandle, type RefObject, type ReactNode, type FC } from 'react'
 import close from '../../assets/icons/close-white.svg'
 
 export interface PopupRefProps {
@@ -14,7 +14,7 @@ interface PopupWrapProps {
     children: ReactNode
 }
 
-const PopupWrap: React.FC<PopupWrapProps> = ({ ref, id, className, open, onClose = () => {}, children }) => {
+const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, open, onClose = () => {}, children }) => {
     const [hiding, setHiding] = useState<boolean>(false)
 
     const handleClose = useCallback((callback?: CallableFunction) => {

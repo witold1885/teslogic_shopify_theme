@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-one-banner.scss'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
@@ -30,7 +30,7 @@ interface ScreenmateOneBannerProps {
     onOrder: () => void
 }
 
-const ScreenmateOneBanner: React.FC<ScreenmateOneBannerProps> = ({
+const ScreenmateOneBanner: FC<ScreenmateOneBannerProps> = ({
     bannerDesktopVideo,
     bannerMobileVideo,
     bannerDesktopBackground,

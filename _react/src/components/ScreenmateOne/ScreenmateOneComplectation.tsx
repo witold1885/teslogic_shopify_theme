@@ -1,4 +1,4 @@
-import React, { forwardRef, Fragment, useCallback, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, Fragment, useCallback, useMemo, type CSSProperties, type ReactNode, type FC } from 'react'
 import './screenmate-one-complectation.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -86,7 +86,7 @@ interface Group {
     title: string
     grid: boolean
     items: Record<string, any>
-    itemComponent: React.FC<ItemProps>
+    itemComponent: FC<ItemProps>
 }
 
 type AdditionalProduct = Record<string, number | null | undefined>
@@ -169,7 +169,7 @@ const getGroups = (
     }
 }
 
-const ScreenmateOneComplectation: React.FC = () => {
+const ScreenmateOneComplectation: FC = () => {
     const dispatch = useAppDispatch()
     const { isMobile, responsive } = useInlineStyles()
 

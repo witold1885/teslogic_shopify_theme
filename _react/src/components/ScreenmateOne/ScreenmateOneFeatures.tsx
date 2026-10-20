@@ -1,4 +1,4 @@
-import { forwardRef, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { forwardRef, useMemo, type CSSProperties, type ReactNode, type FC } from 'react'
 import './screenmate-one-features.scss'
 
 import { Icon } from '../Common'
@@ -30,7 +30,7 @@ interface FeatureBlockProps extends Feature {
 
 const backgroundColor: string = '#1D1D1F'
 
-const FeatureBlock: React.FC<FeatureBlockProps> = ({
+const FeatureBlock: FC<FeatureBlockProps> = ({
     style = {},
     title,
     image,

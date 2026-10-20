@@ -1,11 +1,11 @@
-import React from 'react'
+import type { FC } from 'react'
 import '../assets/styles/installers.scss'
 import { mountForShopify } from './mount'
 import InfoLayout from '../layouts/InfoLayout'
 import InstallersBanner from '../components/Installers/InstallersBanner'
 import InstallersList from '../components/Installers/InstallersList'
 
-const Installers: React.FC = () => {
+const Installers: FC = () => {
     return (
         <InfoLayout className="installers">
             <InstallersBanner />

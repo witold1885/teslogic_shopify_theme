@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './reviews.scss'
 import { useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -10,7 +10,7 @@ import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
 import reviewsBackground from '../../assets/images/reviews-background.png'
 
-const Reviews: React.FC<{ allSources?: boolean }> = ({ allSources = false }) => {
+const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     const { fetchReviews, isLoaded: sliceLoaded } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
     const { product } = useAppSelector(fetchProducts)

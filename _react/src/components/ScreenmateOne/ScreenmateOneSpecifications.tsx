@@ -1,4 +1,4 @@
-import React, { useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode, type FC } from 'react'
 import './screenmate-one-specifications.scss'
 import { Heading, Icon, Image, type ImageProps } from '../Common'
 import type { TabProps } from '../Common/Tabs'
@@ -57,7 +57,7 @@ interface ContentGridItemProps {
     text?: ReactNode
 }
 
-const ContentGridInfoItem: React.FC<ContentGridItemProps> = ({ icon, title, text }) => (
+const ContentGridInfoItem: FC<ContentGridItemProps> = ({ icon, title, text }) => (
     <div className="screenmate-one__specifications-body-content-grid-item info-item">
         <div>
             <Icon icon={icon as string} />
@@ -67,7 +67,7 @@ const ContentGridInfoItem: React.FC<ContentGridItemProps> = ({ icon, title, text
     </div>
 )
 
-const ContentGridImageItem: React.FC<ContentGridItemProps> = ({ image, title, subtitle }) => (
+const ContentGridImageItem: FC<ContentGridItemProps> = ({ image, title, subtitle }) => (
     <div className="screenmate-one__specifications-body-content-grid-item image-item">
         <Image className="screenmate-one__specifications-body-content-grid-item-image" src={image as string} />
         <div>
@@ -84,7 +84,7 @@ interface ContentProps {
     cols: number
 }
 
-const Content: React.FC<ContentProps> = ({ title, subtitle, items, cols }) => {
+const Content: FC<ContentProps> = ({ title, subtitle, items, cols }) => {
     const { isMobile } = useInlineStyles()
     return (<>
         <div className="screenmate-one__specifications-body-content-top">
@@ -124,7 +124,7 @@ const installation: Record<string, any[]> = {
     ]
 }
 
-const ScreenmateOneInstallation: React.FC = () => {
+const ScreenmateOneInstallation: FC = () => {
     const animationConfigs = useMemo(() => {
         let configs = { ...installationAnimatedObjects }
         for (const [key, items] of Object.entries(installation)) {
@@ -248,7 +248,7 @@ const getTabs = (isMobile: boolean) => {
     }
 }
 
-const ScreenmateOneSpecifications: React.FC = () => {
+const ScreenmateOneSpecifications: FC = () => {
     const { isMobile } = useInlineStyles()
     const { elementRef: scrollRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLDivElement>()
     

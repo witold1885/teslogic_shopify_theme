@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useCallback } from 'react'
+import { useState, useRef, useMemo, useCallback, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -89,15 +89,15 @@ const sectionHeights: Record<string, any> = {
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
 }
-const sections: Record<string, React.ComponentType<any>> = slugs.reduce((acc, slug) => {
+const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateOne/ScreenmateOne${slug}.tsx`))
   return acc
-}, {} as Record<string, React.ComponentType<any>>)
+}, {} as Record<string, ComponentType<any>>)
 
 const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
-const ScreenmateOne: React.FC = () => {
+const ScreenmateOne: FC = () => {
     const { isMobile } = useInlineStyles()
     
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])

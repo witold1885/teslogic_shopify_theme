@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import './screenmate-dash-devices-supporting.scss'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { Icon, Image } from '../Common'
@@ -18,7 +18,7 @@ const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [k
 
 type Device = 'iphone' | 'ipad'
 
-const ScreenmateDashDevicesSupporting: React.FC = () => {
+const ScreenmateDashDevicesSupporting: FC = () => {
     const { isMobile } = useInlineStyles()
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])

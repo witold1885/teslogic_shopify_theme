@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
+import { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode, type FC, type ChangeEvent } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -63,7 +63,7 @@ const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSe
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
+const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
     const dispatch = useAppDispatch()
     
     const { isMobile } = useInlineStyles()
@@ -136,7 +136,7 @@ const ProductOrder: React.FC<ProductOrderProps> = ({ withDetails = false }) => {
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
-    const handleAdditionalSelect = (e: React.ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
+    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
         if (additionalId) {
             const { checked } = e.target
             setSelectedAdditionals(prev => checked ? [ ...prev, additionalId ] : prev.filter(id => id !== additionalId))

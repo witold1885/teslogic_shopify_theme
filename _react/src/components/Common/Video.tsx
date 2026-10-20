@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect, useRef, useImperativeHandle, type CSSProperties } from 'react'
+import { forwardRef, useState, useEffect, useRef, useImperativeHandle, type CSSProperties, type HTMLAttributes } from 'react'
 
 interface VideoProps {
     className?: string
@@ -111,7 +111,7 @@ const Video = forwardRef<VideoRefMethods, VideoProps>(({ className = '', style, 
                 style={{ opacity: isLoaded ? 1 : 0 }}
                 loop={loop}
                 muted
-                {...{ fetchpriority, loop, muted: true } as React.HTMLAttributes<HTMLVideoElement>}
+                {...{ fetchpriority, loop, muted: true } as HTMLAttributes<HTMLVideoElement>}
                 playsInline
                 // @ts-ignore
                 playsinline="true"
