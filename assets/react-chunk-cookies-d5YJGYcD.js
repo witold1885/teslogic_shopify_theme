@@ -1,1 +1,0 @@
-import{b as e}from"./react-chunk-vendor-helpers-LjNBV8AA.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})};export{t};

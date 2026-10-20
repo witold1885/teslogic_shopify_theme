@@ -1,0 +1,2 @@
+import{o as e,t}from"./react-chunk-react-GZhdek4G.js";import{t as n}from"./react-chunk-hooks-CnLiv1RH.js";var r=e(t(),1);function i({condition:e=!0,action:t,selector:i,rootMargin:a=`810px`}){let o=n(),s=(0,r.useRef)(t);s.current=t,(0,r.useEffect)(()=>{if(!e)return;let t=new IntersectionObserver(e=>{e[0].isIntersecting&&(o(s.current()),t.disconnect())},{rootMargin:a}),n=document.querySelector(i);return n&&t.observe(n),()=>t.disconnect()},[e,i,a,o])}export{i as t};
+//# sourceMappingURL=react-chunk-lazy-data-D45vRUGZ.js.map
