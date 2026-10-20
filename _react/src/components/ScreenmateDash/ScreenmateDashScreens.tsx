@@ -1,7 +1,7 @@
-import React, { useState, useMemo, Children, type ReactNode, type ReactElement, useRef, forwardRef } from 'react'
+import React, { forwardRef, useState, useRef, useMemo, Children, Suspense, type ReactNode, type ReactElement } from 'react'
 import './screenmate-dash-screens.scss'
 import './screenmate-dash-pointers.scss'
-import Slider, { type Settings } from 'react-slick'
+import SlickSlider, { type Settings } from '../Common/SlickSlider'
 import { countReactNodeLines } from '../../utils/helpers'
 import { Icon } from '../Common'
 
@@ -214,7 +214,6 @@ const ScreenmateDashScreens: React.FC = () => {
 
 	const { anime } = useAnime(animationConfigs)
 
-	const SlickSlider = (Slider as any).default || Slider
 	const sliderRef = useRef<any>(null)
 	
 	const sliderSettings: Settings = useMemo(() => ({
@@ -244,37 +243,39 @@ const ScreenmateDashScreens: React.FC = () => {
 					</div>
 					{!isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
 				</div>
-				<SlickSlider ref={sliderRef} {...sliderSettings}>
-					{Object.entries(blocks).map(([key, { alt, image, retina, pointers }]) => (
-						<div className="screens__features-block" key={key}>
-							<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
-								<img
-									draggable="false"
-									className={`screens__features-image ${theme} ${mode}`}
-									src={image}
-									srcSet={`${retina} 2x`}
-									alt={alt}
-									loading="lazy"
-								/>
-							</div>
-							{pointers.map(({ position, legend, line, icon }) => {
-								const slug = `${key}-${position}`
-								const classNames = [...(position?.split('-') || []), slug].map(suffix => `pointer-${suffix}`).join(' ')
-								const lines = countReactNodeLines(legend, mode)
-								return (
-									<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
-										<div className="pointer-wrap">
-											<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
-											<img className={`pointer-line ${mode}`} src={line} alt="" />
-											<img className={`pointer-icon ${mode}`} src={icon} alt="" />
-											<img className="pointer-point" src={pointIcons[`point-${theme}`]} alt="" />
+				<Suspense>
+					<SlickSlider ref={sliderRef} {...sliderSettings}>
+						{Object.entries(blocks).map(([key, { alt, image, retina, pointers }]) => (
+							<div className="screens__features-block" key={key}>
+								<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
+									<img
+										draggable="false"
+										className={`screens__features-image ${theme} ${mode}`}
+										src={image}
+										srcSet={`${retina} 2x`}
+										alt={alt}
+										loading="lazy"
+									/>
+								</div>
+								{pointers.map(({ position, legend, line, icon }) => {
+									const slug = `${key}-${position}`
+									const classNames = [...(position?.split('-') || []), slug].map(suffix => `pointer-${suffix}`).join(' ')
+									const lines = countReactNodeLines(legend, mode)
+									return (
+										<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
+											<div className="pointer-wrap">
+												<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
+												<img className={`pointer-line ${mode}`} src={line} alt="" />
+												<img className={`pointer-icon ${mode}`} src={icon} alt="" />
+												<img className="pointer-point" src={pointIcons[`point-${theme}`]} alt="" />
+											</div>
 										</div>
-									</div>
-								)
-							})}
-						</div>
-					))}
-				</SlickSlider>
+									)
+								})}
+							</div>
+						))}
+					</SlickSlider>
+				</Suspense>
 				{isMobile && currentScreenIndex !== undefined && (
 					<div {...anime(`tab-${screenTypes[currentScreenIndex]}`)} className="screens__selected">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />

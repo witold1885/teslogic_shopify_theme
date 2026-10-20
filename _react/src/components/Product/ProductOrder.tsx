@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
+import React, { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -6,15 +6,7 @@ import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
 import type { Model } from '../../types/product'
 
-const Slider = lazy(() =>
-    import('react-slick').then(module => ({
-        default: (module.default as any).default
-    }))
-)
-import { type Settings } from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
+import SlickSlider, { type Settings } from '../Common/SlickSlider'
 import { Button, Dropdown, Icon, Image } from '../Common'
 import type { DropdownOption } from '../Common/Dropdown'
 import shippingIcon from '../../assets/icons/feature_free_shipping.svg'
@@ -45,9 +37,7 @@ interface GallerySliderProps {
     images?: string[]
 }
 
-const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSettings, images }, ref) => {    
-    const SlickSlider = (Slider as any).default || Slider
-
+const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSettings, images }, ref) => {
     const imagesList: ReactNode = useMemo(() => images?.map((image, index) => (
         <Image
             key={`image-${index}`}

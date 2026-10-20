@@ -1,8 +1,6 @@
-import React, { forwardRef, useState, useRef, useMemo } from 'react'
+import React, { forwardRef, useState, useRef, useMemo, Suspense } from 'react'
 import './track-slider.scss'
-import Slider, { type Settings } from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import SlickSlider, { type Settings } from './SlickSlider'
 
 interface TrackSliderProps {
     className?: string
@@ -11,8 +9,6 @@ interface TrackSliderProps {
 }
 
 const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, items, slidesToShow }, ref) => {
-    const SlickSlider = (Slider as any).default || Slider
-
     const sliderRef = useRef<any>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
@@ -95,23 +91,25 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
 
     return (
         <div ref={ref} className={`track-slider-wrap ${className}-wrap`} onWheel={handleWheel}>
-            <SlickSlider ref={sliderRef} className={`track-slider ${className}`} {...sliderSettings}>
-                {items}
-            </SlickSlider>
-            <div
-                ref={trackRef}
-                className={`track-slider-scrollbar ${className}-scrollbar`}
-                onClick={handleTrackClick}
-            >
-                <div 
-                    className={`track-slider-scrollbar-thumb ${className}-scrollbar-thumb`}
-                    onMouseDown={handleThumbMouseDown}
-                    style={{
-                        width: `${scrollWidth}%`,
-                        left: `calc(${scrollPercentage}% - (${scrollWidth}% * ${scrollPercentage / 100}))`
-                    }} 
-                />
-            </div>
+            <Suspense>
+                <SlickSlider ref={sliderRef} className={`track-slider ${className}`} {...sliderSettings}>
+                    {items}
+                </SlickSlider>
+                <div
+                    ref={trackRef}
+                    className={`track-slider-scrollbar ${className}-scrollbar`}
+                    onClick={handleTrackClick}
+                >
+                    <div 
+                        className={`track-slider-scrollbar-thumb ${className}-scrollbar-thumb`}
+                        onMouseDown={handleThumbMouseDown}
+                        style={{
+                            width: `${scrollWidth}%`,
+                            left: `calc(${scrollPercentage}% - (${scrollWidth}% * ${scrollPercentage / 100}))`
+                        }} 
+                    />
+                </div>
+            </Suspense>
         </div>
     )
 })
