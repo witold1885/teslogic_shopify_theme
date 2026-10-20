@@ -68,11 +68,11 @@
     }
 
     &-buttons {
-        @extend %flex-start-center, %gap-40, %font-manrope-24, %mob\:font-manrope-18, %font-500, %mob\:w-full;
+        @extend %flex-start-center, %gap-40, %mob\:w-full;
         @include responsive(top, 505px);
 
         & > * {
-            @extend %text-white, %cursor-pointer;
+            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500, %text-white, %cursor-pointer;
             text-decoration: none;
 
             &:hover {
