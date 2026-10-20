@@ -8,6 +8,7 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
+    subtitle: { yFrom: '20px', duration: 333 },
     item: { yFrom: '20px', duration: 333 },
 }
 
@@ -39,7 +40,7 @@ const ScreenmateDashUsing: React.FC = () => {
         <div id="using"></div>
         <div className="using">
             <div {...anime('title')} className="using__title">How to use Screenmate Dash</div>
-            <div className="using__subtitle">
+            <div {...anime('subtitle')} className="using__subtitle">
                 <span>Smooth start with soft installation.</span>
                 <a onClick={() => setVideoPopupOpen(true)}>
                     Watch Video<Icon icon={chevron} />

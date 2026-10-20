@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import './screenmate-dash-banner.scss'
-import { Icon } from '../Common'
+import Icon from '../Common/Icon'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig } from '../../hooks/anime'

@@ -8,12 +8,12 @@ import { useSubscriptionPopups } from '../hooks/subscription-popups'
 import Header from '../components/Header/Header'
 import LazySection from './LazySection'
 
-const apiUrl: string | undefined = import.meta.env.VITE_API_URL
-
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopup = getComponent(() => import('../components/Popup/SubscriptionPopup.tsx'), true)
 const SelectionPopup = getComponent(() => import('../components/Popup/SelectionPopup.tsx'), true)
 const SuccessPopup = getComponent(() => import('../components/Popup/SuccessPopup.tsx'), true)
+
+const apiUrl: string | undefined = import.meta.env.VITE_API_URL
 
 const fontModules: Record<string, any> = import.meta.glob('@/assets/fonts/Manrope/Manrope-{Regular,Medium,SemiBold,Bold}.woff2', { eager: true })
 const fonts: string[] = Object.values(fontModules).map(mod => mod.default)
