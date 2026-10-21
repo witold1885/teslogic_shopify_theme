@@ -22,7 +22,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ScreenmateDashBloggers: FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))
+    const { parseYoutubeVideos, isLoaded: sliceLoaded } = useDynamicSlice('content', () => import('../../redux/slices/content'))
     const { videos, videoItems: items } = useAppSelector(fetchContent)
 
     const data = useMemo(() => videos?.map(({ url, html }) => ({
@@ -31,9 +31,9 @@ const ScreenmateDashBloggers: FC = () => {
     
     const lazyParams = useMemo(() => ({
         condition: data.length !== 0,
-        action: () => parseYoutubeVideos(data),
+        action: sliceLoaded ? () => parseYoutubeVideos(data) : () => {},
         selector: '.bloggers_block'
-    }), [data, parseYoutubeVideos])
+    }), [sliceLoaded, data, parseYoutubeVideos])
     
     useLazyData(lazyParams)
     

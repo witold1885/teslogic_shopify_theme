@@ -46,15 +46,15 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
 
     const { isMobile } = useInlineStyles()
 
-    const { getRate, addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
+    const { getRate, addToCart, isLoaded: sliceLoaded } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { product, additionalProducts } = useAppSelector(fetchProducts)
     const { rate, addedToCart } = useAppSelector(fetchOrder)
     const { country } = useAppSelector(fetchContent)
     
     const lazyParams = useMemo(() => ({
-        action: getRate ? () => getRate('USD/EUR') : () => {},
+        action: sliceLoaded ? () => getRate('USD/EUR') : () => {},
         selector: '.screenmate-one__order'
-    }), [getRate])
+    }), [sliceLoaded, getRate])
     
     useLazyData(lazyParams)
 
