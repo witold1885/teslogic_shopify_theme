@@ -10,7 +10,8 @@ import Icon from '../Common/Icon'
 import Image from '../Common/Image'
 import logo from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
-import cartIcon from '../../assets/icons/cart-white.svg'
+import cartWhiteIcon from '../../assets/icons/cart-white.svg'
+import cartBlackIcon from '../../assets/icons/cart-black.svg'
 import burgerIcon from '../../assets/icons/burger.svg'
 import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
 import closeIcon from '@/assets/icons/close-black.svg'
@@ -31,6 +32,7 @@ const pagesMap: Record<string, string[]> = {
 }
 
 interface HeaderProps {
+    theme?: 'dark' | 'light'
     className?: string
     menu: MenuItem[]
     orderButton: boolean
@@ -43,6 +45,7 @@ interface HeaderMenuProps extends HeaderProps {
 
 const HeaderMenu: FC<HeaderMenuProps> = ({
     className = '',
+    theme = 'dark',
     menu,
     mode,
     orderButton,
@@ -150,7 +153,7 @@ const HeaderMenu: FC<HeaderMenuProps> = ({
             </>) : (
                 <a className="header-menu-cart" href="/cart" target="_blank">
                     <div>
-                        <Icon icon={cartIcon} />
+                        <Icon icon={theme === 'dark' ? cartWhiteIcon : cartBlackIcon} />
                         <span>{cartItemCount}</span>
                     </div>
                     <span>Cart</span>
@@ -193,7 +196,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     return (
         <div className="header-country" ref={ref}>
             <div className="header-country-button" onMouseEnter={handleFetchRegions} onClick={() => onCountriesDropdownToggle()}>
-                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code || ''} />
+                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code || ''} width="20" height="20" />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
             <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
@@ -242,7 +245,6 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
 })
 
 interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
-    theme: 'dark' | 'light'
     position: 'absolute' | 'sticky'
     isMobile: boolean
     onMobileMenuOpen: () => void
@@ -287,7 +289,7 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
             </a>
             <div className="header-nav">
                 {!isMobile && (
-                    <HeaderMenu className="header-menu-desktop" mode="desktop" {...{menu, orderButton, onOrder}} />
+                    <HeaderMenu className="header-menu-desktop" mode="desktop" {...{theme, menu, orderButton, onOrder}} />
                 )}
                 <HeaderCountrySelector
                     ref={countriesDropdownRef}
@@ -309,6 +311,7 @@ interface HeaderMobileProps extends HeaderProps {
 
 const HeaderMobile: FC<HeaderMobileProps> = ({
     className = '',
+    theme = 'dark',
     menu,
     orderButton,
     onOrder,
@@ -322,7 +325,7 @@ const HeaderMobile: FC<HeaderMobileProps> = ({
         <HeaderMenu
             className="header-menu-mobile"
             mode="mobile"
-            {...{menu, orderButton, onOrder}}
+            {...{theme, menu, orderButton, onOrder}}
         />
     </div>
 )
@@ -418,9 +421,10 @@ const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolea
     ])
 
     const headerMobileParams = useMemo(() => ({
+        theme,
         ...headerParams,
         onMobileMenuClose: () => setOpenMobileMenu(false)
-    }), [headerParams, setOpenMobileMenu])
+    }), [theme, headerParams, setOpenMobileMenu])
 
     useLockBodyScroll(openMobileMenu)
 
