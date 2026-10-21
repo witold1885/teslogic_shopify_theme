@@ -94,7 +94,7 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
                 }
             }
         }
-    }, [])
+    }, [isMobile])
 
     const pages = useMemo(() => {
         return [...Array(Math.ceil(totalCount / PER_PAGE)).keys()].map(i => i + 1)
@@ -165,7 +165,7 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
                         <ReviewItem {...anime(`review_${id}`)} className="reviews-grid-item" {...item} key={id} />
                     ))}
                 </div>
-                {pages?.length !== 0 && (
+                {pages?.length > 1 && (
                     <div className="reviews-pagination">
                         <div className={`reviews-pagination-item ${page === 1 ? 'disabled' : ''}`} onClick={() => handlePageChange(page - 1)}>
                             <Icon className="reviews-pagination-nav" icon={page === 1 ? chevronInactiveLeft : chevronActiveLeft} />
