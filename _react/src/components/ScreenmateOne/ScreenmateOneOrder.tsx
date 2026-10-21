@@ -111,6 +111,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         price: (price || 0) * coef
     })), [additionalProducts, coef])
 
+    const showCurrency = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
+
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
     const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
@@ -194,9 +196,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         <div>
                             <h2 {...anime('name')} className="screenmate-one__order-form-name">{product.title}</h2>
                             <div {...anime('prices')} className="screenmate-one__order-form-prices">
-                                <span className="screenmate-one__order-form-prices-current">{prices.current?.toFixed(0) || 0} {currency}</span>
+                                <span className="screenmate-one__order-form-prices-current">{prices.current?.toFixed(0) || 0} {showCurrency}</span>
                                 {(prices.old || 0) > (prices.current || 0) && (
-                                    <span className="screenmate-one__order-form-prices-old">{prices.old?.toFixed(0) || 0} {currency}</span>
+                                    <span className="screenmate-one__order-form-prices-old">{prices.old?.toFixed(0) || 0} {showCurrency}</span>
                                 )}
                             </div>
                             <div {...anime('info')}>
@@ -241,7 +243,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                                 />
                                                 <label htmlFor={`additional-product-${id}`}>
                                                     <span>Add {title}</span>&nbsp;
-                                                    <span>{price?.toFixed(0) || 0} {currency} {showVAT(price)}</span>
+                                                    <span>{price?.toFixed(0) || 0} {showCurrency} {showVAT(price)}</span>
                                                 </label>
                                             </div>
                                         )

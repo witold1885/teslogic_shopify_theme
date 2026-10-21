@@ -136,6 +136,8 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
         price: (price || 0) * coef
     })), [additionalProducts, coef])
 
+    const showCurrency = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
+
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
     const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
@@ -213,9 +215,9 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                     <div className="store_block-product-info-main">
                         <div {...anime('prices')}>
                             <div className="store_block-product-price">
-                                <span className="store_block-product-price-new">{prices?.current?.toFixed(0) || 0} {currency}</span>
+                                <span className="store_block-product-price-new">{prices?.current?.toFixed(0) || 0} {showCurrency}</span>
                                 {(prices?.old || 0) > (prices?.current || 0) && (
-                                    <span className="store_block-product-price-old">{prices?.old?.toFixed(0) || 0} {currency}</span>
+                                    <span className="store_block-product-price-old">{prices?.old?.toFixed(0) || 0} {showCurrency}</span>
                                 )}
                             </div>
                             <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
@@ -250,7 +252,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                                             <label htmlFor={`select-${id}`} className="store_block-product-add-title">
                                                 With Additional {title}&nbsp;
                                                 <span className="store_block-product-add-price">
-                                                    {price?.toFixed(0) || 0} {currency} {showVAT(price)}
+                                                    {price?.toFixed(0) || 0} {showCurrency} {showVAT(price)}
                                                 </span>
                                             </label>
                                         </div>
@@ -261,7 +263,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div className="store_block-product-order">
 					        <Button {...anime('button')} className="store_block-product-order-add" onClick={handleSubmit}>
                                 <div className="store_block-product-order-add-text">Order now</div>
-                                {total && <div className="store_block-product-order-add-total">{total} {currency}</div>}
+                                {total && <div className="store_block-product-order-add-total">{total} {showCurrency}</div>}
                             </Button>
 
                             {details.length !== 0 && (
