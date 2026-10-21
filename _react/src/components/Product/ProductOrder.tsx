@@ -136,7 +136,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
         price: (price || 0) * coef
     })), [additionalProducts, coef])
 
-    const showCurrency = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
+    const showCurrency: string = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
 
@@ -160,9 +160,9 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
         setTotal(total.toFixed(0))
     }, [prices, additionals, selectedAdditionals])
     
-    const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
+    const showVAT = useCallback((price?: number | null) => showCurrency === 'EUR' && price && tax ? (
         <>+{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)</>
-    ) : <></>, [currency, tax])
+    ) : <></>, [showCurrency, tax])
     
     const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => withDetails ? [
         country?.iso_code === 'US' ? {
