@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useAppDispatch } from '../redux/hooks'
 
-interface LazyDataParams {
+export interface LazyDataParams {
     condition?: boolean
     action: () => any
     selector: string

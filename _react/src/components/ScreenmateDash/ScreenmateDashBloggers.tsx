@@ -31,7 +31,7 @@ const ScreenmateDashBloggers: FC = () => {
     
     const lazyParams = useMemo(() => ({
         condition: data.length !== 0,
-        action: sliceLoaded ? () => parseYoutubeVideos(data) : () => {},
+        action: () => parseYoutubeVideos(data),
         selector: '.bloggers_block'
     }), [sliceLoaded, data, parseYoutubeVideos])
     
