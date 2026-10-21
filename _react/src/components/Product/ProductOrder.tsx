@@ -76,7 +76,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
     const { country } = useAppSelector(fetchContent)
 
     const lazyParams = useMemo(() => ({
-        action: () => getRate('USD/EUR'),
+        action: getRate ? () => getRate('USD/EUR') : () => {},
         selector: '.store_block'
     }), [getRate])
     

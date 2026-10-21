@@ -52,7 +52,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const { country } = useAppSelector(fetchContent)
     
     const lazyParams = useMemo(() => ({
-        action: () => getRate('USD/EUR'),
+        action: getRate ? () => getRate('USD/EUR') : () => {},
         selector: '.screenmate-one__order'
     }), [getRate])
     
