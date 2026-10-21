@@ -1,10 +1,17 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useStore } from 'react-redux'
 import { rootReducer } from '../redux/store'
 
 
 const NO_OP_ACTION = { type: '@@DYNAMIC_SLICE/NO_OP' }
 const noOpFunction = () => NO_OP_ACTION
+
+const NO_OP_PROXY = new Proxy({}, {
+    get: (_, prop) => {
+        if (prop === 'then' || prop === '@@toStringTag') return undefined
+        return noOpFunction
+    }
+})
 
 type Slice = 'content' | 'products' | 'order' | 'reviews' | 'subscribe'
 
@@ -51,19 +58,5 @@ export const useDynamicSlice = (
         }
     }, [condition, isLoaded, store, sliceName])
 
-    const resultActions = useMemo(() => {
-        if (isLoaded && Object.keys(actions).length > 0) {
-            return actions
-        }
-        return new Proxy({}, {
-            get: (_, prop) => {
-                if (prop === 'then' || prop === '@@toStringTag' || typeof prop === 'symbol') {
-                    return undefined
-                }
-                return noOpFunction
-            }
-        })
-    }, [actions, isLoaded])
-
-    return { ...resultActions, isLoaded }
+    return { ...(Object.keys(actions).length !== 0 ? actions : NO_OP_PROXY), isLoaded }
 }

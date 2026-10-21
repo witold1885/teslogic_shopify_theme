@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useAppDispatch } from '../redux/hooks'
 
-export interface LazyDataParams {
+interface LazyDataParams {
     condition?: boolean
     action: () => any
     selector: string
@@ -10,23 +10,35 @@ export interface LazyDataParams {
 
 export function useLazyData ({ condition = true, action, selector, rootMargin = '810px' }: LazyDataParams) {
     const dispatch = useAppDispatch()
-
-    const actionRef = useRef(action)
-    actionRef.current = action
+    const hasDispatched = useRef(false)
 
     useEffect(() => {
-        if (!condition) return
+        if (!condition|| hasDispatched.current) return
+
+        const element = document.querySelector(selector)
+        if (!element) return
+
+        const triggerAction = () => {
+            const actionToDispatch = action()
+            if (actionToDispatch && (typeof actionToDispatch === 'function' || typeof actionToDispatch === 'object')) {
+                dispatch(actionToDispatch)
+                hasDispatched.current = true
+                return true
+            }
+            return false
+        }
 
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                dispatch(actionRef.current())
-                observer.disconnect()
+                const success = triggerAction()
+                if (success) {
+                    observer.disconnect()
+                }
             }
         }, { rootMargin })
 
-        const element = document.querySelector(selector)
-        if (element) observer.observe(element)
+        observer.observe(element)
 
         return () => observer.disconnect()
-    }, [condition, selector, rootMargin, dispatch])
+    }, [condition, action, selector, rootMargin, dispatch])
 }

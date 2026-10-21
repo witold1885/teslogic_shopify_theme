@@ -70,19 +70,15 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
     
     const { isMobile } = useInlineStyles()
     
-    const { getRate, addToCart, isLoaded: sliceLoaded } = useDynamicSlice('order', () => import('../../redux/slices/order'))
+    const { getRate, addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { product, additionalProducts } = useAppSelector(fetchProducts)
     const { rate, addedToCart } = useAppSelector(fetchOrder)
     const { country } = useAppSelector(fetchContent)
 
     const lazyParams = useMemo(() => ({
-        action: () => {
-            if (sliceLoaded && typeof getRate === 'function') {
-                return getRate('USD/EUR')
-            }
-        },
+        action: () => getRate('USD/EUR'),
         selector: '.store_block'
-    }), [sliceLoaded, getRate])
+    }), [getRate])
     
     useLazyData(lazyParams)
 
