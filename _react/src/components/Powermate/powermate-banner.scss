@@ -1,0 +1,134 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.powermate .banner {
+    @extend %w-full, %h-full, %flex-column-center-end, %mob\:flex-column-between-start, %relative;
+    margin: 0 auto;
+
+    @include mobile() {
+        @include responsive(padding, 100px, 20px, 64px);
+    }
+
+    &-wrap {
+        @extend %w-full;
+        height: 100vh;
+        height: 100dvh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &-separator {
+        @extend %hidden, %mob\:block, %mob\:h-full, %mob\:flex-1;
+    }
+
+    & .logo {
+        @include block(499px, 36px);
+        @include responsive(top, 200px);
+
+        @include mobile() {
+            @include block(288px, 20px);
+            @include responsive(margin-bottom, 8px);
+        }
+    }
+    
+    & .logo, & .suptitle, & .title, & .subtitle, & .addtext {
+        @extend %text-white, %mob\:w-full;
+    }
+
+    & .suptitle, & .subtitle, & .addtext-sup {
+        @extend %font-manrope-24, %mob\:font-manrope-18, %font-500;
+    }
+
+    & .suptitle.anime-finished, & .subtitle.anime-finished, & .addtext.anime-finished .addtext-sup {
+        opacity: 0.6 !important;
+    }
+    
+    & .suptitle {
+        @include responsive(top, 144px);
+    }
+        
+    & .title {
+        @extend %font-manrope-52, %font-600;
+        @include responsive(top, 260px);
+
+        @include mobile() {
+            @include text(32px, 40px);
+            @include responsive(margin-bottom, 8px);
+        }
+    }
+    
+    & .subtitle {
+        @include responsive(top, 404px);
+    }
+
+    & .addtext {
+        @include responsive(top, 500px);
+        text-shadow: 0px 4px 24px #000;
+
+        @include mobile() {
+            @include responsive(margin-bottom, 16px);
+        }
+
+        &-main {
+            @extend %font-manrope, %font-600;
+            @include text(64px, 72px);
+
+            @include mobile() {
+                @include text(44px, 52px);
+            }
+        }
+    }
+
+    & .logo, & .suptitle, & .title, & .subtitle, & .addtext, &-buttons {
+        @extend %absolute, %mob\:static;
+        @include responsive(left, 72px);
+
+        @include mobile() {
+            top: unset;
+            left: unset;
+        }
+    }
+
+    &-buttons {
+        @extend %flex-start-center, %gap-40, %mob\:w-full;
+        @include responsive(top, 620px);
+
+        & > * {
+            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500, %text-white, %cursor-pointer;
+            text-decoration: none;
+
+            &:hover {
+                @extend %text-white;
+            }
+        }
+    }
+
+    &-button {
+
+        &-buy {
+            @extend %flex-center;
+            @include responsive(width, 354px);
+            @include responsive(height, 72px);
+            @include responsive(border-radius, 54px);
+            border: 3px solid #0068FD;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+
+            @include mobile() {
+                width: 100% !important;
+                @include responsive(height, 58px);
+                border: none;
+		        background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.12);
+            }
+
+            &:hover {
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                border: none;
+            }
+        }
+    }
+}

@@ -5,3 +5,8 @@ export const countReactNodeLines = (str: string | ReactNode, className: string |
     const re = new RegExp(className ? `\<br class\=\"${className}\"\/\>` : `\<br\/\>`, 'gi')
     return renderToString(str).replace(re, '<br/>').split('<br/>').length
 }
+
+export const convertReactNodeToString = (str: string | ReactNode): string => {
+    const re = new RegExp(`\<br\/\>`, 'gi')
+    return renderToString(str).replace(re, '')
+}

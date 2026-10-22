@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "powermate_react": {
+      "type": "powermate_react",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "powermate_react"
+  ]
+}

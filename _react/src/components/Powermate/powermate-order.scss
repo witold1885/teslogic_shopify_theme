@@ -1,0 +1,64 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.powermate .order {
+    @extend %flex-column, %gap-64, %mob\:gap-40;
+    @include responsive(width, 1079px);
+    margin: 0 auto;
+
+    @include mobile() {
+        @include responsive(width, 350px);
+    }
+
+    &-container {
+        @extend %w-full, %h-full;
+		// height: 1249px; 
+		background: #020202;
+	}
+
+	&-wrap {
+        @extend %h-full;
+		@include responsive(padding-top, 180px);
+		background-image: url(../../assets/images/powermate/order/pro_order_bg_desktop.png);
+		background-size: cover;
+  		background-position: center;
+
+        @include mobile() {
+            @include responsive(padding, 96px, 0);
+		    background-image: url(../../assets/images/powermate/order/pro_order_bg_mobile.png);
+			background-position: top center;
+        }
+	}
+
+	&-top {
+        @extend %flex-column, %gap-12, %mob\:gap-8;
+	}
+
+	&-title {
+        @extend %font-manrope-52, %font-600, %mob\:font-500;
+
+        @include mobile() {
+            @include text(32px, 40px);
+        }
+	}
+
+	&-subtitle {
+        @extend %font-manrope-24, %font-500;
+		color: #9A9A9A;
+
+        @include mobile() {
+            @include text(16px, 20px);
+        }
+	}
+
+	&-body {
+        @extend %flex-column, %gap-24, %mob\:gap-20;
+	}
+
+	&-products {
+        @extend %flex, %gap-24, %mob\:flex-column, %mob\:gap-20;
+	}
+}

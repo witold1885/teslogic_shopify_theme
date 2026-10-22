@@ -12,7 +12,7 @@
 	}
 }
 
-.using {
+.screenmate-dash .using {
 	@extend %flex-column, %container, %relative;
 	margin: 0 auto;
 	@include responsive(padding-bottom, 180px);

@@ -1,0 +1,81 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.info {
+    @extend %flex-column, %gap-64, %mob\:gap-40;
+    @include responsive(width, 1076px);
+    margin: 0 auto;
+
+    @include mobile() {
+        @include responsive(width, 350px);
+    }
+
+    &-wrap {
+        @extend %w-full;
+        @include responsive(padding, 180px, 0);
+		background: #121212;
+
+        @include mobile() {
+            @include responsive(padding, 96px, 0);
+        }
+	}
+
+    &-block {
+
+        &-title {
+            @extend %flex-start-center, %gap-12;
+            @include responsive(margin-bottom, 24px);
+
+            @include mobile() {
+                @include responsive(margin-bottom, 20px);
+            }
+
+            &-icon {
+                @include square(40px);
+
+                @include mobile() {
+                    @include square(96px);
+                }
+            }
+
+            &-text {
+                @extend %font-manrope, %font-500, %uppercase;
+                @include text(32px, 40px);
+
+                @include mobile() {
+                    @include text(24px, 32px);
+                }
+            }
+        }
+
+        &-delimiter {
+            @extend %w-full;
+            @include responsive(height, 2px);
+            @include responsive(margin-bottom, 20px);
+            background: #A2A2A2;
+        }
+
+        &-texts {
+            @extend %flex, %gap-24, %mob\:flex-column, %mob\:gap-16, %font-manrope-24, %mob\:font-manrope-18;
+            color: #A2A2A2;
+        }
+
+        &-text {
+
+            &:first-child {
+                @include responsive(width, 636px);
+            }
+
+            &:last-child {
+                @include responsive(width, 416px);
+            }
+
+            @include mobile() {
+                width: 100% !important;
+            }
+        }
+    }
+}

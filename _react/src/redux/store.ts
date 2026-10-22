@@ -13,7 +13,7 @@ const getInitialState = () => {
     },
     products: {
       cartItemCount: data?.cart?.item_count || 0,
-      products: [],
+      products: data?.products || [],
       product: data?.product,
       additionalProducts: data?.additionalProducts,
       loading: false

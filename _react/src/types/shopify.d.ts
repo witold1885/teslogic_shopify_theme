@@ -67,6 +67,7 @@ declare global {
                 videos?: Video[]
             }
             cart: { item_count: number }
+            products: Product[]
             product: Product
             additionalProducts: Product[]
         } | null

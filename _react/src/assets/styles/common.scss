@@ -288,3 +288,13 @@ input, textarea {
         }
     }
 }
+
+br {
+    &.desktop {
+        @extend %mob\:hidden;
+    }
+
+    &.mobile {
+        @extend %hidden, %mob\:block;
+    }
+}

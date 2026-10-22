@@ -1,0 +1,46 @@
+<div id="react-powermate-root"></div>
+
+{% render 'seo-powermate' %}
+
+{{ 'react-style-Powermate-BI8kUJJ2.css' | asset_url | stylesheet_tag }}
+
+{%- capture localization_country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
+{%- capture main_menu -%}
+  {% render 'menu-json', menu_handle: 'main-menu' %}
+{%- endcapture -%}
+
+{%- capture cart -%}
+  {% render 'cart-json' %}
+{%- endcapture -%}
+
+{%- capture product_boost -%}
+  {% render 'product-json', product: all_products['powermate-boost-kit'] %}
+{%- endcapture -%}
+
+{%- capture product_performance -%}
+  {% render 'product-json', product: all_products['powermate-performance-kit'] %}
+{%- endcapture -%}
+
+{%- capture charger -%}
+  {% render 'product-json', product: all_products['screenmate-wireless-charger'] %}
+{%- endcapture -%}
+
+<script>
+  {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  window.ShopifyReactData = {
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
+    content: {
+      country: {{ localization_country }},
+      main_menu: {{ main_menu }},
+      footer_menu: []
+    },
+    cart: {{ cart }},
+    products: [{{ product_boost }}, {{ product_performance }}],
+    additionalProducts: [{{ charger }}]
+  }
+</script>
+
+<script src="{{ 'Powermate.js' | asset_url }}" type="module" defer></script>

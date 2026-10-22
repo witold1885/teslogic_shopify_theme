@@ -4,7 +4,7 @@
 @use '../../assets/styles/text' as text;
 @use '../../assets/styles/mixins' as *;
 
-.banner {
+.screenmate-dash .banner {
     @extend %w-full, %h-full, %flex-column-center-end, %mob\:flex-column-between, %relative;
     margin: 0 auto;
 
@@ -28,7 +28,7 @@
     &-separator {
         @extend %hidden, %mob\:block, %mob\:h-full, %mob\:flex-1;
     }
-        
+    
     & .suptitle, & .title, & .subtitle {
         @extend %text-white, %mob\:w-full;
     }
@@ -57,7 +57,7 @@
         @include responsive(top, 413px);
     }
 
-    .suptitle, .title, .subtitle, &-buttons {
+    & .suptitle, & .title, & .subtitle, &-buttons {
         @extend %absolute, %mob\:static;
         @include responsive(left, 72px);
 

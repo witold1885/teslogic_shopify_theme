@@ -1,0 +1,343 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.comparison {
+    @extend %container, %flex-column, %gap-40, %mob\:gap-24, %mob\:w-full;
+	margin: 0 auto;
+
+    &-wrap {
+        @extend %w-full;
+        @include responsive(padding, 180px, 0);
+		background: url(../../assets/images/powermate/comparison/pro_comparison_bg.png);
+		background-size: cover;
+  		background-position: center;
+
+        @include mobile() {
+            @include responsive(padding, 92px, 0, 96px);
+        }
+	}
+
+	&-top {
+        @extend %flex-column, %gap-16, %mob\:gap-8;
+
+        @include mobile() {
+            @include responsive(width, 350px);
+            margin: 0 auto;
+
+        }
+	}
+
+	&-title {
+        @extend %font-manrope-52, %font-600, %mob\:font-500, %text-black;
+
+        @include mobile() {
+            @include text(32px, 40px);
+        }
+	}
+
+	&-subtitle {
+        @extend %font-manrope-24, %font-500;
+		color: #666;
+
+        @include mobile() {
+            @include text(16px, 20px);
+        }
+	}
+
+    &-table {
+        @extend %w-full;
+		border-collapse: collapse;
+
+        &-wrap {
+            @extend %w-full;
+            height: auto;
+            @include responsive(border-radius, 40px);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.32) 100%), rgba(223, 223, 223, 0.50);
+            background-blend-mode: screen, normal;
+            backdrop-filter: blur(6px);
+
+            @include mobile() {
+			    border-radius: 0;
+            }
+        }
+
+        & thead th, & tbody td {
+            @extend %font-600, %text-center, %text-black;
+            border-left: 2px solid #E7E7E7;
+
+            &:first-child {
+                @extend %text-left;
+                @include responsive(padding-left, 40px);
+                border-left: none;
+
+                @include mobile() {
+                    @include responsive(padding-left, 20px);
+                }
+            }
+
+            @include mobile() {
+			    border-left: none;
+
+                &:nth-child(2) {
+                    @include responsive(width, 41px);
+                    text-align: left !important;
+                }
+                &:nth-child(3) {
+                    @include responsive(width, 64px);
+                    text-align: center !important;
+                }
+                &:nth-child(4) {
+                    @include responsive(width, 78px);
+                    text-align: center !important;
+                }
+            }
+        }
+
+        & thead th {
+            @extend %font-manrope-18, %mob\:font-manrope-14;
+            @include block(330px, 72px);
+            border-bottom: 2px solid #E7E7E7;
+
+            @include mobile() {
+			    width: auto !important;
+                @include responsive(height, 76px);
+            }
+
+            &:first-child {
+                @include responsive(width, 300px);
+
+                @include mobile() {
+                    width: auto !important;
+                }
+            }
+            
+            & img {
+                @include block(167px, 12px);
+            }
+        }
+
+        & tbody td {
+            @extend %font-manrope-24, %mob\:font-manrope-14;
+            @include responsive(height, 64px);
+
+            @include mobile() {
+                @include responsive(height, 60px);
+                border-left: none;
+
+                & br {
+                    display: none;
+                }
+            }
+
+            &:first-child {
+                @include text(16px, 20px);
+                opacity: 0.6;
+
+                @include mobile() {
+                    @include text(12px, 18px);
+                    opacity: 1;
+			        color: #666 !important;
+                }
+            }
+        }
+
+        & tbody tr {
+
+            &:first-child td {
+                @include responsive(height, 84px);
+                @include responsive(padding-top, 20px);
+
+                @include mobile() {
+                    @include responsive(height, 68px);
+                    @include responsive(padding-top, 8px);
+                }
+            }
+
+            &:last-child td {
+                @include responsive(height, 88px);
+                @include responsive(padding-bottom, 24px);
+
+                @include mobile() {
+                    @include responsive(height, 76px);
+                    @include responsive(padding-top, 14px);
+                }
+            }
+        }
+
+        &-checkbox {
+            @include square(24px);
+
+            @include mobile() {
+                @include square(18px);
+            }
+        }
+
+        &-check {
+            @extend %flex-start-center, %gap-64;
+
+            &-wrap {
+                @extend %w-full;
+                @include responsive(height, 284px);
+                @include responsive(padding-top, 64px);
+                @include responsive(padding-left, 64px);
+                @include responsive(border-radius, 40px);
+                background: /*linear-gradient(0deg, #383838 0%, #383838 100%), */rgba(0, 0, 0, 0.60);
+                background-blend-mode: color-dodge, normal;
+                backdrop-filter: blur(6px);
+            }
+
+            &-warning {
+                @extend %flex-column, %gap-12;
+                @include responsive(width, 759px);
+
+                &-title {
+                    @extend %flex, %gap-12;
+
+                    &-icon {
+                        @include square(40px);
+                    }
+
+                    &-text {
+                        @extend %font-manrope, %font-600;
+                        @include text(32px, 40px);
+                    }
+                }
+
+                &-text {
+                    @extend %flex-column, %gap-16, %font-manrope, %font-500;
+                    @include text(16px, 20px);
+                }
+            }
+
+            &-button {
+                @extend %flex-center, %font-manrope-24, %font-700, %text-center, %cursor-pointer;
+                @include responsive(padding, 20px, 40px);
+                @include responsive(border-radius, 54px);
+                border: 3px solid #0E54FD;
+                background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+                background-blend-mode: color-dodge, normal;
+                color: #0E54FD;
+                text-decoration: none;
+
+                &:hover {
+                    @include responsive(padding, 23px, 43px);
+                    border: none;
+                    background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+    
+	.comparison-check-dialog {
+		width: 464px;
+		height: 424px;
+		border-radius: 24px;
+		padding: 36px;
+		box-sizing: border-box;
+		background: #171717;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.comparison-check-dialog-close {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 16px;
+		right: 16px;
+		cursor: pointer;
+	}
+	.comparison-check-dialog-title {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 40px;
+	}
+	.comparison-check-dialog-fields {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 24px;
+		width: 100%;
+		margin-top: -4px;
+	}
+	.comparison-check-dialog-field {
+		display: flex;
+		flex-direction: column;
+		grid-row-gap: 8px;
+		width: 100%;
+		position: relative;
+	}
+	.comparison-check-dialog-field label {
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.comparison-check-dialog-field input {
+		width: 100%;
+		padding: 14px 16px;
+		border-radius: 6px;
+		border: 1px solid #D9D9D9;
+		outline: none;
+		background: transparent;
+		color: #FFF;
+		font-family: Manrope;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+		box-sizing: border-box;
+	}
+	.comparison-check-dialog-field-error {
+		display: none;
+		position: absolute;
+		bottom: -20px;
+		color: #FC3E30;
+		font-family: Manrope;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+	.comparison-check-dialog-field input:active,
+	.comparison-check-dialog-field input:focus {
+		border: 1px solid #FFF;
+		outline: none;
+	}
+	.comparison-check-dialog-button {
+		width: 100%;
+		padding: 20px 40px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 54px;
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+		text-align: center;
+		font-family: Manrope;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px;
+		cursor: pointer;
+		text-decoration: none;
+		box-sizing: border-box;		
+	}
+	.comparison-check-dialog-button:hover {
+		color: #FFF;
+		background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+		border: none;
+		padding: 23px 43px;
+	}
