@@ -15,7 +15,6 @@
 
     &-container {
         @extend %w-full, %h-full;
-		// height: 1249px; 
 		background: #020202;
 	}
 
@@ -72,14 +71,27 @@
 		background-blend-mode: color-dodge, normal;
 		backdrop-filter: blur(6px);
 
+        @include mobile() {
+            @include block(350px, 557);
+		    @include responsive(border-radius, 24px);
+        }
+
         &-image {
             @extend %w-full, %overflow-hidden;
 		    @include responsive(border-radius, 40px);
+
+            @include mobile() {
+                @include responsive(border-radius, 24px);
+            }
         }
 
         &-data {
-            @extend %flex-column-start-end, %gap-16;
+            @extend %flex-column-start-end, %gap-16, %mob\:gap-12;
 		    @include responsive(padding, 0, 24px, 32px, 32px);
+
+            @include mobile() {
+		        @include responsive(padding, 0, 24px, 24px);
+            }
 
             &-info {
                 @extend %flex-column;
@@ -106,13 +118,17 @@
                 }
 
                 &-title {
-                    @extend %font-manrope, %font-600;
+                    @extend %font-manrope, %font-600, %mob\:font-500;
                     @include text(32px, 40px);
+
+                    @include mobile() {
+                        @include responsive(width, 250px);
+                    }
                 }
             }
 
             &-preorder {
-                @extend %flex-between-center;
+                @extend %w-full, %flex-between-center, %mob\:flex-column, %mob\:gap-12;
 
                 &-button {
                     @extend %flex-center, %font-manrope-18, %font-500, %text-center, %whitespace-nowrap;
@@ -122,6 +138,10 @@
                     background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
                     backdrop-filter: blur(8px);
                     border: none;
+
+                    @include mobile() {
+                        width: 100% !important;
+                    }
 
                     &:hover {
                         background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
@@ -188,6 +208,10 @@
                     @extend %font-manrope, %cursor-pointer;
                     @include text(16px, 20px);
                     font-feature-settings: 'clig' off, 'liga' off;
+
+                    @include mobile() {
+                        @include text(14px, 20px);
+                    }
                 }
                 
                 &-price {
@@ -200,6 +224,10 @@
                 @extend %flex-start-center, %gap-8;
                 @include responsive(margin-top, 8px);
 
+                @include mobile() {
+                    margin-top: 0;
+                }
+
                 &-icon {
                     @include square(20px);
                 }
@@ -208,6 +236,10 @@
                     @extend %font-manrope;
                     @include text(16px, 20px);
                     font-feature-settings: 'clig' off, 'liga' off;
+
+                    @include mobile() {
+                        @include text(14px, 20px);
+                    }
 
                     & span {
                         @extend %font-500;
