@@ -34,7 +34,7 @@ const sectionHeights: Record<string, any> = {
     Examples: { desktop: 1048, mobile: 1232.5 },
     Comparison: { desktop: 1268, mobile: 1094 },
     Compatibility: { desktop: 1002, mobile: 1462 },
-    Order: { desktop: 1249, mobile: undefined },
+    Order: { desktop: 1249, mobile: 1574 },
     Info: { desktop: 852, mobile: 836 },
 }
 const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {

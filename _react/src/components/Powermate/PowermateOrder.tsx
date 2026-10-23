@@ -64,7 +64,6 @@ const PowermateOrder: FC = () => {
         title,
         price: (price || 0) * coef,
         oldPrice: (oldPrice || 0) * coef
-
     })) || [], [products, coef])
     
     const tax: number = useMemo(() => country?.vat_percent || 20, [country])
@@ -76,12 +75,17 @@ const PowermateOrder: FC = () => {
 
     const showCurrency: string = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
 
-    const [selectedAdditionals, setSelectedAdditionals] = useState<number[]>([])
+    const [selectedAdditionals, setSelectedAdditionals] = useState<Record<number, number[]>>(products?.reduce((acc, { id }) => ({ ...acc, [id]: [] }), {}) || {})
 
-    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, additionalId: number | null) => {
-        if (additionalId) {
+    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, productId: number | null, additionalId: number | null) => {
+        if (productId && additionalId) {
             const { checked } = e.target
-            setSelectedAdditionals(prev => checked ? [ ...prev, additionalId ] : prev.filter(id => id !== additionalId))
+            setSelectedAdditionals(prev => ({
+                ...prev,
+                [productId]: checked 
+                           ? [ ...selectedAdditionals[productId], additionalId] 
+                           : selectedAdditionals[productId].filter(id => id !== additionalId)
+            }))
         }
     }
 
@@ -99,7 +103,7 @@ const PowermateOrder: FC = () => {
     const handleSubmit = useCallback((productId: number) => {
         const items = [
             { id: productId, quantity: 1 },
-            ...selectedAdditionals.filter(Boolean).map(id => ({ id, quantity: 1 }))
+            ...selectedAdditionals[productId].filter(Boolean).map(id => ({ id, quantity: 1 }))
         ]
         dispatch(addToCart({ items }))
     }, [selectedAdditionals, dispatch, addToCart])
@@ -120,8 +124,8 @@ const PowermateOrder: FC = () => {
                     </div>
                     <div className="order-body">
                         <div className="order-products">
-                            {items.map(({ id, image, title, price, oldPrice }) => (
-                                <div className="order-product" key={id}>
+                            {items.map(({ id: productId, image, title, price, oldPrice }) => (
+                                <div className="order-product" key={productId}>
                                     <div className="order-product-image">
                                         <Image src={image as string} alt={title} />
                                     </div>
@@ -140,25 +144,25 @@ const PowermateOrder: FC = () => {
                                             <button
                                                 type="button"
                                                 className="order-product-data-preorder-button preorder-boost"
-                                                onClick={() => handleSubmit(id)}
+                                                onClick={() => handleSubmit(productId)}
                                             >
                                                 Order Now
                                             </button>
                                             {!isMobile && <PowermateOrderDetails {...{details}} />}
                                         </div>
                                         {additionals && (<>                                            
-                                            {additionals.map(({ id, title, price, models }) => {
+                                            {additionals.map(({ id: additionalProductId, title, price, models }) => {
                                                 const modelId = models ? models[0].id : null
                                                 return (
-                                                    <div className="order-product-data-add" key={id}>
+                                                    <div className="order-product-data-add" key={additionalProductId}>
                                                         <input
                                                             className="order-product-data-add-checkbox"
                                                             type="checkbox"
-                                                            id={`additional-product-${id}`}
-                                                            checked={modelId !== null && selectedAdditionals.includes(modelId)}
-                                                            onChange={(e) => handleAdditionalSelect(e, modelId)}
+                                                            id={`additional-product-${additionalProductId}`}
+                                                            checked={modelId !== null && selectedAdditionals[productId].includes(modelId)}
+                                                            onChange={(e) => handleAdditionalSelect(e, productId, modelId)}
                                                         />
-                                                        <label className="order-product-data-add-title" htmlFor={`additional-product-${id}`}>
+                                                        <label className="order-product-data-add-title" htmlFor={`additional-product-${additionalProductId}`}>
                                                             Add Additional {title}&nbsp;
                                                             <span className="order-product-data-add-price">
                                                                 {price?.toFixed(0) || 0} {showCurrency} {showVAT(price)}

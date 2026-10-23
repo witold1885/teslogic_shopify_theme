@@ -213,6 +213,10 @@
                         @include text(14px, 20px);
                     }
                 }
+
+                &-title {
+                    @extend %mob\:flex-column;
+                }
                 
                 &-price {
                     @extend %font-500;
