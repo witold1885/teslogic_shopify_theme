@@ -1,4 +1,4 @@
-import { useState, useCallback, useImperativeHandle, type RefObject, type ReactNode, type FC } from 'react'
+import { useState, useMemo, useCallback, useImperativeHandle, type RefObject, type ReactNode, type FC, type CSSProperties } from 'react'
 import close from '../../assets/icons/close-white.svg'
 
 export interface PopupRefProps {
@@ -7,15 +7,28 @@ export interface PopupRefProps {
 
 interface PopupWrapProps {
     ref: RefObject<PopupRefProps | null>
-    id: string
+    id?: string
     className: string
+    backgroundType: 'video' | 'image' | 'color'
+    background: string
     open: boolean
     onClose: () => void
     children: ReactNode
 }
 
-const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, open, onClose = () => {}, children }) => {
+const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, background, open, onClose = () => {}, children }) => {
     const [hiding, setHiding] = useState<boolean>(false)
+
+    const style: CSSProperties = useMemo(() => {
+        switch (backgroundType) {
+            case 'image':
+                return { backgroundImage: background }
+            case 'color':
+                return { backgroundColor: background }
+            default:
+                return {}
+        }
+    }, [backgroundType, background])
 
     const handleClose = useCallback((callback?: CallableFunction) => {
         setHiding(true)
@@ -31,10 +44,12 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, open, onClose = () 
 
     return (
         <div id={id} className={`subscription-popup-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
-            <div className={className}>
-                <video autoPlay muted loop className="subscription-popup-video">
-                    <source src="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4" type="video/mp4" />
-                </video>
+            <div {...{className, style}}>
+                {backgroundType === 'video' && (
+                    <video autoPlay muted loop className="subscription-popup-video">
+                        <source src={background} type="video/mp4" />
+                    </video>
+                )}
                 <div className={`${className}-close`} onClick={onClose}>
                     <img src={close} alt="" />
                 </div>

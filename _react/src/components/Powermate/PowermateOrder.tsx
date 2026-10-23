@@ -12,8 +12,16 @@ import noTax from '../../assets/icons/powermate/order/pro_order_no_tax.svg'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
+import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
 
-const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
+interface OrderItem {
+    id: number
+    image?: string
+    title: string
+    price: number
+    oldPrice: number
+    needCheck: boolean
+}
 
 interface OrderDetail {
     icon?: string
@@ -33,6 +41,8 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
         </div>
     </div>
 )
+
+const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
 const PowermateOrder: FC = () => {
     const dispatch = useAppDispatch()
@@ -58,12 +68,13 @@ const PowermateOrder: FC = () => {
 
     const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
-    const items = useMemo(() => products?.map(({ id, images, title, price, oldPrice }) => ({
+    const items: OrderItem[] = useMemo(() => products?.map(({ id, images, title, price, oldPrice }) => ({
         id,
         image: images?.[0].main,
         title,
         price: (price || 0) * coef,
-        oldPrice: (oldPrice || 0) * coef
+        oldPrice: (oldPrice || 0) * coef,
+        needCheck: title.includes('Performance')
     })) || [], [products, coef])
     
     const tax: number = useMemo(() => country?.vat_percent || 20, [country])
@@ -100,7 +111,9 @@ const PowermateOrder: FC = () => {
         { icon: noTax, text: <><span>Duties & taxes</span> included in most countries*</> },
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
-    const handleSubmit = useCallback((productId: number) => {
+    const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
+
+    const handleOrder = useCallback((productId: number) => {
         const items = [
             { id: productId, quantity: 1 },
             ...selectedAdditionals[productId].filter(Boolean).map(id => ({ id, quantity: 1 }))
@@ -108,13 +121,21 @@ const PowermateOrder: FC = () => {
         dispatch(addToCart({ items }))
     }, [selectedAdditionals, dispatch, addToCart])
 
+    const handleSubmit = useCallback((productId: number, needCheck: boolean) => {
+        if (needCheck) {
+            setWarningPopupOpen(true)
+        } else {
+            handleOrder(productId)
+        }
+    }, [handleOrder])
+
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
             window.open(`${shopifyUrl}/cart`, '_blank')
         }
     }, [addedToCart])
 
-    return (
+    return (<>
         <div className="order-container">
             <div className="order-wrap">
                 <div id="pro-order" className="order">
@@ -124,7 +145,7 @@ const PowermateOrder: FC = () => {
                     </div>
                     <div className="order-body">
                         <div className="order-products">
-                            {items.map(({ id: productId, image, title, price, oldPrice }) => (
+                            {items.map(({ id: productId, image, title, price, oldPrice, needCheck }) => (
                                 <div className="order-product" key={productId}>
                                     <div className="order-product-image">
                                         <Image src={image as string} alt={title} />
@@ -144,7 +165,7 @@ const PowermateOrder: FC = () => {
                                             <button
                                                 type="button"
                                                 className="order-product-data-preorder-button preorder-boost"
-                                                onClick={() => handleSubmit(productId)}
+                                                onClick={() => handleSubmit(productId, needCheck)}
                                             >
                                                 Order Now
                                             </button>
@@ -158,11 +179,14 @@ const PowermateOrder: FC = () => {
                                                         <input
                                                             className="order-product-data-add-checkbox"
                                                             type="checkbox"
-                                                            id={`additional-product-${additionalProductId}`}
+                                                            id={`additional-product-${productId}-${additionalProductId}`}
                                                             checked={modelId !== null && selectedAdditionals[productId].includes(modelId)}
                                                             onChange={(e) => handleAdditionalSelect(e, productId, modelId)}
                                                         />
-                                                        <label className="order-product-data-add-title" htmlFor={`additional-product-${additionalProductId}`}>
+                                                        <label
+                                                            className="order-product-data-add-title"
+                                                            htmlFor={`additional-product-${productId}-${additionalProductId}`}
+                                                        >
                                                             Add Additional {title}&nbsp;
                                                             <span className="order-product-data-add-price">
                                                                 {price?.toFixed(0) || 0} {showCurrency} {showVAT(price)}
@@ -181,7 +205,8 @@ const PowermateOrder: FC = () => {
                 </div>
             </div>
         </div>
-    )
+        <PowermateCompatibilityWarningPopup open={warningPopupOpen} onClose={() => setWarningPopupOpen(false)}/>
+    </>)
 }
 
 export default PowermateOrder

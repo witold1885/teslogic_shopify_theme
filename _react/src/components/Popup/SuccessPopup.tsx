@@ -22,7 +22,15 @@ const SuccessPopup: FC<SuccessPopupProps> = ({
     }
 
     return (
-        <PopupWrap ref={wrap} id="success-popup" className="success-popup" open={open} onClose={handleCancel}>
+        <PopupWrap
+            ref={wrap}
+            id="success-popup"
+            className="success-popup"
+            backgroundType='video'
+            background="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4"
+            open={open}
+            onClose={handleCancel}
+        >
             <div className="subscription-popup-logo">
                 <img src={logo} alt="SCREENMATE" />
             </div>
