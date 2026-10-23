@@ -54,6 +54,7 @@
         }
 
         &-boost {
+			@extend %flex-1;
             @include responsive(width, 416px);
 
             @include mobile() {

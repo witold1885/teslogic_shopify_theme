@@ -6,9 +6,11 @@ import warning from '../../../assets/icons/powermate/info/pro_info_warning.svg'
 interface PopupProps {
     open: boolean
     onClose: () => void
+    onCheck: () => void
+    onConfirm: () => void
 }
 
-const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose }) => {
+const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onCheck, onConfirm }) => {
     const wrap = useRef<PopupRefProps>(null)
 
     return (
@@ -29,8 +31,8 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose }) =
                 <div>To check the compatibility of your Tesla, <br />please provide the VIN number of your vehicle.</div>
             </div>
             <div className="order-dialog-buttons">
-                <button type="button" className="order-dialog-button order-dialog-button-check">Check</button>
-                <button type="button" className="order-dialog-button order-dialog-button-preorder">Order Now</button>
+                <button type="button" className="order-dialog-button order-dialog-button-check" onClick={onCheck}>Check</button>
+                <button type="button" className="order-dialog-button order-dialog-button-preorder" onClick={onConfirm}>Order Now</button>
             </div>
         </PopupWrap>
     )

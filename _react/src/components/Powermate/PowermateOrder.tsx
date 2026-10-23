@@ -112,6 +112,7 @@ const PowermateOrder: FC = () => {
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
+    const [selectedProductId, setSelectedProductId] = useState<number | null>(null)
 
     const handleOrder = useCallback((productId: number) => {
         const items = [
@@ -124,10 +125,23 @@ const PowermateOrder: FC = () => {
     const handleSubmit = useCallback((productId: number, needCheck: boolean) => {
         if (needCheck) {
             setWarningPopupOpen(true)
+            setSelectedProductId(productId)
         } else {
             handleOrder(productId)
         }
     }, [handleOrder])
+
+    const handleCheck = useCallback(() => {
+        setWarningPopupOpen(false)
+    }, [])
+
+    const handleConfirm = useCallback(() => {
+        if (selectedProductId) {
+            handleOrder(selectedProductId)
+        }
+        setSelectedProductId(null)
+        setWarningPopupOpen(false)
+    }, [selectedProductId])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -205,7 +219,12 @@ const PowermateOrder: FC = () => {
                 </div>
             </div>
         </div>
-        <PowermateCompatibilityWarningPopup open={warningPopupOpen} onClose={() => setWarningPopupOpen(false)}/>
+        <PowermateCompatibilityWarningPopup
+            open={warningPopupOpen}
+            onClose={() => setWarningPopupOpen(false)}
+            onCheck={handleCheck}
+            onConfirm={handleConfirm}
+        />
     </>)
 }
 
