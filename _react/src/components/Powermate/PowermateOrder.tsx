@@ -15,7 +15,7 @@ import { useLazyData } from '../../hooks/lazy-data'
 import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
 
 interface OrderItem {
-    id: number
+    id?: number
     image?: string
     title: string
     price: number
@@ -68,14 +68,14 @@ const PowermateOrder: FC = () => {
 
     const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
-    const items: OrderItem[] = useMemo(() => products?.map(({ id, images, title, price, oldPrice }) => ({
-        id,
+    const orderItems: OrderItem[] = useMemo(() => (products?.map(({ models, images, title, price, oldPrice }) => ({
+        id: models?.[0].id,
         image: images?.[0].main,
         title,
         price: (price || 0) * coef,
         oldPrice: (oldPrice || 0) * coef,
         needCheck: title.includes('Performance')
-    })) || [], [products, coef])
+    })) || []).filter(({ id }) => !!id), [products, coef])
     
     const tax: number = useMemo(() => country?.vat_percent || 20, [country])
 
@@ -88,7 +88,7 @@ const PowermateOrder: FC = () => {
 
     const [selectedAdditionals, setSelectedAdditionals] = useState<Record<number, number[]>>(products?.reduce((acc, { id }) => ({ ...acc, [id]: [] }), {}) || {})
 
-    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, productId: number | null, additionalId: number | null) => {
+    const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, productId: number | undefined, additionalId: number | null) => {
         if (productId && additionalId) {
             const { checked } = e.target
             setSelectedAdditionals(prev => ({
@@ -112,7 +112,7 @@ const PowermateOrder: FC = () => {
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
-    const [selectedProductId, setSelectedProductId] = useState<number | null>(null)
+    const [selectedProductId, setSelectedProductId] = useState<number | undefined>(undefined)
 
     const handleOrder = useCallback((productId: number) => {
         const items = [
@@ -122,12 +122,14 @@ const PowermateOrder: FC = () => {
         dispatch(addToCart({ items }))
     }, [selectedAdditionals, dispatch, addToCart])
 
-    const handleSubmit = useCallback((productId: number, needCheck: boolean) => {
-        if (needCheck) {
-            setWarningPopupOpen(true)
-            setSelectedProductId(productId)
-        } else {
-            handleOrder(productId)
+    const handleSubmit = useCallback((productId: number | undefined, needCheck: boolean) => {
+        if (productId) {
+            if (needCheck) {
+                setWarningPopupOpen(true)
+                setSelectedProductId(productId)
+            } else {
+                handleOrder(productId)
+            }
         }
     }, [handleOrder])
 
@@ -139,7 +141,7 @@ const PowermateOrder: FC = () => {
         if (selectedProductId) {
             handleOrder(selectedProductId)
         }
-        setSelectedProductId(null)
+        setSelectedProductId(undefined)
         setWarningPopupOpen(false)
     }, [selectedProductId])
 
@@ -159,7 +161,7 @@ const PowermateOrder: FC = () => {
                     </div>
                     <div className="order-body">
                         <div className="order-products">
-                            {items.map(({ id: productId, image, title, price, oldPrice, needCheck }) => (
+                            {orderItems.map(({ id: productId, image, title, price, oldPrice, needCheck }) => (
                                 <div className="order-product" key={productId}>
                                     <div className="order-product-image">
                                         <Image src={image as string} alt={title} />
@@ -194,7 +196,7 @@ const PowermateOrder: FC = () => {
                                                             className="order-product-data-add-checkbox"
                                                             type="checkbox"
                                                             id={`additional-product-${productId}-${additionalProductId}`}
-                                                            checked={modelId !== null && selectedAdditionals[productId].includes(modelId)}
+                                                            checked={modelId !== null && selectedAdditionals[productId as number].includes(modelId)}
                                                             onChange={(e) => handleAdditionalSelect(e, productId, modelId)}
                                                         />
                                                         <label
