@@ -1,6 +1,8 @@
 import { useRef, type FC } from 'react'
 import './powermate-compatibility-dialog.scss'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
+import loader from '../../../assets/icons/blue-loader.svg'
+import Icon from '../../Common/Icon'
 
 interface PopupProps {
     open: boolean
@@ -42,7 +44,7 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
                     <span className="ready">Send Request</span>
                     <span className="loading">
                         <span>Loading</span>
-                        <div className="loader"><img src="{{ 'blue-loader.svg' | asset_url }}" /></div>
+                        <Icon className="loader" icon={loader} />
                     </span>
                 </button>
                 <div className="compatibility-check-dialog-agree">

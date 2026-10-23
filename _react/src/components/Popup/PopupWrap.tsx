@@ -50,7 +50,7 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
                         <source src={background} type="video/mp4" />
                     </video>
                 )}
-                <div className={`${className}-close`} onClick={onClose}>
+                <div className={(className.split(' ') as string[]).map(c => `${c}-close`).join(' ')} onClick={onClose}>
                     <img src={close} alt="" />
                 </div>
                 {children}
