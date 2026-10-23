@@ -141,7 +141,7 @@ const PowermateOrder: FC = () => {
                 <div id="pro-order" className="order">
                     <div className="order-top">
                         <div className="order-title">Ready to take your Model 3/Y <br />to the next level?</div>
-                        <div className="order-subtitle">Order Powermate and start your journey towards<br />unmatched driving performance and satisfaction</div>
+                        <div className="order-subtitle">Order Powermate and start your journey towards <br />unmatched driving performance and satisfaction</div>
                     </div>
                     <div className="order-body">
                         <div className="order-products">

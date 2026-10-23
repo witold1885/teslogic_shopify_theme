@@ -254,14 +254,10 @@
 	}
 
     &-dialog {
+        @extend %flex-column-between-start, %relative;
         @include block(464px, 360px);
 		@include responsive(padding, 36px);
 		@include responsive(border-radius, 24px);
-		// position: relative;
-		// display: flex;
-		// flex-direction: column;
-		// justify-content: space-between;
-		// align-items: flex-start;
 
         &-title {
             @extend %flex-start-center, %gap-12;

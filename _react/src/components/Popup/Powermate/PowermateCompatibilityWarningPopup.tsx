@@ -1,5 +1,7 @@
 import { useRef, type FC } from 'react'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
+import Icon from '../../Common/Icon'
+import warning from '../../../assets/icons/powermate/info/pro_info_warning.svg'
 
 interface PopupProps {
     open: boolean
@@ -19,7 +21,7 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose }) =
             onClose={onClose}
         >
             <div className="order-dialog-title">
-                <img className="order-dialog-title-icon" src="{{ 'pro_info_warning.svg' | asset_url }}" />
+                <Icon className="order-dialog-title-icon" icon={warning} />
                 <div className="order-dialog-title-text">Check Compatibility</div>
             </div>
             <div className="order-dialog-texts">
