@@ -259,26 +259,56 @@
 		@include responsive(padding, 36px);
 		@include responsive(border-radius, 24px);
 
+        @include mobile() {
+            @include block(336px, 372px);
+		    @include responsive(padding, 24px);
+        }
+
+        &-close {
+            @extend %absolute, %cursor-pointer;
+            @include square(20px);
+            @include responsive(top, 16px);
+            @include responsive(right, 16px);
+
+            @include mobile() {
+                @include responsive(top, 20px);
+                @include responsive(right, 20px);
+            }
+        }
+
         &-title {
-            @extend %flex-start-center, %gap-12;
+            @extend %flex-start-center, %gap-12, %mob\:gap-8;
 
             &-text {
                 @extend %font-manrope, %font-500;
                 @include text(32px, 40px);
+
+                @include mobile() {
+                    @include text(24px, 32px);
+                }
             }
 
             &-icon {
                 @include square(40px);
+
+                @include mobile() {
+                    @include square(32px);
+                }
             }
         }
 
         &-texts {
             @extend %flex-column, %gap-16, %font-manrope-18, %font-500;
             @include responsive(margin-top, -12px);
+
+            @include mobile() {
+                @include text(16px, 20px);
+                @include responsive(margin-top, -4px);
+            }
         }
 
         &-buttons {
-            @extend %w-full, %flex-between-center;
+            @extend %w-full, %flex-between-center, %mob\:flex-column, %mob\:gap-12;
         }
 
         &-button {
@@ -286,6 +316,10 @@
             @include responsive(width, 190px);
             @include responsive(border-radius, 54px);
             border: none;
+
+            @include mobile() {
+                width: 100% !important;
+            }
 
             &-check {
                 @extend %font-700;
@@ -301,6 +335,14 @@
                     background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                     color: #FFF;
                 }
+
+                @include mobile() {
+                    @include responsive(padding, 11px, 28px);
+
+                    &:hover {
+                        @include responsive(padding, 14px, 31px);
+                    }
+                }
             }
 
 
@@ -312,6 +354,10 @@
 
                 &:hover {
                     background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+                }
+
+                @include mobile() {
+                    @include responsive(padding, 14px, 28px);
                 }
             }
         }
