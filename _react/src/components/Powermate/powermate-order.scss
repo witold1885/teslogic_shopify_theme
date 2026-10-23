@@ -61,4 +61,159 @@
 	&-products {
         @extend %flex, %gap-24, %mob\:flex-column, %mob\:gap-20;
 	}
+
+    &-product {
+        @extend %flex-column-between;
+        @include block(526px, 576px);
+		@include responsive(border-radius, 40px);
+		background: #171717;
+		background-size: cover;
+		background-position: center;
+		background-blend-mode: color-dodge, normal;
+		backdrop-filter: blur(6px);
+
+        &-image {
+            @extend %w-full, %overflow-hidden;
+		    @include responsive(border-radius, 40px);
+        }
+
+        &-data {
+            @extend %flex-column-end, %gap-16;
+		    @include responsive(padding, 0, 24px, 32px, 32px);
+
+            &-info {
+                @extend %flex-column;
+                @include responsive(gap, 3px);
+
+                &-price {
+                    @extend %flex-start-center, %gap-8;
+
+                    &-main {
+                        @extend %font-manrope-24, %font-700;
+		                color: #1657FC;
+                    }
+
+                    &-old {
+                        @extend %font-manrope-18, %font-600;
+                        color: #666;
+                        text-decoration: line-through;
+                    }
+
+                    &-vat {
+                        @extend %font-manrope-20, %font-600;
+		                color: #1657FC;
+                    }
+                }
+
+                &-title {
+                    @extend %font-manrope, %font-600;
+                    @include text(32px, 40px);
+                }
+            }
+
+            &-preorder {
+                @extend %flex-between-center;
+
+                &-button {
+                    @extend %flex-center, %font-manrope-18, %font-500, %text-center, %whitespace-nowrap;
+                    @include responsive(width, 160px);
+                    @include responsive(padding, 20px, 0);
+                    @include responsive(border-radius, 54px);
+                    background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+                    backdrop-filter: blur(8px);
+                    border: none;
+
+                    &:hover {
+                        background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+                    }
+                }
+
+                &-details {
+                    @extend %flex-column, %gap-8;
+                    @include responsive(width, 302px);
+
+                    &-item {
+                        @extend %flex-start-center, %gap-8;
+                        
+                        &-icon {
+                            @include square(20px);
+                        }
+
+                        &-text {
+                            @extend %font-manrope-14, %whitespace-nowrap;
+                            font-feature-settings: 'clig' off, 'liga' off;
+                            color: #666;
+
+                            & span {
+                                @extend %font-500;
+		                        color: #1657FC;
+                            }
+                        }
+
+                        &-subtext {
+                            @extend %font-manrope, %font-500;
+                            @include responsive(margin-top, -8px);
+                            @include text(12px, 20px);
+                            font-feature-settings: 'liga' off, 'clig' off;
+                            color: #666;
+
+                            & a {
+                                color: #D9D9D9;
+                                text-decoration: none;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            &-add {
+                @extend %flex-start-center, %gap-8;
+
+                &-checkbox {
+                    @include square(20px);
+                    appearance: none;
+                    -webkit-appearance: none;
+                    background-image: url(../../assets/icons/powermate/order/pro_order_checkbox_inactive.svg);
+                    background-size: cover;
+                    background-position: center;
+                    cursor: pointer;
+
+                    &:checked {
+                        background-image: url(../../assets/icons/powermate/order/pro_order_checkbox_active.svg);
+                    }
+                }
+
+                &-title, &-price {
+                    @extend %font-manrope, %cursor-pointer;
+                    @include text(16px, 20px);
+                    font-feature-settings: 'clig' off, 'liga' off;
+                }
+                
+                &-price {
+                    @extend %font-500;
+                    color: #1657FC;
+                }
+            }
+
+            &-delivery {
+                @extend %flex-start-center, %gap-8;
+                @include responsive(margin-top, 8px);
+
+                &-icon {
+                    @include square(20px);
+                }
+
+                &-text {
+                    @extend %font-manrope;
+                    @include text(16px, 20px);
+                    font-feature-settings: 'clig' off, 'liga' off;
+
+                    & span {
+                        @extend %font-500;
+                    }
+                }
+            }
+        }
+	}
 }
