@@ -1,0 +1,196 @@
+@use '../../../assets/styles/flexbox' as flexbox;
+@use '../../../assets/styles/fonts' as fonts;
+@use '../../../assets/styles/layout' as layout;
+@use '../../../assets/styles/text' as text;
+@use '../../../assets/styles/mixins' as *;
+
+.compatibility-dialog {
+    @extend %flex-column-between-start, %relative;
+    @include responsive(width, 524px);
+    @include responsive(border-radius, 24px);
+    @include responsive(padding, 36px);
+
+	&-close {
+        @extend %absolute, %cursor-pointer;
+        @include square(20px);
+		@include responsive(top, 16px);
+		@include responsive(right, 16px);
+	}
+
+	&-title {
+        @extend %font-manrope, %font-500;
+        @include text(32px, 40px);
+	}
+
+	&-texts {
+        @extend %flex-column, %gap-20, %font-manrope;
+		@include responsive(margin-top, -6px);
+        @include text(16px, 20px);
+		font-feature-settings: 'clig' off, 'liga' off;
+	}
+}
+
+.compatibility-check-dialog {
+    @include responsive(height, 460px);
+
+	&-fields {
+        @extend %w-full, %flex-column, %gap-24;
+		@include responsive(margin-top, -4px);
+	}
+
+	&-field {
+        @extend %w-full, %flex-column, %gap-8, %relative;
+
+        & label {
+            @extend %font-manrope;
+            @include text(16px, 20px);
+        }
+
+        & input {
+            @extend %w-full, %font-manrope;
+            width: 100%;
+            @include responsive(padding, 14px, 16px);
+            @include responsive(border-radius, 6px);
+            border: 1px solid #D9D9D9;
+            background: transparent;
+            @include text(16px, 20px);
+
+            &:active, &:focus {
+		        border: 1px solid #FFF;
+            }
+        }
+
+        &-error {
+            @extend %absolute, %font-manrope-14;
+            @include responsive(bottom, -20px);
+            color: #FC3E30;
+        }
+	}
+
+	&-unavailable {
+        @extend %w-full, %text-center, %whitespace-nowrap;
+		bottom: 0 !important;
+	}
+
+	&-submit {
+        @extend %flex-column, %gap-16;
+	}
+
+	&-agree {
+        @extend %flex-start-center, %gap-8;
+		width: calc(100% + 24px);
+
+        &-checkbox {
+            @extend %cursor-pointer;
+            @include square(18px);
+            margin: 0;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url(../../../assets/icons/powermate/order/pro_order_checkbox_inactive.svg);
+            background-size: cover;
+            background-position: center;
+
+            &:checked {
+                background-image: url(../../../assets/icons/powermate/order/pro_order_checkbox_active.svg);
+            }
+
+            &-wrap {
+                @extend %overflow-hidden;
+                @include square(20px);
+                @include responsive(border-radius, 4px);
+            }
+        }
+
+        &-label {
+            @extend %font-manrope, %cursor-pointer;
+            @include text(16px, 20px);
+            font-feature-settings: 'clig' off, 'liga' off;
+        }
+	}
+}
+
+.compatibility-success-dialog {
+    @include responsive(height, 300px);
+}
+
+.compatibility-check-dialog, .compatibility-success-dialog {
+
+    &-button {
+        @extend %w-full, %flex-center, %font-manrope-18, %font-700, %text-center;
+		@include responsive(height, 70px);
+		@include responsive(padding, 20px, 40px);
+		@include responsive(border-radius, 54px);
+		border: 3px solid #0E54FD;
+		background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+		background-blend-mode: color-dodge, normal;
+		color: #0E54FD;
+
+        &:not(:disabled):hover {
+		    @include responsive(padding, 23px, 43px);
+            border: none;
+            background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+            color: #FFF;
+        }        
+
+        & .loading {
+            @extend %flex-center, %gap-10;
+        }
+
+        & .loader {
+            display: inline-block;
+            @include square(16px);
+            animation: spin 1s linear infinite;
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.compatibility-warning-dialog {
+    @include responsive(height, 360px);
+
+	&-buttons {
+        @extend %w-full, %flex-between-center;
+	}
+
+	&-button {
+        @extend %font-manrope-18, %text-center;
+		@include responsive(width, 190px);
+		@include responsive(border-radius, 54px);
+		border: none;
+
+        &-close {
+            @extend %font-700;
+            @include responsive(padding, 17px, 20px);
+            border: 3px solid #0E54FD;
+            background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
+            background-blend-mode: color-dodge, normal;
+            color: #0E54FD;
+        
+            &:hover {
+                @include responsive(padding, 20px, 23px);
+                border: none;
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                color: #FFF;
+            }
+        }
+
+        &-preorder {
+            @extend %font-500;
+            @include responsive(padding, 20px);
+            background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+
+            &:hover {
+                background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+            }
+        }
+	}
+}

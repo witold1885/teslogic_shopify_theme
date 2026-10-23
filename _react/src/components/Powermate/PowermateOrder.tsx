@@ -13,6 +13,7 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
+import PowermateCompatibilityCheckPopup from '../Popup/Powermate/PowermateCompatibilityCheckPopup'
 
 interface OrderItem {
     id?: number
@@ -60,8 +61,6 @@ const PowermateOrder: FC = () => {
     }), [getRate])
     
     useLazyData(lazyParams)
-
-    console.log({ products })
 
     const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
     // const currency: string = 'USD'
@@ -114,6 +113,8 @@ const PowermateOrder: FC = () => {
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
+    const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
+    // const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [selectedProductId, setSelectedProductId] = useState<number | undefined>(undefined)
 
     const handleOrder = useCallback((productId: number) => {
@@ -137,6 +138,7 @@ const PowermateOrder: FC = () => {
 
     const handleCheck = useCallback(() => {
         setWarningPopupOpen(false)
+        setCheckPopupOpen(true)
     }, [])
 
     const handleConfirm = useCallback(() => {
@@ -228,6 +230,11 @@ const PowermateOrder: FC = () => {
             onClose={() => setWarningPopupOpen(false)}
             onCheck={handleCheck}
             onConfirm={handleConfirm}
+        />
+        <PowermateCompatibilityCheckPopup
+            open={checkPopupOpen}
+            onClose={() => setCheckPopupOpen(false)}
+
         />
     </>)
 }
