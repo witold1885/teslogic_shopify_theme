@@ -22,7 +22,7 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
             onClose={onClose}
         >
             <div className="compatibility-dialog-title">Check Compatibility</div>
-            <div style={{ width: '100%', position: 'relative' }}>
+            <div className="compatibility-check-dialog-unavailable-wrap">
                 <div className="compatibility-check-dialog-unavailable compatibility-check-dialog-field-error">
                     Service temporary unavailable
                 </div>
@@ -31,12 +31,12 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
                 <div className="compatibility-check-dialog-field">
                     <label htmlFor="compatibility-vin">VIN: (can be copied from your Tesla app)</label>
                     <input id="compatibility-vin" name="vin" type="text" placeholder="Enter car’s VIN number" />
-                    <div className="compatibility-check-dialog-field-error">Wrong input</div>
+                    {/* <div className="compatibility-check-dialog-field-error">Wrong input</div> */}
                 </div>
                 <div className="compatibility-check-dialog-field">
                     <label htmlFor="compatibility-email">E-mail:</label>
                     <input id="compatibility-email" name="email" type="email" placeholder="John.smith@example.com" />
-                    <div className="compatibility-check-dialog-field-error">Wrong input</div>
+                    {/* <div className="compatibility-check-dialog-field-error">Wrong input</div> */}
                 </div>  		
             </div>
             <div className="compatibility-check-dialog-submit">

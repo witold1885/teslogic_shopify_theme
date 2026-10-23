@@ -70,10 +70,14 @@
 	&-unavailable {
         @extend %w-full, %text-center, %whitespace-nowrap;
 		bottom: 0 !important;
+
+        &-wrap {
+            @extend %w-full, %relative;
+        }
 	}
 
 	&-submit {
-        @extend %flex-column, %gap-16;
+        @extend %w-full, %flex-column, %gap-16;
 	}
 
 	&-agree {
@@ -137,7 +141,7 @@
         }
 
         & .loader {
-            display: inline-block;
+            @extend %flex-center;
             @include square(16px);
             animation: spin 1s linear infinite;
         }

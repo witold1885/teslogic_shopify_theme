@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useImperativeHandle, type RefObject, type ReactNode, type FC, type CSSProperties } from 'react'
+import Icon from '../Common/Icon'
 import close from '../../assets/icons/close-white.svg'
 
 export interface PopupRefProps {
@@ -30,6 +31,8 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
         }
     }, [backgroundType, background])
 
+    const getClassNames = useCallback((suffix: string) => (className.split(' ') as string[]).map(c => `${c}-${suffix}`).join(' '), [className])
+
     const handleClose = useCallback((callback?: CallableFunction) => {
         setHiding(true)
         setTimeout(() => {
@@ -50,9 +53,7 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
                         <source src={background} type="video/mp4" />
                     </video>
                 )}
-                <div className={(className.split(' ') as string[]).map(c => `${c}-close`).join(' ')} onClick={onClose}>
-                    <img src={close} alt="" />
-                </div>
+                <Icon className={getClassNames('close')} icon={close} onClick={onClose} />
                 {children}
             </div>
         </div>
