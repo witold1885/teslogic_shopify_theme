@@ -5,6 +5,7 @@ import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
 import Icon from '../Common/Icon'
+import Image from '../Common/Image'
 import shipping from '../../assets/icons/powermate/order/pro_order_free_shipping.svg'
 import noTax from '../../assets/icons/powermate/order/pro_order_no_tax.svg'
 
@@ -119,14 +120,17 @@ const PowermateOrder: FC = () => {
                             {items.map(({ id, image, title, price, oldPrice }) => (
                                 <div className="order-product" key={id}>
                                     <div className="order-product-image">
-                                        <img src={image} />
+                                        <Image src={image as string} alt={title} />
                                     </div>
                                     <div className="order-product-data">
                                         <div className="order-product-data-info">
                                             <div className="order-product-data-info-price">
-                                                <div className="order-product-data-info-price-main">{price}</div>
-                                                <div className="order-product-data-info-price-old">{oldPrice}</div>
+                                                <div className="order-product-data-info-price-main">{price.toFixed(0)} {showCurrency}</div>
+                                                {oldPrice !== 0 && (
+                                                    <div className="order-product-data-info-price-old">{oldPrice.toFixed(0)} {showCurrency}</div>
+                                                )}
                                             </div>
+                                            <div className="order-product-data-info-price-vat">{showVAT(price)}</div>
                                             <div className="order-product-data-info-title">{title}</div>								
                                         </div>
                                         <div className="order-product-data-preorder">
