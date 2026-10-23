@@ -86,7 +86,9 @@ const PowermateOrder: FC = () => {
 
     const showCurrency: string = useMemo(() => coef === 1 ? 'USD' : currency, [coef, currency])
 
-    const [selectedAdditionals, setSelectedAdditionals] = useState<Record<number, number[]>>(products?.reduce((acc, { id }) => ({ ...acc, [id]: [] }), {}) || {})
+    const [selectedAdditionals, setSelectedAdditionals] = useState<Record<number, number[]>>(
+        orderItems.reduce((acc, { id }) => ({ ...acc, [id!]: [] }), {}) || {}
+    )
 
     const handleAdditionalSelect = (e: ChangeEvent<HTMLInputElement>, productId: number | undefined, additionalId: number | null) => {
         if (productId && additionalId) {
@@ -196,7 +198,7 @@ const PowermateOrder: FC = () => {
                                                             className="order-product-data-add-checkbox"
                                                             type="checkbox"
                                                             id={`additional-product-${productId}-${additionalProductId}`}
-                                                            checked={modelId !== null && selectedAdditionals[productId as number].includes(modelId)}
+                                                            checked={modelId !== null && selectedAdditionals[productId!].includes(modelId)}
                                                             onChange={(e) => handleAdditionalSelect(e, productId, modelId)}
                                                         />
                                                         <label
