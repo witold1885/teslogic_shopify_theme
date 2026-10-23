@@ -9,6 +9,7 @@ import Image from '../Common/Image'
 import shipping from '../../assets/icons/powermate/order/pro_order_free_shipping.svg'
 import noTax from '../../assets/icons/powermate/order/pro_order_no_tax.svg'
 
+import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
@@ -19,8 +20,8 @@ interface OrderDetail {
     text?: ReactNode
 }
 
-const PowermateOrderDetails: FC<{ mode: 'desktop' | 'mobile'; details: OrderDetail[] }> = ({ mode, details }) => (
-    <div className={`order-product-data-preorder-details order-product-data-preorder-details-${mode}`}>
+const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
+    <div className="order-product-data-preorder-details">
         {details.map(({ icon, text }, index) => (
             <div className="order-product-data-preorder-details-item" key={index}>
                 <Icon className="order-product-data-preorder-details-item-icon" icon={icon} />
@@ -35,6 +36,8 @@ const PowermateOrderDetails: FC<{ mode: 'desktop' | 'mobile'; details: OrderDeta
 
 const PowermateOrder: FC = () => {
     const dispatch = useAppDispatch()
+
+    const { isMobile } = useInlineStyles()
 
     const { getRate, addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { products, additionalProducts } = useAppSelector(fetchProducts)
@@ -141,7 +144,7 @@ const PowermateOrder: FC = () => {
                                             >
                                                 Order Now
                                             </button>
-                                            <PowermateOrderDetails mode="desktop" {...{details}} />
+                                            {!isMobile && <PowermateOrderDetails {...{details}} />}
                                         </div>
                                         {additionals && (<>                                            
                                             {additionals.map(({ id, title, price, models }) => {
@@ -165,7 +168,7 @@ const PowermateOrder: FC = () => {
                                                 )
                                             })}
                                         </>)}
-                                        <PowermateOrderDetails mode="mobile" {...{details}} />
+                                        {isMobile && <PowermateOrderDetails {...{details}} />}
                                     </div>
                                 </div>
                             ))}

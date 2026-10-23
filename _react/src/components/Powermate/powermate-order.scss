@@ -78,7 +78,7 @@
         }
 
         &-data {
-            @extend %flex-column-end-start, %gap-16;
+            @extend %flex-column-start-end, %gap-16;
 		    @include responsive(padding, 0, 24px, 32px, 32px);
 
             &-info {
