@@ -23,7 +23,13 @@ export const checkCompatibility = createAsyncThunk(
 export const compatibilitySlice = createSlice({
     name: 'compatibility',
     initialState,
-    reducers: {},
+    reducers: {
+        clearCompatibility: (state) => {
+            state.checkingCompleted = false
+            state.proceed = null
+            state.checkingError = null
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(checkCompatibility.pending, (state) => {
@@ -46,4 +52,5 @@ export const compatibilitySlice = createSlice({
     }
 })
 
+export const { clearCompatibility } = compatibilitySlice.actions
 export default compatibilitySlice

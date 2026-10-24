@@ -27,7 +27,7 @@ const compatibilitySchema = yup.object<Record<keyof CompatibilityPayload, typeof
 const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCompleted }) => {
     const dispatch = useAppDispatch()
 
-    const { checkCompatibility } = useDynamicSlice('compatibility', () => import('../../../redux/slices/compatibility'))
+    const { checkCompatibility, clearCompatibility } = useDynamicSlice('compatibility', () => import('../../../redux/slices/compatibility'))
     const { loading, checkingCompleted, proceed, error, checkingError } = useAppSelector(fetchCompatibility)
 
     const wrap = useRef<PopupRefProps>(null)
@@ -74,8 +74,9 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCom
             } else {
                 if (proceed !== undefined && proceed !== null) onCompleted(proceed)
             }
+            dispatch(clearCompatibility())
         }
-    }, [checkingCompleted, proceed, checkingError, onCompleted])
+    }, [checkingCompleted, proceed, checkingError, onCompleted, clearCompatibility])
 
     return (
         <PopupWrap

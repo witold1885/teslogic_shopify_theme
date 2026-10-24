@@ -44,6 +44,13 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
     </div>
 )
 
+const defaultResultPopupData: CompatibilityResultPopupData = {
+    type: 'default',
+    title: '',
+    texts: [],
+    buttons: []
+}
+
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
 const PowermateOrder: FC = () => {
@@ -150,6 +157,8 @@ const PowermateOrder: FC = () => {
         setWarningPopupOpen(false)
     }, [selectedProductId, handleOrder])
 
+    const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(defaultResultPopupData)
+
     const handleBoostOrder = useCallback(() => {
         const boostProductId = orderItems.find(({ title }) => title.includes('Boost'))?.id || null
         if (boostProductId) {
@@ -157,6 +166,7 @@ const PowermateOrder: FC = () => {
         }
         setSelectedProductId(undefined)
         setResultPopupOpen(false)
+        setResultPopupData(defaultResultPopupData)
     }, [orderItems, handleOrder])
 
     const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
@@ -166,12 +176,7 @@ const PowermateOrder: FC = () => {
         CompatibilityResultPopupData['type'],
         CompatibilityResultPopupData
     > = useMemo(() => ({
-        default: {
-            type: 'default',
-            title: '',
-            texts: [],
-            buttons: []
-        },
+        default: defaultResultPopupData,
         success: {
             type: 'success',
             title: 'Manual check',
@@ -194,8 +199,6 @@ const PowermateOrder: FC = () => {
             buttons: [closeButton, orderButton]
         }
     }), [closeButton, orderButton])
-
-    const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(compatibilityCheckingResultVariants.default)
 
     const onCompleted = (proceed: boolean) => {
         setCheckPopupOpen(false)
