@@ -6,7 +6,7 @@ export const checkCompatibility = createAsyncThunk(
     'compatibility/checkCompatibility',
     async (data: CompatibilityPayload, { rejectWithValue }) => {
         const { default: api } = await import('../api')
-        const result = await api.post<CompatibilityResponse>('/mail/check-compatibility', data)
+        const result = await api.post<CompatibilityResponse>('mail/check-compatibility', data)
 
         console.log({ result })
 

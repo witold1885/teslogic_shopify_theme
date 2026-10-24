@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, type FC } from 'react'
+import { useState, useRef, useMemo, useCallback, type FC, type ChangeEvent } from 'react'
 import './powermate-compatibility-dialog.scss'
 import * as yup from 'yup'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
@@ -26,7 +26,6 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
 
     const { checkCompatibility } = useDynamicSlice('compatibility', () => import('../../../redux/slices/compatibility'))
 
-
     const wrap = useRef<PopupRefProps>(null)
 
     const [data, setData] = useState<CompatibilityPayload>({ vin: '', email: '' })
@@ -37,7 +36,12 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
         email: { label: 'E-mail:', type: 'text', placeholder: 'John.smith@example.com', value: data.email, error: errors.email},
     }), [data, errors])
 
-    const validateForm = async (formData: CompatibilityPayload) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>, name: keyof CompatibilityPayload) => {
+        setData(prev => ({ ...prev, [name]: e.target.value }))
+        setErrors(prev => ({ ...prev, [name]: null }))
+    }
+
+    const validateForm = useCallback(async (formData: CompatibilityPayload) => {
         try {
             await compatibilitySchema.validate(formData, { abortEarly: false })
             return true
@@ -48,14 +52,14 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
             })
             return false
         }
-    }
+    }, [errors])
 
-    const onSubmit = async () => {
+    const handleSubmit = useCallback(async () => {
         const formValid = await validateForm(data)
         if (formValid) {
             dispatch(checkCompatibility(data))
         }
-    }
+    }, [data, validateForm, dispatch, checkCompatibility])
 
     return (
         <PopupWrap
@@ -79,14 +83,14 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose }) => 
                         <input
                             id={`compatibility-${name}`}
                             {...{name, type, placeholder, value}}
-                            onChange={(e) => setData(prev => ({ ...prev, [name]: e.target.value }))}
+                            onChange={(e) => handleInputChange(e, name as keyof CompatibilityPayload)}
                         />
                         {error && <div className="compatibility-check-dialog-field-error">Wrong input</div>}
                     </div>
                 ))}
             </div>
             <div className="compatibility-check-dialog-submit">
-                <button type="button" className="compatibility-check-dialog-button" onClick={onSubmit}>
+                <button type="button" className="compatibility-check-dialog-button" onClick={handleSubmit}>
                     <span className="ready">Send Request</span>
                     <span className="loading">
                         <span>Loading</span>
