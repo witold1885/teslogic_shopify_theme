@@ -159,15 +159,16 @@ const PowermateOrder: FC = () => {
 
     const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(defaultResultPopupData)
 
+    const boostProduct = useMemo(() => orderItems.find(({ title }) => title.includes('Boost')), [orderItems])
+
     const handleBoostOrder = useCallback(() => {
-        const boostProductId = orderItems.find(({ title }) => title.includes('Boost'))?.id || null
-        if (boostProductId) {
-            handleOrder(boostProductId)
+        if (boostProduct?.id) {
+            handleOrder(boostProduct.id)
         }
         setSelectedProductId(undefined)
         setResultPopupOpen(false)
         setResultPopupData(defaultResultPopupData)
-    }, [orderItems, handleOrder])
+    }, [boostProduct, handleOrder])
 
     const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
     const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: handleBoostOrder }), [handleBoostOrder])
@@ -180,13 +181,11 @@ const PowermateOrder: FC = () => {
         success: {
             type: 'success',
             title: 'Manual check',
-            texts: [
-                <>
-                    Thank you for the information provided, <br />
-                    we will check compatibility and send you <br />
-                    a response within 2 working days.
-                </>
-            ],
+            texts: [<>
+                Thank you for the information provided, <br />
+                we will check compatibility and send you <br />
+                a response within 2 working days.
+            </>],
             buttons: [closeButton]
         },
         warning: {
@@ -194,11 +193,11 @@ const PowermateOrder: FC = () => {
             title: 'Automatic check',
             texts: [
                 <>The Performance version is not compatible with <br />your car, but the Boost is suitable.</>,
-                <>You can order it now at the presale price of $790</>
+                ...(boostProduct ? [<>You can order it now at the presale price of {showCurrency}{boostProduct.price.toFixed(0)}</>] : [])
             ],
             buttons: [closeButton, orderButton]
         }
-    }), [closeButton, orderButton])
+    }), [boostProduct, showCurrency, closeButton, orderButton])
 
     const onCompleted = (proceed: boolean) => {
         setCheckPopupOpen(false)
