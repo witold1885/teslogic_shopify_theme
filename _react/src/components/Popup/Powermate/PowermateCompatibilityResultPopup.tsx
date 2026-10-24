@@ -29,16 +29,18 @@ const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ 
             <div className="compatibility-dialog-texts">
                 {texts.map((text, ti) => <div key={ti}>{text}</div>)}
             </div>
-            {buttons.map(({ slug, text, onClick }) => (
-  		        <button
-                    key={slug}
-                    type="button"
-                    className={`compatibility-${type}-dialog-button compatibility-${type}-dialog-button-${slug}`}
-                    onClick={onClick}
-                >
-                    {text}
-                </button>
-            ))}
+  	        <div className={`compatibility-${type}-dialog-buttons`}>
+                {buttons.map(({ slug, text, onClick }) => (
+                    <button
+                        key={slug}
+                        type="button"
+                        className={`compatibility-${type}-dialog-button compatibility-${type}-dialog-button-${slug}`}
+                        onClick={onClick}
+                    >
+                        {text}
+                    </button>
+                ))}
+            </div>
         </PopupWrap>
     )
 }
