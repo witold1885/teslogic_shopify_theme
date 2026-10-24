@@ -110,6 +110,17 @@
             @include text(16px, 20px);
             font-feature-settings: 'clig' off, 'liga' off;
         }
+
+        &-error {
+
+            & > div {
+                border: 1px solid #FC3E30;
+            }
+
+            & > label {
+                color: #FC3E30;
+            }
+        }
 	}
 }
 

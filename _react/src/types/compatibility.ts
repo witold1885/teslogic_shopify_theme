@@ -5,5 +5,6 @@ export type CompatibilityPayload = {
 
 export interface CompatibilityResponse {
     success: boolean
-    message?: string
+    proceed?: boolean
+    error?: string
 }
