@@ -11,8 +11,7 @@ import loader from '../../../assets/icons/blue-loader.svg'
 interface PopupProps {
     open: boolean
     onClose: () => void
-    onChecked: () => void
-    onFailed: () => void
+    onCompleted: (proceed: boolean) => void
 }
 
 type CompatibilityPayload = { vin: string; email: string; agree: boolean }
@@ -25,7 +24,7 @@ const compatibilitySchema = yup.object<Record<keyof CompatibilityPayload, typeof
     agree: yup.boolean().oneOf([true])
 }).required()
 
-const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onChecked, onFailed }) => {
+const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCompleted }) => {
     const dispatch = useAppDispatch()
 
     const { checkCompatibility } = useDynamicSlice('compatibility', () => import('../../../redux/slices/compatibility'))
@@ -73,11 +72,10 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onChe
                     setErrors(prev => ({ ...prev, vin: 'VIN is wrong' }))
                 }
             } else {
-                if (proceed) onChecked()
-                else onFailed()
+                if (proceed !== undefined && proceed !== null) onCompleted(proceed)
             }
         }
-    }, [checkingCompleted, proceed, checkingError])
+    }, [checkingCompleted, proceed, checkingError, onCompleted])
 
     return (
         <PopupWrap

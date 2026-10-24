@@ -149,6 +149,11 @@ const PowermateOrder: FC = () => {
         setWarningPopupOpen(false)
     }, [selectedProductId])
 
+    const onCompleted = (proceed: boolean) => {
+        setCheckPopupOpen(false)
+        console.log({ proceed })
+    }
+
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
             window.open(`${shopifyUrl}/cart`, '_blank')
@@ -234,7 +239,7 @@ const PowermateOrder: FC = () => {
         <PowermateCompatibilityCheckPopup
             open={checkPopupOpen}
             onClose={() => setCheckPopupOpen(false)}
-
+            onCompleted={onCompleted}
         />
     </>)
 }
