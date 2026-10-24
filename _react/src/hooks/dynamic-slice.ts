@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useStore } from 'react-redux'
-import { rootReducer } from '../redux/store'
+import { rootReducer, type RootState } from '../redux/store'
 
 
 const NO_OP_ACTION = { type: '@@DYNAMIC_SLICE/NO_OP' }
@@ -13,10 +13,8 @@ const NO_OP_PROXY = new Proxy({}, {
     }
 })
 
-type Slice = 'content' | 'products' | 'order' | 'reviews' | 'subscribe'
-
 export const useDynamicSlice = (
-    sliceName: Slice,
+    sliceName: keyof RootState,
     importFn: () => any,
     condition: boolean = true
 ): any => {

@@ -1,7 +1,7 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit'
 import contentReducer from './slices/content'
 import productsReducer from './slices/products'
-import type { ContentState, OrderState, PartnerState, ProductsState, ReviewsState, SubscribeState } from './states'
+import type { ContentState, OrderState, PartnerState, ProductsState, ReviewsState, SubscribeState, CompatibilityState } from './states'
 
 const getInitialState = () => {
   const data: Window['ShopifyReactData'] = typeof window !== 'undefined' ? window.ShopifyReactData : null
@@ -38,6 +38,7 @@ export type RootState = {
   products: ProductsState
   reviews: ReviewsState
   subscribe: SubscribeState
+  compatibility: CompatibilityState
 }
 export type AppDispatch = typeof store.dispatch
 
