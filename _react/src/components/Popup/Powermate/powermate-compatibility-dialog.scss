@@ -197,7 +197,7 @@
             }
         }
 
-        &-preorder {
+        &-order {
             @extend %font-500;
             @include responsive(padding, 20px);
             background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);

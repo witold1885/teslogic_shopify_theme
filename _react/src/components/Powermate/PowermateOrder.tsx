@@ -148,11 +148,19 @@ const PowermateOrder: FC = () => {
         }
         setSelectedProductId(undefined)
         setWarningPopupOpen(false)
+    }, [selectedProductId, handleOrder])
+
+    const handleBoostOrder = useCallback(() => {
+        const boostProductId = orderItems.find(({ title }) => title.includes('Boost'))?.id || null
+        if (boostProductId) {
+            handleOrder(boostProductId)
+        }
+        setSelectedProductId(undefined)
         setResultPopupOpen(false)
-    }, [selectedProductId])
+    }, [orderItems, handleOrder])
 
     const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
-    const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: handleConfirm }), [handleConfirm])
+    const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: handleBoostOrder }), [handleBoostOrder])
 
     const compatibilityCheckingResultVariants: Record<
         CompatibilityResultPopupData['type'],
