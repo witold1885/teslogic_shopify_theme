@@ -4,6 +4,9 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
+import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
+import PowermateCompatibilityCheckPopup from '../Popup/Powermate/PowermateCompatibilityCheckPopup'
+import PowermateCompatibilityResultPopup, { type CompatibilityResultPopupData } from '../Popup/Powermate/PowermateCompatibilityResultPopup'
 import Icon from '../Common/Icon'
 import Image from '../Common/Image'
 import shipping from '../../assets/icons/powermate/order/pro_order_free_shipping.svg'
@@ -12,8 +15,6 @@ import noTax from '../../assets/icons/powermate/order/pro_order_no_tax.svg'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
-import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
-import PowermateCompatibilityCheckPopup from '../Popup/Powermate/PowermateCompatibilityCheckPopup'
 
 interface OrderItem {
     id?: number
@@ -114,7 +115,7 @@ const PowermateOrder: FC = () => {
 
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
     const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
-    // const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
+    const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [selectedProductId, setSelectedProductId] = useState<number | undefined>(undefined)
 
     const handleOrder = useCallback((productId: number) => {
@@ -147,11 +148,52 @@ const PowermateOrder: FC = () => {
         }
         setSelectedProductId(undefined)
         setWarningPopupOpen(false)
+        setResultPopupOpen(false)
     }, [selectedProductId])
+
+    const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
+    const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: handleConfirm }), [handleConfirm])
+
+    const compatibilityCheckingResultVariants: Record<
+        CompatibilityResultPopupData['type'],
+        CompatibilityResultPopupData
+    > = useMemo(() => ({
+        default: {
+            type: 'default',
+            title: '',
+            texts: [],
+            buttons: []
+        },
+        success: {
+            type: 'success',
+            title: 'Manual check',
+            texts: [
+                <>
+                    Thank you for the information provided, <br />
+                    we will check compatibility and send you <br />
+                    a response within 2 working days.
+                </>
+            ],
+            buttons: [closeButton]
+        },
+        warning: {
+            type: 'warning',
+            title: 'Automatic check',
+            texts: [
+                <>The Performance version is not compatible with <br />your car, but the Boost is suitable.</>,
+                <>You can order it now at the presale price of $790</>
+            ],
+            buttons: [closeButton, orderButton]
+        }
+    }), [closeButton, orderButton])
+
+    const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(compatibilityCheckingResultVariants.default)
 
     const onCompleted = (proceed: boolean) => {
         setCheckPopupOpen(false)
-        console.log({ proceed })
+        const type: CompatibilityResultPopupData['type'] = proceed ? 'success' : 'warning'
+        setResultPopupData(compatibilityCheckingResultVariants[type])
+        setResultPopupOpen(true)
     }
 
     useEffect(() => {
@@ -240,6 +282,11 @@ const PowermateOrder: FC = () => {
             open={checkPopupOpen}
             onClose={() => setCheckPopupOpen(false)}
             onCompleted={onCompleted}
+        />
+        <PowermateCompatibilityResultPopup
+            open={resultPopupOpen}
+            onClose={() => setResultPopupOpen(false)}
+            {...resultPopupData}
         />
     </>)
 }
