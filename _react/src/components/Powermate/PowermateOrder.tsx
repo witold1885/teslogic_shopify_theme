@@ -193,7 +193,7 @@ const PowermateOrder: FC = () => {
             title: 'Automatic check',
             texts: [
                 <>The Performance version is not compatible with <br />your car, but the Boost is suitable.</>,
-                ...(boostProduct ? [<>You can order it now at the presale price of {showCurrency}{boostProduct.price.toFixed(0)}</>] : [])
+                ...(boostProduct ? [<>You can order it now at the presale price of {boostProduct.price.toFixed(0)} {showCurrency}</>] : [])
             ],
             buttons: [closeButton, orderButton]
         }
