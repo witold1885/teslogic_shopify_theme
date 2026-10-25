@@ -16,7 +16,7 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
     return (
         <PopupWrap
             ref={wrap}
-            className="compatibility-dialog order-dialog"
+            className="compatibility-dialog compatibility-warning-dialog"
             backgroundType="color"
             background="#171717"
             open={open}

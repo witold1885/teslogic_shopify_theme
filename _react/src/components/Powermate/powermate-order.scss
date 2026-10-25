@@ -252,26 +252,4 @@
             }
         }
 	}
-
-    &-dialog {
-        @extend %flex-column-between-start, %relative;
-        @include block(464px, 360px);
-		@include responsive(padding, 36px);
-		@include responsive(border-radius, 24px);
-
-        @include mobile() {
-            @include block(336px, 372px);
-		    @include responsive(padding, 24px);
-        }
-
-        &-texts {
-            @extend %flex-column, %gap-16, %font-manrope-18, %font-500;
-            @include responsive(margin-top, -12px);
-
-            @include mobile() {
-                @include text(16px, 20px);
-                @include responsive(margin-top, -4px);
-            }
-        }
-	}
 }

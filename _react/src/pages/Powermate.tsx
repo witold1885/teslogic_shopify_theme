@@ -80,8 +80,8 @@ const Powermate: FC = () => {
         warningPopupOpen, setWarningPopupOpen,
         checkPopupOpen, setCheckPopupOpen,
         resultPopupOpen, setResultPopupOpen,
-        handleWarning, handleCheck, handleConfirm, handleComplete,
-        resultPopupData
+        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
+        resultPopupType
     } = usePowermateCompatibilityPopups()
 
     return (<>
@@ -115,9 +115,10 @@ const Powermate: FC = () => {
             onCompleted={handleComplete}
         />
         <PowermateCompatibilityResultPopup
+            type={resultPopupType}
             open={resultPopupOpen}
             onClose={() => setResultPopupOpen(false)}
-            {...resultPopupData}
+            onBoostOrder={handleBoostOrder}
         />
     </>)
 }
