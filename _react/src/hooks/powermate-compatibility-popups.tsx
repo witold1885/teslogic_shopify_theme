@@ -1,8 +1,8 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useRef, useMemo, useCallback } from 'react'
 import { useAppSelector } from '../redux/hooks'
 import { fetchProducts } from '../redux/selectors/products'
-import type { CompatibilityResultPopupData } from '../components/Popup/Powermate/PowermateCompatibilityResultPopup'
 import { fetchContent } from '../redux/selectors/content'
+import type { CompatibilityResultPopupData } from '../components/Popup/Powermate/PowermateCompatibilityResultPopup'
 
 const defaultResultPopupData: CompatibilityResultPopupData = {
     type: 'default',
@@ -17,10 +17,11 @@ export const usePowermateCompatibilityPopups = () => {
 
     const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
 
+    const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
+    const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)
+
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
     const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
-    const [confirmCallback, setConfirmCallback] = useState<() => void>()
-    const [boostOrderCallback, setBoostOrderCallback] = useState<() => void>()
     const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(defaultResultPopupData)
 
@@ -28,10 +29,10 @@ export const usePowermateCompatibilityPopups = () => {
 
     const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
     const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: () => {
-        boostOrderCallback?.()
+        boostOrderCallbackRef.current?.()
         setResultPopupOpen(false)
         setResultPopupData(defaultResultPopupData)
-    }}), [boostOrderCallback])
+    }}), [])
 
     const compatibilityCheckingResultVariants: Record<CompatibilityResultPopupData['type'], CompatibilityResultPopupData> = useMemo(() => ({
         default: defaultResultPopupData,
@@ -58,22 +59,20 @@ export const usePowermateCompatibilityPopups = () => {
 
     const handleWarning = useCallback((confirmCallback?: () => void, boostOrderCallback?: () => void) => {
         setWarningPopupOpen(true)
-        setConfirmCallback(() => confirmCallback?.())
-        setBoostOrderCallback(() => boostOrderCallback?.())
+        confirmCallbackRef.current = confirmCallback
+        boostOrderCallbackRef.current = boostOrderCallback
     }, [])
 
     const handleCheck = useCallback((boostOrderCallback?: () => void) => {
         setWarningPopupOpen(false)
         setCheckPopupOpen(true)
-        setBoostOrderCallback(() => boostOrderCallback?.())
+        boostOrderCallbackRef.current = boostOrderCallback
     }, [])
 
     const handleConfirm = useCallback(() => {
-        if (confirmCallback) {
-            confirmCallback()
-        }
+        confirmCallbackRef.current?.()
         setWarningPopupOpen(false)
-    }, [confirmCallback])
+    }, [])
 
     const handleComplete = useCallback((proceed: boolean) => {
         setCheckPopupOpen(false)

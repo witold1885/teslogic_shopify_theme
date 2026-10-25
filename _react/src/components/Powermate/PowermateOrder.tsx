@@ -136,7 +136,7 @@ const PowermateOrder: FC<{
             handleOrder(boostProduct.id)
         }
         setSelectedProductId(undefined)
-    }, [])
+    }, [boostProduct, handleOrder])
 
     const handleSubmit = useCallback((productId: number | undefined, needCheck: boolean) => {
         if (productId) {
