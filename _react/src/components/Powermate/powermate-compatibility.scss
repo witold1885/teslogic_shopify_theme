@@ -58,6 +58,7 @@
             @include responsive(width, 416px);
 
             @include mobile() {
+                flex: unset;
                 @include block(350px, 336px);
                 @include responsive(gap, 24px);
             }

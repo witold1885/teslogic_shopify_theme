@@ -4,9 +4,6 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
-import PowermateCompatibilityWarningPopup from '../Popup/Powermate/PowermateCompatibilityWarningPopup'
-import PowermateCompatibilityCheckPopup from '../Popup/Powermate/PowermateCompatibilityCheckPopup'
-import PowermateCompatibilityResultPopup, { type CompatibilityResultPopupData } from '../Popup/Powermate/PowermateCompatibilityResultPopup'
 import Icon from '../Common/Icon'
 import Image from '../Common/Image'
 import shipping from '../../assets/icons/powermate/order/pro_order_free_shipping.svg'
@@ -44,16 +41,11 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
     </div>
 )
 
-const defaultResultPopupData: CompatibilityResultPopupData = {
-    type: 'default',
-    title: '',
-    texts: [],
-    buttons: []
-}
-
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const PowermateOrder: FC = () => {
+const PowermateOrder: FC<{
+    onCompatibilityWarning: (confirmCallback?: () => void, orderCallback?: () => void) => void
+}> = ({ onCompatibilityWarning }) => {
     const dispatch = useAppDispatch()
 
     const { isMobile } = useInlineStyles()
@@ -83,6 +75,8 @@ const PowermateOrder: FC = () => {
         oldPrice: (oldPrice || 0) * coef,
         needCheck: title.includes('Performance')
     })) || []).filter(({ id }) => !!id), [products, coef])
+
+    const boostProduct = useMemo(() => orderItems.find(({ title }) => title.includes('Boost')), [orderItems])
     
     const tax: number = useMemo(() => country?.vat_percent || 20, [country])
 
@@ -120,9 +114,6 @@ const PowermateOrder: FC = () => {
         { icon: noTax, text: <><span>Duties & taxes</span> included in most countries*</> },
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
-    const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
-    const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
-    const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [selectedProductId, setSelectedProductId] = useState<number | undefined>(undefined)
 
     const handleOrder = useCallback((productId: number) => {
@@ -133,78 +124,30 @@ const PowermateOrder: FC = () => {
         dispatch(addToCart({ items }))
     }, [selectedAdditionals, dispatch, addToCart])
 
+    const confirmCallback = useCallback(() => {
+        if (selectedProductId) {
+            handleOrder(selectedProductId)
+        }
+        setSelectedProductId(undefined)
+    }, [selectedProductId, handleOrder])
+
+    const orderCallback = useCallback(() => {
+        if (boostProduct?.id) {
+            handleOrder(boostProduct.id)
+        }
+        setSelectedProductId(undefined)
+    }, [])
+
     const handleSubmit = useCallback((productId: number | undefined, needCheck: boolean) => {
         if (productId) {
             if (needCheck) {
-                setWarningPopupOpen(true)
+                onCompatibilityWarning(confirmCallback, orderCallback)
                 setSelectedProductId(productId)
             } else {
                 handleOrder(productId)
             }
         }
-    }, [handleOrder])
-
-    const handleCheck = useCallback(() => {
-        setWarningPopupOpen(false)
-        setCheckPopupOpen(true)
-    }, [])
-
-    const handleConfirm = useCallback(() => {
-        if (selectedProductId) {
-            handleOrder(selectedProductId)
-        }
-        setSelectedProductId(undefined)
-        setWarningPopupOpen(false)
-    }, [selectedProductId, handleOrder])
-
-    const [resultPopupData, setResultPopupData] = useState<CompatibilityResultPopupData>(defaultResultPopupData)
-
-    const boostProduct = useMemo(() => orderItems.find(({ title }) => title.includes('Boost')), [orderItems])
-
-    const handleBoostOrder = useCallback(() => {
-        if (boostProduct?.id) {
-            handleOrder(boostProduct.id)
-        }
-        setSelectedProductId(undefined)
-        setResultPopupOpen(false)
-        setResultPopupData(defaultResultPopupData)
-    }, [boostProduct, handleOrder])
-
-    const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: () => setResultPopupOpen(false) }), [])
-    const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: handleBoostOrder }), [handleBoostOrder])
-
-    const compatibilityCheckingResultVariants: Record<
-        CompatibilityResultPopupData['type'],
-        CompatibilityResultPopupData
-    > = useMemo(() => ({
-        default: defaultResultPopupData,
-        success: {
-            type: 'success',
-            title: 'Manual check',
-            texts: [<>
-                Thank you for the information provided, <br />
-                we will check compatibility and send you <br />
-                a response within 2 working days.
-            </>],
-            buttons: [closeButton]
-        },
-        warning: {
-            type: 'warning',
-            title: 'Automatic check',
-            texts: [
-                <>The Performance version is not compatible with <br />your car, but the Boost is suitable.</>,
-                ...(boostProduct ? [<>You can order it now at the presale price of {boostProduct.price.toFixed(0)} {showCurrency}</>] : [])
-            ],
-            buttons: [closeButton, orderButton]
-        }
-    }), [boostProduct, showCurrency, closeButton, orderButton])
-
-    const onCompleted = (proceed: boolean) => {
-        setCheckPopupOpen(false)
-        const type: CompatibilityResultPopupData['type'] = proceed ? 'success' : 'warning'
-        setResultPopupData(compatibilityCheckingResultVariants[type])
-        setResultPopupOpen(true)
-    }
+    }, [onCompatibilityWarning, confirmCallback, orderCallback, handleOrder])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -282,22 +225,6 @@ const PowermateOrder: FC = () => {
                 </div>
             </div>
         </div>
-        <PowermateCompatibilityWarningPopup
-            open={warningPopupOpen}
-            onClose={() => setWarningPopupOpen(false)}
-            onCheck={handleCheck}
-            onConfirm={handleConfirm}
-        />
-        <PowermateCompatibilityCheckPopup
-            open={checkPopupOpen}
-            onClose={() => setCheckPopupOpen(false)}
-            onCompleted={onCompleted}
-        />
-        <PowermateCompatibilityResultPopup
-            open={resultPopupOpen}
-            onClose={() => setResultPopupOpen(false)}
-            {...resultPopupData}
-        />
     </>)
 }
 

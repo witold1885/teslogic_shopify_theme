@@ -31,7 +31,7 @@ const compatibilityBlocks: Record<string, CompatibilityBlock> = {
     }
 }
 
-const PowermateCompatibility: FC = () => {
+const PowermateCompatibility: FC<{ onCompatibilityCheck: () => void }> = ({ onCompatibilityCheck }) => {
     return (
         <div className="compatibility-wrap">
             <div className="compatibility" id="compatibility">
@@ -61,11 +61,11 @@ const PowermateCompatibility: FC = () => {
                                 Performance version can <br className="mobile" />be installed in your vehicle.						
                             </div>
                         </div>
-                        <button type="button" className="compatibility-check-button">
+                        <button type="button" className="compatibility-check-button" onClick={onCompatibilityCheck}>
                             <span className="compatibility-check-button-text-desktop">Check Performance Compatibility</span>
                             <span className="compatibility-check-button-text-mobile">Check Compatibility</span>
                         </button>
-                    </div>                    
+                    </div>
                 </div>                
             </div>
         </div>

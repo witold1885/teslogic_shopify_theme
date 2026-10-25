@@ -12,6 +12,10 @@ import bannerMobile from '../assets/images/powermate/banner_mobile.png'
 
 import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
+import PowermateCompatibilityWarningPopup from '../components/Popup/Powermate/PowermateCompatibilityWarningPopup'
+import PowermateCompatibilityCheckPopup from '../components/Popup/Powermate/PowermateCompatibilityCheckPopup'
+import PowermateCompatibilityResultPopup from '../components/Popup/Powermate/PowermateCompatibilityResultPopup'
+import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"
@@ -27,7 +31,7 @@ const preloadImages: PreloadImage[] = [
     { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
 ]
 
-const slugs: string[] = ['Experience', 'Using', 'Examples', 'Comparison', 'Compatibility']
+const slugs: string[] = ['Experience', 'Using', 'Examples', 'Comparison']
 const sectionHeights: Record<string, any> = {
     Experience: { desktop: 970, mobile: 1516 },
     Using: { desktop: 774, mobile: 1702 },
@@ -42,6 +46,7 @@ const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) =>
   return acc
 }, {} as Record<string, ComponentType<any>>)
 
+const PowermateCompatibility = getComponent(() => import('../components/Powermate/PowermateCompatibility.tsx'))
 const PowermateOrder = getComponent(() => import('../components/Powermate/PowermateOrder.tsx'))
 const PowermateInfo = getComponent(() => import('../components/Powermate/PowermateInfo.tsx'))
 
@@ -70,7 +75,15 @@ const Powermate: FC = () => {
                 : undefined
     }, [mode])
 
-    return (
+    const {
+        warningPopupOpen, setWarningPopupOpen,
+        checkPopupOpen, setCheckPopupOpen,
+        resultPopupOpen, setResultPopupOpen,
+        handleWarning, handleCheck, handleConfirm, handleComplete,
+        resultPopupData
+    } = usePowermateCompatibilityPopups()
+
+    return (<>
         <ProductLayout className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktop, bannerMobile}} onOrder={onOrder} />
             {Object.entries(sections).map(([slug, Component]) => (
@@ -78,14 +91,34 @@ const Powermate: FC = () => {
                     <Component />
                 </LazySection>
             ))}
+            <LazySection minHeight={getMinHeight('Compatibility')}>
+                <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
+            </LazySection>
             <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
-                <PowermateOrder />
+                <PowermateOrder onCompatibilityWarning={handleWarning} />
             </LazySection>
             <LazySection minHeight={getMinHeight('Info')}>
                 <PowermateInfo />
             </LazySection>
         </ProductLayout>
-    )
+
+        <PowermateCompatibilityWarningPopup
+            open={warningPopupOpen}
+            onClose={() => setWarningPopupOpen(false)}
+            onCheck={handleCheck}
+            onConfirm={handleConfirm}
+        />
+        <PowermateCompatibilityCheckPopup
+            open={checkPopupOpen}
+            onClose={() => setCheckPopupOpen(false)}
+            onCompleted={handleComplete}
+        />
+        <PowermateCompatibilityResultPopup
+            open={resultPopupOpen}
+            onClose={() => setResultPopupOpen(false)}
+            {...resultPopupData}
+        />
+    </>)
 }
 
 mountForShopify('react-powermate-root', Powermate)

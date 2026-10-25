@@ -10,23 +10,41 @@
     @include responsive(border-radius, 24px);
     @include responsive(padding, 36px);
 
+    @include mobile() {
+        @include responsive(width, 350px);
+        @include responsive(padding, 24px, 24px, 32px);
+    }
+
 	&-close {
         @extend %absolute, %cursor-pointer;
         @include square(20px);
 		@include responsive(top, 16px);
 		@include responsive(right, 16px);
+
+        @include mobile() {
+            @include responsive(top, 20px);
+            @include responsive(right, 20px);
+        }
 	}
 
 	&-title {
         @extend %font-manrope, %font-500;
         @include text(32px, 40px);
+
+        @include mobile() {
+            @include text(24px, 32px);
+        }
 	}
 
 	&-texts {
-        @extend %flex-column, %gap-20, %font-manrope;
+        @extend %flex-column, %gap-20, %mob\:gap-16, %font-manrope;
 		@include responsive(margin-top, -6px);
         @include text(16px, 20px);
 		font-feature-settings: 'clig' off, 'liga' off;
+
+        @include mobile() {
+		    @include responsive(margin-top, -4px);
+        }
 	}
 }
 
@@ -140,11 +158,21 @@
 		background-blend-mode: color-dodge, normal;
 		color: #0E54FD;
 
+        @include mobile() {
+            @include responsive(height, 58px);
+		    @include responsive(padding, 14px, 40px);
+		    @include responsive(border-radius, 24px);
+        }
+
         &:not(:disabled):hover {
 		    @include responsive(padding, 23px, 43px);
             border: none;
             background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
             color: #FFF;
+
+            @include mobile() {
+                @include responsive(padding, 17px, 43px);
+            }
         }        
 
         & .loading {
@@ -172,7 +200,7 @@
     @include responsive(height, 360px);
 
 	&-buttons {
-        @extend %w-full, %flex-between-center;
+        @extend %w-full, %flex-between-center, %mob\:flex-column, %mob\:gap-12;
 	}
 
 	&-button {
@@ -188,12 +216,20 @@
             background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
             background-blend-mode: color-dodge, normal;
             color: #0E54FD;
+
+            @include mobile() {
+                @include responsive(padding, 11px, 28px);
+            }
         
             &:hover {
                 @include responsive(padding, 20px, 23px);
                 border: none;
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                 color: #FFF;
+
+                @include mobile() {
+                    @include responsive(padding, 14px, 31px);
+                }
             }
         }
 
@@ -202,6 +238,10 @@
             @include responsive(padding, 20px);
             background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(8px);
+
+            @include mobile() {
+                @include responsive(padding, 14px, 28px);
+            }
 
             &:hover {
                 background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
