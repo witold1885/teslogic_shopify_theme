@@ -114,8 +114,6 @@ const PowermateOrder: FC<{
         { icon: noTax, text: <><span>Duties & taxes</span> included in most countries*</> },
     ].filter(({ icon, text }) => !!icon && !!text), [country])
 
-    const [selectedProductId, setSelectedProductId] = useState<number | undefined>(undefined)
-
     const handleOrder = useCallback((productId: number) => {
         const items = [
             { id: productId, quantity: 1 },
@@ -124,30 +122,24 @@ const PowermateOrder: FC<{
         dispatch(addToCart({ items }))
     }, [selectedAdditionals, dispatch, addToCart])
 
-    const confirmCallback = useCallback(() => {
-        if (selectedProductId) {
-            handleOrder(selectedProductId)
+    const compatibilityCallback = useCallback((productId: number | undefined) => {
+        if (productId) {
+            handleOrder(productId)
         }
-        setSelectedProductId(undefined)
-    }, [selectedProductId, handleOrder])
-
-    const boostOrderCallback = useCallback(() => {
-        if (boostProduct?.id) {
-            handleOrder(boostProduct.id)
-        }
-        setSelectedProductId(undefined)
-    }, [boostProduct, handleOrder])
+    }, [handleOrder])
 
     const handleSubmit = useCallback((productId: number | undefined, needCheck: boolean) => {
         if (productId) {
             if (needCheck) {
-                onCompatibilityWarning(confirmCallback, boostOrderCallback)
-                setSelectedProductId(productId)
+                onCompatibilityWarning(
+                    () => compatibilityCallback(productId),
+                    () => compatibilityCallback(boostProduct?.id)
+                )
             } else {
                 handleOrder(productId)
             }
         }
-    }, [onCompatibilityWarning, confirmCallback, boostOrderCallback, handleOrder])
+    }, [onCompatibilityWarning, compatibilityCallback, boostProduct, handleOrder])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
