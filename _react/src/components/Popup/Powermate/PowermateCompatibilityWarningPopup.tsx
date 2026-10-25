@@ -16,7 +16,7 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
     return (
         <PopupWrap
             ref={wrap}
-            className="order-dialog"
+            className="compatibility-dialog order-dialog"
             backgroundType="color"
             background="#171717"
             open={open}
@@ -30,9 +30,9 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
                 <div>The Performance version is compatible <br />with a limited range of vehicles</div>
                 <div>To check the compatibility of your Tesla, <br />please provide the VIN number of your vehicle.</div>
             </div>
-            <div className="order-dialog-buttons">
-                <button type="button" className="order-dialog-button order-dialog-button-check" onClick={onCheck}>Check</button>
-                <button type="button" className="order-dialog-button order-dialog-button-preorder" onClick={onConfirm}>Order Now</button>
+            <div className="compatibility-dialog-buttons">
+                <button type="button" className="compatibility-dialog-button" onClick={onCheck}>Check</button>
+                <button type="button" className="compatibility-dialog-button" onClick={onConfirm}>Order Now</button>
             </div>
         </PopupWrap>
     )

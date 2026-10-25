@@ -108,7 +108,7 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCom
                 ))}
             </div>
             <div className="compatibility-check-dialog-submit">
-                <button type="button" className="compatibility-check-dialog-button" onClick={handleSubmit}>
+                <button type="button" className="compatibility-dialog-button" onClick={handleSubmit}>
                     {!loading ? (
                         <span className="ready">Send Request</span>
                     ) : (
