@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useMemo, useCallback, type FC } from 'react'
-import './powermate-compatibility-dialog.scss'
 import * as yup from 'yup'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { fetchCompatibility } from '../../../redux/selectors/compatibility'

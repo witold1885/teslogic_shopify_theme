@@ -1,21 +1,22 @@
 import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/powermate.scss'
+import '../components/Popup/Powermate/powermate-compatibility-dialog.scss'
 import { mountForShopify } from './mount'
+import { scrollToElementLazy } from '../utils/scroll'
+import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
+import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
 
-import bannerDesktop from '../assets/images/powermate/banner_desktop.png'
-import bannerMobile from '../assets/images/powermate/banner_mobile.png'
-
-import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
-import { scrollToElementLazy } from '../utils/scroll'
 import PowermateCompatibilityWarningPopup from '../components/Popup/Powermate/PowermateCompatibilityWarningPopup'
 import PowermateCompatibilityCheckPopup from '../components/Popup/Powermate/PowermateCompatibilityCheckPopup'
 import PowermateCompatibilityResultPopup from '../components/Popup/Powermate/PowermateCompatibilityResultPopup'
-import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups'
+
+import bannerDesktop from '../assets/images/powermate/banner_desktop.png'
+import bannerMobile from '../assets/images/powermate/banner_mobile.png'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"

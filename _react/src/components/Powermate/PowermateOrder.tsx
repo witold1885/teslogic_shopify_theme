@@ -44,7 +44,7 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
 const PowermateOrder: FC<{
-    onCompatibilityWarning: (confirmCallback?: () => void, orderCallback?: () => void) => void
+    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
 }> = ({ onCompatibilityWarning }) => {
     const dispatch = useAppDispatch()
 
@@ -131,7 +131,7 @@ const PowermateOrder: FC<{
         setSelectedProductId(undefined)
     }, [selectedProductId, handleOrder])
 
-    const orderCallback = useCallback(() => {
+    const boostOrderCallback = useCallback(() => {
         if (boostProduct?.id) {
             handleOrder(boostProduct.id)
         }
@@ -141,13 +141,13 @@ const PowermateOrder: FC<{
     const handleSubmit = useCallback((productId: number | undefined, needCheck: boolean) => {
         if (productId) {
             if (needCheck) {
-                onCompatibilityWarning(confirmCallback, orderCallback)
+                onCompatibilityWarning(confirmCallback, boostOrderCallback)
                 setSelectedProductId(productId)
             } else {
                 handleOrder(productId)
             }
         }
-    }, [onCompatibilityWarning, confirmCallback, orderCallback, handleOrder])
+    }, [onCompatibilityWarning, confirmCallback, boostOrderCallback, handleOrder])
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -155,7 +155,7 @@ const PowermateOrder: FC<{
         }
     }, [addedToCart])
 
-    return (<>
+    return (
         <div className="order-container">
             <div className="order-wrap">
                 <div id="pro-order" className="order">
@@ -225,7 +225,7 @@ const PowermateOrder: FC<{
                 </div>
             </div>
         </div>
-    </>)
+    )
 }
 
 export default PowermateOrder
