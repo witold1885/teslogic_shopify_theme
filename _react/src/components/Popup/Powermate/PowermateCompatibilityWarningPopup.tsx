@@ -22,11 +22,11 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
             open={open}
             onClose={onClose}
         >
-            <div className="order-dialog-title">
-                <Icon className="order-dialog-title-icon" icon={warning} />
-                <div className="order-dialog-title-text">Check Compatibility</div>
+            <div className="compatibility-dialog-title">
+                <Icon className="compatibility-dialog-title-icon" icon={warning} />
+                Check Compatibility
             </div>
-            <div className="order-dialog-texts">
+            <div className="compatibility-dialog-texts">
                 <div>The Performance version is compatible <br />with a limited range of vehicles</div>
                 <div>To check the compatibility of your Tesla, <br />please provide the VIN number of your vehicle.</div>
             </div>
