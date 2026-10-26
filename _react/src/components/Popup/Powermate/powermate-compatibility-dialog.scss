@@ -70,7 +70,9 @@
         &:first-child {
             @extend %font-700;
             @include responsive(padding, 17px);
-            border: 3px solid #0E54FD;
+            @include responsive(border-width, 3px);
+            border-style: solid;
+            border-color: #0E54FD;
             background: linear-gradient(0deg, #383838 0%, #383838 100%), rgba(0, 0, 0, 0.40);
             background-blend-mode: color-dodge, normal;
             color: #0E54FD;
