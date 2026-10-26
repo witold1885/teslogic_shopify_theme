@@ -47,7 +47,7 @@ const PowermateInfo: FC = () => {
         <div className="info-wrap">
             <div className="info">
                 {infoBlocks.map(({ title, icon, texts }, index) => (
-                    <div className="info-block">
+                    <div className="info-block" key={index}>
                         <div {...anime(`title-${index}`)} className="info-block-title">
                             {icon && <Icon className="info-block-title-icon" icon={icon} />}
                             <div className="info-block-title-text">{title}</div>				

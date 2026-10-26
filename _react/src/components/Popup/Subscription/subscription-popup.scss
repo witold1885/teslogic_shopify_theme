@@ -1,0 +1,228 @@
+@use '../../../assets/styles/flexbox' as flexbox;
+@use '../../../assets/styles/fonts' as fonts;
+@use '../../../assets/styles/layout' as layout;
+@use '../../../assets/styles/text' as text;
+@use '../../../assets/styles/mixins' as *;
+@use '../popup.scss';
+
+.subscription-popup, .selection-popup, .success-popup {
+    @extend %flex-column-between-center, %relative, %font-manrope, %text-white;
+
+    &-close {
+        @extend %flex-center, %absolute, %cursor-pointer;
+        @include square(24px);
+        @include responsive(top, 16px);
+        @include responsive(right, 16px);
+    }
+}
+
+.subscription-popup, .selection-popup {
+    @include responsive(width, 556px);
+    @include responsive(row-gap, 28px);
+
+    @include mobile() {
+        @include responsive(width, 336px);
+    }
+}
+
+.success-popup {
+    @include block(343px, 272px);
+    @include responsive(padding, 40px, 48px, 56px);
+
+    @include mobile() {
+        @include block(315px, 240px);
+        @include responsive(padding, 40px, 48px, 48px);
+    }
+}
+
+.subscription-popup {
+
+    &-video {
+        @extend %w-full, %h-full, %absolute, %inset;
+        z-index: -1;
+        @include responsive(border-radius, 40px);
+        object-fit: cover;
+    }
+
+    &-head {
+        @extend %flex-column-start-center, %gap-24;
+        @include responsive(padding, 36px, 36px, 0);
+
+        @include mobile() {
+            @include responsive(padding, 36px, 20px, 0);
+        }
+    }
+
+    &-logo {
+        @extend %flex-center;
+        @include block(131px, 12px);
+    }
+
+    &-info {
+        @extend %flex-column, %gap-12;
+
+        & > * {
+            @extend %text-center;
+        }
+    }
+
+    &-title {
+        @extend %font-manrope, %font-600;
+        @include text(32px, 40px);
+
+        @include mobile() {
+            @include text(24px, 32px);
+        }
+    }
+
+    &-subtitle {
+        @extend %font-manrope-18, %whitespace-nowrap;
+
+        @include mobile() {
+            @include text(16px, 20px);
+        }
+    }
+
+    &-form {
+        @extend %w-full, %flex-column, %gap-24;
+    }
+
+    &-fields {
+        @extend %flex-column, %gap-32;
+        @include responsive(padding, 0, 36px);
+
+        @include mobile() {
+            @include responsive(padding, 0, 20px);
+        }
+    }
+
+    &-field {
+        @extend %flex-column, %gap-8, %relative;
+
+        & label, & input, &-select {
+            @extend %font-manrope;
+            @include text(16px, 20px);
+        }
+
+        & input, &-select {
+            @extend %w-full;
+            @include responsive(padding, 16px);
+            @include responsive(border-radius, 6px);
+            border: 1px solid #D9D9D9;
+            background: transparent;
+        }
+
+        & input {
+
+            &:active, &:focus {
+                border: 1px solid #FFF;
+            }
+        }
+
+        &-select {
+            @extend %flex-between-center, %relative, %cursor-pointer;
+
+            &-arrow {
+                @extend %flex-center;
+                @include block(12px, 20px);
+            }
+
+            &-dropdown {
+                @extend %w-full, %flex-column, %gap-20, %absolute;
+                z-index: 1;
+                @include responsive(top, -1px);
+                @include responsive(left, -1px);
+                @include responsive(right, -1px);
+                @include responsive(padding, 16px, 16px, 20px, 16px);
+                @include responsive(border-radius, 6px);
+                border: 1px solid #B6B6B6;
+                background: #FFF;
+                box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
+
+                &-item {
+                    @extend %w-full, %flex-between-center, %font-manrope, %font-500, %text-black;
+                    @include text(16px, 20px);
+
+                    &:first-child {
+                        color: #B9B9B9;
+                    }
+
+                    &-selected {
+                        color: #1657FC;
+                    }
+                }
+            }
+        }
+
+        &-error {
+
+            & input, & .subscription-popup-field-select {
+                border: 1px solid #FC3E30;
+            }
+
+            &-message {
+                @extend %absolute, %font-manrope-14;
+                @include responsive(bottom, -22px);
+                color: #FC3E30;
+            }
+        }
+    }
+
+    &-checkbox {
+        @extend %flex-start-center, %gap-8;
+
+        & input {
+            background-image: url(../../../assets/icons/popup-checkbox-inactive.svg);
+
+            &:checked {
+                background-image: url(../../../assets/icons/popup-checkbox-active.svg);
+            }
+        }
+
+        & label {
+            @extend %font-manrope-14, %cursor-pointer;
+            color: #B9B9B9;
+
+            & a {
+                color: inherit !important;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: 3%;
+                text-underline-offset: 14%;
+                text-underline-position: from-font;
+            }
+        }
+
+        &-error label {
+            color: #FC3E30;
+        }
+    }
+
+    &-buttons {
+        @extend %w-full, %flex-start-center, %overflow-hidden;
+        @include responsive(height, 88px);
+        @include responsive(border-radius, 0, 0, 40px, 40px);
+        border-top: 1px solid rgba(255, 255, 255, 0.30);
+
+
+        & > * {
+            @extend %w-full, %h-full, %flex-1, %flex-center, %font-manrope, %text-center;
+            background: transparent;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.20);
+            }
+        }
+    }
+
+    &-submit {
+        @extend %font-manrope-18, %font-600;
+        border-right: 1px solid rgba(255, 255, 255, 0.30);
+    }
+
+    &-cancel {
+        @extend %font-manrope;
+        @include text(16px, 20px);
+    }
+}

@@ -1,6 +1,21 @@
 import { useState, useRef, useCallback } from 'react'
 import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/PowermateCompatibilityResultPopup'
 
+export type PowermateCompatibilityPopupsProps = {
+    warningPopupOpen: boolean
+    setWarningPopupOpen: (state: boolean) => void
+    checkPopupOpen: boolean
+    setCheckPopupOpen: (state: boolean) => void
+    resultPopupOpen: boolean
+    setResultPopupOpen: (state: boolean) => void
+    handleWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
+    handleCheck: (boostOrderCallback?: () => void) => void
+    handleConfirm: () => void
+    handleComplete: (proceed: boolean) => void
+    handleBoostOrder: () => void
+    resultPopupType: CompatibilityResultPopupType
+}
+
 export const usePowermateCompatibilityPopups = () => {
     const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
     const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)

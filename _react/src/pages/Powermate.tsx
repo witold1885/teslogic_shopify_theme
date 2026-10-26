@@ -1,7 +1,6 @@
 import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/powermate.scss'
-import '../components/Popup/Powermate/powermate-compatibility-dialog.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
 import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
@@ -46,10 +45,7 @@ const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) =>
 const PowermateCompatibility = getComponent(() => import('../components/Powermate/PowermateCompatibility.tsx'))
 const PowermateOrder = getComponent(() => import('../components/Powermate/PowermateOrder.tsx'))
 const PowermateInfo = getComponent(() => import('../components/Powermate/PowermateInfo.tsx'))
-
-const PowermateCompatibilityWarningPopup = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityWarningPopup.tsx'), true)
-const PowermateCompatibilityCheckPopup = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityCheckPopup.tsx'), true)
-const PowermateCompatibilityResultPopup = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityResultPopup.tsx'), true)
+const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
 
 const Powermate: FC = () => {
     const { isMobile } = useInlineStyles()
@@ -85,34 +81,19 @@ const Powermate: FC = () => {
     } = usePowermateCompatibilityPopups()
 
     return (<>
-        {PowermateCompatibilityWarningPopup && PowermateCompatibilityCheckPopup && PowermateCompatibilityResultPopup && (
-            <LazySection minHeight="0px">
-                {warningPopupOpen && (
-                    <PowermateCompatibilityWarningPopup
-                        open={warningPopupOpen}
-                        onClose={() => setWarningPopupOpen(false)}
-                        onCheck={handleCheck}
-                        onConfirm={handleConfirm}
-                    />
-                )}
-                {checkPopupOpen && (
-                    <PowermateCompatibilityCheckPopup
-                        open={checkPopupOpen}
-                        onClose={() => setCheckPopupOpen(false)}
-                        onCompleted={handleComplete}
-                    />
-                )}
-                {resultPopupOpen && (
-                    <PowermateCompatibilityResultPopup
-                        type={resultPopupType}
-                        open={resultPopupOpen}
-                        onClose={() => setResultPopupOpen(false)}
-                        onBoostOrder={handleBoostOrder}
-                    />
-                )}
-            </LazySection>
-        )}
-
+        <LazySection minHeight="0px">
+            {PowermateCompatibilityPopups && (
+                <PowermateCompatibilityPopups
+                    {...{
+                        warningPopupOpen, setWarningPopupOpen,
+                        checkPopupOpen, setCheckPopupOpen,
+                        resultPopupOpen, setResultPopupOpen,
+                        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
+                        resultPopupType
+                    }}
+                />
+            )}
+        </LazySection>
         <ProductLayout className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktop, bannerMobile}} onOrder={onOrder} />
             {Object.entries(sections).map(([slug, Component]) => (

@@ -1,0 +1,59 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/layout' as layout;
+
+.popup-shadow {
+    @extend %hidden, %flex-center, %fixed, %inset;
+    z-index: 3000000;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+
+    &.is-visible {
+        display: flex !important;
+        animation: fadeInBg 0.25s ease forwards;
+
+        & .popup {
+            animation: slideUpFade 0.5s ease forwards;
+        }
+    }
+
+    &.is-hiding {
+        animation: fadeOutBg 0.25s ease forwards;
+
+        & .popup {
+            animation: slideDownFade 0.5s ease forwards;
+        }
+    }
+}
+
+@keyframes fadeInBg {
+    from { background: rgba(0, 0, 0, 0); }
+    to { background: rgba(0, 0, 0, 0.66); }
+}
+
+@keyframes fadeOutBg {
+    from { background: rgba(0, 0, 0, 0.66); }
+    to { background: rgba(0, 0, 0, 0); }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}

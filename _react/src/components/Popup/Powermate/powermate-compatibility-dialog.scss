@@ -3,6 +3,7 @@
 @use '../../../assets/styles/layout' as layout;
 @use '../../../assets/styles/text' as text;
 @use '../../../assets/styles/mixins' as *;
+@use '../popup.scss';
 
 .compatibility-dialog {
     @extend %flex-column-between-start, %relative;

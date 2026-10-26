@@ -10,8 +10,8 @@ interface PopupWrapProps {
     ref: RefObject<PopupRefProps | null>
     id?: string
     className: string
-    backgroundType: 'video' | 'image' | 'color'
-    background: string
+    backgroundType: 'node' | 'image' | 'color'
+    background: ReactNode | string
     open: boolean
     onClose: () => void
     children: ReactNode
@@ -23,9 +23,9 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
     const style: CSSProperties = useMemo(() => {
         switch (backgroundType) {
             case 'image':
-                return { backgroundImage: background }
+                return { backgroundImage: background as string }
             case 'color':
-                return { backgroundColor: background }
+                return { backgroundColor: background as string }
             default:
                 return {}
         }
@@ -46,13 +46,9 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
     }), [handleClose])
 
     return (
-        <div id={id} className={`subscription-popup-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
-            <div {...{className, style}}>
-                {backgroundType === 'video' && (
-                    <video autoPlay muted loop className="subscription-popup-video">
-                        <source src={background} type="video/mp4" />
-                    </video>
-                )}
+        <div id={id} className={`popup-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
+            <div className={`popup ${className}`} style={style}>
+                {backgroundType === 'node' && <>{background}</>}
                 <Icon className={getClassNames('close')} icon={close} onClick={onClose} />
                 {children}
             </div>
