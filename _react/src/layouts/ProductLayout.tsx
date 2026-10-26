@@ -10,7 +10,7 @@ const ProductLayout: FC<LayoutProps> = ({ className, onOrder, children }) => (
         <div {...{className}}>
             {children}
             {Reviews && <LazySection>
-                <Reviews allSources={className === 'screenmate-dash'} />
+                <Reviews allSources={className === 'screenmate-dash' || className === 'powermate'} />
             </LazySection>}
         </div>
     </Layout>
