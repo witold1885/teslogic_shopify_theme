@@ -13,7 +13,7 @@ import reviewsBackground from '../../assets/images/reviews-background.png'
 const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     const { fetchReviews, isLoaded: sliceLoaded } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
 
-    const { product } = useAppSelector(fetchProducts)
+    const { product, products } = useAppSelector(fetchProducts)
     const { reviews, totalCount, avgRating } = useAppSelector(selectReviews)
 
     const source: string = useMemo(() => {
@@ -22,14 +22,22 @@ const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
         }
         return ''
     }, [allSources])
+
+    const fetchAction: () => any = useMemo(() => {
+        if (sliceLoaded) {
+            const product_id = product?.id || products?.[0]?.id || null
+            if (product_id) {
+                return () => fetchReviews({ product_id, source })
+            }
+        }
+        return () => {}
+    }, [sliceLoaded, product, products, source, fetchReviews])
     
     const lazyParams = useMemo(() => ({
-        condition: !!product && sliceLoaded,
-        action: product && sliceLoaded 
-              ? () => fetchReviews({ product_id: product.id, source }) 
-              : () => {},
+        condition: (!!product || products?.length !== 0) && sliceLoaded,
+        action: fetchAction,
         selector: '.reviews'
-    }), [sliceLoaded, product, source, fetchReviews])
+    }), [sliceLoaded, product, products, fetchAction])
     
     useLazyData(lazyParams)
 
