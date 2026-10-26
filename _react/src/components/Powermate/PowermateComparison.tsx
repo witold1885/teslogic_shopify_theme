@@ -39,7 +39,7 @@ const comparisonFeatures: ComparisonFeature[] = [
 
 const getValue = (value: ComparisonFeatureParam): string | ReactNode => {
     if (typeof value === 'boolean') {
-        return <img className="comparison-table-checkbox" src={value ? checkboxActive : checkboxInactive} />
+        return <img className="comparison-table-checkbox" src={value ? checkboxActive : checkboxInactive} alt="" />
     }
     return value
 }
@@ -71,7 +71,7 @@ const PowermateComparison: FC = () => {
                             <tr>
                                 {headers.map(({ text, hasLogo }, index) => (
                                     <th key={index}>
-                                        {hasLogo && (<><img src={logo} /><br /></>)}
+                                        {hasLogo && (<><img src={logo} alt="Powermate" /><br /></>)}
                                         {text}
                                     </th>
                                 ))}
