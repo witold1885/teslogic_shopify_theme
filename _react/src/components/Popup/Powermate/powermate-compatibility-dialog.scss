@@ -172,8 +172,11 @@
 	}
 
 	&-agree {
-        @extend %flex-start-center, %gap-8;
-		width: calc(100% + 24px);
+        @extend %w-full, %flex-start-center, %gap-8;
+
+        @include mobile() {
+            width: 100%;
+        }
 
         &-checkbox {
             @extend %cursor-pointer;
@@ -197,7 +200,7 @@
         }
 
         &-label {
-            @extend %font-manrope, %cursor-pointer;
+            @extend %flex-1, %font-manrope, %cursor-pointer;
             @include text(16px, 20px);
             font-feature-settings: 'clig' off, 'liga' off;
         }
