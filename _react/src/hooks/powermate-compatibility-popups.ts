@@ -19,7 +19,9 @@ export const usePowermateCompatibilityPopups = () => {
     const handleCheck = useCallback((boostOrderCallback?: () => void) => {
         setWarningPopupOpen(false)
         setCheckPopupOpen(true)
-        boostOrderCallbackRef.current = boostOrderCallback
+        if (!boostOrderCallbackRef.current) {
+            boostOrderCallbackRef.current = boostOrderCallback
+        }
     }, [])
 
     const handleConfirm = useCallback(() => {

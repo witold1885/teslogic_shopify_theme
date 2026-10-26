@@ -41,7 +41,11 @@ export const discountSubscribe = createAsyncThunk(
 export const subscribeSlice = createSlice({
     name: 'subscribe',
     initialState,
-    reducers: {},
+    reducers: {
+        resetError: (state) => {
+            state.error = null
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(customSubscribe.pending, (state) => {
@@ -79,4 +83,5 @@ export const subscribeSlice = createSlice({
     }
 })
 
+export const { resetError } = subscribeSlice.actions
 export default subscribeSlice

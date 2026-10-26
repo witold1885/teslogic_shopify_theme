@@ -1,7 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Cookies from 'js-cookie'
+import { useAppDispatch } from '../redux/hooks'
+import { useDynamicSlice } from './dynamic-slice'
 
 export const useSubscriptionPopups = () => {
+    const dispatch = useAppDispatch()
+
+    const { resetError } = useDynamicSlice('subscribe', () => import('../redux/slices/subscribe'))
+
     const [popupProcessData, setPopupProcessData] = useState<Record<string, string | boolean> | null>(null)
     const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
@@ -15,11 +21,12 @@ export const useSubscriptionPopups = () => {
         }
     }, [discountSubscriptionCookies])
 
-    const handleProceed = (data: Record<string, string | boolean> | null) => {
+    const handleProceed = useCallback((data: Record<string, string | boolean> | null) => {
         setPopupProcessData(data)
         setSubscriptionPopupOpen(false)
         setSelectionPopupOpen(true)
-    }
+        dispatch(resetError())
+    }, [dispatch, resetError])
 
     return {
         popupProcessData, handleProceed, 
