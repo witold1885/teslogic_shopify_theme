@@ -80,7 +80,6 @@
             @include mobile() {
                 @include responsive(padding, 11px, 25px);
             }
-
         
             &:hover {
                 @include responsive(padding, 20px);

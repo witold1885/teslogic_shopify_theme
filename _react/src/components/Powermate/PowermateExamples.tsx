@@ -1,9 +1,16 @@
-import { Fragment, type FC, type ReactNode } from 'react'
+import { useMemo, Fragment, type FC, type ReactNode } from 'react'
 import './powermate-examples.scss'
 import { convertReactNodeToString } from '../../utils/helpers'
 import Image from '../Common/Image'
 import videoIcon from '../../assets/icons/powermate/examples/pro-video-icon.svg'
 import Icon from '../Common/Icon'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    item: { yFrom: '20px', duration: 333 },
+}
 
 const modelImageModules: Record<string, any> = import.meta.glob('@/assets/images/powermate/examples/pro-model-*.svg', { eager: true })
 const modelImages: Record<string, any> = Object.entries(modelImageModules).reduce((acc, [key, mod]) => ({
@@ -51,16 +58,25 @@ const variants: ExamplesVariant[] = [
 const note: string = '*980 motor'
 
 const PowermateExamples: FC = () => {
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...variants.reduce((acc, _, index) => ({
+            ...acc, [`item-${index}`]: animatedObjects.item
+        }), {})
+    }), [])
+
+    const { anime } = useAnime(animationConfigs)
+    
     return (
         <div className="examples-wrap">
             <div className="examples" id="acceleration_examples">
-                <div className="examples-title">
+                <div {...anime('title')} className="examples-title">
                     Be the First: <br className="mobile" />Powermate <br className="desktop" />vs Factory <br className="mobile" />Acceleration <br className="mobile" />Examples
                 </div>
                 <div className="examples-variants">
                     {variants.map(({ slug, model, image, data }, index) => (
                         <Fragment key={slug}>
-                            <div className="examples-variants-item">
+                            <div {...anime(`item-${index}`)} className="examples-variants-item">
                                 {/* <div className="examples-variants-item-model-mobile">Model 3 Long Range</div> */}
                                 <div className="examples-variants-item-car">
                                     <div className="examples-variants-item-model">{model}</div>

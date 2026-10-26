@@ -1,8 +1,15 @@
-import type { FC, ReactNode } from 'react'
+import { useMemo, type FC, type ReactNode } from 'react'
 import './powermate-compatibility.scss'
 import Icon from '../Common/Icon'
 import successIcon from '../../assets/icons/powermate/compatibility/pro-combatibility-success-icon.svg'
 import warning from '../../assets/icons/powermate/compatibility/pro-combatibility-warning.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    block: { yFrom: '20px', duration: 333 },
+}
 
 interface CompatibilityBlock {
     title: ReactNode
@@ -32,13 +39,22 @@ const compatibilityBlocks: Record<string, CompatibilityBlock> = {
 }
 
 const PowermateCompatibility: FC<{ onCompatibilityCheck: () => void }> = ({ onCompatibilityCheck }) => {
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...Object.keys(compatibilityBlocks).reduce((acc, key) => ({
+            ...acc, [`block-${key}`]: animatedObjects.block
+        }), {})
+    }), [])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="compatibility-wrap">
             <div className="compatibility" id="compatibility">
-                <div className="compatibility-title">Powermate <br className="mobile" />Compatibility</div>
+                <div {...anime('title')} className="compatibility-title">Powermate <br className="mobile" />Compatibility</div>
                 <div className="compatibility-blocks">
                     {Object.entries(compatibilityBlocks).map(([key, { title, options }]) => (
-                        <div className={`compatibility-block compatibility-block-${key}`} key={key}>
+                        <div {...anime(`block-${key}`)} className={`compatibility-block compatibility-block-${key}`} key={key}>
                             <div className="compatibility-block-title">{title}</div>
                             <div className="compatibility-block-list">
                                 {options.map((option, index) => (
@@ -52,7 +68,7 @@ const PowermateCompatibility: FC<{ onCompatibilityCheck: () => void }> = ({ onCo
                             </div>
                         </div>
                     ))}
-                    <div className="compatibility-block compatibility-block-check">
+                    <div {...anime('block')} className="compatibility-block compatibility-block-check">
                         <div className="compatibility-block-check-info">
                             <Icon className="compatibility-block-check-info-icon" icon={warning} />
                             <div className="compatibility-block-check-info-text">

@@ -13,6 +13,14 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    subtitle: { yFrom: '20px', duration: 333 },
+    item: { yFrom: '40px', duration: 666 },
+}
+
 interface OrderItem {
     id?: number
     image?: string
@@ -147,18 +155,27 @@ const PowermateOrder: FC<{
         }
     }, [addedToCart])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs({
+        ...animatedObjects,
+        ...orderItems.reduce((acc, { id }) => ({
+            ...acc, [`item-${id}`]: animatedObjects.item
+        }), {})
+    }), [])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="order-container">
             <div className="order-wrap">
                 <div id="pro-order" className="order">
                     <div className="order-top">
-                        <div className="order-title">Ready to take your Model 3/Y <br />to the next level?</div>
-                        <div className="order-subtitle">Order Powermate and start your journey towards <br />unmatched driving performance and satisfaction</div>
+                        <div {...anime('title')} className="order-title">Ready to take your Model 3/Y <br />to the next level?</div>
+                        <div {...anime('subtitle')} className="order-subtitle">Order Powermate and start your journey towards <br />unmatched driving performance and satisfaction</div>
                     </div>
                     <div className="order-body">
                         <div className="order-products">
                             {orderItems.map(({ id: productId, image, title, price, oldPrice, needCheck }) => (
-                                <div className="order-product" key={productId}>
+                                <div {...anime(`item-${productId}`)} className="order-product" key={productId}>
                                     <div className="order-product-image">
                                         <Image src={image as string} alt={title} />
                                     </div>

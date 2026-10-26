@@ -6,6 +6,13 @@ import checkboxActive from '../../assets/icons/powermate/comparison/pro_comparis
 import checkboxInactive from '../../assets/icons/powermate/comparison/pro_comparison_checkbox_inactive.svg'
 import { useInlineStyles } from '../../hooks/inline-styles'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    top: { yFrom: '40px', duration: 666 },
+    table: { yFrom: '40px', duration: 666 },
+}
+
 type ComparisonFeatureParam = string | boolean | null
 
 interface ComparisonFeature {
@@ -47,14 +54,18 @@ const PowermateComparison: FC = () => {
         { text: 'Performance', hasLogo: !isMobile },
     ], [isMobile])
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="comparison-wrap">
             <div className="comparison" id="comparison">
-                <div className="comparison-top">
+                <div {...anime('top')} className="comparison-top">
                     <div className="comparison-title">Comparison of Powermate Features and Specs</div>
                     <div className="comparison-subtitle">Each delivering increased horsepower and access to exclusive features</div>			
                 </div>
-                <div className="comparison-table-wrap">
+                <div {...anime('table')} className="comparison-table-wrap">
                     <table className="comparison-table">
                         <thead>
                             <tr>

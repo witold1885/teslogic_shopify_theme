@@ -1,7 +1,14 @@
-import type { FC, ReactNode } from 'react'
+import { useMemo, type FC, type ReactNode } from 'react'
 import './powermate-info.scss'
 import Icon from '../Common/Icon'
 import warning from '../../assets/icons/powermate/info/pro_info_warning.svg'
+
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '20px', duration: 333 },
+    texts: { yFrom: '20px', duration: 333 },
+}
 
 interface InfoBlock {
     title: string | ReactNode
@@ -28,17 +35,25 @@ const infoBlocks: InfoBlock[] = [
 ]
 
 const PowermateInfo: FC = () => {
+    const animationConfigs = useMemo(() => mapSimpleConfigs(infoBlocks.reduce((acc, _, index) => ({
+        ...acc,
+        [`title-${index}`]: animatedObjects.title,
+        [`texts-${index}`]: animatedObjects.texts
+    }), {})), [])
+
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="info-wrap">
             <div className="info">
                 {infoBlocks.map(({ title, icon, texts }, index) => (
                     <div className="info-block">
-                        <div className="info-block-title">
+                        <div {...anime(`title-${index}`)} className="info-block-title">
                             {icon && <Icon className="info-block-title-icon" icon={icon} />}
                             <div className="info-block-title-text">{title}</div>				
                         </div>
                         <div className="info-block-delimiter"></div>
-                        <div className="info-block-texts">
+                        <div {...anime(`texts-${index}`)} className="info-block-texts">
                             {texts.map((text, ti) => <div className="info-block-text" key={`info-text-${index}-${ti}`}>{text}</div>)}
                         </div>
                     </div>
