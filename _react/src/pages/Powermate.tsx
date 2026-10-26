@@ -85,24 +85,6 @@ const Powermate: FC = () => {
     } = usePowermateCompatibilityPopups()
 
     return (<>
-        <ProductLayout className="powermate" onOrder={onOrder}>
-            <PowermateBanner {...{bannerDesktop, bannerMobile}} onOrder={onOrder} />
-            {Object.entries(sections).map(([slug, Component]) => (
-                <LazySection key={slug} minHeight={getMinHeight(slug)}>
-                    <Component />
-                </LazySection>
-            ))}
-            <LazySection minHeight={getMinHeight('Compatibility')}>
-                <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
-            </LazySection>
-            <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
-                <PowermateOrder onCompatibilityWarning={handleWarning} />
-            </LazySection>
-            <LazySection minHeight={getMinHeight('Info')}>
-                <PowermateInfo />
-            </LazySection>
-        </ProductLayout>
-
         {PowermateCompatibilityWarningPopup && PowermateCompatibilityCheckPopup && PowermateCompatibilityResultPopup && (
             <LazySection minHeight="0px">
                 {warningPopupOpen && (
@@ -130,6 +112,24 @@ const Powermate: FC = () => {
                 )}
             </LazySection>
         )}
+
+        <ProductLayout className="powermate" onOrder={onOrder}>
+            <PowermateBanner {...{bannerDesktop, bannerMobile}} onOrder={onOrder} />
+            {Object.entries(sections).map(([slug, Component]) => (
+                <LazySection key={slug} minHeight={getMinHeight(slug)}>
+                    <Component />
+                </LazySection>
+            ))}
+            <LazySection minHeight={getMinHeight('Compatibility')}>
+                <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
+            </LazySection>
+            <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
+                <PowermateOrder onCompatibilityWarning={handleWarning} />
+            </LazySection>
+            <LazySection minHeight={getMinHeight('Info')}>
+                <PowermateInfo />
+            </LazySection>
+        </ProductLayout>
     </>)
 }
 
