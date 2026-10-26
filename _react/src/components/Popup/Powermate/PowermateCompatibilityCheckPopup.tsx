@@ -77,6 +77,10 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCom
         }
     }, [checkingCompleted, proceed, checkingError, onCompleted, clearCompatibility])
 
+    const handleClose = () => {
+        wrap?.current?.close(() => onClose())
+    }
+
     return (
         <PopupWrap
             ref={wrap}
@@ -84,7 +88,7 @@ const PowermateCompatibilityCheckPopup: FC<PopupProps> = ({ open, onClose, onCom
             backgroundType="color"
             background="#171717"
             open={open}
-            onClose={onClose}
+            onClose={handleClose}
         >
             <div className="compatibility-dialog-title">Check Compatibility</div>
             <div className="compatibility-check-dialog-unavailable-wrap">

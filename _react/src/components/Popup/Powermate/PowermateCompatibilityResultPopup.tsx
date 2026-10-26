@@ -31,10 +31,16 @@ const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ 
 
     const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
 
-    const boostProduct = useMemo(() => products?.find(({ title }) => title.includes('Boost')), [products])
+    const wrap = useRef<PopupRefProps>(null)
 
-    const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: onClose }), [onClose])
+    const handleClose = () => {
+        wrap?.current?.close(() => onClose())
+    }
+
+    const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: handleClose }), [handleClose])
     const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: onBoostOrder }), [onBoostOrder])
+
+    const boostProduct = useMemo(() => products?.find(({ title }) => title.includes('Boost')), [products])
 
     const variants: Record<CompatibilityResultPopupType, CompatibilityResultPopupData> = useMemo(() => ({
         default: defaultResultPopupData,
@@ -59,8 +65,6 @@ const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ 
         }
     }), [boostProduct, currency, closeButton, orderButton])
 
-    const wrap = useRef<PopupRefProps>(null)
-
     return (
         <PopupWrap
             ref={wrap}
@@ -68,7 +72,7 @@ const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ 
             backgroundType="color"
             background="#171717"
             open={open}
-            onClose={onClose}
+            onClose={handleClose}
         >
             <div className="compatibility-dialog-title">{variants[type].title}</div>
             <div className="compatibility-dialog-texts">

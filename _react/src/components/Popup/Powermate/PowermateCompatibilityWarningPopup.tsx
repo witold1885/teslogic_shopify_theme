@@ -13,6 +13,10 @@ interface PopupProps {
 const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onCheck, onConfirm }) => {
     const wrap = useRef<PopupRefProps>(null)
 
+    const handleClose = () => {
+        wrap?.current?.close(() => onClose())
+    }
+
     return (
         <PopupWrap
             ref={wrap}
@@ -20,7 +24,7 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
             backgroundType="color"
             background="#171717"
             open={open}
-            onClose={onClose}
+            onClose={handleClose}
         >
             <div className="compatibility-dialog-title">
                 <Icon className="compatibility-dialog-title-icon" icon={warning} />
