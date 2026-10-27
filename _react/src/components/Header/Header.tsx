@@ -49,27 +49,31 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
     onRegionToggle,
     selectedCountry,
     onCountrySelect
-}) => (
-    <header className={`header ${className} ${theme} animate animate-big`}>
-        <a href="/">
-            <Image
-                className="header-logo"
-                src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
-                alt="Screenmate"
-            />
-        </a>
-        <div className="header-nav">
-            <HeaderMenuDesktop {...{theme, menu, orderButton, onOrder}} />
-            <HeaderCountrySelector
-                ref={countriesDropdownRef}
-                {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
-            />
-            <Button className="header-menu-mobile-open" label="Menu" onClick={onMobileMenuOpen}>
-                <Icon icon={burgerIcon} />
-            </Button>
-        </div>
-    </header>
-)
+}) => {
+    const mode: string | null = className === 'transparent' ? 'hide' : (className === 'sticky' ? 'show' : null)
+    
+    return (
+        <header className={`header ${className} ${theme} animate animate-big ${mode ? `animate-big-${mode}` : ''}`}>
+            <a href="/">
+                <Image
+                    className="header-logo"
+                    src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
+                    alt="Screenmate"
+                />
+            </a>
+            <div className="header-nav">
+                <HeaderMenuDesktop {...{theme, menu, orderButton, onOrder}} />
+                <HeaderCountrySelector
+                    ref={countriesDropdownRef}
+                    {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
+                />
+                <Button className="header-menu-mobile-open" label="Menu" onClick={onMobileMenuOpen}>
+                    <Icon icon={burgerIcon} />
+                </Button>
+            </div>
+        </header>
+    )
+}
 
 const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({
     apiUrl = '',

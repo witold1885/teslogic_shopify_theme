@@ -2,6 +2,7 @@
 @use 'fonts' as fonts;
 @use 'layout' as layout;
 @use 'text' as text;
+@use 'animate' as animate;
 @use 'mixins' as m;
 @import '../fonts/Manrope/stylesheet.css';
 @import '../fonts/NeueHaasGrotesk/stylesheet.css';
@@ -300,36 +301,5 @@ br {
 }
 
 .animate {
-    opacity: 0;
-    will-change: transform, opacity;
-
-    &-big {
-        animation: fadeUp40 0.666s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
-    }
-
-    &-small {
-        animation: fadeUp20 0.333s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
-    }
-}
-
-@keyframes fadeUp40 {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeUp20 {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    @include animate.animate();
 }

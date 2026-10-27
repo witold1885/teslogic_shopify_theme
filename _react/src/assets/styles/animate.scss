@@ -1,0 +1,34 @@
+$animations: (
+    ("big", 40, 0.666),
+    ("small", 20, 0.333)
+);
+
+$animationFn: cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+
+@mixin animate() {
+    opacity: 0;
+    will-change: transform, opacity;
+
+    @each $type, $offset, $duration in $animations {
+        &-#{$type} {
+            animation: fadeUp#{$offset} #{$duration}s #{$animationFn};
+            &-hide { animation: fadeHide#{$offset} #{$duration}s #{$animationFn}; }
+            &-show { animation: fadeShow#{$offset} #{$duration}s #{$animationFn}; }
+        }
+
+        @keyframes fadeUp#{$offset} {
+            0% { opacity: 0; transform: translateY(#{$offset}px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeShow#{$offset} {
+            0% { opacity: 0; transform: translateY(-#{$offset}px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeHide#{$offset} {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-#{$offset}px); }
+        }
+    }
+}
