@@ -1,7 +1,8 @@
-import { type FC, type ReactNode } from 'react'
+import { useImperativeHandle, type FC, type ReactNode } from 'react'
 import './subscription-popup.scss'
+import type { SubscriptionPopupsProps } from './types.ts'
 import { getComponent } from '../../../layouts/components'
-import type { SubscriptionPopupsProps } from '../../../hooks/subscription-popups.ts'
+import { useSubscriptionPopups } from '../../../hooks/subscription-popups.ts'
 
 const SubscriptionPopup = getComponent(() => import('./SubscriptionPopup.tsx'), true)
 const SelectionPopup = getComponent(() => import('./SelectionPopup.tsx'), true)
@@ -18,12 +19,16 @@ const successPopupSubtitles: Record<string, ReactNode> = {
     custom: <>You are now subscribed <br />to our email newsletter.</>
 }
 
-const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
-    popupProcessData, handleProceed,
-    subscriptionPopupOpen, setSubscriptionPopupOpen,
-    selectionPopupOpen, setSelectionPopupOpen,
-    successPopupOpen, setSuccessPopupOpen
-}: SubscriptionPopupsProps) => {
+const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({ ref }: SubscriptionPopupsProps) => {
+    const {
+        popupProcessData, handleProceed, 
+        subscriptionPopupOpen, setSubscriptionPopupOpen, 
+        selectionPopupOpen, setSelectionPopupOpen, 
+        successPopupOpen, setSuccessPopupOpen      
+    } = useSubscriptionPopups()
+
+    useImperativeHandle(ref, () => ({ handleProceed }), [handleProceed])
+
     return (<>
         {SubscriptionPopup && SelectionPopup && SuccessPopup && (<>
                 {subscriptionPopupOpen && (

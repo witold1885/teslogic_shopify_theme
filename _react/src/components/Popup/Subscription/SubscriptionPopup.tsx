@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
+import type { SubscriptionPopupProcessData } from './types'
 import * as yup from 'yup'
 import { useAppSelector } from '../../../redux/hooks'
 import { fetchSubscribe } from '../../../redux/selectors/subscribe'
@@ -11,7 +12,7 @@ import logo from '../../../assets/images/popup-logo-white.svg'
 interface SubscriptionPopupProps {
     background: ReactNode
     open: boolean
-    onProceed?: (data: Record<string, string | boolean> | null) => void
+    onProceed?: (data: SubscriptionPopupProcessData) => void
     onClose?: () => void
 }
 

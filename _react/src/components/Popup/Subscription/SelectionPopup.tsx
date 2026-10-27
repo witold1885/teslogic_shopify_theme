@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo, type ReactNode, type FC, type MouseEvent } from 'react'
+import type { SubscriptionPopupProcessData } from './types'
 import * as yup from 'yup'
 import type { AsyncThunk, AsyncThunkConfig } from '@reduxjs/toolkit'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
@@ -26,7 +27,7 @@ const models: string[] = [
 interface SelectionPopupProps {
     background: ReactNode
     open: boolean
-    popupProcessData: Record<string, string | boolean> | null
+    popupProcessData: SubscriptionPopupProcessData
     onSuccess?: () => void
     onError?: () => void
 }

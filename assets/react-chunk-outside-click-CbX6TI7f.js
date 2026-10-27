@@ -1,0 +1,2 @@
+import{n as e,o as t,r as n}from"./react-chunk-jsx-runtime-DIBGU2nq.js";var r=e(),i=t(n(),1),a=(e,t)=>{let n=(0,r.c)(4),a,o;n[0]!==t||n[1]!==e?(a=()=>{let n=n=>{var r;let i=n.target;(r=e.current)!=null&&r.some(e=>e&&e.contains(i))||t()};return document.addEventListener(`mousedown`,n),document.addEventListener(`touchstart`,n),()=>{document.removeEventListener(`mousedown`,n),document.removeEventListener(`touchstart`,n)}},o=[e,t],n[0]=t,n[1]=e,n[2]=a,n[3]=o):(a=n[2],o=n[3]),(0,i.useEffect)(a,o)};export{a as t};
+//# sourceMappingURL=react-chunk-outside-click-CbX6TI7f.js.map

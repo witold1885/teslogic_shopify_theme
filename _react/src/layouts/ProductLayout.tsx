@@ -9,9 +9,11 @@ const ProductLayout: FC<LayoutProps> = ({ className, onOrder, children }) => (
     <Layout theme="dark" orderButton={true} onOrder={onOrder}>
         <div {...{className}}>
             {children}
-            {Reviews && <LazySection>
-                <Reviews allSources={className === 'screenmate-dash' || className === 'powermate'} />
-            </LazySection>}
+            {Reviews && (
+                <LazySection>
+                    <Reviews allSources={className === 'screenmate-dash' || className === 'powermate'} />
+                </LazySection>
+            )}
         </div>
     </Layout>
 )

@@ -1,20 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import Cookies from 'js-cookie'
+import type { SubscriptionPopupProcessData } from '../components/Popup/Subscription/types'
 import { useAppDispatch } from '../redux/hooks'
 import { useDynamicSlice } from './dynamic-slice'
-
-type SubscriptionPopupProcessData = Record<string, string | boolean> | null
-
-export type SubscriptionPopupsProps = {
-    popupProcessData: SubscriptionPopupProcessData
-    handleProceed: (data: SubscriptionPopupProcessData) => void
-    subscriptionPopupOpen: boolean
-    setSubscriptionPopupOpen: (state: boolean) => void
-    selectionPopupOpen: boolean
-    setSelectionPopupOpen: (state: boolean) => void
-    successPopupOpen: boolean
-    setSuccessPopupOpen: (state: boolean) => void
-}
 
 export const useSubscriptionPopups = () => {
     const dispatch = useAppDispatch()

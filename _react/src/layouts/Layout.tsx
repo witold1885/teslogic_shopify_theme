@@ -1,11 +1,11 @@
-import { useEffect, type ReactNode , type FC} from 'react'
+import { useEffect, useRef, type ReactNode , type FC} from 'react'
 import { preconnect } from 'react-dom'
-import { getComponent } from './components'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
-import { useSubscriptionPopups } from '../hooks/subscription-popups'
-import Header from '../components/Header/Header'
+import { getComponent } from './components'
 import LazySection from './LazySection'
+import Header from '../components/Header/Header'
+import type { SubscriptionPopupProcessData, SubscriptionPopupsRefProps } from '../components/Popup/Subscription/types.ts'
 
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscription/SubscriptionPopups.tsx'), true)
@@ -41,26 +41,18 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [])
 
-    const {
-        popupProcessData, handleProceed, 
-        subscriptionPopupOpen, setSubscriptionPopupOpen, 
-        selectionPopupOpen, setSelectionPopupOpen, 
-        successPopupOpen, setSuccessPopupOpen      
-    } = useSubscriptionPopups()
+    const popups = useRef<SubscriptionPopupsRefProps>(null)
+
+    const handleProceed = (data: SubscriptionPopupProcessData) => {
+        popups?.current?.handleProceed(data)
+    }
 
     return (<>
-        <LazySection minHeight="0px">
-            {SubscriptionPopups && (
-                <SubscriptionPopups
-                    {...{
-                        popupProcessData, handleProceed, 
-                        subscriptionPopupOpen, setSubscriptionPopupOpen, 
-                        selectionPopupOpen, setSelectionPopupOpen, 
-                        successPopupOpen, setSuccessPopupOpen      
-                    }} 
-                />
-            )}
-        </LazySection>
+        {SubscriptionPopups && (
+            <LazySection minHeight="0px">
+                <SubscriptionPopups ref={popups} />
+            </LazySection>
+        )}
         <Header {...{apiUrl, theme, orderButton, onOrder}} />
         {children}
         <LazySection>
