@@ -33,17 +33,17 @@ const Banner: FC<BannerProps> = ({
     <div className="banner-wrap">
         {video && <>{video}</>}
         <div className="banner">
-            {logo && <Image className="logo banner-animate banner-animate-big" {...logo} />}
-            {title && <h1 className="title banner-animate banner-animate-big">{title}</h1>}
-            {subtitle && <div className="subtitle banner-animate banner-animate-small">{subtitle}</div>}
+            {logo && <Image className="logo animate animate-big" {...logo} />}
+            {title && <h1 className="title animate animate-big">{title}</h1>}
+            {subtitle && <div className="subtitle animate animate-small">{subtitle}</div>}
             <div className="banner-separator" />
-            {additional && <div className="additional banner-animate banner-animate-small">{additional}</div>}
+            {additional && <div className="additional animate animate-small">{additional}</div>}
             {buttons && (
                 <div className="banner-buttons">
                     {Object.entries(buttons).map(([key, { text, onClick }]) => (
                         <Button
                             key={key}
-                            className={`banner-button-${key} banner-animate banner-animate-small`}
+                            className={`banner-button-${key} animate animate-small`}
                             onClick={onClick}
                         >
                             {text}

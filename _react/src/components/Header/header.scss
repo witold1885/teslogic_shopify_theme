@@ -51,22 +51,38 @@
         @extend %flex-end-start, %gap-16, %mob\:flex-column-between, %mob\:flex-1, %mob\:gap-0;
 
         &-desktop {
-            @extend %flex-end-start, %gap-16, %text-white;
+            @extend %mob\:hidden;
+            
+            & > div:first-child {
+                @extend %flex-end-start, %gap-16, %text-white;
 
-            .absolute.light & {
-                @extend %text-black;
+                .absolute.light & {
+                    @extend %text-black;
+                }
             }
         }
 
         &-mobile {
-            @extend %w-full, %flex-column-start, %gap-20;
-            @include responsive(margin-top, 40px);
+            @extend %hidden;
+
+            @include mobile() {
+                display: flex !important;
+            }
+
+            & > div:first-child {
+                @extend %w-full, %flex-column-start, %gap-20;
+                @include responsive(margin-top, 40px);
+            }
 
             &-open {
-                @extend %flex-center, %circle;
+                @extend %hidden, %flex-center, %circle;
                 @include square(40px);
                 background: rgba(0, 0, 0, 0.32);
                 backdrop-filter: blur(8px);
+
+                @include mobile() {
+                    display: flex !important;
+                }
             }
 
             &-wrap {

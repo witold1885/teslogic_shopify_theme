@@ -1,35 +1,24 @@
-import { forwardRef, useState, useEffect, useRef, useMemo, useCallback, type FC } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback, type FC } from 'react'
 import './header.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { getRegions, setCountry } from '../../redux/slices/content'
+import { setCountry } from '../../redux/slices/content'
 import { fetchContent } from '../../redux/selectors/content'
-import { fetchProducts } from '../../redux/selectors/products'
 import type { Country, MenuItem } from '../../types/shopify'
+import { getComponent } from '../../layouts/components'
+import HeaderMenuDesktop from './HeaderMenuDesktop'
+import HeaderCountrySelector, { type HeaderCountrySelectorProps } from './HeaderCountrySelector'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
 import Image from '../Common/Image'
 import logo from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
-import cartWhiteIcon from '../../assets/icons/cart-white.svg'
-import cartBlackIcon from '../../assets/icons/cart-black.svg'
 import burgerIcon from '../../assets/icons/burger.svg'
-import ChevronDownIcon from '../../assets/icons/ChevronDownIcon'
-import closeIcon from '@/assets/icons/close-black.svg'
 
-import { getCollapseConfig, mapCustomConfigs, useAnime, type AnimatedObjectOptions, type AnimationConfig, type AnimationMode } from '../../hooks/anime'
-import { useInlineStyles } from '../../hooks/inline-styles'
 import { useScroll } from '../../hooks/scroll'
 import { useLockBodyScroll } from '../../hooks/lock-body-scroll'
 import { useOutsideClick } from '../../hooks/outside-click'
 
-const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    header: { yFrom: '40px', duration: 666 },
-}
-
-const pagesMap: Record<string, string[]> = {
-    'Screenmate ONE': ['/', '/screenmate', '/pages/screenmate', '/pages/screenmate-one-react'],
-    'Installers': ['/installers', '/pages/installers'],
-}
+const HeaderMenuMobile = getComponent(() => import('./HeaderMenuMobile.tsx'), true)
 
 interface HeaderProps {
     theme?: 'dark' | 'light'
@@ -39,214 +28,8 @@ interface HeaderProps {
     onOrder?: () => void
 }
 
-interface HeaderMenuProps extends HeaderProps {
-    mode: 'desktop' | 'mobile'
-}
-
-const HeaderMenu: FC<HeaderMenuProps> = ({
-    className = '',
-    theme = 'dark',
-    menu,
-    mode,
-    orderButton,
-    onOrder
-}) => {
-    const { cartItemCount } = useAppSelector(fetchProducts)
-
-    const activeMenuIndex = typeof window !== 'undefined' ? useMemo(() => menu.findIndex(
-        ({ title }) => pagesMap[title as string]?.includes(window.location.pathname)
-    ), [window.location.pathname]) : 0
-
-    const [prevMenuIndex, setPrevMenuIndex] = useState<number | null>(null)
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(mode === 'mobile' && activeMenuIndex !== -1 ? activeMenuIndex : null)
-
-    const toggleMenuItem = (index: number) => {
-        setPrevMenuIndex(openMenuIndex)
-        setOpenMenuIndex(prev => prev !== index ? index : null)
-    }
-
-    const duration: number = 333
-
-    useEffect(() => {
-        if (prevMenuIndex === null) return
-
-        const timer = setTimeout(() => {
-            setPrevMenuIndex(null)
-        }, duration)
-
-        return () => clearTimeout(timer)
-    }, [prevMenuIndex])
-
-    const configs: Record<string, string | AnimationMode>[] = useMemo(() => {
-        const result = []
-        if (prevMenuIndex !== null) {
-            result.push({ key: `item-close-${prevMenuIndex}`, mode: 'hide' })
-        }
-        if (openMenuIndex !== null) {
-            result.push({ key: `item-open-${openMenuIndex}`, mode: 'show' })
-        }
-        return result
-    }, [openMenuIndex])
-
-    const animationConfigs = useMemo(() => configs.reduce<Record<string, AnimationConfig>>((acc, { key, mode }) => ({
-        ...acc,
-        [key]: { ...getCollapseConfig(duration, mode as AnimationMode), stagger: false }
-    }), {}), [configs])
-
-    const { anime } = useAnime(animationConfigs)
-
-    return (
-        <div className="header-menu">
-            <div {...{className}}>
-                {menu.map(({ title, children }, index) => {
-                    const isOpen = openMenuIndex === index
-                    const isPrev = prevMenuIndex === index
-
-                    const isVisible = mode === 'mobile' ? (isOpen || isPrev) : isOpen
-
-                    return (
-                        <div
-                            key={index}
-                            className={`header-menu-item ${isOpen ? 'active' : ''}`}
-                            onMouseEnter={mode === 'desktop' ? () => setOpenMenuIndex(index) : () => {}}
-                            onMouseLeave={mode === 'desktop' ? () => setOpenMenuIndex(null) : () => {}}
-                            onClick={mode === 'mobile' ? () => toggleMenuItem(index) : () => {}}
-                        >
-                            <span className="header-menu-item-title">
-                                {title}
-                                {index === 0 && <span className="header-menu-item-new">NEW</span>}
-                            </span>
-                            <div className="header-menu-item-chevron">
-                                <Icon svg={<ChevronDownIcon color={mode === 'desktop' ? '#FFF' : '#000'} />} />
-                            </div>
-                            {children?.length !== 0 && (
-                                <ul
-                                    id={`header-menu-item-dropdown-${index}`}
-                                    className={`header-menu-item-dropdown ${!isVisible ? 'hidden' : ''}`}
-                                    {...(mode === 'mobile' ? (
-                                        isPrev 
-                                            ? anime(`item-close-${index}`, 'hide') 
-                                            : (
-                                                isOpen 
-                                                    ? anime(`item-open-${index}`, 'show')
-                                                    : {} 
-                                            )
-                                    ) : {})}
-                                >
-                                    {children?.map((child, i) => (
-                                        <li key={i}>
-                                            <a href={child.url}>{child.title}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    )
-                })}
-            </div>
-            {(cartItemCount === 0 || mode === 'mobile') ? (<>
-                {orderButton && (
-                    <Button className="header-menu-button" onClick={onOrder}>
-                        <span>ORDER NOW</span>
-                    </Button>
-                )}
-            </>) : (
-                <a className="header-menu-cart" href="/cart" target="_blank">
-                    <div>
-                        <Icon icon={theme === 'dark' ? cartWhiteIcon : cartBlackIcon} />
-                        <span>{cartItemCount}</span>
-                    </div>
-                    <span>Cart</span>
-                </a>
-            )}
-        </div>
-    )
-}
-
-interface HeaderCountrySelectorProps {
-    countriesDropdownOpen: boolean
-    onCountriesDropdownToggle: (open?: boolean) => void
-    regionsOpen: Record<string, boolean>
-    onRegionToggle: (regionName: string) => void
-    selectedCountry?: Country | null
-    onCountrySelect: (country: Country) => void
-}
-
-const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorProps>(({ 
-    countriesDropdownOpen,
-    onCountriesDropdownToggle,
-    regionsOpen,
-    onRegionToggle,
-    selectedCountry,
-    onCountrySelect
-}, ref) => {
-    const dispatch = useAppDispatch()
-
-    const { regions } = useAppSelector(fetchContent)
-
-    const [isRegionsLoaded, setIsRegionsLoaded] = useState(false)
-
-    const handleFetchRegions = useCallback(() => {
-        if (!isRegionsLoaded) {
-            dispatch(getRegions())
-            setIsRegionsLoaded(true)
-        }
-    }, [isRegionsLoaded, dispatch])
-
-    return (
-        <div className="header-country" ref={ref}>
-            <div className="header-country-button" onMouseEnter={handleFetchRegions} onClick={() => onCountriesDropdownToggle()}>
-                <img src={selectedCountry?.flag} alt={selectedCountry?.iso_code || ''} width="20" height="20" />
-                <span>{selectedCountry?.currency_symbol}</span>
-            </div>
-            <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
-                <div className="header-country-dropdown-list">
-                    {regions?.map((region, ri) => (
-                        <div className={`header-country-dropdown-region ${regionsOpen[region.name] ? 'opened' : ''}`} key={ri}>
-                            <div
-                                className="header-country-dropdown-region-name"
-                                onClick={() => onRegionToggle(region.name)}
-                            >
-                                <span>{region.name}</span>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-                            <div className={`header-country-dropdown-subregions ${regionsOpen[region.name] ? '' : 'hidden'}`}>
-                                {region.subregions.map((subregion, si) => (
-                                    <div className="header-country-dropdown-subregion" key={si}>
-                                        <div className="header-country-dropdown-subregion-name">{subregion.name}</div>
-                                        <div className="header-country-dropdown-countries">
-                                            {subregion.countries.map(country => (
-                                                <div
-                                                    key={country.iso_code}
-                                                    className={`header-country-dropdown-country ${
-                                                        country.iso_code === selectedCountry?.iso_code ? 'selected' : ''
-                                                    }`}
-                                                    onClick={() => onCountrySelect(country)}
-                                                >
-                                                    <div>
-                                                        <img src={country.flag} alt={country.iso_code} />
-                                                        <span>{country.name}</span>
-                                                    </div>
-                                                    <div>{country.currency_symbol}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-})
-
 interface HeaderComponentProps extends HeaderProps, HeaderCountrySelectorProps {
     position: 'absolute' | 'sticky'
-    isMobile: boolean
     onMobileMenuOpen: () => void
     countriesDropdownRef: (el: HTMLDivElement | null) => void
 }
@@ -257,7 +40,6 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
     position,
     className,
     menu,
-    isMobile,
     onOrder,
     onMobileMenuOpen,
     countriesDropdownRef,
@@ -267,67 +49,26 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
     onRegionToggle,
     selectedCountry,
     onCountrySelect
-}) => {
-    const headerKey = `header-${position}-${className}`
-    const mode = className === 'transparent' ? 'hide' : 'show'
-    const direction = position === 'sticky' ? 'top' : 'bottom'
-    const animationConfigs = useMemo(() => mapCustomConfigs({ [headerKey]: animatedObjects.header }, mode, direction), [headerKey])
-
-    const { anime } = useAnime(animationConfigs)
-
-    return (
-        <header
-            {...anime(headerKey, mode)}
-            className={`header ${className} ${theme}`}
-        >
-            <a href="/">
-                <Image
-                    className="header-logo"
-                    src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
-                    alt="Screenmate"
-                />
-            </a>
-            <div className="header-nav">
-                {!isMobile && (
-                    <HeaderMenu className="header-menu-desktop" mode="desktop" {...{theme, menu, orderButton, onOrder}} />
-                )}
-                <HeaderCountrySelector
-                    ref={countriesDropdownRef}
-                    {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
-                />
-                {isMobile && (
-                    <Button className="header-menu-mobile-open" label="Menu" onClick={onMobileMenuOpen}>
-                        <Icon icon={burgerIcon} />
-                    </Button>
-                )}
-            </div>
-        </header>
-    )
-}
-
-interface HeaderMobileProps extends HeaderProps {
-    onMobileMenuClose: () => void
-}
-
-const HeaderMobile: FC<HeaderMobileProps> = ({
-    className = '',
-    theme = 'dark',
-    menu,
-    orderButton,
-    onOrder,
-    onMobileMenuClose
 }) => (
-    <div className={`header-menu-mobile-wrap ${className}`}>
-        <div>
-            <Image className="header-logo" src={logoBlack} alt="Screenmate" />
-            <Icon className="header-menu-mobile-close" icon={closeIcon} onClick={onMobileMenuClose} />
+    <header className={`header ${className} ${theme} animate animate-big`}>
+        <a href="/">
+            <Image
+                className="header-logo"
+                src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
+                alt="Screenmate"
+            />
+        </a>
+        <div className="header-nav">
+            <HeaderMenuDesktop {...{theme, menu, orderButton, onOrder}} />
+            <HeaderCountrySelector
+                ref={countriesDropdownRef}
+                {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
+            />
+            <Button className="header-menu-mobile-open" label="Menu" onClick={onMobileMenuOpen}>
+                <Icon icon={burgerIcon} />
+            </Button>
         </div>
-        <HeaderMenu
-            className="header-menu-mobile"
-            mode="mobile"
-            {...{theme, menu, orderButton, onOrder}}
-        />
-    </div>
+    </header>
 )
 
 const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({
@@ -336,8 +77,6 @@ const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolea
     orderButton = true,
     onOrder
 }) => {
-    const { isMobile } = useInlineStyles()
-
     const dispatch = useAppDispatch()
 
     const { regions, country: currentCountry, main_menu } = useAppSelector(fetchContent)
@@ -399,7 +138,6 @@ const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolea
     const headerComponentParams = useMemo(() => ({
         theme,
         ...headerParams,
-        isMobile,
         onMobileMenuOpen: () => setOpenMobileMenu(true),
         countriesDropdownOpen,
         onCountriesDropdownToggle,
@@ -410,7 +148,6 @@ const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolea
     }), [
         theme,
         headerParams,
-        isMobile,
         setOpenMobileMenu,
         countriesDropdownOpen,
         onCountriesDropdownToggle,
@@ -441,7 +178,7 @@ const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolea
             {...headerComponentParams}
             countriesDropdownRef={setCountriesDropdownRef(1)}
         />
-        <HeaderMobile className={openMobileMenu ? '' : 'transparent'} {...headerMobileParams} />
+        {openMobileMenu && HeaderMenuMobile && <HeaderMenuMobile {...headerMobileParams} />}
     </>)
 }
 
