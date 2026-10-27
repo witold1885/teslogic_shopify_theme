@@ -5,7 +5,7 @@
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-one .banner {
-    @extend %mob\:flex-column-center-end;
+    @extend %flex-column-center-end;
 
     @include mobile() {
         @include responsive(padding, 0, 20px);
