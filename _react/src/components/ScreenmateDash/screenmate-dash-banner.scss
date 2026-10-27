@@ -5,28 +5,20 @@
 @use '../../assets/styles/mixins' as *;
 
 .screenmate-dash .banner {
-    @extend %w-full, %h-full, %flex-column-center-end, %mob\:flex-column-between, %relative;
-    margin: 0 auto;
+    @extend %flex-column-center-end, %mob\:flex-column-between;
 
     @include mobile() {
         @include responsive(padding, 96px, 20px, 0);
     }
 
     &-wrap {
-        @extend %w-full;
-        height: 100vh;
-        height: 100dvh;
+        background-image: url(../../assets/images/screenmate-dash/banner_desktop.png);
         background-position: bottom center;
-        background-repeat: no-repeat;
-        background-size: cover;
 
         @include mobile() {
+            background-image: url(../../assets/images/screenmate-dash/banner_mobile.png);
             background-position: center;
         }
-    }
-
-    &-separator {
-        @extend %hidden, %mob\:block, %mob\:h-full, %mob\:flex-1;
     }
     
     & .suptitle, & .title, & .subtitle {
@@ -58,49 +50,19 @@
     }
 
     & .suptitle, & .title, & .subtitle, &-buttons {
-        @extend %absolute, %mob\:static;
         @include responsive(left, 72px);
-
-        @include mobile() {
-            top: unset;
-            left: unset;
-        }
     }
 
     &-buttons {
-        @extend %flex-start-center, %gap-40, %mob\:w-full;
         @include responsive(top, 505px);
-
-        & > * {
-            @extend %font-manrope-24, %mob\:font-manrope-18, %font-500, %text-white, %cursor-pointer;
-            text-decoration: none;
-
-            &:hover {
-                @extend %text-white;
-            }
-        }
     }
 
     &-button {
 
         &-buy {
-            @extend %flex-center;
             @include responsive(width, 175px);
-            @include responsive(height, 72px);
-            @include responsive(border-radius, 54px);
-            border: 3px solid #0068FD;
-            background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(8px);
 
             @include mobile() {
-                width: 100% !important;
-                @include responsive(height, 58px);
-                border: none;
-		        background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.12);
-            }
-
-            &:hover {
-                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                 border: none;
             }
         }
@@ -112,16 +74,6 @@
             &:hover {
                 color: #BFBFBD
             }
-        }
-    }
-
-    & .expand {
-        @extend %flex-center, %cursor-pointer;
-        @include square(64px);
-        @include responsive(margin-bottom, 26px);
-
-        @include mobile() {
-            margin-bottom: 0;
         }
     }
 }

@@ -1,6 +1,6 @@
 import { forwardRef, useState, useEffect, useRef, useImperativeHandle, type CSSProperties, type HTMLAttributes } from 'react'
 
-interface VideoProps {
+export interface VideoProps {
     className?: string
     style?: CSSProperties
     src: string

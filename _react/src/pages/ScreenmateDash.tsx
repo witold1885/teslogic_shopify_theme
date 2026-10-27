@@ -7,8 +7,8 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
 
-import bannerDesktop from '../assets/images/screenmate-dash/banner_desktop.png'
-import bannerMobile from '../assets/images/screenmate-dash/banner_mobile.png'
+import bannerDesktopBackground from '../assets/images/screenmate-dash/banner_desktop.png'
+import bannerMobileBackground from '../assets/images/screenmate-dash/banner_mobile.png'
 
 import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
@@ -23,8 +23,8 @@ interface PreloadImage extends PreloadContent {
 }
 
 const preloadImages: PreloadImage[] = [
-    { image: bannerDesktop, fetchPriority: 'high', media: mediaDesktop },
-    { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
+    { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
+    { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
 ]
 
 const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
@@ -77,7 +77,7 @@ const ScreenmateDash: FC = () => {
 
     return (
         <ProductLayout className="screenmate-dash" onOrder={onOrder}>
-            <ScreenmateDashBanner {...{bannerDesktop, bannerMobile}} onExpand={onExpand} onOrder={onOrder} />
+            <ScreenmateDashBanner onExpand={onExpand} onOrder={onOrder} />
             <LazySection id="using" minHeight={getMinHeight('Using')} forceRender={forceRender.using} rootMargin="-10px">
                 <ScreenmateDashUsing />
             </LazySection>

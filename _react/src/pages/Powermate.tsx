@@ -10,8 +10,8 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
 
-import bannerDesktop from '../assets/images/powermate/banner_desktop.png'
-import bannerMobile from '../assets/images/powermate/banner_mobile.png'
+import bannerDesktopBackground from '../assets/images/powermate/banner_desktop.png'
+import bannerMobileBackground from '../assets/images/powermate/banner_mobile.png'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"
@@ -23,8 +23,8 @@ interface PreloadImage extends PreloadContent {
 }
 
 const preloadImages: PreloadImage[] = [
-    { image: bannerDesktop, fetchPriority: 'high', media: mediaDesktop },
-    { image: bannerMobile, fetchPriority: 'high', media: mediaMobile },
+    { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
+    { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
 ]
 
 const slugs: string[] = ['Experience', 'Using', 'Examples', 'Comparison']
@@ -95,7 +95,7 @@ const Powermate: FC = () => {
             )}
         </LazySection>
         <ProductLayout className="powermate" onOrder={onOrder}>
-            <PowermateBanner {...{bannerDesktop, bannerMobile}} onOrder={onOrder} />
+            <PowermateBanner onOrder={onOrder} />
             {Object.entries(sections).map(([slug, Component]) => (
                 <LazySection key={slug} minHeight={getMinHeight(slug)}>
                     <Component />
