@@ -9,7 +9,7 @@ import HeaderMenuDesktop from './HeaderMenuDesktop'
 import HeaderCountrySelector, { type HeaderCountrySelectorProps } from './HeaderCountrySelector'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
-import logo from '../../assets/images/logo-white.svg'
+import logoWhite from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
 import burgerIcon from '../../assets/icons/burger.svg'
 
@@ -56,9 +56,8 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
             <a href="/" className="header-logo">
                 <img
                     className="object-cover"
-                    src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
+                    src={theme === 'light' && position === 'absolute' ? logoBlack : logoWhite}
                     alt="Screenmate"
-                    fetchPriority="high"
                 />
             </a>
             <div className="header-nav">
@@ -75,8 +74,9 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
     )
 }
 
-const Header: FC<{ apiUrl?: string, theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({
-    apiUrl = '',
+const apiUrl: string | undefined = import.meta.env.VITE_API_URL
+
+const Header: FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () => void }> = ({
     theme = 'dark',
     orderButton = true,
     onOrder

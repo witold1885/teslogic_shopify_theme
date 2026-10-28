@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
-import { preconnect } from 'react-dom'
 import Cookies from 'js-cookie'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
@@ -11,11 +10,6 @@ import Header from '../components/Header/Header'
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscription/SubscriptionPopups.tsx'), true)
 
-const apiUrl: string | undefined = import.meta.env.VITE_API_URL
-
-// const fontModules: Record<string, any> = import.meta.glob('@/assets/fonts/Manrope/Manrope-{Regular,Medium,SemiBold,Bold}.woff2', { eager: true })
-// const fonts: string[] = Object.values(fontModules).map(mod => mod.default)
-
 export interface LayoutProps {
     theme?: 'dark' | 'light'
     className?: string
@@ -26,11 +20,6 @@ export interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder = () => {}, children }) => {
     // useExternalScripts(EXTERNAL_SCRIPTS)
-    if (apiUrl) preconnect(apiUrl)
-
-    // if (typeof window !== 'undefined') {
-    //     fonts.forEach(font => preload(font, { as: 'font' }))
-    // }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -75,7 +64,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                 }}/>
             </LazySection>
         )}
-        <Header {...{apiUrl, theme, orderButton, onOrder}} />
+        <Header {...{theme, orderButton, onOrder}} />
         {children}
         <LazySection>
             <Footer onProceed={handleProceed} />
