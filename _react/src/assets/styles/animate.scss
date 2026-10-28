@@ -6,7 +6,7 @@ $animations: (
 $animationFn: cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
 
 @mixin animate() {
-    opacity: 0;
+    opacity: 1;
     will-change: transform, opacity;
 
     @each $type, $offset, $duration in $animations {
