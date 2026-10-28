@@ -43,20 +43,24 @@ for (const [pageName, fileName] of Object.entries(pagesMap)) {
 
     console.log({ desktopBg, mobileBg })
 
+    const snippetFileName = `preload-${fileName.replace('_', '-')}.liquid`
+    const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
+    let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
+
     if (desktopBg && mobileBg) {
-        const preloadBlock = `<!-- PRELOAD_START -->
+        const preloadTags = `<!-- PRELOAD_START -->
 <link rel="preload" as="image" href="{{ '${desktopBg}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
 <link rel="preload" as="image" href="{{ '${mobileBg}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
 <!-- PRELOAD_END -->`.trim()
         const markerRegex = /<!-- PRELOAD_START -->[\s\S]*?<!-- PRELOAD_END -->/
 
-        if (markerRegex.test(liquidContent)) {
-            liquidContent = liquidContent.replace(markerRegex, preloadBlock)
+        if (markerRegex.test(snippetContent)) {
+            snippetContent = snippetContent.replace(markerRegex, preloadTags)
         } else {
-            liquidContent = preloadBlock + '\n' + liquidContent
+            snippetContent = preloadTags + '\n' + snippetContent
         }
     
-        fs.writeFileSync(liquidPath, liquidContent)
-        console.log(`Updated liquid for ${liquidFileName} with clean preloads`)
+        fs.writeFileSync(snippetPath, snippetContent)
+        console.log(`Updated liquid for ${snippetFileName} with clean preloads`)
     }
 }

@@ -24,6 +24,14 @@
     <link rel="preload" href="{{ 'Manrope-SemiBold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ 'Manrope-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
 
+    {% if page.handle == 'screenmate-dash-react' %}
+      {%- render 'preload-screenmate-dash' -%}
+    {% endif %}
+
+    {% if page.handle == 'powermate-react' %}
+      {%- render 'preload-powermate' -%}
+    {% endif %}
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
