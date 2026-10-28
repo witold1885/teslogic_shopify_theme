@@ -11,14 +11,14 @@
         @include responsive(padding, 100px, 20px, 64px);
     }
 
-    &-wrap {
-        background-image: url(../../assets/images/powermate/powermate_banner_desktop.png);
-        background-position: center;
+    // &-wrap {
+    //     background-image: url(../../assets/images/powermate/powermate_banner_desktop.png);
+    //     background-position: center;
 
-        @include mobile() {
-            background-image: url(../../assets/images/powermate/powermate_banner_mobile.png);
-        }
-    }
+    //     @include mobile() {
+    //         background-image: url(../../assets/images/powermate/powermate_banner_mobile.png);
+    //     }
+    // }
 
     & .logo {
         @include block(499px, 36px);

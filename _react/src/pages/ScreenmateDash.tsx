@@ -7,8 +7,8 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
 
-// import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
-// import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
+import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
+import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
 
 // import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { useInlineStyles } from '../hooks/inline-styles'
@@ -78,7 +78,7 @@ const ScreenmateDash: FC = () => {
 
     return (
         <ProductLayout className="screenmate-dash" onOrder={onOrder}>
-            <ScreenmateDashBanner onExpand={onExpand} onOrder={onOrder} />
+            <ScreenmateDashBanner {...{bannerDesktopBackground, bannerMobileBackground}} onExpand={onExpand} onOrder={onOrder} />
             <LazySection id="using" minHeight={getMinHeight('Using')} forceRender={forceRender.using} rootMargin="-10px">
                 <ScreenmateDashUsing />
             </LazySection>

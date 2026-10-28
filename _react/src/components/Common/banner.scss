@@ -17,6 +17,18 @@
         background-repeat: no-repeat;
     }
 
+    &-image {
+        @extend %absolute, %inset;
+
+        &-desktop {
+            @extend %mob\:hidden;
+        }
+
+        &-mobile {
+            @extend %hidden, %mob\:block;
+        }
+    }
+
     &-separator {
         @extend %hidden, %mob\:block, %mob\:h-full, %mob\:flex-1;
     }

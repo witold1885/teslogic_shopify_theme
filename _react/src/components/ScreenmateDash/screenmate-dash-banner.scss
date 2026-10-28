@@ -11,15 +11,15 @@
         @include responsive(padding, 96px, 20px, 0);
     }
 
-    &-wrap {
-        background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png);
-        background-position: bottom center;
+    // &-wrap {
+    //     background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png);
+    //     background-position: bottom center;
 
-        @include mobile() {
-            background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png);
-            background-position: center;
-        }
-    }
+    //     @include mobile() {
+    //         background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png);
+    //         background-position: center;
+    //     }
+    // }
     
     & .suptitle, & .title, & .subtitle {
         @extend %text-white, %mob\:w-full;

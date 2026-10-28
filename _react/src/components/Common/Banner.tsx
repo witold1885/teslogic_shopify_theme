@@ -10,6 +10,7 @@ export interface BannerButton {
 }
 
 export interface BannerProps {
+    image?: ReactNode
     video?: ReactNode
     logo?: { src: string; alt: string }
     title?: ReactNode
@@ -21,6 +22,7 @@ export interface BannerProps {
 }
 
 const Banner: FC<BannerProps> = ({
+    image,
     video,
     logo,
     title,
@@ -30,6 +32,7 @@ const Banner: FC<BannerProps> = ({
     onExpand
 }) => (
     <div className="banner-wrap">
+        {image && <>{image}</>}
         {video && <>{video}</>}
         <div className="banner">
             {logo && (
