@@ -37,7 +37,7 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
     return (
         <div className="header-country" ref={ref}>
             <div className="header-country-button" onMouseEnter={handleFetchRegions} onClick={() => onCountriesDropdownToggle()}>
-                <div style={{ backgroundImage: selectedCountry?.flag || 'transparent' }} />
+                <div style={selectedCountry?.flag ? { backgroundImage: `url(${selectedCountry?.flag})` } : { backgroundColor: 'transparent' }} />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
             <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
