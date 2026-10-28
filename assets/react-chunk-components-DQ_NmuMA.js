@@ -1,2 +1,0 @@
-import{o as e,t}from"./react-chunk-react-GZhdek4G.js";var n=e(t(),1);function r(e,t=!1){return(0,n.lazy)(e)}export{r as t};
-//# sourceMappingURL=react-chunk-components-DQ_NmuMA.js.map
