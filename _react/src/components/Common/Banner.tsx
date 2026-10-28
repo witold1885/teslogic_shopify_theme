@@ -2,7 +2,6 @@ import type { FC, ReactNode } from 'react'
 import './banner.scss'
 import Button from './Button'
 import Icon from './Icon'
-import Image from './Image'
 import chevronIcon from '../../assets/icons/chevron-grey-down.svg'
 
 export interface BannerButton {
@@ -33,7 +32,11 @@ const Banner: FC<BannerProps> = ({
     <div className="banner-wrap">
         {video && <>{video}</>}
         <div className="banner">
-            {logo && <Image className="logo animate animate-big" {...logo} />}
+            {logo && (
+                <div className="logo animate animate-big">
+                    <img className="object-cover" {...logo} fetchPriority="high" />
+                </div>
+            )}
             {title && <h1 className="title animate animate-big">{title}</h1>}
             {subtitle && <div className="subtitle animate animate-small">{subtitle}</div>}
             <div className="banner-separator" />
