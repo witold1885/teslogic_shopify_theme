@@ -53,7 +53,7 @@ const Banner: FC<BannerProps> = ({
             )}
             {onExpand && (
                 <div className="expand" onClick={onExpand}>
-                    <Icon icon={chevronIcon} />
+                    <Icon icon={chevronIcon} fetchPriority="high" />
                 </div>
             )}
         </div>

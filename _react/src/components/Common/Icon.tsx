@@ -6,12 +6,13 @@ interface IconProps {
     icon?: string
     svg?: ReactNode
     alt?: string
+    fetchPriority?: 'high' | 'auto'
     onClick?: () => void
 }
 
-const Icon: FC<IconProps> = ({ className = '', style, icon, svg, alt = '', onClick }) => (
+const Icon: FC<IconProps> = ({ className = '', style, icon, svg, alt = '', fetchPriority = 'auto', onClick }) => (
     <div className={`icon ${className} ${onClick ? 'cursor-pointer' : ''}`} {...{style, onClick}}>
-        {icon && <img src={icon} alt={alt} />}
+        {icon && <img src={icon} alt={alt} fetchPriority={fetchPriority} />}
         {svg}
     </div>
 )
