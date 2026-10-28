@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
-import { preload } from 'react-dom'
+// import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
 import { getComponent } from '../layouts/components'
@@ -7,25 +7,26 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
 
-import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
-import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
+// import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
+// import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
 
-import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
+// import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
+import { useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
 
-interface PreloadContent {
-    fetchPriority?: "high" | "low" | "auto"
-    media?: string
-}
+// interface PreloadContent {
+//     fetchPriority?: "high" | "low" | "auto"
+//     media?: string
+// }
 
-interface PreloadImage extends PreloadContent {
-    image: string
-}
+// interface PreloadImage extends PreloadContent {
+//     image: string
+// }
 
-const preloadImages: PreloadImage[] = [
-    { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
-    { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
-]
+// const preloadImages: PreloadImage[] = [
+//     { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
+//     { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
+// ]
 
 const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
 const sectionHeights: Record<string, any> = {
@@ -51,13 +52,13 @@ const ScreenmateDash: FC = () => {
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 
-    if (typeof window !== 'undefined') {
-        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-            as: 'image', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-    }
+    // if (typeof window !== 'undefined') {
+    //     preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+    //         as: 'image', 
+    //         fetchPriority,
+    //         ...(media && { media })
+    //     }))
+    // }
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
 

@@ -1,31 +1,32 @@
 import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
-import { preload } from 'react-dom'
+// import { preload } from 'react-dom'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
-import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
+// import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
+import { useInlineStyles } from '../hooks/inline-styles'
 import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
 
-import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
-import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
+// import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
+// import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
 
-interface PreloadContent {
-    fetchPriority?: "high" | "low" | "auto"
-    media?: string
-}
+// interface PreloadContent {
+//     fetchPriority?: "high" | "low" | "auto"
+//     media?: string
+// }
 
-interface PreloadImage extends PreloadContent {
-    image: string
-}
+// interface PreloadImage extends PreloadContent {
+//     image: string
+// }
 
-const preloadImages: PreloadImage[] = [
-    { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
-    { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
-]
+// const preloadImages: PreloadImage[] = [
+//     { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
+//     { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
+// ]
 
 const slugs: string[] = ['Experience', 'Using', 'Examples', 'Comparison']
 const sectionHeights: Record<string, any> = {
@@ -52,13 +53,13 @@ const Powermate: FC = () => {
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
     
-    if (typeof window !== 'undefined') {
-        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-            as: 'image', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-    }
+    // if (typeof window !== 'undefined') {
+    //     preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+    //         as: 'image', 
+    //         fetchPriority,
+    //         ...(media && { media })
+    //     }))
+    // }
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
     
