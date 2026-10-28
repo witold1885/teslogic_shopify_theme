@@ -23,6 +23,7 @@
 
     & .logo, & .suptitle, & .title, & .subtitle, & .additional, &-buttons {
         @extend %absolute, %mob\:static;
+        opacity: 1;
 
         @include mobile() {
             top: unset;
