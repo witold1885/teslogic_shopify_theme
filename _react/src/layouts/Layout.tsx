@@ -1,11 +1,14 @@
-import { useEffect, useRef, type ReactNode , type FC} from 'react'
+import { useState, useEffect, useCallback, type ReactNode , type FC } from 'react'
 import { preconnect } from 'react-dom'
+import Cookies from 'js-cookie'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
 import { getComponent } from './components'
 import LazySection from './LazySection'
 import Header from '../components/Header/Header'
-import type { SubscriptionPopupProcessData, SubscriptionPopupsRefProps } from '../components/Popup/Subscription/types.ts'
+import type { SubscriptionPopupProcessData } from '../components/Popup/Subscription/types.ts'
+import { useDynamicSlice } from '../hooks/dynamic-slice.ts'
+import { useAppDispatch } from '../redux/hooks.ts'
 
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscription/SubscriptionPopups.tsx'), true)
@@ -31,6 +34,11 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     //     fonts.forEach(font => preload(font, { as: 'font' }))
     // }
 
+    const dispatch = useAppDispatch()
+
+    const { resetError } = useDynamicSlice('subscribe', () => import('../redux/slices/subscribe'))
+    
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (window.history && 'scrollRestoration' in window.history) {
@@ -41,16 +49,35 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [])
 
-    const popups = useRef<SubscriptionPopupsRefProps>(null)
+    const [popupProcessData, setPopupProcessData] = useState<SubscriptionPopupProcessData>(null)
+    const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
+    const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
+    const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
 
-    const handleProceed = (data: SubscriptionPopupProcessData) => {
-        popups?.current?.handleProceed(data)
-    }
+    const discountSubscriptionCookies = Cookies.get('discount_subscription')
+
+    useEffect(() => {
+        if (!discountSubscriptionCookies) {
+            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
+        }
+    }, [discountSubscriptionCookies])
+
+    const handleProceed = useCallback((data: SubscriptionPopupProcessData) => {
+        setPopupProcessData(data)
+        setSubscriptionPopupOpen(false)
+        setSelectionPopupOpen(true)
+        dispatch(resetError())
+    }, [dispatch, resetError])
 
     return (<>
-        {SubscriptionPopups && (
+        {SubscriptionPopups && (subscriptionPopupOpen || selectionPopupOpen || successPopupOpen) && (
             <LazySection minHeight="0px">
-                <SubscriptionPopups ref={popups} />
+                <SubscriptionPopups {...{
+                    popupProcessData, handleProceed, 
+                    subscriptionPopupOpen, setSubscriptionPopupOpen, 
+                    selectionPopupOpen, setSelectionPopupOpen, 
+                    successPopupOpen, setSuccessPopupOpen        
+                }}/>
             </LazySection>
         )}
         <Header {...{apiUrl, theme, orderButton, onOrder}} />
