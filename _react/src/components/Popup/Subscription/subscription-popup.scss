@@ -168,37 +168,6 @@
         }
     }
 
-    &-checkbox {
-        @extend %flex-start-center, %gap-8;
-
-        & input {
-            background-image: url(../../../assets/icons/popup-checkbox-inactive.svg);
-
-            &:checked {
-                background-image: url(../../../assets/icons/popup-checkbox-active.svg);
-            }
-        }
-
-        & label {
-            @extend %font-manrope-14, %cursor-pointer;
-            color: #B9B9B9;
-
-            & a {
-                color: inherit !important;
-                text-decoration-line: underline;
-                text-decoration-style: solid;
-                text-decoration-skip-ink: auto;
-                text-decoration-thickness: 3%;
-                text-underline-offset: 14%;
-                text-underline-position: from-font;
-            }
-        }
-
-        &-error label {
-            color: #FC3E30;
-        }
-    }
-
     &-buttons {
         @extend %w-full, %flex-start-center, %overflow-hidden;
         @include responsive(height, 88px);
@@ -218,11 +187,11 @@
 
     &-submit {
         @extend %font-manrope-18, %font-600;
-        border-right: 1px solid rgba(255, 255, 255, 0.30);
     }
 
     &-cancel {
         @extend %font-manrope;
         @include text(16px, 20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.30);
     }
 }

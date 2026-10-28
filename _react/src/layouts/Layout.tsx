@@ -71,7 +71,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
     return (<>
         {SubscriptionPopups && (subscriptionPopupOpen || selectionPopupOpen || successPopupOpen) && (
-            <LazySection minHeight="0px">
+            <LazySection minHeight="0px" forceRender={true}>
                 <SubscriptionPopups {...{
                     popupProcessData, handleProceed, 
                     subscriptionPopupOpen, setSubscriptionPopupOpen, 

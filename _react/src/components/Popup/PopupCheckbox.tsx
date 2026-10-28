@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import './popup-checkbox.scss'
 
 interface PopupCheckboxProps {
     id: string

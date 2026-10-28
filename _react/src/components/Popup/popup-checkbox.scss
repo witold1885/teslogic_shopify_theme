@@ -1,0 +1,39 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.subscription-popup {
+
+    &-checkbox {
+        @extend %flex-start-center, %gap-8;
+
+        & input {
+            background-image: url(../../assets/icons/popup-checkbox-inactive.svg);
+
+            &:checked {
+                background-image: url(../../assets/icons/popup-checkbox-active.svg);
+            }
+        }
+
+        & label {
+            @extend %font-manrope-14, %cursor-pointer;
+            color: #B9B9B9;
+
+            & a {
+                color: inherit !important;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-skip-ink: auto;
+                text-decoration-thickness: 3%;
+                text-underline-offset: 14%;
+                text-underline-position: from-font;
+            }
+        }
+
+        &-error label {
+            color: #FC3E30;
+        }
+    }
+}
