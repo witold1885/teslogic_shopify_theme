@@ -58,6 +58,7 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
                     className="object-cover"
                     src={theme === 'light' && position === 'absolute' ? logoBlack : logoWhite}
                     alt="Screenmate"
+                    fetchPriority="high"
                 />
             </a>
             <div className="header-nav">

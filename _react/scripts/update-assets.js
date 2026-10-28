@@ -47,17 +47,19 @@ for (const [pageName, fileName] of Object.entries(pagesMap)) {
         }
     }
 
+    const logoImage = files.find(f => f.startsWith('react-logo-white-') && (f.endsWith('.png') || f.endsWith('.webp') || f.endsWith('.svg')))
     const desktopBg = files.find(f => f.startsWith(`react-${fileName}_banner_desktop`) && (f.endsWith('.png') || f.endsWith('.webp')))
     const mobileBg = files.find(f => f.startsWith(`react-${fileName}_banner_mobile`) && (f.endsWith('.png') || f.endsWith('.webp')))
 
-    console.log({ desktopBg, mobileBg })
+    console.log({ logoImage, desktopBg, mobileBg })
 
     const snippetFileName = `preload-${fileName.replace('_', '-')}.liquid`
     const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
     let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
 
-    if (desktopBg && mobileBg) {
+    if (logoImage && desktopBg && mobileBg) {
         const preloadTags = `<!-- PRELOAD_START -->
+<link rel="preload" as="image" href="{{ '${logoImage}' | asset_url }}" fetchpriority="high">
 <link rel="preload" as="image" href="{{ '${desktopBg}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
 <link rel="preload" as="image" href="{{ '${mobileBg}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
 <!-- PRELOAD_END -->`.trim()
