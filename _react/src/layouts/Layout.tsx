@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
-import { preconnect } from 'react-dom'
+import { preconnect, preload } from 'react-dom'
 import Cookies from 'js-cookie'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
@@ -13,8 +13,8 @@ const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscr
 
 const apiUrl: string | undefined = import.meta.env.VITE_API_URL
 
-// const fontModules: Record<string, any> = import.meta.glob('@/assets/fonts/Manrope/Manrope-{Regular,Medium,SemiBold,Bold}.woff2', { eager: true })
-// const fonts: string[] = Object.values(fontModules).map(mod => mod.default)
+const fontModules: Record<string, any> = import.meta.glob('@/assets/fonts/Manrope/Manrope-{Regular,Medium,SemiBold,Bold}.woff2', { eager: true })
+const fonts: string[] = Object.values(fontModules).map(mod => mod.default)
 
 export interface LayoutProps {
     theme?: 'dark' | 'light'
@@ -28,9 +28,9 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     // useExternalScripts(EXTERNAL_SCRIPTS)
     if (apiUrl) preconnect(apiUrl)
 
-    // if (typeof window !== 'undefined') {
-    //     fonts.forEach(font => preload(font, { as: 'font' }))
-    // }
+    if (typeof window !== 'undefined') {
+        fonts.forEach(font => preload(font, { as: 'font' }))
+    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
