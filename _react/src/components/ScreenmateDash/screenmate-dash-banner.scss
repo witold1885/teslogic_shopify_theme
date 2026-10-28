@@ -12,11 +12,11 @@
     }
 
     &-wrap {
-        background-image: url(../../assets/images/screenmate-dash/banner_desktop.png);
+        background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png);
         background-position: bottom center;
 
         @include mobile() {
-            background-image: url(../../assets/images/screenmate-dash/banner_mobile.png);
+            background-image: url(../../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png);
             background-position: center;
         }
     }

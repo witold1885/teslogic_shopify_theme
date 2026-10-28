@@ -1,8 +1,13 @@
+<!-- PRELOAD_START -->
+<link rel="preload" as="image" href="{{ 'react-powermate_banner_desktop-D5IKTs8S.png' | asset_url }}" fetchpriority="high" media="(min-width: 577px)">
+<link rel="preload" as="image" href="{{ 'react-powermate_banner_mobile-Df3c4VgJ.png' | asset_url }}" fetchpriority="high" media="(max-width: 576px)">
+<!-- PRELOAD_END -->
+
 <div id="react-powermate-root"></div>
 
 {% render 'seo-powermate' %}
 
-{{ 'react-style-Powermate-9qH27ZoK.css' | asset_url | stylesheet_tag }}
+{{ 'react-style-Powermate-DHa33l4K.css' | asset_url | stylesheet_tag }}
 
 {%- capture localization_country -%}
   {% render 'country-json', country: localization.country %}

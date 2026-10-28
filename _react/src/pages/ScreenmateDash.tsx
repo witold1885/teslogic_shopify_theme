@@ -7,8 +7,8 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
 
-import bannerDesktopBackground from '../assets/images/screenmate-dash/banner_desktop.png'
-import bannerMobileBackground from '../assets/images/screenmate-dash/banner_mobile.png'
+import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
+import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
 
 import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'

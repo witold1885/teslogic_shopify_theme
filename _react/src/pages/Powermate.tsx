@@ -10,8 +10,8 @@ import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
 
-import bannerDesktopBackground from '../assets/images/powermate/banner_desktop.png'
-import bannerMobileBackground from '../assets/images/powermate/banner_mobile.png'
+import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
+import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"

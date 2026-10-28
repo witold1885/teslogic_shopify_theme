@@ -12,11 +12,11 @@
     }
 
     &-wrap {
-        background-image: url(../../assets/images/powermate/banner_desktop.png);
+        background-image: url(../../assets/images/powermate/powermate_banner_desktop.png);
         background-position: center;
 
         @include mobile() {
-            background-image: url(../../assets/images/powermate/banner_mobile.png);
+            background-image: url(../../assets/images/powermate/powermate_banner_mobile.png);
         }
     }
 
