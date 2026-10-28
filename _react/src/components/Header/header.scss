@@ -296,6 +296,10 @@
             background: rgba(0, 0, 0, 0.32);
             backdrop-filter: blur(8px);
 
+            & img, & div {
+                @include square(20px);
+            }
+
             & span {
                 @extend %font-manrope-16, %font-600, %text-white;
             }
