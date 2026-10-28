@@ -6,6 +6,15 @@ const __dirname = import.meta.dirname
 const assetsDir = path.join(__dirname, '../../assets')
 const files = fs.readdirSync(assetsDir)
 
+const fonts = files.filter(f => f.startsWith('react-Manrope-') && f.endsWith('.woff2'))
+let preloadFontTags = ''
+fonts.forEach(font => {
+    preloadFontTags += `<link rel="preload" href="{{ '${font}' | asset_url }}" as="font" type="font/woff2" crossorigin>\n`
+})
+if (preloadFontTags) {
+    fs.writeFileSync(path.join(__dirname, `../../snippets/preload-fonts.liquid`), preloadFontTags)
+}
+
 const pagesMap = {
     ScreenmateOne: 'screenmate_one',
     ScreenmateDash: 'screenmate_dash',
