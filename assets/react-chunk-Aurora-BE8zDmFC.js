@@ -1,2 +1,0 @@
-import{n as e,t}from"./react-chunk-jsx-runtime-dO8g4poK.js";var n=e(),r=t(),i=()=>{let e=(0,n.c)(1),t;return e[0]===Symbol.for(`react.memo_cache_sentinel`)?(t=(0,r.jsx)(`div`,{className:`aurora`,children:[...[,,,,].keys()].map(a)}),e[0]=t):t=e[0],t};function a(e,t){return(0,r.jsx)(`div`,{className:`aurora__item`},t)}export{i as default};
-//# sourceMappingURL=react-chunk-Aurora-BE8zDmFC.js.map

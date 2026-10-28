@@ -1,14 +1,12 @@
-import { useState, useEffect, useCallback, type ReactNode , type FC } from 'react'
+import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
 import { preconnect } from 'react-dom'
 import Cookies from 'js-cookie'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
 import { getComponent } from './components'
+import type { SubscriptionPopupProcessData, SubscriptionPopupsRefProps } from '../components/Popup/Subscription/types.ts'
 import LazySection from './LazySection'
 import Header from '../components/Header/Header'
-import type { SubscriptionPopupProcessData } from '../components/Popup/Subscription/types.ts'
-import { useDynamicSlice } from '../hooks/dynamic-slice.ts'
-import { useAppDispatch } from '../redux/hooks.ts'
 
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscription/SubscriptionPopups.tsx'), true)
@@ -34,11 +32,6 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     //     fonts.forEach(font => preload(font, { as: 'font' }))
     // }
 
-    const dispatch = useAppDispatch()
-
-    const { resetError } = useDynamicSlice('subscribe', () => import('../redux/slices/subscribe'))
-    
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (window.history && 'scrollRestoration' in window.history) {
@@ -62,18 +55,20 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [discountSubscriptionCookies])
 
-    const handleProceed = useCallback((data: SubscriptionPopupProcessData) => {
+    const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
+
+    const handleProceed = (data: SubscriptionPopupProcessData) => {
         setPopupProcessData(data)
         setSubscriptionPopupOpen(false)
         setSelectionPopupOpen(true)
-        dispatch(resetError())
-    }, [dispatch, resetError])
+        popupsRef?.current?.handleProceed(data)
+    }
 
     return (<>
         {SubscriptionPopups && (subscriptionPopupOpen || selectionPopupOpen || successPopupOpen) && (
             <LazySection minHeight="0px" forceRender={true}>
-                <SubscriptionPopups {...{
-                    popupProcessData, handleProceed, 
+                <SubscriptionPopups ref={popupsRef} {...{
+                    popupProcessData, 
                     subscriptionPopupOpen, setSubscriptionPopupOpen, 
                     selectionPopupOpen, setSelectionPopupOpen, 
                     successPopupOpen, setSuccessPopupOpen        
