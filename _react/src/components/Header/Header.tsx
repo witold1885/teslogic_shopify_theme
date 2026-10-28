@@ -9,7 +9,6 @@ import HeaderMenuDesktop from './HeaderMenuDesktop'
 import HeaderCountrySelector, { type HeaderCountrySelectorProps } from './HeaderCountrySelector'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
-import Image from '../Common/Image'
 import logo from '../../assets/images/logo-white.svg'
 import logoBlack from '../../assets/images/logo-black.svg'
 import burgerIcon from '../../assets/icons/burger.svg'
@@ -54,11 +53,12 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
     
     return (
         <header className={`header ${className} ${theme} animate animate-big ${mode ? `animate-big-${mode}` : ''}`}>
-            <a href="/">
-                <Image
-                    className="header-logo"
+            <a href="/" className="header-logo">
+                <img
+                    className="object-cover"
                     src={theme === 'light' && position === 'absolute' ? logoBlack : logo}
                     alt="Screenmate"
+                    fetchPriority="high"
                 />
             </a>
             <div className="header-nav">
