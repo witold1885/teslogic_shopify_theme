@@ -9,7 +9,8 @@
     margin: 0 auto;
 
     &-wrap {
-        @extend %w-full;
+        @extend %w-full, %absolute;
+        top: 0;
         height: 100vh;
         height: 100dvh;
         min-height: 100vh;
