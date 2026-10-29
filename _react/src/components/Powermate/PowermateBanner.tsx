@@ -17,10 +17,10 @@ const PowermateBanner: FC<PowermateBannerProps> = ({ bannerDesktopBackground, ba
     }), [onOrder])
 
     const bannerProps: BannerProps = useMemo(() => ({
-        // image: <>
-        //     <img className="banner-image banner-image-desktop object-cover" src={bannerDesktopBackground} {...imageProps} />
-        //     <img className="banner-image banner-image-mobile object-cover" src={bannerMobileBackground} {...imageProps} />
-        // </>,
+        image: <>
+            <img className="banner-image banner-image-desktop object-cover" src={bannerDesktopBackground} {...imageProps} />
+            <img className="banner-image banner-image-mobile object-cover" src={bannerMobileBackground} {...imageProps} />
+        </>,
         logo: { src: logo, alt: 'Powermate' },
         title: <>
             Unlock the full <br className="mobile" />potential <br className="desktop" />
