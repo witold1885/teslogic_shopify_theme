@@ -93,4 +93,5 @@ const Powermate: FC = () => {
 
 mountForShopify('react-powermate-root', Powermate)
 
+export { PowermateBanner }
 export default Powermate

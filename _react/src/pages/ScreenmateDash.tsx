@@ -72,4 +72,5 @@ const ScreenmateDash: FC = () => {
 
 mountForShopify('react-screenmate-dash-root', ScreenmateDash)
 
+export { ScreenmateDashBanner }
 export default ScreenmateDash
