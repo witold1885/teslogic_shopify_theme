@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode, type FC, type ChangeEvent } from 'react'
+import { forwardRef, useState, useEffect, useMemo, useCallback, type ReactNode, type FC, type ChangeEvent } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -53,11 +53,9 @@ const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSe
             {import.meta.env.SSR ? (<>
                 {imagesList}
             </>) : (
-                <Suspense>
-                    <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
-                        {imagesList}
-                    </SlickSlider>
-                </Suspense>
+                <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
+                    {imagesList}
+                </SlickSlider>
             )}
         </div>
     )

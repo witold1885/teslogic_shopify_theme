@@ -1,12 +1,8 @@
-import { lazy } from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { getComponent } from '../../layouts/components'
 
-const Slider = lazy(() =>
-    import('react-slick').then(module => ({
-        default: (module.default as any).default
-    }))
-)
+const Slider = getComponent(() => import('react-slick'))
 
 const SlickSlider = (Slider as any).default || Slider
 

@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect, useMemo, useCallback, Suspense, type ReactNode, type ChangeEvent } from 'react'
+import { forwardRef, useState, useEffect, useMemo, useCallback, type ReactNode, type ChangeEvent } from 'react'
 import './screenmate-one-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -182,11 +182,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                     {import.meta.env.SSR ? (<>
                         {thumbsList}
                     </>) : (
-                        <Suspense>
-                            <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
-                                {thumbsList}
-                            </SlickSlider>
-                        </Suspense>
+                        <SlickSlider className="screenmate-one__order-gallery-slider" {...sliderSettings}>
+                            {thumbsList}
+                        </SlickSlider>
                     )}
                 </div>
             </div>

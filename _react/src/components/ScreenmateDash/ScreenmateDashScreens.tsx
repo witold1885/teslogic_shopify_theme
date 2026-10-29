@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef, useMemo, Children, Suspense, type ReactNode, type ReactElement, type FC } from 'react'
+import { forwardRef, useState, useRef, useMemo, Children, type ReactNode, type ReactElement, type FC } from 'react'
 import './screenmate-dash-screens.scss'
 import './screenmate-dash-pointers.scss'
 import SlickSlider, { type Settings } from '../Common/SlickSlider'
@@ -243,39 +243,37 @@ const ScreenmateDashScreens: FC = () => {
 					</div>
 					{!isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
 				</div>
-				<Suspense>
-					<SlickSlider ref={sliderRef} {...sliderSettings}>
-						{Object.entries(blocks).map(([key, { alt, image, retina, pointers }]) => (
-							<div className="screens__features-block" key={key}>
-								<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
-									<img
-										draggable="false"
-										className={`screens__features-image ${theme} ${mode}`}
-										src={image}
-										srcSet={`${retina} 2x`}
-										alt={alt}
-										loading="lazy"
-									/>
-								</div>
-								{pointers.map(({ position, legend, line, icon }) => {
-									const slug = `${key}-${position}`
-									const classNames = [...(position?.split('-') || []), slug].map(suffix => `pointer-${suffix}`).join(' ')
-									const lines = countReactNodeLines(legend, mode)
-									return (
-										<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
-											<div className="pointer-wrap">
-												<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
-												<img className={`pointer-line ${mode}`} src={line} alt="" />
-												<img className={`pointer-icon ${mode}`} src={icon} alt="" />
-												<img className="pointer-point" src={pointIcons[`point-${theme}`]} alt="" />
-											</div>
-										</div>
-									)
-								})}
+				<SlickSlider ref={sliderRef} {...sliderSettings}>
+					{Object.entries(blocks).map(([key, { alt, image, retina, pointers }]) => (
+						<div className="screens__features-block" key={key}>
+							<div {...anime(`screen-${key}`)} className="screens__features-image-wrap">
+								<img
+									draggable="false"
+									className={`screens__features-image ${theme} ${mode}`}
+									src={image}
+									srcSet={`${retina} 2x`}
+									alt={alt}
+									loading="lazy"
+								/>
 							</div>
-						))}
-					</SlickSlider>
-				</Suspense>
+							{pointers.map(({ position, legend, line, icon }) => {
+								const slug = `${key}-${position}`
+								const classNames = [...(position?.split('-') || []), slug].map(suffix => `pointer-${suffix}`).join(' ')
+								const lines = countReactNodeLines(legend, mode)
+								return (
+									<div {...anime(`pointer-${slug}`)} className={`pointer ${classNames}`} key={slug}>
+										<div className="pointer-wrap">
+											<div className={`pointer-legend ${mode} lines-${lines}`}>{legend}</div>
+											<img className={`pointer-line ${mode}`} src={line} alt="" />
+											<img className={`pointer-icon ${mode}`} src={icon} alt="" />
+											<img className="pointer-point" src={pointIcons[`point-${theme}`]} alt="" />
+										</div>
+									</div>
+								)
+							})}
+						</div>
+					))}
+				</SlickSlider>
 				{isMobile && currentScreenIndex !== undefined && (
 					<div {...anime(`tab-${screenTypes[currentScreenIndex]}`)} className="screens__selected">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />

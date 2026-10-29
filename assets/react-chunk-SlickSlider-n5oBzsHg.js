@@ -1,2 +1,0 @@
-import{o as e,t}from"./react-chunk-react-GZhdek4G.js";import{t as n}from"./react-chunk-preload-helper-DMavx1dx.js";var r=(0,e(t(),1).lazy)(()=>n(()=>import(`./react-chunk-lib-MImBRB2q.js`).then(t=>e(t.default,1)).then(e=>({default:e.default.default})),[],import.meta.url)),i=r.default||r;export{i as t};
-//# sourceMappingURL=react-chunk-SlickSlider-n5oBzsHg.js.map
