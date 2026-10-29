@@ -14,7 +14,7 @@
     }
 
     &-wrap {
-        @extend %w-full;
+        @extend %w-full, %overflow-hidden;
         @include responsive(padding, 150px, 0, 180px);
         background: #0A0A0A;
 

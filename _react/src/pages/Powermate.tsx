@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
+import { useState, useMemo, useCallback, type ComponentType, type FC, useRef } from 'react'
+import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/types.ts'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
 import { useInlineStyles } from '../hooks/inline-styles'
-import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -50,28 +50,58 @@ const Powermate: FC = () => {
                 : undefined
     }, [mode])
 
-    const {
-        warningPopupOpen, setWarningPopupOpen,
-        checkPopupOpen, setCheckPopupOpen,
-        resultPopupOpen, setResultPopupOpen,
-        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
-        resultPopupType
-    } = usePowermateCompatibilityPopups()
+    const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
+    const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)    
+
+    const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
+    const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
+    const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
+    const [resultPopupType, setResultPopupType] = useState<CompatibilityResultPopupType>('default')
+    
+    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void) => {
+        setWarningPopupOpen(true)
+        confirmCallbackRef.current = confirmCallback
+        boostOrderCallbackRef.current = boostOrderCallback
+    }
+
+    const handleCheck = (boostOrderCallback?: () => void) => {
+        setWarningPopupOpen(false)
+        setCheckPopupOpen(true)
+        if (!boostOrderCallbackRef.current) {
+            boostOrderCallbackRef.current = boostOrderCallback
+        }
+    }
+    
+    const handleConfirm = () => {
+        confirmCallbackRef.current?.()
+        setWarningPopupOpen(false)
+    }
+
+    const handleComplete = (proceed: boolean) => {
+        setCheckPopupOpen(false)
+        const type: CompatibilityResultPopupType = proceed ? 'success' : 'warning'
+        setResultPopupType(type)
+        setResultPopupOpen(true)
+    }
+
+    const handleBoostOrder = () => {
+        boostOrderCallbackRef.current?.()
+        setResultPopupOpen(false)
+        setResultPopupType('default')
+    }    
 
     return (<>
-        <LazySection minHeight="0px">
-            {PowermateCompatibilityPopups && (
-                <PowermateCompatibilityPopups
-                    {...{
-                        warningPopupOpen, setWarningPopupOpen,
-                        checkPopupOpen, setCheckPopupOpen,
-                        resultPopupOpen, setResultPopupOpen,
-                        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
-                        resultPopupType
-                    }}
-                />
-            )}
-        </LazySection>
+        {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
+            <LazySection minHeight="0px" forceRender={true}>
+                <PowermateCompatibilityPopups {...{
+                    warningPopupOpen, setWarningPopupOpen,
+                    checkPopupOpen, setCheckPopupOpen,
+                    resultPopupOpen, setResultPopupOpen,
+                    handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
+                    resultPopupType
+                }} />
+            </LazySection>
+        )}
         <ProductLayout className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktopBackground, bannerMobileBackground}} onOrder={onOrder} />
             <LazySection minHeight={getMinHeight('Experience')} rootMargin="-10px">

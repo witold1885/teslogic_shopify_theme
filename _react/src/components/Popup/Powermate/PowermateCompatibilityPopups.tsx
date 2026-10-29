@@ -1,7 +1,7 @@
 import type { FC } from 'react'
+import type { PowermateCompatibilityPopupsProps } from './types.ts'
 import './powermate-compatibility-dialog.scss'
 import { getComponent } from '../../../layouts/components'
-import type { PowermateCompatibilityPopupsProps } from '../../../hooks/powermate-compatibility-popups.ts'
 
 const PowermateCompatibilityWarningPopup = getComponent(() => import('./PowermateCompatibilityWarningPopup.tsx'), true)
 const PowermateCompatibilityCheckPopup = getComponent(() => import('./PowermateCompatibilityCheckPopup.tsx'), true)
@@ -13,7 +13,7 @@ const PowermateCompatibilityPopups: FC<PowermateCompatibilityPopupsProps> = ({
     resultPopupOpen, setResultPopupOpen,
     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
     resultPopupType
-}: PowermateCompatibilityPopupsProps) => {
+}) => {
     return (<>
         {PowermateCompatibilityWarningPopup && PowermateCompatibilityCheckPopup && PowermateCompatibilityResultPopup && (<>
             {warningPopupOpen && (

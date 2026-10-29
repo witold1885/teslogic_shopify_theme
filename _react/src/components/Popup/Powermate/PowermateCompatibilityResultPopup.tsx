@@ -1,16 +1,9 @@
-import { useRef, useMemo, type FC, type ReactNode } from 'react'
+import { useRef, useMemo, type FC } from 'react'
+import type { CompatibilityResultPopupData, CompatibilityResultPopupType } from './types'
 import { useAppSelector } from '../../../redux/hooks'
 import { fetchProducts } from '../../../redux/selectors/products'
 import { fetchContent } from '../../../redux/selectors/content'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
-
-export type CompatibilityResultPopupType = 'success' | 'warning' | 'default'
-
-type CompatibilityResultPopupData = {
-    title: string
-    texts: ReactNode[]
-    buttons: { slug: string; text: string; onClick: () => void }[]
-}
 
 interface CompatibilityResultPopupProps {
     type: CompatibilityResultPopupType

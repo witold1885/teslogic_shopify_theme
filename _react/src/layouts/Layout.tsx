@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
+import type { SubscriptionPopupProcessData, SubscriptionPopupsRefProps } from '../components/Popup/Subscription/types.ts'
 import Cookies from 'js-cookie'
 import '@/assets/styles/common.scss'
 import '@/assets/styles/cookies-banner.scss'
 import { getComponent } from './components'
-import type { SubscriptionPopupProcessData, SubscriptionPopupsRefProps } from '../components/Popup/Subscription/types.ts'
 import LazySection from './LazySection'
 import Header from '../components/Header/Header'
 
@@ -61,7 +61,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                     subscriptionPopupOpen, setSubscriptionPopupOpen, 
                     selectionPopupOpen, setSelectionPopupOpen, 
                     successPopupOpen, setSuccessPopupOpen        
-                }}/>
+                }} />
             </LazySection>
         )}
         <Header {...{theme, orderButton, onOrder}} />
