@@ -12,7 +12,6 @@ import PowermateBanner from '../components/Powermate/PowermateBanner'
 import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
 
-const slugs: string[] = ['Experience', 'Using', 'Examples', 'Comparison']
 const sectionHeights: Record<string, any> = {
     Experience: { desktop: 970, mobile: 1516 },
     Using: { desktop: 774, mobile: 1702 },
@@ -22,11 +21,13 @@ const sectionHeights: Record<string, any> = {
     Order: { desktop: 1249, mobile: 1574 },
     Info: { desktop: 852, mobile: 836 },
 }
-const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {
+
+const sections: Record<string, ComponentType<any>> = ['Using', 'Examples', 'Comparison'].reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/Powermate/Powermate${slug}.tsx`))
   return acc
 }, {} as Record<string, ComponentType<any>>)
 
+const PowermateExperience = getComponent(() => import('../components/Powermate/PowermateExperience.tsx'))
 const PowermateCompatibility = getComponent(() => import('../components/Powermate/PowermateCompatibility.tsx'))
 const PowermateOrder = getComponent(() => import('../components/Powermate/PowermateOrder.tsx'))
 const PowermateInfo = getComponent(() => import('../components/Powermate/PowermateInfo.tsx'))
@@ -73,6 +74,9 @@ const Powermate: FC = () => {
         </LazySection>
         <ProductLayout className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktopBackground, bannerMobileBackground}} onOrder={onOrder} />
+            <LazySection minHeight={getMinHeight('Experience')} rootMargin="-10px">
+                <PowermateExperience />
+            </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
                 <LazySection key={slug} minHeight={getMinHeight(slug)}>
                     <Component />

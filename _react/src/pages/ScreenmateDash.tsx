@@ -12,7 +12,6 @@ import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_
 import { useInlineStyles } from '../hooks/inline-styles'
 import { scrollToElementLazy } from '../utils/scroll'
 
-const slugs: string[] = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers']
 const sectionHeights: Record<string, any> = {
     Using: { desktop: 748, mobile: 1698 },
     Screens: { desktop: 1240, mobile: 1054 },
@@ -23,7 +22,8 @@ const sectionHeights: Record<string, any> = {
     Bloggers: { desktop: 965, mobile: 715 },
     Order: { desktop: 976, mobile: 970 }
 }
-const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {
+
+const sections: Record<string, ComponentType<any>> = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers'].reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
   return acc
 }, {} as Record<string, ComponentType<any>>)
