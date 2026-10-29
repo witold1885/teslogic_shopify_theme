@@ -18,10 +18,10 @@ const ScreenmateDashBanner: FC<ScreenmateDashBannerProps> = ({ bannerDesktopBack
     }), [onOrder, onExpand])
 
     const bannerProps: BannerProps = useMemo(() => ({
-        image: <>
-            <img className="banner-image banner-image-desktop object-cover" src={bannerDesktopBackground} {...imageProps} />
-            <img className="banner-image banner-image-mobile object-cover" src={bannerMobileBackground} {...imageProps} />
-        </>,
+        // image: <>
+        //     <img className="banner-image banner-image-desktop object-cover" src={bannerDesktopBackground} {...imageProps} />
+        //     <img className="banner-image banner-image-mobile object-cover" src={bannerMobileBackground} {...imageProps} />
+        // </>,
         title: <>Screenmate Dash</>,
         subtitle: <>Powerful Dashboard for Model 3/Y <br />with access to advanced Tesla features</>,
         buttons,
