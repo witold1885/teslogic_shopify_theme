@@ -4,12 +4,16 @@
   Generated at: 2026-10-29T20:28:03.136Z
 {% endcomment %}
 <style>
-.lcp-wrap { position: relative; width: 100%; height: calc(810 * 100vw / 1440); background: #000; overflow: hidden; }
-.lcp-wrap .banner-wrap { width: 100%; height: 100%; }
-.lcp-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.lcp-wrap { position: relative; width: 100%; height: 100vh; /*height: calc(810 * 100vw / 1440); */ background: #000; overflow: hidden; }
+.lcp-wrap .banner-wrap { width: 100%; height: 50%; }
+.lcp-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; mask-image: linear-gradient(
+  to bottom,
+  #000 65%,
+  transparent 100%
+);}
 .lcp-wrap img.banner-image-mobile { display: none; }
 @media screen and (max-width:576px) {
-  .lcp-wrap { height: calc(422.24 * 100vw / 390); }
+  /* .lcp-wrap { height: calc(844.48 * 100vw / 390); } */
   .lcp-wrap img.banner-image-desktop { display: none; }
   .lcp-wrap img.banner-image-mobile { display: block; }
 }
@@ -17,6 +21,6 @@
 <div class="screenmate-dash lcp-wrap">
   <div class="banner-wrap">
     <img class="banner-image banner-image-desktop object-cover" src="{{ 'react-screenmate_dash_banner_desktop-UX2Baoz-.png' | asset_url }}" width="1440" height="810" alt="" fetchpriority="high" />
-    <img class="banner-image banner-image-mobile object-cover" src="{{ 'react-screenmate_dash_banner_mobile-BsQB0Wi7.png' | asset_url }}" width="390" height="422.24" alt="" fetchpriority="high" />
+    <img class="banner-image banner-image-mobile object-cover" src="{{ 'react-screenmate_dash_banner_mobile-BsQB0Wi7.png' | asset_url }}" width="390" height="844.48" alt="" fetchpriority="high" />
   </div>
 </div>
