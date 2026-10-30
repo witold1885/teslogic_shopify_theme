@@ -1,12 +1,19 @@
 {% comment %}
   AUTO-GENERATED LCP BANNER. DO NOT EDIT DIRECTLY.
   Page: Powermate
-  Generated at: 2026-10-30T12:02:50.371Z
+  Generated at: 2026-10-30T12:30:44.736Z
 {% endcomment %}
 <style>
 .lcp-wrap { position: relative; width: 100%; height: 100vh; background: #000 !important; overflow: hidden; }
 .lcp-wrap .banner-wrap { width: 100%; height: 75%; min-height: 75vh !important; overflow: hidden; }
-.lcp-wrap img { width: 100%; height: 133.333333%; object-fit: cover; object-position: center; mask-image: linear-gradient(to bottom, #000 65%, transparent 100%); }
+.lcp-wrap .banner-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.15) 70%, rgba(0, 0, 0, 0.55) 85%, #000 100%);
+}
+.lcp-wrap img { width: 100%; height: 133.333333%; object-fit: cover; object-position: center; }
 .lcp-wrap img.banner-image-mobile { display: none; }
 @media screen and (max-width:576px) {
   .lcp-wrap img.banner-image-desktop { display: none; }
