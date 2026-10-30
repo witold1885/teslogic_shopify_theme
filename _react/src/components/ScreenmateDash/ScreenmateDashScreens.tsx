@@ -186,6 +186,23 @@ const ScreenmateDashScreens: FC = () => {
 	const mode: Mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
 	const [currentScreenIndex, setCurrentScreenIndex] = useState<number>(0)
 
+	const sliderRef = useRef<any>(null)
+	
+	const sliderSettings: Settings = useMemo(() => ({
+		dots: true,
+		infinite: true,
+		fade: true,
+		arrows: false,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		swipeToSlide: true,
+		waitForAnimate: false,
+		dotsClass: 'screens__select',
+		appendDots: dots => <ScreenDots {...anime('tab')} {...{dots, theme}} />,
+        beforeChange: (_, next) => setCurrentScreenIndex(next)
+	}), [theme])
+
 	const blocks = useMemo(() => Object.entries(screens).reduce<Record<string, Block>>((acc, [type, { title, pointers }], index) => {
 		acc[type] = {
 			alt: title,
@@ -213,23 +230,6 @@ const ScreenmateDashScreens: FC = () => {
 	}), [])
 
 	const { anime } = useAnime(animationConfigs)
-
-	const sliderRef = useRef<any>(null)
-	
-	const sliderSettings: Settings = useMemo(() => ({
-		dots: true,
-		infinite: true,
-		fade: true,
-		arrows: false,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		swipeToSlide: true,
-		waitForAnimate: false,
-		dotsClass: 'screens__select',
-		appendDots: dots => <ScreenDots {...anime('tab')} {...{dots, theme}} />,
-        beforeChange: (_, next) => setCurrentScreenIndex(next)
-	}), [theme])
 
 	return (
 		<div className={`screens ${theme}`} id="features">
@@ -275,7 +275,7 @@ const ScreenmateDashScreens: FC = () => {
 					))}
 				</SlickSlider>
 				{isMobile && currentScreenIndex !== undefined && (
-					<div {...anime(`tab-${screenTypes[currentScreenIndex]}`)} className="screens__selected">
+					<div {...anime('tab')} className="screens__selected">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />
 						<div className="screens__selected-item">
 							<div className="screens__selected-item-title">{screens[screenTypes[currentScreenIndex]].title}</div>
