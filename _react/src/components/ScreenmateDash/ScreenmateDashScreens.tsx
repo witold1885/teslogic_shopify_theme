@@ -14,6 +14,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 	screen: { yFrom: '40px', duration: 666 },
 	pointer: { yFrom: '20px', duration: 333 },
 	tab: { yFrom: '20px', duration: 333 },
+	selected: { yFrom: '20px', duration: 333 },
 }
 
 const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
@@ -275,7 +276,7 @@ const ScreenmateDashScreens: FC = () => {
 					))}
 				</SlickSlider>
 				{isMobile && currentScreenIndex !== undefined && (
-					<div {...anime('tab')} className="screens__selected">
+					<div {...anime('selected')} className="screens__selected">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />
 						<div className="screens__selected-item">
 							<div className="screens__selected-item-title">{screens[screenTypes[currentScreenIndex]].title}</div>
