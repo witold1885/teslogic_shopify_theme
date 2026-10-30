@@ -34,11 +34,11 @@ $animationFn: cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
 }
 
 @mixin appear() {
-    visibility: hidden;
+    filter: brightness(0);
     animation: appear 0.666s #{$animationFn};
 
     @keyframes appear {
-        from { visibility: hidden; }
-        to { visibility: visible; }
+        from { filter: brightness(0); }
+        to { filter: brightness(1); }
     }
 }
