@@ -32,29 +32,25 @@
 
         &-subtitle, &-text {
             color: #F1F1F1;
-            @extend %text-center;
-
-            @include mobile() {
-                text-align: left;
-            }
+            @extend %text-center, %mob\:text-left;
         }
 
         &-subtitle {
             @extend %font-manrope-24, %mob\:font-manrope-18;
 
             @include mobile() {
-                @include responsive(max-width, 185px);
+                @include res-mobile(max-width, 185px);
             }
         }
 
         &-video {
             @extend %w-full, %relative, %overflow-hidden;
-            @include responsive(height, 580px);
-            @include responsive(border-radius, 24px);
+            @include res-desktop(height, 580px);
+            @include res-desktop(border-radius, 24px);
 
             @include mobile() {
-                @include responsive(height, 290px);
-                @include responsive(border-radius, 10px);
+                @include res-mobile(height, 290px);
+                @include res-mobile(border-radius, 10px);
             }
 
             & > div {
@@ -72,11 +68,11 @@
 
         &-text {
             @extend %font-manrope-24, %mob\:font-manrope-14;
-            @include responsive(height, 64px);
+            @include res-desktop(height, 64px);
 
             @include mobile() {
-                @include responsive(max-width, 270px);
-                @include responsive(height, 60px);
+                @include res-mobile(max-width, 270px);
+                @include res-mobile(height, 60px);
 
                 & > br {
                     display: none;

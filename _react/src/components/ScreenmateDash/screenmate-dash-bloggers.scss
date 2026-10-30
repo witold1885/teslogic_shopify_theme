@@ -10,20 +10,20 @@
 
     &__wrap {
         @extend %container;
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(padding, 180px, 0);
 
 		@include mobile() {
-			@include responsive(padding, 96px, 0, 108px);
+			@include res-mobile(padding, 96px, 0, 108px);
 		}
     }
 
     &__title {
         @extend %w-full, %font-manrope-52, %font-500;
-        @include responsive(margin, 0, auto, 6px);
+        @include res-desktop(margin, 0, auto, 6px);
 
 		@include mobile() {
-        	@include responsive(margin, 0, auto, 8px);
-			@include text(32px, 40px);
+        	@include res-mobile(margin, 0, auto, 8px);
+			@include text-mobile(32px, 40px);
 		}
 
         &-bloggers {
@@ -33,11 +33,11 @@
 
     &__subtitle {
         @extend %w-full, %font-manrope-24, %mob\:font-manrope-18;
-        @include responsive(margin, 0, auto, 47px);
+        @include res-desktop(margin, 0, auto, 47px);
 	    color: #4D4D4D;
 
 		@include mobile() {
-        	@include responsive(margin, 0, auto, 38px);
+        	@include res-mobile(margin, 0, auto, 38px);
 		}
     }
 
@@ -47,10 +47,10 @@
 
 		&-wrap {
 			@extend %flex-column;
-			@include responsive(row-gap, 58px);
+			@include res-desktop(row-gap, 58px);
 
 			@include mobile() {
-				@include responsive(row-gap, 41px);
+				@include res-mobile(row-gap, 41px);
 			}
 		}
 
@@ -65,21 +65,21 @@
 		&-item {
 			display: inline-flex !important;
 			@extend %flex-column, %gap-20, %mob\:gap-12;
-			@include responsive(width, 416px);
+			@include res-desktop(width, 416px);
 
 			@include mobile() {
-				@include responsive(width, 306px);
+				@include res-mobile(width, 306px);
 			}
 
 			&-thumbnail {
 				@extend %flex-center;
-				@include block(416px, 234px);
+				@include block-desktop(416px, 234px);
 				@include responsive(border-radius, 24px);
 				background-size: cover;
 				background-position: center;
 
 				@include mobile() {
-					@include block(306px, 172px);
+					@include block-mobile(306px, 172px);
 				}
 
 				&-yt-icon {
@@ -95,13 +95,13 @@
 				}
 
 				&-thumbnail {
-					@include square(32px);
-					@include responsive(border-radius, 32px);
+					@include square-desktop(32px);
+					@include res-desktop(border-radius, 32px);
 					overflow: hidden;
 
 					@include mobile() {
-						@include square(24px);
-						@include responsive(border-radius, 24px);
+						@include square-mobile(24px);
+						@include res-mobile(border-radius, 24px);
 					}
 				}
 
@@ -118,7 +118,7 @@
 					color: #666;
 
 					@include mobile() {
-						@include text(16px, 20px);
+						@include text-mobile(16px, 20px);
 					}
 				}
 			}

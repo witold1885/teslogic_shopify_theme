@@ -9,21 +9,21 @@ body {
 }
 
 .partners {
-    @include responsive(padding, 180px, 0, 150px);
+    @include res-desktop(padding, 180px, 0, 150px);
     background-color: #FFF;
     color: #000;
 
     @include mobile() {
-        @include responsive(padding, 76px, 0, 90px);
+        @include res-mobile(padding, 76px, 0, 90px);
     }
 
     &-wrap {
         @extend %flex-column, %gap-40;
-        @include responsive(width, 856px);
+        @include res-desktop(width, 856px);
         margin: 0 auto;
 
         @include mobile() {
-            @include responsive(width, 350px);
+            @include res-mobile(width, 350px);
         }
     }
 
@@ -32,7 +32,7 @@ body {
 
         @include mobile() {
             & > * {
-                @include responsive(width, 335px);
+                @include res-mobile(width, 335px);
             }
         }
 
@@ -53,13 +53,13 @@ body {
 
     &-content {
         @extend %flex-column, %gap-40, %mob\:gap-24;
-        @include responsive(padding, 32px);
-        @include responsive(border-radius, 24px);
+        @include res-desktop(padding, 32px);
+        @include res-desktop(border-radius, 24px);
         background: #F6F6F6;
 
         @include mobile() {
-            @include responsive(padding, 16px);
-            @include responsive(border-radius, 16px);
+            @include res-mobile(padding, 16px);
+            @include res-mobile(border-radius, 16px);
         }
 
         &-list {

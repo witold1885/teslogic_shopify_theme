@@ -8,7 +8,7 @@
     @extend %flex-column-center-end;
 
     @include mobile() {
-        @include responsive(padding, 0, 20px);
+        @include res-mobile(padding, 0, 20px);
     }
 
     &-wrap {
@@ -39,29 +39,29 @@
     }
     
     & .logo, & .title, &-buttons {
-        @include responsive(left, 72px);
+        @include res-desktop(left, 72px);
     }
 
     & .logo {
-        @include responsive(top, 284px);
-        @include block(326px, 24px);
+        @include res-desktop(top, 284px);
+        @include block-desktop(326px, 24px);
         aspect-ratio: 163/12;
 
         @include mobile() {
             align-self: flex-start;
-            @include block(217px, 16px);
+            @include block-mobile(217px, 16px);
             aspect-ratio: 217/16;
-            @include responsive(margin-bottom, 20px);
+            @include res-mobile(margin-bottom, 20px);
         }
     }
 
     & .title {
-        @include responsive(top, 340px);
-        @include responsive(width, 600px);
+        @include res-desktop(top, 340px);
+        @include res-desktop(width, 600px);
         font-family: "Neue Haas Grotesk Display Pro";
         font-style: normal;
         font-weight: 900;
-        @include text(64px, 72px);
+        @include text-desktop(64px, 72px);
         background: radial-gradient(206.09% 206.09% at 50% 50%, #FFF 0%, #808080 100%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -69,23 +69,23 @@
 
         @include mobile() {
             align-self: flex-start;
-            @include responsive(width, 350px);
-            @include responsive(margin-bottom, 28px);
-            @include text(37.4px, 44px);
+            @include res-mobile(width, 350px);
+            @include res-mobile(margin-bottom, 28px);
+            @include text-mobile(37.4px, 44px);
         }
     }
 
     & .additional {
         @extend %flex-column, %gap-12;
-        @include responsive(bottom, 73px);
-        @include responsive(right, 72px);
+        @include res-desktop(bottom, 73px);
+        @include res-desktop(right, 72px);
 
         @include mobile() {
             order: -1;
             align-self: flex-end;
-            @include block(104px, 40px);
+            @include block-mobile(104px, 40px);
             aspect-ratio: 13/5;
-            @include responsive(margin-bottom, 61px);
+            @include res-mobile(margin-bottom, 61px);
             background-image: url(../../assets/images/screenmate-one/kickstarter-mobile.svg);
             background-size: cover;
         }
@@ -117,7 +117,7 @@
     }
 
     &-buttons {
-        @include responsive(top, 516px);
+        @include res-desktop(top, 516px);
 
         & > * {
             @extend %font-600, %whitespace-nowrap;
@@ -133,7 +133,7 @@
 
         &-buy {
             @extend %uppercase;
-            @include responsive(width, 280px);
+            @include res-desktop(width, 280px);
         }
     }
 }

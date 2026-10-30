@@ -45,13 +45,14 @@ $weights: 400, 500, 600, 700, 800, 900;
                 font-family: $fontFamily;
                 font-style: normal;
                 font-weight: 400;
-                @include responsive(font-size, $fontSize);
-                @include responsive(line-height, $lineHeight);
 
                 @if $prefix == "mob" {
+                    @include text-mobile($fontSize, $lineHeight);
                     -webkit-font-smoothing: subpixel-antialiased;
                     -moz-osx-font-smoothing: auto;
                 } @else {
+                    @include text-desktop($fontSize, $lineHeight);
+                    @include text-mobile($fontSize, $lineHeight);
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
                 }

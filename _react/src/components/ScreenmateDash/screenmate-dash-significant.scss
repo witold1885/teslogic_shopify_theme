@@ -5,21 +5,21 @@
 @use '../../assets/styles/mixins' as *;
 
 .significant {
-    @include responsive(padding, 0, 0, 180px);
+    @include res-desktop(padding, 0, 0, 180px);
 
 	@include mobile() {
-		@include responsive(width, 350px);
+		@include res-mobile(width, 350px);
 		margin: 0 auto;
-    	@include responsive(padding, 0, 0, 104px);
+    	@include res-mobile(padding, 0, 0, 104px);
 	}
 
     &__title {
         @extend %container, %mob\:w-full, %font-manrope-52, %font-500;
-        @include responsive(margin, 0, auto, 56px);
+        @include res-desktop(margin, 0, auto, 56px);
 
 		@include mobile() {
-        	@include responsive(margin, 0, auto, 28px);
-			@include text(32px, 40px);
+        	@include res-mobile(margin, 0, auto, 28px);
+			@include text-mobile(32px, 40px);
 		}
 
         & br {
@@ -32,12 +32,12 @@
 
 		&-wrap {
 			@extend %flex-column;
-			@include responsive(row-gap, 72px);
+			@include res-desktop(row-gap, 72px);
 			padding-left: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
 			padding-right: calc((100vw - calc(1296 * 100vw / 1440)) / 2);
 
 			@include mobile() {
-				@include responsive(row-gap, 60px);
+				@include res-mobile(row-gap, 60px);
 				padding: 0;
 			}
 		}

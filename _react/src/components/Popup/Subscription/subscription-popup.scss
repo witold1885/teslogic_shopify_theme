@@ -17,21 +17,21 @@
 }
 
 .subscription-popup, .selection-popup {
-    @include responsive(width, 556px);
+    @include res-desktop(width, 556px);
     @include responsive(row-gap, 28px);
 
     @include mobile() {
-        @include responsive(width, 336px);
+        @include res-mobile(width, 336px);
     }
 }
 
 .success-popup {
-    @include block(343px, 272px);
-    @include responsive(padding, 40px, 48px, 56px);
+    @include block-desktop(343px, 272px);
+    @include res-desktop(padding, 40px, 48px, 56px);
 
     @include mobile() {
-        @include block(315px, 240px);
-        @include responsive(padding, 40px, 48px, 48px);
+        @include block-mobile(315px, 240px);
+        @include res-mobile(padding, 40px, 48px, 48px);
     }
 }
 
@@ -46,10 +46,10 @@
 
     &-head {
         @extend %flex-column-start-center, %gap-24;
-        @include responsive(padding, 36px, 36px, 0);
+        @include res-desktop(padding, 36px, 36px, 0);
 
         @include mobile() {
-            @include responsive(padding, 36px, 20px, 0);
+            @include res-mobile(padding, 36px, 20px, 0);
         }
     }
 
@@ -68,10 +68,10 @@
 
     &-title {
         @extend %font-manrope, %font-600;
-        @include text(32px, 40px);
+        @include text-desktop(32px, 40px);
 
         @include mobile() {
-            @include text(24px, 32px);
+            @include text-mobile(24px, 32px);
         }
     }
 
@@ -79,7 +79,7 @@
         @extend %font-manrope-18, %whitespace-nowrap;
 
         @include mobile() {
-            @include text(16px, 20px);
+            @include text-mobile(16px, 20px);
         }
     }
 
@@ -89,10 +89,10 @@
 
     &-fields {
         @extend %flex-column, %gap-32;
-        @include responsive(padding, 0, 36px);
+        @include res-desktop(padding, 0, 36px);
 
         @include mobile() {
-            @include responsive(padding, 0, 20px);
+            @include res-mobile(padding, 0, 20px);
         }
     }
 

@@ -9,13 +9,13 @@
 	background: #F6F6F6;
 
     &-wrap {
-        @include responsive(width, 1076px);
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(width, 1076px);
+        @include res-desktop(padding, 180px, 0);
         margin: 0 auto;
 
         @include mobile() {
-            @include responsive(width, 350px);
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(width, 350px);
+            @include res-mobile(padding, 96px, 0);
         }
     }
 
@@ -23,10 +23,10 @@
         @extend %flex-between-center;
 
         &-icon {
-            @include square(64px);
+            @include square-desktop(64px);
 
             @include mobile() {
-                @include square(40px);
+                @include square-mobile(40px);
             }
         }
 
@@ -37,11 +37,11 @@
     }
 
     &-subtitle {
-        @include responsive(margin-bottom, 12px);
+        @include res-desktop(margin-bottom, 12px);
 
         @include mobile() {
-            @include responsive(width, 300px);
-            @include responsive(margin-bottom, 24px);
+            @include res-mobile(width, 300px);
+            @include res-mobile(margin-bottom, 24px);
         }
     }
 
@@ -49,7 +49,7 @@
         @extend %font-manrope-52, %font-500;
 
         @include mobile() {
-            @include text(32px, 40px);
+            @include text-mobile(32px, 40px);
         }
     }
 
@@ -62,7 +62,7 @@
         }
 
         &-block {
-            @include block(526px, 256px);
+            @include block-desktop(526px, 256px);
 
             @include mobile() {
                 width: 100%;
@@ -70,7 +70,7 @@
             }
 
             &:not(.shortcuts-info-block-text) {
-                @include responsive(border-radius, 28px);
+                @include res-desktop(border-radius, 28px);
                 background: #FFF; 
 
                 @include mobile() {
@@ -84,8 +84,8 @@
 
                 @include mobile() {
                     order: 2;
-                    @include responsive(width, 287px);
-                    @include responsive(margin, 28px, auto, 24px);
+                    @include res-mobile(width, 287px);
+                    @include res-mobile(margin, 28px, auto, 24px);
 
                     &-primary, &-secondary {
                         width: 100% !important;
@@ -114,34 +114,34 @@
                 left: 0;
 
                 .shortcuts-info-block-car & {
-                    @include block(526px, 318px);
+                    @include block-desktop(526px, 318px);
 
                     @include mobile() {
-                        @include block(336px, 216px);
-                        @include responsive(border-top-right-radius, 24px);
+                        @include block-mobile(336px, 216px);
+                        @include res-mobile(border-top-right-radius, 24px);
                         overflow: hidden;
                     }
                 }
             }
 
             &-image {
-                @include block(414px, 202px);
-                @include responsive(margin-top, 28px);
+                @include block-desktop(414px, 202px);
+                @include res-desktop(margin-top, 28px);
                 z-index: 2;
 
                 @include mobile() {
-                    @include block(264px, 128px);
-                    @include responsive(margin-top, 36px);
+                    @include block-mobile(264px, 128px);
+                    @include res-mobile(margin-top, 36px);
                 }
             }
 
             &-between {
                 @extend %flex-column-between;
-                @include responsive(padding, 32px);
+                @include res-desktop(padding, 32px);
 
                 @include mobile() {
-                    @include responsive(row-gap, 16px);
-                    @include responsive(padding, 0, 24px);
+                    @include res-mobile(row-gap, 16px);
+                    @include res-mobile(padding, 0, 24px);
                 }
 
                 &-text {
@@ -158,7 +158,7 @@
 
                 @include mobile() {
                     order: 1;
-                    @include responsive(height, 200px);
+                    @include res-mobile(height, 200px);
                     border-radius: calc(24 * 100vw / 390) !important;
                     background: #FFF!important;
                 }
@@ -168,7 +168,7 @@
 
                 @include mobile() {
                     order: 3;
-                    @include responsive(margin-bottom, 20px);
+                    @include res-mobile(margin-bottom, 20px);
                 }
             }
 
@@ -183,18 +183,18 @@
         &-artboard {
 
             &-image {
-                @include block(148px, 60px);
+                @include block-desktop(148px, 60px);
 
                 @include mobile() {
-                    @include block(70px, 28px);
+                    @include block-mobile(70px, 28px);
                 }
             }
 
             &-text {
-                @include responsive(width, 441px);
+                @include res-desktop(width, 441px);
 
                 @include mobile() {
-                    @include responsive(width, 287px);
+                    @include res-mobile(width, 287px);
                 }
             }
         }
@@ -202,18 +202,18 @@
         &-info {
 
             &-image {
-                @include square(40px);
+                @include square-desktop(40px);
                 
                 @include mobile() {
-                    @include square(32px);
+                    @include square-mobile(32px);
                 }
             }
 
             &-text {
-                @include responsive(width, 421px);
+                @include res-desktop(width, 421px);
                 
                 @include mobile() {
-                    @include responsive(width, 287px);
+                    @include res-mobile(width, 287px);
                 }
             }
         }
@@ -221,21 +221,21 @@
 
     &-features {
         @extend %flex-column;
-        @include responsive(width, 1076px);
-        @include responsive(margin-top, 24px);
-        @include responsive(margin-bottom, 84px);
-        @include responsive(padding, 12px, 8px);
-        @include responsive(border-radius, 28px);
+        @include res-desktop(width, 1076px);
+        @include res-desktop(margin-top, 24px);
+        @include res-desktop(margin-bottom, 84px);
+        @include res-desktop(padding, 12px, 8px);
+        @include res-desktop(border-radius, 28px);
 		background-image: url(../../assets/images/screenmate-dash/shortcuts/shortcuts_features_bg.png);
 		background-size: cover;
 		background-position: center;
 
         @include mobile() {
-            @include responsive(width, 350px);
-            @include responsive(margin-top, 48px);
+            @include res-mobile(width, 350px);
+            @include res-mobile(margin-top, 48px);
             margin-bottom: 0;
-            @include responsive(padding, 4px, 0, 12px);
-            @include responsive(border-radius, 24px);
+            @include res-mobile(padding, 4px, 0, 12px);
+            @include res-mobile(border-radius, 24px);
 		    background-image: url(../../assets/images/screenmate-dash/shortcuts/shortcuts_features_bg_mobile.png);            
         }
 
@@ -247,7 +247,7 @@
                 @extend %font-manrope-18, %font-600, %text-white, %uppercase;
 
                 @include mobile() {
-                    @include text(16px, 20px);
+                    @include text-mobile(16px, 20px);
                 }
             }
             
@@ -272,8 +272,8 @@
 
             &-item {
                 @extend %flex-column-between, %mob\:w-full;
-                @include responsive(height, 256px);
-                @include responsive(padding, 12px, 24px, 24px);
+                @include res-desktop(height, 256px);
+                @include res-desktop(padding, 12px, 24px, 24px);
                 @include responsive(border-radius, 24px);
                 border: 2px solid #E7EDFE;
                 background: #FFF;
@@ -281,7 +281,7 @@
 
                 @include mobile() {
                     height: auto !important;
-                    @include responsive(padding, 20px);
+                    @include res-mobile(padding, 20px);
                 }
 
                 &-top {
@@ -294,14 +294,14 @@
 
                     @include mobile() {
 		                width: auto !important;
-                        @include text(16px, 20px);
+                        @include text-mobile(16px, 20px);
                     }
 
                     & .icon {
                         @extend %hidden, %mob\:block;
 
                         @include mobile() {
-                            @include block(12px, 40px);
+                            @include block-mobile(12px, 40px);
 
                             .opened & {
                                 transform: rotate(180deg);
@@ -312,10 +312,10 @@
                 }
 
                 &-icon {
-                    @include square(48px);
+                    @include square-desktop(48px);
 
                     @include mobile() {
-                        @include square(40px);
+                        @include square-mobile(40px);
                     }
                 }
 
@@ -324,7 +324,7 @@
                     color: #666;
 
                     @include mobile() {
-                        @include text(12px, 18px);
+                        @include text-mobile(12px, 18px);
                         display: none;
 
                         .opened & {

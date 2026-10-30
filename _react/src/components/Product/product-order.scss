@@ -6,11 +6,11 @@
 
 .store_block {
 	width: 100%;
-    @include responsive(padding, 200px, 0);
+    @include res-desktop(padding, 200px, 0);
 	background: #FDFDFD;
 
     @include mobile() {
-        @include responsive(padding, 96px, 0, 100px);
+        @include res-mobile(padding, 96px, 0, 100px);
     }
 
     &-product {
@@ -44,14 +44,14 @@
 
                 &-wrap {
                     @extend %overflow-hidden;
-                    @include square(526px);
-                    @include responsive(border-radius, 40px);
+                    @include square-desktop(526px);
+                    @include res-desktop(border-radius, 40px);
                     border: 1px solid #E6E6E6;
                     background: lightgray 9645092305.627px 19216960579.022px / -5810110298.921% -4458015880.035% no-repeat;
 
                     @include mobile() {
-                        @include square(350px);
-                        @include responsive(border-radius, 24px);
+                        @include square-mobile(350px);
+                        @include res-mobile(border-radius, 24px);
                     }
                 }
 
@@ -111,14 +111,14 @@
 
             &-vat {
                 @extend %font-manrope-24, %mob\:font-manrope-20, %font-600;
-                @include responsive(margin-bottom, 8px);
+                @include res-desktop(margin-bottom, 8px);
                 color: #1657FC;
             }
 
             @include mobile() {
 
                 &-new, &-old {
-                    @include text(32px, 40px);
+                    @include text-mobile(32px, 40px);
                 }
 
                 &-vat {
@@ -132,8 +132,8 @@
             @include responsive(margin-bottom, 8px);
 
             @include mobile() {
-                @include responsive(width, 208px);
-                @include text(32px, 40px);
+                @include res-mobile(width, 208px);
+                @include text-mobile(32px, 40px);
             }
         }
 
@@ -155,10 +155,10 @@
 
         &-add {
             @extend %flex-start-center, %gap-8, %cursor-pointer;
-            @include responsive(margin-top, 8px);
+            @include res-desktop(margin-top, 8px);
 
             @include mobile() {
-                @include responsive(margin-top, 12px);
+                @include res-mobile(margin-top, 12px);
             }
 
             &-checkbox {
@@ -204,9 +204,9 @@
 
             &-add {
                 @extend %mob\:w-full, %mob\:flex, %mob\:overflow-hidden;
-                @include responsive(height, 72px);
-                @include responsive(padding, 20px, 40px);
-                @include responsive(border-radius, 54px);
+                @include res-desktop(height, 72px);
+                @include res-desktop(padding, 20px, 40px);
+                @include res-desktop(border-radius, 54px);
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
                 backdrop-filter: blur(8px);
 
@@ -227,19 +227,19 @@
                 }
 
                 @include mobile() {
-                    @include responsive(height, 56px);
+                    @include res-mobile(height, 56px);
                     padding: 0;
-                    @include responsive(border-radius, 100px);
+                    @include res-mobile(border-radius, 100px);
 
                     &-text {
-                        @include responsive(padding, 16px, 32px, 16px, 0);
+                        @include res-mobile(padding, 16px, 32px, 16px, 0);
                         background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
                         backdrop-filter: blur(8px);
                     }
 
                     &-total {
                         display: flex !important;
-                        @include responsive(width, 102px);
+                        @include res-mobile(width, 102px);
                         background: linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.16) 100%), linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                     }
                 }

@@ -6,11 +6,11 @@
 
 .powermate .order {
     @extend %flex-column, %gap-64, %mob\:gap-40;
-    @include responsive(width, 1079px);
+    @include res-desktop(width, 1079px);
     margin: 0 auto;
 
     @include mobile() {
-        @include responsive(width, 350px);
+        @include res-mobile(width, 350px);
     }
 
     &-container {
@@ -20,13 +20,13 @@
 
 	&-wrap {
         @extend %h-full;
-		@include responsive(padding-top, 180px);
+		@include res-desktop(padding-top, 180px);
 		background-image: url(../../assets/images/powermate/order/pro_order_bg_desktop.png);
 		background-size: cover;
   		background-position: center;
 
         @include mobile() {
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(padding, 96px, 0);
 		    background-image: url(../../assets/images/powermate/order/pro_order_bg_mobile.png);
 			background-position: top center;
         }
@@ -40,7 +40,7 @@
         @extend %font-manrope-52, %font-600, %mob\:font-500;
 
         @include mobile() {
-            @include text(32px, 40px);
+            @include text-mobile(32px, 40px);
         }
 	}
 
@@ -49,7 +49,7 @@
 		color: #9A9A9A;
 
         @include mobile() {
-            @include text(16px, 20px);
+            @include text-mobile(16px, 20px);
         }
 	}
 
@@ -63,8 +63,8 @@
 
     &-product {
         @extend %flex-column-between;
-        @include block(526px, 576px);
-		@include responsive(border-radius, 40px);
+        @include block-desktop(526px, 576px);
+		@include res-desktop(border-radius, 40px);
 		background: #171717;
 		background-size: cover;
 		background-position: center;
@@ -72,25 +72,25 @@
 		backdrop-filter: blur(6px);
 
         @include mobile() {
-            @include block(350px, 557);
-		    @include responsive(border-radius, 24px);
+            @include block-mobile(350px, 557);
+		    @include res-mobile(border-radius, 24px);
         }
 
         &-image {
             @extend %w-full, %overflow-hidden;
-		    @include responsive(border-radius, 40px);
+		    @include res-desktop(border-radius, 40px);
 
             @include mobile() {
-                @include responsive(border-radius, 24px);
+                @include res-mobile(border-radius, 24px);
             }
         }
 
         &-data {
             @extend %flex-column-start-end, %gap-16, %mob\:gap-12;
-		    @include responsive(padding, 0, 24px, 32px, 32px);
+		    @include res-desktop(padding, 0, 24px, 32px, 32px);
 
             @include mobile() {
-		        @include responsive(padding, 0, 24px, 24px);
+		        @include res-mobile(padding, 0, 24px, 24px);
             }
 
             &-info {
@@ -122,7 +122,7 @@
                     @include text(32px, 40px);
 
                     @include mobile() {
-                        @include responsive(width, 250px);
+                        @include res-mobile(width, 250px);
                     }
                 }
             }
@@ -132,7 +132,7 @@
 
                 &-button {
                     @extend %flex-center, %font-manrope-18, %font-500, %text-center, %whitespace-nowrap;
-                    @include responsive(width, 160px);
+                    @include res-desktop(width, 160px);
                     @include responsive(padding, 20px, 0);
                     @include responsive(border-radius, 54px);
                     background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%), linear-gradient(0deg, rgba(255, 255, 255, 0.33) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
@@ -206,11 +206,11 @@
 
                 &-title, &-price {
                     @extend %font-manrope, %cursor-pointer;
-                    @include text(16px, 20px);
+                    @include text-desktop(16px, 20px);
                     font-feature-settings: 'clig' off, 'liga' off;
 
                     @include mobile() {
-                        @include text(14px, 20px);
+                        @include text-mobile(14px, 20px);
                     }
                 }
 
@@ -226,7 +226,7 @@
 
             &-delivery {
                 @extend %flex-start-center, %gap-8;
-                @include responsive(margin-top, 8px);
+                @include res-desktop(margin-top, 8px);
 
                 @include mobile() {
                     margin-top: 0;
@@ -238,11 +238,11 @@
 
                 &-text {
                     @extend %font-manrope;
-                    @include text(16px, 20px);
+                    @include text-desktop(16px, 20px);
                     font-feature-settings: 'clig' off, 'liga' off;
 
                     @include mobile() {
-                        @include text(14px, 20px);
+                        @include text-mobile(14px, 20px);
                     }
 
                     & span {

@@ -7,19 +7,19 @@
 .powermate .using {
 	@extend %flex-column, %container, %relative;
 	margin: 0 auto;
-	@include responsive(gap, 34px);
+	@include res-desktop(gap, 34px);
 
 	@include mobile() {
-		@include responsive(gap, 38px);
+		@include res-mobile(gap, 38px);
 	}
 
     &__wrap {
         @extend %w-full;
-        @include responsive(padding, 176px, 0, 180px);
+        @include res-desktop(padding, 176px, 0, 180px);
 		background: #101010;
 
         @include mobile() {
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(padding, 96px, 0);
         }
     }
 
@@ -31,7 +31,7 @@
         @extend %font-manrope-52, %font-500;
 
         @include mobile() {
-            @include text(32px, 40px);
+            @include text-mobile(32px, 40px);
         }
 	}
 
@@ -50,21 +50,21 @@
 
 	&__row {
         @extend %flex-column, %gap-12;
-		@include responsive(width, 306px);
+		@include res-desktop(width, 306px);
 		margin: 0;
 
         @include mobile() {
-            @include responsive(width, 350px);
+            @include res-mobile(width, 350px);
         }
 
         &-block {
             @extend %w-full, %relative;
-		    @include responsive(height, 220px);
+		    @include res-desktop(height, 220px);
 		    @include responsive(border-radius, 24px);
             background: #171717;
 
             @include mobile() {
-                @include block(350px, 240px);
+                @include block-mobile(350px, 240px);
             }
         }
 
@@ -91,53 +91,53 @@
             @extend %absolute;
 
             &-1 {
-                @include block(225.5px, 127px);
-                @include responsive(top, 54px);
-                @include responsive(left, 59px);
+                @include block-desktop(225.5px, 127px);
+                @include res-desktop(top, 54px);
+                @include res-desktop(left, 59px);
             }
 
             &-2 {
-                @include block(150.998px, 201px);
-                @include responsive(top, 20px);
-                @include responsive(left, 108.75px);
+                @include block-desktop(150.998px, 201px);
+                @include res-desktop(top, 20px);
+                @include res-desktop(left, 108.75px);
             }
 
             &-3 {
-                @include block(221px, 107px);
-                @include responsive(top, 63px);
-                @include responsive(left, 43px);
+                @include block-desktop(221px, 107px);
+                @include res-desktop(top, 63px);
+                @include res-desktop(left, 43px);
             }
 
             &-4 {
-                @include block(128px, 100px);
-                @include responsive(top, 67px);
-                @include responsive(left, 88px);
+                @include block-desktop(128px, 100px);
+                @include res-desktop(top, 67px);
+                @include res-desktop(left, 88px);
             }
 
             @include mobile() {
 
                 &-1 {
-                    @include block(247.608px, 138.545px);
-                    @include responsive(top, 58.91px);
-                    @include responsive(left, 64.78px);
+                    @include block-mobile(247.608px, 138.545px);
+                    @include res-mobile(top, 58.91px);
+                    @include res-mobile(left, 64.78px);
                 }
 
                 &-2 {
-                    @include block(165.801px, 219.272px);
-                    @include responsive(top, 21.82px);
-                    @include responsive(left, 119.41px);
+                    @include block-mobile(165.801px, 219.272px);
+                    @include res-mobile(top, 21.82px);
+                    @include res-mobile(left, 119.41px);
                 }
 
                 &-3 {
-                    @include block(242.667px, 116.727px);
-                    @include responsive(top, 68.73px);
-                    @include responsive(left, 47.22px);
+                    @include block-mobile(242.667px, 116.727px);
+                    @include res-mobile(top, 68.73px);
+                    @include res-mobile(left, 47.22px);
                 }
 
                 &-4 {
-                    @include block(140.549px, 109.091px);
-                    @include responsive(top, 73.09px);
-                    @include responsive(left, 96.63px);
+                    @include block-mobile(140.549px, 109.091px);
+                    @include res-mobile(top, 73.09px);
+                    @include res-mobile(left, 96.63px);
                 }
             }
         }

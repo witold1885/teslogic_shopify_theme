@@ -7,10 +7,10 @@
 .screenmate-one {
 
     &__features {
-        @include responsive(padding, 150px, 0, 180px);
+        @include res-desktop(padding, 150px, 0, 180px);
 
         @include mobile() {
-            @include responsive(padding, 40px, 0, 94px);
+            @include res-mobile(padding, 40px, 0, 94px);
         }
 
         &-item {

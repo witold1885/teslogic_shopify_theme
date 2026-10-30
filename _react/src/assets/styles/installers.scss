@@ -14,18 +14,18 @@ body {
 
     &-banner {
         @extend %flex, %container, %relative, %overflow-hidden;
-        @include responsive(padding, 150px, 0, 83px);
+        @include res-desktop(padding, 150px, 0, 83px);
 
         @include mobile() {
-            @include responsive(padding, 84px, 0, 60px);
+            @include res-mobile(padding, 84px, 0, 60px);
         }
 
         &-left {
             @extend %flex-column, %gap-32, %mob\:gap-20;
-            @include responsive(width, 590px);
+            @include res-desktop(width, 590px);
 
             @include mobile() {
-                @include responsive(width, 350px);
+                @include res-mobile(width, 350px);
             }
         }
 
@@ -39,10 +39,10 @@ body {
                     @extend %gap-12, %mob\:gap-8;
 
                     & p {
-                        @include responsive(max-width, 554px);
+                        @include res-desktop(max-width, 554px);
 
                         @include mobile() {
-                            @include responsive(max-width, 315px);
+                            @include res-mobile(max-width, 315px);
                         }
                     }
                 }
@@ -51,10 +51,10 @@ body {
                     @extend %gap-8;
 
                     & p {
-                        @include responsive(max-width, 418px);
+                        @include res-desktop(max-width, 418px);
 
                         @include mobile() {
-                            @include responsive(max-width, 335px);
+                            @include res-mobile(max-width, 335px);
                         }
                     }
                 }
@@ -68,8 +68,8 @@ body {
 
         & a {
             @extend %flex-center, %text-center, %font-manrope-24, %mob\:font-manrope-18, %font-600;
-            @include block(306px, 72px);
-            @include responsive(border-radius, 54px);
+            @include block-desktop(306px, 72px);
+            @include res-desktop(border-radius, 54px);
             border: 3px solid #0068FD;
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) -728.8%, rgba(255, 255, 255, 0.00) 181.94%), rgba(255, 255, 255, 0.04);
             color: #0F51FD !important;
@@ -83,7 +83,7 @@ body {
             }
 
             @include mobile() {
-                @include block(350px, 56px);
+                @include block-mobile(350px, 56px);
             }
         }
 
@@ -106,10 +106,10 @@ body {
 
     &-list {
         @extend %flex-column, %gap-40, %mob\:gap-48;
-        @include responsive(padding, 80px, 0, 180px);
+        @include res-desktop(padding, 80px, 0, 180px);
 
         @include mobile() {
-            @include responsive(padding, 48px, 0, 90px);
+            @include res-mobile(padding, 48px, 0, 90px);
         }
 
         &-head {
@@ -118,7 +118,7 @@ body {
 
         &-tabs {
             @extend %flex-start-center, %mob\:flex-between-center;
-            @include responsive(gap, 30px);
+            @include res-desktop(gap, 30px);
 
             @include mobile() {
                 gap: 0;
@@ -151,15 +151,15 @@ body {
         }
 
         &-item {
-            @include responsive(padding, 32px);
-            @include responsive(border-radius, 32px);
+            @include res-desktop(padding, 32px);
+            @include res-desktop(border-radius, 32px);
             border: 1px solid #E0E0E0;
             background: #FFF;
 
             @include mobile() {
                 width: 100% !important;
-                @include responsive(padding, 14px, 16px, 16px);
-                @include responsive(border-radius, 24px);
+                @include res-mobile(padding, 14px, 16px, 16px);
+                @include res-mobile(border-radius, 24px);
             }
 
             &-block {
@@ -167,11 +167,11 @@ body {
                 &:nth-child(1) {
                     @extend %flex-between-center;
                     @include responsive(height, 84px);
-                    @include responsive(padding-bottom, 20px);
+                    @include res-desktop(padding-bottom, 20px);
                     border-bottom: 1px solid #D9D9D9;
 
                     @include mobile() {
-                        @include responsive(padding-bottom, 28px);
+                        @include res-mobile(padding-bottom, 28px);
                     }
                 }
 
@@ -227,7 +227,7 @@ body {
                 border: 1px solid rgba(0, 0, 0, 0.05);
 
                 & iframe {
-                    @include block(352px, 152px);
+                    @include block-desktop(352px, 152px);
 
                     @include mobile() {
                         width: 100% !important;

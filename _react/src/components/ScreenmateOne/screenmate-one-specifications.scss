@@ -32,8 +32,8 @@
 
                 @include mobile() {
                     width: 100vw;
-                    @include responsive(margin-left, -20px);
-                    @include responsive(margin-right, -20px);
+                    @include res-mobile(margin-left, -20px);
+                    @include res-mobile(margin-right, -20px);
                 }
             }
 
@@ -43,7 +43,7 @@
 
                 @include mobile() {
                     display: block;
-                    @include responsive(width, 20px);
+                    @include res-mobile(width, 20px);
                     border-bottom: 1px solid black;
                     top: 0;
                     bottom: 0;
@@ -66,14 +66,14 @@
                 @extend %mob\:w-full, %mob\:flex-start-center, %mob\:overflow-scroll-x, %mob\:overflow-hidden-y;
 
                 @include mobile() {
-                    @include responsive(padding, 0, 20px);
+                    @include res-mobile(padding, 0, 20px);
                 }
                 
                 &-item {
 
                     @include mobile() {
-                        @include block(109.6px, 72px);
-                        @include responsive(flex, 0, 0, 109.6px);
+                        @include block-mobile(109.6px, 72px);
+                        @include res-mobile(flex, 0, 0, 109.6px);
                     }
 
                     &-title {
@@ -87,28 +87,28 @@
 
             &-content {
                 @extend %w-full, %overflow-hidden;
-                @include responsive(height, 600px);
-                @include responsive(border-radius, 32px);
+                @include res-desktop(height, 600px);
+                @include res-desktop(border-radius, 32px);
                 background: #1D1D1F;
 
                 &:not(:has(> div > img)) {
-                    @include responsive(padding, 40px, 60px, 0);
+                    @include res-desktop(padding, 40px, 60px, 0);
                 }
 
                 @include mobile() {
                     height: auto;
-                    @include responsive(border-radius, 12px);
+                    @include res-mobile(border-radius, 12px);
 
                     & > div:has(> img) {
-                        @include responsive(height, 220px);
+                        @include res-mobile(height, 220px);
                     }
 
                     &:not(:has(> div > img)) {
-                        @include responsive(padding, 20px, 20px, 36px);
+                        @include res-mobile(padding, 20px, 20px, 36px);
                     }
 
                     &:has(.image-item) {
-                        @include responsive(padding, 20px, 20px, 0);
+                        @include res-mobile(padding, 20px, 20px, 0);
                     }
 
                     & br {
@@ -122,11 +122,11 @@
 
                 &-top {
                     @extend %flex-column, %gap-16, %mob\:gap-12, %text-white;
-                    @include responsive(padding-bottom, 38px);
+                    @include res-desktop(padding-bottom, 38px);
                     border-bottom: 1px solid #4D4D4D;
 
                     @include mobile() {
-                        @include responsive(padding-bottom, 24px);
+                        @include res-mobile(padding-bottom, 24px);
                     }
 
                     &-title {
@@ -140,29 +140,29 @@
 
                 &-grid {
                     @extend %grid;
-                    @include responsive(row-gap, 64px);
-                    @include responsive(padding-top, 40px);
+                    @include res-desktop(row-gap, 64px);
+                    @include res-desktop(padding-top, 40px);
 
                     @include mobile() {
-                        @include responsive(row-gap, 24px);
-                        @include responsive(padding-top, 24px);
+                        @include res-mobile(row-gap, 24px);
+                        @include res-mobile(padding-top, 24px);
                     }
 
                     &:has(.image-item) {
                         grid-template-columns: calc(400 * 100vw / 1440) calc(376 * 100vw / 1440) calc(360 * 100vw / 1440) !important;
                         grid-template-rows: 1fr 1fr;
                         grid-auto-flow: column;
-                        @include responsive(column-gap, 40px);
-                        @include responsive(row-gap, 24px);
-                        @include responsive(padding-top, 32px);
-                        @include responsive(margin-left, -20px);
-                        @include responsive(margin-right, -20px);
+                        @include res-desktop(column-gap, 40px);
+                        @include res-desktop(row-gap, 24px);
+                        @include res-desktop(padding-top, 32px);
+                        @include res-desktop(margin-left, -20px);
+                        @include res-desktop(margin-right, -20px);
 
                         @include mobile() {
                             grid-template-columns: 1fr !important;
                             grid-template-rows: unset;
                             grid-auto-flow: row;
-                            @include responsive(column-gap, 24px);
+                            @include res-mobile(column-gap, 24px);
                             row-gap: 0;
                             padding-top: 0;
                             margin-left: unset;
@@ -173,13 +173,13 @@
                     &-item {
                         &.info-item {
                             @extend %flex-column, %gap-4;
-                            @include responsive(max-height, 56px);
+                            @include res-desktop(max-height, 56px);
 
                             @include mobile() {
                                 max-height: unset;
 
                                 & .icon {
-                                    @include responsive(width, 20px);
+                                    @include res-mobile(width, 20px);
                                     height: auto;
                                 }
                             }
@@ -204,7 +204,7 @@
                             @include mobile() {
 
                                 &:not(:first-child) {
-                                    @include responsive(margin-top, -24px);
+                                    @include res-mobile(margin-top, -24px);
                                 }
                             }
 
@@ -219,10 +219,10 @@
 
                         &-image {
                             @extend %flex-center;
-                            @include block(200px, 150px);
+                            @include block-desktop(200px, 150px);
 
                             @include mobile() {
-                                @include square(120px);
+                                @include square-mobile(120px);
                                 & img {
                                     height: auto !important;
                                 }
@@ -235,19 +235,19 @@
 
         &-installation {
             @extend %flex-between-center, %mob\:flex-column, %flex-1, %overflow-hidden;
-            @include responsive(border-radius, 24px);
+            @include res-desktop(border-radius, 24px);
             background: #1D1D1F;
 
             @include mobile() {
-                @include responsive(border-radius, 12px);
+                @include res-mobile(border-radius, 12px);
             }
 
             &-info {
                 @extend %flex-column, %gap-40, %mob\:gap-20;
-                @include responsive(padding, 0, 0, 0, 60px);
+                @include res-desktop(padding, 0, 0, 0, 60px);
 
                 @include mobile() {
-                    @include responsive(padding, 20px);
+                    @include res-mobile(padding, 20px);
 
                     & br {
                         display: none;
@@ -266,11 +266,11 @@
                 }
 
                 & .icon {
-                    @include block(16px, 32px);
+                    @include block-desktop(16px, 32px);
 
 
                     @include mobile() {
-                        @include responsive(height, 24px);
+                        @include res-mobile(height, 24px);
                     }
                 }
             }
@@ -288,10 +288,10 @@
             }
 
             &-image {
-                @include block(660px, 588px);
+                @include block-desktop(660px, 588px);
 
                 @include mobile() {
-                    @include block(350px, 300px);
+                    @include block-mobile(350px, 300px);
                 }
             }
         }

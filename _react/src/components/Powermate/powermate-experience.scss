@@ -6,20 +6,20 @@
 
 .experience-block {
     @extend %flex-column, %gap-32, %mob\:gap-24;
-    @include responsive(width, 1077px);
+    @include res-desktop(width, 1077px);
 	margin: 0 auto;
 
     @include mobile() {
-        @include responsive(width, 350px);
+        @include res-mobile(width, 350px);
     }
 
     &-wrap {
         @extend %w-full, %overflow-hidden;
-        @include responsive(padding, 150px, 0, 180px);
+        @include res-desktop(padding, 150px, 0, 180px);
         background: #0A0A0A;
 
         @include mobile() {
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(padding, 96px, 0);
         }
     }
 
@@ -27,7 +27,7 @@
         @extend %font-manrope-52, %font-600, %mob\:font-500;
 
         @include mobile() {
-            @include text(32px, 40px);
+            @include text-mobile(32px, 40px);
         }
     }
 
@@ -41,35 +41,35 @@
 
         &-both {
             @extend %flex-column-center, %mob\:flex-column-start-center;
-            @include square(416px);
-            @include responsive(padding, 32px, 44px, 24px);
+            @include square-desktop(416px);
+            @include res-desktop(padding, 32px, 44px, 24px);
             background: url(../../assets/images/powermate/experience/pro-experience-both-bg.png) #171717 no-repeat;
             background-size: cover;
             background-position: center;
 
             @include mobile() {
-                @include square(350px);
-                @include responsive(padding, 24px);
+                @include square-mobile(350px);
+                @include res-mobile(padding, 24px);
             }
 
             &-title {
                 @extend %font-manrope, %font-600, %text-white;
-                @include text(32px, 40px);
-                @include responsive(margin-bottom, 20px);
+                @include text-desktop(32px, 40px);
+                @include res-desktop(margin-bottom, 20px);
 
                 @include mobile() {
-                    @include text(24px, 32px);
-                    @include responsive(margin-bottom, 12px);
+                    @include text-mobile(24px, 32px);
+                    @include res-mobile(margin-bottom, 12px);
                 }
             }
 
             &-image {
-                @include block(328px, 158px);
-                @include responsive(margin-bottom, 26px);
+                @include block-desktop(328px, 158px);
+                @include res-desktop(margin-bottom, 26px);
 
                 @include mobile() {
-                    @include block(299.52px, 143.52px);
-                    @include responsive(margin-bottom, 6px);
+                    @include block-mobile(299.52px, 143.52px);
+                    @include res-mobile(margin-bottom, 6px);
                 }
             }
 
@@ -84,10 +84,10 @@
 
         &-right {
             @extend %flex-column, %gap-24, %mob\:gap-20;
-            @include block(636px, 416px);
+            @include block-desktop(636px, 416px);
 
             @include mobile() {
-                @include responsive(width, 350px);
+                @include res-mobile(width, 350px);
                 height: auto !important;
             }
 
@@ -98,11 +98,11 @@
 
         &-one {
             @extend %flex-column;
-            @include block(306px, 196px);
+            @include block-desktop(306px, 196px);
             @include responsive(padding, 28px, 32px);
 
             @include mobile() {
-                @include block(350px, 196px);
+                @include block-mobile(350px, 196px);
             }
 
             &-title {
@@ -117,17 +117,17 @@
 
             &-value {
                 @extend %font-manrope-40, %font-600;
-                @include responsive(margin-top, 6px);
+                @include res-desktop(margin-top, 6px);
                 color: #FFF;
 
                 @include mobile() {
-                    @include responsive(margin-top, 4px);
+                    @include res-mobile(margin-top, 4px);
                 }
             }
 
             &-plus {
                 @extend %flex-start-center, %gap-6;
-                @include responsive(margin-top, 2px);
+                @include res-desktop(margin-top, 2px);
 
                 @include mobile() {
                     margin-top: 0;
@@ -147,40 +147,40 @@
 
         &-add {
             @extend %w-full, %flex-start-center, %gap-24, %mob\:flex-column-start, %mob\:gap-28;
-            @include responsive(height, 196px);
-            @include responsive(padding, 32px);
+            @include res-desktop(height, 196px);
+            @include res-desktop(padding, 32px);
 
             @include mobile() {
-                @include block(350px, 298px);
-                @include responsive(padding, 24px);
+                @include block-mobile(350px, 298px);
+                @include res-mobile(padding, 24px);
             }
 
             &-text {
                 @extend %font-manrope-18, %font-600, %whitespace-nowrap;
-                @include responsive(width, 192px);
+                @include res-desktop(width, 192px);
 
                 @include mobile() {
-                    @include responsive(width, 260px);
+                    @include res-mobile(width, 260px);
                 }
             }
 
             &-features {
                 @extend %flex-start-center, %mob\:flex-column-start, %gap-24;
-                @include responsive(width, 366px);
+                @include res-desktop(width, 366px);
 
                 @include mobile() {
-                    @include responsive(width, 350px);
-                    @include responsive(gap, 30px);
+                    @include res-mobile(width, 350px);
+                    @include res-mobile(gap, 30px);
                 }
 
                 &-item {
                     @extend %flex, %mob\:flex-start-center, %gap-8;
 
                     &:nth-child(2n + 1):not(:last-child) {
-                        @include responsive(width, 170px);
+                        @include res-desktop(width, 170px);
 
                         @include mobile() {
-                            @include responsive(width, 140px);
+                            @include res-mobile(width, 140px);
                         }
                     }
 

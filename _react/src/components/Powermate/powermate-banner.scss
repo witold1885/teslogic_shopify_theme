@@ -8,7 +8,7 @@
     @extend %flex-column-center-end, %mob\:flex-column-between-start;
 
     @include mobile() {
-        @include responsive(padding, 100px, 20px, 64px);
+        @include res-mobile(padding, 100px, 20px, 64px);
     }
 
     // &-wrap {
@@ -21,12 +21,12 @@
     // }
 
     & .logo {
-        @include block(499px, 36px);
-        @include responsive(top, 200px);
+        @include block-desktop(499px, 36px);
+        @include res-desktop(top, 200px);
 
         @include mobile() {
-            @include block(288px, 20px);
-            @include responsive(margin-bottom, 8px);
+            @include block-mobile(288px, 20px);
+            @include res-mobile(margin-bottom, 8px);
         }
     }
     
@@ -43,53 +43,53 @@
     }
     
     & .suptitle {
-        @include responsive(top, 144px);
+        @include res-desktop(top, 144px);
     }
         
     & .title {
         @extend %font-manrope-52, %font-600;
-        @include responsive(top, 260px);
+        @include res-desktop(top, 260px);
 
         @include mobile() {
-            @include text(32px, 40px);
-            @include responsive(margin-bottom, 8px);
+            @include text-mobile(32px, 40px);
+            @include res-mobile(margin-bottom, 8px);
         }
     }
     
     & .subtitle {
-        @include responsive(top, 404px);
+        @include res-desktop(top, 404px);
     }
 
     & .additional {
-        @include responsive(top, 500px);
+        @include res-desktop(top, 500px);
         text-shadow: 0px 4px 24px #000;
 
         @include mobile() {
-            @include responsive(margin-bottom, 16px);
+            @include res-mobile(margin-bottom, 16px);
         }
 
         &-main {
             @extend %font-manrope, %font-600;
-            @include text(64px, 72px);
+            @include text-desktop(64px, 72px);
 
             @include mobile() {
-                @include text(44px, 52px);
+                @include text-mobile(44px, 52px);
             }
         }
     }
 
     & .logo, & .suptitle, & .title, & .subtitle, & .additional, &-buttons {
-        @include responsive(left, 72px);
+        @include res-desktop(left, 72px);
     }
 
     &-buttons {
-        @include responsive(top, 620px);
+        @include res-desktop(top, 620px);
     }
 
     &-button {
 
         &-buy {
-            @include responsive(width, 354px);
+            @include res-desktop(width, 354px);
 
             @include mobile() {
                 border: none;

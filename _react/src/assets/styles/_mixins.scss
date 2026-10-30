@@ -2,11 +2,6 @@
 @use "sass:list";
 @use "sass:map";
 
-$screens: (
-    "min-width: 577px": 1440,
-    "max-width: 576px": 390
-);
-
 @function replace-px ($value) {
     @if math.unit($value) == 'px' {
         @return calc($value / 1px);
@@ -15,21 +10,32 @@ $screens: (
     }
 }
 
+@mixin res-val($property, $base-width, $values...) {
+  $responsiveValues: ();
+  @each $value in $values {
+    @if $value != 0 and $value != auto {
+      $responsiveValues: list.append($responsiveValues, calc(replace-px($value) * 100vw / $base-width));
+    } @else {
+      $responsiveValues: list.append($responsiveValues, $value);
+    }
+  }
+  #{$property}: $responsiveValues;
+}
+
+@mixin res-desktop($property, $values...) {
+    @media screen and (min-width: 577px) {
+        @include res-val($property, 1440, $values...);
+    }
+}
+
+@mixin res-mobile($property, $values...) {
+    @include res-val($property, 390, $values...);
+}
+
 @mixin responsive($property, $values...) {
-    @each $media, $layout-width in $screens {
-        @media screen and (#{$media}) {
-            $responsiveValues: ();
-
-            @each $value in $values {
-                @if $value != 0 and $value != auto {
-                    $responsiveValues: list.append($responsiveValues, calc(replace-px($value) * 100vw / $layout-width));
-                } @else {
-                    $responsiveValues: list.append($responsiveValues, $value);
-                }
-            }
-
-            #{$property}: $responsiveValues;
-        }
+    @include res-desktop($property, $values...);
+    @media screen and (max-width: 576px) {
+        @include res-mobile($property, $values...);
     }
 }
 
@@ -38,21 +44,51 @@ $screens: (
     @include responsive(height, $height);
 }
 
+@mixin block-desktop($width, $height) {
+    @include res-desktop(width, $width);
+    @include res-desktop(height, $height);
+}
+
+@mixin block-mobile($width, $height) {
+    @include res-mobile(width, $width);
+    @include res-mobile(height, $height);
+}
+
 @mixin square($size) {
     @include responsive(width, $size);
     @include responsive(height, $size);
     aspect-ratio: 1/1;
 }
 
-@mixin mobile() {
-    @media (max-width: 576px) {
-        @content;
-    }
+@mixin square-desktop($size) {
+    @include res-desktop(width, $size);
+    @include res-desktop(height, $size);
+}
+
+@mixin square-mobile($size) {
+    @include res-mobile(width, $size);
+    @include res-mobile(height, $size);
 }
 
 @mixin text($fontSize, $lineHeight) {
     @include responsive(font-size, $fontSize);
     @include responsive(line-height, $lineHeight);
+}
+
+@mixin text-desktop($fontSize, $lineHeight) {
+    @include res-desktop(font-size, $fontSize);
+    @include res-desktop(line-height, $lineHeight);
+}
+
+@mixin text-mobile($fontSize, $lineHeight) {
+    @include res-mobile(font-size, $fontSize);
+    @include res-mobile(line-height, $lineHeight);
+}
+
+@mixin mobile() {
+    @media screen and (max-width: 576px) {
+        @content;
+    }
 }
 
 @mixin border($width, $style, $color) {

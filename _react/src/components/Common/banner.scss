@@ -50,7 +50,7 @@
 
         & > * {
             @extend %font-manrope-24, %mob\:font-manrope-18, %font-500, %text-white, %cursor-pointer;
-            @include responsive(height, 72px);
+            @include res-desktop(height, 72px);
             @include responsive(border-radius, 54px);
             text-decoration: none;
 
@@ -60,7 +60,7 @@
 
             @include mobile() {
                 width: 100% !important;
-                @include responsive(height, 58px);
+                @include res-mobile(height, 58px);
             }
         }
     }
@@ -92,5 +92,12 @@
         @include mobile() {
             margin-bottom: 0;
         }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-image {
+        animation: none;
+        filter: none;
     }
 }

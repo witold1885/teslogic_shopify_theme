@@ -13,7 +13,7 @@
 
 .screens {
     @extend %w-full, %flex-column-center, %relative;
-	@include responsive(height, 1240px);
+	@include res-desktop(height, 1240px);
 
     @include mobile() {
         height: auto;
@@ -41,13 +41,13 @@
 
     &__wrap {
         @extend %h-full, %flex-column-between;
-        @include responsive(width, 1076px);
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(width, 1076px);
+        @include res-desktop(padding, 180px, 0);
         z-index: 2;
 
         @include mobile() {
-            @include responsive(width, 350px);
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(width, 350px);
+            @include res-mobile(padding, 96px, 0);
         }
     }
 
@@ -58,7 +58,7 @@
             @extend %flex-column, %font-manrope-52, %font-500;
 
             @include mobile() {
-                @include text(32px, 40px);
+                @include text-mobile(32px, 40px);
                 display: inline;
             }
 
@@ -83,11 +83,11 @@
 
         &-switcher {
             @extend %flex-end-center, %overflow-hidden;
-            @include responsive(border-radius, 6px);
+            @include res-desktop(border-radius, 6px);
 
             @include mobile() {
                 align-self: center;
-                @include responsive(border-radius, 4px);
+                @include res-mobile(border-radius, 4px);
             }
 
             .light & {
@@ -100,11 +100,11 @@
 
             &-item {
                 @extend %flex-center, %font-manrope-18, %cursor-pointer;
-                @include responsive(padding, 14px, 28px);
+                @include res-desktop(padding, 14px, 28px);
 
                 @include mobile() {
-                    @include responsive(padding, 10px, 20px);
-                    @include text(12px, 18px);
+                    @include res-mobile(padding, 10px, 20px);
+                    @include text-mobile(12px, 18px);
                 }
 
                 .light & {
@@ -140,7 +140,7 @@
             display: inline-flex !important;
 
             @include mobile() {
-                @include block(350px, 526.24px);
+                @include block-mobile(350px, 526.24px);
                 margin: 0 auto;
             }
         }
@@ -149,13 +149,13 @@
             @extend %w-full;
 
             &-wrap {
-                @include block(636px, 306px);
-                @include responsive(margin-top, 128px);
+                @include block-desktop(636px, 306px);
+                @include res-desktop(margin-top, 128px);
 
                 @include mobile() {
                     width: 100%;
                     height: auto;
-                    @include responsive(margin-top, 166.4px);
+                    @include res-mobile(margin-top, 166.4px);
                 }
             }
         }
@@ -166,23 +166,23 @@
 
         &-item {
             @extend %flex-column, %cursor-pointer;
-            @include block(196px, 112px);
+            @include block-desktop(196px, 112px);
 
             @include mobile() {
-                @include block(64px, 8px);
+                @include block-mobile(64px, 8px);
             }
 
             &-marker {
                 @extend %w-full;
-                @include responsive(height, 4px);
-                @include responsive(margin-bottom, 12px);
+                @include res-desktop(height, 4px);
+                @include res-desktop(margin-bottom, 12px);
 
                 @include mobile() {
-                    @include responsive(height, 2px);
+                    @include res-mobile(height, 2px);
                     margin-bottom: 0;
 
                     .active & {
-                        @include responsive(height, 4px);
+                        @include res-mobile(height, 4px);
                     }
                 }
             }

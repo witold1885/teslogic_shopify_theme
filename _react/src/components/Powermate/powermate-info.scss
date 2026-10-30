@@ -10,16 +10,16 @@
     margin: 0 auto;
 
     @include mobile() {
-        @include responsive(width, 350px);
+        @include res-mobile(width, 350px);
     }
 
     &-wrap {
         @extend %w-full;
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(padding, 180px, 0);
 		background: #121212;
 
         @include mobile() {
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(padding, 96px, 0);
         }
 	}
 
@@ -27,26 +27,26 @@
 
         &-title {
             @extend %flex-start-center, %gap-12;
-            @include responsive(margin-bottom, 24px);
+            @include res-desktop(margin-bottom, 24px);
 
             @include mobile() {
-                @include responsive(margin-bottom, 20px);
+                @include res-mobile(margin-bottom, 20px);
             }
 
             &-icon {
-                @include square(40px);
+                @include square-desktop(40px);
 
                 @include mobile() {
-                    @include square(96px);
+                    @include square-mobile(96px);
                 }
             }
 
             &-text {
                 @extend %font-manrope, %font-500, %uppercase;
-                @include text(32px, 40px);
+                @include text-desktop(32px, 40px);
 
                 @include mobile() {
-                    @include text(24px, 32px);
+                    @include text-mobile(24px, 32px);
                 }
             }
         }
@@ -66,11 +66,11 @@
         &-text {
 
             &:first-child {
-                @include responsive(width, 636px);
+                @include res-desktop(width, 636px);
             }
 
             &:last-child {
-                @include responsive(width, 416px);
+                @include res-desktop(width, 416px);
             }
 
             @include mobile() {

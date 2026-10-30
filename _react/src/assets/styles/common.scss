@@ -44,11 +44,11 @@ body {
 }
 
 .container {
-    @include m.responsive(width, 1296px);
+    @include m.res-desktop(width, 1296px);
     margin: 0 auto;
 
     @include m.mobile() {
-        @include m.responsive(width, 350px);
+        @include m.res-mobile(width, 350px);
     }
 }
 
@@ -65,17 +65,14 @@ video, img {
 
 .heading {
     font-family: "Neue Haas Grotesk Display Pro";
-    @include m.responsive(font-size, 80px);
-    @include m.responsive(line-height, 94px);
+    @include m.text-desktop(80px, 94px);
     font-style: normal;
-    @extend %font-900, %text-center;
+    @extend %font-900, %text-center, %mob\:text-left;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     @include m.mobile() {
-        @include m.responsive(font-size, 52px);
-        @include m.responsive(line-height, 56px);
-        text-align: left !important;
+        @include m.text-mobile(52px, 56px);
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
     }
@@ -162,8 +159,8 @@ input, textarea {
     }
 
     &-field {
-        @include m.responsive(padding, 20px);
-        @include m.responsive(border-radius, 12px);
+        @include m.res-desktop(padding, 20px);
+        @include m.res-desktop(border-radius, 12px);
         @extend %cursor-pointer;
 
         .dark & {
@@ -180,8 +177,8 @@ input, textarea {
         }
 
         @include m.mobile() {
-            @include m.responsive(padding, 12px, 16px);
-            @include m.responsive(border-radius, 6px);
+            @include m.res-mobile(padding, 12px, 16px);
+            @include m.res-mobile(border-radius, 6px);
         }
 
         & span {
@@ -196,7 +193,7 @@ input, textarea {
             }
 
             @include m.mobile() {
-                @include m.responsive(line-height, 20px);
+                @include m.res-mobile(line-height, 20px);
             }
         }
     }
@@ -211,8 +208,8 @@ input, textarea {
         left: 0;
         right: 0;
         z-index: 1;
-        @include m.responsive(padding, 22px, 20px, 24px, 20px);
-        @include m.responsive(border-radius, 12px);
+        @include m.res-desktop(padding, 22px, 20px, 24px, 20px);
+        @include m.res-desktop(border-radius, 12px);
         box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
 
         .dark & {
@@ -226,8 +223,8 @@ input, textarea {
         }
 
         @include m.mobile() {
-            @include m.responsive(padding, 12px, 16px, 24px);
-            @include m.responsive(border-radius, 6px);
+            @include m.res-mobile(padding, 12px, 16px, 24px);
+            @include m.res-mobile(border-radius, 6px);
         }
 
         &-placeholder {
@@ -249,10 +246,10 @@ input, textarea {
             }
 
             & .icon {
-                @include m.square(24px);
+                @include m.square-desktop(24px);
 
                 @include m.mobile() {
-                    @include m.square(20px);
+                    @include m.square-mobile(20px);
                 }
             }
         }
@@ -275,7 +272,7 @@ input, textarea {
     }
 
     &-text {
-        @include m.responsive(margin-top, 4px);
+        @include m.res-desktop(margin-top, 4px);
         color: #F1F1F1;
         @extend %font-manrope-24, %mob\:font-manrope-16, %whitespace-nowrap;
 

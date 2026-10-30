@@ -6,21 +6,21 @@
 
 .examples {
     @extend %flex-column, %gap-64;
-    @include responsive(width, 1077px);
+    @include res-desktop(width, 1077px);
     margin: 0 auto;
 
     @include mobile() {
-        @include responsive(width, 350px);
-        @include responsive(gap, 44px);
+        @include res-mobile(width, 350px);
+        @include res-mobile(gap, 44px);
     }
 
     &-wrap {
         @extend %w-full;
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(padding, 180px, 0);
 		background: linear-gradient(180deg, #171717 0%, #2D2D2D 100%);
 
         @include mobile() {
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(padding, 96px, 0);
         }
 	}
 
@@ -28,7 +28,7 @@
         @extend %font-manrope-52, %font-600, %mob\:font-500;
 
         @include mobile() {
-            @include text(32px, 40px);
+            @include text-mobile(32px, 40px);
         }
 	}
 
@@ -45,10 +45,10 @@
 
         &-item {
             @extend %flex, %mob\:flex-column, %relative;
-            @include responsive(gap, 56px);
+            @include res-desktop(gap, 56px);
 
             @include mobile() {
-                @include responsive(gap, 16px);
+                @include res-mobile(gap, 16px);
             }
 
             &-delimiter {
@@ -59,7 +59,7 @@
 
             &-car {
                 @extend %flex-between, %mob\:flex-column;
-                @include responsive(width, 416px);
+                @include res-desktop(width, 416px);
 
                 @include mobile() {
                     width: 100%;
@@ -69,13 +69,13 @@
             &-model {
                 @extend %font-manrope, %font-600;
                 @include responsive(width, 97px);
-                @include text(12px, 18px);
+                @include text-desktop(12px, 18px);
                 color: #9A9A9A;
 
                 @include mobile() {
                     width: auto;
-                    @include responsive(margin-bottom, 16px);
-                    @include text(16px, 20px);
+                    @include res-mobile(margin-bottom, 16px);
+                    @include text-mobile(16px, 20px);
 
                     & br {
                         display: none;
@@ -88,11 +88,11 @@
             }
 
             &-3-long-image, &-3-standard-image {
-                @include block(300px, 92px);
+                @include block-desktop(300px, 92px);
             }
 
             &-y-long-image {
-                @include block(306px, 102px);
+                @include block-desktop(306px, 102px);
             }
 
             @include mobile() {
@@ -101,20 +101,20 @@
                 }
 
                 &-3-long-image, &-3-standard-image {
-                    @include responsive(height, 106.08px);
+                    @include res-mobile(height, 106.08px);
                 }
 
                 &-y-long-image {
-                    @include responsive(height, 116.48px);
+                    @include res-mobile(height, 116.48px);
                 }
             }
 
             &-data {
                 @extend %flex;
-                @include responsive(gap, 110px);
+                @include res-desktop(gap, 110px);
 
                 @include mobile() {
-                    @include responsive(gap, 30px);
+                    @include res-mobile(gap, 30px);
                 }
 
                 &-item {
@@ -122,21 +122,21 @@
 
                     &-value {
                         @extend %font-manrope, %font-600;
-                        @include text(32px, 40px);
+                        @include text-desktop(32px, 40px);
 
                         @include mobile() {
-                            @include text(24px, 32px);
+                            @include text-mobile(24px, 32px);
                         }
                     }
 
                     &-texts {
                         @extend %flex-column, %gap-4, %font-manrope, %font-500;
-                        @include text(16px, 20px);
+                        @include text-desktop(16px, 20px);
                         color: #9A9A9A;
 
                         @include mobile() {
-                            @include responsive(gap, 2px);
-                            @include text(14px, 20px);
+                            @include res-mobile(gap, 2px);
+                            @include text-mobile(14px, 20px);
                         }
                     }
 
@@ -144,21 +144,21 @@
                         @extend %flex-center, %gap-6, %mob\:gap-4;
 
                         &-icon {
-                            @include square(20px);
+                            @include square-desktop(20px);
 
                             @include mobile() {
-                                @include square(16px);
+                                @include square-mobile(16px);
                             }
                         }
 
                         &-link {
                             @extend %font-manrope, %font-500;
-                            @include text(16px, 20px);
+                            @include text-desktop(16px, 20px);
                             color: #9A9A9A;
                             text-decoration-line: underline; 
 
                             @include mobile() {
-                                @include text(14px, 20px);
+                                @include text-mobile(14px, 20px);
                             }
                         }
                     }

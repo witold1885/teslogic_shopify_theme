@@ -6,41 +6,41 @@
 
 .devices_supporting {
     margin: 0 auto;
-    @include responsive(padding, 180px, 0);
+    @include res-desktop(padding, 180px, 0);
 
     @include mobile() {
-        @include responsive(padding, 96px, 0);
+        @include res-mobile(padding, 96px, 0);
     }
 
     &-wrap {
         @extend %flex-between-start, %mob\:flex-column-reverse, %container, %gap-24, %mob\:gap-0;
         
         @include mobile() {
-            @include responsive(border-radius, 24px);
+            @include res-mobile(border-radius, 24px);
             background: #F0F0F0;
         }
 
         & > div {
-            @include square(636px);
+            @include square-desktop(636px);
 
             @include mobile() {
-                @include square(350px);
+                @include square-mobile(350px);
             }
         }
     }
 
     &-info {
         @extend %flex-column-between;
-        @include responsive(padding, 60px);
-        @include responsive(border-radius, 40px);
+        @include res-desktop(padding, 60px);
+        @include res-desktop(border-radius, 40px);
         background-image: url(../../assets/images/screenmate-dash/devices/devices_supporting-info-bg.png);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
         @include mobile() {
-            @include responsive(padding, 24px);
-            @include responsive(border-radius, 24px);
+            @include res-mobile(padding, 24px);
+            @include res-mobile(border-radius, 24px);
         }
 
         &-suptext, &-title {
@@ -50,20 +50,20 @@
         &-suptext {
             @extend %font-manrope, %mob\:font-manrope-14;
             @include text(16px, 20px);
-            @include responsive(margin-bottom, 12px);
+            @include res-desktop(margin-bottom, 12px);
 
             @include mobile() {
-                @include responsive(margin-bottom, 8px);
+                @include res-mobile(margin-bottom, 8px);
             }
         }
 
         &-title {
             @extend %font-manrope-52;
-            @include responsive(margin-bottom, 16px);
+            @include res-desktop(margin-bottom, 16px);
 
             @include mobile() {
-                @include text(32px, 40px);
-                @include responsive(margin-bottom, 6px);
+                @include text-mobile(32px, 40px);
+                @include res-mobile(margin-bottom, 6px);
             }
         }
 
@@ -72,42 +72,42 @@
             color: #DAD6FC;
 
             @include mobile() {
-                @include text(16px, 20px);
+                @include text-mobile(16px, 20px);
             }
         }
 
         &-nouns {
             @extend %flex-column;
-            @include responsive(row-gap, 26.08px);
+            @include res-desktop(row-gap, 26.08px);
 
             @include mobile() {
-                @include responsive(row-gap, 12.49px);
+                @include res-mobile(row-gap, 12.49px);
             }
         }
 
         &-noun-row {
             @extend %flex-start-center;
-            @include responsive(column-gap, 25.9px);
+            @include res-desktop(column-gap, 25.9px);
 
             @include mobile() {
-                @include responsive(column-gap, 12.68px);
+                @include res-mobile(column-gap, 12.68px);
             }
 
             & .icon {
 
                 &.noun-iphone {
-                    @include block(110.068px, 54.335px);
+                    @include block-desktop(110.068px, 54.335px);
 
                     @include mobile() {
-                        @include block(53.882px, 26.012px);
+                        @include block-mobile(53.882px, 26.012px);
                     }
                 }
 
                 &.noun-ipad {
-                    @include block(139.203px, 107.584px);
+                    @include block-desktop(139.203px, 107.584px);
 
                     @include mobile() {
-                        @include block(68.144px, 51.503px);
+                        @include block-mobile(68.144px, 51.503px);
                     }
                 }
             }

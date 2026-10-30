@@ -11,10 +11,10 @@
     top: 0;
     left: 0;
     right: 0;
-    @include responsive(padding, 32px, 72px);
+    @include res-desktop(padding, 32px, 72px);
 
     @include mobile() {
-        @include responsive(padding, 22px, 20px);
+        @include res-mobile(padding, 22px, 20px);
     }
 
     &.absolute {
@@ -23,10 +23,10 @@
     
     &.sticky, &.transparent {
         @extend %fixed;
-        @include responsive(padding, 14px, 72px);
+        @include res-desktop(padding, 14px, 72px);
 
         @include mobile() {
-            @include responsive(padding, 22px, 20px);
+            @include res-mobile(padding, 22px, 20px);
         }
     }
 
@@ -121,7 +121,7 @@
             }
 
             @include mobile() {
-                @include responsive(gap, 0, 4px);
+                @include res-mobile(gap, 0, 4px);
                 padding: 0;
 
                 &:first-child {
@@ -129,7 +129,7 @@
                 }
 
                 &:not(:last-child) {
-                    @include responsive(padding-bottom, 20px);
+                    @include res-mobile(padding-bottom, 20px);
                     border-bottom: 1px solid #E0E0E0;
                 }
             }
@@ -176,9 +176,9 @@
                 @extend %flex-column, %gap-16, %absolute, %mob\:gap-20, %mob\:static, %mob\:w-full;
                 list-style: none;
                 margin: 0;
-                @include responsive(top, 48px);
+                @include res-desktop(top, 48px);
                 @include responsive(left, -24px);
-                @include responsive(padding, 20px, 24px, 24px);
+                @include res-desktop(padding, 20px, 24px, 24px);
                 @include responsive(border-radius, 12px);
                 background: #FFF;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
@@ -198,19 +198,19 @@
                 }
 
                 & li {
-                    @include responsive(height, 20px);
+                    @include res-desktop(height, 20px);
 
                     @include mobile() {
-                        @include responsive(height, 18px);
+                        @include res-mobile(height, 18px);
 
                         &:first-child {
-                            @include responsive(margin-top, 24px);
+                            @include res-mobile(margin-top, 24px);
                         }
                     }
                     
                     & a {
                         @extend %font-manrope, %font-500;
-                        @include text(16px, 20px);
+                        @include text-desktop(16px, 20px);
                         color: #000 !important;
                         white-space: nowrap;
 
@@ -219,7 +219,7 @@
                         }
 
                         @include mobile() {
-                            @include text(14px, 18px);
+                            @include text-mobile(14px, 18px);
                         }
                     }
                 }
@@ -228,8 +228,8 @@
 
         &-button {
             @extend %flex-center, %text-center, %font-manrope-16, %mob\:font-manrope-18, %font-600, %text-white, %uppercase;
-            @include block(127px, 36px);
-            @include responsive(border-radius, 20px);
+            @include block-desktop(127px, 36px);
+            @include res-desktop(border-radius, 20px);
             background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%), linear-gradient(179deg, #437DF6 -48.86%, #4E23F9 696.27%);
 
             &:hover {
@@ -239,8 +239,8 @@
 
             @include mobile() {
                 width: 100%;
-                @include responsive(height, 56px);
-                @include responsive(border-radius, 54px);
+                @include res-mobile(height, 56px);
+                @include res-mobile(border-radius, 54px);
                 background: transparent;
                 border: 2px solid #0068FD;
                 color: #1657FC !important;
@@ -312,8 +312,8 @@
             @extend %absolute, %overflow-scroll-y;
             @include responsive(top, 46px);
             right: 0;
-            @include responsive(width, 380px);
-            @include responsive(max-height, 691px);
+            @include res-desktop(width, 380px);
+            @include res-desktop(max-height, 691px);
             @include responsive(padding, 20px);
             @include responsive(border-radius, 12px);
             background: #1D1D1F;
@@ -335,11 +335,10 @@
             }
 
             @include mobile() {
-                @include responsive(top, 46px);
                 left: calc(-1 * 100vw / 2 - (46 * 100vw / 390));
                 right: unset;
-                @include responsive(width, 350px);
-                @include responsive(max-height, 691px);
+                @include res-mobile(width, 350px);
+                @include res-mobile(max-height, 691px);
             }
 
             &-list {

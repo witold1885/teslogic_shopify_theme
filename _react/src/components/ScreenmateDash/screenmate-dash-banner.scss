@@ -8,7 +8,7 @@
     @extend %flex-column-center-end, %mob\:flex-column-between;
 
     @include mobile() {
-        @include responsive(padding, 96px, 20px, 0);
+        @include res-mobile(padding, 96px, 20px, 0);
     }
 
     // &-wrap {
@@ -31,36 +31,36 @@
     
     & .suptitle {
         opacity: 0.6;
-        @include responsive(top, 295px);
+        @include res-desktop(top, 295px);
     }
         
     & .title {
         @extend %font-manrope, %font-600;
-        @include text(64px, 72px);
+        @include text-desktop(64px, 72px);
         @include responsive(top, 329px);
 
         @include mobile() {
-            @include text(40px, 48px);
-            @include responsive(margin-bottom, 8px);
+            @include text-mobile(40px, 48px);
+            @include res-mobile(margin-bottom, 8px);
         }
     }
     
     & .subtitle {
-        @include responsive(top, 413px);
+        @include res-desktop(top, 413px);
     }
 
     & .suptitle, & .title, & .subtitle, &-buttons {
-        @include responsive(left, 72px);
+        @include res-desktop(left, 72px);
     }
 
     &-buttons {
-        @include responsive(top, 505px);
+        @include res-desktop(top, 505px);
     }
 
     &-button {
 
         &-buy {
-            @include responsive(width, 175px);
+            @include res-desktop(width, 175px);
 
             @include mobile() {
                 border: none;

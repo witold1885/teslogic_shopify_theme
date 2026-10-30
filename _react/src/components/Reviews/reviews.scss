@@ -5,11 +5,11 @@
 @use '@/assets/styles/mixins' as *;
 
 .reviews {
-    @include responsive(padding, 180px, 0);
+    @include res-desktop(padding, 180px, 0);
     color: #FFF;
 
     @include mobile() {
-        @include responsive(padding, 96px, 0);
+        @include res-mobile(padding, 96px, 0);
     }
 
     & .container {
@@ -45,18 +45,18 @@
 
     &-star {
         @extend %flex-center;
-        @include square(32px);
+        @include square-desktop(32px);
 
         @include mobile() {
-            @include square(20px);
+            @include square-mobile(20px);
         }
 
         &-big {
             @extend .reviews-star;
-            @include square(64px);
+            @include square-desktop(64px);
 
             @include mobile() {
-                @include square(128px);
+                @include square-mobile(128px);
             }
         }
     }
@@ -129,14 +129,14 @@
 
         &-item {
             @extend %flex-column, %gap-16;
-            @include responsive(padding, 40px);
-            @include responsive(border-radius, 24px);
+            @include res-desktop(padding, 40px);
+            @include res-desktop(border-radius, 24px);
             background: #1A1A1A;
             color: #A3A3A3;
 
             @include mobile() {
-                @include responsive(padding, 24px);
-                @include responsive(border-radius, 12px);
+                @include res-mobile(padding, 24px);
+                @include res-mobile(border-radius, 12px);
             }
         }
     }
@@ -218,15 +218,15 @@
 
         &-wrap {
             @extend %relative;
-            @include responsive(width, 636px);
-            @include responsive(padding, 40px, 40px, 28px, 40px);
+            @include res-desktop(width, 636px);
+            @include res-desktop(padding, 40px, 40px, 28px, 40px);
             @include responsive(border-radius, 16px);
             background: #1A1A1A;
             box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 
             @include mobile() {
-                @include responsive(width, 335px);
-                @include responsive(padding, 24px, 24px, 32px, 24px);
+                @include res-mobile(width, 335px);
+                @include res-mobile(padding, 24px, 24px, 32px, 24px);
             }
         }
 

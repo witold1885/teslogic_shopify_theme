@@ -8,10 +8,10 @@
 
     &__integration {
         @extend %flex-column-center, %gap-150, %mob\:gap-64;
-        @include responsive(padding, 156px, 0, 180px);
+        @include res-desktop(padding, 156px, 0, 180px);
 
         @include mobile() {
-            @include responsive(padding, 122px, 0, 96px);
+            @include res-mobile(padding, 122px, 0, 96px);
         }
 
         &-block {
@@ -52,22 +52,22 @@
 
             &-info {
                 @extend %flex-column;
-                @include responsive(gap, 64px, 56.8px);
-                @include responsive(width, 658px);
-                @include responsive(padding, 40px, 0, 77px);
+                @include res-desktop(gap, 64px, 56.8px);
+                @include res-desktop(width, 658px);
+                @include res-desktop(padding, 40px, 0, 77px);
 
                 @include mobile() {
-                    @include responsive(gap, 24px, 20px);
-                    @include responsive(width, 350px);
+                    @include res-mobile(gap, 24px, 20px);
+                    @include res-mobile(width, 350px);
                     padding: 0;
                 }
 
                 &-sketch {
-                    @include responsive(height, 247px);
-                    @include responsive(margin-left, -72px);
+                    @include res-desktop(height, 247px);
+                    @include res-desktop(margin-left, -72px);
 
                     @include mobile() {
-                        @include responsive(height, 125px);
+                        @include res-mobile(height, 125px);
                         margin-left: 0;
                     }
 
@@ -80,7 +80,7 @@
                     @extend %flex, %gap-60, %mob\:w-full, %mob\:flex-start-center, %mob\:gap-20;
 
                     @include mobile() {
-                        @include responsive(padding, 0, 20px)
+                        @include res-mobile(padding, 0, 20px)
                     }
                 }
 
@@ -88,7 +88,7 @@
                     @extend %flex-column, %gap-16, %mob\:gap-8;
 
                     @include mobile() {
-                        @include responsive(width, 245px);
+                        @include res-mobile(width, 245px);
 
                         & br {
                             display: none;
@@ -110,25 +110,25 @@
 
             &-image, &-video {
                 @extend %flex-1, %mob\:w-full, %overflow-hidden;
-                @include responsive(border-radius, 24px);
+                @include res-desktop(border-radius, 24px);
 
                 @include mobile() {
-                    @include responsive(border-radius, 10px);
+                    @include res-mobile(border-radius, 10px);
                 }
             }
 
             &-video {
-                @include responsive(height, 580px);
+                @include res-desktop(height, 580px);
 
                 .bigger-entertainment & {
-                    @include responsive(height, 530px);
+                    @include res-desktop(height, 530px);
                 }
 
                 @include mobile() {
-                    @include responsive(height, 290px);
+                    @include res-mobile(height, 290px);
 
                     .bigger-entertainment & {
-                        @include responsive(height, 280px);
+                        @include res-mobile(height, 280px);
                     }
                 }
             }

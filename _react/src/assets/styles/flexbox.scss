@@ -51,7 +51,12 @@ $gaps: 4, 6, 8, 10, 12, 16, 18, 20, 22, 24, 26, 28, 32, 36, 40, 48, 50, 56, 60, 
 
     @each $gap in $gaps {
         #{$symbol}#{$prefix}#{$separator}gap-#{$gap} {
-            @include responsive(gap, $gap);
+            @if $prefix == "mob" {
+                @include res-mobile(gap, $gap);
+            } @else {
+                @include res-desktop(gap, $gap);
+                @include res-mobile(gap, $gap);
+            }
         }
     }
 }

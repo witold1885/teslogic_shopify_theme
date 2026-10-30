@@ -13,18 +13,18 @@
     }
 
     &-top {
-        @include responsive(top, 80px);
+        @include res-desktop(top, 80px);
 
         @include mobile() {
-            @include responsive(top, 106.08px);
+            @include res-mobile(top, 106.08px);
         }
     }
 
     &-bottom {
-        @include responsive(bottom, 92px);
+        @include res-desktop(bottom, 92px);
 
         @include mobile() {
-            @include responsive(bottom, 131.04px);
+            @include res-mobile(bottom, 131.04px);
         }
     }
 
@@ -42,11 +42,11 @@
 
     &-legend {
         @extend %font-manrope, %whitespace-nowrap;
-        @include text(16px, 20px);
+        @include text-desktop(16px, 20px);
 
         @include mobile() {
             width: 300% !important;
-            @include text(12px, 18px);
+            @include text-mobile(12px, 18px);
         }
 
         .light & {
@@ -58,29 +58,29 @@
         }
 
         .pointer-top & {
-            @include responsive(top, -52px);
+            @include res-desktop(top, -52px);
 
             @include mobile() {
-                @include responsive(top, -64.48px);
+                @include res-mobile(top, -64.48px);
             }
         }
 
         .pointer-bottom & {
-            @include responsive(bottom, -52px);
+            @include res-desktop(bottom, -52px);
 
             @include mobile() {
 
                 &.lines-2 {
-                    @include responsive(bottom, -45.76px);
+                    @include res-mobile(bottom, -45.76px);
                 }
                 &.lines-3 {
-                    @include responsive(bottom, -64.48px);
+                    @include res-mobile(bottom, -64.48px);
                 }
                 &.lines-4 {
-                    @include responsive(bottom, -83.2px);
+                    @include res-mobile(bottom, -83.2px);
                 }
                 &.lines-5 {
-                    @include responsive(bottom, -101.92px);
+                    @include res-mobile(bottom, -101.92px);
                 }
             }
         }
@@ -144,123 +144,123 @@
     &-line {
 
         .pointer-dashboard-top-left & {
-            @include responsive(width, 537px);
+            @include res-desktop(width, 537px);
         }
         .pointer-dashboard-top-right & {
-            @include responsive(width, 330px);
+            @include res-desktop(width, 330px);
         }
         .pointer-dashboard-bottom-left & {
-            @include responsive(width, 304px);
+            @include res-desktop(width, 304px);
         }
         .pointer-dashboard-bottom-right & {
-            @include responsive(width, 539px);
+            @include res-desktop(width, 539px);
         }
 
         .pointer-performance-top-left & {
-            @include responsive(width, 369px);
+            @include res-desktop(width, 369px);
         }
         .pointer-performance-top-right & {
-            @include responsive(width, 527px);
+            @include res-desktop(width, 527px);
         }
         .pointer-performance-bottom-left & {
-            @include responsive(width, 533px);
+            @include res-desktop(width, 533px);
         }
         .pointer-performance-bottom-right & {
-            @include responsive(width, 349px);
+            @include res-desktop(width, 349px);
         }
 
         .pointer-energy-screen-top-left & {
-            @include responsive(width, 364px);
+            @include res-desktop(width, 364px);
         }
         .pointer-energy-screen-top-right & {
-            @include responsive(width, 526px);
+            @include res-desktop(width, 526px);
         }
         .pointer-energy-screen-bottom-left & {
-            @include responsive(width, 546px);
+            @include res-desktop(width, 546px);
         }
         .pointer-energy-screen-bottom-right & {
-            @include responsive(width, 464px);
+            @include res-desktop(width, 464px);
         }
 
         .pointer-car-data-top-left & {
-            @include responsive(width, 390px);
+            @include res-desktop(width, 390px);
         }
         .pointer-car-data-top-right & {
-            @include responsive(width, 264px);
+            @include res-desktop(width, 264px);
         }
         .pointer-car-data-bottom-left & {
-            @include responsive(width, 311px);
+            @include res-desktop(width, 311px);
         }
 
         .pointer-map-top-left & {
-            @include responsive(width, 526px);
+            @include res-desktop(width, 526px);
         }	
         .pointer-map-bottom-left & {
-            @include responsive(width, 254px);
+            @include res-desktop(width, 254px);
         }
         .pointer-map-bottom-right & {
-            @include responsive(width, 289px);
+            @include res-desktop(width, 289px);
         }
 
         @include mobile() {
 
             .pointer-dashboard-top-left & {
-                @include responsive(width, 176.8px);
+                @include res-mobile(width, 176.8px);
             }
             .pointer-dashboard-top-right & {
-                @include responsive(width, 101.92px);
+                @include res-mobile(width, 101.92px);
             }
             .pointer-dashboard-bottom-left & {
-                @include responsive(width, 85.3333px);
+                @include res-mobile(width, 85.3333px);
             }
             .pointer-dashboard-bottom-right & {
-                @include responsive(width, 176.8px);
+                @include res-mobile(width, 176.8px);
             }
 
             .pointer-performance-top-left & {
-                @include responsive(width, 84.24px);
+                @include res-mobile(width, 84.24px);
             }
             .pointer-performance-top-right & {
-                @include responsive(width, 169.52px);
+                @include res-mobile(width, 169.52px);
             }
             .pointer-performance-bottom-left & {
-                @include responsive(width, 174.72px);
+                @include res-mobile(width, 174.72px);
             }
             .pointer-performance-bottom-right & {
-                @include responsive(width, 71.76px);
+                @include res-mobile(width, 71.76px);
             }
 
             .pointer-energy-screen-top-left & {
-                @include responsive(width, 80.08px);
+                @include res-mobile(width, 80.08px);
             }
             .pointer-energy-screen-top-right & {
-                @include responsive(width, 170.56px);
+                @include res-mobile(width, 170.56px);
             }
             .pointer-energy-screen-bottom-left & {
-                @include responsive(width, 183.04px);
+                @include res-mobile(width, 183.04px);
             }
             .pointer-energy-screen-bottom-right & {
-                @include responsive(width, 147.68px);
+                @include res-mobile(width, 147.68px);
             }
 
             .pointer-car-data-top-left & {
-                @include responsive(width, 80.08px);
+                @include res-mobile(width, 80.08px);
             }
             .pointer-car-data-top-right & {
-                @include responsive(width, 46.8px);
+                @include res-mobile(width, 46.8px);
             }
             .pointer-car-data-bottom-left & {
-                @include responsive(width, 64.48px);
+                @include res-mobile(width, 64.48px);
             }
 
             .pointer-map-top-left & {
-                @include responsive(width, 180.96px);
+                @include res-mobile(width, 180.96px);
             }
             .pointer-map-bottom-left & {
-                @include responsive(width, 131.04px);
+                @include res-mobile(width, 131.04px);
             }
             .pointer-map-bottom-right & {
-                @include responsive(width, 69.68px);
+                @include res-mobile(width, 69.68px);
             }
         }
     }

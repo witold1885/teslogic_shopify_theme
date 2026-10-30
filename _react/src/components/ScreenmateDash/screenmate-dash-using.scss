@@ -5,29 +5,29 @@
 @use '../../assets/styles/mixins' as *;
 
 #using {
-	@include responsive(padding-bottom, 150px);
+	@include res-desktop(padding-bottom, 150px);
 
 	@include mobile() {
-		@include responsive(padding-bottom, 96px);
+		@include res-mobile(padding-bottom, 96px);
 	}
 }
 
 .screenmate-dash .using {
 	@extend %flex-column, %container, %relative;
 	margin: 0 auto;
-	@include responsive(padding-bottom, 180px);
+	@include res-desktop(padding-bottom, 180px);
 
 	@include mobile() {
-		@include responsive(padding-bottom, 96px);
+		@include res-mobile(padding-bottom, 96px);
 	}
 
 	&__title {
 		@extend %font-manrope-52, %font-500;
-		@include responsive(height, 64px);
+		@include res-desktop(height, 64px);
 
 		@include mobile() {
 			height: auto;
-			@include text(32px, 40px);
+			@include text-mobile(32px, 40px);
 		}
 	}
 	&__subtitle {
@@ -46,12 +46,12 @@
 	}
 
 	&__video {
-		@include block(1206px, 670.888px);
+		@include block-desktop(1206px, 670.888px);
 		@include responsive(border-radius, 11.0448px);
 		overflow: hidden;
 
 		@include mobile() {
-			@include block(353, 194);
+			@include block-mobile(353, 194);
 		}
 		
 		& iframe {
@@ -72,21 +72,21 @@
 	}
 
 	&__row {
-		@include responsive(width, 306px);
+		@include res-desktop(width, 306px);
 		margin: 0;
 
 		@include mobile() {
-			@include responsive(width, 335px);
+			@include res-mobile(width, 335px);
 		}
 
 		&-block {
 			@extend %relative;
-			@include responsive(height, 220px);
+			@include res-desktop(height, 220px);
 			@include responsive(border-radius, 24px);
 			background: #F6F6F6;
 
 			@include mobile() {
-				@include responsive(height, 240px);
+				@include res-mobile(height, 240px);
 			}
 		}
 
@@ -118,53 +118,53 @@
 			}
 
 			&-1 {
-				@include block(136px, 173px);
-				@include responsive(top, 32px);
-				@include responsive(left, 85px);
+				@include block-desktop(136px, 173px);
+				@include res-desktop(top, 32px);
+				@include res-desktop(left, 85px);
 			}
 
 			&-2 {
-				@include block(275.306px, 141.007px);
-				@include responsive(top, 39.11px);
-				@include responsive(left, 15.99px);
+				@include block-desktop(275.306px, 141.007px);
+				@include res-desktop(top, 39.11px);
+				@include res-desktop(left, 15.99px);
 			}
 
 			&-3 {
-				@include block(150.999px, 201px);
-				@include responsive(top, 19px);
-				@include responsive(left, 109px);
+				@include block-desktop(150.999px, 201px);
+				@include res-desktop(top, 19px);
+				@include res-desktop(left, 109px);
 			}
 
 			&-4 {
-				@include block(256px, 160.001px);
-				@include responsive(top, 30px);
-				@include responsive(left, 25px);
+				@include block-desktop(256px, 160.001px);
+				@include res-desktop(top, 30px);
+				@include res-desktop(left, 25px);
 			}
 
 			@include mobile() {
 
 				&-1 {
-					@include block(136px, 173px);
-					@include responsive(top, 42px);
-					@include responsive(left, 100px);
+					@include block-mobile(136px, 173px);
+					@include res-mobile(top, 42px);
+					@include res-mobile(left, 100px);
 				}
 				
 				&-2 {
-					@include block(275.306px, 141.007px);
-					@include responsive(top, 49.11px);
-					@include responsive(left, 29.99px);
+					@include block-mobile(275.306px, 141.007px);
+					@include res-mobile(top, 49.11px);
+					@include res-mobile(left, 29.99px);
 				}
 
 				&-3 {
-					@include block(150.999px, 201px);
-					@include responsive(top, 24px);
-					@include responsive(left, 109px);
+					@include block-mobile(150.999px, 201px);
+					@include res-mobile(top, 24px);
+					@include res-mobile(left, 109px);
 				}
 
 				&-4 {
-					@include block(256px, 160.001px);
-					@include responsive(top, 40px);
-					@include responsive(left, 40px);
+					@include block-mobile(256px, 160.001px);
+					@include res-mobile(top, 40px);
+					@include res-mobile(left, 40px);
 				}
 			}
 		}

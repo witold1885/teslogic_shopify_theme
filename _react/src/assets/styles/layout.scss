@@ -56,11 +56,11 @@ $positionMap: (
 }
 
 %container {
-    @include responsive(width, 1296px);
+    @include res-desktop(width, 1296px);
     margin: 0 auto;
 
     @include mobile() {
-        @include responsive(width, 350px);
+        @include res-mobile(width, 350px);
     }
 }
 

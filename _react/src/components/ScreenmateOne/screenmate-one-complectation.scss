@@ -8,11 +8,11 @@
     
     &__complectation {
         @extend %flex-column, %gap-100, %mob\:gap-60;
-        @include responsive(padding, 0, 0, 172px);
+        @include res-desktop(padding, 0, 0, 172px);
         background: linear-gradient(180deg, rgba(29, 29, 31, 0.00) 0%, #202022 57.88%, #252528 100%);
 
         @include mobile() {
-            @include responsive(padding, 0, 0, 96px);
+            @include res-mobile(padding, 0, 0, 96px);
         }
 
         &-group {
@@ -24,10 +24,10 @@
 
             &-grid {
                 @extend %w-full, %grid, %gap-0, %overflow-hidden, %mob\:w-full;
-                @include responsive(border-radius, 24px);
+                @include res-desktop(border-radius, 24px);
 
                 &.box {
-                    @include responsive(grid-template-columns, 550px, 371px, 371px);
+                    @include res-desktop(grid-template-columns, 550px, 371px, 371px);
                     grid-template-rows: 1fr 1fr;
                     grid-template-areas: 
                         'device    holder       tool'
@@ -42,10 +42,10 @@
                 }
 
                 @include mobile() {
-                    @include responsive(border-radius, 12px);
+                    @include res-mobile(border-radius, 12px);
 
                     &.box {
-                        @include responsive(grid-template-rows, 323px, 172px, 172px);
+                        @include res-mobile(grid-template-rows, 323px, 172px, 172px);
                         grid-template-columns: 1fr 1fr;
                         grid-template-areas: 
                             'device    device'
@@ -69,27 +69,27 @@
 
                     .box & {
                         @extend %flex-column-center-end;
-                        @include responsive(padding-bottom, 36px);
+                        @include res-desktop(padding-bottom, 36px);
 
                         @include mobile() {
-                            @include responsive(padding-bottom, 18.13px);
+                            @include res-mobile(padding-bottom, 18.13px);
                         }
                     }
 
                     &.device {
-                        @include responsive(gap, 78.13px);
+                        @include res-desktop(gap, 78.13px);
 
                         @include mobile() {
-                            @include responsive(gap, 24px);
+                            @include res-mobile(gap, 24px);
                         }
                     }
 
                     .add & {
                         @extend %flex-start-center, %gap-24, %mob\:flex-column-center, %mob\:gap-20;
-                        @include responsive(padding, 52px, 0, 56px, 32px);
+                        @include res-desktop(padding, 52px, 0, 56px, 32px);
 
                         @include mobile() {
-                            @include responsive(padding, 32px, 20px, 40px);
+                            @include res-mobile(padding, 32px, 20px, 40px);
 
                             & br {
                                 display: none;
@@ -115,10 +115,10 @@
                     &-image {
 
                         .box & {
-                            @include square(220px);
+                            @include square-desktop(220px);
 
                             @include mobile() {
-                                @include square(124.765px);
+                                @include square-mobile(124.765px);
                             }
                         }
 

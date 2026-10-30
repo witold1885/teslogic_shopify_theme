@@ -5,12 +5,12 @@
 @use '../../assets/styles/mixins' as *;
 
 .footer {
-    @include responsive(padding, 64px, 0, 48px);
+    @include res-desktop(padding, 64px, 0, 48px);
     background: #010101;
     color: #FFF;
 
     @include mobile() {
-        @include responsive(padding, 40px, 0);
+        @include res-mobile(padding, 40px, 0);
     }
 
     & .container {
@@ -45,7 +45,7 @@
 
         &-field {
             @extend %relative;
-            @include responsive(width, 416px);
+            @include res-desktop(width, 416px);
 
             & input {
                 @extend %w-full, %font-manrope-16;
@@ -67,7 +67,8 @@
 
         & button {
             @extend %flex-center, %text-center, %font-manrope-18, %font-600;
-            @include block(195px, 52px);
+            @include res-desktop(width, 195px);
+            @include responsive(height, 52px);
             @include responsive(border-radius, 26px);
             border: 3px solid #0068FD;
             background: transparent;
@@ -89,10 +90,10 @@
     }
 
     &-logo {
-        @include block(254px, 40px);
+        @include block-desktop(254px, 40px);
 
         @include mobile() {
-            @include block(182px, 28px);
+            @include block-mobile(182px, 28px);
             grid-column: span 2;
         }
     }
@@ -100,13 +101,13 @@
     &-grid {
         @extend %grid;
         grid-template-columns: calc(330 * 100vw / 1440) calc(283 * 100vw / 1440) calc(268 * 100vw / 1440) calc(219 * 100vw / 1440) 1fr;
-        @include responsive(row-gap, 52px);
+        @include res-desktop(row-gap, 52px);
 
         @include mobile() {
             grid-template-columns: 1fr 1fr;
-            @include responsive(column-gap, 23px);
-            @include responsive(row-gap, 40px);
-            @include responsive(margin-bottom, 11px);
+            @include res-mobile(column-gap, 23px);
+            @include res-mobile(row-gap, 40px);
+            @include res-mobile(margin-bottom, 11px);
         }
 
         &-item {
@@ -174,11 +175,11 @@
 
     &-bottom {
         @extend %flex-between-start, %mob\:flex-column, %mob\:gap-24, %font-manrope-16;
-        @include responsive(margin-top, -32px);
+        @include res-desktop(margin-top, -32px);
         color: #808080;
 
         @include mobile() {
-            @include responsive(margin-top, -20px);
+            @include res-mobile(margin-top, -20px);
 
             & br {
                 display: none;

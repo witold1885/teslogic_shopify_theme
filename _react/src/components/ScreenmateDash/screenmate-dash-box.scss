@@ -9,24 +9,24 @@
 	background: #FFF;
 
     &-wrap {
-        @include responsive(width, 1076px);
+        @include res-desktop(width, 1076px);
         margin: 0 auto;
-        @include responsive(padding, 180px, 0);
+        @include res-desktop(padding, 180px, 0);
 
         @include mobile() {
-            @include responsive(width, 350px);
-            @include responsive(padding, 96px, 0);
+            @include res-mobile(width, 350px);
+            @include res-mobile(padding, 96px, 0);
         }
     }
 
     &-top {
         @extend %flex-between, %mob\:flex-column;
-        @include responsive(height, 166px);
-        @include responsive(margin-bottom, 48px);
+        @include res-desktop(height, 166px);
+        @include res-desktop(margin-bottom, 48px);
 
         @include mobile() {
             height: auto;
-            @include responsive(margin-bottom, 32px);
+            @include res-mobile(margin-bottom, 32px);
         }
     }
 
@@ -37,8 +37,8 @@
             @extend %font-manrope-52, %font-500;
 
             @include mobile() {
-                @include text(32px, 40px);
-                @include responsive(margin-bottom, 20px);
+                @include text-mobile(32px, 40px);
+                @include res-mobile(margin-bottom, 20px);
             }
 
             &-what {
@@ -48,12 +48,12 @@
 
         &-description {
             @extend %font-manrope-24, %mob\:flex-column, %mob\:gap-16;
-            @include responsive(width, 691px);
+            @include res-desktop(width, 691px);
             color: #4D4D4D;
 
             @include mobile() {
                 width: 100%;
-                @include text(16px, 20px);
+                @include text-mobile(16px, 20px);
             }
         }
     }
@@ -71,20 +71,20 @@
 
     &-items {
         @extend %w-full, %flex-between-center, %mob\:flex-center, %mob\:flex-wrap, %gap-40;
-        @include responsive(margin-bottom, 60px);
+        @include res-desktop(margin-bottom, 60px);
 
         @include mobile() {
-            @include responsive(gap, 32px, 24px);
-            @include responsive(margin-bottom, 52px);
+            @include res-mobile(gap, 32px, 24px);
+            @include res-mobile(margin-bottom, 52px);
         }
     }
 
     &-item {
         @extend %flex-column-between-center, %gap-20;
-        @include block(170px, 210px);
+        @include block-desktop(170px, 210px);
 
         @include mobile() {
-            @include block(148px, 188px);
+            @include block-mobile(148px, 188px);
         }
 
         &-big {
@@ -93,10 +93,10 @@
         }
 
         &-top, &-image {
-            @include square(170px);
+            @include square-desktop(170px);
 
             @include mobile() {
-                @include square(148px);
+                @include square-mobile(148px);
             }
         }
 
@@ -134,7 +134,7 @@
 
     &-charger {
         @extend %flex-end, %mob\:flex-column-start;
-        @include responsive(width, 1117px);
+        @include res-desktop(width, 1117px);
         @include responsive(gap, 85px);
 
         @include mobile() {
@@ -143,21 +143,21 @@
 
         &-images {
             @extend %relative, %mob\:flex-center;
-            @include square(355px);
+            @include square-desktop(355px);
 
             @include mobile() {
                 width: auto;
                 height: auto;
                 aspect-ratio: unset;
-                @include responsive(gap, 23px);
-                @include responsive(margin, 32px, auto);
+                @include res-mobile(gap, 23px);
+                @include res-mobile(margin, 32px, auto);
             }
 
             &-item {
                 @extend %mob\:relative;
 
                 @include mobile() {
-                    @include square(148px);
+                    @include square-mobile(148px);
                 }
             }
 
@@ -172,22 +172,22 @@
             }
 
             &-image {
-                @include block(226px, 287px);
-                @include responsive(left, 66px);
+                @include block-desktop(226px, 287px);
+                @include res-desktop(left, 66px);
                 bottom: 0;
                 z-index: 2;
 
                 @include mobile() {
-                    @include block(93.854px, 119.122px);
-                    @include responsive(top, 27.98px);
-                    @include responsive(left, 27.98px);
+                    @include block-mobile(93.854px, 119.122px);
+                    @include res-mobile(top, 27.98px);
+                    @include res-mobile(left, 27.98px);
                 }
             }
 
             &-photo {
-                @include square(120px);
-                @include responsive(top, -22px);
-                @include responsive(right, -11px);
+                @include square-desktop(120px);
+                @include res-desktop(top, -22px);
+                @include res-desktop(right, -11px);
                 z-index: 3;
 
                 @include mobile() {
@@ -206,19 +206,19 @@
                 @extend %font-manrope-52, %font-500;
 
                 @include mobile() {
-                    @include text(32px, 40px);
-                    @include responsive(margin-bottom, 20px);
+                    @include text-mobile(32px, 40px);
+                    @include res-mobile(margin-bottom, 20px);
                 }
             }
 
             &-description {
                 @extend %font-manrope-18, %mob\:flex-column, %mob\:gap-12;
-                @include responsive(width, 660px);
+                @include res-desktop(width, 660px);
                 color: #666;
 
                 @include mobile() {
                     width: 100%;
-                    @include text(16px, 20px);
+                    @include text-mobile(16px, 20px);
                 }
             }
         }
@@ -226,7 +226,7 @@
         &-items {
             @extend %flex-column, %mob\:flex-row, %mob\:gap-8;
             @include responsive(row-gap, 31px);
-            @include responsive(margin-top, 32px);
+            @include res-desktop(margin-top, 32px);
 
             @include mobile() {
                 margin-top: 0;
@@ -237,15 +237,15 @@
             @extend %flex-start-center, %mob\:flex-column-center, %gap-24, %mob\:gap-12;
 
             @include mobile() {
-                @include responsive(width, 164px);
+                @include res-mobile(width, 164px);
             }
 
             &-image {
                 @extend %relative;
-                @include square(86px);
+                @include square-desktop(86px);
 
                 @include mobile() {
-                    @include square(60px);
+                    @include square-mobile(60px);
                 }
 
                 &-ellipse, &-image {
@@ -284,13 +284,13 @@
 
             &-description {
                 @extend %font-manrope, %mob\:text-center;
-                @include responsive(width, 345px);
-                @include text(16px, 20px);
+                @include res-desktop(width, 345px);
+                @include text-desktop(16px, 20px);
                 color: #666;
 
                 @include mobile() {
                     width: 100%;
-                    @include text(12px, 18px);
+                    @include text-mobile(12px, 18px);
                 }
             }
         }

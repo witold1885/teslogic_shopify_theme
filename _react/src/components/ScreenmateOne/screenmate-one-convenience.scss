@@ -7,31 +7,31 @@
 .screenmate-one {
     
     &__convenience {
-        @include responsive(padding, 156px, 0);
+        @include res-desktop(padding, 156px, 0);
         background: linear-gradient(0deg, #1D1D1F 0%, #1D1D1F 100%), #191919;
 
         @include mobile() {
-            @include responsive(padding, 90px, 0, 96px);
+            @include res-mobile(padding, 90px, 0, 96px);
         }
 
         &-wrap {
             @extend %flex-column-center, %gap-150;
 
             @include mobile() {
-                @include responsive(gap, 72px);
+                @include res-mobile(gap, 72px);
             }
         }
 
         & .heading {
-            @include responsive(width, 857px);
+            @include res-desktop(width, 857px);
             background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #808080 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: #0465FD;
 
             @include mobile() {
-                @include responsive(width, 350px);
-                @include responsive(margin-bottom, 8px);
+                @include res-mobile(width, 350px);
+                @include res-mobile(margin-bottom, 8px);
             }
         }
 
@@ -59,18 +59,18 @@
             }
 
             &.key-driving-info {
-                @include responsive(height, 746px);
-                @include responsive(padding-top, 120px);
+                @include res-desktop(height, 746px);
+                @include res-desktop(padding-top, 120px);
                 background-image: url(../../assets/images/screenmate-one/key-driving-info-desktop.png);
                 background-size: cover;
 
                 @include mobile() {
-                    @include responsive(height, 548px);
+                    @include res-mobile(height, 548px);
                     padding-top: 0;
                     background-image: url(../../assets/images/screenmate-one/key-driving-info-mobile.png);
                     background-size: 100% auto;
                     background-position-x: center;
-                    @include responsive(background-position-y, 156px);
+                    @include res-mobile(background-position-y, 156px);
                     background-repeat: no-repeat;
                 }
             }
@@ -108,12 +108,8 @@
                     }
 
                     .key-driving-info & {
-                        text-align: right;
+                        @extend %text-right, %mob\:text-left;
                         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 0 4px 60px #000;
-
-                        @include mobile() {
-                            text-align: left;
-                        }
                     }
                 }
             }
@@ -131,39 +127,39 @@
                 }
 
                 & .icon {
-                    @include block(16px, 28px);
+                    @include block-desktop(16px, 28px);
 
                     @include mobile() {
-                        @include responsive(height, 24px);
+                        @include res-mobile(height, 24px);
                     }
                 }
             }
 
             &-image, &-video {
                 @extend %w-full, %overflow-hidden;
-                @include responsive(border-radius, 24px);
+                @include res-desktop(border-radius, 24px);
 
                 @include mobile() {
-                    @include responsive(border-radius, 10px);
+                    @include res-mobile(border-radius, 10px);
                 }
             }
 
             &-image {
 
                 .front-camera-integration & {
-                    @include responsive(width, 746px);
+                    @include res-desktop(width, 746px);
 
                     @include mobile() {
-                        @include responsive(width, 350px);
+                        @include res-mobile(width, 350px);
                     }
                 }
             }
 
             &-video {
-                @include responsive(height, 580px);
+                @include res-desktop(height, 580px);
 
                 @include mobile() {
-                    @include responsive(height, 290px);
+                    @include res-mobile(height, 290px);
                     
                     .dual-view-mode & {
                         background-position: 66.6667% !important;
@@ -183,34 +179,34 @@
                 }
 
                 &.top-left {
-                    @include block(353.5px, 58.5px);
+                    @include block-desktop(353.5px, 58.5px);
 
                     @include mobile() {
-                        @include block(153.5px, 55.5px);
+                        @include block-mobile(153.5px, 55.5px);
                     }
                 }
 
                 &.top-right {
-                    @include block(238px, 61px);
+                    @include block-desktop(238px, 61px);
 
                     @include mobile() {
-                        @include block(71px, 53.5px);
+                        @include block-mobile(71px, 53.5px);
                     }
                 }
 
                 &.bottom-left {
-                    @include block(208.25px, 34.501px);
+                    @include block-desktop(208.25px, 34.501px);
 
                     @include mobile() {
-                        @include square(47px);
+                        @include square-mobile(47px);
                     }
                 }
 
                 &.bottom-right {
-                    @include block(176.5px, 39px);
+                    @include block-desktop(176.5px, 39px);
 
                     @include mobile() {
-                        @include block(42.5px, 29px);
+                        @include block-mobile(42.5px, 29px);
                     }
                 }
             }
@@ -238,19 +234,19 @@
         &-commands {
             @extend %container, %relative;
             height: calc(740 / 810 * 100vh);
-            @include responsive(border-radius, 24px);
+            @include res-desktop(border-radius, 24px);
             background: #1D1D1F;
 
             @include mobile() {
                 height: calc(800 / 844 * 100vh);
-                @include responsive(border-radius, 16px);
+                @include res-mobile(border-radius, 16px);
             }
 
             & > * {
-                @include responsive(padding, 28px);
+                @include res-desktop(padding, 28px);
 
                 @include mobile() {
-                    @include responsive(padding, 20px);
+                    @include res-mobile(padding, 20px);
                 }
             }
 
@@ -262,20 +258,16 @@
                     @extend %font-manrope-28, %font-500, %mob\:font-manrope-22;
 
                     & br {
-                        display: none;
-
-                        @include mobile() {
-                            display: block;
-                        }
+                        @extend %hidden, %mob\:block;
                     }
                 }
             }
 
             &-close {
-                @include square(40px);
+                @include square-desktop(40px);
 
                 @include mobile() {
-                    @include square(32px);
+                    @include square-mobile(32px);
                 }
             }
 
@@ -300,11 +292,11 @@
                 @extend %w-full, %grid;
                 align-items: flex-start;
                 grid-template-columns: repeat(4, calc(284 * 100vw / 1440));
-                @include responsive(gap, 32px, 16px);
+                @include res-desktop(gap, 32px, 16px);
 
                 @include mobile() {
                     grid-template-columns: repeat(2, calc(150 * 100vw / 390));
-                    @include responsive(gap, 32px, 10px);
+                    @include res-mobile(gap, 32px, 10px);
                 }
 
                 &-item {
@@ -427,15 +419,13 @@
 
                     & .control {
                         @extend %flex;
-                        @include responsive(font-size, 18px);
-                        @include responsive(line-height, 24px);
+                        @include text-desktop(18px, 24px);
                         color: #808080;
 
                         @include mobile() {
-                            @include responsive(height, 53px);
-                            @include responsive(border-radius, 16px);
-                            @include responsive(font-size, 12px);
-                            @include responsive(line-height, 16px);
+                            @include res-mobile(height, 53px);
+                            @include res-mobile(border-radius, 16px);
+                            @include text-mobile(12px, 16px);
                         }
 
                         & > * {
@@ -450,10 +440,10 @@
                             }
 
                             &:first-child, &:last-child {
-                                @include responsive(width, 120px);
+                                @include res-desktop(width, 120px);
 
                                 @include mobile() {
-                                    @include responsive(width, 77.5px);
+                                    @include res-mobile(width, 77.5px);
                                 }
                             }
 
@@ -463,10 +453,10 @@
                         }
 
                         & .icon {
-                            @include square(48px);
+                            @include square-desktop(48px);
                             
                             @include mobile() {
-                                @include square(24px);
+                                @include square-mobile(24px);
                             }
                         }
                     }
