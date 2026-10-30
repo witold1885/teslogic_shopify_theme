@@ -14,7 +14,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 	screen: { yFrom: '40px', duration: 666 },
 	pointer: { yFrom: '20px', duration: 333 },
 	tab: { yFrom: '20px', duration: 333 },
-	selected: { yFrom: '20px', duration: 333 },
 }
 
 const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
@@ -130,14 +129,15 @@ const screens: Record<string, Screen> = {
 }
 
 interface ScreenSwitcherProps {
+	className?: string
 	theme: Theme
 	onChangeTheme: (key: Theme) => void
 }
 
-const ScreenSwitcher = forwardRef<HTMLDivElement, ScreenSwitcherProps>(({ theme, onChangeTheme }, ref) => {
+const ScreenSwitcher = forwardRef<HTMLDivElement, ScreenSwitcherProps>(({ className = '', theme, onChangeTheme }, ref) => {
 	const switcher = useMemo(() => (['light', 'dark'] as Theme[]).map(key => ({
 		key,
-		className: `screens__top-switcher-item screens__top-switcher-item-${key} ${key === theme ? 'active': ''}`,
+		className: `screens__top-switcher-item screens__top-switcher-item-${key} ${key === theme ? 'active': ''} ${className}`,
 		label: key.charAt(0).toUpperCase() + key.slice(1),
 		onClick: () => onChangeTheme(key)
 	})), [theme, onChangeTheme])
@@ -276,7 +276,7 @@ const ScreenmateDashScreens: FC = () => {
 					))}
 				</SlickSlider>
 				{isMobile && currentScreenIndex !== undefined && (
-					<div {...anime('selected')} className="screens__selected">
+					<div className="screens__selected animate animate-small">
 						<Icon className="screens__selected-nav screens__selected-nav-prev" icon={chevrons[`prev-${theme}`]} onClick={() => sliderRef?.current?.slickPrev()} />
 						<div className="screens__selected-item">
 							<div className="screens__selected-item-title">{screens[screenTypes[currentScreenIndex]].title}</div>
@@ -285,7 +285,7 @@ const ScreenmateDashScreens: FC = () => {
 						<Icon className="screens__selected-nav screens__selected-nav-next" icon={chevrons[`next-${theme}`]} onClick={() => sliderRef?.current?.slickNext()} />
 					</div>
 				)}
-				{isMobile && <ScreenSwitcher {...anime('switcher')} theme={theme} onChangeTheme={setTheme} />}
+				{isMobile && <ScreenSwitcher className="animate animate-small" theme={theme} onChangeTheme={setTheme} />}
 			</div>
 		</div>
 	)
