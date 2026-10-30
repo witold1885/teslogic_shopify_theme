@@ -21,7 +21,7 @@
 
     &-image {
         @extend %absolute, %inset;
-        // @include animate.appear();
+        @include animate.appear();
 
         &-desktop {
             @extend %mob\:hidden;
