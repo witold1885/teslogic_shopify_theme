@@ -11,7 +11,7 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
-    item: { yFrom: '20px', duration: 333 },
+    slider: { yFrom: '20px', duration: 333 },
 }
 
 const ScreenmateDashSignificant: FC = () => {
@@ -19,13 +19,7 @@ const ScreenmateDashSignificant: FC = () => {
 
     const { features } = useAppSelector(fetchContent)
 
-    const animationConfigs = useMemo(() => mapSimpleConfigs({
-        ...animatedObjects,
-        ...(features?.['significant-dashboard-features']?.items?.reduce((acc, _, index) => ({
-            ...acc,
-            [`item-${index}`]: animatedObjects.item
-        }), {}) || [])
-    }), [features])
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
     const { anime } = useAnime(animationConfigs)
 
@@ -33,9 +27,10 @@ const ScreenmateDashSignificant: FC = () => {
         <div className="significant" id="significant">
             <div {...anime('title')} className="significant__title">Significant <br />dashboard features</div>
             <TrackSlider
+                {...anime('slider')}
                 className="significant__features"
                 items={features?.['significant-dashboard-features']?.items?.map(({ title, image, content }: Feature, index: number) => (
-                    <div {...anime(`item-${index}`)} className="significant__features-item" key={index}>
+                    <div className="significant__features-item" key={index}>
                         <div className="significant__features-item-title">{title}</div>
                         <div className="significant__features-item-image">
                             <Image src={image} alt={title} />
