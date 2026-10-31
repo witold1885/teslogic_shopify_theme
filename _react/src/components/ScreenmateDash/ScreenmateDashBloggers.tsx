@@ -16,7 +16,6 @@ import { useLazyData } from '../../hooks/lazy-data'
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
-    slider: { yFrom: '20px', duration: 333 },
 }
 
 const ScreenmateDashBloggers: FC = () => {
@@ -52,9 +51,8 @@ const ScreenmateDashBloggers: FC = () => {
                 </div>
                 {items && items.length !== 0 && (
                     <TrackSlider
-                        {...anime('slider')}
                         key={`bloggers-slider-${items.length}`}
-                        className="bloggers_block__list"
+                        className="bloggers_block__list animate animate-small"
                         items={items.map((item, index) => (
                             <div className="bloggers_block__list-item" key={index}>
                                 <a
