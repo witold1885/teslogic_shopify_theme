@@ -1,14 +1,15 @@
-import { forwardRef, useState, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
+import { forwardRef, useState, useRef, useMemo, Suspense, type CSSProperties, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
 import './track-slider.scss'
 import SlickSlider, { type Settings } from './SlickSlider'
 
 interface TrackSliderProps {
+    style?: CSSProperties
     className?: string
     items: any[]
     slidesToShow: number
 }
 
-const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, items, slidesToShow }, ref) => {
+const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ style, className, items, slidesToShow }, ref) => {
     const sliderRef = useRef<any>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
@@ -23,10 +24,8 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
         swipeToSlide: true,
         beforeChange: (_, next) => {
             const maxScrollableSlides = items.length - sliderSettings.slidesToShow!
-        
             if (maxScrollableSlides > 0) {
-                let pct = (next / maxScrollableSlides) * 100
-                pct = Math.max(0, Math.min(100, pct))
+                const pct = Math.max(0, Math.min(100, (next / maxScrollableSlides) * 100))
                 setScrollPercentage(pct)
             }
         }
@@ -90,7 +89,12 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     }
 
     return (
-        <div ref={ref} className={`track-slider-wrap ${className}-wrap`} onWheel={handleWheel}>
+        <div
+            ref={ref}
+            style={style || {}}
+            className={`track-slider-wrap ${className}-wrap`}
+            onWheel={handleWheel}
+        >
             <Suspense>
                 <SlickSlider
                     ref={sliderRef}
