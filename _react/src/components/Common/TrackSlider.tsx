@@ -97,7 +97,11 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     return (
         <div ref={ref} className={`track-slider-wrap ${className}-wrap`} onWheel={handleWheel}>
             <Suspense>
-                <SlickSlider ref={sliderRef} className={`track-slider ${loading ? 'loading' : ''} ${className}`} {...sliderSettings}>
+                <SlickSlider
+                    ref={sliderRef}
+                    className={`track-slider ${loading ? 'loading' : ''} ${className}`}
+                    {...sliderSettings}
+                >
                     {items}
                 </SlickSlider>
                 <div
