@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
+import { forwardRef, useState, useEffect, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
 import './track-slider.scss'
 import SlickSlider, { type Settings } from './SlickSlider'
 
@@ -11,7 +11,12 @@ interface TrackSliderProps {
 const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, items, slidesToShow }, ref) => {
     const sliderRef = useRef<any>(null)
     const trackRef = useRef<HTMLDivElement>(null)
+    const [loading, setLoading] = useState<boolean>(true)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     const sliderSettings: Settings = {
         dots: false,
@@ -92,7 +97,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     return (
         <div ref={ref} className={`track-slider-wrap ${className}-wrap`} onWheel={handleWheel}>
             <Suspense>
-                <SlickSlider ref={sliderRef} className={`track-slider ${className}`} {...sliderSettings}>
+                <SlickSlider ref={sliderRef} className={`track-slider ${loading ? 'loading' : ''} ${className}`} {...sliderSettings}>
                     {items}
                 </SlickSlider>
                 <div

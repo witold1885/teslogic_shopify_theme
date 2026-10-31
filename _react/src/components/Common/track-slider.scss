@@ -18,7 +18,9 @@
     }
 
     & .slick-track {
-        transform: translate3d(0px, 0px, 0px) !important;
+        .loading & {
+            transform: translate3d(0px, 0px, 0px) !important;
+        }
     }
 
     & .slick-slide > div {
