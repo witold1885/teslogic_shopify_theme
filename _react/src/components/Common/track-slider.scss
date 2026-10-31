@@ -17,6 +17,10 @@
         @include responsive(margin, 0, -10px)
     }
 
+    & .slick-track {
+        transform: translate3d(0px, 0px, 0px) !important;
+    }
+
     & .slick-slide > div {
         @include responsive(padding, 0, 10px)
     }
