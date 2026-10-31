@@ -14,9 +14,9 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     const [loading, setLoading] = useState<boolean>(true)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
 
-    useEffect(() => {
-        setLoading(false)
-    }, [])
+    // useEffect(() => {
+    //     setLoading(false)
+    // }, [])
 
     const sliderSettings: Settings = {
         dots: false,
