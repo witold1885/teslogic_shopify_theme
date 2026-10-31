@@ -50,9 +50,10 @@ const ScreenmateDashBloggers: FC = () => {
                 <div {...anime('subtitle')} className="bloggers_block__subtitle">
                     Watch video reviews from popular influencers
                 </div>
-                {items && (
+                {items && items.length !== 0 && (
                     <TrackSlider
                         {...anime('slider')}
+                        key={`bloggers-slider-${items.length}`}
                         className="bloggers_block__list"
                         items={items.map((item, index) => (
                             <div className="bloggers_block__list-item" key={index}>
