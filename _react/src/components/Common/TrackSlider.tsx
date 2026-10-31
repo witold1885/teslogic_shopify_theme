@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
+import { forwardRef, useState, useEffect, useRef, useMemo, Suspense, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
 import './track-slider.scss'
 import SlickSlider, { type Settings } from './SlickSlider'
 
@@ -12,6 +12,13 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, i
     const sliderRef = useRef<any>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            window.dispatchEvent(new Event('resize'))
+        }, 50)
+        return () => clearTimeout(timer)
+    }, [])
 
     const sliderSettings: Settings = {
         dots: false,
