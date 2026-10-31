@@ -11,12 +11,13 @@ interface TrackSliderProps {
 const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ className, items, slidesToShow }, ref) => {
     const sliderRef = useRef<any>(null)
     const trackRef = useRef<HTMLDivElement>(null)
+    
     const [loading, setLoading] = useState<boolean>(true)
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
 
-    // useEffect(() => {
-    //     setLoading(false)
-    // }, [])
+    useEffect(() => {
+        if (sliderRef?.current && trackRef?.current) setLoading(false)
+    }, [])
 
     const sliderSettings: Settings = {
         dots: false,
