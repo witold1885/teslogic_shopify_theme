@@ -16,7 +16,7 @@ import { useLazyData } from '../../hooks/lazy-data'
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
-    item: { yFrom: '20px', duration: 333 },
+    slider: { yFrom: '20px', duration: 333 },
 }
 
 const ScreenmateDashBloggers: FC = () => {
@@ -37,13 +37,7 @@ const ScreenmateDashBloggers: FC = () => {
     
     useLazyData(lazyParams)
     
-    const animationConfigs = useMemo(() => mapSimpleConfigs({
-        ...animatedObjects,
-        ...(items?.reduce((acc, _, index) => ({
-            ...acc,
-            [`item-${index}`]: animatedObjects.item
-        }), {}) || [])
-    }), [items])
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
     const { anime } = useAnime(animationConfigs)
 
@@ -58,9 +52,10 @@ const ScreenmateDashBloggers: FC = () => {
                 </div>
                 {items && (
                     <TrackSlider
+                        {...anime('slider')}
                         className="bloggers_block__list"
                         items={items.map((item, index) => (
-                            <div {...anime(`item-${index}`)} className="bloggers_block__list-item" key={index}>
+                            <div className="bloggers_block__list-item" key={index}>
                                 <a
                                     href={item.url}
                                     target="_blank"
