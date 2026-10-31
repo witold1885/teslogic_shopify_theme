@@ -39,7 +39,7 @@ fonts.forEach(({ url, weight }) => {
     fontStyles += `
 @font-face {
     font-family: 'Manrope';
-    src: url('${url}') format('woff2');
+    src: url({{ '${url}' | asset_url }}) format('woff2');
     font-weight: ${weight};
     font-style: normal;
     font-display: swap;
@@ -86,8 +86,6 @@ for (const [pageName, fileName] of Object.entries(pagesMap)) {
 
     const desktopBg = files.find(f => f.startsWith(`react-${fileName}_banner_desktop`) && (f.endsWith('.png') || f.endsWith('.webp')))
     const mobileBg = files.find(f => f.startsWith(`react-${fileName}_banner_mobile`) && (f.endsWith('.png') || f.endsWith('.webp')))
-
-    console.log({ desktopBg, mobileBg })
 
     const snippetFileName = `preload-${fileName.replace('_', '-')}.liquid`
     const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)

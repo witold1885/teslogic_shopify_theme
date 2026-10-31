@@ -1,9 +1,10 @@
+import fs from 'fs'
+import path from 'path'
 import { defineConfig } from 'vite'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
+import combineMediaQuery from 'postcss-combine-media-query'
 import { visualizer } from 'rollup-plugin-visualizer'
-import path from 'path'
-import fs from 'fs'
 
 const outDir = path.resolve(__dirname, '../assets')
 
@@ -31,21 +32,12 @@ const inputEntry = currentPage && entryPoints[currentPage]
   ? { [currentPage]: entryPoints[currentPage] }
   : entryPoints
 
-// const manualChunksMap = {
-//   "react-dom": "react-dom",
-//   "react": "react",
-//   "@reduxjs": "redux",
-//   "react-redux": "redux",
-//   "animejs": "anime",
-//   "react-slick": "slick",
-//   "slick-carousel": "slick",
-//   "macy": "macy",
-//   "yup": "yup",
-//   "react-intersection-observer": "observer",
-// }
+const isCriticalCss = (name: string): boolean => {
+  return name === `${currentPage}.css` || name === 'Common.css'
+}
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
     babel({ 
@@ -59,6 +51,11 @@ export default defineConfig({
       brotliSize: true
     })
   ],
+  css: {
+    postcss: {
+      plugins: [combineMediaQuery()]
+    }
+  },
   resolve: {
     alias: {
       '@': import.meta.dirname + '/src'
@@ -68,9 +65,14 @@ export default defineConfig({
   build: {
     outDir, 
     emptyOutDir: false,
-    sourcemap: false,
+    sourcemap: true,
     target: ['ios15', 'chrome89', 'edge89', 'firefox89', 'safari15'],
-    cssCodeSplit: false,
+    cssCodeSplit: !isSsrBuild,
+    assetsInlineLimit: 0,
+    modulePreload: {
+      polyfill: false,
+      resolveDependencies: (filename, deps, _) => [],
+    },
     rollupOptions: {
       input: inputEntry,
       output: {
@@ -78,29 +80,16 @@ export default defineConfig({
         chunkFileNames: 'react-chunk-[name]-[hash].js',
         assetFileNames: (assetInfo) => {
           if (assetInfo?.name?.endsWith('.css')) {
-            // return `react-style-[name]-[hash].css`
-            return `react-style-${currentPage}-[hash].css`
+            return `react-style-${
+              isCriticalCss(assetInfo.name) ? currentPage : 'chunk-[name]'
+            }-[hash].css`
           }
           return 'react-[name]-[hash].[ext]'
         },
         format: 'esm',
-        // inlineDynamicImports: !!currentPage
-        inlineDynamicImports: false,
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor' 
-          }
-          // if (!id.includes('node_modules')) return
-
-          // for (const [slug, chunk] of Object.entries(manualChunksMap)) {
-          //   if (id.includes(slug)) return chunk
-          // }
-
-          // return 'vendor'
-        }
+        inlineDynamicImports: isSsrBuild
       },
       preserveEntrySignatures: 'exports-only'
     }
   }
-})
-
+}))
