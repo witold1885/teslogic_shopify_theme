@@ -1,6 +1,11 @@
-import { forwardRef, useState, useRef, useMemo, Suspense, type CSSProperties, type WheelEvent, type MouseEvent as ReactMouseEvent } from 'react'
+import {
+    forwardRef, useState, useRef, useMemo, useCallback, Suspense,
+    type CSSProperties, type WheelEvent, type MouseEvent as ReactMouseEvent
+} from 'react'
 import './track-slider.scss'
 import SlickSlider, { type Settings } from './SlickSlider'
+
+const calcPercentage = (value: number, total: number): number => Math.max(0, Math.min(100, (value / total) * 100))
 
 interface TrackSliderProps {
     style?: CSSProperties
@@ -25,8 +30,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ style, class
         beforeChange: (_, next) => {
             const maxScrollableSlides = items.length - sliderSettings.slidesToShow!
             if (maxScrollableSlides > 0) {
-                const pct = Math.max(0, Math.min(100, (next / maxScrollableSlides) * 100))
-                setScrollPercentage(pct)
+                setScrollPercentage(calcPercentage(next, maxScrollableSlides))
             }
         }
     }
@@ -47,20 +51,18 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ style, class
     
     const scrollWidth: number = useMemo(() => 100 / items.length, [items])
 
+    const getTargetSlide = useCallback((percentage: number): number => {
+        const maxScrollableSlides = items.length - sliderSettings.slidesToShow!
+        return Math.round((percentage / 100) * maxScrollableSlides)
+    }, [items, sliderSettings])
+
     const handleTrackClick = (e: ReactMouseEvent<HTMLDivElement>) => {
         if (!trackRef.current || !sliderRef.current || items.length <= 1) return
         if ((e.target as HTMLElement).classList.contains('reviews-slider-scrollbar-thumb')) return
 
         const rect = trackRef.current.getBoundingClientRect()
         const offsetX = e.clientX - rect.left
-        
-        let clickPercentage = (offsetX / rect.width) * 100
-        clickPercentage = Math.max(0, Math.min(100, clickPercentage))
-
-        const maxScrollableSlides = items.length - sliderSettings.slidesToShow!
-        const targetSlide = Math.round((clickPercentage / 100) * maxScrollableSlides)
-        
-        sliderRef.current.slickGoTo(targetSlide)
+        sliderRef.current.slickGoTo(getTargetSlide(calcPercentage(offsetX, rect.width)))
     }
     
     const handleThumbMouseDown = (e: ReactMouseEvent) => {
@@ -68,15 +70,10 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ style, class
         if (!trackRef.current || !sliderRef.current || items.length <= 1) return
 
         const rect = trackRef.current.getBoundingClientRect()
-        const maxScrollableSlides = items.length - sliderSettings.slidesToShow!
 
         const onMouseMove = (moveEvent: MouseEvent) => {
             const currentX = moveEvent.clientX - rect.left
-            let dragPercentage = (currentX / rect.width) * 100
-            dragPercentage = Math.max(0, Math.min(100, dragPercentage))
-
-            const targetSlide = Math.round((dragPercentage / 100) * maxScrollableSlides)
-            sliderRef.current.slickGoTo(targetSlide, true) 
+            sliderRef.current.slickGoTo(getTargetSlide(calcPercentage(currentX, rect.width)), true) 
         }
 
         const onMouseUp = () => {
@@ -92,7 +89,7 @@ const TrackSlider = forwardRef<HTMLDivElement, TrackSliderProps>(({ style, class
         <div
             ref={ref}
             style={style || {}}
-            className={`track-slider-wrap ${className}-wrap`}
+            className={`track-slider-wrap ${className}-wrap animate animate-small`}
             onWheel={handleWheel}
         >
             <Suspense>

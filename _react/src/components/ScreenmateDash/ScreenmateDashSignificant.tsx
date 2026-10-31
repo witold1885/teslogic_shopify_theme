@@ -11,7 +11,6 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
-    slider: { yFrom: '20px', duration: 333 },
 }
 
 const ScreenmateDashSignificant: FC = () => {
@@ -30,7 +29,6 @@ const ScreenmateDashSignificant: FC = () => {
             <div {...anime('title')} className="significant__title">Significant <br />dashboard features</div>
             {items && items.length !== 0 && (
                 <TrackSlider
-                    {...anime('slider')}
                     key={`significant-slider-${items.length}`}
                     className="significant__features"
                     items={items.map(({ title, image, content }: Feature, index: number) => (

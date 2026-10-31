@@ -52,7 +52,7 @@ const ScreenmateDashBloggers: FC = () => {
                 {items && items.length !== 0 && (
                     <TrackSlider
                         key={`bloggers-slider-${items.length}`}
-                        className="bloggers_block__list animate animate-small"
+                        className="bloggers_block__list"
                         items={items.map((item, index) => (
                             <div className="bloggers_block__list-item" key={index}>
                                 <a
