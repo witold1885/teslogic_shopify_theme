@@ -17,19 +17,13 @@
         @include responsive(margin, 0, -10px)
     }
 
-    &.loading {
-
-        & .slick-track {
-            transform: translate3d(0px, 0px, 0px) !important;
-        }
-    }
-
     & .slick-slide > div {
         @include responsive(padding, 0, 10px)
     }
 
     &-wrap {
         @extend %flex-column, %gap-40;
+        width: 100%;
     }
 
     &-scrollbar {
