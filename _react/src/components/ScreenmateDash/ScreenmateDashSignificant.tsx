@@ -19,6 +19,8 @@ const ScreenmateDashSignificant: FC = () => {
 
     const { features } = useAppSelector(fetchContent)
 
+    const items = useMemo(() => features?.['significant-dashboard-features']?.items || [], [features])
+
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
     const { anime } = useAnime(animationConfigs)
@@ -26,23 +28,26 @@ const ScreenmateDashSignificant: FC = () => {
     return (
         <div className="significant" id="significant">
             <div {...anime('title')} className="significant__title">Significant <br />dashboard features</div>
-            <TrackSlider
-                {...anime('slider')}
-                className="significant__features"
-                items={features?.['significant-dashboard-features']?.items?.map(({ title, image, content }: Feature, index: number) => (
-                    <div className="significant__features-item" key={index}>
-                        <div className="significant__features-item-title">{title}</div>
-                        <div className="significant__features-item-image">
-                            <Image src={image} alt={title} />
+            {items && items.length !== 0 && (
+                <TrackSlider
+                    {...anime('slider')}
+                    key={`significant-slider-${items.length}`}
+                    className="significant__features"
+                    items={items.map(({ title, image, content }: Feature, index: number) => (
+                        <div className="significant__features-item" key={index}>
+                            <div className="significant__features-item-title">{title}</div>
+                            <div className="significant__features-item-image">
+                                <Image src={image} alt={title} />
+                            </div>
+                            <div
+                                className="significant__features-item-content"
+                                dangerouslySetInnerHTML={{ __html: content }}
+                            />
                         </div>
-                        <div
-                            className="significant__features-item-content"
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                    </div>
-                )) || []}
-                slidesToShow={!isMobile ? 4 : 1.1438}
-            />
+                    ))}
+                    slidesToShow={!isMobile ? 4 : 1.1438}
+                />
+            )}
         </div>
     )
 }
