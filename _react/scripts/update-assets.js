@@ -4,15 +4,52 @@ import path from 'path'
 const __dirname = import.meta.dirname
 
 const assetsDir = path.join(__dirname, '../../assets')
+
+const fontSourceDir = path.resolve(__dirname, '../src/assets/fonts/Manrope')
+
+const fontFiles = [
+    'Manrope-Regular.woff2',
+    'Manrope-Medium.woff2',
+    'Manrope-SemiBold.woff2',
+    'Manrope-Bold.woff2',
+]
+
+fontFiles.forEach(file => {
+    fs.copyFileSync(
+        path.join(fontSourceDir, file),
+        path.join(assetsDir, `react-${file}`)
+    )
+})
+ 
 const files = fs.readdirSync(assetsDir)
 
-const fonts = files.filter(f => f.startsWith('react-Manrope-') && f.endsWith('.woff2'))
-let preloadFontTags = ''
-fonts.forEach(font => {
-    preloadFontTags += `<link rel="preload" href="{{ '${font}' | asset_url }}" as="font" type="font/woff2" crossorigin>\n`
+const fontWeightsMap = {
+    Regular: 400,
+    Medium: 500,
+    SemiBold: 600,
+    Bold: 700,
+}
+const fonts = files.filter(f => f.startsWith('react-Manrope-') && f.endsWith('.woff2')).map(file => ({
+    url: file,
+    weight: fontWeightsMap[file.match(/(?<=react-[A-Za-z]+-)[A-Za-z]+/)[0]] || null
+}))
+let preloadFontTags = '', fontStyles = ''
+fonts.forEach(({ url, weight }) => {
+    preloadFontTags += `<link rel="preload" href="{{ '${url}' | asset_url }}" as="font" type="font/woff2" crossorigin>\n`
+    fontStyles += `
+@font-face {
+    font-family: 'Manrope';
+    src: url('${url}') format('woff2');
+    font-weight: ${weight};
+    font-style: normal;
+    font-display: swap;
+}`
 })
 if (preloadFontTags) {
-    fs.writeFileSync(path.join(__dirname, `../../snippets/preload-fonts.liquid`), preloadFontTags)
+    fs.writeFileSync(
+        path.join(__dirname, `../../snippets/preload-fonts.liquid`),
+        `${preloadFontTags}\n<style>${fontStyles}\n</style>\n`
+    )
 }
 
 const pagesMap = {
@@ -47,19 +84,17 @@ for (const [pageName, fileName] of Object.entries(pagesMap)) {
         }
     }
 
-    const logoImage = files.find(f => f.startsWith('react-logo-white-') && (f.endsWith('.png') || f.endsWith('.webp') || f.endsWith('.svg')))
     const desktopBg = files.find(f => f.startsWith(`react-${fileName}_banner_desktop`) && (f.endsWith('.png') || f.endsWith('.webp')))
     const mobileBg = files.find(f => f.startsWith(`react-${fileName}_banner_mobile`) && (f.endsWith('.png') || f.endsWith('.webp')))
 
-    console.log({ logoImage, desktopBg, mobileBg })
+    console.log({ desktopBg, mobileBg })
 
     const snippetFileName = `preload-${fileName.replace('_', '-')}.liquid`
     const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
     let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
 
-    if (logoImage && desktopBg && mobileBg) {
+    if (desktopBg && mobileBg) {
         const preloadTags = `<!-- PRELOAD_START -->
-<link rel="preload" as="image" href="{{ '${logoImage}' | asset_url }}" fetchpriority="high">
 <link rel="preload" as="image" href="{{ '${desktopBg}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
 <link rel="preload" as="image" href="{{ '${mobileBg}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
 <!-- PRELOAD_END -->`.trim()
