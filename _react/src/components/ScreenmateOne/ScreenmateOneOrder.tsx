@@ -34,10 +34,10 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     details: { yFrom: '20px', duration: 333 },
 }
 
-const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-original.{png,jpg,jpeg,svg}', { eager: true })
-const thumbModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-thumb.{png,jpg,jpeg,svg}', { eager: true })
-const galleryImages: string[] = Object.values(imageModules).map(mod => mod.default)
-const galleryThumbs: string[] = Object.values(thumbModules).map(mod => mod.default)
+// const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-original.{png,jpg,jpeg,svg}', { eager: true })
+// const thumbModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-thumb.{png,jpg,jpeg,svg}', { eager: true })
+// const galleryImages: string[] = Object.values(imageModules).map(mod => mod.default)
+// const galleryThumbs: string[] = Object.values(thumbModules).map(mod => mod.default)
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
@@ -57,6 +57,9 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     }), [getRate])
     
     useLazyData(lazyParams)
+
+    const galleryImages = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
+    const galleryThumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
@@ -155,7 +158,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
         
     const { anime } = useAnime(animationConfigs)
 
-    const thumbsList: ReactNode = useMemo(() => galleryThumbs.map((image, index) => (
+    const thumbsList: ReactNode = useMemo(() => galleryThumbs?.map((image, index) => (
         <div className="screenmate-one__order-gallery-slider-item-wrap" key={index}>
             <Image                                    
                 className={`screenmate-one__order-gallery-slider-item ${
@@ -165,12 +168,12 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                 onClick={() => setCurrentImageIndex(index)}
             />
         </div>
-    )), [galleryThumbs, currentImageIndex, setCurrentImageIndex])
+    )) || <></>, [galleryThumbs, currentImageIndex, setCurrentImageIndex])
 
     return (
         <div ref={ref} className="screenmate-one__order">
             <div className="screenmate-one__order-gallery">
-                {galleryImages.map((image, index) => (
+                {galleryImages?.map((image, index) => (
                     <img
                         key={index}
                         className={`object-cover ${index === currentImageIndex ? '' : 'hidden'}`}
