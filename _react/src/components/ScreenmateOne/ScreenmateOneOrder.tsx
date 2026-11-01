@@ -53,8 +53,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     
     useLazyData(lazyParams)
 
-    const galleryImages = useMemo(() => product?.images?.map(({ main }) => main), [product])
-    const galleryThumbs = useMemo(() => product?.images?.map(({ thumb }) => thumb), [product])
+    const galleryImages = useMemo(() => product?.images?.map(({ main }) => main).sort(), [product])
+    const galleryThumbs = useMemo(() => product?.images?.map(({ thumb }) => thumb).sort(), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
