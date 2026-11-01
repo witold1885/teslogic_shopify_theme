@@ -53,21 +53,21 @@ if (preloadFontTags) {
 }
 
 const pagesMap = {
-    ScreenmateOne: 'screenmate_one',
-    ScreenmateDash: 'screenmate_dash',
-    Powermate: 'powermate',
-    Installers: 'installers',
-    Partners: 'partners',
+    ScreenmateOne: { slug: 'screenmate_one' },
+    ScreenmateDash: { slug: 'screenmate_dash', lcp: { desktop: 'screenmate_dash_banner_desktop', mobile: 'screenmate_dash_banner_mobile' } },
+    Powermate: { slug: 'powermate', lcp: { desktop: 'powermate_banner_desktop', mobile: 'powermate_banner_mobile' } },
+    Installers: { slug: 'installers', lcp: { desktop: 'installers_sketch', mobile: 'installers_sketch' } },
+    Partners: { slug: 'partners' },
 }
 
 const mediaDesktop = '(min-width: 577px)'
 const mediaMobile = '(max-width: 576px)'
 
-for (const [pageName, fileName] of Object.entries(pagesMap)) {
+for (const [pageName, { slug, lcp }] of Object.entries(pagesMap)) {
     const cssFileName = `react-style-${pageName}`
     const cssFile = files.find(f => f.startsWith(cssFileName) && f.endsWith('.css'))
     
-    const liquidFileName = `${fileName}_react.liquid`
+    const liquidFileName = `${slug}_react.liquid`
     const liquidPath = path.join(__dirname, `../../sections/${liquidFileName}`)
     let liquidContent = fs.readFileSync(liquidPath, 'utf8')
 
@@ -84,27 +84,29 @@ for (const [pageName, fileName] of Object.entries(pagesMap)) {
         }
     }
 
-    const desktopBg = files.find(f => f.startsWith(`react-${fileName}_banner_desktop`) && (f.endsWith('.png') || f.endsWith('.webp')))
-    const mobileBg = files.find(f => f.startsWith(`react-${fileName}_banner_mobile`) && (f.endsWith('.png') || f.endsWith('.webp')))
+    if (lcp) {
+        const lcpDesktop = files.find(f => f.startsWith(`react-${lcp.desktop}`) && (f.endsWith('.png') || f.endsWith('.webp')))
+        const lcpMobile = files.find(f => f.startsWith(`react-${lcp.mobile}`) && (f.endsWith('.png') || f.endsWith('.webp')))
 
-    const snippetFileName = `preload-${fileName.replace('_', '-')}.liquid`
-    const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
-    let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
+        const snippetFileName = `preload-${slug.replace('_', '-')}.liquid`
+        const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
+        let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
 
-    if (desktopBg && mobileBg) {
-        const preloadTags = `<!-- PRELOAD_START -->
-<link rel="preload" as="image" href="{{ '${desktopBg}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
-<link rel="preload" as="image" href="{{ '${mobileBg}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
+        if (lcpDesktop && lcpMobile) {
+            const preloadTags = `<!-- PRELOAD_START -->
+<link rel="preload" as="image" href="{{ '${lcpDesktop}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
+<link rel="preload" as="image" href="{{ '${lcpMobile}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
 <!-- PRELOAD_END -->`.trim()
-        const markerRegex = /<!-- PRELOAD_START -->[\s\S]*?<!-- PRELOAD_END -->/
+            const markerRegex = /<!-- PRELOAD_START -->[\s\S]*?<!-- PRELOAD_END -->/
 
-        if (markerRegex.test(snippetContent)) {
-            snippetContent = snippetContent.replace(markerRegex, preloadTags)
-        } else {
-            snippetContent = preloadTags + '\n' + snippetContent
+            if (markerRegex.test(snippetContent)) {
+                snippetContent = snippetContent.replace(markerRegex, preloadTags)
+            } else {
+                snippetContent = preloadTags + '\n' + snippetContent
+            }
+        
+            fs.writeFileSync(snippetPath, snippetContent)
+            console.log(`Updated liquid for ${snippetFileName} with clean preloads`)
         }
-    
-        fs.writeFileSync(snippetPath, snippetContent)
-        console.log(`Updated liquid for ${snippetFileName} with clean preloads`)
     }
 }

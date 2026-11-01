@@ -1,5 +1,5 @@
 import { useMemo, type FC } from 'react'
-import sketch from '../../assets/images/installers/sketch.png'
+import sketch from '../../assets/images/installers/installers_sketch.png'
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
@@ -35,7 +35,7 @@ const InstallersBanner: FC = () => {
             </div>
             <div className="installers-banner-right">
                 <div className="installers-banner-sketch">
-                    <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" />
+                    <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" fetchPriority="high" />
                 </div>
             </div>
         </div>
