@@ -93,19 +93,12 @@ for (const [pageName, { slug, lcp }] of Object.entries(pagesMap)) {
         let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
 
         if (lcpDesktop && lcpMobile) {
-            const preloadTags = `<!-- PRELOAD_START -->
+            const preloadTags = lcpDesktop !== lcpMobile ? `
 <link rel="preload" as="image" href="{{ '${lcpDesktop}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
 <link rel="preload" as="image" href="{{ '${lcpMobile}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
-<!-- PRELOAD_END -->`.trim()
-            const markerRegex = /<!-- PRELOAD_START -->[\s\S]*?<!-- PRELOAD_END -->/
-
-            if (markerRegex.test(snippetContent)) {
-                snippetContent = snippetContent.replace(markerRegex, preloadTags)
-            } else {
-                snippetContent = preloadTags + '\n' + snippetContent
-            }
+` : `<link rel="preload" as="image" href="{{ '${lcpDesktop}' | asset_url }}" fetchpriority="high">`.trim()
         
-            fs.writeFileSync(snippetPath, snippetContent)
+            fs.writeFileSync(snippetPath, preloadTags)
             console.log(`Updated liquid for ${snippetFileName} with clean preloads`)
         }
     }
