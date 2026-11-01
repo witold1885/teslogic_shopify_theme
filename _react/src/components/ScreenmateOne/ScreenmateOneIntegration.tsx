@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useMemo, useRef, type ReactNode } from 'react'
 import './screenmate-one-integration.scss'
 import Heading from '../Common/Heading'
+import Image from '../Common/Image'
 import Video from '../Common/Video'
 
 import consoleGamingDesktop from '../../assets/images/screenmate-one/console-gaming-desktop.png'
@@ -109,9 +110,12 @@ const ScreenmateOneIntegration = forwardRef<Section, {}>(({}, ref) => {
                         <div>
                             {sketch && info && (
                                 <div className="screenmate-one__integration-block-info">
-                                    <div {...anime(`${blockKey}-sketch`)} className="screenmate-one__integration-block-info-sketch">
-                                        <img src={sketch} alt={alt} />
-                                    </div>
+                                    <Image
+                                        {...anime(`${blockKey}-sketch`)}
+                                        className="screenmate-one__integration-block-info-sketch"
+                                        src={sketch}
+                                        alt={alt}
+                                    />
                                     <div className="screenmate-one__integration-block-info-items">
                                         {info.map(({ title, text }, index) => (
                                             <div
