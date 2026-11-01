@@ -34,11 +34,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     details: { yFrom: '20px', duration: 333 },
 }
 
-// const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-original.{png,jpg,jpeg,svg}', { eager: true })
-// const thumbModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-one/gallery/*-thumb.{png,jpg,jpeg,svg}', { eager: true })
-// const galleryImages: string[] = Object.values(imageModules).map(mod => mod.default)
-// const galleryThumbs: string[] = Object.values(thumbModules).map(mod => mod.default)
-
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
 const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
@@ -58,8 +53,8 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     
     useLazyData(lazyParams)
 
-    const galleryImages = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
-    const galleryThumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
+    const galleryImages = useMemo(() => product?.images?.map(({ main }) => main), [product])
+    const galleryThumbs = useMemo(() => product?.images?.map(({ thumb }) => thumb), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     
