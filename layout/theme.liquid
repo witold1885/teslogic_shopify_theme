@@ -30,6 +30,10 @@
       {%- render 'preload-powermate' -%}
     {% endif %}
 
+    {% if page.handle == 'installers' %}
+      {%- render 'preload-installers' -%}
+    {% endif %}
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
