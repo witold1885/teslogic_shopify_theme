@@ -13,10 +13,11 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const InstallersBanner: FC = () => {
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
-    const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({
-        ...acc,
-        [key]: { ...config, delay: (config.duration || 0) * index }
-    }), {}))
+    // const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({
+    //     ...acc,
+    //     [key]: { ...config, delay: (config.duration || 0) * index }
+    // }), {}))
+    const { anime } = useAnime(animationConfigs)
 
     return (
         <div className="installers-banner">
