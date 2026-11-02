@@ -1,24 +1,17 @@
-import { useMemo, useState, type ReactNode, type FC } from 'react'
+import { useMemo, useState, type FC } from 'react'
+import type { Installer } from './types.ts'
+import { getComponent } from '../../layouts/components'
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 // import tom from '../../assets/images/installers/tom.png'
 import eas from '../../assets/images/installers/eas.png'
-import phoneIcon from '../../assets/icons/installers/phone.svg'
-import earthIcon from '../../assets/icons/installers/earth.svg'
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import LazySection from '../../layouts/LazySection'
+
+const InstallerItem = getComponent(() => import('./InstallerItem.tsx'))
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '20px', duration: 333 },
     tabs: { yFrom: '20px', duration: 333 },
     grid: { yFrom: '20px', duration: 333 },
-}
-
-interface Installer {
-    name: string
-    logo?: { src: string; width: number; height: number }
-    phone: string
-    website?: string
-    address: ReactNode
-    coordinates: number[]
-    tab: string
 }
 
 const installers: Installer[] = [
@@ -70,10 +63,7 @@ const InstallersList: FC = () => {
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
-    const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({
-        ...acc,
-        [key]: { ...config, delay: (config.duration || 0) * index }
-    }), {}))
+    const { anime } = useAnime(animationConfigs)
 
     return (
         <div className="installers-list container">
@@ -92,42 +82,13 @@ const InstallersList: FC = () => {
                 </div>
             </div>  
             <div {...anime('grid')} className={`installers-list-items ${items.length === 0 ? 'empty' : ''}`}>
-                {items.length !== 0 ? (<>
-                    {items.map(({ name, logo, phone, website, address, coordinates }, index) => (
-                        <div className="installers-list-item" key={index}>
-                            <div className="installers-list-item-block">
-                                <h3>{name}</h3>
-                                {logo && <img {...logo} alt={name} loading="lazy" />}
-                            </div>
-                            <div className="installers-list-item-block">
-                                <div className="installers-list-item-block-label">CONTACTS</div>
-                                <div className="installers-list-item-contacts">
-                                    {phone && <div><img src={phoneIcon} alt="" /><a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a></div>}
-                                    {website && <div><img src={earthIcon} alt="" /><a href={`https://${website}`} target="_blank">{website}</a></div>}
-                                </div>                            
-                            </div>
-                            <div className="installers-list-item-block">
-                                <div className="installers-list-item-address">
-                                    <div className="installers-list-item-block-label">ADDRESS</div>
-                                    <div>{address}</div>
-                                </div>
-                                {coordinates?.length !== 0 && (
-                                    <div className="installers-list-item-map">
-                                        <iframe
-                                            width="352"
-                                            height="152"
-                                            style={{ border: 0 }}
-                                            loading="lazy"
-                                            allowFullScreen
-                                            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAqbo5rx2oVhWCW_pSzNrWnywQSRSdlnQ4&q=${coordinates.join(',')}&zoom=15`}
-                                            title="Location of Screenmate certified installer"
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    ))}
-                </>) : (
+                {items.length !== 0 ? (
+                    <LazySection rootMargin='0px'>
+                        {items.map((item, index) => (
+                            <InstallerItem {...item} key={index} />
+                        ))}
+                    </LazySection>
+                ) : (
                     <div className="installers-list-item">No Installers Found</div>
                 )}
             </div>
