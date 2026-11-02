@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback, type ComponentType, type FC, useRef } from 'react'
+import { useState, type ComponentType, type FC, useRef } from 'react'
 import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/types.ts'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
-import { useInlineStyles } from '../hooks/inline-styles'
+import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -12,7 +12,7 @@ import PowermateBanner from '../components/Powermate/PowermateBanner'
 import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
 
-const sectionHeights: Record<string, any> = {
+const sectionHeights: Record<string, SectionHeight> = {
     Experience: { desktop: 970, mobile: 1516 },
     Using: { desktop: 774, mobile: 1702 },
     Examples: { desktop: 1048, mobile: 1232.5 },
@@ -34,21 +34,13 @@ const PowermateInfo = getComponent(() => import('../components/Powermate/Powerma
 const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
 
 const Powermate: FC = () => {
-    const { isMobile } = useInlineStyles()
-
-    const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
+    const { getMinHeight } = useMinHeights(sectionHeights)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
     
     const onOrder = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
-    
-    const getMinHeight = useCallback((slug: string) => {
-        return sectionHeights[slug]?.[mode] 
-                ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
-                : undefined
-    }, [mode])
 
     const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
     const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)    

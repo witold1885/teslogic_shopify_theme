@@ -1,6 +1,8 @@
-import { useState, useMemo, useCallback, type ComponentType, type FC } from 'react'
+import { useState, type ComponentType, type FC } from 'react'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
+import { scrollToElementLazy } from '../utils/scroll'
+import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -9,10 +11,7 @@ import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBan
 import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
 
-import { useInlineStyles } from '../hooks/inline-styles'
-import { scrollToElementLazy } from '../utils/scroll'
-
-const sectionHeights: Record<string, any> = {
+const sectionHeights: Record<string, SectionHeight> = {
     Using: { desktop: 748, mobile: 1698 },
     Screens: { desktop: 1240, mobile: 1054 },
     DevicesSupporting: { desktop: 996, mobile: 892 },
@@ -32,9 +31,7 @@ const ScreenmateDashUsing = getComponent(() => import('../components/ScreenmateD
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
 const ScreenmateDash: FC = () => {
-    const { isMobile } = useInlineStyles()
-
-    const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
+    const { getMinHeight } = useMinHeights(sectionHeights)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
 
@@ -45,12 +42,6 @@ const ScreenmateDash: FC = () => {
     const onOrder = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
-
-    const getMinHeight = useCallback((slug: string) => {
-        return sectionHeights[slug][mode] 
-             ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
-             : undefined
-    }, [mode])
 
     return (
         <ProductLayout className="screenmate-dash" onOrder={onOrder}>

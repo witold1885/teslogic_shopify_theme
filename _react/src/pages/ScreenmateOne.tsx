@@ -1,7 +1,10 @@
-import { useState, useRef, useMemo, useCallback, type ComponentType, type FC } from 'react'
+import { useState, useRef, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
+import { scrollToElementLazy } from '../utils/scroll'
+import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
+import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -31,9 +34,6 @@ import {
     connectConsolesDesktop,
     connectConsolesMobile
 } from '../assets/videos/screenmate-one'
-
-import { mediaDesktop, mediaMobile, useInlineStyles } from '../hooks/inline-styles'
-import { scrollToElementLazy } from '../utils/scroll'
 
 interface PreloadContent {
     fetchPriority?: "high" | "low" | "auto"
@@ -75,7 +75,7 @@ const preloadVideos: PreloadVideo[] = [
 ]
 
 const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
-const sectionHeights: Record<string, any> = {
+const sectionHeights: Record<string, SectionHeight> = {
     Features: { desktop: 1186, mobile: 502 },
     Setup: { desktop: 1003, mobile: 655 },
     Interfaces: { desktop: 1414, mobile: 984 },
@@ -98,10 +98,6 @@ const ScreenmateOneFeatures = getComponent(() => import('../components/Screenmat
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
 const ScreenmateOne: FC = () => {
-    const { isMobile } = useInlineStyles()
-    
-    const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])
-
     if (typeof window !== 'undefined') {
         preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
             as: 'image', 
@@ -115,6 +111,8 @@ const ScreenmateOne: FC = () => {
             ...(media && { media })
         }))
     }
+    
+    const { getMinHeight } = useMinHeights(sectionHeights)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false })
 
@@ -125,12 +123,6 @@ const ScreenmateOne: FC = () => {
     const onOrder = () => {
         scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
-    
-    const getMinHeight = useCallback((slug: string) => {
-        return sectionHeights[slug][mode] 
-             ? `calc(${sectionHeights[slug][mode]} * 100vw / ${mode === 'desktop' ? '1440' : '390'})` 
-             : undefined
-    }, [mode])
 
     const sectionRefs = useRef<Record <string, any>>({})
 
