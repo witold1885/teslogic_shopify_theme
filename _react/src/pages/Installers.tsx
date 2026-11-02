@@ -6,7 +6,7 @@ import InfoLayout from '../layouts/InfoLayout'
 import LazySection from '../layouts/LazySection'
 import InstallersBanner from '../components/Installers/InstallersBanner'
 
-const InstallersList = getComponent(() => import('../components/Installers/InstallersList'))
+const InstallersList = getComponent(() => import('../components/Installers/InstallersList.tsx'))
 
 const Installers: FC = () => {
     return (
