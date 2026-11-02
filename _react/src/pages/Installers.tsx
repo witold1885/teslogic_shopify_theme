@@ -14,7 +14,7 @@ const Installers: FC = () => {
             <InstallersBanner />
             <div className="installers-delimiter" />
             {InstallersList && (
-                <LazySection rootMargin="-100px">
+                <LazySection rootMargin="-120px">
                     <InstallersList />
                 </LazySection>
             )}
