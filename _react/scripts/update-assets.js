@@ -56,12 +56,11 @@ const pagesMap = {
     ScreenmateOne: { slug: 'screenmate_one' },
     ScreenmateDash: { slug: 'screenmate_dash', lcp: { desktop: 'screenmate_dash_banner_desktop', mobile: 'screenmate_dash_banner_mobile' } },
     Powermate: { slug: 'powermate', lcp: { desktop: 'powermate_banner_desktop', mobile: 'powermate_banner_mobile' } },
-    Installers: { slug: 'installers', lcp: { desktop: 'installers_sketch', mobile: 'installers_sketch' } },
+    Installers: { slug: 'installers', lcp: { desktop: 'installers_sketch' } },
     Partners: { slug: 'partners' },
 }
 
-const mediaDesktop = '(min-width: 577px)'
-const mediaMobile = '(max-width: 576px)'
+const media = { desktop: '(min-width: 577px)', mobile: '(max-width: 576px)' }
 
 for (const [pageName, { slug, lcp }] of Object.entries(pagesMap)) {
     const cssFileName = `react-style-${pageName}`
@@ -85,18 +84,21 @@ for (const [pageName, { slug, lcp }] of Object.entries(pagesMap)) {
     }
 
     if (lcp) {
-        const lcpDesktop = files.find(f => f.startsWith(`react-${lcp.desktop}`) && (f.endsWith('.png') || f.endsWith('.webp')))
-        const lcpMobile = files.find(f => f.startsWith(`react-${lcp.mobile}`) && (f.endsWith('.png') || f.endsWith('.webp')))
+        const lcpMap = Object.entries(lcp).reduce((acc, [mode, fileName]) => ({
+            ...acc,
+            [mode]: {
+                file: files.find(f => f.startsWith(`react-${fileName}`) && (f.endsWith('.png') || f.endsWith('.webp'))),
+                media: media[mode]
+            }
+        }), {})
 
         const snippetFileName = `preload-${slug.replace('_', '-')}.liquid`
         const snippetPath = path.join(__dirname, `../../snippets/${snippetFileName}`)
-        let snippetContent = fs.existsSync(snippetPath) ? fs.readFileSync(snippetPath, 'utf8') : ''
 
-        if (lcpDesktop && lcpMobile) {
-            const preloadTags = lcpDesktop !== lcpMobile ? `
-<link rel="preload" as="image" href="{{ '${lcpDesktop}' | asset_url }}" fetchpriority="high" media="${mediaDesktop}">
-<link rel="preload" as="image" href="{{ '${lcpMobile}' | asset_url }}" fetchpriority="high" media="${mediaMobile}">
-` : `<link rel="preload" as="image" href="{{ '${lcpDesktop}' | asset_url }}" fetchpriority="high">`.trim()
+        if (Object.keys(lcpMap).length !== 0) {
+            const preloadTags = Object.values(lcpMap).map(({ file, media }) => (
+                `<link rel="preload" as="image" href="{{ '${file}' | asset_url }}" fetchpriority="high" media="${media}">`
+            )).join('\n')
         
             fs.writeFileSync(snippetPath, preloadTags)
             console.log(`Updated liquid for ${snippetFileName} with clean preloads`)
