@@ -1,6 +1,7 @@
 import { useMemo, type FC } from 'react'
 import sketch from '../../assets/images/installers/installers_sketch.png'
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { useInlineStyles } from '../../hooks/inline-styles'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     h1: { yFrom: '40px', duration: 666 },
@@ -11,12 +12,10 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 const InstallersBanner: FC = () => {
+    const { isMobile } = useInlineStyles()
+
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
-    // const { anime } = useAnime(Object.entries(animationConfigs).reduce((acc, [key, config], index) => ({
-    //     ...acc,
-    //     [key]: { ...config, delay: (config.duration || 0) * index }
-    // }), {}))
     const { anime } = useAnime(animationConfigs)
 
     return (
@@ -34,11 +33,13 @@ const InstallersBanner: FC = () => {
                 </div>
                 <a {...anime('button')} href="/pages/partners">Become a Partner</a>
             </div>
-            <div className="installers-banner-right">
-                <div className="installers-banner-sketch">
-                    <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" fetchPriority="high" />
+            {!isMobile && (
+                <div className="installers-banner-right">
+                    <div className="installers-banner-sketch">
+                        <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" fetchPriority="high" />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }
