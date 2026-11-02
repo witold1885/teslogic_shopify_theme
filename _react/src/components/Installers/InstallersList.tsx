@@ -13,7 +13,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 interface Installer {
     name: string
-    logo?: string
+    logo?: { src: string; width: number; height: number }
     phone: string
     website?: string
     address: ReactNode
@@ -33,7 +33,7 @@ const installers: Installer[] = [
     // },
     {
         name: 'European Auto Source',
-        logo: eas,
+        logo: { src: eas, width: 128, height: 33 },
         phone: '+1 866 669 07 05',
         website: 'europeanautosource.com',
         address: <>4015 E Leaverton Ct, <br />Anaheim, CA 92807, USA</>,
@@ -97,7 +97,7 @@ const InstallersList: FC = () => {
                         <div className="installers-list-item" key={index}>
                             <div className="installers-list-item-block">
                                 <h3>{name}</h3>
-                                {logo && <img src={logo} alt={name} loading="lazy" />}
+                                {logo && <img {...logo} alt={name} loading="lazy" />}
                             </div>
                             <div className="installers-list-item-block">
                                 <div className="installers-list-item-block-label">CONTACTS</div>
