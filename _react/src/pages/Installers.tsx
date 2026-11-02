@@ -30,7 +30,10 @@ const Installers: FC = () => {
             <InstallersBanner />
             <div className="installers-delimiter" />
             {InstallersList && (
-                <LazySection minHeight={getMinHeight('InstallersList')} rootMargin="-120px">
+                <LazySection
+                    minHeight={getMinHeight('InstallersList')}
+                    rootMargin={mode === 'desktop' ? '-120px' : '-240px'}
+                >
                     <InstallersList />
                 </LazySection>
             )}
