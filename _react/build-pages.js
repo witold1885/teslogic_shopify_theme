@@ -155,6 +155,7 @@ for (const page of pages) {
       )
     )
 
+    const seoHtml = fullHtml.replace(/<link\b(?=[^>]*\brel=["']preload["'])[^>]*>/gi, '')
     const seoSnippetName = `seo-${slug}`
     const seoSnippetPath = path.resolve(snippetsDir, `${seoSnippetName}.liquid`)
 
@@ -164,7 +165,7 @@ for (const page of pages) {
   Generated at: ${new Date().toISOString()}
 {% endcomment %}
 <div style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;">
-  ${processAssetUrls(fullHtml)}
+  ${processAssetUrls(seoHtml)}
 </div>
 `
 
