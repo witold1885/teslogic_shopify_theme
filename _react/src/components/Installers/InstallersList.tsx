@@ -1,18 +1,11 @@
 import { useMemo, useState, type FC } from 'react'
 import type { Installer } from './types.ts'
 import { getComponent } from '../../layouts/components'
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 // import tom from '../../assets/images/installers/tom.png'
 import eas from '../../assets/images/installers/eas.png'
 import LazySection from '../../layouts/LazySection'
 
 const InstallerItem = getComponent(() => import('./InstallerItem.tsx'))
-
-const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    title: { yFrom: '20px', duration: 333 },
-    tabs: { yFrom: '20px', duration: 333 },
-    grid: { yFrom: '20px', duration: 333 },
-}
 
 const installers: Installer[] = [
     // {
@@ -61,15 +54,11 @@ const InstallersList: FC = () => {
         }
     }, [activeTabIndex])
 
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
-
-    const { anime } = useAnime(animationConfigs)
-
     return (
         <div className="installers-list container">
             <div className="installers-list-head">
-                <h2 {...anime('title')}>Screenmate™ Certified Installers</h2>
-                <div {...anime('tabs')} className="installers-list-tabs">
+                <h2 className="animate animate-small">Screenmate™ Certified Installers</h2>
+                <div className="installers-list-tabs animate animate-small">
                     {tabs.map(({ text }, index) => (
                         <div 
                             key={index}
@@ -81,7 +70,7 @@ const InstallersList: FC = () => {
                     ))}
                 </div>
             </div>  
-            <div {...anime('grid')} className={`installers-list-items ${items.length === 0 ? 'empty' : ''}`}>
+            <div className={`installers-list-items ${items.length === 0 ? 'empty' : ''} animate animate-small`}>
                 {items.length !== 0 ? (
                     <LazySection rootMargin='0px'>
                         {items.map((item, index) => (
