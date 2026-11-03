@@ -1,35 +1,34 @@
-import { useMemo, type FC } from 'react'
+import type { FC } from 'react'
 import '../assets/styles/partners.scss'
 import { mountForShopify } from './mount'
+import { getComponent } from '../layouts/components'
 import InfoLayout from '../layouts/InfoLayout'
+import LazySection from '../layouts/LazySection'
 import PartnerSections from '../components/Partner/PartnerSections'
-import PartnerForm from '../components/Partner/PartnerForm'
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../hooks/anime'
+import { useInlineStyles } from '../hooks/inline-styles'
 
-const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    title: { yFrom: '40px', duration: 666 },
-    subtitle: { yFrom: '20px', duration: 333 },
-    form: { yFrom: '20px', duration: 333 },
-}
+const PartnerForm = getComponent(() => import('../components/Partner/PartnerForm'))
 
 const Partners: FC = () => {
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
-    
-    const { anime } = useAnime(animationConfigs)
+    const { isMobile } = useInlineStyles()
 
     return (
         <InfoLayout className="partners">
             <div className="partners-wrap">
                 <div className="partners-head">
-                    <h1 {...anime('title')}>Become a Screenmate Partner</h1>
-                    <p {...anime('subtitle')}>
+                    <h1 className={!isMobile ? 'animate animate-big' : ''}>Become a Screenmate Partner</h1>
+                    <p className="animate animate-small">
                         Grow your business by offering Screenmate products to Tesla owners.<br />
                         Join our network of installers, retailers, and distributors.
                     </p>
                 </div>
                 <div className="partners-content">
                     <PartnerSections />
-                    <PartnerForm {...anime('form')} />
+                    {PartnerForm && (
+                        <LazySection>
+                            <PartnerForm />
+                        </LazySection>
+                    )}
                 </div>
             </div>
         </InfoLayout>

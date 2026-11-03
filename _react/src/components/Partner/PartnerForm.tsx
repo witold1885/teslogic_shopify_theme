@@ -1,7 +1,7 @@
-import { forwardRef } from 'react'
+import type { FC } from 'react'
 
-const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => (
-    <div ref={ref} className="partners-content-form">
+const PartnerForm: FC = () => (
+    <div className="partners-content-form animate animate-small">
         <div className="partners-content-form-caption">
             <h2>Let’s Work Together</h2>
             <p>
@@ -15,6 +15,6 @@ const PartnerForm = forwardRef<HTMLDivElement>(({}, ref) => (
             <span className="partners-content-form-note">No purchase commitment when you apply.</span>
         </div>
     </div>
-))
+)
 
 export default PartnerForm

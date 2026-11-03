@@ -1,5 +1,4 @@
-import { useMemo, Fragment, type ReactNode, type FC } from 'react'
-import { getAnimationConfig, useAnime, type AnimationConfig } from '../../hooks/anime'
+import { Fragment, type FC, type ReactNode } from 'react'
 
 interface PartnerSection {
     title: string
@@ -53,27 +52,19 @@ const sections: PartnerSection[] = [
     }
 ]
 
-const PartnerSections: FC = () => {
-    const animationConfigs = useMemo(() => sections.reduce<Record<string, AnimationConfig>>((acc, _, index) => ({
-        ...acc, [`section_${index}`]: getAnimationConfig('20px', 333)
-    }), {}), [])
-
-    const { anime } = useAnime(animationConfigs)
-
-    return (<>
-        {sections.map(({ title, subtitle, list: { tag, items } }, index) => (
-            <Fragment key={index}>
-                <div {...anime(`section_${index}`)} className="partners-content-list" key={index}>
-                    <h2>{title}</h2>
-                    <div className="partners-content-list-body">
-                        {subtitle && <p>{subtitle}</p>}
-                        <PartnerSectionList {...{tag, items}} />
-                    </div>
+const PartnerSections: FC = () => (<>
+    {sections.map(({ title, subtitle, list: { tag, items } }, index) => (
+        <Fragment key={index}>
+            <div className="partners-content-list animate animate-small" key={index}>
+                <h2>{title}</h2>
+                <div className="partners-content-list-body">
+                    {subtitle && <p>{subtitle}</p>}
+                    <PartnerSectionList {...{tag, items}} />
                 </div>
-                <div className="partners-content-delimiter" />
-            </Fragment>
-        ))}
-    </>)
-}
+            </div>
+            <div className="partners-content-delimiter" />
+        </Fragment>
+    ))}
+</>)
 
 export default PartnerSections
