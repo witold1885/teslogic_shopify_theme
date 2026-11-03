@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import sketch from '../../assets/images/installers/installers_sketch.png'
+import sketch2x from '../../assets/images/installers/installers_sketch@2x.png'
 import { useInlineStyles } from '../../hooks/inline-styles'
 
 const InstallersBanner: FC = () => {
@@ -23,7 +24,13 @@ const InstallersBanner: FC = () => {
             {!isMobile && (
                 <div className="installers-banner-right">
                     <div className="installers-banner-sketch">
-                        <img className="object-cover" src={sketch} alt="Tesla vehicle illustration" fetchPriority="high" />
+                        <img
+                            className="object-cover"
+                            src={sketch}
+                            srcSet={`${sketch2x} 2x`}
+                            alt="Tesla vehicle illustration"
+                            fetchPriority="high"
+                        />
                     </div>
                 </div>
             )}
