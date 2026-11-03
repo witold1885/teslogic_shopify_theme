@@ -10,7 +10,7 @@ const InstallersBanner: FC = () => {
             <div className="installers-banner-left">
                 <div className="installers-banner-info">
                     <div>
-                        <h1 className="animate animate-big">Find a Certified <br/>Tesla Installer</h1>
+                        <h1 className={!isMobile ? 'animate animate-big' : ''}>Find a Certified <br/>Tesla Installer</h1>
                         <p className="animate animate-small">Screenmate™ devices are designed for straightforward installation, but if you prefer professional help, you can contact one of our trusted installation partners.</p>
                     </div>
                     <div>
