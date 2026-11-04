@@ -84,6 +84,7 @@
             }
 
             &-main {
+                display: inline-flex !important;
                 @extend %w-full, %h-full, %flex-center;
                 @include res-desktop(min-height, 526px);
             }
