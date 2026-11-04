@@ -50,7 +50,7 @@ const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSe
     )) || [], [images])
     
     return (
-        <div ref={ref} className="store_block-product-gallery-slider-wrap">
+        <div className="store_block-product-gallery-slider-wrap">
             {import.meta.env.SSR ? (<>
                 {imagesList}
             </>) : (
@@ -229,7 +229,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
                     <div {...anime('slider')} className="store_block-product-slider">
-                        <GallerySlider {...{sliderSettings, images}} />
+                        <GallerySlider ref={sliderRef} {...{sliderSettings, images}} />
                     </div>
                     <div>
                         {product.description && (
