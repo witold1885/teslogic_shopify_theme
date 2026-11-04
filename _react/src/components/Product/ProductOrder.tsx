@@ -101,7 +101,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
         title.split('|').map((model) => ({ label: model.trim(), value: id }))
     )
 
-    const [selectedModel, setSelectedModel] = useState<Model | null>(null)
+    const [selectedModel, setSelectedModel] = useState<Model | null>(options.length === 1 ? (product?.models?.[0] || null) : null)
     const [error, setError] = useState<boolean>(false)
 
     const handleModelSelect = (modelId: number) => {
@@ -234,13 +234,15 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                                 dangerouslySetInnerHTML={{ __html: product.description }}
                             />
                         )}
-                        <Dropdown
-                            {...anime('models')}
-                            theme="light"
-                            placeholder="Select your Tesla model and year"
-                            {...{options, error}}
-                            onSelect={(modelId) => handleModelSelect(modelId as number)}
-                        />
+                        {options.length > 1 && (
+                            <Dropdown
+                                {...anime('models')}
+                                theme="light"
+                                placeholder="Select your Tesla model and year"
+                                {...{options, error}}
+                                onSelect={(modelId) => handleModelSelect(modelId as number)}
+                            />
+                        )}
                         {additionals && (
                             <div {...anime('additionals')}>
                                 {additionals.map(({ id, title, price, models }) => {
