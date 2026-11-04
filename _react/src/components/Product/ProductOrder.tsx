@@ -199,7 +199,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ productType }) => {
     return product ? (
         <div className="store_block">
             <div className="store_block-product">
-                <div {...anime('gallery')} className="store_block-product-gallery">
+                <div {...(productType === 'main' ? anime('gallery') : {})} className="store_block-product-gallery">
                     <div className="store_block-product-gallery-items">
                         {thumbs?.map((thumb, index) => (
                             <Image
@@ -228,9 +228,9 @@ const ProductOrder: FC<ProductOrderProps> = ({ productType }) => {
                             </div>
                             <div className="store_block-product-price-vat">{showVAT(prices?.current)}</div>
                         </div>
-                        <div {...anime('title')} className="store_block-product-title">{product.title}</div>
+                        <h2 {...(productType === 'main' ? anime('title') : {})} className="store_block-product-title">{product.title}</h2>
                     </div>
-                    <div {...anime('slider')} className="store_block-product-slider">
+                    <div {...(productType === 'main' ? anime('slider') : {})} className="store_block-product-slider">
                         <GallerySlider {...{productType, sliderSettings, images}} />
                     </div>
                     <div>

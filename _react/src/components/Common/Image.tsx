@@ -11,7 +11,16 @@ export interface ImageProps {
     onClick?: () => void
 }
 
-const Image = forwardRef<HTMLDivElement, ImageProps>(({ className = '', style, src, srcSet = null, alt = '', loading = 'lazy', fetchPriority = 'auto', onClick }, ref) => {
+const Image = forwardRef<HTMLDivElement, ImageProps>(({
+    className = '',
+    style,
+    src,
+    srcSet = null,
+    alt = '',
+    loading = 'lazy',
+    fetchPriority = 'auto',
+    onClick
+}, ref) => {
     const isAbsolute = src.startsWith('http') || src.startsWith('data:')
     const finalSrc = isAbsolute ? src : new URL(src, import.meta.url).href
     
