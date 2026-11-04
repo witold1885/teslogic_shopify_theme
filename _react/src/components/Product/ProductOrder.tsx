@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect, useMemo, useCallback, type ReactNode, type FC, type ChangeEvent } from 'react'
+import { forwardRef, useState, useEffect, useRef, useMemo, useCallback, type ReactNode, type FC, type ChangeEvent } from 'react'
 import './product-order.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchProducts } from '../../redux/selectors/products'
@@ -54,7 +54,7 @@ const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSe
             {import.meta.env.SSR ? (<>
                 {imagesList}
             </>) : (
-                <SlickSlider className="store_block-product-gallery-slider" {...sliderSettings}>
+                <SlickSlider ref={ref} className="store_block-product-gallery-slider" {...sliderSettings}>
                     {imagesList}
                 </SlickSlider>
             )}
@@ -80,6 +80,8 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
     }), [getRate])
     
     useLazyData(lazyParams)
+
+    const sliderRef = useRef<any>(null)
 
     const images = useMemo(() => product?.images?.map(({ main }) => main).sort(), [product])
     const thumbs = useMemo(() => product?.images?.map(({ thumb }) => thumb).sort(), [product])
@@ -204,11 +206,14 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                                     index === currentImageIndex ? 'active' : ''
                                 }`}
                                 src={thumb}
-                                onClick={() => setCurrentImageIndex(index)}
+                                onClick={() => {
+                                    setCurrentImageIndex(index)
+                                    sliderRef?.current?.slickGoTo(index)
+                                }}
                             />
                         ))}
                     </div>
-                    <GallerySlider {...{sliderSettings, images}} />
+                    <GallerySlider ref={sliderRef} {...{sliderSettings, images}} />
                 </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
