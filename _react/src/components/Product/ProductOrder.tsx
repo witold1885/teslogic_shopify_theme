@@ -80,8 +80,8 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
     
     useLazyData(lazyParams)
 
-    const images = useMemo(() => product?.images?.filter(({ main }) => main.includes('full_')).map(({ main }) => main), [product])
-    const thumbs = useMemo(() => product?.images?.filter(({ thumb }) => thumb.includes('thumb_')).map(({ thumb }) => thumb), [product])
+    const images = useMemo(() => product?.images?.map(({ main }) => main).sort(), [product])
+    const thumbs = useMemo(() => product?.images?.map(({ thumb }) => thumb).sort(), [product])
 
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0)
     

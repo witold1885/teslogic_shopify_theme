@@ -8,6 +8,7 @@
 	width: 100%;
     @include res-desktop(padding, 200px, 0);
 	background: #FDFDFD;
+    color: #000;
 
     @include mobile() {
         @include res-mobile(padding, 96px, 0, 100px);
