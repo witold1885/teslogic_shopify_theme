@@ -229,7 +229,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
                     <div {...anime('slider')} className="store_block-product-slider">
-                        <GallerySlider ref={sliderRef} {...{sliderSettings, images}} />
+                        <GallerySlider {...{sliderSettings, images}} />
                     </div>
                     <div>
                         {product.description && (
