@@ -226,7 +226,9 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <GallerySlider {...{sliderSettings, images}} />
                     </div>
                     <div>
-                        {product.description && <div className="store_block-product-description">{product.description}</div>}
+                        {product.description && (
+                            <div className="store_block-product-description" dangerouslySetInnerHTML={{ __html: product.description }} />
+                        )}
                         <Dropdown
                             {...anime('models')}
                             theme="light"
