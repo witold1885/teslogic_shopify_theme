@@ -1,0 +1,38 @@
+<div id="react-product-root"></div>
+
+{% render 'seo-product' %}
+
+{{ 'react-style-Product-BfIyw6Rj.css' | asset_url | stylesheet_tag }}
+
+{%- capture localization_country -%}
+  {% render 'country-json', country: localization.country %}
+{%- endcapture -%}
+
+{%- capture main_menu -%}
+  {% render 'menu-json', menu_handle: 'main-menu' %}
+{%- endcapture -%}
+
+{%- capture cart -%}
+  {% render 'cart-json' %}
+{%- endcapture -%}
+
+{%- capture product -%}
+  {% render 'product-json', product: all_products[handle] %}
+{%- endcapture -%}
+
+<script>
+  {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
+  const videos = {{ videos }}
+  window.ShopifyReactData = {
+    publicPath: "{{ 'react-marker.txt' | asset_url | split: 'react-marker.txt' | first | append: '?v=' | append: cache_buster }}",
+    content: {
+      country: {{ localization_country }},
+      main_menu: {{ main_menu }},
+      footer_menu: []
+    },
+    cart: {{ cart }},
+    product: {{ product }}
+  }
+</script>
+
+<script src="{{ 'Product.js' | asset_url }}" type="module" defer></script>

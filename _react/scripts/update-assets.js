@@ -58,6 +58,7 @@ const pagesMap = {
     Powermate: { slug: 'powermate', lcp: { desktop: 'powermate_banner_desktop', mobile: 'powermate_banner_mobile' } },
     Installers: { slug: 'installers', lcp: { desktop: 'installers_sketch' } },
     Partners: { slug: 'partners' },
+    Product: { slug: 'product' },
 }
 
 const media = { desktop: '(min-width: 577px)', mobile: '(max-width: 576px)' }

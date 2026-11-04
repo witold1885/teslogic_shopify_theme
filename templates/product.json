@@ -1,11 +1,11 @@
 {
   "sections": {
-    "product_block": {
-      "type": "product_block",
+    "product_react": {
+      "type": "product_react",
       "settings": {}
     }
   },
   "order": [
-    "product_block"
+    "product_react"
   ]
 }
