@@ -32,22 +32,24 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 interface ProductOrderProps {
-    withDetails?: boolean
+    productType: 'main' | 'other'
 }
 
-interface GallerySliderProps {
+interface GallerySliderProps extends ProductOrderProps {
     sliderSettings: Settings
     images?: string[]
 }
 
-const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSettings, images }, ref) => {
+const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ productType, sliderSettings, images }, ref) => {
     const imagesList: ReactNode = useMemo(() => images?.map((image, index) => (
         <Image
             key={`image-${index}`}
             className="store_block-product-gallery-main"
             src={image}
+            loading={productType === 'main' ? 'lazy' : 'eager'}
+            fetchPriority={productType === 'main' ? 'auto' : 'high'}
         />
-    )) || [], [images])
+    )) || [], [productType, images])
     
     return (
         <div className="store_block-product-gallery-slider-wrap">
@@ -64,7 +66,7 @@ const GallerySlider = forwardRef<HTMLDivElement, GallerySliderProps>(({ sliderSe
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
+const ProductOrder: FC<ProductOrderProps> = ({ productType }) => {
     const dispatch = useAppDispatch()
     
     const { isMobile } = useInlineStyles()
@@ -165,12 +167,12 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
         <>+{((price || 0) * tax / 100).toFixed(0)} EUR (VAT {tax}%)</>
     ) : <></>, [showCurrency, tax])
     
-    const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => withDetails ? [
+    const details: { icon?: string, main?: string, add?: string }[] = useMemo(() => productType === 'main' ? [
         country?.iso_code === 'US' ? {
             icon: shippingIcon, main: 'Free shipping', add: 'within the US'
         } : {},
         { icon: noImportIcon, main: 'Duties and taxes', add: 'included in most countries*' },
-    ].filter(({ icon, main, add }) => !!icon && !!main && !!add) : [], [withDetails, country])
+    ].filter(({ icon, main, add }) => !!icon && !!main && !!add) : [], [productType, country])
     
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
@@ -213,7 +215,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                             />
                         ))}
                     </div>
-                    <GallerySlider ref={sliderRef} {...{sliderSettings, images}} />
+                    <GallerySlider ref={sliderRef} {...{productType, sliderSettings, images}} />
                 </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
@@ -229,7 +231,7 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                         <div {...anime('title')} className="store_block-product-title">{product.title}</div>
                     </div>
                     <div {...anime('slider')} className="store_block-product-slider">
-                        <GallerySlider {...{sliderSettings, images}} />
+                        <GallerySlider {...{productType, sliderSettings, images}} />
                     </div>
                     <div>
                         {product.description && (

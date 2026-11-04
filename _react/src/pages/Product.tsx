@@ -6,7 +6,7 @@ import ProductOrder from '../components/Product/ProductOrder'
 const Product: FC = () => {
     return (
         <InfoLayout>
-            <ProductOrder />
+            <ProductOrder productType="other" />
         </InfoLayout>
     )
 }
