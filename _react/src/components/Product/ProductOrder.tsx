@@ -24,6 +24,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '40px', duration: 666 },
     title: { yFrom: '40px', duration: 666 },
     prices: { yFrom: '20px', duration: 333 },
+    description: { yFrom: '20px', duration: 333 },
     models: { yFrom: '20px', duration: 333 },
     additionals: { yFrom: '20px', duration: 333 },
     button: { yFrom: '20px', duration: 333 },
@@ -227,7 +228,11 @@ const ProductOrder: FC<ProductOrderProps> = ({ withDetails = false }) => {
                     </div>
                     <div>
                         {product.description && (
-                            <div className="store_block-product-description" dangerouslySetInnerHTML={{ __html: product.description }} />
+                            <div
+                                {...anime('description')}
+                                className="store_block-product-description"
+                                dangerouslySetInnerHTML={{ __html: product.description }}
+                            />
                         )}
                         <Dropdown
                             {...anime('models')}
