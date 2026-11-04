@@ -1,6 +1,7 @@
 {
     "id": {{ product.id }},
     "title": {{ product.title | json }},
+    "description": {{ product.description | json }},
     "price": {{ product.price | divided_by: 100 }},
     "maxPrice": {{ product.price_max | divided_by: 100 }},
     "oldPrice": {{ product.compare_at_price | divided_by: 100 }},
