@@ -39,6 +39,10 @@
       {%- render 'preload-installers' -%}
     {% endif %}
 
+    {% if request.page_type == 'product' %}
+      {%- render 'preload-product', product: all_products[handle] -%}
+    {% endif %}
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
