@@ -50,13 +50,13 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
     useEffect(() => {
         const cookiesBanner = typeof window !== 'undefined' ? document.querySelector('#shopify-pc__banner') : null
-        // if (!el) return
+        if (!cookiesBanner) return
 
         const observer = new IntersectionObserver(([entry]) => {
             setShowCookiesBanner(entry.isIntersecting)
         }, {})
 
-        observer.observe(cookiesBanner as Element)
+        observer.observe(cookiesBanner! as Element)
 
         return () => {
             observer.disconnect()
