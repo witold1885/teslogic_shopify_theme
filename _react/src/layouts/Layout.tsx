@@ -31,22 +31,12 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [])
 
+    const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(false)
+
     const [popupProcessData, setPopupProcessData] = useState<SubscriptionPopupProcessData>(null)
     const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
-
-    const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
-    const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
-
-    useEffect(() => {
-        const source: string | null = urlSearchParams?.get('utm_source') || null
-        if (source !== 'leaddyno' && !discountSubscriptionCookies) {
-            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
-        }
-    }, [urlSearchParams, discountSubscriptionCookies])
-
-    const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(false)
 
     useEffect(() => {
         let intersectionObserver: IntersectionObserver | null = null
@@ -85,9 +75,15 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [])
 
+    const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+    const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
+
     useEffect(() => {
-        console.log({ showCookiesBanner })
-    }, [showCookiesBanner])
+        const source: string | null = urlSearchParams?.get('utm_source') || null
+        if (!showCookiesBanner && source !== 'leaddyno' && !discountSubscriptionCookies) {
+            setTimeout(() => setSubscriptionPopupOpen(true), 10000)
+        }
+    }, [showCookiesBanner, urlSearchParams, discountSubscriptionCookies])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
 
