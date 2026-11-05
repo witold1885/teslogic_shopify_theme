@@ -28,6 +28,8 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
             }
 
             window.scrollTo(0, 0)
+            const cookiesBanner = document.getElementById('shopify-pc__banner')
+            console.log({ cookiesBanner })
         }
     }, [])
 
