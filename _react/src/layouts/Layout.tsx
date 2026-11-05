@@ -36,15 +36,15 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
 
-    const urlParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+    const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
     const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
 
     useEffect(() => {
-        console.log({ urlParams })
-        if (!discountSubscriptionCookies) {
+        const source: string | null = urlSearchParams?.get('utm_source') || null
+        if (source !== 'leaddyno' && !discountSubscriptionCookies) {
             setTimeout(() => setSubscriptionPopupOpen(true), 10000)
         }
-    }, [urlParams, discountSubscriptionCookies])
+    }, [urlSearchParams, discountSubscriptionCookies])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
 
