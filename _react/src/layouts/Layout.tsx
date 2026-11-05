@@ -48,20 +48,20 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
     const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(false)
 
-    // useEffect(() => {
-    //     const cookiesBanner: HTMLElement | null = typeof window !== 'undefined' ? document.getElementById('shopify-pc__banner') : null
-    //     // if (!el) return
+    useEffect(() => {
+        const cookiesBanner = typeof window !== 'undefined' ? document.querySelector('#shopify-pc__banner') : null
+        // if (!el) return
 
-    //     const observer = new IntersectionObserver(([entry]) => {
-    //         setShowCookiesBanner(entry.isIntersecting)
-    //     }, {})
+        const observer = new IntersectionObserver(([entry]) => {
+            setShowCookiesBanner(entry.isIntersecting)
+        }, {})
 
-    //     observer.observe(cookiesBanner as Element)
+        observer.observe(cookiesBanner as Element)
 
-    //     return () => {
-    //         observer.disconnect()
-    //     }
-    // }, [])
+        return () => {
+            observer.disconnect()
+        }
+    }, [])
 
     useEffect(() => {
         console.log({ showCookiesBanner })
