@@ -36,17 +36,36 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
 
-    const cookiesBanner: HTMLElement | null = typeof window !== 'undefined' ? document.getElementById('shopify-pc__banner') : null
     const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
     const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
 
     useEffect(() => {
-        console.log({ cookiesBanner })
         const source: string | null = urlSearchParams?.get('utm_source') || null
         if (source !== 'leaddyno' && !discountSubscriptionCookies) {
             setTimeout(() => setSubscriptionPopupOpen(true), 10000)
         }
-    }, [cookiesBanner, urlSearchParams, discountSubscriptionCookies])
+    }, [urlSearchParams, discountSubscriptionCookies])
+
+    const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(false)
+
+    useEffect(() => {
+        const cookiesBanner: HTMLElement | null = typeof window !== 'undefined' ? document.getElementById('shopify-pc__banner') : null
+        // if (!el) return
+
+        const observer = new IntersectionObserver(([entry]) => {
+            setShowCookiesBanner(entry.isIntersecting)
+        }, {})
+
+        observer.observe(cookiesBanner as Element)
+
+        return () => {
+            observer.disconnect()
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log({ showCookiesBanner })
+    }, [showCookiesBanner])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
 
