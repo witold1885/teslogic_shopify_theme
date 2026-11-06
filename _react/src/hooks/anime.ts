@@ -153,7 +153,7 @@ export const useAnime = (configs: Record<string, AnimationConfig> = {}) => {
         style: { opacity: mode === 'hide' || mode === 'shift' ? 1 : 0 }
     }), [setRef])
 
-    return { anime, setRef }
+    return { anime: !import.meta.env.SSR ? anime : () => {}, setRef }
 }
 
 export const getAnimationConfig = (yFrom: string, duration?: number) => (
