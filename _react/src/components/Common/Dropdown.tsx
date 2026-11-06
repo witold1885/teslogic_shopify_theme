@@ -28,13 +28,14 @@ const DropdownItem: FC<DropdownItemProps> = ({ className, label, icon, onClick }
 
 interface DropdownProps {
     theme?: 'dark' | 'light'
+    className?: string
     placeholder?: string
     options: DropdownOption[]
     onSelect?: (value: DropdownOption['value']) => void
     error?: boolean
 }
 
-const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', placeholder, options, onSelect, error }, ref) => {
+const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', className = '', placeholder, options, onSelect, error }, ref) => {
     const menuRefs = useRef<(HTMLDivElement | null)[]>([])
 
     const setMenuRef = (index: number) => (el: HTMLDivElement | null) => {
@@ -55,7 +56,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', pl
     })
 
     return (
-        <div ref={ref} className={`dropdown ${theme}`}>
+        <div ref={ref} className={`dropdown ${theme} ${className}`}>
             <DropdownItem
                 className={`dropdown-field ${error ? 'dropdown-field-error' : ''}`}
                 label={selectedlabel || placeholder}

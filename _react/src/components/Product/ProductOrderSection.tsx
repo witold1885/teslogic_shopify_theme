@@ -74,7 +74,7 @@ const ProductOrderSection: FC<ProductOrderSectionProps> = ({
                                 dangerouslySetInnerHTML={{ __html: description }}
                             />
                         )}
-                        {models && <ProductOrderBlock className="animate animate-small">{models}</ProductOrderBlock>}
+                        {models && <ProductOrderBlock style={{ display: 'contents' }}>{models}</ProductOrderBlock>}
                         {additionals && <ProductOrderBlock className="animate animate-small">{additionals}</ProductOrderBlock>}
                         <div className="store_block-product-order">
                             <Button className="store_block-product-order-add animate animate-small" onClick={onSubmit}>

@@ -203,6 +203,7 @@ const ProductOrderDynamic: FC<ProductOrderProps> = ({ productType }) => {
         models={options.length > 1 ? (
             <Dropdown
                 theme="light"
+                className="animate animate-small"
                 placeholder="Select your Tesla model and year"
                 {...{options, error}}
                 onSelect={(modelId) => handleModelSelect(modelId as number)}
