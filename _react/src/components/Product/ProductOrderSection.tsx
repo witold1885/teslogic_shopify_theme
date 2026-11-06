@@ -1,18 +1,5 @@
-import { forwardRef, useMemo, type CSSProperties, type FC, type ReactNode } from 'react'
+import { forwardRef, type CSSProperties, type FC, type ReactNode } from 'react'
 import Button from '../Common/Button'
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
-
-const animatedObjects: Record<string, AnimatedObjectOptions> = {
-    gallery: { yFrom: '40px', duration: 666 },
-    slider: { yFrom: '40px', duration: 666 },
-    title: { yFrom: '40px', duration: 666 },
-    prices: { yFrom: '20px', duration: 333 },
-    description: { yFrom: '20px', duration: 333 },
-    models: { yFrom: '20px', duration: 333 },
-    additionals: { yFrom: '20px', duration: 333 },
-    button: { yFrom: '20px', duration: 333 },
-    details: { yFrom: '20px', duration: 333 },
-}
 
 export interface ProductOrderProps {
     productType: 'main' | 'other'
@@ -51,50 +38,52 @@ interface ProductOrderSectionProps extends ProductOrderProps {
     onSubmit: () => void
 }
 
-const ProductOrderSection: FC<ProductOrderSectionProps> = ({ productType, thumbs, gallery, slider, price, oldPrice, currency, vat, title, description, models, additionals, details, total, onSubmit }) => {
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
-        
-    const { anime } = useAnime(animationConfigs)
-
+const ProductOrderSection: FC<ProductOrderSectionProps> = ({
+    productType,
+    thumbs, gallery, slider,
+    price, oldPrice, currency, vat,
+    title, description,
+    models, additionals, details,
+    total, onSubmit
+}) => {
     return (
         <div className="store_block">
             <div className="store_block-product">
-                <div {...(productType === 'main' ? anime('gallery') : {})} className="store_block-product-gallery">
+                <div className={`store_block-product-gallery ${productType === 'main' ? 'animate animate-big' : ''}`}>
                     {thumbs && <ProductOrderBlock className="store_block-product-gallery-items">{thumbs}</ProductOrderBlock>}
                     {gallery && <ProductOrderBlock className="store_block-product-gallery-slider-wrap">{gallery}</ProductOrderBlock>}
                 </div>
                 <div className="store_block-product-info">
                     <div className="store_block-product-info-main">
-                        <div {...anime('prices')}>
+                        <div className="animate animate-small">
                             <div className="store_block-product-price">
                                 <span className="store_block-product-price-new">{price} {currency}</span>
                                 {oldPrice !== null && <span className="store_block-product-price-old">{oldPrice} {currency}</span>}
                             </div>
                             {vat && <div className="store_block-product-price-vat">{vat}</div>}
                         </div>
-                        <h2 {...(productType === 'main' ? anime('title') : {})} className="store_block-product-title">{title}</h2>
+                        <h2 className={`store_block-product-title ${productType === 'main' ? 'animate animate-big' : ''}`}>{title}</h2>
                     </div>
-                    <div {...(productType === 'main' ? anime('slider') : {})} className="store_block-product-slider">
+                    <div className={`store_block-product-slider ${productType === 'main' ? 'animate animate-big' : ''}`}>
                         {slider && <ProductOrderBlock className="store_block-product-gallery-slider-wrap">{slider}</ProductOrderBlock>}
                     </div>
                     <div>
                         {description && (
                             <div
-                                {...anime('description')}
-                                className="store_block-product-description"
+                                className="store_block-product-description animate animate-small"
                                 dangerouslySetInnerHTML={{ __html: description }}
                             />
                         )}
-                        {models && <ProductOrderBlock {...anime('models')}>{models}</ProductOrderBlock>}
-                        {additionals && <ProductOrderBlock {...anime('additionals')}>{additionals}</ProductOrderBlock>}
+                        {models && <ProductOrderBlock className="animate animate-small">{models}</ProductOrderBlock>}
+                        {additionals && <ProductOrderBlock className="animate animate-small">{additionals}</ProductOrderBlock>}
                         <div className="store_block-product-order">
-					        <Button {...anime('button')} className="store_block-product-order-add" onClick={onSubmit}>
+                            <Button className="store_block-product-order-add animate animate-small" onClick={onSubmit}>
                                 <div className="store_block-product-order-add-text">Order now</div>
                                 {total && <div className="store_block-product-order-add-total">{total} {currency}</div>}
                             </Button>
 
                             {details && (
-                                <div {...anime('details')} className="store_block-product-order-details">
+                                <div className="store_block-product-order-details animate animate-small">
                                     <ProductOrderBlock style={{ display: 'contents' }}>{details}</ProductOrderBlock>
                                     <div className="store_block-product-order-details-subtext">
                                         *See <a href="/shipping-delivery" target="_blank">Shipping page</a> for details. 
@@ -105,7 +94,7 @@ const ProductOrderSection: FC<ProductOrderSectionProps> = ({ productType, thumbs
                     </div>
                 </div>
             </div>
-		</div>
+        </div>
     )
 }
 

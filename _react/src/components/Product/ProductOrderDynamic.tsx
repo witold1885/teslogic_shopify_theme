@@ -228,7 +228,7 @@ const ProductOrderDynamic: FC<ProductOrderProps> = ({ productType }) => {
                 </div>
             )
         })}
-        details={details.map(({ icon, main, add }, index) => (
+        details={details.length !== 0 ? details.map(({ icon, main, add }, index) => (
             <div className="store_block-product-order-detail" key={index}>
                 <Icon {...{icon}} />
                 <span className="store_block-product-order-detail-text">
@@ -236,7 +236,7 @@ const ProductOrderDynamic: FC<ProductOrderProps> = ({ productType }) => {
                     <span>{add}</span>
                 </span>
             </div>
-        ))}
+        )) : undefined}
         onSubmit={handleSubmit}
     />
 }
