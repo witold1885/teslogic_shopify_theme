@@ -1,8 +1,8 @@
 import type { FC } from "react";
-import ProductOrderBlock, { type ProductOrderProps } from "./ProductOrderBlock";
+import ProductOrderSection, { type ProductOrderProps } from "./ProductOrderSection";
 
 const ProductOrderStatic: FC<ProductOrderProps> = ({ productType }) => {
-    return <ProductOrderBlock
+    return <ProductOrderSection
         {...{productType}}
         thumbs="__PRODUCT_THUMBS__"
         gallery="__PRODUCT_IMAGES__"

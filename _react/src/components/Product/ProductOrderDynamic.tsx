@@ -5,7 +5,7 @@ import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
 import type { Model } from '../../types/product'
-import ProductOrderBlock, { type ProductOrderProps } from './ProductOrderBlock'
+import ProductOrderSection, { type ProductOrderProps } from './ProductOrderSection'
 
 import SlickSlider, { type Settings } from '../Common/SlickSlider'
 import Icon from '../Common/Icon'
@@ -175,7 +175,7 @@ const ProductOrderDynamic: FC<ProductOrderProps> = ({ productType }) => {
         }
     }, [addedToCart])
 
-    return <ProductOrderBlock
+    return <ProductOrderSection
         {...{productType, total}}
         thumbs={<>
             {thumbs?.map((thumb, index) => (

@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import type { ProductOrderProps } from './ProductOrderBlock'
+import type { ProductOrderProps } from './ProductOrderSection'
 import './product-order.scss'
 import ProductOrderStatic from './ProductOrderStatic'
 import ProductOrderDynamic from './ProductOrderDynamic'
