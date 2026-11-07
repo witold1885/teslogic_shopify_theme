@@ -205,16 +205,18 @@ export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page
       <div class="store_block-product-gallery-items"></div>
       <div class="store_block-product-gallery-slider-wrap">
         <div class="image store_block-product-gallery-main">
-          <img class="object-cover" src="${desktop}" alt="">
+          <img class="object-cover" src="${desktop}" alt="" fetchpriority="high">
         </div>
       </div>
     </div>
     <div class="store_block-product-info">
-      <div class="store_block-product-info-main"></div>
+      <div class="store_block-product-info-main">
+        <h2 class="store_block-product-title">{{ product.title | escape }}</h2>
+      </div>
       <div class="store_block-product-slider">
         <div class="store_block-product-gallery-slider-wrap">
           <div class="image store_block-product-gallery-main">
-            <img class="object-cover" src="${mobile}" alt="">
+            <img class="object-cover" src="${mobile}" alt="" fetchpriority="high">
           </div>
         </div>
       </div>
