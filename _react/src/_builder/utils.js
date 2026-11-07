@@ -176,7 +176,16 @@ export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page
   width: calc(526 * 100vw / 1440);
 }
 .store_block-product-gallery-main {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
   min-height: calc(526 * 100vw / 1440);
+}
+.store_block-product-gallery-main img {
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+  object-position: center;
 }
 @media screen and (max-width:576px) {
   .store_block {
