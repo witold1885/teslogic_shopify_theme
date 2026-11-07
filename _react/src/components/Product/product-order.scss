@@ -14,6 +14,11 @@
         @include res-mobile(padding, 96px, 0, 100px);
     }
 
+    &-other {
+        @extend %absolute;
+        top: 0;
+    }
+
     &-product {
         @extend %container, %flex-start-center, %mob\:flex-column, %gap-36;
         margin: 0 auto;

@@ -47,7 +47,7 @@ const ProductOrderSection: FC<ProductOrderSectionProps> = ({
     total, onSubmit
 }) => {
     return (
-        <div className="store_block">
+        <div className={`store_block store_block-${productType}`}>
             <div className="store_block-product">
                 <div className={`store_block-product-gallery ${productType === 'main' ? 'animate animate-big' : ''}`}>
                     {thumbs && <ProductOrderBlock className="store_block-product-gallery-items">{thumbs}</ProductOrderBlock>}
