@@ -166,6 +166,12 @@ export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page
   padding: calc(200 * 100vw / 1440) 0;
 	background: #FDFDFD;
 }
+.store_block-product-gallery {
+  gap: calc(24 * 100vw / 1440);
+}
+.store_block-product-gallery-items {
+  width: calc(86 * 100vw / 1440);
+}
 .store_block-product-gallery-slider-wrap {
   width: calc(526 * 100vw / 1440);
 }
@@ -186,7 +192,7 @@ export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page
 </style>
 <div class="store_block">
   <div class="store_block-product">
-    <div class="store_block-product-gallery ">
+    <div class="store_block-product-gallery">
       <div class="store_block-product-gallery-items"></div>
       <div class="store_block-product-gallery-slider-wrap">
         <div class="image store_block-product-gallery-main">
