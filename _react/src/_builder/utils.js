@@ -211,6 +211,11 @@ export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page
     </div>
     <div class="store_block-product-info">
       <div class="store_block-product-info-main">
+        <div>
+          <div class="store_block-product-price">
+            <span class="store_block-product-price-new">{{ product.price_max | divided_by: 100.0 }} USD</span>
+          </div>
+        </div>
         <h2 class="store_block-product-title">{{ product.title | escape }}</h2>
       </div>
       <div class="store_block-product-slider">
