@@ -105,21 +105,23 @@ const processAssetUrls = (html) => {
 }
 
 export const generatePreloadTags = (preloadFileName, lcp, lcpType) => {
-  const lcpMap = Object.entries(lcp).reduce((acc, [mode, fileName]) => ({
-    ...acc,
-    [mode]: {
-      file: lcpType === 'product' 
-          ? fileName 
-          : getFiles().find(f => f.startsWith(`react-${fileName}`) && (f.endsWith('.png') || f.endsWith('.webp'))),
-      media: media[mode]
-    }
-  }), {})
+  if (lcpType === 'product') {
+    saveSnippet(preloadFileName, `<link rel="preload" as="image" href="${lcp.image}" fetchpriority="high">`)
+  } else {
+    const lcpMap = Object.entries(lcp).reduce((acc, [mode, fileName]) => ({
+      ...acc,
+      [mode]: {
+        file: getFiles().find(f => f.startsWith(`react-${fileName}`) && (f.endsWith('.png') || f.endsWith('.webp'))),
+        media: media[mode]
+      }
+    }), {})
 
-  if (Object.keys(lcpMap).length !== 0) {
-    const preloadTags = Object.values(lcpMap).map(({ file, media }) => (
-      `<link rel="preload" as="image" href="${lcpType === 'product' ? file : `{{ '${file}' | asset_url }}`}" fetchpriority="high" media="${media}">`
-    )).join('\n')
-    saveSnippet(preloadFileName, preloadTags)
+    if (Object.keys(lcpMap).length !== 0) {
+      const preloadTags = Object.values(lcpMap).map(({ file, media }) => (
+        `<link rel="preload" as="image" href="{{ '${file}' | asset_url }}" fetchpriority="high" media="${media}">`
+      )).join('\n')
+      saveSnippet(preloadFileName, preloadTags)
+    }
   }
 }
 

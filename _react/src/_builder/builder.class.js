@@ -23,7 +23,7 @@ const pagesMap = {
     Partners: { slug: 'partners' },
     Product: {
         slug: 'product',
-        lcp: { desktop: "{{ product.featured_image | img_url: '1052x1052' }}", mobile: "{{ product.featured_image | img_url: '350x350' }}" },
+        lcp: { image: "{{ product.featured_image | img_url: '1052x1052' }}" },
         lcpType: 'product'
     },
 }
