@@ -46,10 +46,10 @@ class Builder
                 saveSnippet(`banner-${slug}`, bannerLiquidContent)
             }
 
-            if (lcpType === 'product') {
-                const productLiquidContent = generateLCPProduct(this.page, lcp.desktop, lcp.mobile)
-                saveSnippet(`product-${slug}`, productLiquidContent)
-            }
+            // if (lcpType === 'product') {
+            //     const productLiquidContent = generateLCPProduct(this.page, lcp.desktop, lcp.mobile)
+            //     saveSnippet(`product-${slug}`, productLiquidContent)
+            // }
         }
     }
 

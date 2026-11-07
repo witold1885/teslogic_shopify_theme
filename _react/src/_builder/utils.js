@@ -241,7 +241,7 @@ const liquidVariables = {
   `,
   '__PRODUCT_IMAGES__': `
 <div class="image store_block-product-gallery-main">
-<img class="object-cover" src="{{ product.featured_image | img_url: '1052x1052' }}" alt="">
+<img class="object-cover" src="{{ product.featured_image | img_url: '1052x1052' }}" alt="" fetchpriority="high">
 </div>
   `,
   '__PRODUCT_PRICE__': '{{ product.price_max | divided_by: 100.0 }}',
