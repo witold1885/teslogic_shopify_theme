@@ -104,18 +104,20 @@ const processAssetUrls = (html) => {
   )
 }
 
-export const generatePreloadTags = (preloadFileName, lcp) => {
+export const generatePreloadTags = (preloadFileName, lcp, lcpType) => {
   const lcpMap = Object.entries(lcp).reduce((acc, [mode, fileName]) => ({
     ...acc,
     [mode]: {
-      file: getFiles().find(f => f.startsWith(`react-${fileName}`) && (f.endsWith('.png') || f.endsWith('.webp'))),
+      file: lcpType === 'product' 
+          ? fileName 
+          : getFiles().find(f => f.startsWith(`react-${fileName}`) && (f.endsWith('.png') || f.endsWith('.webp'))),
       media: media[mode]
     }
   }), {})
 
   if (Object.keys(lcpMap).length !== 0) {
     const preloadTags = Object.values(lcpMap).map(({ file, media }) => (
-      `<link rel="preload" as="image" href="{{ '${file}' | asset_url }}" fetchpriority="high" media="${media}">`
+      `<link rel="preload" as="image" href="${lcpType === 'product' ? file : `{{ '${file}' | asset_url }}`}" fetchpriority="high" media="${media}">`
     )).join('\n')
     saveSnippet(preloadFileName, preloadTags)
   }
@@ -134,7 +136,7 @@ const getBannerHtml = (desktop, mobile) => (`
   </div>
 `.trim())
 
-export const generateLCPSnippet = (page, slug, desktop, mobile) => (`${getComment(page)}
+export const generateLCPBanner = (page, slug, desktop, mobile) => (`${getComment(page)}
 <style>
 .lcp-wrap { position: relative; width: 100%; height: 100vh; background: #000 !important; overflow: hidden; }
 .lcp-wrap .banner-wrap { width: 100%; height: 75%; min-height: 75vh !important; overflow: hidden; }
@@ -154,6 +156,55 @@ export const generateLCPSnippet = (page, slug, desktop, mobile) => (`${getCommen
 </style>
 <div class="${slug.replace('_', '-')} lcp-wrap">
   ${processAssetUrls(getBannerHtml(desktop, mobile))}
+</div>
+`)
+
+export const generateLCPProduct = (page, desktop, mobile) => (`${getComment(page)}
+<style>
+.store_block {
+	width: 100%;
+  padding: calc(200 * 100vw / 1440) 0;
+	background: #FDFDFD;
+}
+.store_block-product-gallery-slider-wrap {
+  width: calc(526 * 100vw / 1440);
+}
+.store_block-product-gallery-main {
+  min-height: calc(526 * 100vw / 1440);
+}
+@media screen and (max-width:576px) {
+  .store_block {
+    padding: calc(96 * 100vw / 390) 0;
+  }
+  .store_block-product-gallery-slider-wrap {
+    width: calc(350 * 100vw / 390);
+  }
+  .store_block-product-gallery-main {
+    min-height: calc(350 * 100vw / 390);
+  }
+}
+</style>
+<div class="store_block">
+  <div class="store_block-product">
+    <div class="store_block-product-gallery ">
+      <div class="store_block-product-gallery-items"></div>
+      <div class="store_block-product-gallery-slider-wrap">
+        <div class="image store_block-product-gallery-main">
+          <img class="object-cover" src="${desktop}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="store_block-product-info">
+      <div class="store_block-product-info-main"></div>
+      <div class="store_block-product-slider">
+        <div class="store_block-product-gallery-slider-wrap">
+          <div class="image store_block-product-gallery-main">
+            <img class="object-cover" src="${mobile}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `)
 
