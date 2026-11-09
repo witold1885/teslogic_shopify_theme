@@ -1,6 +1,6 @@
 import { useCallback, useImperativeHandle, type FC, type ReactNode } from 'react'
 import './subscription-popup.scss'
-import type { SubscriptionPopupsProps } from './types.ts'
+import type { SubscriptionPopupProcessData, SubscriptionPopupsProps } from './types.ts'
 import { getComponent } from '../../../layouts/components'
 import { useAppDispatch } from '../../../redux/hooks.ts'
 import { useDynamicSlice } from '../../../hooks/dynamic-slice.ts'
@@ -24,15 +24,17 @@ const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
     ref, popupProcessData, subscriptionPopupDiscount,
     subscriptionPopupOpen, setSubscriptionPopupOpen,
     selectionPopupOpen, setSelectionPopupOpen,
-    successPopupOpen, setSuccessPopupOpen
+    successPopupOpen, setSuccessPopupOpen,
+    onProceed = () => {}
 }) => {
     const dispatch = useAppDispatch()
 
     const { resetError } = useDynamicSlice('subscribe', () => import('../../../redux/slices/subscribe'))
     
-    const handleProceed = useCallback(() => {
+    const handleProceed = useCallback((data: SubscriptionPopupProcessData) => {
         dispatch(resetError())
-    }, [dispatch, resetError])
+        onProceed(data)
+    }, [dispatch, resetError, onProceed])
 
     useImperativeHandle(ref, () => ({ handleProceed }), [handleProceed])
 

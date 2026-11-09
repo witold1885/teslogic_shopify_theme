@@ -178,7 +178,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                     subscriptionPopupOpen, setSubscriptionPopupOpen, 
                     selectionPopupOpen, setSelectionPopupOpen, 
                     successPopupOpen, setSuccessPopupOpen
-                }} />
+                }} onProceed={handleProceed} />
             </LazySection>
         )}
         {BlackFridayPopups && (

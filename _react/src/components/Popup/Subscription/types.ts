@@ -17,4 +17,5 @@ export type SubscriptionPopupsProps = {
     setSelectionPopupOpen: (state: boolean) => void
     successPopupOpen: boolean
     setSuccessPopupOpen: (state: boolean) => void
+    onProceed: (data: SubscriptionPopupProcessData) => void
 }
