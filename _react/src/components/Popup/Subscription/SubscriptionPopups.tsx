@@ -60,7 +60,9 @@ const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
                     }}
                     onError={() => {
                         setSelectionPopupOpen(false)
-                        popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
+                        if (popupProcessData?.mode === 'discount' || !subscriptionPopupDiscount) {
+                            setSubscriptionPopupOpen(true)
+                        }
                     }}
                 />
             )}
