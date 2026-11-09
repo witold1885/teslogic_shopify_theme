@@ -89,6 +89,10 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         const source: string | null = urlSearchParams?.get('utm_source') || null
         const subscribe: string | null = urlSearchParams?.get('subscribe') || null
 
+        if (subscribe === 'blackfriday') {
+            setBlackFridayPopupOpen(true)
+        }
+
         if (
             showCookiesBanner || 
             /*discountSubscriptionCookies || */
@@ -99,10 +103,6 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
             // setSubscriptionPopupOpen(false)
             setBlackFridayBannerOpen(false)
             return
-        }
-
-        if (subscribe === 'blackfriday') {
-            setBlackFridayPopupOpen(true)
         }
 
         const timeout = setTimeout(() => {

@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { setSubscriptionCookie } from '../../../utils/cookies'
 
 interface BlackFridayBannerProps {
     onConfirm?: () => void
@@ -6,6 +7,11 @@ interface BlackFridayBannerProps {
 }
 
 const BlackFridayBanner: FC<BlackFridayBannerProps> = ({ onConfirm = () => {}, onClose = () => {} }) => {
+    const handleCancel = () => {
+        setSubscriptionCookie('bf26_vip_subscription', 0)
+        onClose()
+    }
+
     return (
         <div className="bf-banner">
             <div className="bf-banner-info">
@@ -14,7 +20,7 @@ const BlackFridayBanner: FC<BlackFridayBannerProps> = ({ onConfirm = () => {}, o
             </div>
             <div className="bf-banner-buttons">
                 <button onClick={onConfirm}>Get VIP Access</button>
-                <button onClick={onClose}>No, thanks</button>
+                <button onClick={handleCancel}>No, thanks</button>
             </div>
         </div>
     )
