@@ -87,11 +87,22 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         console.log({ showCookiesBanner, blackFridaySubscriptionCookies })
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
         const source: string | null = urlSearchParams?.get('utm_source') || null
+        const subscribe: string | null = urlSearchParams?.get('subscribe') || null
 
-        if (showCookiesBanner /*|| discountSubscriptionCookies */|| blackFridaySubscriptionCookies || source === 'leaddyno' || source === 'fb' || source === 'ig') {
+        if (
+            showCookiesBanner || 
+            /*discountSubscriptionCookies || */
+            blackFridaySubscriptionCookies || 
+            source === 'leaddyno' || source === 'fb' || source === 'ig' || 
+            subscribe !== null
+        ) {
             // setSubscriptionPopupOpen(false)
             setBlackFridayBannerOpen(false)
             return
+        }
+
+        if (subscribe === 'blackfriday') {
+            setBlackFridayPopupOpen(true)
         }
 
         const timeout = setTimeout(() => {
