@@ -136,7 +136,7 @@ const SelectionPopup: FC<SelectionPopupProps> = ({ background, open, popupProces
             }
         }
     }, [popupProcessData, discountSubscribed, customSubscribed])
-        
+    
     useEffect(() => {
         if (apiError) {
             if (apiError === 'email_exists') {

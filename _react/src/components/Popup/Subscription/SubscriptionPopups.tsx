@@ -38,37 +38,37 @@ const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
 
     return (<>
         {SubscriptionPopup && SelectionPopup && SuccessPopup && (<>
-                {subscriptionPopupOpen && (
-                    <SubscriptionPopup
-                        background={background}
-                        open={subscriptionPopupOpen}
-                        onProceed={handleProceed}
-                        onClose={() => setSubscriptionPopupOpen(false)}
-                    />
-                )}
-                {selectionPopupOpen && (
-                    <SelectionPopup
-                        background={background}
-                        open={selectionPopupOpen}
-                        popupProcessData={popupProcessData}
-                        onSuccess={() => {
-                            setSelectionPopupOpen(false)
-                            setSuccessPopupOpen(true)
-                        }}
-                        onError={() => {
-                            setSelectionPopupOpen(false)
-                            popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
-                        }}
-                    />
-                )}
-                {successPopupOpen && (
-                    <SuccessPopup
-                        background={background}
-                        open={successPopupOpen}
-                        subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
-                        onClose={() => setSuccessPopupOpen(false)}
-                    />
-                )}
+            {subscriptionPopupOpen && (
+                <SubscriptionPopup
+                    background={background}
+                    open={subscriptionPopupOpen}
+                    onProceed={handleProceed}
+                    onClose={() => setSubscriptionPopupOpen(false)}
+                />
+            )}
+            {selectionPopupOpen && (
+                <SelectionPopup
+                    background={background}
+                    open={selectionPopupOpen}
+                    popupProcessData={popupProcessData}
+                    onSuccess={() => {
+                        setSelectionPopupOpen(false)
+                        setSuccessPopupOpen(true)
+                    }}
+                    onError={() => {
+                        setSelectionPopupOpen(false)
+                        popupProcessData?.mode === 'discount' && setSubscriptionPopupOpen(true)
+                    }}
+                />
+            )}
+            {successPopupOpen && (
+                <SuccessPopup
+                    background={background}
+                    open={successPopupOpen}
+                    subtitle={popupProcessData?.mode ? successPopupSubtitles[popupProcessData.mode as string] : ''}
+                    onClose={() => setSuccessPopupOpen(false)}
+                />
+            )}
         </>)}
     </>)
 }

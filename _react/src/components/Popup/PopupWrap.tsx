@@ -10,8 +10,8 @@ interface PopupWrapProps {
     ref: RefObject<PopupRefProps | null>
     id?: string
     className: string
-    backgroundType: 'node' | 'image' | 'color'
-    background: ReactNode | string
+    backgroundType: 'node' | 'image' | 'color' | 'gradient'
+    background?: ReactNode | string
     open: boolean
     onClose: () => void
     children: ReactNode
@@ -26,6 +26,8 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
                 return { backgroundImage: background as string }
             case 'color':
                 return { backgroundColor: background as string }
+            case 'gradient':
+                return { background: background as string }
             default:
                 return {}
         }

@@ -38,6 +38,24 @@ export const discountSubscribe = createAsyncThunk(
     }
 )
 
+export const vipSubscribe = createAsyncThunk(
+    'subscribe/vipSubscribe',
+    async (data: CustomSubscribePayload, { rejectWithValue }) => {
+        const { default: api } = await import('../api')
+        const result = await api.post<SubscribeResponse>('mail/vip-subscribe', data)
+
+        if (!result.success) {
+            return rejectWithValue(result.message)
+        }
+
+        if (!result.data.success) {
+            return rejectWithValue(result.data.message)
+        }
+
+        return result.data
+    }
+)
+
 export const subscribeSlice = createSlice({
     name: 'subscribe',
     initialState,
@@ -79,6 +97,22 @@ export const subscribeSlice = createSlice({
                 state.discountSubscribed = false
                 state.error = action.payload as string
                 state.discountSubscribeError = action.payload as string
+            })
+            .addCase(vipSubscribe.pending, (state) => {
+                state.loading = true
+                state.vipSubscribed = false
+                state.error = null
+                state.vipSubscribeError = null
+            })
+            .addCase(vipSubscribe.fulfilled, (state) => {
+                state.loading = false
+                state.vipSubscribed = true
+            })
+            .addCase(vipSubscribe.rejected, (state, action) => {
+                state.loading = false
+                state.vipSubscribed = false
+                state.error = action.payload as string
+                state.vipSubscribeError = action.payload as string
             })
     }
 })

@@ -1,0 +1,2 @@
+import{a as e}from"./react-chunk-redux-toolkit.modern-rv_5e37d.js";import{t}from"./react-chunk-subscribe-6CszbMqb.js";var n=e=>e.subscribe||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{i as t};
+//# sourceMappingURL=react-chunk-subscribe-CtInBXH0.js.map

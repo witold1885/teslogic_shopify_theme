@@ -1,0 +1,223 @@
+@use '../../../assets/styles/flexbox' as flexbox;
+@use '../../../assets/styles/fonts' as fonts;
+@use '../../../assets/styles/layout' as layout;
+@use '../../../assets/styles/text' as text;
+@use '../../../assets/styles/mixins' as *;
+@use '../popup.scss';
+
+.bf {
+
+    &-banner {
+        @extend %flex-between-center, %gap-32, %mob\:flex-column, %mob\:gap-20, %fixed;
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 0;
+        @include res-desktop(padding, 24px, 32px);
+        @include responsive(border-radius, 20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: radial-gradient(205.08% 142.52% at 111.15% 52.69%, rgba(34, 74, 251, 0.30) 0%, rgba(34, 74, 251, 0.00) 100%), radial-gradient(232.7% 231.46% at -70.1% -55.51%, hsl(271deg 97.4576% 53.7255% / 0.8) 0%, rgba(22, 87, 252, 0.00) 100%), rgba(0, 0, 0, 0.80);
+        box-shadow: 0 8px 32px 0 #000;
+        backdrop-filter: blur(12px);
+
+        @include mobile() {
+            @include res-mobile(width, 350px);
+            @include res-mobile(padding, 20px);
+            box-shadow: 0 8px 24px 0 #000;
+        }
+
+        &-info {
+            @extend %flex-column-start, %gap-8, %mob\:w-full;
+
+            & > div {
+                @extend %font-manrope, %text-white, %whitespace-nowrap;
+
+                &:first-child {
+                    @extend %font-500;
+                    @include text(24px, 32px);
+                }
+
+                &:last-child {
+                    @include text(16px, 20px);
+                }
+            }
+        }
+
+        &-buttons {
+            @extend %flex-end-center, %mob\:flex-column, %gap-8, %mob\:w-full;
+
+            & > button {
+                @extend %mob\:w-full, %font-manrope-18, %font-600, %text-white, %whitespace-nowrap;
+                @include responsive(padding, 14px, 28px);
+                @include responsive(border-radius, 26px);
+
+                &:first-child {
+                    background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+
+                    &:hover {
+                        background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+                    }
+                }
+
+                &:last-child {
+                    background: transparent;
+                    border: 1.5px solid #FFF;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    &-popup, &-success {
+        @extend %flex-column-center;
+        @include res-desktop(width, 500px);
+        @include responsive(border-radius, 24px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 8px 32px 0 #000;
+        backdrop-filter: blur(12px);
+
+        @include mobile() {
+            @include res-mobile(width, 350px);
+        }
+
+        &-info {
+            @extend %w-full, %flex-column-center, %gap-8;
+
+            & > div {
+                @extend %font-manrope, %text-center, %text-white;
+
+                &:first-child {
+                    @extend %font-500;
+                    @include text-desktop(32px, 40px);
+
+                    @include mobile() {
+                        @include text-mobile(28px, 36px);
+                    }
+
+                }
+
+                &:last-child {
+                    @include text-desktop(18px, 24px);
+
+                    @include mobile() {
+                        @include text-mobile(16px, 22px);
+                    }
+                }
+            }
+        }
+
+        &-button {
+            @extend %w-full, %flex-center, %font-manrope-18, %font-600, %text-center, %text-white;
+            @include responsive(padding, 14px, 28px);
+            @include responsive(border-radius, 54px);
+            background: linear-gradient(179deg, #0069FD 1.13%, #4E23F9 201.17%);
+        
+            &:hover {
+                background: linear-gradient(179deg, #005FE5 1.13%, #3B0CF8 201.17%);
+            }
+        }
+    }
+
+    &-popup {
+        @extend %gap-20, %mob\:gap-12;
+        @include res-desktop(padding, 32px, 36px, 36px, 36px);
+
+        @include mobile() {
+            @include res-mobile(padding, 32px, 20px, 36px);
+        }
+
+        &-close {
+            @extend %flex-center, %absolute, %cursor-pointer;
+            @include square(20px);
+            @include responsive(top, 12px);
+            @include responsive(right, 12px);
+        }
+
+        &-head {
+            @extend %flex-column-center, %gap-12;
+
+            & > div {
+                @extend %text-center, %text-white;
+
+                &:first-child {
+                    @extend %font-manrope, %font-500, %uppercase;
+                    @include text-desktop(16px, 20px);
+                    @include res-desktop(letter-spacing, 0.32px);
+                    opacity: 0.7;
+
+                    @include mobile() {
+                        @include text-mobile(14px, 20px);
+                        @include res-mobile(letter-spacing, 0.28px);
+                    }
+                }
+
+                &:last-child {
+                    @extend %font-900;
+                    @include text-desktop(56px, 64px);
+                    font-family: "Neue Haas Grotesk Display Pro";
+                    font-style: normal;
+
+                    @include mobile() {
+                        @include text-mobile(48px, 56px);
+                    }
+                }
+            }
+        }
+
+        &-body {
+            @extend %w-full, %flex-column-center, %gap-32, %mob\:gap-24;
+        }
+
+        &-form {
+            @extend %w-full, %flex-column-center, %gap-16;
+
+            &-field {
+                @extend %w-full, %relative;
+
+                & input {
+                    @extend %w-full, %font-manrope;
+                    @include text(16px, 20px);
+                    @include responsive(padding, 16px);
+                    @include responsive(border-radius, 6px);
+                    border: 1px solid #D9D9D9;
+                    background: transparent;
+
+                    &:active, &:focus {
+                        border: 1px solid #FFF;
+                    }
+                }
+
+                &-error {
+
+                    & input {
+                        border: 1px solid #FC3E30;
+                    }
+
+                    &-message {
+                        @extend %absolute, %font-manrope-14;
+                        left: 0;
+                        @include responsive(bottom, -18px);
+                        color: #FC3E30;
+                    }
+                }
+            }
+        }
+    }
+
+    &-success {
+        @extend %gap-24;
+        @include res-desktop(padding, 40px, 36px, 36px, 36px);
+
+        @include mobile() {
+            @include res-mobile(padding, 40px, 20px, 24px);
+        }
+
+        &-close {
+            @extend %hidden;
+        }
+
+        & .icon {
+            @include square(96px);
+        }
+    }
+}
