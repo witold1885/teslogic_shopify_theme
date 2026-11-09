@@ -9,6 +9,8 @@ export interface SubscriptionPopupsRefProps {
 export type SubscriptionPopupsProps = {
     ref: RefObject<SubscriptionPopupsRefProps>
     popupProcessData: SubscriptionPopupProcessData
+    subscriptionPopupDiscount: boolean
+    setSubscriptionPopupDiscount: (state: boolean) => void
     subscriptionPopupOpen: boolean
     setSubscriptionPopupOpen: (state: boolean) => void
     selectionPopupOpen: boolean

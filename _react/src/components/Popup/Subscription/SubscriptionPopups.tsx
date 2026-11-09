@@ -21,7 +21,7 @@ const successPopupSubtitles: Record<string, ReactNode> = {
 }
 
 const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
-    ref, popupProcessData,
+    ref, popupProcessData, subscriptionPopupDiscount,
     subscriptionPopupOpen, setSubscriptionPopupOpen,
     selectionPopupOpen, setSelectionPopupOpen,
     successPopupOpen, setSuccessPopupOpen
@@ -40,6 +40,7 @@ const SubscriptionPopups: FC<SubscriptionPopupsProps> = ({
         {SubscriptionPopup && SelectionPopup && SuccessPopup && (<>
             {subscriptionPopupOpen && (
                 <SubscriptionPopup
+                    withDiscount={subscriptionPopupDiscount}
                     background={background}
                     open={subscriptionPopupOpen}
                     onProceed={handleProceed}

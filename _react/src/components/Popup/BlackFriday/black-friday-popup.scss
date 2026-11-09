@@ -9,7 +9,7 @@
 
     &-banner {
         @extend %flex-between-center, %gap-32, %mob\:flex-column, %mob\:gap-20, %fixed;
-        z-index: 1;
+        z-index: 10;
         left: 50%;
         transform: translate(-50%, -50%);
         bottom: 0;

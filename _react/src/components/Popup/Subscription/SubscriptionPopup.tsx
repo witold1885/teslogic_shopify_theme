@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, type ReactNode, type FC } from 'react'
+import { useState, useEffect, useRef, type ReactNode, type FC, useMemo } from 'react'
 import type { SubscriptionPopupProcessData } from './types'
 import * as yup from 'yup'
 import { useAppSelector } from '../../../redux/hooks'
@@ -10,6 +10,7 @@ import Image from '../../Common/Image'
 import logo from '../../../assets/images/popup-logo-white.svg'
 
 interface SubscriptionPopupProps {
+    withDiscount?: boolean
     background: ReactNode
     open: boolean
     onProceed?: (data: SubscriptionPopupProcessData) => void
@@ -23,13 +24,25 @@ const subscribeSchema = yup.object<Record<keyof SubscriptionPayload, typeof yup>
     agree: yup.boolean().oneOf([true])
 }).required()
 
-const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ background, open, onProceed = () => {}, onClose = () => {} }) => {
+const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ withDiscount = true, background, open, onProceed = () => {}, onClose = () => {} }) => {
     const wrap = useRef<PopupRefProps>(null)
 
     const [data, setData] = useState<SubscriptionPayload>({ email: '', agree: false })
     const [errors, setErrors] = useState<Record<keyof SubscriptionPayload, string | null>>({ email: null, agree: null })
 
-    const { discountSubscribeError: apiError } = useAppSelector(fetchSubscribe)
+    const { error: apiError } = useAppSelector(fetchSubscribe)
+
+    const mode = useMemo(() => withDiscount ? 'discount' : 'custom', [withDiscount])
+
+    const title = useMemo(() => (withDiscount 
+        ? <>Your first 5% discount <br className="mobile" />is on Us!</> 
+        : <>Still exploring Screenmate?</>
+    ), [withDiscount])
+
+    const subtitle = useMemo(() => (withDiscount 
+        ? <>Join Screenmate Community <br className="mobile" />and get <br className="desktop" />best deals <br className="mobile" />and exclusive updates.</> 
+        : <>Get product updates, new features, and <br className="mobile" />exclusive <br className="desktop" />offers delivered to your inbox.</>
+    ), [withDiscount])
 
     const handleChange = (param: keyof SubscriptionPayload, value: string | boolean) => {
         setErrors(prev => ({ ...prev, [param]: null }))
@@ -61,12 +74,12 @@ const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ background, open, onPro
     const handleProceed = async () => {
         const formValid = await validateForm(data)
         if (formValid) {
-            wrap?.current?.close(() => onProceed({ ...data, mode: 'discount' }))
+            wrap?.current?.close(() => onProceed({ ...data, mode }))
         }
     }
 
     const handleCancel = () => {
-        setSubscriptionCookie('discount_subscription', 0)
+        setSubscriptionCookie(`${mode}_subscription`, 0)
         wrap?.current?.close(() => onClose())
     }
 
@@ -83,13 +96,8 @@ const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ background, open, onPro
             <div className="subscription-popup-head">
                 <Image className="subscription-popup-logo" src={logo} alt="SCREENMATE" />
                 <div className="subscription-popup-info">
-                    <div className="subscription-popup-title">
-                        Your first 5% discount <br className="mobile" />is on Us!
-                    </div>
-                    <div className="subscription-popup-subtitle">
-                        Join Screenmate Community <br className="mobile" />and get <br className="desktop" />
-                        best deals <br className="mobile" />and exclusive updates.
-                    </div>
+                    <div className="subscription-popup-title">{title}</div>
+                    <div className="subscription-popup-subtitle">{subtitle}</div>
                 </div>
             </div>
             <div className="subscription-popup-form">

@@ -35,6 +35,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     const [showCookiesBanner, setShowCookiesBanner] = useState<boolean>(false)
 
     const [popupProcessData, setPopupProcessData] = useState<SubscriptionPopupProcessData>(null)
+    const [subscriptionPopupDiscount, setSubscriptionPopupDiscount] = useState<boolean>(true)
     const [subscriptionPopupOpen, setSubscriptionPopupOpen] = useState<boolean>(false)
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
@@ -82,12 +83,14 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
     // const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
     const blackFridaySubscriptionCookies: string | undefined = Cookies.get('bf26_vip_subscription')
+    const customSubscriptionCookies: string | undefined = Cookies.get('custom_subscription')
 
     useEffect(() => {
-        console.log({ showCookiesBanner, blackFridaySubscriptionCookies })
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
         const source: string | null = urlSearchParams?.get('utm_source') || null
         const subscribe: string | null = urlSearchParams?.get('subscribe') || null
+
+        const fromBloggers: boolean = source === 'leaddyno' || source === 'fb' || source === 'ig'
 
         if (subscribe === 'blackfriday') {
             setBlackFridayPopupOpen(true)
@@ -97,7 +100,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
             showCookiesBanner || 
             /*discountSubscriptionCookies || */
             blackFridaySubscriptionCookies || 
-            source === 'leaddyno' || source === 'fb' || source === 'ig' || 
+            fromBloggers || 
             subscribe !== null
         ) {
             // setSubscriptionPopupOpen(false)
@@ -113,7 +116,34 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         return () => {
             clearTimeout(timeout)
         }
-    }, [showCookiesBanner, /*discountSubscriptionCookies, */blackFridaySubscriptionCookies])
+    }, [showCookiesBanner, /*discountSubscriptionCookies, */blackFridaySubscriptionCookies, customSubscriptionCookies])
+
+    useEffect(() => {
+        const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+        const source: string | null = urlSearchParams?.get('utm_source') || null
+
+        const fromBloggers: boolean = source === 'leaddyno' || source === 'fb' || source === 'ig'
+
+        if (
+            subscriptionPopupOpen || selectionPopupOpen || successPopupOpen || 
+            blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen || 
+            !fromBloggers
+        ) {
+            return
+        }
+
+        const timeout = setTimeout(() => {
+            setSubscriptionPopupDiscount(false)
+            setSubscriptionPopupOpen(true)
+        }, 30000)
+
+        return () => {
+            clearTimeout(timeout)
+        }
+    }, [
+        subscriptionPopupOpen, selectionPopupOpen, successPopupOpen, 
+        blackFridayBannerOpen, blackFridayPopupOpen, blackFridaySuccessOpen, 
+    ])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
 
@@ -128,7 +158,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         {SubscriptionPopups && (subscriptionPopupOpen || selectionPopupOpen || successPopupOpen) && (
             <LazySection minHeight="0px" forceRender={true}>
                 <SubscriptionPopups ref={popupsRef} {...{
-                    popupProcessData, 
+                    popupProcessData, subscriptionPopupDiscount, 
                     subscriptionPopupOpen, setSubscriptionPopupOpen, 
                     selectionPopupOpen, setSelectionPopupOpen, 
                     successPopupOpen, setSuccessPopupOpen
