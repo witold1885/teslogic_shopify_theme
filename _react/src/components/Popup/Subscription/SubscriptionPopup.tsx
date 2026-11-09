@@ -68,6 +68,9 @@ const SubscriptionPopup: FC<SubscriptionPopupProps> = ({ withDiscount = true, ba
                 ? 'This email is already registered' 
                 : 'An error occurred, try again'
             }))
+            if (apiError === 'email_exists') {
+                setSubscriptionCookie(`${mode}_subscription`, 1)
+            }
         }
     }, [apiError])
 

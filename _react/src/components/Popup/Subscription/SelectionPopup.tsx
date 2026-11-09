@@ -140,6 +140,10 @@ const SelectionPopup: FC<SelectionPopupProps> = ({ background, open, popupProces
     useEffect(() => {
         if (apiError) {
             if (apiError === 'email_exists') {
+                const mode = popupProcessData?.mode || null
+                if (mode) {
+                    setSubscriptionCookie(`${mode}_subscription`, 1)
+                }
                 wrap?.current?.close(() => onError())
             } else {
                 setErrors(prev => ({ ...prev, model: 'An error occurred, try again' }))
