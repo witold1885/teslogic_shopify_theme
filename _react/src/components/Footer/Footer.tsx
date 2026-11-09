@@ -5,7 +5,6 @@ import { useAppSelector } from '../../redux/hooks'
 import { fetchSubscribe } from '../../redux/selectors/subscribe'
 import { fetchContent } from '../../redux/selectors/content'
 import type { MenuItem } from '../../types/shopify'
-import { setSubscriptionCookie } from '../../utils/cookies'
 import Button from '../Common/Button'
 import Icon from '../Common/Icon'
 import Image from '../Common/Image'
@@ -162,9 +161,6 @@ const Footer: FC<FooterProps> = ({ onProceed = () => {} }) => {
                 ? 'This email is already registered' 
                 : 'An error occurred, try again'
             }))
-            if (apiError === 'email_exists') {
-                setSubscriptionCookie('custom_subscription', 1)
-            }
         }
     }, [apiError])
 
