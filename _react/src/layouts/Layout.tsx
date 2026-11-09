@@ -116,7 +116,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         return () => {
             clearTimeout(timeout)
         }
-    }, [showCookiesBanner, /*discountSubscriptionCookies, */blackFridaySubscriptionCookies, customSubscriptionCookies])
+    }, [showCookiesBanner, /*discountSubscriptionCookies, */blackFridaySubscriptionCookies])
 
     useEffect(() => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
@@ -125,11 +125,25 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         const fromBloggers: boolean = source === 'leaddyno' || source === 'fb' || source === 'ig'
 
         if (
+            customSubscriptionCookies || 
             subscriptionPopupOpen || selectionPopupOpen || successPopupOpen || 
             blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen || 
             !fromBloggers
         ) {
             return
+        }
+
+        const onScrollProcess = () => {
+            if (typeof window !== undefined) {
+                if (window.scrollY / document.body.scrollHeight >= 0.3) {
+                    setSubscriptionPopupDiscount(false)
+                    setSubscriptionPopupOpen(true)
+                }
+            }
+        }
+
+        if (typeof window !== undefined) {
+            window.addEventListener('scroll', onScrollProcess)
         }
 
         const timeout = setTimeout(() => {
@@ -139,10 +153,12 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
         return () => {
             clearTimeout(timeout)
+            if (typeof window !== undefined) window.removeEventListener('scroll', onScrollProcess)
         }
     }, [
+        customSubscriptionCookies, 
         subscriptionPopupOpen, selectionPopupOpen, successPopupOpen, 
-        blackFridayBannerOpen, blackFridayPopupOpen, blackFridaySuccessOpen, 
+        blackFridayBannerOpen, blackFridayPopupOpen, blackFridaySuccessOpen
     ])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
