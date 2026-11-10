@@ -31,7 +31,10 @@ const BlackFridayPopups: FC<BlackFridayPopupsProps> = ({
                         setBlackFridayPopupOpen(false)
                         setBlackFridaySuccessOpen(true)
                     }}
-                    onClose={() => setBlackFridayPopupOpen(false)}
+                    onClose={() => {
+                        setBlackFridayPopupOpen(false)
+                        setBlackFridayBannerOpen(true)
+                    }}
                 />
             )}
             {blackFridaySuccessOpen && (

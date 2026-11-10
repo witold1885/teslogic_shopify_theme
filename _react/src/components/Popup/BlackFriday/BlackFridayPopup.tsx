@@ -57,7 +57,6 @@ const BlackFridayPopup: FC<BlackFridayPopupProps> = ({ open, onConfirm = () => {
     }, [data, validateForm, dispatch, resetError, vipSubscribe])
     
     const handleCancel = () => {
-        setSubscriptionCookie('bf26_vip_subscription', 0)
         wrap?.current?.close(() => onClose())
     }
 
