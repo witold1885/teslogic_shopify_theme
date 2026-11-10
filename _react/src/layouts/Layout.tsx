@@ -89,6 +89,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
         const source: string | null = urlSearchParams?.get('utm_source') || null
         const subscribe: string | null = urlSearchParams?.get('subscribe') || null
+        const success: string | null = urlSearchParams?.get('success') || null
 
         const fromBloggers: boolean = source === 'leaddyno' || source === 'fb' || source === 'ig'
 
@@ -96,12 +97,17 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
             setBlackFridayPopupOpen(true)
         }
 
+        if (success === 'blackfriday') {
+            setBlackFridaySuccessOpen(true)
+        }
+
         if (
             showCookiesBanner || 
             /*discountSubscriptionCookies || */
             blackFridaySubscriptionCookies || 
             fromBloggers || 
-            subscribe !== null
+            subscribe !== null || 
+            success !== null
         ) {
             // setSubscriptionPopupOpen(false)
             setBlackFridayBannerOpen(false)
