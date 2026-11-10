@@ -1,4 +1,4 @@
-import { forwardRef, useState, useCallback } from 'react'
+import { forwardRef, useState, useCallback, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { fetchContent } from '../../redux/selectors/content'
 import { getRegions } from '../../redux/slices/content'
@@ -34,10 +34,16 @@ const HeaderCountrySelector = forwardRef<HTMLDivElement, HeaderCountrySelectorPr
         }
     }, [isRegionsLoaded, dispatch])
 
+    const flagStyle = useMemo(() => selectedCountry?.flag ? {
+        backgroundImage: `url('${selectedCountry?.flag}')`
+    } : {
+        backgroundColor: 'transparent'
+    }, [selectedCountry])
+
     return (
         <div className="header-country" ref={ref}>
             <div className="header-country-button" onMouseEnter={handleFetchRegions} onClick={() => onCountriesDropdownToggle()}>
-                <div style={selectedCountry?.flag ? { backgroundImage: `url(${selectedCountry?.flag})` } : { backgroundColor: 'transparent' }} />
+                <div style={flagStyle} />
                 <span>{selectedCountry?.currency_symbol}</span>
             </div>
             <div className={`header-country-dropdown ${countriesDropdownOpen ? '' : 'hidden'}`}>
