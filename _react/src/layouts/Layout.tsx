@@ -143,7 +143,9 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
 
         if (typeof window !== undefined) {
-            window.addEventListener('scroll', onScrollProcess)
+            if (document.body.scrollHeight / window.innerHeight >= 5) {
+                window.addEventListener('scroll', onScrollProcess)
+            }
         }
 
         const timeout = setTimeout(() => {
