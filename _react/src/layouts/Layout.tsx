@@ -87,11 +87,8 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
 
     useEffect(() => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
-        const source: string | null = urlSearchParams?.get('utm_source') || null
         const subscribe: string | null = urlSearchParams?.get('subscribe') || null
         const success: string | null = urlSearchParams?.get('success') || null
-
-        const fromBloggers: boolean = source === 'leaddyno' || source === 'fb' || source === 'ig'
 
         if (subscribe === 'blackfriday') {
             setBlackFridayPopupOpen(true)
@@ -105,7 +102,6 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
             showCookiesBanner || 
             /*discountSubscriptionCookies || */
             blackFridaySubscriptionCookies || 
-            fromBloggers || 
             subscribe !== null || 
             success !== null
         ) {
