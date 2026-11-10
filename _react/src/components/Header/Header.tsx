@@ -136,7 +136,7 @@ const Header: FC<{ theme: 'dark' | 'light'; orderButton: boolean; onOrder?: () =
         setSelectedCountry(country)
         setCountriesDropdownOpen(false)
         dispatch(setCountry(country))
-    }, [dispatch, setSelectedCountry, setCountriesDropdownOpen])
+    }, [dispatch, setCountry])
 
     const headerParams = useMemo(() => ({ menu: menu as MenuItem[], orderButton, onOrder }), [menu, orderButton, onOrder])
 
