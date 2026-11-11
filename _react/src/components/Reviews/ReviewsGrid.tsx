@@ -158,25 +158,20 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
 
         const result: (number | '...')[] = [1, 2]
 
-        if (page > 4) {
-            result.push('...')
+        if (page > 4) result.push('...')
+
+        const start = Math.max(3, page - 1)
+        const end = Math.min(total - 2, page + 1)
+
+        for (let i = start; i <= end; i++) {
+            result.push(i)
         }
 
-        if (page <= 4) {
-            result.push(3, 4, 5)
-        } else if (page >= total - 3) {
-            result.push(total - 4, total - 3, total - 2)
-        } else {
-            result.push(page - 1, page, page + 1)
-        }
-
-        if (page < total - 3) {
-            result.push('...')
-        }
+        if (end < total - 2) result.push('...')
 
         result.push(total - 1, total)
 
-        return [...new Set(result)]
+        return result
     }, [pages, page])
     
     const animationConfigs = useMemo(() => macyInitialized ? items.reduce<Record<string, AnimationConfig>>((acc, { id }) => ({
