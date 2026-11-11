@@ -91,13 +91,13 @@
             @extend %absolute;
 
             &-1 {
-                @include block-desktop(225.5px, 127px);
+                @include block-desktop(2275px, 129px);
                 @include res-desktop(top, 54px);
                 @include res-desktop(left, 59px);
             }
 
             &-2 {
-                @include block-desktop(150.998px, 201px);
+                @include block-desktop(153px, 200px);
                 @include res-desktop(top, 20px);
                 @include res-desktop(left, 108.75px);
             }

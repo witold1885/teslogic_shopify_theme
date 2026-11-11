@@ -13,7 +13,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 
 interface CompatibilityBlock {
     title: ReactNode
-    options: string[]
+    options: ReactNode[]
 }
 
 const compatibilityBlocks: Record<string, CompatibilityBlock> = {
@@ -21,7 +21,7 @@ const compatibilityBlocks: Record<string, CompatibilityBlock> = {
         title: <>Boost<br />compatible with:</>,
         options: [
             'Model 3/Y Long Range Dual Motor',
-            'Model 3/Y Standard Range: Only cars with 980 motor and not LFP battery'
+            <>Model 3/Y Standard Range: Only cars <br className="desktop" />with 980 motor and not LFP battery</>
         ]
     },
     performance: {
