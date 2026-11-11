@@ -91,7 +91,7 @@
             @extend %absolute;
 
             &-1 {
-                @include block-desktop(2275px, 129px);
+                @include block-desktop(227px, 129px);
                 @include res-desktop(top, 54px);
                 @include res-desktop(left, 59px);
             }
