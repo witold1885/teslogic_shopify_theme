@@ -29,7 +29,11 @@ const BlackFridayPopups: FC<BlackFridayPopupsProps> = ({
                     open={blackFridayPopupOpen}
                     onConfirm={() => {
                         setBlackFridayPopupOpen(false)
-                        setBlackFridaySuccessOpen(true)
+                        if (typeof window !== undefined) {
+                            window.location.href = `${window.location.href.split('?')[0]}?success=blackfriday`
+                        } else {
+                            setBlackFridaySuccessOpen(true)
+                        }
                     }}
                     onClose={() => {
                         setBlackFridayPopupOpen(false)
