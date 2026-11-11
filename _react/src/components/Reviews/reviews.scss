@@ -159,6 +159,11 @@
                 color: #000 !important;
             }
 
+            &.dots {
+                cursor: default;
+                pointer-events: none;
+            }
+
             &.disabled {
                 cursor: not-allowed;
             }

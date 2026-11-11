@@ -150,6 +150,34 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
 
         return () => cancelAnimationFrame(handle)
     }, [reviews, isMobile])
+
+    const pagination = useMemo(() => {
+        const total = pages.length
+
+        if (total <= 7) return pages
+
+        const result: (number | '...')[] = [1, 2]
+
+        if (page > 4) {
+            result.push('...')
+        }
+
+        if (page <= 4) {
+            result.push(3, 4, 5)
+        } else if (page >= total - 3) {
+            result.push(total - 4, total - 3, total - 2)
+        } else {
+            result.push(page - 1, page, page + 1)
+        }
+
+        if (page < total - 3) {
+            result.push('...')
+        }
+
+        result.push(total - 1, total)
+
+        return [...new Set(result)]
+    }, [pages, page])
     
     const animationConfigs = useMemo(() => macyInitialized ? items.reduce<Record<string, AnimationConfig>>((acc, { id }) => ({
         ...acc, [`review_${id}`]: getAnimationConfig('20px', 333)
@@ -170,8 +198,14 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
                         <div className={`reviews-pagination-item ${page === 1 ? 'disabled' : ''}`} onClick={() => handlePageChange(page - 1)}>
                             <Icon className="reviews-pagination-nav" icon={page === 1 ? chevronInactiveLeft : chevronActiveLeft} />
                         </div>
-                        {pages.map(num => (
-                            <div className={`reviews-pagination-item ${num === page ? 'active' : ''}`} key={num} onClick={() => handlePageChange(num)}>{num}</div>
+                        {pagination.map((num, index) => (
+                            <div
+                                className={`reviews-pagination-item ${num === page ? 'active' : ''} ${num === '...' ? 'dots' : ''}`}
+                                key={`${num}-${index}`}
+                                onClick={() => typeof num === 'number' && handlePageChange(num)}
+                            >
+                                {num}
+                            </div>
                         ))}
                         <div className={`reviews-pagination-item ${page === pages.length ? 'disabled' : ''}`} onClick={() => handlePageChange(page + 1)}>
                             <Icon className="reviews-pagination-nav" icon={page === pages.length ? chevronInactiveRight : chevronActiveRight} />
