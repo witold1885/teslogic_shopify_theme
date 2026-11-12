@@ -69,7 +69,10 @@ const BlackFridayPopup: FC<BlackFridayPopupProps> = ({ open, onConfirm = () => {
         
     useEffect(() => {
         if (apiError) {
-            setErrors(prev => ({ ...prev, email: 'An error occurred, try again' }))
+            setErrors(prev => ({ ...prev, email: apiError === 'email_exists' 
+                ? 'This email is already registered' 
+                : 'An error occurred, try again'
+            }))
         }
     }, [apiError])
     
