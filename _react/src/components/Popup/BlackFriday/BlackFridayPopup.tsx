@@ -64,7 +64,11 @@ const BlackFridayPopup: FC<BlackFridayPopupProps> = ({ open, onConfirm = () => {
         if (vipSubscribed) {
             setSubscriptionCookie('bf26_vip_subscription', 1)
             if (typeof window !== 'undefined') {
-                window.ShopifyAnalytics?.publish('BFVIPSignup').catch(console.error)
+                try {
+                    window.ShopifyAnalytics?.publish('BFVIPSignup')
+                } catch(e: any) {
+                    console.error(e.toString())
+                }
             }
             wrap?.current?.close(() => onConfirm())
         }
