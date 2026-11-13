@@ -196,7 +196,7 @@
                     &-message {
                         @extend %absolute, %font-manrope-14;
                         left: 0;
-                        @include responsive(bottom, -18px);
+                        @include responsive(top, -22px);
                         color: #FC3E30;
                     }
                 }

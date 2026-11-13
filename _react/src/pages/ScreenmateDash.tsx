@@ -1,7 +1,9 @@
 import { useState, type ComponentType, type FC } from 'react'
+import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
+import { getPreloadImages } from '../utils/preload.ts'
 import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
@@ -10,6 +12,24 @@ import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBan
 
 import bannerDesktopBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/screenmate-dash/screenmate_dash_banner_mobile.png'
+
+const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
+const screenImages: Record<string, any> = Object.entries(screenImageModules).reduce((acc, [key, mod]) => ({
+    ...acc,
+    [key.replace('/src/assets/images/screenmate-dash/screens/screens/', '').replace('.png', '')]: mod.default
+}), {})
+const deviceImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/devices/devices_supporting-*.png', { eager: true })
+const deviceImages: Record<string, any> = Object.entries(deviceImageModules).reduce((acc, [key, mod]) => ({
+    ...acc,
+    [key.replace('/src/assets/images/screenmate-dash/devices/devices_supporting-', '').replace('.png', '')]: mod.default
+}), {})
+const shortcutImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/shortcuts/shortcuts-*.png', { eager: true })
+const shortcutImages: Record<string, any> = Object.entries(shortcutImageModules).reduce((acc, [key, mod]) => ({
+    ...acc,
+    [key.replace('/src/assets/images/screenmate-dash/shortcuts/shortcuts-', '').replace('.png', '')]: mod.default
+}), {})
+
+const preloadImages = getPreloadImages(screenImages, deviceImages, shortcutImages)
 
 const sectionHeights: Record<string, SectionHeight> = {
     Using: { desktop: 748, mobile: 1698 },
@@ -22,15 +42,30 @@ const sectionHeights: Record<string, SectionHeight> = {
     Order: { desktop: 976, mobile: 970 }
 }
 
-const sections: Record<string, ComponentType<any>> = ['Screens', 'DevicesSupporting', 'Significant', 'Shortcuts', 'Box', 'Bloggers'].reduce((acc, slug) => {
-  acc[slug] = getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`))
+const sections: Record<string, { component: ComponentType<any>, params: any }> = Object.entries({
+    'Screens': { screenImages },
+    'DevicesSupporting': { images: deviceImages },
+    'Significant': {},
+    'Shortcuts': { images: shortcutImages},
+    'Box': {},
+    'Bloggers': {}
+}).reduce((acc, [slug, params]) => {
+  acc[slug] = { component: getComponent(() => import(`../components/ScreenmateDash/ScreenmateDash${slug}.tsx`)), params }
   return acc
-}, {} as Record<string, ComponentType<any>>)
+}, {} as Record<string, { component: ComponentType<any>, params: any }>)
 
 const ScreenmateDashUsing = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashUsing.tsx'))
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
 const ScreenmateDash: FC = () => {
+    if (typeof window !== 'undefined') {
+        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+            as: 'image', 
+            fetchPriority,
+            ...(media && { media })
+        }))
+    }
+
     const { getMinHeight } = useMinHeights(sectionHeights)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
@@ -49,9 +84,9 @@ const ScreenmateDash: FC = () => {
             <LazySection id="using" minHeight={getMinHeight('Using')} forceRender={forceRender.using} rootMargin="-10px">
                 <ScreenmateDashUsing />
             </LazySection>
-            {Object.entries(sections).map(([slug, Component]) => (
+            {Object.entries(sections).map(([slug, { component: Component, params }]) => (
                 <LazySection key={slug} minHeight={getMinHeight(slug)}>
-                    <Component />
+                    <Component {...params} />
                 </LazySection>
             ))}
             <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>

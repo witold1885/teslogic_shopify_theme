@@ -1,5 +1,6 @@
 import { useState, useRef, type ComponentType, type FC } from 'react'
 import { preload } from 'react-dom'
+import type { PreloadImage, PreloadVideo } from './types.ts'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
@@ -35,19 +36,6 @@ import {
     connectConsolesMobile
 } from '../assets/videos/screenmate-one'
 
-interface PreloadContent {
-    fetchPriority?: "high" | "low" | "auto"
-    media?: string
-}
-
-interface PreloadImage extends PreloadContent {
-    image: string
-}
-
-interface PreloadVideo extends PreloadContent {
-    video: string
-}
-
 const preloadImages: PreloadImage[] = [
     { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
     { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
@@ -74,7 +62,6 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const slugs: string[] = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation']
 const sectionHeights: Record<string, SectionHeight> = {
     Features: { desktop: 1186, mobile: 502 },
     Setup: { desktop: 1003, mobile: 655 },
@@ -89,7 +76,7 @@ const sectionHeights: Record<string, SectionHeight> = {
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
 }
-const sections: Record<string, ComponentType<any>> = slugs.reduce((acc, slug) => {
+const sections: Record<string, ComponentType<any>> = ['Setup', 'Interfaces', 'Convenience', 'Experience', 'Dash', 'Specifications', 'Complectation'].reduce((acc, slug) => {
   acc[slug] = getComponent(() => import(`../components/ScreenmateOne/ScreenmateOne${slug}.tsx`))
   return acc
 }, {} as Record<string, ComponentType<any>>)

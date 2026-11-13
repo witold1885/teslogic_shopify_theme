@@ -11,15 +11,15 @@ const nounIcons: Record<string, any> = Object.entries(nounIconModules).reduce((a
     [key.replace('/src/assets/icons/screenmate-dash/devices/noun-', '').replace('.svg', '')]: mod.default
 }), {})
 
-const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/devices/devices_supporting-*.png', { eager: true })
-const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [key, mod]) => ({
-    ...acc,
-    [key.replace('/src/assets/images/screenmate-dash/devices/devices_supporting-', '').replace('.png', '')]: mod.default
-}), {})
+// const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/devices/devices_supporting-*.png', { eager: true })
+// const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [key, mod]) => ({
+//     ...acc,
+//     [key.replace('/src/assets/images/screenmate-dash/devices/devices_supporting-', '').replace('.png', '')]: mod.default
+// }), {})
 
 type Device = 'iphone' | 'ipad'
 
-const ScreenmateDashDevicesSupporting: FC = () => {
+const ScreenmateDashDevicesSupporting: FC<{ images: Record<string, any> }> = ({ images }) => {
     const { isMobile } = useInlineStyles()
 
     const mode = useMemo(() => !isMobile ? 'desktop' : 'mobile', [isMobile])

@@ -16,11 +16,11 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 	tab: { yFrom: '20px', duration: 333 },
 }
 
-const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
-const screenImages: Record<string, any> = Object.entries(screenImageModules).reduce((acc, [key, mod]) => ({
-    ...acc,
-    [key.replace('/src/assets/images/screenmate-dash/screens/screens/', '').replace('.png', '')]: mod.default
-}), {})
+// const screenImageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/screens/screens/*.png', { eager: true })
+// const screenImages: Record<string, any> = Object.entries(screenImageModules).reduce((acc, [key, mod]) => ({
+//     ...acc,
+//     [key.replace('/src/assets/images/screenmate-dash/screens/screens/', '').replace('.png', '')]: mod.default
+// }), {})
 
 const pointerLineModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-dash/screens/pointer-*.svg', { eager: true })
 const pointerLines: Record<string, any> = Object.entries(pointerLineModules).reduce((acc, [key, mod]) => ({
@@ -180,7 +180,7 @@ const ScreenDots = forwardRef<HTMLDivElement, ScreenDotsProps>(({ dots, theme },
 	</div>
 ))
 
-const ScreenmateDashScreens: FC = () => {
+const ScreenmateDashScreens: FC<{ screenImages: Record<string, any> }> = ({ screenImages }) => {
     const { isMobile } = useInlineStyles()
 
     const [theme, setTheme] = useState<Theme>('light')
@@ -215,7 +215,7 @@ const ScreenmateDashScreens: FC = () => {
 			})
 		}
 		return acc
-	}, {}), [theme, mode])
+	}, {}), [screenImages, theme, mode])
 
 	const animationConfigs = useMemo(() => mapSimpleConfigs({
 		...animatedObjects,

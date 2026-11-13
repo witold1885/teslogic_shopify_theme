@@ -18,11 +18,11 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     item: { yFrom: '20px', duration: 333 },
 }
 
-const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/shortcuts/shortcuts-*.png', { eager: true })
-const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [key, mod]) => ({
-    ...acc,
-    [key.replace('/src/assets/images/screenmate-dash/shortcuts/shortcuts-', '').replace('.png', '')]: mod.default
-}), {})
+// const imageModules: Record<string, any> = import.meta.glob('@/assets/images/screenmate-dash/shortcuts/shortcuts-*.png', { eager: true })
+// const images: Record<string, any> = Object.entries(imageModules).reduce((acc, [key, mod]) => ({
+//     ...acc,
+//     [key.replace('/src/assets/images/screenmate-dash/shortcuts/shortcuts-', '').replace('.png', '')]: mod.default
+// }), {})
 
 const iconModules: Record<string, any> = import.meta.glob('@/assets/icons/screenmate-dash/shortcuts/shortcuts-*.svg', { eager: true })
 const icons: Record<string, any> = Object.entries(iconModules).reduce((acc, [key, mod]) => ({
@@ -32,7 +32,7 @@ const icons: Record<string, any> = Object.entries(iconModules).reduce((acc, [key
 
 const blogs: string[] = ['performance-driv-ing-modes', 'safety-stability-features', 'convenien-ce-comfort', 'autopilot-tweaks-beta']
 
-const ScreenmateDashShortcuts: FC = () => {
+const ScreenmateDashShortcuts: FC<{ images: Record<string, any> }> = ({ images }) => {
     const { isMobile } = useInlineStyles()
 
     const { features } = useAppSelector(fetchContent)
