@@ -1,8 +1,10 @@
 import { useState, type ComponentType, type FC, useRef } from 'react'
+import { preload } from 'react-dom'
 import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/types.ts'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
+import { getPreloadImages } from '../utils/preload.ts'
 import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
@@ -11,6 +13,16 @@ import PowermateBanner from '../components/Powermate/PowermateBanner'
 
 import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
+import comparisonBackground from '../assets/images/powermate/comparison/pro_comparison_bg.png'
+
+const modelImageModules: Record<string, any> = import.meta.glob('@/assets/images/powermate/examples/pro-model-*.svg', { eager: true })
+const modelImages: Record<string, any> = Object.entries(modelImageModules).reduce((acc, [key, mod]) => ({
+    ...acc,
+    [key.replace('/src/assets/images/powermate/examples/pro-model-', '').replace('.svg', '')]: mod.default
+}), {})
+
+const preloadImages = getPreloadImages(modelImages)
+preloadImages.push({ image: comparisonBackground, fetchPriority: 'low' })
 
 const sectionHeights: Record<string, SectionHeight> = {
     Experience: { desktop: 970, mobile: 1516 },
@@ -34,6 +46,14 @@ const PowermateInfo = getComponent(() => import('../components/Powermate/Powerma
 const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
 
 const Powermate: FC = () => {
+    if (typeof window !== 'undefined') {
+        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
+            as: 'image', 
+            fetchPriority,
+            ...(media && { media })
+        }))
+    }
+
     const { getMinHeight } = useMinHeights(sectionHeights)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
