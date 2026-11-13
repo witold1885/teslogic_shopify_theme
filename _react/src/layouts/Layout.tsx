@@ -185,7 +185,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                 }} onProceed={handleProceed} />
             </LazySection>
         )}
-        {BlackFridayPopups && (
+        {BlackFridayPopups && (blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen) && (
             <LazySection minHeight="0px" forceRender={true}>
                 <BlackFridayPopups {...{
                     blackFridayBannerOpen, setBlackFridayBannerOpen, 
