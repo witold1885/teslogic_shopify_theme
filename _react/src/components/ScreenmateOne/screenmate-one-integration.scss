@@ -72,7 +72,7 @@
                     }
 
                     & img {
-                        @extend %h-full;
+                        object-position: top left !important;
                     }
                 }
 
