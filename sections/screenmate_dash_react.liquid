@@ -58,7 +58,10 @@
       main_menu: {{ main_menu }},
       footer_menu: [],
       features: {{ features }},
-      videos: videos.map(({ body_html, summary_html }) => ({ url: body_html.trim(), html: summary_html }))
+      videos: videos.map(({ body_html, summary_html }) => {
+        const [url, image] = body_html.trim().split('\n')
+        return { url, image, html: summary_html }
+      })
     },
     cart: {{ cart }},
     product: {{ product }},
