@@ -59,8 +59,8 @@
       footer_menu: [],
       features: {{ features }},
       videos: videos.map(({ body_html, summary_html }) => {
+        console.log({ body_html: body_html.replaceAll('\n', '').trim() })
         const data = JSON.parse(body_html.replaceAll('\n', '').trim())
-        console.log({ body_html, data })
         return { ...data, html: summary_html }
       })
     },
