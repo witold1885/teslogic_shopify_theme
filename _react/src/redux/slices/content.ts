@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { Country, Region, RegionsResponse, Video, VideoItem } from '../../types/shopify'
-import { parseChannelSnippet, parseVideoInfos } from '../yt'
+import type { Country, Region, RegionsResponse } from '../../types/shopify'
 import { initialState } from '../states/content'
 
 export const getRegions = createAsyncThunk(
@@ -43,38 +42,6 @@ export const setCountry = createAsyncThunk(
     }
 )
 
-export const parseYoutubeVideos = createAsyncThunk(
-    'content/parseYoutubeVideos',
-    async (data: Video[], { rejectWithValue }) => {
-        try {
-            const result = []
-
-            const { infos, stored } = await parseVideoInfos(data)
-
-            const videoInfoArray = []
-
-            for (const videoInfo of infos) {
-                const { id, snippet } = videoInfo
-                const videoDataItem = data.find(item => item.id == id)
-                if (videoDataItem) {
-                    const { url, html } = videoDataItem
-                    const channelSnippet = videoInfo.channelSnippet || await parseChannelSnippet(snippet.channelId)
-                    videoInfoArray.push({ id, snippet, channelSnippet })
-                    result.push({ id, url, snippet, channelSnippet, html })
-                }
-            }
-
-            if (!stored && videoInfoArray.length !== 0) {
-                localStorage?.setItem('videoInfos', JSON.stringify(videoInfoArray))
-            }
-
-            return result
-        } catch (err: any) {
-            return rejectWithValue('Network error')
-        }
-    }
-)
-
 export const contentSlice = createSlice({
     name: 'content',
     initialState,
@@ -97,15 +64,6 @@ export const contentSlice = createSlice({
                 state.country = action.payload
             })
             .addCase(setCountry.rejected, (state, action) => {
-                state.error = action.payload as string
-            })
-            .addCase(parseYoutubeVideos.pending, (state) => {
-                state.error = null
-            })
-            .addCase(parseYoutubeVideos.fulfilled, (state, action: PayloadAction<VideoItem[]>) => {
-                state.videoItems = action.payload
-            })
-            .addCase(parseYoutubeVideos.rejected, (state, action) => {
                 state.error = action.payload as string
             })
     }

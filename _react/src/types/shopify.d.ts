@@ -51,14 +51,6 @@ interface Video {
     html: string
 }
 
-interface VideoItem {
-    id: string
-    url: string
-    snippet: any
-    channelSnippet: any
-    html: string
-}
-
 declare global {
     interface Window {
         ShopifyReactData?: {

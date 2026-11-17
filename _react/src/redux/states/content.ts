@@ -1,4 +1,4 @@
-import type { Country, MenuItem, Blog, Region, Video, VideoItem } from '../../types/shopify'
+import type { Country, MenuItem, Blog, Region, Video } from '../../types/shopify'
 
 export interface ContentState {
     country?: Country | null
@@ -7,7 +7,6 @@ export interface ContentState {
     footer_menu?: MenuItem[]
     features?: Record<string, Blog>
     videos?: Video[]
-    videoItems?: VideoItem[]
     loading: boolean
     error?: string|null
 }
@@ -19,7 +18,6 @@ export const initialState: ContentState = {
     footer_menu: [],
     features: {},
     videos: [],
-    videoItems: [],
     loading: false,
     error: null
 }

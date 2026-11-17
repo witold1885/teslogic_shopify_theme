@@ -1,7 +1,6 @@
 import { useMemo, type FC } from 'react'
 import './screenmate-dash-bloggers.scss'
 import { useAppSelector } from '../../redux/hooks'
-// import { getVideoId } from '../../redux/yt'
 import { fetchContent } from '../../redux/selectors/content'
 import Icon from '../Common/Icon'
 import Image from '../Common/Image'
@@ -10,8 +9,6 @@ import ytPlayIcon from '../../assets/icons/yt-play.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-// import { useDynamicSlice } from '../../hooks/dynamic-slice'
-// import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -21,20 +18,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ScreenmateDashBloggers: FC = () => {
     const { isMobile } = useInlineStyles()
 
-    // const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))
-    const { videos/*, videoItems: items*/ } = useAppSelector(fetchContent)
-
-    // const data = useMemo(() => videos?.map(({ url, html }) => ({
-    //     id: getVideoId(url), url, html
-    // })).filter(({ id }) => !!id) || [], [videos])
-    
-    // const lazyParams = useMemo(() => ({
-    //     condition: data.length !== 0,
-    //     action: parseYoutubeVideos ? () => parseYoutubeVideos(data) : () => {},
-    //     selector: '.bloggers_block'
-    // }), [data, parseYoutubeVideos])
-    
-    // useLazyData(lazyParams)
+    const { videos } = useAppSelector(fetchContent)
     
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
