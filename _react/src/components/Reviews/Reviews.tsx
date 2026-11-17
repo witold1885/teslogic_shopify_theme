@@ -41,14 +41,16 @@ const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     
     useLazyData(lazyParams)
 
+    const currentProduct = useMemo(() => product || products?.[0] || null, [product, products])
+
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
             <div className="container">
                 <div>
-                    <ReviewsTop {...{product, totalCount, avgRating}} />
+                    <ReviewsTop product={currentProduct} {...{totalCount, avgRating}} />
                     <ReviewsGrid {...{reviews, totalCount}} />
                 </div>
-                <ReviewsForm {...{product}} />
+                <ReviewsForm product={currentProduct} />
             </div>
         </div>
     )

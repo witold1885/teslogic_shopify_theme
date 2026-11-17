@@ -33,7 +33,7 @@ const ReviewsTop: FC<{ product?: Product | null; totalCount: number; avgRating: 
             </div>
             <div>
                 <h2 {...anime('title')} className="reviews-title">
-                    What {product?.title} Customers Say
+                    What {product?.title} <br />Customers Say
                 </h2>
                 <div {...anime('summary')} className="reviews-summary">
                     {isMobile && <Icon className="reviews-star-big" icon={starIcon} />}

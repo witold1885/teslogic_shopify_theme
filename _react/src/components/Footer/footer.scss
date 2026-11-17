@@ -40,7 +40,7 @@
         }
 
         &-fields {
-            @extend %flex-column, %gap-32;
+            @extend %flex-column, %gap-12;
         }
 
         &-field {

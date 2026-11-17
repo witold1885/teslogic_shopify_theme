@@ -154,22 +154,22 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
     const pagination = useMemo(() => {
         const total = pages.length
 
-        if (total <= 7) return pages
+        if (total <= 5) return pages
 
-        const result: (number | '...')[] = [1, 2]
+        const result: (number | '...')[] = [1]
 
-        if (page > 4) result.push('...')
+        if (page > 3) result.push('...')
 
-        const start = Math.max(3, page - 1)
-        const end = Math.min(total - 2, page + 1)
+        const start = Math.max(2, page - 1)
+        const end = Math.min(total - 1, page + 1)
 
         for (let i = start; i <= end; i++) {
             result.push(i)
         }
 
-        if (end < total - 2) result.push('...')
+        if (end < total - 1) result.push('...')
 
-        result.push(total - 1, total)
+        result.push(total)
 
         return result
     }, [pages, page])
