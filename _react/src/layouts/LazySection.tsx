@@ -4,18 +4,19 @@ import { useInView } from 'react-intersection-observer'
 interface LazySectionProps {
     id?: string | null
     minHeight?: string
+    background?: string
     rootMargin?: string
     forceRender?: boolean
     children: ReactNode
 }
 
-const LazySection: FC<LazySectionProps> = ({ id = null, minHeight = '405px', rootMargin = '202.5px', forceRender = false, children }) => {
+const LazySection: FC<LazySectionProps> = ({ id = null, minHeight = '405px', background, rootMargin = '202.5px', forceRender = false, children }) => {
     const { ref, inView } = useInView({ triggerOnce: true, rootMargin })
 
     if (import.meta.env.SSR) return <>{children}</>
 
     return (
-        <div ref={ref} {...(id ? { id } : {})} style={{ minHeight }}>
+        <div ref={ref} {...(id ? { id } : {})} style={{ minHeight, ...(background ? { background } : {}) }}>
             {(inView || forceRender) ? (
                 <Suspense fallback={null}>{children}</Suspense>
             ) : null}

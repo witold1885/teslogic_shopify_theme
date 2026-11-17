@@ -5,7 +5,7 @@ import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
 import { getPreloadImages } from '../utils/preload.ts'
-import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
+import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -28,14 +28,14 @@ preloadImages.push({ image: bothBackground, fetchPriority: 'low' })
 preloadImages.push({ image: bothImage, fetchPriority: 'low' })
 preloadImages.push({ image: comparisonBackground, fetchPriority: 'low' })
 
-const sectionHeights: Record<string, SectionHeight> = {
-    Experience: { desktop: 970, mobile: 1516 },
-    Using: { desktop: 774, mobile: 1702 },
-    Examples: { desktop: 1048, mobile: 1232.5 },
+const preSections: Record<string, PreSection> = {
+    Experience: { desktop: 970, mobile: 1516, background: '#0a0a0a' },
+    Using: { desktop: 774, mobile: 1702, background: '#101010' },
+    Examples: { desktop: 1048, mobile: 1232.5, background: 'linear-gradient(#171717 0%, #2d2d2d 100%)' },
     Comparison: { desktop: 1268, mobile: 1094 },
-    Compatibility: { desktop: 1002, mobile: 1462 },
-    Order: { desktop: 1249, mobile: 1574 },
-    Info: { desktop: 852, mobile: 836 },
+    Compatibility: { desktop: 1002, mobile: 1462, background: 'linear-gradient(#2d2d2d 0%, #181818 33.25%, #171717 54.93%)' },
+    Order: { desktop: 1249, mobile: 1574, background: '#020202' },
+    Info: { desktop: 852, mobile: 836, background: '#121212' },
 }
 
 const sections: Record<string, ComponentType<any>> = ['Using', 'Examples', 'Comparison'].reduce((acc, slug) => {
@@ -58,7 +58,7 @@ const Powermate: FC = () => {
         }))
     }
 
-    const { getMinHeight } = useMinHeights(sectionHeights)
+    const { getPreSectionStyle } = usePreSections(preSections)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
     
@@ -120,21 +120,21 @@ const Powermate: FC = () => {
         )}
         <ProductLayout className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktopBackground, bannerMobileBackground}} onOrder={onOrder} />
-            <LazySection minHeight={getMinHeight('Experience')} rootMargin="-10px">
+            <LazySection {...getPreSectionStyle('Experience')} rootMargin="-10px">
                 <PowermateExperience />
             </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
-                <LazySection key={slug} minHeight={getMinHeight(slug)}>
+                <LazySection key={slug} {...getPreSectionStyle(slug)}>
                     <Component />
                 </LazySection>
             ))}
-            <LazySection minHeight={getMinHeight('Compatibility')}>
+            <LazySection {...getPreSectionStyle('Compatibility')}>
                 <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
             </LazySection>
-            <LazySection id="shop-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
+            <LazySection id="shop-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
                 <PowermateOrder onCompatibilityWarning={handleWarning} />
             </LazySection>
-            <LazySection minHeight={getMinHeight('Info')}>
+            <LazySection {...getPreSectionStyle('Info')}>
                 <PowermateInfo />
             </LazySection>
         </ProductLayout>

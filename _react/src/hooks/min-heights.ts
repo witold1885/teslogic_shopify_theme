@@ -1,7 +1,7 @@
 import { useMemo, useCallback } from 'react'
 import { useInlineStyles } from './inline-styles'
 
-export type SectionHeight = { desktop: number; mobile: number }
+export type SectionHeight = { desktop: number; mobile: number; background?: string }
 
 export const useMinHeights = (sectionHeights: Record<string, SectionHeight>) => {
     const { isMobile } = useInlineStyles()
