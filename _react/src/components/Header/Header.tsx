@@ -62,7 +62,10 @@ const HeaderComponent: FC<HeaderComponentProps> = ({
                 />
             </a>
             <div className="header-nav">
-                <HeaderMenuDesktop {...{theme, menu, orderButton, onOrder}} />
+                <HeaderMenuDesktop
+                    theme={theme === 'light' && position === 'absolute' ? 'light' : 'dark'}
+                    {...{menu, orderButton, onOrder}}
+                />
                 <HeaderCountrySelector
                     ref={countriesDropdownRef}
                     {...{countriesDropdownOpen, onCountriesDropdownToggle, regionsOpen, onRegionToggle, selectedCountry, onCountrySelect}}
