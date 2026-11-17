@@ -29,10 +29,13 @@
 
     {% if page.handle == 'screenmate-dash-react' %}
       {%- render 'preload-screenmate-dash' -%}
+      {%- render 'preload-product', product: all_products['screenmate-dash-kit'] -%}
     {% endif %}
 
     {% if page.handle == 'powermate-react' %}
       {%- render 'preload-powermate' -%}
+      {%- render 'preload-product', product: all_products['powermate-boost-kit'] -%}
+      {%- render 'preload-product', product: all_products['powermate-performance-kit'] -%}
     {% endif %}
 
     {% if page.handle == 'installers' %}
