@@ -69,16 +69,18 @@ const InstallersList: FC = () => {
                         </div>
                     ))}
                 </div>
-            </div>  
-            <div className={`installers-list-items ${items.length === 0 ? 'empty' : ''} animate animate-small`}>
+            </div>
+            <div className="animate animate-small">
                 {items.length !== 0 ? (
                     <LazySection rootMargin='0px'>
-                        {items.map((item, index) => (
-                            <InstallerItem {...item} key={index} />
-                        ))}
+                        <div className="installers-list-items">
+                            {items.map((item, index) => <InstallerItem {...item} key={index} />)}
+                        </div>
                     </LazySection>
                 ) : (
-                    <div className="installers-list-item">No Installers Found</div>
+                    <div className="installers-list-items empty">
+                        <div className="installers-list-item">No Installers Found</div>
+                    </div>
                 )}
             </div>
         </div>
