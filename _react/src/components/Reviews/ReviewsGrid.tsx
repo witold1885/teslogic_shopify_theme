@@ -116,7 +116,7 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
             const timer = setTimeout(() => {
                 macyInstance?.current?.recalculate(true)
                 setMacyInitialized(true)
-            }, 50)
+            }, 250)
 
             return () => clearTimeout(timer)
         }
