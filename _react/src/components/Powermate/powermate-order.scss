@@ -62,8 +62,9 @@
 	}
 
     &-product {
-        @extend %flex-column-between;
-        @include block-desktop(526px, 576px);
+        @extend %flex-column-between, %gap-24;
+        @include res-desktop(width, 526px);
+        height: auto;
 		@include res-desktop(border-radius, 40px);
 		background: #171717;
 		background-size: cover;
@@ -72,7 +73,7 @@
 		backdrop-filter: blur(6px);
 
         @include mobile() {
-            @include block-mobile(350px, 557);
+            @include res-mobile(width, 350px);
 		    @include res-mobile(border-radius, 24px);
         }
 
@@ -149,7 +150,7 @@
                 }
 
                 &-details {
-                    @extend %flex-column, %gap-8;
+                    @extend %flex-column, %gap-4;
                     @include responsive(width, 302px);
 
                     &-item {
@@ -172,7 +173,7 @@
 
                         &-subtext {
                             @extend %font-manrope, %font-500;
-                            @include responsive(margin-top, -8px);
+                            @include responsive(margin-top, -4px);
                             @include text(12px, 20px);
                             font-feature-settings: 'liga' off, 'clig' off;
                             color: #666;
