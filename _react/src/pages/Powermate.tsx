@@ -13,6 +13,8 @@ import PowermateBanner from '../components/Powermate/PowermateBanner'
 
 import bannerDesktopBackground from '../assets/images/powermate/powermate_banner_desktop.png'
 import bannerMobileBackground from '../assets/images/powermate/powermate_banner_mobile.png'
+import bothBackground from '../assets/images/powermate/experience/pro-experience-both-bg.png'
+import bothImage from '../assets/images/powermate/experience/pro-experience-both-image-desktop.png'
 import comparisonBackground from '../assets/images/powermate/comparison/pro_comparison_bg.png'
 
 const modelImageModules: Record<string, any> = import.meta.glob('@/assets/images/powermate/examples/pro-model-*.svg', { eager: true })
@@ -22,6 +24,8 @@ const modelImages: Record<string, any> = Object.entries(modelImageModules).reduc
 }), {})
 
 const preloadImages = getPreloadImages(modelImages)
+preloadImages.push({ image: bothBackground, fetchPriority: 'low' })
+preloadImages.push({ image: bothImage, fetchPriority: 'low' })
 preloadImages.push({ image: comparisonBackground, fetchPriority: 'low' })
 
 const sectionHeights: Record<string, SectionHeight> = {
