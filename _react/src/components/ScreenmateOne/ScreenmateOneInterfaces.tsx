@@ -39,7 +39,7 @@ const getBlocks = (isMobile: boolean) => {
     return {
         'familiar-interfaces': {
             heading: <>Familiar Interfaces,<br />Seamlessly Integrated</>,
-            title: <>CarPlay & Android&nbsp;Auto for Tesla</>,
+            title: <>CarPlay & Android&nbsp;Auto <br />for Tesla</>,
             text: <>
                 Quick access to the apps you rely on.<br />
                 Connect once and enjoy a familiar<br />

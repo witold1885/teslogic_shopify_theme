@@ -88,6 +88,7 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
     const absoluteImageStyle = responsive({
         width: !isMobile ? '385px' : '312px',
         height: !isMobile ? '286px' : '220px',
+        borderRadius: '12px',
         position: 'absolute',
         bottom: 0
     } as CSSProperties)
