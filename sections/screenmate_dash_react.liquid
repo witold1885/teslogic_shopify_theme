@@ -59,8 +59,8 @@
       footer_menu: [],
       features: {{ features }},
       videos: videos.map(({ body_html, summary_html }) => {
-        const [url, image] = body_html.trim().split('\n')
-        return { url, image, html: summary_html }
+        const data = JSON.parse(body_html.trim())
+        return { ...data, html: summary_html }
       })
     },
     cart: {{ cart }},

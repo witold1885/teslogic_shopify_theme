@@ -44,8 +44,10 @@ interface Feature {
 
 interface Video {
     id?: string | null
-    url: string
-    image?: string
+    videoUrl: string
+    videoCover: string
+    channelTitle: string
+    channelImage: string
     html: string
 }
 
