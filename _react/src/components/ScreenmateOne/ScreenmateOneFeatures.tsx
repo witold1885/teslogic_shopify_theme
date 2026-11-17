@@ -89,6 +89,7 @@ const ScreenmateOneFeatures = forwardRef<HTMLDivElement, { scrollTo: (anchor: st
         width: !isMobile ? '385px' : '312px',
         height: !isMobile ? '286px' : '220px',
         borderRadius: '12px',
+        overflow: 'hidden',
         position: 'absolute',
         bottom: 0
     } as CSSProperties)

@@ -44,7 +44,7 @@ const HeaderMenuDesktop: FC<HeaderMenuProps> = ({
                                 {index === 0 && <span className="header-menu-item-new">NEW</span>}
                             </span>
                             <div className="header-menu-item-chevron">
-                                <Icon svg={<ChevronDownIcon color="#FFF" />} />
+                                <Icon svg={<ChevronDownIcon color={theme === 'dark' ? '#FFF' : '#000'} />} />
                             </div>
                             {children?.length !== 0 && (
                                 <ul
