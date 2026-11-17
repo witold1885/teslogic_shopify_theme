@@ -1,17 +1,17 @@
 import { useMemo, type FC } from 'react'
 import './screenmate-dash-bloggers.scss'
 import { useAppSelector } from '../../redux/hooks'
-import { getVideoId } from '../../redux/yt'
+// import { getVideoId } from '../../redux/yt'
 import { fetchContent } from '../../redux/selectors/content'
 import Icon from '../Common/Icon'
-import Image from '../Common/Image'
+// import Image from '../Common/Image'
 import TrackSlider from '../Common/TrackSlider'
 import ytPlayIcon from '../../assets/icons/yt-play.svg'
 
 import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
-import { useDynamicSlice } from '../../hooks/dynamic-slice'
-import { useLazyData } from '../../hooks/lazy-data'
+// import { useDynamicSlice } from '../../hooks/dynamic-slice'
+// import { useLazyData } from '../../hooks/lazy-data'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -21,20 +21,20 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 const ScreenmateDashBloggers: FC = () => {
     const { isMobile } = useInlineStyles()
 
-    const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))
-    const { videos, videoItems: items } = useAppSelector(fetchContent)
+    // const { parseYoutubeVideos } = useDynamicSlice('content', () => import('../../redux/slices/content'))
+    const { videos/*, videoItems: items*/ } = useAppSelector(fetchContent)
 
-    const data = useMemo(() => videos?.map(({ url, html }) => ({
-        id: getVideoId(url), url, html
-    })).filter(({ id }) => !!id) || [], [videos])
+    // const data = useMemo(() => videos?.map(({ url, html }) => ({
+    //     id: getVideoId(url), url, html
+    // })).filter(({ id }) => !!id) || [], [videos])
     
-    const lazyParams = useMemo(() => ({
-        condition: data.length !== 0,
-        action: parseYoutubeVideos ? () => parseYoutubeVideos(data) : () => {},
-        selector: '.bloggers_block'
-    }), [data, parseYoutubeVideos])
+    // const lazyParams = useMemo(() => ({
+    //     condition: data.length !== 0,
+    //     action: parseYoutubeVideos ? () => parseYoutubeVideos(data) : () => {},
+    //     selector: '.bloggers_block'
+    // }), [data, parseYoutubeVideos])
     
-    useLazyData(lazyParams)
+    // useLazyData(lazyParams)
     
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
 
@@ -49,28 +49,28 @@ const ScreenmateDashBloggers: FC = () => {
                 <div {...anime('subtitle')} className="bloggers_block__subtitle">
                     Watch video reviews from popular influencers
                 </div>
-                {items && items.length !== 0 && (
+                {videos && videos.length !== 0 && (
                     <TrackSlider
-                        key={`bloggers-slider-${items.length}`}
+                        key={`bloggers-slider-${videos.length}`}
                         className="bloggers_block__list"
-                        items={items.map((item, index) => (
+                        items={videos.map(({ url, image, html }, index) => (
                             <div className="bloggers_block__list-item" key={index}>
                                 <a
-                                    href={item.url}
+                                    href={url}
                                     target="_blank"
                                     className="bloggers_block__list-item-thumbnail"
-                                    style={{ backgroundImage: `url(${item.snippet.thumbnails.high.url})` }}
+                                    style={{ backgroundImage: `url(${image})` }}
                                     draggable="false"
                                 >
                                     <Icon className="bloggers_block__list-item-thumbnail-yt-icon" icon={ytPlayIcon} />
                                 </a>
                                 <div className="bloggers_block__list-item-channel">
                                     <div className="bloggers_block__list-item-channel-top">
-                                        <Image className="bloggers_block__list-item-channel-thumbnail" src={item.channelSnippet.thumbnails.default.url} />
-                                        <span className="bloggers_block__list-item-channel-title">{item.channelSnippet.title}: </span>
+                                        {/* <Image className="bloggers_block__list-item-channel-thumbnail" src={item.channelSnippet.thumbnails.default.url} /> */}
+                                        {/* <span className="bloggers_block__list-item-channel-title">{item.channelSnippet.title}: </span> */}
                                     </div>
                                     <div className="bloggers_block__list-item-channel-info">						
-                                        <span className="bloggers_block__list-item-channel-excerpt">“{item.html}”</span>
+                                        <span className="bloggers_block__list-item-channel-excerpt">“{html}”</span>
                                     </div>
                                 </div>
                             </div>

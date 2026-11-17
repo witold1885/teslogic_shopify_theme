@@ -45,6 +45,7 @@ interface Feature {
 interface Video {
     id?: string | null
     url: string
+    image?: string
     html: string
 }
 
