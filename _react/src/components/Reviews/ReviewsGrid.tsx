@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode, type FC } from 'react'
+import { forwardRef, useEffect, useMemo, useRef, useState, type ReactNode, type FC, type CSSProperties } from 'react'
 import macy, { type MacyInstance } from 'macy'
 import type { Review } from '../../types/review'
 import Icon from '../Common/Icon'
@@ -22,13 +22,18 @@ interface ReviewItemProps {
     updated_datetime: string
     body: ReactNode
     hasMaxHeight?: boolean
+    macyInitialized?: boolean
 }
 
-const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = '', reviewer_name, rating, updated_datetime, body, hasMaxHeight }, ref) => {
+const ReviewItem = forwardRef<HTMLDivElement, ReviewItemProps>(({ className = '', reviewer_name, rating, updated_datetime, body, hasMaxHeight, macyInitialized }, ref) => {
     const [open, setOpen] = useState<boolean>(false)
+    const style: CSSProperties = useMemo(() => {
+        if (!macyInitialized) return { visibility: 'hidden' }
+        return open ? { height: 'auto', maxHeight: 'unset' } : {}
+    }, [macyInitialized, open])
 
     return (
-        <div ref={ref} className={`${className} reviews-item`} style={open ? { height: 'auto', maxHeight: 'unset' } : {}}>
+        <div ref={ref} className={`${className} reviews-item`} style={style}>
             <div className="reviews-item-top">
                 <div>
                     <div className="reviews-item-author">{reviewer_name.replace('@', '@ ')}</div>
@@ -185,7 +190,7 @@ const ReviewsGrid: FC<{ reviews: Review[]; totalCount: number }> = ({ reviews, t
             {!isMobile && (<>
                 <div ref={containerRef} className="reviews-grid">
                     {items.map(({ id,  ...item}) => (
-                        <ReviewItem {...anime(`review_${id}`)} className="reviews-grid-item" {...item} key={id} />
+                        <ReviewItem {...anime(`review_${id}`)} className="reviews-grid-item" {...item} macyInitialized={macyInitialized} key={id} />
                     ))}
                 </div>
                 {pages?.length > 1 && (
