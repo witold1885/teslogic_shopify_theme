@@ -1,5 +1,4 @@
 import { useMemo, type FC } from 'react'
-import type { Product } from '../../types/product'
 import Icon from '../Common/Icon'
 import starIcon from '@/assets/icons/star.svg'
 import judgeMeLogo from '@/assets/images/logo-judgeme.svg'
@@ -13,7 +12,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     summary: { yFrom: '40px', duration: 666 },
 }
 
-const ReviewsTop: FC<{ product?: Product | null; totalCount: number; avgRating: number }> = ({ product, totalCount, avgRating }) => {
+const ReviewsTop: FC<{ productTitle?: string | null; totalCount: number; avgRating: number }> = ({ productTitle, totalCount, avgRating }) => {
     const { isMobile } = useInlineStyles()
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
@@ -33,7 +32,7 @@ const ReviewsTop: FC<{ product?: Product | null; totalCount: number; avgRating: 
             </div>
             <div>
                 <h2 {...anime('title')} className="reviews-title">
-                    What {product?.title} <br />Customers Say
+                    What {productTitle} <br />Customers Say
                 </h2>
                 <div {...anime('summary')} className="reviews-summary">
                     {isMobile && <Icon className="reviews-star-big" icon={starIcon} />}

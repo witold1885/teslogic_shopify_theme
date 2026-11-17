@@ -5,6 +5,7 @@ import { fetchProducts } from '../../redux/selectors/products'
 import { selectReviews } from '../../redux/selectors/reviews'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
+import { foundCommon } from '../../utils/helpers'
 import ReviewsTop from './ReviewsTop'
 import ReviewsGrid from './ReviewsGrid'
 import ReviewsForm from './ReviewsForm'
@@ -41,16 +42,24 @@ const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
     
     useLazyData(lazyParams)
 
-    const currentProduct = useMemo(() => product || products?.[0] || null, [product, products])
+    const productId: number | null = useMemo(() => product?.id || products?.[0]?.id || null, [product, products])
+    const productTitle: string | null = useMemo(() => {
+        if (product) {
+            return product.title.replace('Kit', '').trim()
+        } else if (products?.[0] && products?.[1]) {
+            return foundCommon(products[0].title, products[1].title)
+        }
+        return null
+    }, [product, products])
 
     return (
         <div className="reviews" style={{ backgroundImage: `url(${reviewsBackground})`, backgroundSize: 'cover' }}>
             <div className="container">
                 <div>
-                    <ReviewsTop product={currentProduct} {...{totalCount, avgRating}} />
+                    <ReviewsTop {...{productTitle, totalCount, avgRating}} />
                     <ReviewsGrid {...{reviews, totalCount}} />
                 </div>
-                <ReviewsForm product={currentProduct} />
+                <ReviewsForm {...{productId, productTitle}} />
             </div>
         </div>
     )

@@ -10,3 +10,10 @@ export const convertReactNodeToString = (str: string | ReactNode): string => {
     const re = new RegExp(`\<br\/\>`, 'gi')
     return renderToString(str).replace(re, '')
 }
+
+export const foundCommon = (str1: string, str2: string): string => {
+    const words1: string[] = str1.toLowerCase().match(/\b[\w]+\b/g) || []
+    const words2: string[] = str2.toLowerCase().match(/\b[\w]+\b/g) || []
+    const common = [...new Set(words1.filter(word => words2.includes(word)))]
+    return common.join(' ')
+}

@@ -2,7 +2,6 @@ import { useState, useMemo, useCallback, Fragment, type FC, type ChangeEvent } f
 import * as yup from 'yup'
 import { useAppDispatch } from '../../redux/hooks'
 import type { ReviewPayload } from '../../types/review'
-import type { Product } from '../../types/product'
 import Button from '../Common/Button'
 import Popup from '../Common/Popup'
 import Icon from '../Common/Icon'
@@ -51,7 +50,7 @@ interface FormFieldProps {
 
 const FormField: FC<FormFieldProps> = ({ as: Tag = 'input', ...params }) => <Tag {...params} />
 
-const ReviewsForm: FC<{ product?: Product | null }> = ({ product }) => {
+const ReviewsForm: FC<{ productId?: number | null; productTitle?: string | null }> = ({ productId, productTitle }) => {
     const dispatch = useAppDispatch()
 
     const { sendReview } = useDynamicSlice('reviews', () => import('../../redux/slices/reviews'))
@@ -98,13 +97,13 @@ const ReviewsForm: FC<{ product?: Product | null }> = ({ product }) => {
     }, [errors])
 
     const handleSubmit = useCallback(async () => {
-        const formData = { ...data, shop_url: window.location.host, id: product?.id }
+        const formData = { ...data, shop_url: window.location.host, product_id: productId }
         const formValid = await validateForm(formData)
         if (formValid === true) {
             dispatch(sendReview(formData))
             setPopupOpen(false)
         }
-    }, [data, product, validateForm, dispatch, sendReview])
+    }, [data, productId, validateForm, dispatch, sendReview])
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
         
@@ -112,7 +111,7 @@ const ReviewsForm: FC<{ product?: Product | null }> = ({ product }) => {
 
     return (<>
         <div className="reviews-form-trigger">
-            <div {...anime('question')}>Already own {product?.title}?</div>
+            <div {...anime('question')}>Already own {productTitle}?</div>
             <Button {...anime('button')} onClick={() => setPopupOpen(true)}>Write a review</Button>
         </div>
         <Popup open={popupOpen} onClose={() => setPopupOpen(false)}>
