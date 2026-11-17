@@ -12,8 +12,8 @@ export const convertReactNodeToString = (str: string | ReactNode): string => {
 }
 
 export const foundCommon = (str1: string, str2: string): string => {
-    const words1: string[] = str1.toLowerCase().match(/\b[\w]+\b/g) || []
-    const words2: string[] = str2.toLowerCase().match(/\b[\w]+\b/g) || []
+    const words1: string[] = str1.match(/\b[\w]+\b/g) || []
+    const words2: string[] = str2.match(/\b[\w]+\b/g) || []
     const common = [...new Set(words1.filter(word => words2.includes(word)))]
     return common.join(' ')
 }

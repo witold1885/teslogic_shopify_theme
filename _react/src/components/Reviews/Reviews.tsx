@@ -44,12 +44,13 @@ const Reviews: FC<{ allSources?: boolean }> = ({ allSources = false }) => {
 
     const productId: number | null = useMemo(() => product?.id || products?.[0]?.id || null, [product, products])
     const productTitle: string | null = useMemo(() => {
+        let title = ''
         if (product) {
-            return product.title.replace('Kit', '').trim()
+            title = product.title
         } else if (products?.[0] && products?.[1]) {
-            return foundCommon(products[0].title, products[1].title)
+            title = foundCommon(products[0].title, products[1].title)
         }
-        return null
+        return title?.replace('Kit', '').trim() || null
     }, [product, products])
 
     return (
