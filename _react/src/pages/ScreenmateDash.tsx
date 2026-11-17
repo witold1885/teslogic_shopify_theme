@@ -34,12 +34,12 @@ const preloadImages = getPreloadImages(screenImages, deviceImages, shortcutImage
 const preSections: Record<string, PreSection> = {
     Using: { desktop: 748, mobile: 1698 },
     Screens: { desktop: 1240, mobile: 1054, background: '#f6f6f6' },
-    DevicesSupporting: { desktop: 996, mobile: 892, background: '#fff' },
-    Significant: { desktop: 760, mobile: 660, background: '#fff' },
+    DevicesSupporting: { desktop: 996, mobile: 892 },
+    Significant: { desktop: 760, mobile: 660 },
     Shortcuts: { desktop: 2252, mobile: 2127.5, background: '#f6f6f6' },
-    Box: { desktop: 1331, mobile: 1814, background: '#fff' },
+    Box: { desktop: 1331, mobile: 1814 },
     Bloggers: { desktop: 965, mobile: 715, background: '#f6f6f6' },
-    Order: { desktop: 976, mobile: 970, background: '#fff' }
+    Order: { desktop: 976, mobile: 970 }
 }
 
 const sections: Record<string, { component: ComponentType<any>, params: any }> = Object.entries({

@@ -5,7 +5,7 @@ import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
-import { useMinHeights, type SectionHeight } from '../hooks/min-heights.ts'
+import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -15,6 +15,7 @@ import {
     bannerDesktop as bannerDesktopBackground,
     bannerMobile as bannerMobileBackground
 } from '../assets/videos/screenmate-one/web/screenshots'
+import dashBackground from '../assets/images/screenmate-one/dash-background.png'
 import {
     bannerDesktop,
     bannerMobile,
@@ -39,6 +40,7 @@ import {
 const preloadImages: PreloadImage[] = [
     { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
     { image: bannerMobileBackground, fetchPriority: 'high', media: mediaMobile },
+    { image: dashBackground, fetchPriority: 'low' },
 ]
 
 const preloadVideos: PreloadVideo[] = [
@@ -62,16 +64,16 @@ const preloadVideos: PreloadVideo[] = [
     { video: connectConsolesMobile, fetchPriority: 'low', media: mediaMobile },
 ]
 
-const sectionHeights: Record<string, SectionHeight> = {
+const preSections: Record<string, PreSection> = {
     Features: { desktop: 1186, mobile: 502 },
     Setup: { desktop: 1003, mobile: 655 },
     Interfaces: { desktop: 1414, mobile: 984 },
-    Convenience: { desktop: 3248, mobile: 2186 },
+    Convenience: { desktop: 3248, mobile: 2186, background: 'linear-gradient(#1d1d1f 0% 100%), #191919' },
     Experience: { desktop: 1394, mobile: 1244 },
     Dash: { desktop: 852, mobile: 898 },
     Specifications: { desktop: 2031, mobile: 1517 },
-    Complectation: { desktop: 1484, mobile: 2187 },
-    Order: { desktop: 810, mobile: 1044 }
+    Complectation: { desktop: 1484, mobile: 2187, background: 'linear-gradient(#1d1d1f00 0%, #202022 57.88%, #252528 100%)' },
+    Order: { desktop: 810, mobile: 1044, background: 'radial-gradient(56.25% 100% at 50% 100%, #1d1d1f 0%, #0e0e0e 100%), linear-gradient(#fff 0%, #f6f6f6 100%)' }
 }
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
@@ -99,7 +101,7 @@ const ScreenmateOne: FC = () => {
         }))
     }
     
-    const { getMinHeight } = useMinHeights(sectionHeights)
+    const { getPreSectionStyle } = usePreSections(preSections)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false })
 
@@ -138,18 +140,18 @@ const ScreenmateOne: FC = () => {
                 bannerMobileVideo={bannerMobile}
                 {...{bannerDesktopBackground, bannerMobileBackground, onExpand, onOrder}}
             />
-            <LazySection id="features" minHeight={getMinHeight('Features')} forceRender={forceRender.features} rootMargin="-10px">
+            <LazySection id="features" {...getPreSectionStyle('Features')} forceRender={forceRender.features} rootMargin="-10px">
                 <ScreenmateOneFeatures
                     ref={(el: HTMLDivElement) => setRef(el, 'Features')}
                     scrollTo={(anchor: string) => scrollTo(...(anchor?.split('.') as [slug: string | null, block?: string] || [null]))}
                 />
             </LazySection>
             {Object.entries(sections).map(([slug, Component]) => (
-                <LazySection key={slug} minHeight={getMinHeight(slug)}>
+                <LazySection key={slug} {...getPreSectionStyle(slug)}>
                     <Component ref={(el: HTMLDivElement) => setRef(el, slug)} />
                 </LazySection>
             ))}
-            <LazySection id="order-now" minHeight={getMinHeight('Order')} forceRender={forceRender.order}>
+            <LazySection id="order-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
         </ProductLayout>
