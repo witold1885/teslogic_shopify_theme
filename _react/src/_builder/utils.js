@@ -141,6 +141,7 @@ const getBannerHtml = (desktop, mobile) => (`
 export const generateLCPBanner = (page, slug, desktop, mobile) => (`${getComment(page)}
 <style>
 .lcp-wrap { position: relative; width: 100%; height: 100vh; background: #000 !important; overflow: hidden; }
+body:has(.promotion-banner) .lcp-wrap { display: none !important; }
 .lcp-wrap .banner-wrap { width: 100%; height: 75%; min-height: 75vh !important; overflow: hidden; }
 .lcp-wrap .banner-wrap::after {
   content: '';

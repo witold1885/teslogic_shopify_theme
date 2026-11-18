@@ -2,8 +2,8 @@ import type { FC } from 'react'
 import type { PromotionBannerProps } from './types'
 import './black-friday-hero.scss'
 
-const BlackFridayHero: FC<PromotionBannerProps> = ({ background, onExpand }) => (
-    <div className="bf-hero">
+const BlackFridayHero: FC<PromotionBannerProps> = ({ className, background, onExpand }) => (
+    <div className={`bf-hero ${className}`}>
         {background && (
             <div className="bf-hero-bg">
                 {background.type === 'video' && (

@@ -25,7 +25,7 @@ const PromotionBanner: FC<PromotionBannerProps> = ({ onExpand }) => {
     const Component = promotion ? promotionComponents[promotion] : null
     
     return Component ? (
-        <Component background={background} onExpand={onExpand} />
+        <Component className="promotion-banner" background={background} onExpand={onExpand} />
     ) : null
 }
 
