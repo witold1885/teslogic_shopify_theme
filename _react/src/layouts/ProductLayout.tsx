@@ -6,9 +6,9 @@ import { getComponent } from './components'
 import { getCurrentPromotion } from '../utils/promotion.ts'
 import Layout, { type LayoutProps } from './Layout'
 import LazySection from './LazySection'
+import PromotionBanner from '../components/Promotion/PromotionBanner.tsx'
 import reviewsBackground from '../assets/images/reviews-background.png'
 
-const PromotionBanner = getComponent(() => import('../components/Promotion/PromotionBanner.tsx'))
 const Reviews = getComponent(() => import('../components/Reviews/Reviews.tsx'), true)
 
 interface PreloadProps {
@@ -58,7 +58,7 @@ const ProductLayout: FC<LayoutProps & PreloadProps> = ({ images, videos, classNa
 
     return (
         <Layout theme="dark" orderButton={true} onOrder={onOrder}>
-            {promotion && PromotionBanner && <PromotionBanner {...{promotion, background, onExpand}} />}
+            <PromotionBanner {...{promotion, background, onExpand}} />
             <div ref={childrenRef} {...{className}}>
                 {children}
                 {Reviews && (
