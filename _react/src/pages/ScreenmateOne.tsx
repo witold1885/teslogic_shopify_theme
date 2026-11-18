@@ -1,5 +1,4 @@
 import { useState, useRef, type ComponentType, type FC } from 'react'
-import { preload } from 'react-dom'
 import type { PreloadImage, PreloadVideo } from './types.ts'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -86,21 +85,7 @@ const sections: Record<string, ComponentType<any>> = ['Setup', 'Interfaces', 'Co
 const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
 
-const ScreenmateOne: FC = () => {
-    if (typeof window !== 'undefined') {
-        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-            as: 'image', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-
-        preloadVideos.forEach(({ video, fetchPriority, media }) => preload(video, { 
-            as: 'video', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-    }
-    
+const ScreenmateOne: FC = () => {    
     const { getPreSectionStyle } = usePreSections(preSections)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false })
@@ -134,7 +119,7 @@ const ScreenmateOne: FC = () => {
     }
 
     return (
-        <ProductLayout className="screenmate-one" onOrder={onOrder}>
+        <ProductLayout images={preloadImages} videos={preloadVideos} className="screenmate-one" onOrder={onOrder}>
             <ScreenmateOneBanner
                 bannerDesktopVideo={bannerDesktop}
                 bannerMobileVideo={bannerMobile}

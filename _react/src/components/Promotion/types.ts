@@ -1,5 +1,6 @@
 export interface PromotionBannerProps {
     className?: string
+    promotion?: string | null
     background?: PromotionBannerBackground | null
     onExpand: () => void
 }

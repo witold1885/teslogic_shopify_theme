@@ -1,5 +1,4 @@
 import { useState, type ComponentType, type FC } from 'react'
-import { preload } from 'react-dom'
 import '../assets/styles/screenmate-dash.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
@@ -58,14 +57,6 @@ const ScreenmateDashUsing = getComponent(() => import('../components/ScreenmateD
 const ScreenmateDashOrder = getComponent(() => import('../components/ScreenmateDash/ScreenmateDashOrder.tsx'))
 
 const ScreenmateDash: FC = () => {
-    if (typeof window !== 'undefined') {
-        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-            as: 'image', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-    }
-
     const { getPreSectionStyle } = usePreSections(preSections)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ using: false, order: false })
@@ -79,7 +70,7 @@ const ScreenmateDash: FC = () => {
     }
 
     return (
-        <ProductLayout className="screenmate-dash" onOrder={onOrder}>
+        <ProductLayout images={preloadImages} className="screenmate-dash" onOrder={onOrder}>
             <ScreenmateDashBanner {...{bannerDesktopBackground, bannerMobileBackground}} onExpand={onExpand} onOrder={onOrder} />
             <LazySection id="using" {...getPreSectionStyle('Using')} forceRender={forceRender.using} rootMargin="-10px">
                 <ScreenmateDashUsing />

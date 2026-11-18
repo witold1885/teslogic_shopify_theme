@@ -1,5 +1,4 @@
 import { useState, type ComponentType, type FC, useRef } from 'react'
-import { preload } from 'react-dom'
 import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/types.ts'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
@@ -50,14 +49,6 @@ const PowermateInfo = getComponent(() => import('../components/Powermate/Powerma
 const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
 
 const Powermate: FC = () => {
-    if (typeof window !== 'undefined') {
-        preloadImages.forEach(({ image, fetchPriority, media }) => preload(image, { 
-            as: 'image', 
-            fetchPriority,
-            ...(media && { media })
-        }))
-    }
-
     const { getPreSectionStyle } = usePreSections(preSections)
 
     const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
@@ -118,7 +109,7 @@ const Powermate: FC = () => {
                 }} />
             </LazySection>
         )}
-        <ProductLayout className="powermate" onOrder={onOrder}>
+        <ProductLayout images={preloadImages} className="powermate" onOrder={onOrder}>
             <PowermateBanner {...{bannerDesktopBackground, bannerMobileBackground}} onOrder={onOrder} />
             <LazySection {...getPreSectionStyle('Experience')} rootMargin="-10px">
                 <PowermateExperience />
