@@ -308,11 +308,7 @@
         {% render 'subscription-popup' %}
       {% endif %} {% endcomment %}
 
-      {% if page.handle == 'dash' %}
-        {% section 'header_main' %}
-      {% elsif page.handle == 'pro' %}
-        {% section 'header_pro' %}
-      {% elsif page.handle == 'screenmate' %}
+      {% if page.handle == 'screenmate' %}
         {% section 'header_screenmate' %}
       {% elsif page.handle == 'screenmate-subscription' or page.handle == 'screenmate-done' %}
         {% section 'header_screenmate_subscription' %}
