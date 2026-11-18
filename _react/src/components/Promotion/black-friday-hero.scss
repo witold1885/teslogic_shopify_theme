@@ -1,0 +1,192 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+@use '../../assets/styles/animate.scss' as animate;
+
+.bf {
+
+    &-hero {
+        @extend %relative;
+        width: 100vw;
+        height: 100vh;
+        color: #FFF;
+
+        & > * {
+            @extend %absolute;
+        }
+
+        &-bg {
+            @extend %inset;
+        }
+
+        &-inner {
+            @extend %w-full, %flex-column-center;
+            @include res-desktop(top, 153px);
+            @include res-desktop(gap, 57.5px);
+
+            @include mobile() {
+                @include res-mobile(top, 153px);
+                @include res-mobile(gap, 40px);
+            }
+
+            &-head {
+                @extend %flex-column-center, %gap-20, %mob\:gap-12;
+
+                & h1 {
+                    @extend %font-900, %text-center, %uppercase;
+                    font-family: "Neue Haas Grotesk Display Pro";
+                    @include text-desktop(112px, 112px);
+                    font-style: italic;
+                    @include res-desktop(letter-spacing, -2.24px);
+                    @include animate.blur(32px, 1.2);
+
+                    @include mobile() {
+                        @include text-mobile(90px, 90px);
+                        @include res-mobile(letter-spacing, -1.18px);
+                    }
+                }
+
+                & p {
+                    @extend %font-manrope, %font-500, %text-center;
+                    @include text-desktop(32px, 40px);
+                    @include res-desktop(letter-spacing, 0.64px);
+                    @include animate.blur(20px, 0.9);
+
+                    @include mobile() {
+                        @include text-mobile(24px, 32px);
+                        @include res-mobile(letter-spacing, 0.48px);
+                    }
+                }
+            }
+
+            &-info {
+                @extend %flex-center;
+
+                &-side {
+                    @extend %overflow-hidden;
+
+                    & > div {
+                        @extend %flex-column;
+                        @include responsive(gap, 9px);
+
+                        & p {
+                            @extend %font-manrope-24, %mob\:font-manrope-14;
+                            @include res-desktop(letter-spacing, 0.48px);
+
+                            @include mobile() {
+                                @include res-mobile(letter-spacing, 0.28px);
+                            }
+                        }
+                    }
+
+                    &:first-child > div {
+                        @extend %flex-end;
+                        @include res-desktop(padding-right, 28px);
+                        @include animate.slide('left');
+
+                        @include mobile() {
+                            @include res-mobile(padding-right, 20px);
+                        }
+
+                        & p {
+                            @extend %text-right;
+                        }
+                    }
+
+                    &:last-child > div {
+                        @extend %flex-start;
+                        @include res-desktop(padding-left, 28px);
+                        @include animate.slide('right');
+
+                        @include mobile() {
+                            @include res-mobile(padding-left, 20px);
+                        }
+
+                        & p {
+                            @extend %text-left;
+                        }
+                    }
+                }
+
+                &-discount {
+                    @extend %font-900, %text-center, %uppercase;
+                    font-family: "Neue Haas Grotesk Display Pro";
+                    @include text-desktop(56px, 56px);
+                    font-style: italic;
+                    @include res-desktop(letter-spacing, -1.12px);
+                    @include res-desktop(padding-right, 8px);
+
+                    @include mobile() {
+                        @include text-mobile(32px, 40px);
+                        @include res-mobile(letter-spacing, 0.64px);
+                    }
+                }
+
+                &-delimiter {
+                    @include block-desktop(2px, 132px);
+                    @include responsive(border-radius, 2px);
+                    background: #FFF;
+                    opacity: 0.2;
+                    transform-origin: center top;
+                    @include animate.scale(0.55);
+
+                    @include mobile() {
+                        @include block-mobile(1px, 84px);
+                    }
+                }
+            }
+
+            &-date {
+                @extend %flex-column-center, %gap-12;
+                @include animate.fade(60);
+
+                & > div {
+                    @extend %font-manrope, %font-500;
+
+                    &:first-child {
+                        @include text-desktop(48px, 56px);
+                        @include res-desktop(letter-spacing, 0.96px);
+
+                        @include mobile() {
+                            @include text-mobile(28px, 36px);
+                            @include res-mobile(letter-spacing, 0.56px);
+                        }
+                    }
+
+                    &:last-child {
+                        @extend %font-manrope-24, %mob\:font-manrope-14, %uppercase;
+                        opacity: 0.5;
+                    }
+                }
+            }
+        } 
+
+        &-expand {
+            @extend %flex-center, %cursor-pointer;
+            @include square-desktop(92px);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+
+            @include mobile() {
+                @include square-mobile(80px);
+            }
+
+            & > div {
+                opacity: 0.3;
+                @include animate.fade(24, 0.3);
+            }
+
+            & svg {
+                @include block-desktop(46.666px, 24.591px);
+                transform: scaleX(-1);
+
+                @include mobile() {
+                    @include block-mobile(40.579px, 21.383px);
+                }
+            }
+        }
+    }
+}

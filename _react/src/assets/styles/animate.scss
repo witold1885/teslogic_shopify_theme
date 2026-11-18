@@ -42,3 +42,48 @@ $animationFn: cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
         to { filter: brightness(1); }
     }
 }
+
+@keyframes blur-reveal {
+    from { filter: blur(var(--blur-from)); }
+    to { filter: blur(0); }
+}
+
+@mixin blur($from, $duration, $delay: 0.15) {
+    --blur-from: #{$from};
+    animation: blur-reveal #{$duration}s cubic-bezier(0.333333, 1, 0.666667, 1) #{$delay}s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes slide-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slide-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@mixin slide ($direction, $duration: 0.8, $delay: 0.15) {
+    animation: slide-#{$direction} #{$duration}s cubic-bezier(0.333333, 1, 0.666667, 1) #{$delay}s backwards;
+}
+
+@keyframes scale-reveal {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+@mixin scale($duration, $delay: 0.15) {
+    animation: scale-reveal #{$duration}s cubic-bezier(0.333333, 1, 0.666667, 1) #{$delay}s backwards;
+}
+
+@keyframes fade-up {
+    0% { opacity: 0; transform: translateY(var(--fade-offset)); }
+    100% { opacity: var(--fade-opacity, 1); transform: translateY(0); }
+}
+
+@mixin fade($offset, $opacity: 1, $duration: 0.75, $delay: 1.45) {
+    --fade-offset: #{$offset}px;
+    --fade-opacity: #{$opacity};
+    animation: fade-up #{$duration}s cubic-bezier(0.333333, 1, 0.666667, 1) #{$delay}s backwards;
+}
