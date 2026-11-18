@@ -2,13 +2,17 @@ import type { FC } from 'react'
 import type { PromotionBannerProps } from './types'
 import './black-friday-hero.scss'
 
-const BlackFridayHero: FC<PromotionBannerProps> = ({ onExpand }) => (
+const BlackFridayHero: FC<PromotionBannerProps> = ({ background, onExpand }) => (
     <div className="bf-hero">
-        <div className="bf-hero-bg">
-            <video autoPlay muted loop className="object-cover">
-                <source src="https://cdn.shopify.com/videos/c/o/v/fc26659e3e8f4009b89518b59bf703c5.mp4" type="video/mp4" />
-            </video>
-        </div>
+        {background && (
+            <div className="bf-hero-bg">
+                {background.type === 'video' && (
+                    <video autoPlay muted loop className="object-cover">
+                        <source src={background.src} type="video/mp4" />
+                    </video>
+                )}
+            </div>
+        )}
         <div className="bf-hero-inner">
             <div className="bf-hero-inner-head">
                 <h1>Black  Friday</h1>

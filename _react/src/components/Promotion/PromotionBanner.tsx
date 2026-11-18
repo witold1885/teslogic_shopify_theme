@@ -1,36 +1,31 @@
-import { useMemo, type FC } from 'react'
-import type { PromotionBannerProps } from './types'
+import type { FC } from 'react'
+import { preload } from 'react-dom'
+import type { PromotionBannerProps, PromotionBannerBackground } from './types'
+import { getCurrentPromotion } from '../../utils/promotion'
 import BlackFridayHero from './BlackFridayHero'
-
-const promotionDates: Record<string, string[]> = {
-    bf26: ['2026-11-27', '2026-11-29']
-}
 
 const promotionComponents: Record<string, FC<PromotionBannerProps>> = {
     bf26: BlackFridayHero
 }
 
+const promotionBackgrounds: Record<string, PromotionBannerBackground> = {
+    bf26: { type: 'video', src: 'https://cdn.shopify.com/videos/c/o/v/fc26659e3e8f4009b89518b59bf703c5.mp4' }
+}
+
+const promotion = getCurrentPromotion()
+
 const PromotionBanner: FC<PromotionBannerProps> = ({ onExpand }) => {
-    const Component: FC<PromotionBannerProps> | null = useMemo(() => {
-        const now = new Date().getTime()
+    const background = promotion ? promotionBackgrounds[promotion] : null
 
-        for (const [key, [startDate, endDate]] of Object.entries(promotionDates)) {
-            const start = new Date(startDate)
-            start.setHours(0, 0, 0, 0)
-            const end = new Date(endDate)
-            end.setHours(23, 59, 59, 999)
-            if (now >= start.getTime() && now <= end.getTime()) {
-                return promotionComponents[key] || null
-            }
-        }
+    if (background && typeof window !== 'undefined') {
+        const { type, src } = background
+        preload(src, { as: type, fetchPriority: 'high' })
+    }
 
-        const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
-        const promotion = urlSearchParams?.get('promotion') || null
-        return promotion ? promotionComponents[promotion] : null
-    }, [])
+    const Component = promotion ? promotionComponents[promotion] : null
     
     return Component ? (
-        <Component onExpand={onExpand} />
+        <Component background={background} onExpand={onExpand} />
     ) : null
 }
 
