@@ -17,6 +17,10 @@
         min-height: 100vh;
         background-size: cover;
         background-repeat: no-repeat;
+
+        body:has(.promotion-banner) & {
+            position: relative !important;
+        }
     }
 
     &-image {
