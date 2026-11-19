@@ -26,10 +26,10 @@ const ProductLayout: FC<LayoutProps & PreloadProps> = ({ images, videos, classNa
     const background = promotion ? promotionBackgrounds[promotion] : null
 
     if (typeof window !== 'undefined') {
-        if (background) {
-            const { type, src } = background
-            preload(src, { as: type, fetchPriority: 'high' })
-        }
+        // if (background) {
+        //     const { type, src } = background
+        //     preload(src, { as: type, fetchPriority: 'high' })
+        // }
 
         images?.forEach(({ image, fetchPriority, media }) => preload(image, { 
             as: 'image', 

@@ -38,6 +38,10 @@
       {%- render 'preload-product', product: all_products['powermate-performance-kit'] -%}
     {% endif %}
 
+    {% if template == 'index' or page.handle == 'dash' or page.handle == 'pro' %}
+      <link rel="preload" href="https://cdn.shopify.com/videos/c/o/v/fc26659e3e8f4009b89518b59bf703c5.mp4" as="video" type="video/mp4" crossorigin>
+    {% endif %}
+
     {% if page.handle == 'installers' %}
       {%- render 'preload-installers' -%}
     {% endif %}

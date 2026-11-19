@@ -176,6 +176,7 @@
 
             @include mobile() {
                 @include square-mobile(80px);
+                @include res-mobile(bottom, 40px);
             }
 
             & > div {
