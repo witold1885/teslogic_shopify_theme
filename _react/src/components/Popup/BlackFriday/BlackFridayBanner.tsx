@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { useInlineStyles } from '../../../hooks/inline-styles'
 import { setSubscriptionCookie } from '../../../utils/cookies'
 
 interface BlackFridayBannerProps {
@@ -7,6 +8,8 @@ interface BlackFridayBannerProps {
 }
 
 const BlackFridayBanner: FC<BlackFridayBannerProps> = ({ onConfirm = () => {}, onClose = () => {} }) => {
+    const { isMobile } = useInlineStyles()
+
     const handleCancel = () => {
         setSubscriptionCookie('bf26_vip_subscription', 0)
         onClose()
@@ -19,7 +22,7 @@ const BlackFridayBanner: FC<BlackFridayBannerProps> = ({ onConfirm = () => {}, o
                 <div>Want early access and our best deals? <br className="mobile" />Join our VIP list.</div>
             </div>
             <div className="bf-banner-buttons">
-                <button onClick={onConfirm}>Get VIP Access</button>
+                <button onClick={onConfirm}>{!isMobile ? 'Get VIP Access' : 'Get VIP'}</button>
                 <button onClick={handleCancel}>No, thanks</button>
             </div>
         </div>
