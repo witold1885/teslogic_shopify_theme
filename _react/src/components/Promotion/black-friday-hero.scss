@@ -27,7 +27,7 @@
             @include res-desktop(gap, 57.5px);
 
             @include mobile() {
-                @include res-mobile(top, 153px);
+                @include res-mobile(top, 126px);
                 @include res-mobile(gap, 40px);
             }
 
@@ -70,6 +70,10 @@
                     & > div {
                         @extend %flex-column;
                         @include responsive(gap, 9px);
+
+                        @include mobile() {
+                            @include responsive(gap, 4px);
+                        }
 
                         & p {
                             @extend %font-manrope-24, %mob\:font-manrope-14;
@@ -139,7 +143,7 @@
             }
 
             &-date {
-                @extend %flex-column-center, %gap-12;
+                @extend %flex-column-center, %gap-12, %mob\:gap-10;
                 @include animate.fade(60);
 
                 & > div {

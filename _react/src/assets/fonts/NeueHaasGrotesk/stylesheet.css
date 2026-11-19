@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
     font-family: 'Neue Haas Grotesk Display Pro';
     src: url('NeueHaasDisplay-BlackItalic.eot');
     src: local('Neue Haas Grotesk Display Pro 96 Black Italic'), local('NeueHaasDisplay-BlackItalic'),
@@ -8,7 +8,7 @@
     font-weight: 900;
     font-style: italic;
     font-display: swap;
-} */
+}
 
 /* @font-face {
     font-family: 'Neue Haas Grotesk Display Pro';

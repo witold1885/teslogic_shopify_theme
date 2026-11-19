@@ -7,7 +7,7 @@ const BlackFridayHero: FC<PromotionBannerProps> = ({ className, background, onEx
         {background && (
             <div className="bf-hero-bg">
                 {background.type === 'video' && (
-                    <video autoPlay muted loop className="object-cover">
+                    <video autoPlay playsInline muted loop className="object-cover">
                         <source src={background.src} type="video/mp4" />
                     </video>
                 )}

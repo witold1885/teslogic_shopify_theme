@@ -78,11 +78,15 @@
 @mixin text-desktop($fontSize, $lineHeight) {
     @include res-desktop(font-size, $fontSize);
     @include res-desktop(line-height, $lineHeight);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin text-mobile($fontSize, $lineHeight) {
     @include res-mobile(font-size, $fontSize);
     @include res-mobile(line-height, $lineHeight);
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 @mixin mobile() {

@@ -10,7 +10,7 @@ const SelectionPopup = getComponent(() => import('./SelectionPopup.tsx'), true)
 const SuccessPopup = getComponent(() => import('./SuccessPopup.tsx'), true)
 
 const background: ReactNode = (
-    <video autoPlay muted loop className="subscription-popup-video">
+    <video autoPlay playsInline muted loop className="subscription-popup-video">
         <source src="https://cdn.shopify.com/videos/c/o/v/63070f02784841769f7dac1f57ceb0dc.mp4" type="video/mp4" />
     </video>
 )
