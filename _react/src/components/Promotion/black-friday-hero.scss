@@ -192,5 +192,11 @@
                 }
             }
         }
+
+        &:not(.ready) {
+            &, * {
+                animation-play-state: paused !important;
+            }
+        }
     }
 }
