@@ -253,4 +253,10 @@
             }
         }
 	}
+
+    &-bf-bundle {
+        @extend %w-full;
+        @include responsive(border-radius, 32px);
+        background: hsl(0deg 0% 9.0196%);
+    }
 }

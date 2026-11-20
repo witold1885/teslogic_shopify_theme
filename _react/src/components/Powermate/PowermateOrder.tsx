@@ -9,11 +9,13 @@ import Image from '../Common/Image'
 import shipping from '../../assets/icons/powermate/order/pro_order_free_shipping.svg'
 import noTax from '../../assets/icons/powermate/order/pro_order_no_tax.svg'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
 import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
-import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+import { getCurrentPromotion } from '../../utils/promotion'
+import BlackFridayBundle from '../Promotion/BlackFridayBundle'
 
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
@@ -50,6 +52,8 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
 )
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
+
+const promotion = getCurrentPromotion()
 
 const PowermateOrder: FC<{
     onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
@@ -230,6 +234,11 @@ const PowermateOrder: FC<{
                                 </div>
                             ))}
                         </div>
+                        {promotion === 'bf26' && (
+                            <div className="order-bf-bundle">
+                                <BlackFridayBundle />
+                            </div>
+                        )}
                     </div>		
                 </div>
             </div>
