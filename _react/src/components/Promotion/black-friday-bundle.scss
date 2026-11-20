@@ -7,11 +7,11 @@
 .bf {
 
     &-bundle {
-        @extend %flex-center;
+        @extend %flex-start-center;
         @include responsive(gap, 21.44px);
 
         &-images {
-            @extend %flex-end-center, %gap-10;
+            @extend %flex-start-center, %gap-10;
 
             & > * {
                 @extend %flex-center;
