@@ -30,7 +30,7 @@ const BlackFridayBundle: FC = () => {
                 <a onClick={() => setBundlePopupOpen(true)}>Learn more</a>
             </div>
         </div>
-        {BundlePopup && bundlePopupOpen && (
+        {BundlePopup && (
             <BundlePopup open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
         )}
     </>)

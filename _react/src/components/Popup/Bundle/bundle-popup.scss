@@ -22,7 +22,7 @@
         }
 
         &-title, &-discount {
-            @extend %font-900, %text-center, %uppercase;
+            @extend %font-900, %text-center;
             left: 50%;
             transform: translateX(-50%);
             font-family: "Neue Haas Grotesk Display Pro";
@@ -30,11 +30,16 @@
         }
 
         &-title {
+            @extend %whitespace-nowrap, %uppercase;
             @include responsive(top, 32.5px);
             @include text(80px, 84px);
             @include responsive(letter-spacing, -1.6px);
             -webkit-text-stroke-width: 0.5px;
             -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
+            background: url(../../../assets/images/promotion/bundle/title-bg.png) lightgray 1193.684px 810.462px / -220.165% -521.785% no-repeat;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         &-discount {
@@ -52,6 +57,18 @@
     }
 
     &-form {
+        @extend %flex-column, %gap-32, %font-manrope;
+        @include responsive(padding, 32px, 32px, 24px);
 
+        &-title {
+            @extend %font-600;
+            @include text(32px, 40px);
+            color: #FAFAFA;
+        }
+
+        &-subtitle {
+            @include text(15px, 22px);
+            color: #9A9A9A;
+        }
     }
 }

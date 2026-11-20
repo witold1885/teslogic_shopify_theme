@@ -23,10 +23,20 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
         >
             <div className="bundle-popup-gallery">
                 <img className="object-cover" src={bundleImage} />
-                <div className="bundle-popup-gallery-title">Black Friday Bundle</div>
+                <div className="bundle-popup-gallery-title">Black Friday <br />Bundle</div>
                 <div className="bundle-popup-gallery-discount">25% OFF</div>
             </div>
-            <div className="bundle-popup-form"></div>
+            <div className="bundle-popup-form">
+                <div>
+                    <div className="bundle-popup-form-title">Screenmate ONE + Powermate</div>
+                    <div className="bundle-popup-form-subtitle">
+                        Add more power and acceleration to your Tesla. <br />
+                        Save 25% when you buy both.
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
         </PopupWrap>
     )
 }

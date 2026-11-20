@@ -49,7 +49,6 @@ const ProductLayout: FC<LayoutProps & PreloadProps> = ({ images, videos, classNa
     const childrenRef = useRef<HTMLDivElement>(null)
 
     const onExpand = () => {
-        console.log(childrenRef?.current)
         childrenRef?.current?.scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
