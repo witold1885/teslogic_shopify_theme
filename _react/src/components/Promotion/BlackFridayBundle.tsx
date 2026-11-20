@@ -1,11 +1,16 @@
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import './black-friday-bundle.scss'
+import { getComponent } from '../../layouts/components'
 import Image from '../Common/Image'
-import screenmateOne from '../../assets/images/promotion/screenmate-one.png'
-import powermate from '../../assets/images/promotion/powermate.png'
+import screenmateOne from '../../assets/images/promotion/bundle/screenmate-one.png'
+import powermate from '../../assets/images/promotion/bundle/powermate.png'
+
+const BundlePopup = getComponent(() => import('../Popup/Bundle/BundlePopup.tsx'))
 
 const BlackFridayBundle: FC = () => {
-    return (
+    const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
+
+    return (<>
         <div className="bf-bundle">
             <div className="bf-bundle-images">
                 <Image className="bf-bundle-screenmate-one" src={screenmateOne} />
@@ -22,10 +27,13 @@ const BlackFridayBundle: FC = () => {
                     <span>with 25% OFF</span>
                 </div>
                 <div>Powermate + Screenmate ONE</div>
-                <a>Learn more</a>
+                <a onClick={() => setBundlePopupOpen(true)}>Learn more</a>
             </div>
         </div>
-    )
+        {BundlePopup && bundlePopupOpen && (
+            <BundlePopup open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+        )}
+    </>)
 }
 
 export default BlackFridayBundle

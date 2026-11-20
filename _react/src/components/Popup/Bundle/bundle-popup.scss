@@ -4,3 +4,54 @@
 @use '../../../assets/styles/text' as text;
 @use '../../../assets/styles/mixins' as *;
 @use '../popup.scss';
+
+.bundle-popup {
+    @extend %flex-between;
+    @include responsive(width, 1296px);
+
+    &-gallery {
+        @extend %relative;
+        @include block(636px, 780px);
+
+        & > * {
+            @extend %absolute;
+        }
+
+        & img {
+            @extend %inset;
+        }
+
+        &-title, &-discount {
+            @extend %font-900, %text-center, %uppercase;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: "Neue Haas Grotesk Display Pro";
+            font-style: italic;
+        }
+
+        &-title {
+            @include responsive(top, 32.5px);
+            @include text(80px, 84px);
+            @include responsive(letter-spacing, -1.6px);
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &-discount {
+            @extend %flex-center, %gap-10;
+            @include responsive(bottom, 124.5px);
+            @include responsive(width, 295px);
+            @include responsive(padding, 20px);
+            @include responsive(border-radius, 100px);
+            border: 0.5px solid rgba(255, 255, 255, 0.05);
+            background: radial-gradient(351.65% 206.61% at -12.37% 132.86%, rgba(60, 40, 226, 0.30) 0%, rgba(20, 97, 255, 0.00) 100%), rgba(0, 0, 0, 0.25);
+            @include text(52px, 64px);
+            @include responsive(letter-spacing, -1.04px);
+            color: #FAFAFA;
+        }
+    }
+
+    &-form {
+
+    }
+}
