@@ -1,16 +1,34 @@
-import { useState, type FC } from 'react'
+import { useState, useEffect, type FC } from 'react'
 import type { PromotionBannerProps } from './types'
 import './black-friday-hero.scss'
 
 const BlackFridayHero: FC<PromotionBannerProps> = ({ className, background, onExpand }) => {
-    const [isReady, setIsReady] = useState<boolean>(background?.type !== 'video')
+    const isVideo = background?.type === 'video'
+
+    const [isReady, setIsReady] = useState<boolean>(!isVideo)
+
+    useEffect(() => {
+        setIsReady(!isVideo)
+        if (!isVideo) return
+        const timeout = setTimeout(() => setIsReady(true), 2500)
+        return () => clearTimeout(timeout)
+    }, [isVideo, background?.src])
 
     return (
         <div className={`bf-hero ${className} ${isReady ? 'ready' : ''}`}>
             {background && (
                 <div className="bf-hero-bg">
                     {background.type === 'video' && (
-                        <video autoPlay playsInline muted loop className="object-cover" onPlaying={() => setIsReady(true)}>
+                        <video
+                            autoPlay
+                            playsInline
+                            muted
+                            loop
+                            className="object-cover"
+                            onLoadedData={() => setIsReady(true)}
+                            onPlaying={() => setIsReady(true)}
+                            onError={() => setIsReady(true)}
+                        >
                             <source src={background.src} type="video/mp4" />
                         </video>
                     )}
