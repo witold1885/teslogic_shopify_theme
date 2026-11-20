@@ -29,6 +29,7 @@ $flexSpecs: (
     "flex-end":                  (display: flex, align-items: flex-end),
     "flex-end-center":           (display: flex, justify-content: flex-end, align-items: center),
     "flex-end-start":            (display: flex, justify-content: flex-end, align-items: flex-start),
+    "flex-end-end":              (display: flex, justify-content: flex-end, align-items: flex-end),
     "flex-1":                    (flex: 1),
     "grid":                      (display: grid)
 );

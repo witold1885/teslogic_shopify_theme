@@ -23,6 +23,9 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
+import { getCurrentPromotion } from '../../utils/promotion'
+import BlackFridayBundle from '../Promotion/BlackFridayBundle'
+
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     slider: { yFrom: '20px', duration: 333 },
     name: { yFrom: '40px', duration: 666 },
@@ -35,6 +38,8 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
 }
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
+
+const promotion = getCurrentPromotion()
 
 const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
     const dispatch = useAppDispatch()
@@ -268,6 +273,11 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                                 )}
                             </div>
                         </div>
+                        {promotion === 'bf26' && (
+                            <div className="screenmate-one__order-bf-bundle">
+                                <BlackFridayBundle />
+                            </div>
+                        )}
                     </div>
                 </div>
             )}

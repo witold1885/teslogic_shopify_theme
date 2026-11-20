@@ -1,0 +1,50 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.bf {
+
+    &-bundle {
+        @extend %flex-center;
+        @include responsive(gap, 21.44px);
+
+        &-images {
+            @extend %flex-end-center, %gap-10;
+
+            & > * {
+                @extend %flex-center;
+            }
+
+            & .image {
+                align-self: flex-end;
+            }
+        }
+
+        &-screenmate-one {
+            @include block(80px, 68px);
+        }
+
+        &-powermate {
+            @include block(80.565px, 60px);
+        }
+
+        &-plus {
+            @include square(16px);
+        }
+
+        &-info {
+            @extend %flex-column, %gap-4;
+
+            & > * {
+                @extend %flex, %gap-8, %font-manrope, %font-500;
+                @include text(16px, 20px);
+            }
+
+            & > div span:last-child, & > a {
+                @extend %text-blue;
+            }
+        }
+    }
+}

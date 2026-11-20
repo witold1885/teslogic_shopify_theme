@@ -265,5 +265,11 @@
                 }
             }
         }
+
+        &-bf-bundle {
+            @include responsive(margin-top, 32px);
+            @include responsive(padding-top, 28px);
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+        }
     }
 }
