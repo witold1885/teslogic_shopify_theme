@@ -9,6 +9,13 @@
     @extend %flex-between;
     @include responsive(width, 1296px);
 
+    &-close {
+        @extend %flex-center, %absolute, %cursor-pointer;
+        @include square(20px);
+        @include responsive(top, 20px);
+        @include responsive(right, 20px);
+    }
+
     &-gallery {
         @extend %relative;
         @include block(636px, 780px);
