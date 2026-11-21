@@ -292,7 +292,7 @@
             }
 
             &-price {
-                @extend %flex-end-center, %gap-12, %font-manrope-24, %text-white;
+                @extend %flex-end-center, %mob\:flex-start-center, %gap-12, %font-manrope-24, %text-white;
 
                 @include mobile() {
                     @include res-mobile(margin-bottom, 4px);
