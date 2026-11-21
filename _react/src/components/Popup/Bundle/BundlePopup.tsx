@@ -1,7 +1,10 @@
-import { Fragment, useMemo, useRef, useState, type FC, type ReactNode } from 'react'
+import { Fragment, useState, useEffect, useRef, useMemo, useCallback, type FC, type ReactNode } from 'react'
 import './bundle-popup.scss'
-import { useAppSelector } from '../../../redux/hooks'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { useDynamicSlice } from '../../../hooks/dynamic-slice'
 import { fetchProducts } from '../../../redux/selectors/products'
+import { fetchOrder } from '../../../redux/selectors/order'
+import { fetchContent } from '../../../redux/selectors/content'
 import type { Model, Product } from '../../../types/product'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
 import Icon from '../../Common/Icon'
@@ -9,6 +12,7 @@ import Dropdown, { type DropdownOption } from '../../Common/Dropdown'
 import bundleImage from '../../../assets/images/promotion/bundle/bundle.png'
 
 interface BundlePopupProps {
+    discount?: number
     open: boolean
     onClose: () => void
 }
@@ -43,7 +47,8 @@ interface PowermateVersion {
 
 type Bundle = Product & PowermateVersion
 
-const commonTitle = 'Screenmate ONE + Powermate'
+const commonTitle: string = 'Screenmate ONE + Powermate'
+
 const powermateVersions: Record<string, PowermateVersion> = {
     'one-powermate-boost': {
         power: '+50 HP',
@@ -62,16 +67,29 @@ const powermateVersions: Record<string, PowermateVersion> = {
     }
 }
 
-const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
+const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
+
+const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
+    const dispatch = useAppDispatch()
+
     const wrap = useRef<PopupRefProps>(null)
 
+    const { addToCart } = useDynamicSlice('order', () => import('../../../redux/slices/order'))
     const { bundleProducts } = useAppSelector(fetchProducts)
+    const { rate, addedToCart } = useAppSelector(fetchOrder)
+    const { country } = useAppSelector(fetchContent)
 
-    const bundles: Bundle[] = useMemo(() => bundleProducts?.map(product => ({
+    const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
+    // const currency: string = 'USD'
+
+    const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
+
+    const bundles: Bundle[] = useMemo(() => bundleProducts?.map(({ title, price, ...product }) => ({
         ...product,
-        title: product.title.replace(commonTitle, '').trim(),
+        title: title.replace(commonTitle, '').trim(),
+        price: (price || 0) * coef,
         ...powermateVersions[product.slug]
-    })) || [], [bundleProducts])
+    })) || [], [bundleProducts, coef])
 
     const [selectedBundle, setSelectedBundle] = useState<Bundle | null>(bundles[0] || null)
 
@@ -87,10 +105,23 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
         const model = selectedBundle?.models?.find(({ id }) => id === modelId) || null
         setSelectedModel(model)
     }
+    
+    const economy = useMemo(() => (selectedBundle?.price || 0) - ((selectedBundle?.price || 0) * discount / 100), [selectedBundle, discount])
 
-    const handleSubmit = () => {
-        
-    }
+    const handleSubmit = useCallback(() => {
+        if (selectedModel) {
+            const items = [{ id: selectedModel.id, quantity: 1 }]
+            dispatch(addToCart({ items }))
+        } else {
+            setError(true)
+        }
+    }, [selectedModel, dispatch, addToCart])    
+
+    useEffect(() => {
+        if (addedToCart && typeof window !== 'undefined') {
+            window.open(`${shopifyUrl}/cart`, '_blank')
+        }
+    }, [addedToCart])
 
     return (
         <PopupWrap
@@ -140,7 +171,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
                                                 </div>
                                             </div>
                                             <div className="bundle-popup-form-powermate-version-total">
-                                                <span>Bundle total</span><span>{price} USD</span>
+                                                <span>Bundle total</span><span>{price} {currency}</span>
                                             </div>
                                         </label>
                                         <input
@@ -169,9 +200,9 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
                     <div className="bundle-popup-form-submit">
                         <div className="bundle-popup-form-total">
                             <div>Bundle total</div>
-                            <div className="bundle-popup-form-total-price">{selectedBundle?.price} USD</div>
+                            <div className="bundle-popup-form-total-price">{selectedBundle?.price} {currency}</div>
                             <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
-                            <div className="bundle-popup-form-total-discount">Save USD</div>
+                            <div className="bundle-popup-form-total-economy">{economy ? `Save ${economy} ${currency}` : ''}</div>
                         </div>
                         <button onClick={handleSubmit}>Order Bundle</button>
                     </div>

@@ -7,7 +7,7 @@ import powermate from '../../assets/images/promotion/bundle/powermate.png'
 
 const BundlePopup = getComponent(() => import('../Popup/Bundle/BundlePopup.tsx'))
 
-const BlackFridayBundle: FC = () => {
+const BlackFridayBundle: FC<{ discount?: number }> = ({ discount = 25 }) => {
     const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
 
     return (<>
@@ -31,7 +31,7 @@ const BlackFridayBundle: FC = () => {
             </div>
         </div>
         {BundlePopup && (
-            <BundlePopup open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+            <BundlePopup discount={discount} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
         )}
     </>)
 }

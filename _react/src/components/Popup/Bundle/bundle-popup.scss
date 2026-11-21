@@ -196,16 +196,21 @@
             @extend %flex-column, %gap-20;
 
             & button {
-                @extend %w-full, %flex-center;
+                @extend %w-full, %flex-center, %font-manrope-24, %font-700, %text-center, %uppercase;
                 @include responsive(height, 72px);
                 @include responsive(border-radius, 54px);
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                color: #FAFAFA;
+                
+                &:hover {
+                    background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+                }
             }
         }
 
         &-total {
             @extend %grid, %font-manrope-16;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: auto 1fr;
             @include responsive(gap, 2px);
             color: #FAFAFA;
 
@@ -213,7 +218,7 @@
                 color: #9A9A9A;
             }
 
-            &-price, &-discount {
+            &-price, &-economy {
                 @extend %font-600, %text-right;
             }
 
@@ -222,7 +227,7 @@
                 color: #FFF;
             }
 
-            &-discount {
+            &-economy {
                 color: hsl(216.6265deg 98.419% 50.3922%);
             }
         }
