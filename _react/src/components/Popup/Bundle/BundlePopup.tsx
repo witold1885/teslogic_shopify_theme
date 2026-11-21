@@ -183,7 +183,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                                                 </div>
                                             </div>
                                             <div className="bundle-popup-form-powermate-version-total">
-                                                <span>Bundle total</span><span>{currentPrice} {currency}</span>
+                                                <span>Bundle total</span><span>{currentPrice?.toFixed(0) || 0} {currency}</span>
                                             </div>
                                         </label>
                                         <input
@@ -214,13 +214,13 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                             <div>Bundle total</div>
                             <div className="bundle-popup-form-total-price">
                                 {selectedBundle?.oldPrice && (
-                                    <span className="bundle-popup-form-total-price-old">{selectedBundle?.oldPrice} {currency}</span>
+                                    <span className="bundle-popup-form-total-price-old">{selectedBundle?.oldPrice?.toFixed(0) || 0} {currency}</span>
                                 )}
-                                <span className="bundle-popup-form-total-price-new">{selectedBundle?.currentPrice} {currency}</span>
+                                <span className="bundle-popup-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
                             </div>
                             <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
                             <div className="bundle-popup-form-total-economy">
-                                {selectedBundle?.economy ? `Save ${selectedBundle.economy} ${currency}` : ''}
+                                {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
                             </div>
                         </div>
                         <button onClick={handleSubmit}>Order Bundle</button>
