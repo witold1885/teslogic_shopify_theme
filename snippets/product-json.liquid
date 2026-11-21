@@ -1,5 +1,6 @@
 {
     "id": {{ product.id }},
+    "slug": {{ product.handle | json }},
     "title": {{ product.title | json }},
     "description": {{ product.description | json }},
     "price": {{ product.price | divided_by: 100 }},

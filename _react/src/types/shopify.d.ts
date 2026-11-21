@@ -65,6 +65,7 @@ declare global {
             products: Product[]
             product: Product
             additionalProducts: Product[]
+            bundleProducts: Product[]
         } | null
         ShopifyAnalytics?: {
             publish: (event: string, data?: Record<string, unknown>) => Promise<boolean>

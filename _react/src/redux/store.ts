@@ -16,6 +16,7 @@ const getInitialState = () => {
       products: data?.products || [],
       product: data?.product,
       additionalProducts: data?.additionalProducts,
+      bundleProducts: data?.bundleProducts,
       loading: false
     }
   }

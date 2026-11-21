@@ -5,6 +5,7 @@ export interface ProductsState {
     products?: Product[]
     product?: Product | null
     additionalProducts?: Product[]
+    bundleProducts?: Product[]
     loading: boolean
     error?: string|null
 }
@@ -14,6 +15,7 @@ export const initialState: ProductsState = {
     products: [],
     product: null,
     additionalProducts: [],
+    bundleProducts: [],
     loading: false,
     error: null
 }
