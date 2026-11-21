@@ -28,6 +28,14 @@
   {% render 'product-json', product: all_products['screenmate-splitter'] %}
 {%- endcapture -%}
 
+{%- capture bundle_one_boost -%}
+  {% render 'product-json', product: all_products['one-powermate-boost'] %}
+{%- endcapture -%}
+
+{%- capture bundle_one_performance -%}
+  {% render 'product-json', product: all_products['one-powermate-performance'] %}
+{%- endcapture -%}
+
 <script>
   {%- assign cache_buster = theme.id | append: '-' | append: 'now' | date: '%s' -%}
   window.ShopifyReactData = {
@@ -39,6 +47,7 @@
     },
     cart: {{ cart }},
     product: {{ product }},
+    bundleProducts: [{{ bundle_one_boost }}, {{ bundle_one_performance }}],
     additionalProducts: [{{ charger }}, {{ splitter }}]
   }
 </script>
