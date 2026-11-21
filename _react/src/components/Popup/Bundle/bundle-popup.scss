@@ -288,11 +288,15 @@
             }
 
             &-price, &-economy {
-                @extend %font-600, %text-right;
+                @extend %font-600, %text-right, %mob\:text-left;
             }
 
             &-price {
                 @extend %flex-end-center, %gap-12, %font-manrope-24, %text-white;
+
+                @include mobile() {
+                    @include res-mobile(margin-bottom, 4px);
+                }
 
                 &-old {
                     @extend %text-grey, %line-through;
@@ -309,7 +313,11 @@
         }
 
         &-note {
-            @extend %flex-center, %gap-4, %font-manrope-16, %mob\:font-manrope-14;
+            @extend %flex-center, %mob\:flex-column, %gap-4, %font-manrope-16, %mob\:font-manrope-14;
+
+            & > div {
+                @extend %flex-center, %gap-4;
+            }
 
             & a {
                 @extend %font-500;

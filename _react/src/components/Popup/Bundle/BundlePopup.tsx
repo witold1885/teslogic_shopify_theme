@@ -231,9 +231,11 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                     </div>
                     <div className="bundle-popup-form-note">
                         <span>Learn more about</span>
-                        <a href="/pro">Powermate</a>
-                        <span>or</span>
-                        <a href="/">Screenmate ONE</a>
+                        <div>
+                            <a href="/pro">Powermate</a>
+                            <span>or</span>
+                            <a href="/">Screenmate ONE</a>
+                        </div>
                     </div>
                 </div>
             </div>
