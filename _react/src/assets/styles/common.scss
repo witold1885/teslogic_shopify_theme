@@ -173,7 +173,7 @@ input, textarea {
         }
 
         &-error {
-            border: 1px solid #FC3E30;
+            border: 1px solid #FC3E30 !important;
         }
 
         @include m.mobile() {
