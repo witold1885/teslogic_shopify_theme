@@ -88,6 +88,10 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
         setSelectedModel(model)
     }
 
+    const handleSubmit = () => {
+        
+    }
+
     return (
         <PopupWrap
             ref={wrap}
@@ -161,7 +165,23 @@ const BundlePopup: FC<BundlePopupProps> = ({ open, onClose }) => {
                         />
                     </div>
                 </div>
-                <div></div>
+                <div className="bundle-popup-form-bottom">
+                    <div className="bundle-popup-form-submit">
+                        <div className="bundle-popup-form-total">
+                            <div>Bundle total</div>
+                            <div className="bundle-popup-form-total-price">{selectedBundle?.price} USD</div>
+                            <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
+                            <div className="bundle-popup-form-total-discount">Save USD</div>
+                        </div>
+                        <button onClick={handleSubmit}>Order Bundle</button>
+                    </div>
+                    <div className="bundle-popup-form-note">
+                        <span>Learn more about</span>
+                        <a href="/pro">Powermate</a>
+                        <span>or</span>
+                        <a href="/">Screenmate ONE</a>
+                    </div>
+                </div>
             </div>
         </PopupWrap>
     )

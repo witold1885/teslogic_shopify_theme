@@ -56,9 +56,9 @@
                 z-index: -1;
                 
                 background-image: url(../../../assets/images/promotion/bundle/title-bg.png);
-                background-position: center;
                 background-position-x: 0%;
                 background-position-y: 40%;
+                background-size: contain;
                 background-repeat: no-repeat;
             }
         }
@@ -97,7 +97,7 @@
             color: #9A9A9A;
         }
 
-        &-body {
+        &-body, &-bottom {
             @extend %flex-column, %gap-24;
         }
 
@@ -189,6 +189,49 @@
                         }
                     }
                 }
+            }
+        }
+
+        &-submit {
+            @extend %flex-column, %gap-20;
+
+            & button {
+                @extend %w-full, %flex-center;
+                @include responsive(height, 72px);
+                @include responsive(border-radius, 54px);
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+            }
+        }
+
+        &-total {
+            @extend %grid, %font-manrope-16;
+            grid-template-columns: 1fr 1fr;
+            @include responsive(gap, 2px);
+            color: #FAFAFA;
+
+            &-title {
+                color: #9A9A9A;
+            }
+
+            &-price, &-discount {
+                @extend %font-600, %text-right;
+            }
+
+            &-price {
+                @extend %font-manrope-24, %text-white;
+                color: #FFF;
+            }
+
+            &-discount {
+                color: hsl(216.6265deg 98.419% 50.3922%);
+            }
+        }
+
+        &-note {
+            @extend %flex-center, %gap-4, %font-manrope-16;
+
+            & a {
+                @extend %font-500;
             }
         }
     }
