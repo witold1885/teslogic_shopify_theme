@@ -35,7 +35,7 @@
         }
 
         &-info {
-            @extend %flex-column, %gap-4, %mob\:text-center;
+            @extend %flex-column, %gap-4, %mob\:flex-column-center, %mob\:text-center;
 
             & > * {
                 @extend %flex, %gap-4, %font-manrope, %font-500;
