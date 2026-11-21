@@ -6,8 +6,9 @@
 @use '../popup.scss';
 
 .bundle-popup {
-    @extend %flex-between;
+    @extend %flex-between, %overflow-hidden;
     @include responsive(width, 1296px);
+    @include responsive(border-radius, 20px);
 
     &-close {
         @extend %flex-center, %absolute, %cursor-pointer;
@@ -39,14 +40,27 @@
         &-title {
             @extend %whitespace-nowrap, %uppercase;
             @include responsive(top, 32.5px);
+            @include responsive(width, 542px);
             @include text(80px, 84px);
             @include responsive(letter-spacing, -1.6px);
             -webkit-text-stroke-width: 0.5px;
             -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
-            background: url(../../../assets/images/promotion/bundle/title-bg.png) lightgray 1193.684px 810.462px / -220.165% -521.785% no-repeat;
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+
+            & > div {
+                @extend %h-full, %absolute;
+                @include responsive(width, 550px);
+                top: 0;
+                z-index: -1;
+                
+                background-image: url(../../../assets/images/promotion/bundle/title-bg.png);
+                background-position: center;
+                background-position-x: 0%;
+                background-position-y: 40%;
+                background-repeat: no-repeat;
+            }
         }
 
         &-discount {
@@ -65,7 +79,12 @@
 
     &-form {
         @extend %flex-column, %gap-32, %font-manrope;
+        @include responsive(width, 660px);
         @include responsive(padding, 32px, 32px, 24px);
+
+        &-top {
+            @extend %flex-column, %gap-8;
+        }
 
         &-title {
             @extend %font-600;
@@ -76,6 +95,101 @@
         &-subtitle {
             @include text(15px, 22px);
             color: #9A9A9A;
+        }
+
+        &-body {
+            @extend %flex-column, %gap-24;
+        }
+
+        &-powermate, &-screenmate-one {
+            @extend %flex-column, %gap-12;
+
+            &-title {
+                @extend %font-manrope-16, %font-600;
+                color: #FAFAFA;
+            }
+        }
+
+        &-powermate {
+
+            &-versions {
+                @extend %flex-between-center, %gap-10;
+            }
+
+            &-version {
+                @extend %w-full, %flex-1, %flex-column, %gap-20, %cursor-pointer;
+                @include responsive(height, 202px);
+                @include responsive(padding, 20px);
+                @include responsive(border-radius, 12px);
+                border: 1px solid rgba(255, 255, 255, 0.10);
+                background: #191919;
+
+                &-body, &-top, &-compatibility {
+                    @extend %flex-column;
+                }
+
+                &-body {
+                    @extend %gap-16;
+                }
+
+                &-top, &-compatibility {
+                    @extend %gap-4;
+                }
+
+                &-top {
+                    @extend %font-600;
+                }
+
+                &-title {
+                    @extend %flex-between-center;
+
+                    & span {
+                        @extend %font-manrope-18;
+                        color: #FAFAFA;
+                    }
+
+                    & .icon {
+                        @include square(20px);
+                    }
+                }
+
+                &-power {
+                    @extend %font-manrope;
+                    @include text(28px, 32px);
+                    color: #FFF;
+                }
+
+                &-compatibility, &-total {
+                    @extend %font-manrope-14;
+                }
+
+                &-compatibility {
+                    
+                    & a {
+                        @extend %flex-start-center, %gap-4, %font-500;
+
+                        & .icon {
+                            @include square(20px);
+                        }
+                    }
+                }
+
+                &-total {
+                    @extend %flex-between-center;
+
+                    & span {
+
+                        &:first-child {
+                            color: #9A9A9A;
+                        }
+
+                        &:last-child {
+                            @extend %font-600, %text-right;
+                            color: #FAFAFA;
+                        }
+                    }
+                }
+            }
         }
     }
 }
