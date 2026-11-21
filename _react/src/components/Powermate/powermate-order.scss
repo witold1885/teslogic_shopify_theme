@@ -261,7 +261,7 @@
         background: hsl(0deg 0% 9.0196%);
 
         @include mobile() {
-            @include res-mobile(padding, 32px, 0);
+            @include res-mobile(padding, 12px, 0, 32px);
             background: transparent;
         }
     }
