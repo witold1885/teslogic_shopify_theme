@@ -57,8 +57,9 @@ const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost
 const promotion = getCurrentPromotion()
 
 const PowermateOrder: FC<{
-    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
-}> = ({ onCompatibilityWarning }) => {
+    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void,
+    onBundlePopupOpen?: () => void
+}> = ({ onCompatibilityWarning, onBundlePopupOpen }) => {
     const dispatch = useAppDispatch()
 
     const { isMobile } = useInlineStyles()
@@ -237,7 +238,7 @@ const PowermateOrder: FC<{
                         </div>
                         {promotion === 'bf26' && (
                             <div {...anime('bundle')} className="order-bf-bundle">
-                                <BlackFridayBundle />
+                                <BlackFridayBundle {...{onBundlePopupOpen}} />
                             </div>
                         )}
                     </div>		

@@ -47,6 +47,7 @@ const PowermateCompatibility = getComponent(() => import('../components/Powermat
 const PowermateOrder = getComponent(() => import('../components/Powermate/PowermateOrder.tsx'))
 const PowermateInfo = getComponent(() => import('../components/Powermate/PowermateInfo.tsx'))
 const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
+const BundlePopup = getComponent(() => import('../components/Popup/Bundle/BundlePopup.tsx'))
 
 const Powermate: FC = () => {
     const { getPreSectionStyle } = usePreSections(preSections)
@@ -95,7 +96,13 @@ const Powermate: FC = () => {
         boostOrderCallbackRef.current?.()
         setResultPopupOpen(false)
         setResultPopupType('default')
-    }    
+    }
+    
+    const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
+
+    const handleBundlePopupOpen = () => {
+        setBundlePopupOpen(true)
+    }
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
@@ -107,6 +114,11 @@ const Powermate: FC = () => {
                     handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
                     resultPopupType
                 }} />
+            </LazySection>
+        )}
+        {BundlePopup && (
+            <LazySection minHeight="0px" forceRender={true}>
+                <BundlePopup discount={25} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} className="powermate" onOrder={onOrder}>
@@ -123,7 +135,7 @@ const Powermate: FC = () => {
                 <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
             </LazySection>
             <LazySection id="shop-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
-                <PowermateOrder onCompatibilityWarning={handleWarning} />
+                <PowermateOrder onCompatibilityWarning={handleWarning} onBundlePopupOpen={handleBundlePopupOpen} />
             </LazySection>
             <LazySection {...getPreSectionStyle('Info')}>
                 <PowermateInfo />

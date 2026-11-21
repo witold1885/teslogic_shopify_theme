@@ -42,7 +42,7 @@ const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost
 
 const promotion = getCurrentPromotion()
 
-const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
+const ScreenmateOneOrder = forwardRef<HTMLDivElement, { onBundlePopupOpen?: () => void }>(({ onBundlePopupOpen }, ref) => {
     const dispatch = useAppDispatch()
 
     const { isMobile } = useInlineStyles()
@@ -276,7 +276,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                         </div>
                         {promotion === 'bf26' && (
                             <div {...anime('bundle')} className="screenmate-one__order-bf-bundle">
-                                <BlackFridayBundle />
+                                <BlackFridayBundle {...{onBundlePopupOpen}} />
                             </div>
                         )}
                     </div>

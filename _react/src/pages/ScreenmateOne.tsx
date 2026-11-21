@@ -84,6 +84,7 @@ const sections: Record<string, ComponentType<any>> = ['Setup', 'Interfaces', 'Co
 
 const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
+const BundlePopup = getComponent(() => import('../components/Popup/Bundle/BundlePopup.tsx'))
 
 const ScreenmateOne: FC = () => {    
     const { getPreSectionStyle } = usePreSections(preSections)
@@ -117,8 +118,19 @@ const ScreenmateOne: FC = () => {
             })
         }
     }
+    
+    const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
 
-    return (
+    const handleBundlePopupOpen = () => {
+        setBundlePopupOpen(true)
+    }
+
+    return (<>
+        {BundlePopup && (
+            <LazySection minHeight="0px" forceRender={true}>
+                <BundlePopup discount={25} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+            </LazySection>
+        )}
         <ProductLayout images={preloadImages} videos={preloadVideos} className="screenmate-one" onOrder={onOrder}>
             <ScreenmateOneBanner
                 bannerDesktopVideo={bannerDesktop}
@@ -137,10 +149,10 @@ const ScreenmateOne: FC = () => {
                 </LazySection>
             ))}
             <LazySection id="order-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
-                <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
+                <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} onBundlePopupOpen={handleBundlePopupOpen} />
             </LazySection>
         </ProductLayout>
-    )
+    </>)
 }
 
 mountForShopify('react-screenmate-one-root', ScreenmateOne)
