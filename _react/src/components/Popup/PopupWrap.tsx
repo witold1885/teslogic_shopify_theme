@@ -48,7 +48,7 @@ const PopupWrap: FC<PopupWrapProps> = ({ ref, id, className, backgroundType, bac
     }), [handleClose])
 
     return (
-        <div id={id} className={`popup-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
+        <div id={id} className={`popup-shadow ${className}-shadow ${open ? 'is-visible' : ''} ${hiding ? 'is-hiding' : ''}`}>
             <div className={`popup ${className}`} style={style}>
                 {backgroundType === 'node' && <>{background}</>}
                 <Icon className={getClassNames('close')} icon={close} onClick={onClose} />

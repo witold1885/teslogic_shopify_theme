@@ -13,6 +13,11 @@
     @include mobile() {
         width: 100vw;
         min-height: 100vh;
+        align-self: flex-start;
+
+        &-shadow {
+            overflow-y: scroll;
+        }
     }
 
     &-close {
