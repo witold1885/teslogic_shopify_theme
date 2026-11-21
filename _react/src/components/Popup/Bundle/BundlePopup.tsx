@@ -105,11 +105,15 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
         }
     }) || [], [bundleProducts, coef, discount])
 
-    const [selectedBundle, setSelectedBundle] = useState<Bundle | null>(bundles[0] || null)
+    const [selectedBundleId, setSelectedBundleId] = useState<number | null>(bundles[0]?.id || null)
 
-    const options: DropdownOption[] = (selectedBundle?.models || []).flatMap(({ id, title }) =>
+    const selectedBundle: Bundle | null = useMemo(() => bundles?.find(
+        ({ id }) => id === selectedBundleId
+    ) || null, [bundles, selectedBundleId])
+
+    const options: DropdownOption[] = useMemo(() => selectedBundle?.models?.flatMap(({ id, title }) =>
         title.split('|').map((model) => ({ label: model.trim(), value: id }))
-    )
+    ) || [], [selectedBundle])
 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
     const [error, setError] = useState<boolean>(false)
@@ -147,14 +151,14 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
             <div className="bundle-popup-gallery">
                 <img className="object-cover" src={bundleImage} />
                 <div className="bundle-popup-gallery-title">Black Friday <br />Bundle<div /></div>
-                <div className="bundle-popup-gallery-discount">25% OFF</div>
+                <div className="bundle-popup-gallery-discount">{discount}% OFF</div>
             </div>
             <div className="bundle-popup-form">
                 <div className="bundle-popup-form-top">
                     <div className="bundle-popup-form-title">{commonTitle}</div>
                     <div className="bundle-popup-form-subtitle">
                         Add more power and acceleration to your Tesla. <br />
-                        Save 25% when you buy both.
+                        Save {discount}% when you buy both.
                     </div>
                 </div>
                 <div className="bundle-popup-form-body">
@@ -190,8 +194,8 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                                             id={`powermate-${slug}`}
                                             type="radio"
                                             name="powermate_version"
-                                            value={slug}
-                                            onChange={() => setSelectedBundle(bundle)}
+                                            value={id}
+                                            onChange={() => setSelectedBundleId(id)}
                                             style={{ display: 'none' }}
                                         />
                                     </Fragment>
