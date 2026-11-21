@@ -25,6 +25,7 @@
         @include square(20px);
         @include responsive(top, 20px);
         @include responsive(right, 20px);
+        z-index: 1;
     }
 
     &-gallery {
