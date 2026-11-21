@@ -112,9 +112,14 @@
     }
 
     &-form {
-        @extend %flex-column, %gap-32, %font-manrope;
-        @include responsive(width, 660px);
-        @include responsive(padding, 32px, 32px, 24px);
+        @extend %flex-column, %gap-32, %mob\:gap-24, %font-manrope;
+        @include res-desktop(width, 660px);
+        @include res-desktop(padding, 32px, 32px, 24px);
+
+        @include mobile() {
+            width: 100vw;
+            @include res-mobile(padding, 24px, 20px);
+        }
 
         &-top {
             @extend %flex-column, %gap-8;
@@ -122,13 +127,21 @@
 
         &-title {
             @extend %font-600;
-            @include text(32px, 40px);
+            @include text-desktop(32px, 40px);
             color: #FAFAFA;
+
+            @include mobile() {
+                @include text-mobile(24px, 32px);
+            }
         }
 
         &-subtitle {
-            @include text(15px, 22px);
+            @include text-desktop(15px, 22px);
             color: #9A9A9A;
+
+            @include mobile() {
+                @include text-mobile(14px, 20px);
+            }
         }
 
         &-body, &-bottom {
@@ -147,23 +160,28 @@
         &-powermate {
 
             &-versions {
-                @extend %flex-between-center, %gap-10;
+                @extend %flex-between-center, %gap-10, %mob\:flex-column, %mob\:gap-12;
             }
 
             &-version {
-                @extend %w-full, %flex-1, %flex-column, %gap-20, %cursor-pointer;
-                @include responsive(height, 202px);
-                @include responsive(padding, 20px);
+                @extend %w-full, %flex-1, %flex-column, %gap-20, %mob\:gap-12, %cursor-pointer;
+                @include res-desktop(height, 202px);
+                @include res-desktop(padding, 20px);
                 @include responsive(border-radius, 12px);
                 border: 1px solid rgba(255, 255, 255, 0.10);
                 background: #191919;
+
+                @include mobile() {
+                    @include res-mobile(height, 178px);
+                    @include res-mobile(padding, 16px);
+                }
 
                 &-body, &-top, &-compatibility {
                     @extend %flex-column;
                 }
 
                 &-body {
-                    @extend %gap-16;
+                    @extend %gap-16, %mob\:gap-12;
                 }
 
                 &-top, &-compatibility {
@@ -189,8 +207,12 @@
 
                 &-power {
                     @extend %font-manrope;
-                    @include text(28px, 32px);
+                    @include text-desktop(28px, 32px);
                     color: #FFF;
+
+                    @include mobile() {
+                        @include text-mobile(24px, 28px);
+                    }
                 }
 
                 &-compatibility, &-total {
@@ -226,15 +248,23 @@
             }
         }
 
+        &-bottom {
+            @extend %mob\:gap-20;
+        }
+
         &-submit {
-            @extend %flex-column, %gap-20;
+            @extend %flex-column, %gap-20, %mob\:gap-16;
 
             & button {
-                @extend %w-full, %flex-center, %font-manrope-24, %font-700, %text-center, %uppercase;
-                @include responsive(height, 72px);
+                @extend %w-full, %flex-center, %font-manrope-24, %mob\:font-manrope-18, %font-700, %text-center, %uppercase;
+                @include res-desktop(height, 72px);
                 @include responsive(border-radius, 54px);
                 background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
                 color: #FAFAFA;
+
+                @include mobile() {
+                    @include res-mobile(height, 56px);
+                }
                 
                 &:hover {
                     background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
@@ -243,10 +273,15 @@
         }
 
         &-total {
-            @extend %grid, %font-manrope-16;
+            @extend %grid, %font-manrope-16, %mob\:font-manrope-14;
             grid-template-columns: auto 1fr;
-            @include responsive(gap, 2px);
+            @include res-desktop(gap, 2px);
             color: #FAFAFA;
+            
+            @include mobile() {
+                grid-template-columns: auto;
+                @include res-mobile(gap, 4px);
+            }
 
             &-title {
                 color: #9A9A9A;
@@ -274,7 +309,7 @@
         }
 
         &-note {
-            @extend %flex-center, %gap-4, %font-manrope-16;
+            @extend %flex-center, %gap-4, %font-manrope-16, %mob\:font-manrope-14;
 
             & a {
                 @extend %font-500;
