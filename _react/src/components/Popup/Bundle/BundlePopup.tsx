@@ -36,6 +36,12 @@ const compatibilityWarningIcon = (
     </svg>
 )
 
+interface BundlePricing {
+    currentPrice: number
+    oldPrice: number
+    economy: number
+}
+
 interface PowermateVersion {
     power: string
     compatibility: {
@@ -45,7 +51,7 @@ interface PowermateVersion {
     }
 }
 
-type Bundle = Product & PowermateVersion
+type Bundle = Product & BundlePricing & PowermateVersion
 
 const commonTitle: string = 'Screenmate ONE + Powermate'
 
@@ -84,12 +90,20 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
 
     const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
-    const bundles: Bundle[] = useMemo(() => bundleProducts?.map(({ title, price, ...product }) => ({
-        ...product,
-        title: title.replace(commonTitle, '').trim(),
-        price: (price || 0) * coef,
-        ...powermateVersions[product.slug]
-    })) || [], [bundleProducts, coef])
+    const bundles: Bundle[] = useMemo(() => bundleProducts?.map(({ title, price, ...product }) => {
+        const recalcPrice = (price || 0) * coef
+        const economy = recalcPrice * discount / 100
+        const currentPrice = recalcPrice - economy
+        const oldPrice = economy ? recalcPrice : 0
+        return {
+            ...product,
+            title: title.replace(commonTitle, '').trim(),
+            currentPrice,
+            oldPrice,
+            economy,
+            ...powermateVersions[product.slug]
+        }
+    }) || [], [bundleProducts, coef, discount])
 
     const [selectedBundle, setSelectedBundle] = useState<Bundle | null>(bundles[0] || null)
 
@@ -106,8 +120,6 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
         setSelectedModel(model)
     }
     
-    const economy = useMemo(() => (selectedBundle?.price || 0) - ((selectedBundle?.price || 0) * discount / 100), [selectedBundle, discount])
-
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
             const items = [{ id: selectedModel.id, quantity: 1 }]
@@ -150,7 +162,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                         <div className="bundle-popup-form-powermate-title">Choose your Powermate version</div>
                         <div className="bundle-popup-form-powermate-versions">
                             {bundles?.map(bundle => {
-                                const { id, slug, title, power, compatibility, price } = bundle
+                                const { id, slug, title, power, compatibility, currentPrice } = bundle
                                 return (
                                     <Fragment key={`powermate-${slug}`}>
                                         <label className="bundle-popup-form-powermate-version" htmlFor={`powermate-${slug}`}>                                        
@@ -171,7 +183,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                                                 </div>
                                             </div>
                                             <div className="bundle-popup-form-powermate-version-total">
-                                                <span>Bundle total</span><span>{price} {currency}</span>
+                                                <span>Bundle total</span><span>{currentPrice} {currency}</span>
                                             </div>
                                         </label>
                                         <input
@@ -200,9 +212,16 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
                     <div className="bundle-popup-form-submit">
                         <div className="bundle-popup-form-total">
                             <div>Bundle total</div>
-                            <div className="bundle-popup-form-total-price">{selectedBundle?.price} {currency}</div>
+                            <div className="bundle-popup-form-total-price">
+                                {selectedBundle?.oldPrice && (
+                                    <span className="bundle-popup-form-total-price-old">{selectedBundle?.oldPrice} {currency}</span>
+                                )}
+                                <span className="bundle-popup-form-total-price-new">{selectedBundle?.currentPrice} {currency}</span>
+                            </div>
                             <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
-                            <div className="bundle-popup-form-total-economy">{economy ? `Save ${economy} ${currency}` : ''}</div>
+                            <div className="bundle-popup-form-total-economy">
+                                {selectedBundle?.economy ? `Save ${selectedBundle.economy} ${currency}` : ''}
+                            </div>
                         </div>
                         <button onClick={handleSubmit}>Order Bundle</button>
                     </div>

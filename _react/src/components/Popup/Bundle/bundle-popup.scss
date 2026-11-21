@@ -223,8 +223,15 @@
             }
 
             &-price {
-                @extend %font-manrope-24, %text-white;
-                color: #FFF;
+                @extend %flex-end-center, %gap-12, %font-manrope-24, %text-white;
+
+                &-old {
+                    @extend %text-grey, %line-through;
+                }
+
+                &-new {
+                    @extend %text-white;
+                }
             }
 
             &-economy {
