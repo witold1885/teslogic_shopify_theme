@@ -267,10 +267,14 @@
         }
 
         &-bf-bundle {
-            @extend %w-full;
-            @include responsive(margin-top, -4px);
-            @include responsive(padding-top, 28px);
+            @extend %w-full, %mob\:flex-center;
+            @include res-desktop(margin-top, -4px);
+            @include res-desktop(padding-top, 28px);
             border-top: 2px solid rgba(255, 255, 255, 0.15);
+
+            @include mobile() {
+                @include res-mobile(padding-top, 20px);
+            }
         }
     }
 }

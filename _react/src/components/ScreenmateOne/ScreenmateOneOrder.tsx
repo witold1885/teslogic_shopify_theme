@@ -35,6 +35,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     additionals: { yFrom: '20px', duration: 333 },
     button: { yFrom: '40px', duration: 666 },
     details: { yFrom: '20px', duration: 333 },
+    bundle: { yFrom: '40px', duration: 666 },
 }
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
@@ -274,7 +275,7 @@ const ScreenmateOneOrder = forwardRef<HTMLDivElement, {}>(({}, ref) => {
                             </div>
                         </div>
                         {promotion === 'bf26' && (
-                            <div className="screenmate-one__order-bf-bundle">
+                            <div {...anime('bundle')} className="screenmate-one__order-bf-bundle">
                                 <BlackFridayBundle />
                             </div>
                         )}

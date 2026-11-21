@@ -7,8 +7,8 @@
 .bf {
 
     &-bundle {
-        @extend %flex-start-center;
-        @include responsive(gap, 21.44px);
+        @extend %flex-start-center, %mob\:flex-column-center, %mob\:gap-16;
+        @include res-desktop(gap, 21.44px);
 
         &-images {
             @extend %flex-start-center, %gap-10;
@@ -38,7 +38,7 @@
             @extend %flex-column, %gap-4;
 
             & > * {
-                @extend %flex, %gap-8, %font-manrope, %font-500;
+                @extend %flex, %gap-4, %font-manrope, %font-500;
                 @include text(16px, 20px);
             }
 

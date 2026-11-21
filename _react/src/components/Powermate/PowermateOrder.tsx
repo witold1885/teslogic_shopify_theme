@@ -21,6 +21,7 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
     item: { yFrom: '40px', duration: 666 },
+    bundle: { yFrom: '40px', duration: 666 },
 }
 
 interface OrderItem {
@@ -235,7 +236,7 @@ const PowermateOrder: FC<{
                             ))}
                         </div>
                         {promotion === 'bf26' && (
-                            <div className="order-bf-bundle">
+                            <div {...anime('bundle')} className="order-bf-bundle">
                                 <BlackFridayBundle />
                             </div>
                         )}
