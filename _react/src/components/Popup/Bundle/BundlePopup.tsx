@@ -114,11 +114,11 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose }) => {
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
     const [error, setError] = useState<boolean>(false)
 
-    const handleModelSelect = (modelId: number) => {
+    const handleModelSelect = useCallback((modelId: number) => {
         setError(false)
         const model = selectedBundle?.models?.find(({ id }) => id === modelId) || null
         setSelectedModel(model)
-    }
+    }, [selectedBundle])
     
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
