@@ -135,6 +135,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
         const { value: modelId, label: modelLabel } = selectedOption ? (
             options.find(({ label }) => label === selectedOption.label) || {}
         ) : {}
+        console.log({ modelId, modelLabel })
         if (modelId) {
             handleModelSelect(modelId as number, modelLabel)
         }
