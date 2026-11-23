@@ -12,10 +12,11 @@ export const useBundlePopup = () => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
         const bundle: string | null = urlSearchParams?.get('bundle') || null
         const offer: string | null = urlSearchParams?.get('offer') || null
+        
+        setBundleDiscount(promotion === 'bf26' ? (offer === 'vip' ? 30 : 25) : 20)
 
         if (bundle === 'boost' || bundle === 'performance') {
             setBundleSlug(`one-powermate-${bundle}`)
-            setBundleDiscount(promotion === 'bf26' ? (offer === 'vip' ? 30 : 25) : 20)
             setBundlePopupOpen(true)
         }
     }, [])
