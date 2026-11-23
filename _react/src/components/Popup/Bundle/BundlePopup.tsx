@@ -131,8 +131,9 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
     const [error, setError] = useState<boolean>(false)
 
     useEffect(() => {
-        setSelectedModel(null)
-    }, [selectedBundle])
+        // setSelectedModel(null)
+        console.log({ selectedBundleId, selectedBundle, options })
+    }, [selectedBundleId, selectedBundle, options])
 
     const handleModelSelect = useCallback((modelId: number) => {
         setError(false)
