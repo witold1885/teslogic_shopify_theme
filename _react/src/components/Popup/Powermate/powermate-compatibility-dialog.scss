@@ -16,6 +16,10 @@
         @include res-mobile(padding, 24px, 24px, 32px);
     }
 
+    &-shadow {
+        z-index: 3000001 !important;
+    }
+
 	&-close {
         @extend %absolute, %cursor-pointer;
         @include square(20px);
