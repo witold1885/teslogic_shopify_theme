@@ -10,13 +10,13 @@ import PopupWrap, { type PopupRefProps } from '../PopupWrap'
 import Icon from '../../Common/Icon'
 import Dropdown, { type DropdownOption } from '../../Common/Dropdown'
 import bundleImage from '../../../assets/images/promotion/bundle/bundle.png'
+import PowermateCompatibility from '../../Powermate/PowermateCompatibility'
 
 interface BundlePopupProps {
     slug?: string
     discount?: number
     open: boolean
     onClose: () => void
-    onCompatibilityPopupOpen?: () => void
 }
 
 const getRadioIcon = (selected: boolean): ReactNode => selected ? (
@@ -77,7 +77,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, onCompatibilityPopupOpen = () => {} }) => {
+const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose }) => {
     const dispatch = useAppDispatch()
 
     const wrap = useRef<PopupRefProps>(null)
@@ -143,6 +143,8 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
         }
     }, [addedToCart])
 
+    const [compatibilityMode, setCompatibilityMode] = useState<boolean>(false)
+
     const handleClose = () => {
         wrap?.current?.close(() => onClose())
     }
@@ -156,100 +158,104 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
             open={open}
             onClose={handleClose}
         >
-            <div className="bundle-popup-gallery">
-                <img className="object-cover" src={bundleImage} />
-                <div className="bundle-popup-gallery-title">Black Friday <br />Bundle<div /></div>
-                <div className="bundle-popup-gallery-discount">{discount}% OFF</div>
-            </div>
-            <div className="bundle-popup-form">
-                <div className="bundle-popup-form-top">
-                    <div className="bundle-popup-form-title">{commonTitle}</div>
-                    <div className="bundle-popup-form-subtitle">
-                        Add more power and acceleration to your Tesla. <br />
-                        Save {discount}% when you buy both.
-                    </div>
+            {!compatibilityMode ? (<>
+                <div className="bundle-popup-gallery">
+                    <img className="object-cover" src={bundleImage} />
+                    <div className="bundle-popup-gallery-title">Black Friday <br />Bundle<div /></div>
+                    <div className="bundle-popup-gallery-discount">{discount}% OFF</div>
                 </div>
-                <div className="bundle-popup-form-body">
-                    <div className="bundle-popup-form-powermate">
-                        <div className="bundle-popup-form-powermate-title">Choose your Powermate version</div>
-                        <div className="bundle-popup-form-powermate-versions">
-                            {bundles?.map(bundle => {
-                                const { id, slug, title, power, compatibility, currentPrice } = bundle
-                                return (
-                                    <Fragment key={`powermate-${slug}`}>
-                                        <label className="bundle-popup-form-powermate-version" htmlFor={`powermate-${slug}`}>                                        
-                                            <div className="bundle-popup-form-powermate-version-body">
-                                                <div className="bundle-popup-form-powermate-version-top">
-                                                    <div className="bundle-popup-form-powermate-version-title">
-                                                        <span>{title}</span>
-                                                        <Icon svg={getRadioIcon(selectedBundle?.id === id)} />
+                <div className="bundle-popup-form">
+                    <div className="bundle-popup-form-top">
+                        <div className="bundle-popup-form-title">{commonTitle}</div>
+                        <div className="bundle-popup-form-subtitle">
+                            Add more power and acceleration to your Tesla. <br />
+                            Save {discount}% when you buy both.
+                        </div>
+                    </div>
+                    <div className="bundle-popup-form-body">
+                        <div className="bundle-popup-form-powermate">
+                            <div className="bundle-popup-form-powermate-title">Choose your Powermate version</div>
+                            <div className="bundle-popup-form-powermate-versions">
+                                {bundles?.map(bundle => {
+                                    const { id, slug, title, power, compatibility, currentPrice } = bundle
+                                    return (
+                                        <Fragment key={`powermate-${slug}`}>
+                                            <label className="bundle-popup-form-powermate-version" htmlFor={`powermate-${slug}`}>                                        
+                                                <div className="bundle-popup-form-powermate-version-body">
+                                                    <div className="bundle-popup-form-powermate-version-top">
+                                                        <div className="bundle-popup-form-powermate-version-title">
+                                                            <span>{title}</span>
+                                                            <Icon svg={getRadioIcon(selectedBundle?.id === id)} />
+                                                        </div>
+                                                        <div className="bundle-popup-form-powermate-version-power">{power}</div>
                                                     </div>
-                                                    <div className="bundle-popup-form-powermate-version-power">{power}</div>
+                                                    <div className="bundle-popup-form-powermate-version-compatibility">
+                                                        <div>{compatibility.text}</div>
+                                                        <a onClick={(e) => {
+                                                            e.preventDefault()
+                                                            setCompatibilityMode(true)
+                                                        }}>
+                                                            {compatibility.icon && <Icon svg={compatibility.icon} />}
+                                                            {compatibility.button}
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                                <div className="bundle-popup-form-powermate-version-compatibility">
-                                                    <div>{compatibility.text}</div>
-                                                    <a onClick={(e) => {
-                                                        e.preventDefault()
-                                                        onCompatibilityPopupOpen()
-                                                    }}>
-                                                        {compatibility.icon && <Icon svg={compatibility.icon} />}
-                                                        {compatibility.button}
-                                                    </a>
+                                                <div className="bundle-popup-form-powermate-version-total">
+                                                    <span>Bundle total</span><span>{currentPrice?.toFixed(0) || 0} {currency}</span>
                                                 </div>
-                                            </div>
-                                            <div className="bundle-popup-form-powermate-version-total">
-                                                <span>Bundle total</span><span>{currentPrice?.toFixed(0) || 0} {currency}</span>
-                                            </div>
-                                        </label>
-                                        <input
-                                            id={`powermate-${slug}`}
-                                            type="radio"
-                                            name="powermate_version"
-                                            value={id}
-                                            onChange={() => setSelectedBundleId(id)}
-                                            style={{ display: 'none' }}
-                                        />
-                                    </Fragment>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    <div className="bundle-popup-form-screenmate-one">
-                        <div className="bundle-popup-form-screenmate-one-title">Choose your Screenmate ONE version</div>
-                        <Dropdown
-                            placeholder="Select your Tesla model and year"
-                            {...{options, error}}
-                            onSelect={(modelId) => handleModelSelect(modelId as number)}
-                        />
-                    </div>
-                </div>
-                <div className="bundle-popup-form-bottom">
-                    <div className="bundle-popup-form-submit">
-                        <div className="bundle-popup-form-total">
-                            <div>Bundle total</div>
-                            <div className="bundle-popup-form-total-price">
-                                {selectedBundle?.oldPrice && (
-                                    <span className="bundle-popup-form-total-price-old">{selectedBundle?.oldPrice?.toFixed(0) || 0} {currency}</span>
-                                )}
-                                <span className="bundle-popup-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
-                            </div>
-                            <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
-                            <div className="bundle-popup-form-total-economy">
-                                {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
+                                            </label>
+                                            <input
+                                                id={`powermate-${slug}`}
+                                                type="radio"
+                                                name="powermate_version"
+                                                value={id}
+                                                onChange={() => setSelectedBundleId(id)}
+                                                style={{ display: 'none' }}
+                                            />
+                                        </Fragment>
+                                    )
+                                })}
                             </div>
                         </div>
-                        <button onClick={handleSubmit}>Order Bundle</button>
+                        <div className="bundle-popup-form-screenmate-one">
+                            <div className="bundle-popup-form-screenmate-one-title">Choose your Screenmate ONE version</div>
+                            <Dropdown
+                                placeholder="Select your Tesla model and year"
+                                {...{options, error}}
+                                onSelect={(modelId) => handleModelSelect(modelId as number)}
+                            />
+                        </div>
                     </div>
-                    <div className="bundle-popup-form-note">
-                        <span>Learn more about</span>
-                        <div>
-                            <a href="/pro">Powermate</a>
-                            <span>or</span>
-                            <a href="/">Screenmate ONE</a>
+                    <div className="bundle-popup-form-bottom">
+                        <div className="bundle-popup-form-submit">
+                            <div className="bundle-popup-form-total">
+                                <div>Bundle total</div>
+                                <div className="bundle-popup-form-total-price">
+                                    {selectedBundle?.oldPrice && (
+                                        <span className="bundle-popup-form-total-price-old">{selectedBundle?.oldPrice?.toFixed(0) || 0} {currency}</span>
+                                    )}
+                                    <span className="bundle-popup-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
+                                </div>
+                                <div className="bundle-popup-form-total-title">{commonTitle} {selectedBundle?.title}</div>
+                                <div className="bundle-popup-form-total-economy">
+                                    {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
+                                </div>
+                            </div>
+                            <button onClick={handleSubmit}>Order Bundle</button>
+                        </div>
+                        <div className="bundle-popup-form-note">
+                            <span>Learn more about</span>
+                            <div>
+                                <a href="/pro">Powermate</a>
+                                <span>or</span>
+                                <a href="/">Screenmate ONE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </>) : (<>
+                <PowermateCompatibility onCompatibilityCheck={() => {}} />
+            </>)}
         </PopupWrap>
     )
 }
