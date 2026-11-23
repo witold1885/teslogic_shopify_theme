@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef, type FC } from 'react'
+import { forwardRef, useState, useEffect, useRef, type FC } from 'react'
 import Icon from './Icon'
 import { useOutsideClick } from '../../hooks/outside-click'
 import chevronWhiteUp from '@/assets/icons/chevron-white-up.svg'
@@ -45,9 +45,14 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', cl
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
     const [selectedlabel, setSelectedLabel] = useState<string|null>(null)
 
+    useEffect(() => {
+        setMenuOpen(false)
+        setSelectedLabel(null)
+    }, [options])
+
     const handleOptionSelect = ({ label, value }: DropdownOption) => {
         setSelectedLabel(label)
-        onSelect && onSelect(value)
+        onSelect?.(value)
         setMenuOpen(false)
     }
 
