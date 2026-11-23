@@ -6,6 +6,7 @@ import { scrollToElementLazy } from '../utils/scroll'
 import { getPreloadImages } from '../utils/preload.ts'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
+import { useBundlePopup } from '../hooks/bundle-popup.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
@@ -98,7 +99,7 @@ const Powermate: FC = () => {
         setResultPopupType('default')
     }
     
-    const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
+    const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
 
     const handleBundlePopupOpen = () => {
         setBundlePopupOpen(true)
@@ -118,7 +119,7 @@ const Powermate: FC = () => {
         )}
         {BundlePopup && (
             <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup discount={25} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+                <BundlePopup slug={bundleSlug} discount={bundleDiscount} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} className="powermate" onOrder={onOrder}>

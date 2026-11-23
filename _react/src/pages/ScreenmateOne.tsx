@@ -6,6 +6,7 @@ import { scrollToElementLazy } from '../utils/scroll'
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
+import { useBundlePopup } from '../hooks/bundle-popup.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
@@ -119,7 +120,7 @@ const ScreenmateOne: FC = () => {
         }
     }
     
-    const [bundlePopupOpen, setBundlePopupOpen] = useState<boolean>(false)
+    const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
 
     const handleBundlePopupOpen = () => {
         setBundlePopupOpen(true)
@@ -128,7 +129,7 @@ const ScreenmateOne: FC = () => {
     return (<>
         {BundlePopup && (
             <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup discount={25} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+                <BundlePopup slug={bundleSlug} discount={bundleDiscount} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} videos={preloadVideos} className="screenmate-one" onOrder={onOrder}>

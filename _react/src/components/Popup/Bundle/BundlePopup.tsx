@@ -12,6 +12,7 @@ import Dropdown, { type DropdownOption } from '../../Common/Dropdown'
 import bundleImage from '../../../assets/images/promotion/bundle/bundle.png'
 
 interface BundlePopupProps {
+    slug?: string
     discount?: number
     open: boolean
     onClose: () => void
@@ -76,7 +77,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose, onCompatibilityPopupOpen = () => {} }) => {
+const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, onCompatibilityPopupOpen = () => {} }) => {
     const dispatch = useAppDispatch()
 
     const wrap = useRef<PopupRefProps>(null)
@@ -106,7 +107,9 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose, onComp
         }
     }) || [], [bundleProducts, coef, discount])
 
-    const [selectedBundleId, setSelectedBundleId] = useState<number | null>(bundles[0]?.id || null)
+    const [selectedBundleId, setSelectedBundleId] = useState<number | null>(
+        bundles.find(product => product.slug === slug)?.id || bundles[0]?.id || null
+    )
 
     const selectedBundle: Bundle | null = useMemo(() => bundles?.find(
         ({ id }) => id === selectedBundleId
@@ -140,6 +143,10 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose, onComp
         }
     }, [addedToCart])
 
+    const handleClose = () => {
+        wrap?.current?.close(() => onClose())
+    }
+
     return (
         <PopupWrap
             ref={wrap}
@@ -147,7 +154,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ discount = 0, open, onClose, onComp
             backgroundType="color"
             background="#191919"
             open={open}
-            onClose={onClose}
+            onClose={handleClose}
         >
             <div className="bundle-popup-gallery">
                 <img className="object-cover" src={bundleImage} />
