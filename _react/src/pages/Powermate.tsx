@@ -1,11 +1,11 @@
-import { useState, type ComponentType, type FC, useRef } from 'react'
-import type { CompatibilityResultPopupType } from '../components/Popup/Powermate/types.ts'
+import { useState, type ComponentType, type FC } from 'react'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
 import { getPreloadImages } from '../utils/preload.ts'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
+import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups.ts'
 import { useBundlePopup } from '../hooks/bundle-popup.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -59,45 +59,13 @@ const Powermate: FC = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
 
-    const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
-    const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)    
-
-    const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
-    const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
-    const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
-    const [resultPopupType, setResultPopupType] = useState<CompatibilityResultPopupType>('default')
-    
-    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void) => {
-        setWarningPopupOpen(true)
-        confirmCallbackRef.current = confirmCallback
-        boostOrderCallbackRef.current = boostOrderCallback
-    }
-
-    const handleCheck = (boostOrderCallback?: () => void) => {
-        setWarningPopupOpen(false)
-        setCheckPopupOpen(true)
-        if (!boostOrderCallbackRef.current) {
-            boostOrderCallbackRef.current = boostOrderCallback
-        }
-    }
-    
-    const handleConfirm = () => {
-        confirmCallbackRef.current?.()
-        setWarningPopupOpen(false)
-    }
-
-    const handleComplete = (proceed: boolean) => {
-        setCheckPopupOpen(false)
-        const type: CompatibilityResultPopupType = proceed ? 'success' : 'warning'
-        setResultPopupType(type)
-        setResultPopupOpen(true)
-    }
-
-    const handleBoostOrder = () => {
-        boostOrderCallbackRef.current?.()
-        setResultPopupOpen(false)
-        setResultPopupType('default')
-    }
+    const {
+        warningPopupOpen, setWarningPopupOpen,
+        checkPopupOpen, setCheckPopupOpen,
+        resultPopupOpen, setResultPopupOpen,
+        resultPopupType,
+        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
+    } = usePowermateCompatibilityPopups()
     
     const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
 
@@ -112,14 +80,20 @@ const Powermate: FC = () => {
                     warningPopupOpen, setWarningPopupOpen,
                     checkPopupOpen, setCheckPopupOpen,
                     resultPopupOpen, setResultPopupOpen,
-                    handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder,
+                    handleCheck, handleConfirm, handleComplete, handleBoostOrder,
                     resultPopupType
                 }} />
             </LazySection>
         )}
         {BundlePopup && (
             <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup slug={bundleSlug} discount={bundleDiscount} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+                <BundlePopup
+                    slug={bundleSlug}
+                    discount={bundleDiscount}
+                    open={bundlePopupOpen}
+                    onClose={() => setBundlePopupOpen(false)}
+                    onCompatibilityCheck={() => setCheckPopupOpen(true)}
+                />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} className="powermate" onOrder={onOrder}>

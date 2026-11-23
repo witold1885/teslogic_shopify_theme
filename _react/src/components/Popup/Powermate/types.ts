@@ -15,7 +15,6 @@ export type PowermateCompatibilityPopupsProps = {
     setCheckPopupOpen: (state: boolean) => void
     resultPopupOpen: boolean
     setResultPopupOpen: (state: boolean) => void
-    handleWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
     handleCheck: (boostOrderCallback?: () => void) => void
     handleConfirm: () => void
     handleComplete: (proceed: boolean) => void

@@ -18,6 +18,7 @@ interface BundlePopupProps {
     discount?: number
     open: boolean
     onClose: () => void
+    onCompatibilityCheck: () => void
 }
 
 const getRadioIcon = (selected: boolean): ReactNode => selected ? (
@@ -78,7 +79,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose }) => {
+const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, onCompatibilityCheck }) => {
     const dispatch = useAppDispatch()
 
     const wrap = useRef<PopupRefProps>(null)
@@ -255,11 +256,11 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose }
                     </div>
                 </div>
             </>) : (<>
-                <div className="bundle-popup-back">
-                    <Icon icon={chevron} onClick={() => setCompatibilityMode(false)} />
+                <div className="bundle-popup-back" onClick={() => setCompatibilityMode(false)}>
+                    <Icon icon={chevron} />
                     <span>Back to Bundle</span>
                 </div>
-                <PowermateCompatibility onCompatibilityCheck={() => {}} />
+                <PowermateCompatibility onCompatibilityCheck={onCompatibilityCheck} />
             </>)}
         </PopupWrap>
     )

@@ -334,6 +334,10 @@
 
         & .icon {
             @include square(20px);
+
+            & img {
+                @include block(6px, 12px);
+            }
         }
 
         & span {

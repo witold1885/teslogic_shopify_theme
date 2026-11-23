@@ -6,6 +6,7 @@ import { scrollToElementLazy } from '../utils/scroll'
 import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
+import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups.ts'
 import { useBundlePopup } from '../hooks/bundle-popup.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -36,6 +37,7 @@ import {
     connectConsolesDesktop,
     connectConsolesMobile
 } from '../assets/videos/screenmate-one'
+import PowermateCompatibilityPopups from '../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'
 
 const preloadImages: PreloadImage[] = [
     { image: bannerDesktopBackground, fetchPriority: 'high', media: mediaDesktop },
@@ -119,6 +121,14 @@ const ScreenmateOne: FC = () => {
             })
         }
     }
+
+    const {
+        warningPopupOpen, setWarningPopupOpen,
+        checkPopupOpen, setCheckPopupOpen,
+        resultPopupOpen, setResultPopupOpen,
+        resultPopupType,
+        handleCheck, handleConfirm, handleComplete, handleBoostOrder
+    } = usePowermateCompatibilityPopups()
     
     const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
 
@@ -127,9 +137,26 @@ const ScreenmateOne: FC = () => {
     }
 
     return (<>
+        {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
+            <LazySection minHeight="0px" forceRender={true}>
+                <PowermateCompatibilityPopups {...{
+                    warningPopupOpen, setWarningPopupOpen,
+                    checkPopupOpen, setCheckPopupOpen,
+                    resultPopupOpen, setResultPopupOpen,
+                    handleCheck, handleConfirm, handleComplete, handleBoostOrder,
+                    resultPopupType
+                }} />
+            </LazySection>
+        )}
         {BundlePopup && (
             <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup slug={bundleSlug} discount={bundleDiscount} open={bundlePopupOpen} onClose={() => setBundlePopupOpen(false)} />
+                <BundlePopup
+                    slug={bundleSlug}
+                    discount={bundleDiscount}
+                    open={bundlePopupOpen}
+                    onClose={() => setBundlePopupOpen(false)}
+                    onCompatibilityCheck={() => setCheckPopupOpen(true)}
+                />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} videos={preloadVideos} className="screenmate-one" onOrder={onOrder}>
