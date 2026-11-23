@@ -47,7 +47,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', cl
 
     useEffect(() => {
         setMenuOpen(false)
-        setSelectedLabel(null)
     }, [options])
 
     const handleOptionSelect = ({ label, value }: DropdownOption) => {
