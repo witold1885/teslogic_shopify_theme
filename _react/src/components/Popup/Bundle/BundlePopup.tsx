@@ -128,17 +128,23 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
     ) || [], [selectedBundle])
 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
+    const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(null)
     const [error, setError] = useState<boolean>(false)
 
     useEffect(() => {
-        setSelectedModel(null)
+        const { value: modelId, label: modelLabel } = selectedOption ? (
+            options.find(({ label }) => label === selectedOption.label) || {}
+        ) : {}
+        if (modelId) {
+            handleModelSelect(modelId as number, modelLabel)
+        }
     }, [options])
 
-    const handleModelSelect = useCallback((modelId: number) => {
+    const handleModelSelect = useCallback((modelId: number, modelLabel?: string) => {
         setError(false)
-        const model = selectedBundle?.models?.find(({ id }) => id === modelId) || null
-        setSelectedModel(model)
-    }, [selectedBundle])
+        setSelectedModel(selectedBundle?.models?.find(({ id }) => id === modelId) || null)
+        setSelectedOption(options.find(({ label }) => label === modelLabel) || null)
+    }, [selectedBundle, options])
 
     const handleOrder = useCallback((productId: number) => {
         const items = [{ id: productId, quantity: 1 }]
@@ -259,7 +265,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
                             <Dropdown
                                 placeholder="Select your Tesla model and year"
                                 {...{options, error}}
-                                onSelect={(modelId) => handleModelSelect(modelId as number)}
+                                onSelect={(modelId, modelLabel) => handleModelSelect(modelId as number, modelLabel)}
                             />
                         </div>
                     </div>

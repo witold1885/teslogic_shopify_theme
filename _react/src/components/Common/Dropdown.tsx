@@ -31,7 +31,7 @@ interface DropdownProps {
     className?: string
     placeholder?: string
     options: DropdownOption[]
-    onSelect?: (value: DropdownOption['value']) => void
+    onSelect?: (value: DropdownOption['value'], label?: DropdownOption['label']) => void
     error?: boolean
 }
 
@@ -52,7 +52,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({ theme = 'dark', cl
 
     const handleOptionSelect = ({ label, value }: DropdownOption) => {
         setSelectedLabel(label)
-        onSelect?.(value)
+        onSelect?.(value, label)
         setMenuOpen(false)
     }
 
