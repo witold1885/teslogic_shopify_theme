@@ -325,4 +325,24 @@
             }
         }
     }
+
+    &-back {
+        @extend %flex-start-center, %gap-4, %absolute, %cursor-pointer;
+        @include responsive(top, 20px);
+        @include responsive(left, 20px);
+        z-index: 1;
+
+        & .icon {
+            @include square(20px);
+        }
+
+        & span {
+            @extend %font-manrope;
+            @include text(16px, 20px);
+        }
+    }
+
+    & .compatibility-wrap {
+        @include res-desktop(padding, 78px, 0);
+    }
 }

@@ -11,6 +11,7 @@ import Icon from '../../Common/Icon'
 import Dropdown, { type DropdownOption } from '../../Common/Dropdown'
 import bundleImage from '../../../assets/images/promotion/bundle/bundle.png'
 import PowermateCompatibility from '../../Powermate/PowermateCompatibility'
+import chevron from '../../../assets/icons/chevron-white-left.svg'
 
 interface BundlePopupProps {
     slug?: string
@@ -254,6 +255,10 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose }
                     </div>
                 </div>
             </>) : (<>
+                <div className="bundle-popup-back">
+                    <Icon icon={chevron} onClick={() => setCompatibilityMode(false)} />
+                    <span>Back to Bundle</span>
+                </div>
                 <PowermateCompatibility onCompatibilityCheck={() => {}} />
             </>)}
         </PopupWrap>
