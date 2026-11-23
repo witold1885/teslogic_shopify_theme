@@ -63,7 +63,7 @@ const Powermate: FC = () => {
         warningPopupOpen, setWarningPopupOpen,
         checkPopupOpen, setCheckPopupOpen,
         resultPopupOpen, setResultPopupOpen,
-        resultPopupType,
+        resultPopupType, isBundle,
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
@@ -81,7 +81,7 @@ const Powermate: FC = () => {
                     checkPopupOpen, setCheckPopupOpen,
                     resultPopupOpen, setResultPopupOpen,
                     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
-                    resultPopupType
+                    resultPopupType, isBundle
                 }} />
             </LazySection>
         )}
@@ -92,7 +92,8 @@ const Powermate: FC = () => {
                     discount={bundleDiscount}
                     open={bundlePopupOpen}
                     onClose={() => setBundlePopupOpen(false)}
-                    onCompatibilityCheck={() => setCheckPopupOpen(true)}
+                    onCompatibilityCheck={handleCheck}
+                    onCompatibilityWarning={handleWarning}
                 />
             </LazySection>
         )}

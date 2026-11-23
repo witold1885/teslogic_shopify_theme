@@ -6,6 +6,7 @@ import { fetchContent } from '../../../redux/selectors/content'
 import PopupWrap, { type PopupRefProps } from '../PopupWrap'
 
 interface CompatibilityResultPopupProps {
+    isBundle?: boolean
     type: CompatibilityResultPopupType
     open: boolean
     onClose: () => void
@@ -18,7 +19,7 @@ const defaultResultPopupData: CompatibilityResultPopupData = {
     buttons: []
 }
 
-const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ type, open, onClose, onBoostOrder }) => {
+const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ isBundle, type, open, onClose, onBoostOrder }) => {
     const { products } = useAppSelector(fetchProducts)
     const { country } = useAppSelector(fetchContent)
 
@@ -31,7 +32,7 @@ const PowermateCompatibilityResultPopup: FC<CompatibilityResultPopupProps> = ({ 
     }
 
     const closeButton = useMemo(() => ({ slug: 'close', text: 'Close', onClick: handleClose }), [handleClose])
-    const orderButton = useMemo(() => ({ slug: 'order', text: 'Order Now', onClick: onBoostOrder }), [onBoostOrder])
+    const orderButton = useMemo(() => ({ slug: 'order', text: `Order ${isBundle ? 'ONE + Boost' : 'Now'}`, onClick: onBoostOrder }), [isBundle, onBoostOrder])
 
     const boostProduct = useMemo(() => products?.find(({ title }) => title.includes('Boost')), [products])
 

@@ -126,8 +126,8 @@ const ScreenmateOne: FC = () => {
         warningPopupOpen, setWarningPopupOpen,
         checkPopupOpen, setCheckPopupOpen,
         resultPopupOpen, setResultPopupOpen,
-        resultPopupType,
-        handleCheck, handleConfirm, handleComplete, handleBoostOrder
+        resultPopupType, isBundle,
+        handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
     const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
@@ -144,7 +144,7 @@ const ScreenmateOne: FC = () => {
                     checkPopupOpen, setCheckPopupOpen,
                     resultPopupOpen, setResultPopupOpen,
                     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
-                    resultPopupType
+                    resultPopupType, isBundle
                 }} />
             </LazySection>
         )}
@@ -155,7 +155,8 @@ const ScreenmateOne: FC = () => {
                     discount={bundleDiscount}
                     open={bundlePopupOpen}
                     onClose={() => setBundlePopupOpen(false)}
-                    onCompatibilityCheck={() => setCheckPopupOpen(true)}
+                    onCompatibilityCheck={handleCheck}
+                    onCompatibilityWarning={handleWarning}
                 />
             </LazySection>
         )}

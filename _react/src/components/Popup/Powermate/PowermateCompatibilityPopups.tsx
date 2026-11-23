@@ -12,12 +12,13 @@ const PowermateCompatibilityPopups: FC<PowermateCompatibilityPopupsProps> = ({
     checkPopupOpen, setCheckPopupOpen,
     resultPopupOpen, setResultPopupOpen,
     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
-    resultPopupType
+    resultPopupType, isBundle
 }) => {
     return (<>
         {PowermateCompatibilityWarningPopup && PowermateCompatibilityCheckPopup && PowermateCompatibilityResultPopup && (<>
             {warningPopupOpen && (
                 <PowermateCompatibilityWarningPopup
+                    isBundle={isBundle}
                     open={warningPopupOpen}
                     onClose={() => setWarningPopupOpen(false)}
                     onCheck={handleCheck}
@@ -33,6 +34,7 @@ const PowermateCompatibilityPopups: FC<PowermateCompatibilityPopupsProps> = ({
             )}
             {resultPopupOpen && (
                 <PowermateCompatibilityResultPopup
+                    isBundle={isBundle}
                     type={resultPopupType}
                     open={resultPopupOpen}
                     onClose={() => setResultPopupOpen(false)}

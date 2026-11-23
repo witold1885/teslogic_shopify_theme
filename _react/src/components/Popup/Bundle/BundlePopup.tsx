@@ -18,7 +18,8 @@ interface BundlePopupProps {
     discount?: number
     open: boolean
     onClose: () => void
-    onCompatibilityCheck: () => void
+    onCompatibilityCheck: (boostOrderCallback?: () => void, isBundle?: boolean) => void
+    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle?: boolean) => void
 }
 
 const getRadioIcon = (selected: boolean): ReactNode => selected ? (
@@ -47,6 +48,7 @@ interface BundlePricing {
 }
 
 interface PowermateVersion {
+    needCheck: boolean
     power: string
     compatibility: {
         text: string
@@ -61,6 +63,7 @@ const commonTitle: string = 'Screenmate ONE + Powermate'
 
 const powermateVersions: Record<string, PowermateVersion> = {
     'one-powermate-boost': {
+        needCheck: false,
         power: '+50 HP',
         compatibility: {
             text: 'Eligible Model 3/Y vehicles',
@@ -68,6 +71,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
         }
     },
     'one-powermate-performance': {
+        needCheck: true,
         power: '+150 HP',
         compatibility: {
             text: 'Requires AWD and a 980 motor',
@@ -79,7 +83,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, onCompatibilityCheck }) => {
+const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, onCompatibilityCheck, onCompatibilityWarning }) => {
     const dispatch = useAppDispatch()
 
     const wrap = useRef<PopupRefProps>(null)
@@ -109,6 +113,8 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
         }
     }) || [], [bundleProducts, coef, discount])
 
+    const boostBundle = useMemo(() => bundles.find(({ slug }) => slug === 'one-powermate-boost'), [bundles])
+    
     const [selectedBundleId, setSelectedBundleId] = useState<number | null>(
         bundles.find(product => product.slug === slug)?.id || bundles[0]?.id || null
     )
@@ -124,20 +130,49 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
     const [selectedModel, setSelectedModel] = useState<Model | null>(null)
     const [error, setError] = useState<boolean>(false)
 
+    useEffect(() => {
+        setSelectedModel(null)
+    }, [selectedBundle])
+
     const handleModelSelect = useCallback((modelId: number) => {
         setError(false)
         const model = selectedBundle?.models?.find(({ id }) => id === modelId) || null
         setSelectedModel(model)
     }, [selectedBundle])
+
+    const handleOrder = useCallback((productId: number) => {
+        const items = [{ id: productId, quantity: 1 }]
+        dispatch(addToCart({ items }))
+    }, [dispatch, addToCart])
     
+    const compatibilityCallback = useCallback((productId: number | undefined) => {
+        if (productId) {
+            handleOrder(productId)
+        }
+    }, [handleOrder])
+
+    const handleCompatibilityCheck = useCallback(() => {
+        onCompatibilityCheck(
+            () => setSelectedBundleId(boostBundle?.id || null),
+            true
+        )
+    }, [onCompatibilityCheck, boostBundle])
+
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
-            const items = [{ id: selectedModel.id, quantity: 1 }]
-            dispatch(addToCart({ items }))
+            if (selectedBundle?.needCheck) {
+                onCompatibilityWarning(
+                    () => compatibilityCallback(selectedModel.id),
+                    () => setSelectedBundleId(boostBundle?.id || null),
+                    true
+                )
+            } else {
+                handleOrder(selectedModel.id)
+            }
         } else {
             setError(true)
         }
-    }, [selectedModel, dispatch, addToCart])    
+    }, [onCompatibilityWarning, compatibilityCallback, selectedModel, boostBundle, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -260,7 +295,7 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
                     <Icon icon={chevron} />
                     <span>Back to Bundle</span>
                 </div>
-                <PowermateCompatibility onCompatibilityCheck={onCompatibilityCheck} />
+                <PowermateCompatibility onCompatibilityCheck={handleCompatibilityCheck} />
             </>)}
         </PopupWrap>
     )

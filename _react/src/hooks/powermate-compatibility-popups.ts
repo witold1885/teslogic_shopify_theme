@@ -5,18 +5,21 @@ export const usePowermateCompatibilityPopups = () => {
     const confirmCallbackRef = useRef<(() => void) | undefined>(undefined)
     const boostOrderCallbackRef = useRef<(() => void) | undefined>(undefined)
     
+    const [isBundle, setIsBundle] = useState<boolean>(false)
     const [warningPopupOpen, setWarningPopupOpen] = useState<boolean>(false)
     const [checkPopupOpen, setCheckPopupOpen] = useState<boolean>(false)
     const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [resultPopupType, setResultPopupType] = useState<CompatibilityResultPopupType>('default')
     
-    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void) => {
+    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle: boolean = false) => {
+        setIsBundle(isBundle)
         setWarningPopupOpen(true)
         confirmCallbackRef.current = confirmCallback
         boostOrderCallbackRef.current = boostOrderCallback
     }
 
-    const handleCheck = (boostOrderCallback?: () => void) => {
+    const handleCheck = (boostOrderCallback?: () => void, isBundle: boolean = false) => {
+        setIsBundle(isBundle)
         setWarningPopupOpen(false)
         setCheckPopupOpen(true)
         if (!boostOrderCallbackRef.current) {
@@ -46,7 +49,7 @@ export const usePowermateCompatibilityPopups = () => {
         warningPopupOpen, setWarningPopupOpen,
         checkPopupOpen, setCheckPopupOpen,
         resultPopupOpen, setResultPopupOpen,
-        resultPopupType,
+        resultPopupType, isBundle,
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     }
 }

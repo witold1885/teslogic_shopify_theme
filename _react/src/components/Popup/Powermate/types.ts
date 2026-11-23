@@ -9,6 +9,7 @@ export type CompatibilityResultPopupData = {
 }
 
 export type PowermateCompatibilityPopupsProps = {
+    isBundle?: boolean
     warningPopupOpen: boolean
     setWarningPopupOpen: (state: boolean) => void
     checkPopupOpen: boolean

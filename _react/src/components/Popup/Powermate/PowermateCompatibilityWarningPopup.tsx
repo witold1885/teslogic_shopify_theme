@@ -4,13 +4,14 @@ import Icon from '../../Common/Icon'
 import warning from '../../../assets/icons/powermate/info/pro_info_warning.svg'
 
 interface PopupProps {
+    isBundle?: boolean
     open: boolean
     onClose: () => void
     onCheck: () => void
     onConfirm: () => void
 }
 
-const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onCheck, onConfirm }) => {
+const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ isBundle, open, onClose, onCheck, onConfirm }) => {
     const wrap = useRef<PopupRefProps>(null)
 
     const handleClose = () => {
@@ -37,7 +38,7 @@ const PowermateCompatibilityWarningPopup: FC<PopupProps> = ({ open, onClose, onC
             </div>
             <div className="compatibility-dialog-buttons">
                 <button type="button" className="compatibility-dialog-button" onClick={onCheck}>Check</button>
-                <button type="button" className="compatibility-dialog-button" onClick={onConfirm}>Order Now</button>
+                <button type="button" className="compatibility-dialog-button" onClick={onConfirm}>Order {isBundle ? 'Bundle' : 'Now'}</button>
             </div>
         </PopupWrap>
     )
