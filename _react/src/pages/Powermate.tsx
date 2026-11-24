@@ -1,4 +1,4 @@
-import { useState, type ComponentType, type FC } from 'react'
+import { useState, useEffect, type ComponentType, type FC } from 'react'
 import '../assets/styles/powermate.scss'
 import { mountForShopify } from './mount'
 import { scrollToElementLazy } from '../utils/scroll'
@@ -54,7 +54,7 @@ const BundleSection = getComponent(() => import('../components/Promotion/BundleS
 const Powermate: FC = () => {
     const { getPreSectionStyle } = usePreSections(preSections)
 
-    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false })
+    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ order: false, bundle: false })
     
     const onOrder = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
@@ -71,6 +71,12 @@ const Powermate: FC = () => {
     } = usePowermateCompatibilityPopups()
     
     const { bundleSlug, bundleDiscount, bundleSectionShown } = useBundleSection()
+    
+    useEffect(() => {
+        if (bundleSectionShown) {
+            scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, bundle: true })))
+        }
+    }, [bundleSectionShown])
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
@@ -101,7 +107,7 @@ const Powermate: FC = () => {
                 <PowermateOrder onCompatibilityWarning={handleWarning} />
             </LazySection>
             {BundleSection && bundleSectionShown && (
-                <LazySection minHeight="0px" forceRender={true}>
+                <LazySection id="bundle" minHeight="0px" forceRender={forceRender.bundle}>
                     <BundleSection
                         slug={bundleSlug}
                         discount={bundleDiscount}

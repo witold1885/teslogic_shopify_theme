@@ -1,4 +1,4 @@
-import { useState, useRef, type ComponentType, type FC } from 'react'
+import { useState, useEffect, useRef, type ComponentType, type FC } from 'react'
 import type { PreloadImage, PreloadVideo } from './types.ts'
 import '../assets/styles/screenmate-one.scss'
 import { mountForShopify } from './mount'
@@ -93,7 +93,7 @@ const BundleSection = getComponent(() => import('../components/Promotion/BundleS
 const ScreenmateOne: FC = () => {    
     const { getPreSectionStyle } = usePreSections(preSections)
 
-    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false })
+    const [forceRender, setForceRender] = useState<Record<string, boolean>>({ features: false, order: false, bundle: false })
 
     const onExpand = () => {
         scrollToElementLazy('features', () => setForceRender(prev => ({ ...prev, features: true })))
@@ -135,6 +135,12 @@ const ScreenmateOne: FC = () => {
     
     const { bundleSlug, bundleDiscount, bundleSectionShown } = useBundleSection()
 
+    useEffect(() => {
+        if (bundleSectionShown) {
+            scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, bundle: true })))
+        }
+    }, [bundleSectionShown])
+
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
             <LazySection minHeight="0px" forceRender={true}>
@@ -168,7 +174,7 @@ const ScreenmateOne: FC = () => {
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
             {BundleSection && bundleSectionShown && (
-                <LazySection minHeight="0px" forceRender={true}>
+                <LazySection id="bundle" minHeight="0px" forceRender={forceRender.bundle}>
                     <BundleSection
                         slug={bundleSlug}
                         discount={bundleDiscount}
