@@ -137,7 +137,7 @@ const ScreenmateOne: FC = () => {
 
     useEffect(() => {
         if (bundleSectionShown) {
-            scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, bundle: true })))
+            scrollToElementLazy('bundle', () => setForceRender(prev => ({ ...prev, bundle: true })))
         }
     }, [bundleSectionShown])
 
