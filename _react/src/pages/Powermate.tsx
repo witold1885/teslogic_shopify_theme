@@ -7,6 +7,7 @@ import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
 import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups.ts'
 import { useBundlePopup } from '../hooks/bundle-popup.ts'
+import { useHashChange } from '../hooks/hash-change.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import PowermateBanner from '../components/Powermate/PowermateBanner'
@@ -58,6 +59,8 @@ const Powermate: FC = () => {
     const onOrder = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
+
+    useHashChange('shop-now', onOrder)
 
     const {
         warningPopupOpen, setWarningPopupOpen,

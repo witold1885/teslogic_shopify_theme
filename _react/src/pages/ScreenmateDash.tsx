@@ -5,6 +5,7 @@ import { scrollToElementLazy } from '../utils/scroll'
 import { getPreloadImages } from '../utils/preload.ts'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
+import { useHashChange } from '../hooks/hash-change.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateDashBanner from '../components/ScreenmateDash/ScreenmateDashBanner'
@@ -68,6 +69,8 @@ const ScreenmateDash: FC = () => {
     const onOrder = () => {
         scrollToElementLazy('shop-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
+
+    useHashChange('shop-now', onOrder)
 
     return (
         <ProductLayout images={preloadImages} className="screenmate-dash" onOrder={onOrder}>

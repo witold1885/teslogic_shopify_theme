@@ -8,6 +8,7 @@ import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
 import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups.ts'
 import { useBundlePopup } from '../hooks/bundle-popup.ts'
+import { useHashChange } from '../hooks/hash-change.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
 import ScreenmateOneBanner from '../components/ScreenmateOne/ScreenmateOneBanner'
@@ -101,6 +102,8 @@ const ScreenmateOne: FC = () => {
     const onOrder = () => {
         scrollToElementLazy('order-now', () => setForceRender(prev => ({ ...prev, order: true })))
     }
+
+    useHashChange('order-now', onOrder)
 
     const sectionRefs = useRef<Record <string, any>>({})
 
