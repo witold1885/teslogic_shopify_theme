@@ -208,12 +208,11 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [compatibilityMode])
         
+    const { anime } = useAnime(animationConfigs)
+
     const animeRef = useRef<any>(null)
 
-    useEffect(() => {
-        const { anime } = useAnime(animationConfigs)
-        animeRef.current = anime
-    }, [animationConfigs])
+    useEffect(() => { animeRef.current = anime }, [anime])
 
     return (
         <div className="bundle-section">
