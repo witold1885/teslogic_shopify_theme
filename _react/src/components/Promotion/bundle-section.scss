@@ -5,13 +5,11 @@
 @use '../../assets/styles/mixins' as *;
 
 .bundle-section {
-    @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y;
-    @include res-desktop(width, 1296px);
+    @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
+    width: 100vw;
     @include res-desktop(height, 780px);
-    @include res-desktop(border-radius, 20px);
 
     @include mobile() {
-        width: 100vw;
         min-height: 100vh;
         align-self: flex-start;
     }
