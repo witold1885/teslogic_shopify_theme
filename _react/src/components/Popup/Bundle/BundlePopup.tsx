@@ -10,6 +10,8 @@ import PopupWrap, { type PopupRefProps } from '../PopupWrap'
 import Icon from '../../Common/Icon'
 import Dropdown, { type DropdownOption } from '../../Common/Dropdown'
 import bundleImage from '../../../assets/images/promotion/bundle/bundle.png'
+import bundleBfsImage from '../../../assets/images/promotion/bundle/bundle-bfs.png'
+import bundleBfsVipImage from '../../../assets/images/promotion/bundle/bundle-bfs-vip.png'
 import PowermateCompatibility from '../../Powermate/PowermateCompatibility'
 import chevron from '../../../assets/icons/chevron-white-left.svg'
 
@@ -135,7 +137,6 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
         const { value: modelId, label: modelLabel } = selectedOption ? (
             options.find(({ label }) => label === selectedOption.label) || {}
         ) : {}
-        console.log({ modelId, modelLabel })
         if (modelId) {
             handleModelSelect(modelId as number, modelLabel)
         }
@@ -204,9 +205,10 @@ const BundlePopup: FC<BundlePopupProps> = ({ slug, discount = 0, open, onClose, 
         >
             {!compatibilityMode ? (<>
                 <div className="bundle-popup-gallery">
-                    <img className="object-cover" src={bundleImage} />
-                    <div className="bundle-popup-gallery-title">Black Friday <br />Bundle<div /></div>
-                    <div className="bundle-popup-gallery-discount">{discount}% OFF</div>
+                    <img
+                        className="object-cover"
+                        src={discount === 30 ? bundleBfsVipImage : (discount === 25 ? bundleBfsImage : bundleImage)}
+                    />
                 </div>
                 <div className="bundle-popup-form">
                     <div className="bundle-popup-form-top">
