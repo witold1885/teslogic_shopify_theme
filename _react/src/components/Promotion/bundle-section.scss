@@ -5,12 +5,15 @@
 @use '../../assets/styles/mixins' as *;
 
 .bundle-section {
-    @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
     width: 100vw;
     background-color: #191919;
 
-    & [hidden] {
-        @extend %hidden;
+    & > div {
+        @extend %w-full, %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
+        
+        &[hidden] {
+            @extend %hidden;
+        }
     }
 
     @include mobile() {
