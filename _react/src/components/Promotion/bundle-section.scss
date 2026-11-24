@@ -7,6 +7,7 @@
 .bundle-section {
     @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
     width: 100vw;
+    background-color: #191919;
 
     @include mobile() {
         min-height: 100vh;
@@ -22,6 +23,7 @@
 
         @include mobile() {
             @include square-mobile(390px);
+            flex: unset !important;
         }
 
         & > * {

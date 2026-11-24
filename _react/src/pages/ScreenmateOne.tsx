@@ -76,7 +76,8 @@ const preSections: Record<string, PreSection> = {
     Dash: { desktop: 852, mobile: 898 },
     Specifications: { desktop: 2031, mobile: 1517 },
     Complectation: { desktop: 1484, mobile: 2187, background: 'linear-gradient(#1d1d1f00 0%, #202022 57.88%, #252528 100%)' },
-    Order: { desktop: 810, mobile: 1044, background: 'radial-gradient(56.25% 100% at 50% 100%, #1d1d1f 0%, #0e0e0e 100%), linear-gradient(#fff 0%, #f6f6f6 100%)' }
+    Order: { desktop: 810, mobile: 1044, background: 'radial-gradient(56.25% 100% at 50% 100%, #1d1d1f 0%, #0e0e0e 100%), linear-gradient(#fff 0%, #f6f6f6 100%)' },
+    Bundle: { desktop: 780, mobile: 1332, background: '#191919' }
 }
 const blocks: Record<string, string[]> = {
     Convenience: ['dual-view-mode', 'beyond-basic-control']
@@ -174,7 +175,7 @@ const ScreenmateOne: FC = () => {
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
             {BundleSection && bundleSectionShown && (
-                <LazySection id="bundle" minHeight="0px" forceRender={forceRender.bundle}>
+                <LazySection id="bundle" {...getPreSectionStyle('Bundle')} forceRender={forceRender.bundle}>
                     <BundleSection
                         slug={bundleSlug}
                         discount={bundleDiscount}

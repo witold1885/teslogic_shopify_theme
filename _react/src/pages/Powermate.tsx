@@ -36,6 +36,7 @@ const preSections: Record<string, PreSection> = {
     Comparison: { desktop: 1268, mobile: 1094 },
     Compatibility: { desktop: 1002, mobile: 1462, background: 'linear-gradient(#2d2d2d 0%, #181818 33.25%, #171717 54.93%)' },
     Order: { desktop: 1249, mobile: 1574, background: '#020202' },
+    Bundle: { desktop: 780, mobile: 1332, background: '#191919' },
     Info: { desktop: 852, mobile: 836, background: '#121212' },
 }
 
@@ -107,7 +108,7 @@ const Powermate: FC = () => {
                 <PowermateOrder onCompatibilityWarning={handleWarning} />
             </LazySection>
             {BundleSection && bundleSectionShown && (
-                <LazySection id="bundle" minHeight="0px" forceRender={forceRender.bundle}>
+                <LazySection id="bundle" {...getPreSectionStyle('Bundle')} forceRender={forceRender.bundle}>
                     <BundleSection
                         slug={bundleSlug}
                         discount={bundleDiscount}
