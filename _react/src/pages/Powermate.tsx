@@ -49,7 +49,7 @@ const PowermateCompatibility = getComponent(() => import('../components/Powermat
 const PowermateOrder = getComponent(() => import('../components/Powermate/PowermateOrder.tsx'))
 const PowermateInfo = getComponent(() => import('../components/Powermate/PowermateInfo.tsx'))
 const PowermateCompatibilityPopups = getComponent(() => import('../components/Popup/Powermate/PowermateCompatibilityPopups.tsx'), true)
-const BundlePopup = getComponent(() => import('../components/Popup/Bundle/BundlePopup.tsx'))
+const BundleSection = getComponent(() => import('../components/Promotion/BundleSection.tsx'))
 
 const Powermate: FC = () => {
     const { getPreSectionStyle } = usePreSections(preSections)
@@ -70,11 +70,7 @@ const Powermate: FC = () => {
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
-    const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
-
-    const handleBundlePopupOpen = () => {
-        setBundlePopupOpen(true)
-    }
+    const { bundleSlug, bundleDiscount } = useBundlePopup()
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
@@ -86,18 +82,6 @@ const Powermate: FC = () => {
                     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
                     resultPopupType, isBundle
                 }} />
-            </LazySection>
-        )}
-        {BundlePopup && (
-            <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup
-                    slug={bundleSlug}
-                    discount={bundleDiscount}
-                    open={bundlePopupOpen}
-                    onClose={() => setBundlePopupOpen(false)}
-                    onCompatibilityCheck={handleCheck}
-                    onCompatibilityWarning={handleWarning}
-                />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} className="powermate" onOrder={onOrder}>
@@ -114,8 +98,18 @@ const Powermate: FC = () => {
                 <PowermateCompatibility onCompatibilityCheck={() => handleCheck(onOrder)} />
             </LazySection>
             <LazySection id="shop-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
-                <PowermateOrder onCompatibilityWarning={handleWarning} onBundlePopupOpen={handleBundlePopupOpen} />
+                <PowermateOrder onCompatibilityWarning={handleWarning} />
             </LazySection>
+            {BundleSection && (
+                <LazySection minHeight="0px" forceRender={true}>
+                    <BundleSection
+                        slug={bundleSlug}
+                        discount={bundleDiscount}
+                        onCompatibilityCheck={handleCheck}
+                        onCompatibilityWarning={handleWarning}
+                    />
+                </LazySection>
+            )}
             <LazySection {...getPreSectionStyle('Info')}>
                 <PowermateInfo />
             </LazySection>

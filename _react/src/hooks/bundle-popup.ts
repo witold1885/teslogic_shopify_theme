@@ -13,7 +13,7 @@ export const useBundlePopup = () => {
         const bundle: string | null = urlSearchParams?.get('bundle') || null
         const offer: string | null = urlSearchParams?.get('offer') || null
         
-        setBundleDiscount(promotion === 'bf26' ? (offer === 'vip' ? 30 : 25) : 20)
+        setBundleDiscount(promotion === 'bf26vip' && offer === 'vip' ? 30 : (promotion === 'bf26' ? 25 : 20))
 
         if (bundle === 'boost' || bundle === 'performance') {
             setBundleSlug(`one-powermate-${bundle}`)

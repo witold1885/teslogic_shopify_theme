@@ -88,7 +88,7 @@ const sections: Record<string, ComponentType<any>> = ['Setup', 'Interfaces', 'Co
 
 const ScreenmateOneFeatures = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneFeatures.tsx'))
 const ScreenmateOneOrder = getComponent(() => import('../components/ScreenmateOne/ScreenmateOneOrder.tsx'))
-const BundlePopup = getComponent(() => import('../components/Popup/Bundle/BundlePopup.tsx'))
+const BundleSection = getComponent(() => import('../components/Promotion/BundleSection.tsx'))
 
 const ScreenmateOne: FC = () => {    
     const { getPreSectionStyle } = usePreSections(preSections)
@@ -133,11 +133,7 @@ const ScreenmateOne: FC = () => {
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
-    const { bundleSlug, bundleDiscount, bundlePopupOpen, setBundlePopupOpen } = useBundlePopup()
-
-    const handleBundlePopupOpen = () => {
-        setBundlePopupOpen(true)
-    }
+    const { bundleSlug, bundleDiscount } = useBundlePopup()
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
@@ -149,18 +145,6 @@ const ScreenmateOne: FC = () => {
                     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
                     resultPopupType, isBundle
                 }} />
-            </LazySection>
-        )}
-        {BundlePopup && (
-            <LazySection minHeight="0px" forceRender={true}>
-                <BundlePopup
-                    slug={bundleSlug}
-                    discount={bundleDiscount}
-                    open={bundlePopupOpen}
-                    onClose={() => setBundlePopupOpen(false)}
-                    onCompatibilityCheck={handleCheck}
-                    onCompatibilityWarning={handleWarning}
-                />
             </LazySection>
         )}
         <ProductLayout images={preloadImages} videos={preloadVideos} className="screenmate-one" onOrder={onOrder}>
@@ -181,8 +165,18 @@ const ScreenmateOne: FC = () => {
                 </LazySection>
             ))}
             <LazySection id="order-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
-                <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} onBundlePopupOpen={handleBundlePopupOpen} />
+                <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
+            {BundleSection && (
+                <LazySection minHeight="0px" forceRender={true}>
+                    <BundleSection
+                        slug={bundleSlug}
+                        discount={bundleDiscount}
+                        onCompatibilityCheck={handleCheck}
+                        onCompatibilityWarning={handleWarning}
+                    />
+                </LazySection>
+            )}
         </ProductLayout>
     </>)
 }

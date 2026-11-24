@@ -1,2 +1,0 @@
-var e={bf26vip:[`2026-11-26`,`2026-11-27`],bf26:[`2026-11-27`,`2026-11-29`]},t=()=>{let t=new Date().getTime();for(let[n,[r,i]]of Object.entries(e)){let e=new Date(r);e.setHours(0,0,0,0);let a=new Date(i);if(a.setHours(23,59,59,999),t>=e.getTime()&&t<=a.getTime())return n}let n=typeof window<`u`?new URLSearchParams(window.location.search):null;return(n==null?void 0:n.get(`promotion`))||null};export{t};
-//# sourceMappingURL=react-chunk-promotion-CQKy2l8Y.js.map

@@ -14,9 +14,6 @@ import { useInlineStyles } from '../../hooks/inline-styles'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { useLazyData } from '../../hooks/lazy-data'
 
-import { getCurrentPromotion } from '../../utils/promotion'
-import BlackFridayBundle from '../Promotion/BlackFridayBundle'
-
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
@@ -54,12 +51,9 @@ const PowermateOrderDetails: FC<{ details: OrderDetail[] }> = ({ details }) => (
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const promotion = getCurrentPromotion()
-
 const PowermateOrder: FC<{
-    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void,
-    onBundlePopupOpen?: () => void
-}> = ({ onCompatibilityWarning, onBundlePopupOpen }) => {
+    onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void) => void
+}> = ({ onCompatibilityWarning }) => {
     const dispatch = useAppDispatch()
 
     const { isMobile } = useInlineStyles()
@@ -236,11 +230,6 @@ const PowermateOrder: FC<{
                                 </div>
                             ))}
                         </div>
-                        {promotion === 'bf26' && (
-                            <div {...anime('bundle')} className="order-bf-bundle">
-                                <BlackFridayBundle {...{onBundlePopupOpen}} />
-                            </div>
-                        )}
                     </div>		
                 </div>
             </div>

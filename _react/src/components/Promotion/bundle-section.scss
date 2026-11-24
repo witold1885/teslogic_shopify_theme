@@ -1,0 +1,340 @@
+@use '../../assets/styles/flexbox' as flexbox;
+@use '../../assets/styles/fonts' as fonts;
+@use '../../assets/styles/layout' as layout;
+@use '../../assets/styles/text' as text;
+@use '../../assets/styles/mixins' as *;
+
+.bundle-section {
+    @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y;
+    @include res-desktop(width, 1296px);
+    @include res-desktop(height, 780px);
+    @include res-desktop(border-radius, 20px);
+
+    @include mobile() {
+        width: 100vw;
+        min-height: 100vh;
+        align-self: flex-start;
+    }
+
+    &-gallery {
+        @extend %relative;
+        @include block-desktop(636px, 780px);
+
+        @include mobile() {
+            @include square-mobile(390px);
+        }
+
+        & > * {
+            @extend %absolute;
+        }
+
+        & img {
+            @extend %inset;
+        }
+
+        &-title, &-discount {
+            @extend %font-900, %text-center;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: "Neue Haas Grotesk Display Pro";
+            font-style: italic;
+        }
+
+        &-title {
+            @extend %whitespace-nowrap, %uppercase;
+            @include res-desktop(top, 32.5px);
+            @include res-desktop(width, 542px);
+            @include text-desktop(80px, 84px);
+            @include res-desktop(letter-spacing, -1.6px);
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            @include mobile() {
+                @include res-mobile(top, 25px);
+                @include res-mobile(width, 271px);
+                @include text-mobile(40px, 42px);
+                @include res-mobile(letter-spacing, -0.8px);
+            }
+
+            & > div {
+                @extend %h-full, %absolute;
+                @include res-desktop(width, 550px);
+                top: 0;
+                z-index: -1;
+                
+                background-image: url(../../../assets/images/promotion/bundle/title-bg.png);
+                background-position-x: 0%;
+                background-position-y: 40%;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                @include mobile() {
+                    @include res-mobile(width, 275px);
+                }
+            }
+        }
+
+        &-discount {
+            @extend %flex-center, %gap-10;
+            @include res-desktop(bottom, 124.5px);
+            @include res-desktop(width, 295px);
+            @include res-desktop(padding, 20px);
+            @include res-desktop(border-radius, 100px);
+            border: 0.5px solid rgba(255, 255, 255, 0.05);
+            background: radial-gradient(351.65% 206.61% at -12.37% 132.86%, rgba(60, 40, 226, 0.30) 0%, rgba(20, 97, 255, 0.00) 100%), rgba(0, 0, 0, 0.25);
+            @include text-desktop(52px, 64px);
+            @include res-desktop(letter-spacing, -1.04px);
+            color: #FAFAFA;
+
+            @include mobile() {
+                @include res-mobile(bottom, 50.5px);
+                @include res-mobile(width, 147.5px);
+                @include res-mobile(padding, 10px);
+                @include res-mobile(border-radius, 50px);
+                @include text-mobile(26px, 32px);
+                @include res-mobile(letter-spacing, -0.52px);
+            }
+        }
+    }
+
+    &-form {
+        @extend %flex-column, %gap-32, %mob\:gap-24, %font-manrope;
+        @include res-desktop(width, 660px);
+        @include res-desktop(padding, 32px, 32px, 24px);
+
+        @include mobile() {
+            width: 100vw;
+            @include res-mobile(padding, 24px, 20px);
+        }
+
+        &-top {
+            @extend %flex-column, %gap-8;
+        }
+
+        &-title {
+            @extend %font-600;
+            @include text-desktop(32px, 40px);
+            color: #FAFAFA;
+
+            @include mobile() {
+                @include text-mobile(24px, 32px);
+            }
+        }
+
+        &-subtitle {
+            @include text-desktop(15px, 22px);
+            color: #9A9A9A;
+
+            @include mobile() {
+                @include text-mobile(14px, 20px);
+            }
+        }
+
+        &-body, &-bottom {
+            @extend %flex-column, %gap-24;
+        }
+
+        &-powermate, &-screenmate-one {
+            @extend %flex-column, %gap-12;
+
+            &-title {
+                @extend %font-manrope-16, %font-600;
+                color: #FAFAFA;
+            }
+        }
+
+        &-powermate {
+
+            &-versions {
+                @extend %flex-between-center, %gap-10, %mob\:flex-column, %mob\:gap-12;
+            }
+
+            &-version {
+                @extend %w-full, %flex-1, %flex-column, %gap-20, %mob\:gap-12, %cursor-pointer;
+                @include res-desktop(height, 202px);
+                @include res-desktop(padding, 20px);
+                @include responsive(border-radius, 12px);
+                border: 1px solid rgba(255, 255, 255, 0.10);
+                background: #191919;
+
+                @include mobile() {
+                    @include res-mobile(height, 178px);
+                    @include res-mobile(padding, 16px);
+                }
+
+                &-body, &-top, &-compatibility {
+                    @extend %flex-column;
+                }
+
+                &-body {
+                    @extend %gap-16, %mob\:gap-12;
+                }
+
+                &-top, &-compatibility {
+                    @extend %gap-4;
+                }
+
+                &-top {
+                    @extend %font-600;
+                }
+
+                &-title {
+                    @extend %flex-between-center;
+
+                    & span {
+                        @extend %font-manrope-18;
+                        color: #FAFAFA;
+                    }
+
+                    & .icon {
+                        @include square(20px);
+                    }
+                }
+
+                &-power {
+                    @extend %font-manrope;
+                    @include text-desktop(28px, 32px);
+                    color: #FFF;
+
+                    @include mobile() {
+                        @include text-mobile(24px, 28px);
+                    }
+                }
+
+                &-compatibility, &-total {
+                    @extend %font-manrope-14;
+                }
+
+                &-compatibility {
+                    
+                    & a {
+                        @extend %flex-start-center, %gap-4, %font-500;
+
+                        & .icon {
+                            @include square(20px);
+                        }
+                    }
+                }
+
+                &-total {
+                    @extend %flex-between-center;
+
+                    & span {
+
+                        &:first-child {
+                            color: #9A9A9A;
+                        }
+
+                        &:last-child {
+                            @extend %font-600, %text-right;
+                            color: #FAFAFA;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-bottom {
+            @extend %mob\:gap-20;
+        }
+
+        &-submit {
+            @extend %flex-column, %gap-20, %mob\:gap-16;
+
+            & button {
+                @extend %w-full, %flex-center, %font-manrope-24, %mob\:font-manrope-18, %font-700, %text-center, %uppercase;
+                @include res-desktop(height, 72px);
+                @include responsive(border-radius, 54px);
+                background: linear-gradient(174deg, #024DEE 4.57%, #1902A6 251.92%);
+                color: #FAFAFA;
+
+                @include mobile() {
+                    @include res-mobile(height, 56px);
+                }
+                
+                &:hover {
+                    background: linear-gradient(174deg, #0245D4 4.57%, #15028D 251.92%); 
+                }
+            }
+        }
+
+        &-total {
+            @extend %grid, %font-manrope-16, %mob\:font-manrope-14;
+            grid-template-columns: auto 1fr;
+            @include res-desktop(gap, 2px);
+            color: #FAFAFA;
+            
+            @include mobile() {
+                grid-template-columns: auto;
+                @include res-mobile(gap, 4px);
+            }
+
+            &-title {
+                color: #9A9A9A;
+            }
+
+            &-price, &-economy {
+                @extend %font-600, %text-right, %mob\:text-left;
+            }
+
+            &-price {
+                @extend %flex-end-center, %mob\:flex-start-center, %gap-12, %font-manrope-24, %text-white;
+
+                @include mobile() {
+                    @include res-mobile(margin-bottom, 4px);
+                }
+
+                &-old {
+                    @extend %text-grey, %line-through;
+                }
+
+                &-new {
+                    @extend %text-white;
+                }
+            }
+
+            &-economy {
+                color: hsl(216.6265deg 98.419% 50.3922%);
+            }
+        }
+
+        &-note {
+            @extend %flex-center, %mob\:flex-column, %gap-4, %font-manrope-16, %mob\:font-manrope-14;
+
+            & > div {
+                @extend %flex-center, %gap-4;
+            }
+
+            & a {
+                @extend %font-500;
+            }
+        }
+    }
+
+    &-back {
+        @extend %flex-start-center, %gap-4, %absolute, %cursor-pointer;
+        @include responsive(top, 20px);
+        @include responsive(left, 20px);
+        z-index: 1;
+
+        & .icon {
+            @include square(20px);
+
+            & img {
+                @include block(6px, 12px);
+            }
+        }
+
+        & span {
+            @extend %font-manrope;
+            @include text(16px, 20px);
+        }
+    }
+
+    & .compatibility-wrap {
+        @include res-desktop(padding, 78px, 0);
+    }
+}
