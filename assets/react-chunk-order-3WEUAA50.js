@@ -1,0 +1,2 @@
+import{a as e}from"./react-chunk-redux-toolkit.modern-rv_5e37d.js";var t={rate:1,loading:!1,addedToCart:!1,discountApplied:!1,error:null},n=e=>e.order||t,r=Object.keys(t),i=e([n],e=>{let n={};return r.forEach(r=>n[r]=(e==null?void 0:e[r])??t[r]),n});export{t as n,i as t};
+//# sourceMappingURL=react-chunk-order-3WEUAA50.js.map

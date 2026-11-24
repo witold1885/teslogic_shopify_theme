@@ -5,7 +5,6 @@ import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
-import { setDiscountCookies } from '../../utils/cookies'
 import type { Model, Product } from '../../types/product'
 import Icon from '../Common/Icon'
 import Dropdown, { type DropdownOption } from '../Common/Dropdown'
@@ -104,7 +103,7 @@ const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost
 const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibilityCheck, onCompatibilityWarning, linkTo }) => {
     const dispatch = useAppDispatch()
 
-    const { addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
+    const { addToCart, applyDiscount } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { bundleProducts } = useAppSelector(fetchProducts)
     const { rate, addedToCart } = useAppSelector(fetchOrder)
     const { country } = useAppSelector(fetchContent)
@@ -189,7 +188,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
             const { needCheck, discountCode } = selectedBundle
-            setDiscountCookies(discountCode)
+            applyDiscount(discountCode)
             if (needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
@@ -202,7 +201,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         } else {
             setError(true)
         }
-    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, handleOrder])    
+    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, applyDiscount, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {

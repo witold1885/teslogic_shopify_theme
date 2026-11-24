@@ -1,2 +1,0 @@
-import{t as e}from"./react-chunk-js.cookie-BTPXWHrL.js";var t=(t,n)=>{e.set(t,n.toString(),{expires:365,path:`/`})},n=t=>{e.set(`discount_code`,t.toString(),{path:`/`})};export{t as n,n as t};
-//# sourceMappingURL=react-chunk-cookies-CkCAMP83.js.map

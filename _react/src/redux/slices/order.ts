@@ -30,6 +30,20 @@ export const addToCart = createAsyncThunk(
     }
 )
 
+export const applyDiscount = createAsyncThunk(
+    'order/applyDiscount',
+    async (discount: string, { rejectWithValue }) => {
+        const { default: shopify } = await import('../shopify')
+        const result = await shopify.post<CartResponse>('cart/update.js', { discount })
+
+        if (!result.success) {
+            return rejectWithValue(result.message)
+        }
+
+        return result.data
+    }
+)
+
 export const orderSlice = createSlice({
     name: 'order',
     initialState,
@@ -57,6 +71,20 @@ export const orderSlice = createSlice({
             .addCase(addToCart.rejected, (state, action) => {
                 state.loading = false
                 state.addedToCart = false
+                state.error = action.payload as string
+            })
+            .addCase(applyDiscount.pending, (state) => {
+                state.loading = true
+                state.discountApplied = false
+                state.error = null
+            })
+            .addCase(applyDiscount.fulfilled, (state) => {
+                state.loading = false
+                state.discountApplied = true
+            })
+            .addCase(applyDiscount.rejected, (state, action) => {
+                state.loading = false
+                state.discountApplied = false
                 state.error = action.payload as string
             })
     }
