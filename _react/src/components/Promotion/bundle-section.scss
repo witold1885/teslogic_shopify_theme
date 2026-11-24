@@ -10,7 +10,7 @@
 
     & > div {
         @extend %w-full, %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
-        
+
         &[hidden] {
             @extend %hidden;
         }
@@ -33,79 +33,8 @@
             flex: unset !important;
         }
 
-        & > * {
-            @extend %absolute;
-        }
-
         & img {
-            @extend %inset;
-        }
-
-        &-title, &-discount {
-            @extend %font-900, %text-center;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: "Neue Haas Grotesk Display Pro";
-            font-style: italic;
-        }
-
-        &-title {
-            @extend %whitespace-nowrap, %uppercase;
-            @include res-desktop(top, 32.5px);
-            @include res-desktop(width, 542px);
-            @include text-desktop(80px, 84px);
-            @include res-desktop(letter-spacing, -1.6px);
-            -webkit-text-stroke-width: 0.5px;
-            -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            @include mobile() {
-                @include res-mobile(top, 25px);
-                @include res-mobile(width, 271px);
-                @include text-mobile(40px, 42px);
-                @include res-mobile(letter-spacing, -0.8px);
-            }
-
-            & > div {
-                @extend %h-full, %absolute;
-                @include res-desktop(width, 550px);
-                top: 0;
-                z-index: -1;
-                
-                background-image: url(../../../assets/images/promotion/bundle/title-bg.png);
-                background-position-x: 0%;
-                background-position-y: 40%;
-                background-size: contain;
-                background-repeat: no-repeat;
-
-                @include mobile() {
-                    @include res-mobile(width, 275px);
-                }
-            }
-        }
-
-        &-discount {
-            @extend %flex-center, %gap-10;
-            @include res-desktop(bottom, 124.5px);
-            @include res-desktop(width, 295px);
-            @include res-desktop(padding, 20px);
-            @include res-desktop(border-radius, 100px);
-            border: 0.5px solid rgba(255, 255, 255, 0.05);
-            background: radial-gradient(351.65% 206.61% at -12.37% 132.86%, rgba(60, 40, 226, 0.30) 0%, rgba(20, 97, 255, 0.00) 100%), rgba(0, 0, 0, 0.25);
-            @include text-desktop(52px, 64px);
-            @include res-desktop(letter-spacing, -1.04px);
-            color: #FAFAFA;
-
-            @include mobile() {
-                @include res-mobile(bottom, 50.5px);
-                @include res-mobile(width, 147.5px);
-                @include res-mobile(padding, 10px);
-                @include res-mobile(border-radius, 50px);
-                @include text-mobile(26px, 32px);
-                @include res-mobile(letter-spacing, -0.52px);
-            }
+            @extend %absolute, %inset;
         }
     }
 
