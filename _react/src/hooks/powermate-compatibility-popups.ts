@@ -12,19 +12,21 @@ export const usePowermateCompatibilityPopups = () => {
     const [resultPopupOpen, setResultPopupOpen] = useState<boolean>(false)
     const [resultPopupType, setResultPopupType] = useState<CompatibilityResultPopupType>('default')
     
-    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle: boolean = false) => {
+    const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle?: boolean) => {
         console.log('handleWarning', { isBundle: isBundle })
-        setIsBundle(isBundle)
-        isBundleRef.current = isBundle
+        setIsBundle(isBundle || false)
+        isBundleRef.current = isBundle || false
         setWarningPopupOpen(true)
         confirmCallbackRef.current = confirmCallback
         boostOrderCallbackRef.current = boostOrderCallback
     }
 
-    const handleCheck = (boostOrderCallback?: () => void, isBundle: boolean = false) => {
-        console.log('handleCheck', { isBundle })
-        setIsBundle(isBundle)
-        isBundleRef.current = isBundle
+    const handleCheck = (boostOrderCallback?: () => void, isBundle?: boolean) => {
+        if (isBundle !== undefined) {
+            console.log('handleCheck', { isBundle })
+            setIsBundle(isBundle)
+            isBundleRef.current = isBundle
+        }
         setWarningPopupOpen(false)
         setCheckPopupOpen(true)
         if (!boostOrderCallbackRef.current) {
