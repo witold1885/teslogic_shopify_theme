@@ -1,4 +1,5 @@
 const promotionDates: Record<string, string[]> = {
+    bf26vip: ['2026-11-26', '2026-11-27'],
     bf26: ['2026-11-27', '2026-11-29']
 }
 
