@@ -220,9 +220,9 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                         </div>
                     </div>
                     <div className="bundle-section-form-body">
-                        <div {...anime('versions')} className="bundle-section-form-powermate">
+                        <div className="bundle-section-form-powermate">
                             <div className="bundle-section-form-powermate-title">Choose your Powermate version</div>
-                            <div className="bundle-section-form-powermate-versions">
+                            <div {...anime('versions')} className="bundle-section-form-powermate-versions">
                                 {bundles?.map(bundle => {
                                     const { id, slug, title, power, compatibility, currentPrice } = bundle
                                     return (
@@ -264,9 +264,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                                 })}
                             </div>
                         </div>
-                        <div {...anime('models')} className="bundle-section-form-screenmate-one">
+                        <div className="bundle-section-form-screenmate-one">
                             <div className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
                             <Dropdown
+                                {...anime('models')}
                                 placeholder="Select your Tesla model and year"
                                 {...{options, error}}
                                 onSelect={(modelId, modelLabel) => handleModelSelect(modelId as number, modelLabel)}
