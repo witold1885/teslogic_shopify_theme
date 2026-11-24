@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useMemo, useCallback, type FC, type ReactNode } from 'react'
+import { Fragment, useState, useEffect, useMemo, useCallback, type FC, type ReactNode, useRef } from 'react'
 import './bundle-section.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { useDynamicSlice } from '../../hooks/dynamic-slice'
@@ -208,7 +208,12 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [compatibilityMode])
         
-    const { anime } = useAnime(animationConfigs)
+    const animeRef = useRef<any>(null)
+
+    useEffect(() => {
+        const { anime } = useAnime(animationConfigs)
+        animeRef.current = anime
+    }, [animationConfigs])
 
     return (
         <div className="bundle-section">
@@ -221,16 +226,16 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                 </div>
                 <div className="bundle-section-form">
                     <div className="bundle-section-form-top">
-                        <div {...anime('title')} className="bundle-section-form-title">{commonTitle}</div>
-                        <div {...anime('subtitle')} className="bundle-section-form-subtitle">
+                        <div {...animeRef.current('title')} className="bundle-section-form-title">{commonTitle}</div>
+                        <div {...animeRef.current('subtitle')} className="bundle-section-form-subtitle">
                             Add more power and acceleration to your Tesla. <br />
                             Save {discount}% when you buy both.
                         </div>
                     </div>
                     <div className="bundle-section-form-body">
                         <div className="bundle-section-form-powermate">
-                            <div {...anime('versionsTitle')} className="bundle-section-form-powermate-title">Choose your Powermate version</div>
-                            <div {...anime('versionsList')} className="bundle-section-form-powermate-versions">
+                            <div {...animeRef.current('versionsTitle')} className="bundle-section-form-powermate-title">Choose your Powermate version</div>
+                            <div {...animeRef.current('versionsList')} className="bundle-section-form-powermate-versions">
                                 {bundles?.map(bundle => {
                                     const { id, slug, title, power, compatibility, currentPrice } = bundle
                                     return (
@@ -273,9 +278,9 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             </div>
                         </div>
                         <div className="bundle-section-form-screenmate-one">
-                            <div {...anime('modelsTitle')} className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
+                            <div {...animeRef.current('modelsTitle')} className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
                             <Dropdown
-                                {...anime('modelsList')}
+                                {...animeRef.current('modelsList')}
                                 placeholder="Select your Tesla model and year"
                                 {...{options, error}}
                                 onSelect={(modelId, modelLabel) => handleModelSelect(modelId as number, modelLabel)}
@@ -284,7 +289,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                     </div>
                     <div className="bundle-section-form-bottom">
                         <div className="bundle-section-form-submit">
-                            <div {...anime('total')} className="bundle-section-form-total">
+                            <div {...animeRef.current('total')} className="bundle-section-form-total">
                                 <div>Bundle total</div>
                                 <div className="bundle-section-form-total-price">
                                     {selectedBundle?.oldPrice && (
@@ -297,10 +302,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                                     {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
                                 </div>
                             </div>
-                            <button {...anime('button')} onClick={handleSubmit}>Order Bundle</button>
+                            <button {...animeRef.current('button')} onClick={handleSubmit}>Order Bundle</button>
                         </div>
                         {linkTo && (
-                            <div {...anime('note')} className="bundle-section-form-note">
+                            <div {...animeRef.current('note')} className="bundle-section-form-note">
                                 <span>Learn more about</span>
                                 <a href={linkTo.href}>{linkTo.text}</a>
                             </div>
