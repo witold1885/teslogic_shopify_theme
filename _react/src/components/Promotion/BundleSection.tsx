@@ -19,8 +19,10 @@ import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../ho
 const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
-    versions: { yFrom: '20px', duration: 333 },
-    models: { yFrom: '20px', duration: 333 },
+    versionsTitle: { yFrom: '20px', duration: 333 },
+    versionsList: { yFrom: '20px', duration: 333 },
+    modelsTitle: { yFrom: '20px', duration: 333 },
+    modelsList: { yFrom: '20px', duration: 333 },
     total: { yFrom: '20px', duration: 333 },
     button: { yFrom: '40px', duration: 666 },
     note: { yFrom: '20px', duration: 333 },
@@ -221,8 +223,8 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                     </div>
                     <div className="bundle-section-form-body">
                         <div className="bundle-section-form-powermate">
-                            <div className="bundle-section-form-powermate-title">Choose your Powermate version</div>
-                            <div {...anime('versions')} className="bundle-section-form-powermate-versions">
+                            <div {...anime('versionsTitle')} className="bundle-section-form-powermate-title">Choose your Powermate version</div>
+                            <div {...anime('versionsList')} className="bundle-section-form-powermate-versions">
                                 {bundles?.map(bundle => {
                                     const { id, slug, title, power, compatibility, currentPrice } = bundle
                                     return (
@@ -265,9 +267,9 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             </div>
                         </div>
                         <div className="bundle-section-form-screenmate-one">
-                            <div className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
+                            <div {...anime('modelsTitle')} className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
                             <Dropdown
-                                {...anime('models')}
+                                {...anime('modelsList')}
                                 placeholder="Select your Tesla model and year"
                                 {...{options, error}}
                                 onSelect={(modelId, modelLabel) => handleModelSelect(modelId as number, modelLabel)}
