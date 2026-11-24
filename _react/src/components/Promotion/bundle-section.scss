@@ -7,16 +7,18 @@
 .bundle-section {
     @extend %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
     width: 100vw;
-    @include res-desktop(height, 780px);
 
     @include mobile() {
         min-height: 100vh;
         align-self: flex-start;
     }
 
+    &-gallery, &-form {
+        @extend %w-full, %flex-1;
+    }
+
     &-gallery {
         @extend %relative;
-        @include block-desktop(636px, 780px);
 
         @include mobile() {
             @include square-mobile(390px);
@@ -100,7 +102,6 @@
 
     &-form {
         @extend %flex-column, %gap-32, %mob\:gap-24, %font-manrope;
-        @include res-desktop(width, 660px);
         @include res-desktop(padding, 32px, 32px, 24px);
 
         @include mobile() {
@@ -301,10 +302,6 @@
 
         &-note {
             @extend %flex-center, %mob\:flex-column, %gap-4, %font-manrope-16, %mob\:font-manrope-14;
-
-            & > div {
-                @extend %flex-center, %gap-4;
-            }
 
             & a {
                 @extend %font-500;

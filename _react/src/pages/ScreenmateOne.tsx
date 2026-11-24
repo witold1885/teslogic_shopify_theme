@@ -180,6 +180,7 @@ const ScreenmateOne: FC = () => {
                         discount={bundleDiscount}
                         onCompatibilityCheck={handleCheck}
                         onCompatibilityWarning={handleWarning}
+                        linkTo={{ href: '/pro', text: 'Powermate' }}
                     />
                 </LazySection>
             )}

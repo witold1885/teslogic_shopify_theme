@@ -113,6 +113,7 @@ const Powermate: FC = () => {
                         discount={bundleDiscount}
                         onCompatibilityCheck={handleCheck}
                         onCompatibilityWarning={handleWarning}
+                        linkTo={{ href: '/', text: 'Screenmate ONE' }}
                     />
                 </LazySection>
             )}

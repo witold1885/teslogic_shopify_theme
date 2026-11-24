@@ -38,6 +38,7 @@ interface BundleSectionProps {
     discount?: number
     onCompatibilityCheck: (boostOrderCallback?: () => void, isBundle?: boolean) => void
     onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle?: boolean) => void
+    linkTo?: { href: string; text: string }
 }
 
 interface BundlePricing {
@@ -82,7 +83,7 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibilityCheck, onCompatibilityWarning }) => {
+const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibilityCheck, onCompatibilityWarning, linkTo }) => {
     const dispatch = useAppDispatch()
 
     const { addToCart } = useDynamicSlice('order', () => import('../../redux/slices/order'))
@@ -273,14 +274,12 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             </div>
                             <button onClick={handleSubmit}>Order Bundle</button>
                         </div>
-                        <div className="bundle-section-form-note">
-                            <span>Learn more about</span>
-                            <div>
-                                <a href="/pro">Powermate</a>
-                                <span>or</span>
-                                <a href="/">Screenmate ONE</a>
+                        {linkTo && (
+                            <div className="bundle-section-form-note">
+                                <span>Learn more about</span>
+                                <a href={linkTo.href}>{linkTo.text}</a>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </>) : (<>
