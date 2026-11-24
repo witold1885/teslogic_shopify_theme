@@ -170,18 +170,28 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     }, [handleOrder])
 
     const handleCompatibilityCheck = useCallback(() => {
-        onCompatibilityCheck(
-            () => setSelectedBundleId(boostBundle?.id || null),
-            true
-        )
-    }, [onCompatibilityCheck, boostBundle])
+        if (selectedModel) {
+            onCompatibilityCheck(
+                () => {
+                    setSelectedBundleId(boostBundle?.id || null)
+                    compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel.title)?.id)
+                },
+                true
+            )
+        } else {
+            setError(true)
+        }
+    }, [onCompatibilityCheck, compatibilityCallback, selectedModel, boostBundle])
 
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
             if (selectedBundle?.needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
-                    () => setSelectedBundleId(boostBundle?.id || null),
+                    () => {
+                        setSelectedBundleId(boostBundle?.id || null)
+                        compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel.title)?.id)
+                    },
                     true
                 )
             } else {
