@@ -18,7 +18,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     title: { yFrom: '40px', duration: 666 },
     subtitle: { yFrom: '20px', duration: 333 },
     item: { yFrom: '40px', duration: 666 },
-    bundle: { yFrom: '40px', duration: 666 },
 }
 
 interface OrderItem {

@@ -14,6 +14,18 @@ import bundleBfsVipImage from '../../assets/images/promotion/bundle/bundle-bfs-v
 import PowermateCompatibility from '../Powermate/PowermateCompatibility'
 import chevron from '../../assets/icons/chevron-white-left.svg'
 
+import { mapSimpleConfigs, useAnime, type AnimatedObjectOptions } from '../../hooks/anime'
+
+const animatedObjects: Record<string, AnimatedObjectOptions> = {
+    title: { yFrom: '40px', duration: 666 },
+    subtitle: { yFrom: '20px', duration: 333 },
+    versions: { yFrom: '20px', duration: 333 },
+    models: { yFrom: '20px', duration: 333 },
+    total: { yFrom: '20px', duration: 333 },
+    button: { yFrom: '40px', duration: 666 },
+    note: { yFrom: '20px', duration: 333 },
+}
+
 const getRadioIcon = (selected: boolean): ReactNode => selected ? (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="10" cy="10" r="8.25" stroke-width="1.5" stroke="#0465FD"/>
@@ -186,6 +198,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const [compatibilityMode, setCompatibilityMode] = useState<boolean>(false)
 
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+        
+    const { anime } = useAnime(animationConfigs)
+
     return (
         <div className="bundle-section">
             {!compatibilityMode ? (<>
@@ -197,14 +213,14 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                 </div>
                 <div className="bundle-section-form">
                     <div className="bundle-section-form-top">
-                        <div className="bundle-section-form-title">{commonTitle}</div>
-                        <div className="bundle-section-form-subtitle">
+                        <div {...anime('title')} className="bundle-section-form-title">{commonTitle}</div>
+                        <div {...anime('subtitle')} className="bundle-section-form-subtitle">
                             Add more power and acceleration to your Tesla. <br />
                             Save {discount}% when you buy both.
                         </div>
                     </div>
                     <div className="bundle-section-form-body">
-                        <div className="bundle-section-form-powermate">
+                        <div {...anime('versions')} className="bundle-section-form-powermate">
                             <div className="bundle-section-form-powermate-title">Choose your Powermate version</div>
                             <div className="bundle-section-form-powermate-versions">
                                 {bundles?.map(bundle => {
@@ -248,7 +264,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                                 })}
                             </div>
                         </div>
-                        <div className="bundle-section-form-screenmate-one">
+                        <div {...anime('models')} className="bundle-section-form-screenmate-one">
                             <div className="bundle-section-form-screenmate-one-title">Choose your Screenmate ONE version</div>
                             <Dropdown
                                 placeholder="Select your Tesla model and year"
@@ -259,7 +275,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                     </div>
                     <div className="bundle-section-form-bottom">
                         <div className="bundle-section-form-submit">
-                            <div className="bundle-section-form-total">
+                            <div {...anime('total')} className="bundle-section-form-total">
                                 <div>Bundle total</div>
                                 <div className="bundle-section-form-total-price">
                                     {selectedBundle?.oldPrice && (
@@ -272,10 +288,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                                     {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
                                 </div>
                             </div>
-                            <button onClick={handleSubmit}>Order Bundle</button>
+                            <button {...anime('button')} onClick={handleSubmit}>Order Bundle</button>
                         </div>
                         {linkTo && (
-                            <div className="bundle-section-form-note">
+                            <div {...anime('note')} className="bundle-section-form-note">
                                 <span>Learn more about</span>
                                 <a href={linkTo.href}>{linkTo.text}</a>
                             </div>

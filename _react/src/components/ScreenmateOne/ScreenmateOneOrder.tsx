@@ -32,7 +32,6 @@ const animatedObjects: Record<string, AnimatedObjectOptions> = {
     additionals: { yFrom: '20px', duration: 333 },
     button: { yFrom: '40px', duration: 666 },
     details: { yFrom: '20px', duration: 333 },
-    bundle: { yFrom: '40px', duration: 666 },
 }
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
