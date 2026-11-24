@@ -5,6 +5,7 @@ import { useDynamicSlice } from '../../hooks/dynamic-slice'
 import { fetchProducts } from '../../redux/selectors/products'
 import { fetchOrder } from '../../redux/selectors/order'
 import { fetchContent } from '../../redux/selectors/content'
+import { setDiscountCookies } from '../../utils/cookies'
 import type { Model, Product } from '../../types/product'
 import Icon from '../Common/Icon'
 import Dropdown, { type DropdownOption } from '../Common/Dropdown'
@@ -69,6 +70,7 @@ interface PowermateVersion {
         icon?: ReactNode
         button: string
     }
+    discountCode: string
 }
 
 type Bundle = Product & BundlePricing & PowermateVersion
@@ -82,7 +84,8 @@ const powermateVersions: Record<string, PowermateVersion> = {
         compatibility: {
             text: 'Eligible Model 3/Y vehicles',
             button: 'Compatibility details'
-        }
+        },
+        discountCode: 'BFONE+BOOST'
     },
     'one-powermate-performance': {
         needCheck: true,
@@ -91,7 +94,8 @@ const powermateVersions: Record<string, PowermateVersion> = {
             text: 'Requires AWD and a 980 motor',
             icon: compatibilityWarningIcon,
             button: 'Check Compatibility'
-        }
+        },
+        discountCode: 'BFONE+PF'
     }
 }
 
@@ -183,8 +187,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     }, [onCompatibilityCheck, boostOrderCallback, selectedModel])
 
     const handleSubmit = useCallback(() => {
-        if (selectedModel) {
-            if (selectedBundle?.needCheck) {
+        if (selectedBundle && selectedModel) {
+            const { needCheck, discountCode } = selectedBundle
+            setDiscountCookies(discountCode)
+            if (needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
                     () => boostOrderCallback(),
@@ -196,7 +202,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         } else {
             setError(true)
         }
-    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedModel, handleOrder])    
+    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -213,7 +219,6 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     return (
         <div className="bundle-section">
             <div hidden={compatibilityMode}>
-            {/* {!compatibilityMode ? (<> */}
                 <div className="bundle-section-gallery">
                     <img
                         className="object-cover"
@@ -308,7 +313,6 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                         )}
                     </div>
                 </div>
-            {/* </>) : (<> */}
             </div>
             <div hidden={!compatibilityMode}>
                 <div className="bundle-section-back" onClick={() => setCompatibilityMode(false)}>
@@ -317,7 +321,6 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                 </div>
                 <PowermateCompatibility onCompatibilityCheck={handleCompatibilityCheck} />
             </div>
-            {/* </>)} */}
         </div>
     )
 }
