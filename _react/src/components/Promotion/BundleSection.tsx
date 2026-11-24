@@ -212,7 +212,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     return (
         <div className="bundle-section">
-            <div hidden={!compatibilityMode}>
+            <div hidden={compatibilityMode}>
             {/* {!compatibilityMode ? (<> */}
                 <div className="bundle-section-gallery">
                     <img
