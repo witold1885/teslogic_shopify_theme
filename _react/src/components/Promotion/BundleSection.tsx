@@ -169,29 +169,25 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         }
     }, [handleOrder])
 
+    const boostOrderCallback = useCallback(() => {
+        setSelectedBundleId(boostBundle?.id || null)
+        compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel?.title)?.id)
+    }, [compatibilityCallback, boostBundle, selectedModel])
+
     const handleCompatibilityCheck = useCallback(() => {
         if (selectedModel) {
-            onCompatibilityCheck(
-                () => {
-                    setSelectedBundleId(boostBundle?.id || null)
-                    compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel.title)?.id)
-                },
-                true
-            )
+            onCompatibilityCheck(() => boostOrderCallback(), true)
         } else {
             setError(true)
         }
-    }, [onCompatibilityCheck, compatibilityCallback, selectedModel, boostBundle])
+    }, [onCompatibilityCheck, boostOrderCallback, selectedModel])
 
     const handleSubmit = useCallback(() => {
         if (selectedModel) {
             if (selectedBundle?.needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
-                    () => {
-                        setSelectedBundleId(boostBundle?.id || null)
-                        compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel.title)?.id)
-                    },
+                    () => boostOrderCallback(),
                     true
                 )
             } else {
@@ -200,7 +196,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         } else {
             setError(true)
         }
-    }, [onCompatibilityWarning, compatibilityCallback, selectedModel, boostBundle, handleOrder])    
+    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedModel, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -210,7 +206,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const [compatibilityMode, setCompatibilityMode] = useState<boolean>(false)
 
-    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [])
+    const animationConfigs = useMemo(() => mapSimpleConfigs(animatedObjects), [compatibilityMode])
         
     const { anime } = useAnime(animationConfigs)
 
