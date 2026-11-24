@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { useEffect, type FC } from 'react'
 import type { PowermateCompatibilityPopupsProps } from './types.ts'
 import './powermate-compatibility-dialog.scss'
 import { getComponent } from '../../../layouts/components'
@@ -14,6 +14,9 @@ const PowermateCompatibilityPopups: FC<PowermateCompatibilityPopupsProps> = ({
     handleCheck, handleConfirm, handleComplete, handleBoostOrder,
     resultPopupType, isBundle
 }) => {
+    useEffect(() => {
+        console.log({ isBundle })
+    }, [isBundle])
     return (<>
         {PowermateCompatibilityWarningPopup && PowermateCompatibilityCheckPopup && PowermateCompatibilityResultPopup && (<>
             {warningPopupOpen && (
