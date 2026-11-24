@@ -188,7 +188,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
             const { needCheck, discountCode } = selectedBundle
-            applyDiscount(discountCode)
+            dispatch(applyDiscount(discountCode))
             if (needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
@@ -201,7 +201,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         } else {
             setError(true)
         }
-    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, applyDiscount, handleOrder])    
+    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, dispatch, applyDiscount, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
