@@ -7,7 +7,7 @@ import { mediaDesktop, mediaMobile } from '../hooks/inline-styles'
 import { usePreSections, type PreSection } from '../hooks/pre-sections.ts'
 import { getComponent } from '../layouts/components'
 import { usePowermateCompatibilityPopups } from '../hooks/powermate-compatibility-popups.ts'
-import { useBundlePopup } from '../hooks/bundle-popup.ts'
+import { useBundleSection } from '../hooks/bundle-section.ts'
 import { useHashChange } from '../hooks/hash-change.ts'
 import LazySection from '../layouts/LazySection'
 import ProductLayout from '../layouts/ProductLayout'
@@ -133,7 +133,7 @@ const ScreenmateOne: FC = () => {
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
-    const { bundleSlug, bundleDiscount } = useBundlePopup()
+    const { bundleSlug, bundleDiscount, bundleSectionShown } = useBundleSection()
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
@@ -167,7 +167,7 @@ const ScreenmateOne: FC = () => {
             <LazySection id="order-now" {...getPreSectionStyle('Order')} forceRender={forceRender.order}>
                 <ScreenmateOneOrder ref={(el: HTMLDivElement) => setRef(el, 'Order')} />
             </LazySection>
-            {BundleSection && (
+            {BundleSection && bundleSectionShown && (
                 <LazySection minHeight="0px" forceRender={true}>
                     <BundleSection
                         slug={bundleSlug}
