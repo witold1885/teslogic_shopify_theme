@@ -13,6 +13,7 @@ export const usePowermateCompatibilityPopups = () => {
     const [resultPopupType, setResultPopupType] = useState<CompatibilityResultPopupType>('default')
     
     const handleWarning = (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle: boolean = false) => {
+        console.log('handleWarning', { isBundle: isBundle })
         setIsBundle(isBundle)
         isBundleRef.current = isBundle
         setWarningPopupOpen(true)
@@ -21,6 +22,8 @@ export const usePowermateCompatibilityPopups = () => {
     }
 
     const handleCheck = (boostOrderCallback?: () => void, isBundle: boolean = false) => {
+        console.log('handleCheck', { isBundle })
+        setIsBundle(isBundle)
         isBundleRef.current = isBundle
         setWarningPopupOpen(false)
         setCheckPopupOpen(true)
@@ -35,6 +38,7 @@ export const usePowermateCompatibilityPopups = () => {
     }
 
     const handleComplete = (proceed: boolean) => {
+        console.log('handleComplete', { isBundle, isBundleRef: isBundleRef.current || false })
         setCheckPopupOpen(false)
         setIsBundle(isBundleRef.current || false)
         const type: CompatibilityResultPopupType = proceed ? 'success' : 'warning'
