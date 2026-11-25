@@ -179,15 +179,16 @@
         }
 
         &-screenmate-one {
-            
+
             & .dropdown {
 
                 &-field {
-                    @extend %font-manrope-18;
+                    @include text-desktop(18px, 24px);
                 }
 
                 &-menu {
-                    @extend %gap-16;
+                    @include res-desktop(gap, 16px);
+                    @include res-desktop(padding, 22px, 20px, 20px);
                 }
             }
         }
