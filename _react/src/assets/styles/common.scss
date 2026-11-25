@@ -160,7 +160,7 @@ input, textarea {
 
     &-field {
         @include m.res-desktop(padding, 20px);
-        @include m.res-desktop(border-radius, 12px);
+        @include m.responsive(border-radius, 12px);
         @extend %cursor-pointer;
 
         .dark & {
@@ -178,7 +178,6 @@ input, textarea {
 
         @include m.mobile() {
             @include m.res-mobile(padding, 12px, 16px);
-            @include m.res-mobile(border-radius, 6px);
         }
 
         & span {
@@ -209,7 +208,7 @@ input, textarea {
         right: 0;
         z-index: 1;
         @include m.res-desktop(padding, 22px, 20px, 24px, 20px);
-        @include m.res-desktop(border-radius, 12px);
+        @include m.responsive(border-radius, 12px);
         box-shadow: 0 64px 64px 0 rgba(0, 0, 0, 0.04);
 
         .dark & {
@@ -224,7 +223,6 @@ input, textarea {
 
         @include m.mobile() {
             @include m.res-mobile(padding, 12px, 16px, 24px);
-            @include m.res-mobile(border-radius, 6px);
         }
 
         &-placeholder {

@@ -113,11 +113,13 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const coef: number = useMemo(() => currency === 'EUR' ? (rate || 1) : 1, [currency, rate])
 
+    const tax: number = useMemo(() => country?.vat_percent || 20, [country])
+    
     const bundles: Bundle[] = useMemo(() => bundleProducts?.map(({ title, price, ...product }) => {
         const recalcPrice = (price || 0) * coef
         const economy = recalcPrice * discount / 100
         const currentPrice = recalcPrice - economy
-        const oldPrice = economy ? recalcPrice : 0
+        const oldPrice = ((product.oldPrice || 0) * coef) || (economy ? recalcPrice : 0)
         return {
             ...product,
             title: title.replace(commonTitle, '').trim(),
@@ -161,6 +163,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         setSelectedOption(options.find(({ label }) => label === modelLabel) || null)
     }, [selectedBundle, options])
 
+    const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
+        <>+{((price || 0) * tax / 100).toFixed(0)} EUR <br />VAT {tax}%</>
+    ) : <></>, [currency, tax])
+
     const handleOrder = useCallback((productId: number) => {
         const items = [{ id: productId, quantity: 1 }]
         dispatch(addToCart({ items }))
@@ -173,9 +179,12 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     }, [handleOrder])
 
     const boostOrderCallback = useCallback(() => {
-        setSelectedBundleId(boostBundle?.id || null)
-        compatibilityCallback(boostBundle?.models?.find(({ title }) => title === selectedModel?.title)?.id)
-    }, [compatibilityCallback, boostBundle, selectedModel])
+        if (boostBundle) {
+            dispatch(applyDiscount(boostBundle.discountCode))
+            setSelectedBundleId(boostBundle.id)
+            compatibilityCallback(boostBundle.models?.find(({ title }) => title === selectedModel?.title)?.id)
+        }
+    }, [compatibilityCallback, boostBundle, selectedModel, dispatch, applyDiscount])
 
     const handleCompatibilityCheck = useCallback(() => {
         if (selectedModel) {
@@ -292,14 +301,15 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             <div {...anime('total')} className="bundle-section-form-total">
                                 <div>Bundle total</div>
                                 <div className="bundle-section-form-total-price">
-                                    {selectedBundle?.oldPrice !== undefined && selectedBundle?.oldPrice !== 0 && (
+                                    {selectedBundle?.oldPrice ? (
                                         <span className="bundle-section-form-total-price-old">{selectedBundle?.oldPrice.toFixed(0)} {currency}</span>
-                                    )}
+                                    ) : (<></>)}
                                     <span className="bundle-section-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
+                                    <span className="bundle-section-form-total-price-vat">{showVAT(selectedBundle?.currentPrice)}</span>
                                 </div>
                                 <div className="bundle-section-form-total-title">{commonTitle} {selectedBundle?.title}</div>
                                 <div className="bundle-section-form-total-economy">
-                                    {selectedBundle?.economy ? `Save ${selectedBundle?.economy?.toFixed(0) || 0} ${currency}` : ''}
+                                    {selectedBundle?.economy ? `Save ${selectedBundle?.economy.toFixed(0)} ${currency}` : ''}
                                 </div>
                             </div>
                             <button {...anime('button')} onClick={handleSubmit}>Order Bundle</button>
@@ -307,7 +317,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                         {linkTo && (
                             <div {...anime('note')} className="bundle-section-form-note">
                                 <span>Learn more about</span>
-                                <a href={linkTo.href}>{linkTo.text}</a>
+                                <a href={linkTo.href} target="_blank">{linkTo.text}</a>
                             </div>
                         )}
                     </div>

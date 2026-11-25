@@ -228,8 +228,12 @@
                     @extend %text-grey, %line-through;
                 }
 
-                &-new {
+                &-new, &-vat {
                     @extend %text-white;
+                }
+
+                &-vat {
+                    @include text(14px, 16px);
                 }
             }
 
