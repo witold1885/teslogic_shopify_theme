@@ -49,7 +49,7 @@ const compatibilityWarningIcon = (
 
 interface BundleSectionProps {
     slug?: string
-    discount?: number
+    mode: string | null
     onCompatibilityCheck: (boostOrderCallback?: () => void, isBundle?: boolean) => void
     onCompatibilityWarning: (confirmCallback?: () => void, boostOrderCallback?: () => void, isBundle?: boolean) => void
     linkTo?: { href: string; text: string }
@@ -100,13 +100,16 @@ const powermateVersions: Record<string, PowermateVersion> = {
 
 const shopifyUrl: string = import.meta.env.VITE_SHOPIFY_URL || 'http://localhost:5173'
 
-const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibilityCheck, onCompatibilityWarning, linkTo }) => {
+const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibilityCheck, onCompatibilityWarning, linkTo }) => {
     const dispatch = useAppDispatch()
 
     const { addToCart, applyDiscount } = useDynamicSlice('order', () => import('../../redux/slices/order'))
     const { bundleProducts } = useAppSelector(fetchProducts)
     const { rate, addedToCart } = useAppSelector(fetchOrder)
     const { country } = useAppSelector(fetchContent)
+
+    const discount: number = useMemo(() => mode === 'bf26vip' ? 30 : 0, [mode])
+    const showDiscount: number = useMemo(() => mode === 'bf26vip' ? 30 : (mode === 'bf26' ? 25 : 20), [mode])
 
     const currency: string = useMemo(() => country?.currency_code || 'USD', [country])
     // const currency: string = 'USD'
@@ -180,11 +183,11 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
 
     const boostOrderCallback = useCallback(() => {
         if (boostBundle) {
-            dispatch(applyDiscount(boostBundle.discountCode))
+            if (discount !== 0) dispatch(applyDiscount(boostBundle.discountCode))
             setSelectedBundleId(boostBundle.id)
             compatibilityCallback(boostBundle.models?.find(({ title }) => title === selectedModel?.title)?.id)
         }
-    }, [compatibilityCallback, boostBundle, selectedModel, dispatch, applyDiscount])
+    }, [boostBundle, discount, dispatch, applyDiscount, compatibilityCallback, selectedModel])
 
     const handleCompatibilityCheck = useCallback(() => {
         if (selectedModel) {
@@ -197,7 +200,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
             const { needCheck, discountCode } = selectedBundle
-            dispatch(applyDiscount(discountCode))
+            if (discount !== 0) dispatch(applyDiscount(discountCode))
             if (needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
@@ -210,7 +213,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
         } else {
             setError(true)
         }
-    }, [onCompatibilityWarning, compatibilityCallback, boostOrderCallback, selectedBundle, selectedModel, dispatch, applyDiscount, handleOrder])    
+    }, [selectedBundle, discount, dispatch, applyDiscount, onCompatibilityWarning, selectedModel, compatibilityCallback, boostOrderCallback, handleOrder])    
 
     useEffect(() => {
         if (addedToCart && typeof window !== 'undefined') {
@@ -230,7 +233,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                 <div className="bundle-section-gallery">
                     <img
                         className="object-cover"
-                        src={discount === 30 ? bundleBfsVipImage : (discount === 25 ? bundleBfsImage : bundleImage)}
+                        src={showDiscount === 30 ? bundleBfsVipImage : (showDiscount === 25 ? bundleBfsImage : bundleImage)}
                     />
                 </div>
                 <div className="bundle-section-form">
@@ -238,7 +241,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                         <div {...anime('title')} className="bundle-section-form-title">{commonTitle}</div>
                         <div {...anime('subtitle')} className="bundle-section-form-subtitle">
                             Add more power and acceleration to your Tesla. 
-                            {discount !== 0 && <><br />Save {discount}% when you buy both.</>}
+                            {showDiscount !== 0 && <><br />Save {showDiscount}% when you buy both.</>}
                         </div>
                     </div>
                     <div className="bundle-section-form-body">

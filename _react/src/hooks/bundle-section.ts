@@ -5,7 +5,7 @@ const promotion = getCurrentPromotion()
 
 export const useBundleSection = () => {
     const [bundleSlug, setBundleSlug] = useState<string | undefined>(undefined)
-    const [bundleDiscount, setBundleDiscount] = useState<number | undefined>(undefined)
+    const [bundleMode, setBundleMode] = useState<string | null>(null)
     const [bundleSectionShown, setBundleSectionShown] = useState<boolean>(false)
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export const useBundleSection = () => {
         const bundle: string | null = urlSearchParams?.get('bundle') || null
         const offer: string | null = urlSearchParams?.get('offer') || null
         
-        setBundleDiscount(promotion === 'bf26vip' && offer === 'vip' ? 30 : (promotion === 'bf26' ? 25 : 0))
+        setBundleMode(promotion === 'bf26vip' && offer === 'vip' ? 'bf26vip' : promotion)
 
         if (bundle === 'boost' || bundle === 'performance') {
             setBundleSlug(`one-powermate-${bundle}`)
@@ -21,5 +21,5 @@ export const useBundleSection = () => {
         }
     }, [])
 
-    return { bundleSlug, bundleDiscount, bundleSectionShown, setBundleSectionShown }
+    return { bundleSlug, bundleMode, bundleSectionShown, setBundleSectionShown }
 }

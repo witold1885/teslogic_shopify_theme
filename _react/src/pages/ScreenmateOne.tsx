@@ -134,7 +134,7 @@ const ScreenmateOne: FC = () => {
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
-    const { bundleSlug, bundleDiscount, bundleSectionShown } = useBundleSection()
+    const { bundleSlug, bundleMode, bundleSectionShown } = useBundleSection()
 
     useEffect(() => {
         if (bundleSectionShown) {
@@ -178,7 +178,7 @@ const ScreenmateOne: FC = () => {
                 <LazySection id="bundle" {...getPreSectionStyle('Bundle')} forceRender={forceRender.bundle}>
                     <BundleSection
                         slug={bundleSlug}
-                        discount={bundleDiscount}
+                        mode={bundleMode}
                         onCompatibilityCheck={handleCheck}
                         onCompatibilityWarning={handleWarning}
                         linkTo={{ href: '/pro', text: 'Powermate' }}
