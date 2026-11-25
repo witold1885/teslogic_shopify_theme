@@ -292,7 +292,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             <div {...anime('total')} className="bundle-section-form-total">
                                 <div>Bundle total</div>
                                 <div className="bundle-section-form-total-price">
-                                    {selectedBundle?.oldPrice && selectedBundle?.oldPrice !== 0 && (
+                                    {selectedBundle?.oldPrice !== undefined && selectedBundle?.oldPrice !== 0 && (
                                         <span className="bundle-section-form-total-price-old">{selectedBundle?.oldPrice.toFixed(0)} {currency}</span>
                                     )}
                                     <span className="bundle-section-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
