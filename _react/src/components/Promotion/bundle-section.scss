@@ -9,7 +9,7 @@
     background-color: #191919;
 
     & > div {
-        @extend %w-full, %flex-between, %mob\:flex-column, %overflow-hidden, %mob\:overflow-scroll-y, %relative;
+        @extend %w-full, %flex-between, %mob\:flex-column, %relative;
 
         &[hidden] {
             @extend %hidden;
