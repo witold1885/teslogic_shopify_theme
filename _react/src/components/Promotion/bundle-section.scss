@@ -182,13 +182,13 @@
 
             & .dropdown {
 
-                &-field {
+                &-field span, &-menu {
                     @include text-desktop(18px, 24px);
                 }
 
                 &-menu {
                     @include res-desktop(gap, 16px);
-                    @include res-desktop(padding, 22px, 20px, 20px);
+                    @include res-desktop(padding, 20px);
                 }
             }
         }
