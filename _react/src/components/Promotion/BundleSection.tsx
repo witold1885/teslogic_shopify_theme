@@ -59,6 +59,7 @@ interface BundlePricing {
     currentPrice: number
     oldPrice: number
     economy: number
+    vat: ReactNode | null
 }
 
 interface PowermateVersion {
@@ -129,9 +130,12 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
             currentPrice,
             oldPrice,
             economy,
+            vat: currency === 'EUR' && currentPrice && tax ? (
+                <>+{((currentPrice || 0) * tax / 100).toFixed(0)} EUR <br />VAT {tax}%</>
+            ) : null,
             ...powermateVersions[product.slug]
         }
-    }) || [], [bundleProducts, coef, discount])
+    }) || [], [bundleProducts, coef, discount, currency, tax])
 
     const boostBundle = useMemo(() => bundles.find(({ slug }) => slug === 'one-powermate-boost'), [bundles])
     
@@ -165,10 +169,6 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
         setSelectedModel(selectedBundle?.models?.find(({ id }) => id === modelId) || null)
         setSelectedOption(options.find(({ label }) => label === modelLabel) || null)
     }, [selectedBundle, options])
-
-    const showVAT = useCallback((price?: number | null) => currency === 'EUR' && price && tax ? (
-        <>+{((price || 0) * tax / 100).toFixed(0)} EUR <br />VAT {tax}%</>
-    ) : <></>, [currency, tax])
 
     const handleOrder = useCallback((productId: number) => {
         const items = [{ id: productId, quantity: 1 }]
@@ -312,7 +312,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
                                         <span className="bundle-section-form-total-price-old">{selectedBundle?.oldPrice.toFixed(0)} {currency}</span>
                                     ) : (<></>)}
                                     <span className="bundle-section-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
-                                    <span className="bundle-section-form-total-price-vat">{showVAT(selectedBundle?.currentPrice)}</span>
+                                    {selectedBundle?.vat && <span className="bundle-section-form-total-price-vat">{selectedBundle.vat}</span>}
                                 </div>
                                 <div className="bundle-section-form-total-title">{commonTitle} {selectedBundle?.title}</div>
                                 <div className="bundle-section-form-total-economy">
