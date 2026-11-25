@@ -185,19 +185,18 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
         if (boostBundle) {
             if (discount !== 0) dispatch(applyDiscount(boostBundle.discountCode))
             setSelectedBundleId(boostBundle.id)
-            compatibilityCallback(boostBundle.models?.find(({ title }) => title === selectedModel?.title)?.id)
-        }
-    }, [boostBundle, discount, dispatch, applyDiscount, compatibilityCallback, selectedModel])
-
-    const handleCompatibilityCheck = useCallback(() => {
-        const callback = selectedModel 
-            ? () => boostOrderCallback() 
-            : () => {
+            if (selectedModel) { 
+                compatibilityCallback(boostBundle.models?.find(({ title }) => title === selectedModel.title)?.id)
+            } else {
                 setError(true)
                 setCompatibilityMode(false)
             }
-        onCompatibilityCheck(callback, true)
-    }, [selectedModel, onCompatibilityCheck, boostOrderCallback])
+        }
+    }, [boostBundle, discount, dispatch, applyDiscount, selectedModel, compatibilityCallback])
+
+    const handleCompatibilityCheck = useCallback(() => {
+        onCompatibilityCheck(() => boostOrderCallback(), true)
+    }, [onCompatibilityCheck, boostOrderCallback])
 
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
