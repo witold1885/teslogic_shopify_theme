@@ -9,7 +9,7 @@ import Header from '../components/Header/Header'
 
 const Footer = getComponent(() => import('../components/Footer/Footer.tsx'))
 const SubscriptionPopups = getComponent(() => import('../components/Popup/Subscription/SubscriptionPopups.tsx'), true)
-const BlackFridayPopups = getComponent(() => import('../components/Popup/BlackFriday/BlackFridayPopups.tsx'), true)
+// const BlackFridayPopups = getComponent(() => import('../components/Popup/BlackFriday/BlackFridayPopups.tsx'), true)
 
 export interface LayoutProps {
     theme?: 'dark' | 'light'
@@ -40,9 +40,9 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     const [selectionPopupOpen, setSelectionPopupOpen] = useState<boolean>(false)
     const [successPopupOpen, setSuccessPopupOpen] = useState<boolean>(false)
 
-    const [blackFridayBannerOpen, setBlackFridayBannerOpen] = useState<boolean>(false)
-    const [blackFridayPopupOpen, setBlackFridayPopupOpen] = useState<boolean>(false)
-    const [blackFridaySuccessOpen, setBlackFridaySuccessOpen] = useState<boolean>(false)
+    // const [blackFridayBannerOpen, setBlackFridayBannerOpen] = useState<boolean>(false)
+    // const [blackFridayPopupOpen, setBlackFridayPopupOpen] = useState<boolean>(false)
+    // const [blackFridaySuccessOpen, setBlackFridaySuccessOpen] = useState<boolean>(false)
 
     useEffect(() => {
         let intersectionObserver: IntersectionObserver | null = null
@@ -81,44 +81,44 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         }
     }, [])
 
-    // const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
-    const blackFridaySubscriptionCookies: string | undefined = Cookies.get('bf26_vip_subscription')
+    const discountSubscriptionCookies: string | undefined = Cookies.get('discount_subscription')
+    // const blackFridaySubscriptionCookies: string | undefined = Cookies.get('bf26_vip_subscription')
     const customSubscriptionCookies: string | undefined = Cookies.get('custom_subscription')
 
     useEffect(() => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
-        const subscribe: string | null = urlSearchParams?.get('subscribe') || null
+        // const subscribe: string | null = urlSearchParams?.get('subscribe') || null
         const success: string | null = urlSearchParams?.get('success') || null
 
-        if (subscribe === 'blackfriday') {
-            setBlackFridayPopupOpen(true)
-        }
+        // if (subscribe === 'blackfriday') {
+        //     setBlackFridayPopupOpen(true)
+        // }
 
-        if (success === 'blackfriday') {
-            setBlackFridaySuccessOpen(true)
-        }
+        // if (success === 'blackfriday') {
+        //     setBlackFridaySuccessOpen(true)
+        // }
 
         if (
             showCookiesBanner || 
-            /*discountSubscriptionCookies || */
-            blackFridaySubscriptionCookies || 
-            subscribe !== null || 
+            discountSubscriptionCookies || 
+            // blackFridaySubscriptionCookies || 
+            // subscribe !== null || 
             success !== null
         ) {
-            // setSubscriptionPopupOpen(false)
-            setBlackFridayBannerOpen(false)
+            setSubscriptionPopupOpen(false)
+            // setBlackFridayBannerOpen(false)
             return
         }
 
         const timeout = setTimeout(() => {
-            // setSubscriptionPopupOpen(true)
-            setBlackFridayBannerOpen(true)
+            setSubscriptionPopupOpen(true)
+            // setBlackFridayBannerOpen(true)
         }, 10000)
 
         return () => {
             clearTimeout(timeout)
         }
-    }, [showCookiesBanner, /*discountSubscriptionCookies, */blackFridaySubscriptionCookies])
+    }, [showCookiesBanner, discountSubscriptionCookies/*, blackFridaySubscriptionCookies*/])
 
     useEffect(() => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
@@ -129,7 +129,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
         if (
             customSubscriptionCookies || 
             subscriptionPopupOpen || selectionPopupOpen || successPopupOpen || 
-            blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen || 
+            // blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen || 
             !fromBloggers
         ) {
             return
@@ -162,7 +162,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
     }, [
         customSubscriptionCookies, 
         subscriptionPopupOpen, selectionPopupOpen, successPopupOpen, 
-        blackFridayBannerOpen, blackFridayPopupOpen, blackFridaySuccessOpen
+        // blackFridayBannerOpen, blackFridayPopupOpen, blackFridaySuccessOpen
     ])
 
     const popupsRef = useRef<SubscriptionPopupsRefProps>(null)
@@ -185,7 +185,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                 }} onProceed={handleProceed} />
             </LazySection>
         )}
-        {BlackFridayPopups && (blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen) && (
+        {/* {BlackFridayPopups && (blackFridayBannerOpen || blackFridayPopupOpen || blackFridaySuccessOpen) && (
             <LazySection minHeight="0px" forceRender={true}>
                 <BlackFridayPopups {...{
                     blackFridayBannerOpen, setBlackFridayBannerOpen, 
@@ -193,7 +193,7 @@ const Layout: FC<LayoutProps> = ({ theme = 'dark', orderButton = true, onOrder =
                     blackFridaySuccessOpen, setBlackFridaySuccessOpen
                 }} />
             </LazySection>
-        )}
+        )} */}
         <Header {...{theme, orderButton, onOrder}} />
         {children}
         <LazySection>
