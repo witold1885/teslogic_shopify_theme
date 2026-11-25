@@ -190,12 +190,14 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
     }, [boostBundle, discount, dispatch, applyDiscount, compatibilityCallback, selectedModel])
 
     const handleCompatibilityCheck = useCallback(() => {
-        if (selectedModel) {
-            onCompatibilityCheck(() => boostOrderCallback(), true)
-        } else {
-            setError(true)
-        }
-    }, [onCompatibilityCheck, boostOrderCallback, selectedModel])
+        const callback = selectedModel 
+            ? () => boostOrderCallback() 
+            : () => {
+                setError(true)
+                setCompatibilityMode(false)
+            }
+        onCompatibilityCheck(callback, true)
+    }, [selectedModel, onCompatibilityCheck, boostOrderCallback])
 
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
@@ -252,7 +254,10 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
                                     const { id, slug, title, power, compatibility, currentPrice } = bundle
                                     return (
                                         <Fragment key={`powermate-${slug}`}>
-                                            <label className="bundle-section-form-powermate-version" htmlFor={`powermate-${slug}`}>                                        
+                                            <label
+                                                htmlFor={`powermate-${slug}`}
+                                                className={`bundle-section-form-powermate-version ${selectedBundle?.id === id ? 'active' : ''}`}
+                                            >                                        
                                                 <div className="bundle-section-form-powermate-version-body">
                                                     <div className="bundle-section-form-powermate-version-top">
                                                         <div className="bundle-section-form-powermate-version-title">
