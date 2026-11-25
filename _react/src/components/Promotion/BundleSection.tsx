@@ -228,8 +228,8 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                     <div className="bundle-section-form-top">
                         <div {...anime('title')} className="bundle-section-form-title">{commonTitle}</div>
                         <div {...anime('subtitle')} className="bundle-section-form-subtitle">
-                            Add more power and acceleration to your Tesla. <br />
-                            Save {discount}% when you buy both.
+                            Add more power and acceleration to your Tesla. 
+                            {discount !== 0 && <><br />Save {discount}% when you buy both.</>}
                         </div>
                     </div>
                     <div className="bundle-section-form-body">
@@ -292,8 +292,8 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, discount = 0, onCompatibi
                             <div {...anime('total')} className="bundle-section-form-total">
                                 <div>Bundle total</div>
                                 <div className="bundle-section-form-total-price">
-                                    {selectedBundle?.oldPrice && (
-                                        <span className="bundle-section-form-total-price-old">{selectedBundle?.oldPrice?.toFixed(0) || 0} {currency}</span>
+                                    {selectedBundle?.oldPrice && selectedBundle?.oldPrice !== 0 && (
+                                        <span className="bundle-section-form-total-price-old">{selectedBundle?.oldPrice.toFixed(0)} {currency}</span>
                                     )}
                                     <span className="bundle-section-form-total-price-new">{selectedBundle?.currentPrice?.toFixed(0) || 0} {currency}</span>
                                 </div>
