@@ -178,6 +178,20 @@
             }
         }
 
+        &-screenmate-one {
+            
+            & .dropdown {
+
+                &-field {
+                    @extend %font-manrope-18;
+                }
+
+                &-menu {
+                    @extend %gap-16;
+                }
+            }
+        }
+
         &-bottom {
             @extend %mob\:gap-20;
         }
