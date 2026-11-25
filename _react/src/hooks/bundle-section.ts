@@ -13,9 +13,9 @@ export const useBundleSection = () => {
         const bundle: string | null = urlSearchParams?.get('bundle') || null
         const offer: string | null = urlSearchParams?.get('offer') || null
         
-        setBundleDiscount(promotion === 'bf26vip' && offer === 'vip' ? 30 : (promotion === 'bf26' ? 25 : 20))
+        setBundleDiscount(promotion === 'bf26vip' && offer === 'vip' ? 30 : (promotion === 'bf26' ? 25 : 0))
 
-        if (promotion && (bundle === 'boost' || bundle === 'performance')) {
+        if (bundle === 'boost' || bundle === 'performance') {
             setBundleSlug(`one-powermate-${bundle}`)
             setBundleSectionShown(true)
         }
