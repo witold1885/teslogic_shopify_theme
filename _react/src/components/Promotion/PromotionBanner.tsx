@@ -7,7 +7,6 @@ const promotionComponents: Record<string, FC<PromotionBannerProps>> = {
 }
 
 const PromotionBanner: FC<PromotionBannerProps> = ({ promotion, background, onExpand }) => {
-    console.log({ promotion })
     const Component = promotion ? promotionComponents[promotion] : null
     
     return Component ? (
