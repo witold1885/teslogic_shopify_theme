@@ -22,7 +22,7 @@
     }
 
     &-gallery, &-form {
-        @extend %w-full, %flex-1;
+        width: 50% !important;
     }
 
     &-gallery {
