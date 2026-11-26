@@ -220,7 +220,7 @@
         &-total {
             @extend %grid, %font-manrope-16, %mob\:font-manrope-14;
             grid-template-columns: auto 1fr;
-            align-items: center;
+            align-items: baseline;
             @include res-desktop(gap, 2px);
             color: #FAFAFA;
             
