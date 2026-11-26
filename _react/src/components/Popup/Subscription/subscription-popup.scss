@@ -45,7 +45,7 @@
     }
 
     &-head {
-        @extend %flex-column-start-center, %gap-24;
+        @extend %flex-column-center, %gap-24;
         @include res-desktop(padding, 36px, 36px, 0);
 
         @include mobile() {
@@ -176,7 +176,7 @@
 
 
         & > * {
-            @extend %w-full, %h-full, %flex-1, %flex-center, %font-manrope, %text-center;
+            @extend %w-full, %h-full, %flex-1, %flex-center, %font-manrope, %text-center, %text-white;
             background: transparent;
 
             &:hover {
