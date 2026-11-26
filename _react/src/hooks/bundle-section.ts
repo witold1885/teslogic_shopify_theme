@@ -12,7 +12,8 @@ export const useBundleSection = () => {
         const urlSearchParams: URLSearchParams | null = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
         const bundle: string | null = urlSearchParams?.get('bundle') || null
         const offer: string | null = urlSearchParams?.get('offer') || null
-        
+        const mode = promotion === 'bf26vip' && offer === 'vip' ? 'bf26vip' : promotion
+        console.log({ bundle, offer, mode })
         setBundleMode(promotion === 'bf26vip' && offer === 'vip' ? 'bf26vip' : promotion)
 
         if (bundle === 'boost' || bundle === 'performance') {
