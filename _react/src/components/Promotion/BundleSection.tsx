@@ -183,7 +183,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
 
     const boostOrderCallback = useCallback(() => {
         if (boostBundle) {
-            if (discount !== 0) dispatch(applyDiscount(boostBundle.discountCode))
+            dispatch(applyDiscount(discount !== 0 ? boostBundle.discountCode : ''))
             setSelectedBundleId(boostBundle.id)
             if (selectedModel) { 
                 compatibilityCallback(boostBundle.models?.find(({ title }) => title === selectedModel.title)?.id)
@@ -201,7 +201,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
     const handleSubmit = useCallback(() => {
         if (selectedBundle && selectedModel) {
             const { needCheck, discountCode } = selectedBundle
-            if (discount !== 0) dispatch(applyDiscount(discountCode))
+            dispatch(applyDiscount(discount !== 0 ? discountCode : ''))
             if (needCheck) {
                 onCompatibilityWarning(
                     () => compatibilityCallback(selectedModel.id),
