@@ -134,13 +134,13 @@ const ScreenmateOne: FC = () => {
         handleWarning, handleCheck, handleConfirm, handleComplete, handleBoostOrder
     } = usePowermateCompatibilityPopups()
     
-    const { bundleSlug, bundleMode, bundleSectionShown } = useBundleSection()
+    const { bundleSlug, bundleMode, bundleSectionShown, bundleSectionScroll } = useBundleSection()
 
     useEffect(() => {
-        if (bundleSectionShown) {
+        if (bundleSectionScroll) {
             scrollToElementLazy('bundle', () => setForceRender(prev => ({ ...prev, bundle: true })))
         }
-    }, [bundleSectionShown])
+    }, [bundleSectionScroll])
 
     return (<>
         {PowermateCompatibilityPopups && (warningPopupOpen || checkPopupOpen || resultPopupOpen)  && (
