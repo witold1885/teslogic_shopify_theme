@@ -121,9 +121,19 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
     
     const bundles: Bundle[] = useMemo(() => bundleProducts?.map(({ title, price, ...product }) => {
         const recalcPrice = (price || 0) * coef
-        const economy = recalcPrice * discount / 100
-        const currentPrice = recalcPrice - economy
-        const oldPrice = ((product.oldPrice || 0) * coef) || (economy ? recalcPrice : 0)
+        const recalcOldPrice = (product.oldPrice || 0) * coef
+        let economy, currentPrice, oldPrice
+
+        if (recalcOldPrice && discount === 0) {
+            economy = recalcOldPrice - recalcPrice
+            currentPrice = recalcPrice
+            oldPrice = recalcOldPrice
+        } else {
+            economy = recalcPrice * discount / 100
+            currentPrice = recalcPrice - economy
+            oldPrice = economy ? recalcPrice : 0
+        }
+
         return {
             ...product,
             title: title.replace(commonTitle, '').trim(),
@@ -135,7 +145,7 @@ const BundleSection: FC<BundleSectionProps> = ({ slug, mode = null, onCompatibil
             ) : null,
             ...powermateVersions[product.slug]
         }
-    }) || [], [bundleProducts, coef, discount, currency, tax])
+    }) || [], [bundleProducts, coef, discount, showDiscount, currency, tax])
 
     const boostBundle = useMemo(() => bundles.find(({ slug }) => slug === 'one-powermate-boost'), [bundles])
     
